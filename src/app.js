@@ -30,16 +30,31 @@ document.getElementById('mgrid').outerHTML=`<div id="mgrid">${makes.map(m=>`<det
 const money=n=>'$'+n.toLocaleString('en-US');
 const costLine=c=>c&&c.free?`<div class="cost"><div class="cost-top"><span class="cost-l">Typical repair cost</span><span class="cost-v">No charge under recall</span></div><div class="cost-job">${esc(c.job)}${c.note?`<br><span class="cost-note">${esc(c.note)}</span>`:''}</div></div>`:c?`<div class="cost"><div class="cost-top"><span class="cost-l">Typical repair cost</span><span class="cost-v">${money(c.lo)}–${money(c.hi)}</span></div><div class="cost-job">${esc(c.job)}${c.recall?' <span class="rc">May be free under a recall or extended warranty.</span>':''}${c.note?`<br><span class="cost-note">${esc(c.note)}</span>`:''}</div></div>`:'';
 const PRICE_DISC='Estimates only, not a quote. Ranges are averages built from typical parts prices plus standard book labor time at $120–$160 an hour, what about half of U.S. repair shops charge. Your price will depend on your area, the shop, the parts used and what the shop finds. Dealers often charge more. Diagnosis and taxes are extra.';
+const rngTxt=c=>money(c.lo)+'–'+money(c.hi);
 function priceGuide(list,name){
-  const seen=new Set(),rows=list.filter(i=>i.cost&&!i.cost.free&&!seen.has(i.cost.job+i.cost.lo)&&seen.add(i.cost.job+i.cost.lo)).sort((a,b)=>b.cost.hi-a.cost.hi);
-  if(!rows.length)return '';
-  const max=Math.max(...rows.map(i=>i.cost.hi));
-  const row=i=>{const c=i.cost,l=c.lo/max*100,w=Math.max((c.hi-c.lo)/max*100,1.5);return `<div class="pg-row"><div class="pg-lab"><b>${esc(c.job)}</b>${c.recall?'<span class="rc-tag">Recall</span>':''}<span class="pg-val">${money(c.lo)}–${money(c.hi)}</span></div><div class="pg-track"><span class="pg-bar" style="left:${l.toFixed(1)}%;width:${w.toFixed(1)}%"></span></div></div>`};
-  const first=rows.slice(0,8),rest=rows.slice(8);
-  return `<section class="pguide" id="prices"><div class="pg-head"><div><div class="eyebrow">Price guide</div><h2>Average repair costs for the ${esc(name)}</h2></div><span class="pg-badge">Average estimates</span></div>
-  <p class="pg-sub">What the known problems below usually cost to fix, most expensive first. Bars show the low-to-high range.</p>
-  ${first.map(row).join('')}${rest.length?`<details class="pg-more"><summary>Show ${rest.length} more repair${rest.length>1?'s':''}</summary>${rest.map(row).join('')}</details>`:''}
+  const seen=new Set(),uniq=list.filter(i=>i.cost&&!seen.has(i.cost.job)&&seen.add(i.cost.job));
+  const SR={high:0,med:1,low:2};
+  const pay=uniq.filter(i=>!i.cost.recall&&!i.cost.free).sort((a,b)=>SR[a.sev]-SR[b.sev]||b.cost.hi-a.cost.hi);
+  const rec=uniq.filter(i=>i.cost.recall||i.cost.free);
+  if(!pay.length&&!rec.length)return '';
+  const max=Math.max(1,...pay.map(i=>i.cost.hi));
+  const row=i=>{const c=i.cost,l=c.lo/max*100,w=Math.max((c.hi-c.lo)/max*100,1.5);return `<div class="pg-row"><div class="pg-lab"><span class="sev ${i.sev}">${SEV[i.sev]}</span><b>${esc(c.job)}</b><span class="pg-val">${rngTxt(c)}</span></div><div class="pg-track"><span class="pg-bar" style="left:${l.toFixed(1)}%;width:${w.toFixed(1)}%"></span></div></div>`};
+  const first=pay.slice(0,8),rest=pay.slice(8);
+  return `<section class="pguide" id="prices"><div class="pg-head"><div><div class="eyebrow">Price guide</div><h2>What repairs usually cost on your ${esc(name)}</h2></div><span class="pg-badge">Average estimates</span></div>
+  ${pay.length?`<p class="pg-sub">Repairs owners of this vehicle may have to pay for, most serious first. Bars show the low-to-high range.</p>${first.map(row).join('')}${rest.length?`<details class="pg-more"><summary>Show ${rest.length} more repair${rest.length>1?'s':''}</summary>${rest.map(row).join('')}</details>`:''}`:`<p class="pg-sub">No common out-of-pocket repairs on file for this year. The repairs below are normally covered by recalls.</p>`}
+  ${rec.length?`<div class="pg-rec"><h3>Recall repairs: usually free at the dealer</h3><p class="pg-sub">Check your VIN. If your vehicle is included, the dealer fixes it at no charge.</p><ul>${rec.map(i=>`<li><b>${esc(i.cost.job.replace(/\s*\(recall\)$/i,''))}</b><span>${i.cost.free?'No charge':'No charge under recall · '+rngTxt(i.cost)+' if you paid'}</span></li>`).join('')}</ul></div>`:''}
   <p class="pg-disc"><b>Disclaimer:</b> ${PRICE_DISC}</p></section>`;
+}
+function snapshot(v,year,list,name){
+  const own=v.own,serious=list.filter(i=>i.sev==='high').length;
+  const big=list.filter(i=>i.cost&&!i.cost.recall&&!i.cost.free).sort((a,b)=>b.cost.hi-a.cost.hi)[0];
+  const tiles=[];
+  if(own&&own.annual)tiles.push(`<div class="tile"><span class="tl">Average yearly repair and maintenance</span><span class="tv">${money(own.annual.amount)}<small>/yr</small></span><span class="tn">Typical for the ${esc(v.make+' '+v.model)}</span></div>`);
+  tiles.push(`<div class="tile"><span class="tl">Known problems${year?' for '+year:''}</span><span class="tv">${list.length}</span><span class="tn">${serious?serious+' serious':'None rated serious'}</span></div>`);
+  tiles.push(`<div class="tile" id="recTile"><span class="tl">Safety recalls</span><span class="tv">${year?'…':'—'}</span><span class="tn">${year?'Checking NHTSA':'Pick a year'}</span></div>`);
+  if(big)tiles.push(`<div class="tile"><span class="tl">Biggest repair to watch for</span><span class="tv sm">${rngTxt(big.cost)}</span><span class="tn">${esc(big.cost.job)}</span></div>`);
+  const m=own&&own.maint&&own.maint.length?`<div class="maint"><h3>Routine maintenance costs</h3><div class="mt">${own.maint.map(x=>`<div class="mrow"><div><b>${esc(x.job)}</b><span>${esc(x.every)}${x.note?' · '+esc(x.note):''}</span></div><span class="mv">${rngTxt(x)}</span></div>`).join('')}</div></div>`:'';
+  return `<section class="snap"><div class="snap-h"><h2>Ownership snapshot</h2><span class="pg-badge">Averages, not quotes</span></div><div class="tiles">${tiles.join('')}</div>${m}</section>`;
 }
 function issueCard(i){return `<div class="issue"><div class="meta"><span class="sev ${i.sev}">${SEV[i.sev]}</span><span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><span class="pill">${esc(i.sys)}</span>${i.eng?`<span class="pill">${esc(i.eng)}</span>`:''}</div>
 <h3>${esc(i.t)}</h3><dl><div><dt>What you'll notice</dt><dd>${esc(i.sym)}</dd></div><div><dt>Why it happens</dt><dd>${esc(i.why)}</dd></div><div><dt>What to do</dt><dd>${esc(i.next)}</dd></div></dl>${costLine(i.cost)}${(g=>g?`<a class="walk" href="${gurl(g.id)}?v=${i._v||''}${i._y?'&y='+i._y:''}">Walk through this symptom: ${esc(g.title)} →</a>`:'')(forIssue(i))}</div>`}
@@ -53,16 +68,18 @@ function renderVehicle(v,year){
   let yopts='<option value="">All years</option>';for(let y=v.years[1];y>=v.years[0];y--)yopts+=`<option ${y===year?'selected':''}>${y}</option>`;
   const name=(year?year+' ':'')+v.make+' '+v.model;
   const general=state.q?searchGuides(state.q,3):[];
+  const SR={high:0,med:1,low:2};const sorted=shown.slice().sort((a,b)=>SR[a.sev]-SR[b.sev]);
   el.innerHTML=`<div class="crumb"><a href="/">Home</a> › ${esc(v.make)} › ${esc(v.model)}${year?' › '+year:''}</div>
-  <div class="vhead"><div class="eyebrow">Known problems</div><h1>${esc(name)} problems</h1>
-  <p class="sub">${year?`Problems owners and mechanics report most for the ${esc(name)}.`:`Problems reported most across ${v.years[0]}–${v.years[1]}. Pick your year to narrow it down.`}${v.alt?' '+esc(v.alt.replace(/\.$/,''))+'.':''}</p></div>
+  <div class="vhead"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div><h1>${year?'Your '+esc(name):esc(name)}<span class="h1s">problems, repair costs and recalls</span></h1>
+  <p class="sub">${year?`Everything we know about the ${esc(name)}: what tends to go wrong, what it costs to fix and keep running, and any safety recalls.`:`Problems reported across ${v.years[0]}–${v.years[1]}. Pick your model year below to see what applies to your vehicle.`}${v.alt?' '+esc(v.alt.replace(/\.$/,''))+'.':''}</p></div>
   <div class="yearbar"><label for="vy" style="color:var(--muted);font-size:14px">Model year</label><select id="vy">${yopts}</select></div>
+  ${snapshot(v,year,list,name)}
   ${general.length?`<h2 style="font-size:20px">Walk through your symptom</h2><div class="glist" style="margin:10px 0 26px">${general.map(g=>`<a class="gcard" href="${gurl(g.id)}?v=${v.id}${year?'&y='+year:''}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}</div>`:''}
-  ${priceGuide(list,name)}
-  <h2 style="font-size:20px">${shown.length?'Known problems for this vehicle':'No model-specific problems on file for this year yet'}</h2>
-  <p class="lead">${list.length?list.length+' documented issue'+(list.length>1?'s':'')+(year?' apply to '+year:' across all years')+'.':'That can mean a solid year, or one we have not finished researching. General symptom search still works.'}</p>
+  <h2 style="font-size:22px">${shown.length?'Known problems'+(year?' for your '+esc(name):''):'No model-specific problems on file for this year yet'}</h2>
+  <p class="lead">${list.length?list.length+' documented issue'+(list.length>1?'s':'')+(year?' apply to '+year:' across all years')+', most serious first.':'That can mean a solid year, or one we have not finished researching. General symptom search still works.'}</p>
   ${cats.length>2?`<div class="tabs">${cats.map(c=>`<button class="tab ${c===state.tab?'on':''}" data-tab="${c}">${c}</button>`).join('')}</div>`:''}
-  ${shown.map(i=>issueCard(Object.assign({},i,{_v:v.id,_y:year}))).join('')}
+  ${sorted.map(i=>issueCard(Object.assign({},i,{_v:v.id,_y:year}))).join('')}
+  ${priceGuide(list,name)}
   <div class="livebox" id="nhtsa"><b>Safety recalls${year?' for the '+esc(name):''}</b><br>${year?'Checking the NHTSA recall database…':'Pick a model year to see its safety recalls.'}</div>
   <div class="trust">This page is a general guide based on widely reported problems. Not every vehicle is affected, and it doesn't replace an in-person diagnosis.</div>`;
   el.querySelector('#vy').onchange=e=>{location.href=url(v,+e.target.value||null)};
@@ -83,9 +100,10 @@ async function loadNhtsa(v,year){
   try{
     const r=await fetch('https://api.nhtsa.gov/recalls/recallsByVehicle?make='+encodeURIComponent(v.nmake||v.make)+'&model='+encodeURIComponent(v.nmodel||v.model)+'&modelYear='+year);
     const d=await r.json();const list=(d.results||[]);
+    const rt=document.getElementById('recTile');if(rt)rt.innerHTML=`<span class="tl">Safety recalls</span><span class="tv">${list.length}</span><span class="tn">${list.length?'<a href="#nhtsa">See details</a> · fixed free':'None found for this model name'}</span>`;
     if(!list.length){box.innerHTML=`<b>Safety recalls for the ${year} ${esc(v.make)} ${esc(v.model)}</b><br>No recalls found under this exact model name. Enter your VIN at ${link} to be sure — recalls are fixed free at a dealer.`;return}
     box.innerHTML=`<b>${list.length} safety recall${list.length>1?'s':''} for the ${year} ${esc(v.make)} ${esc(v.model)}</b><div style="margin-top:10px">${list.slice(0,12).map(x=>`<div class="issue" style="margin:8px 0;padding:14px"><div class="meta"><span class="pill">${esc(x.NHTSACampaignNumber||'')}</span><span class="pill">${esc((x.Component||'').split(':')[0])}</span></div><dl><div><dt>Problem</dt><dd>${esc(x.Summary||'')}</dd></div><div><dt>Fix</dt><dd>${esc(x.Remedy||'')}</dd></div></dl></div>`).join('')}</div>Not every vehicle is included in every recall. Enter your VIN at ${link} to see which apply to yours. Recall repairs are free at a dealer.`;
-  }catch(_){box.innerHTML=`<b>Safety recalls</b><br>Couldn't reach the recall database right now. Check your VIN at ${link}.`}
+  }catch(_){const rt=document.getElementById('recTile');if(rt)rt.querySelector('.tn').textContent='Check your VIN at nhtsa.gov';box.innerHTML=`<b>Safety recalls</b><br>Couldn't reach the recall database right now. Check your VIN at ${link}.`}
 }
 
 // VIN decoder: live NHTSA lookup, with an offline fallback
