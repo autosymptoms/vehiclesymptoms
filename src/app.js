@@ -150,6 +150,7 @@ document.getElementById('vinForm').addEventListener('submit',async e=>{
 const hf=document.getElementById('helpForm');
 if(hf){const hi=document.getElementById('helpInput'),out=document.getElementById('helpResults');
   hf.addEventListener('submit',e=>{e.preventDefault();const q=hi.value.trim();if(!q)return;
+    const cm=q.match(/\b([PBCU][0-3][0-9A-F]{3})\b/i);if(cm){location.href='/codes/?q='+cm[1].toUpperCase();return}
     const gs=searchGuides(q,5),v=findVehicle(q),y=(q.match(/\b(19|20)\d{2}\b/)||[])[0];
     const qs=v?`?v=${v.id}${clampYear(v,+y)?'&y='+y:''}`:'';
     if(gs.length&&gs[0]&&searchGuides(q,1)[0]===gs[0]&&gs.length===1){location.href=gurl(gs[0].id)+qs;return}
@@ -164,3 +165,16 @@ if(hf){const hi=document.getElementById('helpInput'),out=document.getElementById
 document.querySelectorAll('.hcta').forEach(a=>a.onclick=e=>{const i=document.getElementById('helpInput');if(i&&document.getElementById('homeView').style.display!=='none'){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>i.focus({preventScroll:true}),400)}});
 
 showMy();
+
+// Code lookup hub search
+(function(){const f=document.getElementById('codeForm');if(!f||!window.CODE_INDEX)return;const qi=document.getElementById('codeQ'),out=document.getElementById('codeRes');
+  const run=q=>{q=q.trim();if(!q){out.innerHTML='';return}const Q=q.toUpperCase().replace(/\s+/g,'');
+    const exact=CODE_INDEX.find(c=>c[0]===Q);if(exact){location.href='/codes/'+exact[0].toLowerCase()+'/';return}
+    const words=q.toLowerCase().split(/\s+/).filter(Boolean);
+    const hits=CODE_INDEX.filter(c=>c[0].startsWith(Q)||words.every(w=>(c[1]+' '+c[2]).toLowerCase().includes(w))).slice(0,30);
+    out.innerHTML=hits.length?hits.map(c=>`<a class="gcard" href="/codes/${c[0].toLowerCase()}/"><b>${c[0]}</b><span>${esc(c[1])}</span></a>`).join(''):`<p class="muted">We don't have ${esc(q)} yet. Manufacturer-specific codes (like P1xxx) are being added. Try the first letters, like P04.</p>`};
+  f.onsubmit=e=>{e.preventDefault();run(qi.value)};qi.oninput=()=>{if(qi.value.trim().length>=2&&!/^[pbcu]\d{4}$/i.test(qi.value.trim()))run(qi.value)};
+  const q0=new URLSearchParams(location.search).get('q');if(q0){qi.value=q0;run(q0)}})();
+// personal touch on code pages
+(function(){const box=document.getElementById('codeMy');if(!box)return;const m=getMy();if(!m)return;const v=V.find(x=>x.id===m.id);const name=(m.y?m.y+' ':'')+v.make+' '+v.model;
+  box.innerHTML=`<a class="mybar" style="display:flex" href="${url(v,m.y)}"><span id="myBarTxt"><b>Your ${esc(name)}</b> See its known problems, repair costs and recalls</span><span class="mb-go">›</span></a>`})();

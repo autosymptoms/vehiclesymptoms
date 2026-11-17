@@ -1,0 +1,1869 @@
+[
+ {
+  "code": "P0700",
+  "title": "Transmission Control System (MIL Request)",
+  "plain": "The transmission computer found a problem and asked the engine computer to turn on the check engine light. This code is a messenger: the real fault is stored as a separate code in the transmission computer.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "Harsh, late or erratic shifting",
+   "Other transmission warning lights or messages"
+  ],
+  "causes": [
+   {
+    "name": "Another transmission fault stored in the transmission computer",
+    "how": "common"
+   },
+   {
+    "name": "Faulty transmission sensor or shift solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low or burnt transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the transmission",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Use a scanner that can read transmission module codes, not just engine codes",
+   "Check the transmission fluid level and condition",
+   "Inspect the wiring and connectors at the transmission and its computer"
+  ],
+  "fix": "Read the codes stored in the transmission computer and repair that fault. P0700 itself clears once the underlying problem is fixed.",
+  "cost": {
+   "job": "Transmission code diagnosis",
+   "parts": [
+    0,
+    0
+   ],
+   "hours": [
+    1,
+    1.5
+   ]
+  },
+  "examples": [
+   "Usually shows up together with a second transmission code that points to the real problem"
+  ],
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://www.carwhere.com/obd-codes/p0700",
+   "https://obdadvisor.com/codes/p0700/",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0701",
+  "title": "Transmission Control System Range/Performance",
+  "plain": "The transmission computer sees that the transmission control system is not behaving the way it expects, even though no single circuit has failed outright.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or transmission light on",
+   "Rough or unusual shifting",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Low or degraded transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Transmission control module software or internal fault",
+    "how": "possible"
+   },
+   {
+    "name": "Poor power or ground supply to the transmission computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other transmission codes and fix those first",
+   "Check fluid level and condition",
+   "Check for software updates for the transmission computer"
+  ],
+  "fix": "Fix any related codes and fluid problems first; a computer reflash or replacement is needed only after power, ground and wiring check out.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0702",
+  "title": "Transmission Control System Electrical",
+  "plain": "The transmission computer has detected an electrical problem in the transmission control system, such as a bad power feed, ground or internal circuit.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or transmission light on",
+   "Transmission stuck in one gear (limp mode)",
+   "Harsh or no shifting"
+  ],
+  "causes": [
+   {
+    "name": "Poor power or ground to the transmission computer",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector at the transmission",
+    "how": "common"
+   },
+   {
+    "name": "Failed transmission control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check battery voltage and the fuses that feed the transmission computer",
+   "Inspect transmission wiring and grounds for corrosion or damage"
+  ],
+  "fix": "Repair the power, ground or wiring fault; replace and program the transmission computer only if it has failed internally.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0703",
+  "title": "Torque Converter/Brake Switch B Circuit",
+  "plain": "There's a problem with the brake pedal switch signal the transmission uses to know when you're braking. It's important because the same switch runs your brake lights.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Brake lights may stay on or not work",
+   "Torque converter may not unlock when stopping, causing a stall or shudder",
+   "Cruise control may not work"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or misadjusted brake pedal switch",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the brake light circuit",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector at the brake switch",
+    "how": "possible"
+   },
+   {
+    "name": "Burned-out brake bulbs on some models",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Have someone confirm the brake lights come on and go off with the pedal",
+   "Check the brake light fuse",
+   "Inspect and test the brake pedal switch and its connector"
+  ],
+  "fix": "Most often a new or readjusted brake pedal switch, or repair of a fuse or wiring fault in that circuit.",
+  "cost": {
+   "job": "Replace brake pedal switch",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0704",
+  "title": "Clutch Switch Input Circuit Malfunction",
+  "plain": "On a manual-transmission car, the computer isn't getting a sensible signal from the switch that tells it when the clutch pedal is pressed.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Car may not start, or starts without the clutch pressed",
+   "Cruise control may not work or not cancel"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or misadjusted clutch pedal switch",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector at the clutch switch",
+    "how": "common"
+   },
+   {
+    "name": "Broken switch mounting or bumper on the clutch pedal",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the switch is in place and touched by the pedal",
+   "Test the switch for on and off as the pedal moves"
+  ],
+  "fix": "Usually a new or readjusted clutch pedal switch, or a wiring repair.",
+  "cost": {
+   "job": "Replace clutch pedal switch",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0705",
+  "title": "Transmission Range Sensor A Circuit (PRNDL Input)",
+  "plain": "The computer isn't getting a good signal from the sensor that tells it which gear the shifter is in (Park, Reverse, Neutral, Drive).",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start in Park or Neutral, or may start in gear",
+   "Gear indicator on the dash may be wrong or blank",
+   "Harsh or wrong shifting, or limp mode",
+   "Reverse lights may not work"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission range sensor (neutral safety switch)",
+    "how": "common"
+   },
+   {
+    "name": "Range sensor out of adjustment",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector at the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Worn or misadjusted shift cable or linkage",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the shifter lines up with the gear shown on the dash",
+   "Inspect the range sensor connector for water, corrosion or damage",
+   "Check the range sensor readings with a scanner while moving through each gear"
+  ],
+  "fix": "Usually adjusting or replacing the transmission range sensor, or repairing its wiring or the shift linkage.",
+  "cost": {
+   "job": "Replace transmission range sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.8,
+    2
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.kbb.com/obd-ii/p0705/",
+   "https://www.yourmechanic.com/article/p0705-obd-ii-trouble-code-transmission-range-sensor-circuit-malfunction-prndl-input-by-blake-griffin",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ],
+  "examples": [
+   "Often seen on older Ford trucks and SUVs, where the range sensor sits outside the transmission and is exposed to water and dirt"
+  ]
+ },
+ {
+  "code": "P0706",
+  "title": "Transmission Range Sensor A Circuit Range/Performance",
+  "plain": "The gear-position sensor is sending a signal, but it doesn't match what the computer expects for the gear you selected, or it shows two gears at once.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start in Park or Neutral, or may start in gear",
+   "Gear indicator on the dash may be wrong or blank",
+   "Harsh or wrong shifting, or limp mode",
+   "Reverse lights may not work"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission range sensor (neutral safety switch)",
+    "how": "common"
+   },
+   {
+    "name": "Range sensor out of adjustment",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector at the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Worn or misadjusted shift cable or linkage",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the shifter lines up with the gear shown on the dash",
+   "Inspect the range sensor connector for water, corrosion or damage",
+   "Check the range sensor readings with a scanner while moving through each gear"
+  ],
+  "fix": "Usually adjusting or replacing the transmission range sensor, or repairing its wiring or the shift linkage.",
+  "cost": {
+   "job": "Replace transmission range sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.8,
+    2
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0707",
+  "title": "Transmission Range Sensor A Circuit Low",
+  "plain": "The gear-position sensor signal is lower than it should be, which usually points to a short to ground or a bad sensor.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start in Park or Neutral, or may start in gear",
+   "Gear indicator on the dash may be wrong or blank"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission range sensor (neutral safety switch)",
+    "how": "common"
+   },
+   {
+    "name": "Range sensor out of adjustment",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector at the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Worn or misadjusted shift cable or linkage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the shifter lines up with the gear shown on the dash",
+   "Inspect the range sensor connector for water, corrosion or damage",
+   "Check the range sensor readings with a scanner while moving through each gear"
+  ],
+  "fix": "Usually adjusting or replacing the transmission range sensor, or repairing its wiring or the shift linkage.",
+  "cost": {
+   "job": "Replace transmission range sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.8,
+    2
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0708",
+  "title": "Transmission Range Sensor A Circuit High",
+  "plain": "The gear-position sensor signal is higher than it should be, often from an open wire, a bad connection or a failed sensor.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start in Park or Neutral, or may start in gear",
+   "Gear indicator on the dash may be wrong or blank"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission range sensor (neutral safety switch)",
+    "how": "common"
+   },
+   {
+    "name": "Range sensor out of adjustment",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector at the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Worn or misadjusted shift cable or linkage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the shifter lines up with the gear shown on the dash",
+   "Inspect the range sensor connector for water, corrosion or damage",
+   "Check the range sensor readings with a scanner while moving through each gear"
+  ],
+  "fix": "Usually adjusting or replacing the transmission range sensor, or repairing its wiring or the shift linkage.",
+  "cost": {
+   "job": "Replace transmission range sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.8,
+    2
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0709",
+  "title": "Transmission Range Sensor A Circuit Intermittent",
+  "plain": "The gear-position sensor signal keeps dropping in and out, often because of a loose connector or a worn sensor.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start in Park or Neutral, or may start in gear",
+   "Gear indicator on the dash may be wrong or blank"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission range sensor (neutral safety switch)",
+    "how": "common"
+   },
+   {
+    "name": "Range sensor out of adjustment",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector at the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Worn or misadjusted shift cable or linkage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the shifter lines up with the gear shown on the dash",
+   "Inspect the range sensor connector for water, corrosion or damage",
+   "Check the range sensor readings with a scanner while moving through each gear"
+  ],
+  "fix": "Usually adjusting or replacing the transmission range sensor, or repairing its wiring or the shift linkage.",
+  "cost": {
+   "job": "Replace transmission range sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.8,
+    2
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P070A",
+  "title": "Transmission Fluid Level Sensor Circuit",
+  "plain": "There's a problem in the circuit for the sensor that measures how much fluid is in the transmission.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or transmission light on",
+   "Low fluid warning may show even when fluid is fine",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission fluid level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Actual fluid level too low or too high",
+    "how": "possible"
+   },
+   {
+    "name": "Transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the actual fluid level using the maker's procedure",
+   "Inspect the sensor wiring and connector"
+  ],
+  "fix": "Confirm the true fluid level first, then repair the wiring or replace the fluid level sensor.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P070B",
+  "title": "Transmission Fluid Level Sensor Circuit Range/Performance",
+  "plain": "The transmission fluid level sensor's reading doesn't make sense compared with what the computer expects.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or transmission light on",
+   "Low fluid warning may show even when fluid is fine",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission fluid level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Actual fluid level too low or too high",
+    "how": "possible"
+   },
+   {
+    "name": "Transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the actual fluid level using the maker's procedure",
+   "Inspect the sensor wiring and connector"
+  ],
+  "fix": "Confirm the true fluid level first, then repair the wiring or replace the fluid level sensor.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P070C",
+  "title": "Transmission Fluid Level Sensor Circuit Low",
+  "plain": "The transmission fluid level sensor's signal is lower than normal, often from a short to ground or a failed sensor.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or transmission light on",
+   "Low fluid warning may show even when fluid is fine",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission fluid level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Actual fluid level too low or too high",
+    "how": "possible"
+   },
+   {
+    "name": "Transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the actual fluid level using the maker's procedure",
+   "Inspect the sensor wiring and connector"
+  ],
+  "fix": "Confirm the true fluid level first, then repair the wiring or replace the fluid level sensor.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P070D",
+  "title": "Transmission Fluid Level Sensor Circuit High",
+  "plain": "The transmission fluid level sensor's signal is higher than normal, often from an open wire or a failed sensor.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or transmission light on",
+   "Low fluid warning may show even when fluid is fine",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission fluid level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Actual fluid level too low or too high",
+    "how": "possible"
+   },
+   {
+    "name": "Transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the actual fluid level using the maker's procedure",
+   "Inspect the sensor wiring and connector"
+  ],
+  "fix": "Confirm the true fluid level first, then repair the wiring or replace the fluid level sensor.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P070E",
+  "title": "Transmission Fluid Level Sensor Circuit Intermittent/Erratic",
+  "plain": "The transmission fluid level sensor's signal is dropping out or jumping around, often from a loose connection.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or transmission light on",
+   "Low fluid warning may show even when fluid is fine",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission fluid level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Actual fluid level too low or too high",
+    "how": "possible"
+   },
+   {
+    "name": "Transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the actual fluid level using the maker's procedure",
+   "Inspect the sensor wiring and connector"
+  ],
+  "fix": "Confirm the true fluid level first, then repair the wiring or replace the fluid level sensor.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P070F",
+  "title": "Transmission Fluid Level Too Low",
+  "plain": "The computer thinks there isn't enough fluid in the transmission. Driving low on fluid can quickly damage the transmission.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or transmission light on",
+   "Slipping or delayed shifts",
+   "Fluid spots under the car"
+  ],
+  "causes": [
+   {
+    "name": "Transmission fluid leak",
+    "how": "common"
+   },
+   {
+    "name": "Fluid not refilled correctly after a service",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fluid level sensor or wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the fluid level the way the maker specifies (many need the engine running and fluid at a set temperature)",
+   "Look for leaks at the pan, lines, cooler and seals"
+  ],
+  "fix": "Fix any leak and fill to the correct level with the right fluid; replace the level sensor only if the fluid level is actually correct.",
+  "guide": "transmission-fluid-leak",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0710",
+  "title": "Transmission Fluid Temperature Sensor A Circuit",
+  "plain": "There's a problem in the circuit for the sensor that tells the computer how hot the transmission fluid is.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or late shifts, especially when cold",
+   "Torque converter may not lock up, hurting fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission fluid temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector (often the internal harness)",
+    "how": "common"
+   },
+   {
+    "name": "Fluid actually overheating from low fluid or heavy towing",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the transmission temperature reading to engine coolant temperature on a cold start",
+   "Check fluid level and condition",
+   "Inspect the transmission connector and wiring"
+  ],
+  "fix": "Usually a new fluid temperature sensor (on many models part of the internal wiring harness) or a wiring repair.",
+  "cost": {
+   "job": "Replace transmission fluid temperature sensor",
+   "parts": [
+    20,
+    200
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0711",
+  "title": "Transmission Fluid Temperature Sensor A Circuit Range/Performance",
+  "plain": "The transmission fluid temperature reading doesn't make sense, for example it doesn't warm up as you drive or it changes too fast.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or late shifts, especially when cold",
+   "Torque converter may not lock up, hurting fuel economy",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission fluid temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector (often the internal harness)",
+    "how": "common"
+   },
+   {
+    "name": "Fluid actually overheating from low fluid or heavy towing",
+    "how": "possible"
+   },
+   {
+    "name": "Transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the transmission temperature reading to engine coolant temperature on a cold start",
+   "Check fluid level and condition",
+   "Inspect the transmission connector and wiring"
+  ],
+  "fix": "Usually a new fluid temperature sensor (on many models part of the internal wiring harness) or a wiring repair.",
+  "cost": {
+   "job": "Replace transmission fluid temperature sensor",
+   "parts": [
+    20,
+    200
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0712",
+  "title": "Transmission Fluid Temperature Sensor A Circuit Low",
+  "plain": "The transmission temperature sensor signal is lower than normal, usually from a short to ground, which can make the computer think the fluid is extremely hot.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or late shifts, especially when cold",
+   "Torque converter may not lock up, hurting fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission fluid temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector (often the internal harness)",
+    "how": "common"
+   },
+   {
+    "name": "Fluid actually overheating from low fluid or heavy towing",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the transmission temperature reading to engine coolant temperature on a cold start",
+   "Check fluid level and condition",
+   "Inspect the transmission connector and wiring"
+  ],
+  "fix": "Usually a new fluid temperature sensor (on many models part of the internal wiring harness) or a wiring repair.",
+  "cost": {
+   "job": "Replace transmission fluid temperature sensor",
+   "parts": [
+    20,
+    200
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0713",
+  "title": "Transmission Fluid Temperature Sensor A Circuit High",
+  "plain": "The transmission temperature sensor signal is higher than normal, usually from an open circuit, which can make the computer think the fluid is extremely cold.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or late shifts, especially when cold",
+   "Torque converter may not lock up, hurting fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission fluid temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector (often the internal harness)",
+    "how": "common"
+   },
+   {
+    "name": "Fluid actually overheating from low fluid or heavy towing",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the transmission temperature reading to engine coolant temperature on a cold start",
+   "Check fluid level and condition",
+   "Inspect the transmission connector and wiring"
+  ],
+  "fix": "Usually a new fluid temperature sensor (on many models part of the internal wiring harness) or a wiring repair.",
+  "cost": {
+   "job": "Replace transmission fluid temperature sensor",
+   "parts": [
+    20,
+    200
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0714",
+  "title": "Transmission Fluid Temperature Sensor A Circuit Intermittent",
+  "plain": "The transmission temperature sensor signal keeps dropping out, usually from a loose connection or damaged wire.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or late shifts, especially when cold",
+   "Torque converter may not lock up, hurting fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty transmission fluid temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector (often the internal harness)",
+    "how": "common"
+   },
+   {
+    "name": "Fluid actually overheating from low fluid or heavy towing",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the transmission temperature reading to engine coolant temperature on a cold start",
+   "Check fluid level and condition",
+   "Inspect the transmission connector and wiring"
+  ],
+  "fix": "Usually a new fluid temperature sensor (on many models part of the internal wiring harness) or a wiring repair.",
+  "cost": {
+   "job": "Replace transmission fluid temperature sensor",
+   "parts": [
+    20,
+    200
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0715",
+  "title": "Input/Turbine Speed Sensor A Circuit",
+  "plain": "The computer isn't getting a good signal from the sensor that measures how fast the transmission's input shaft is spinning, so it can't shift properly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifts",
+   "Transmission stuck in one gear (limp mode)",
+   "Speedometer may act up on some models"
+  ],
+  "causes": [
+   {
+    "name": "Faulty input/turbine speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Low or dirty transmission fluid",
+    "how": "possible"
+   },
+   {
+    "name": "Metal debris on the sensor tip",
+    "how": "possible"
+   },
+   {
+    "name": "Transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil",
+   "Check fluid level and condition",
+   "Watch input speed on a scanner while driving to see if the signal drops out"
+  ],
+  "fix": "Most often a new input speed sensor or a wiring repair; on some models the sensor is inside the transmission.",
+  "cost": {
+   "job": "Replace input/turbine speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.kbb.com/obd-ii/p0715/",
+   "https://www.yourmechanic.com/article/p0715-obd-ii-trouble-code-input-turbine-speed-sensor-circuit-malfunction-by-logan-utsman",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ],
+  "examples": [
+   "Frequently reported on Dodge Caravan and Chrysler Town and Country minivans"
+  ]
+ },
+ {
+  "code": "P0716",
+  "title": "Input/Turbine Speed Sensor A Circuit Range/Performance",
+  "plain": "The input shaft speed signal doesn't match what the computer expects for the engine and road speed.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifts",
+   "Transmission stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Faulty input/turbine speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Low or dirty transmission fluid",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil",
+   "Check fluid level and condition",
+   "Watch input speed on a scanner while driving to see if the signal drops out"
+  ],
+  "fix": "Most often a new input speed sensor or a wiring repair; on some models the sensor is inside the transmission.",
+  "cost": {
+   "job": "Replace input/turbine speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0717",
+  "title": "Input/Turbine Speed Sensor A Circuit No Signal",
+  "plain": "The computer isn't getting any signal at all from the transmission's input shaft speed sensor.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifts",
+   "Transmission stuck in one gear (limp mode)",
+   "Speedometer may act up on some models"
+  ],
+  "causes": [
+   {
+    "name": "Faulty input/turbine speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Low or dirty transmission fluid",
+    "how": "possible"
+   },
+   {
+    "name": "Metal debris on the sensor tip",
+    "how": "possible"
+   },
+   {
+    "name": "Transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil",
+   "Check fluid level and condition",
+   "Watch input speed on a scanner while driving to see if the signal drops out"
+  ],
+  "fix": "Most often a new input speed sensor or a wiring repair; on some models the sensor is inside the transmission.",
+  "cost": {
+   "job": "Replace input/turbine speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0718",
+  "title": "Input/Turbine Speed Sensor A Circuit Intermittent",
+  "plain": "The input shaft speed signal keeps dropping in and out, often from a loose connector or chafed wire.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifts",
+   "Transmission stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Faulty input/turbine speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Low or dirty transmission fluid",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil",
+   "Check fluid level and condition",
+   "Watch input speed on a scanner while driving to see if the signal drops out"
+  ],
+  "fix": "Most often a new input speed sensor or a wiring repair; on some models the sensor is inside the transmission.",
+  "cost": {
+   "job": "Replace input/turbine speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0719",
+  "title": "Torque Converter/Brake Switch B Circuit Low",
+  "plain": "There's a problem with the brake pedal switch signal the transmission uses to know when you're braking. The signal is lower than expected, often from a short or a stuck switch.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Brake lights may stay on or not work",
+   "Torque converter may not unlock when stopping, causing a stall or shudder",
+   "Cruise control may not work"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or misadjusted brake pedal switch",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the brake light circuit",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector at the brake switch",
+    "how": "possible"
+   },
+   {
+    "name": "Burned-out brake bulbs on some models",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Have someone confirm the brake lights come on and go off with the pedal",
+   "Check the brake light fuse",
+   "Inspect and test the brake pedal switch and its connector"
+  ],
+  "fix": "Most often a new or readjusted brake pedal switch, or repair of a fuse or wiring fault in that circuit.",
+  "cost": {
+   "job": "Replace brake pedal switch",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P071A",
+  "title": "Transmission Mode Switch A Circuit",
+  "plain": "There's a problem in the circuit for the transmission mode button, such as tow/haul, sport or winter mode.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Mode button (such as tow/haul, sport or winter) may not work",
+   "Mode light on the dash may not change"
+  ],
+  "causes": [
+   {
+    "name": "Faulty mode switch or button",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the switch",
+    "how": "common"
+   },
+   {
+    "name": "Liquid spilled into the shifter or console area",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test whether the mode button changes the dash indicator",
+   "Inspect the switch and its wiring at the shifter or dash"
+  ],
+  "fix": "Usually a new mode switch or a wiring repair.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P071B",
+  "title": "Transmission Mode Switch A Circuit Low",
+  "plain": "The transmission mode button signal is lower than expected, often from a short to ground or a stuck switch.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Mode button (such as tow/haul, sport or winter) may not work",
+   "Mode light on the dash may not change"
+  ],
+  "causes": [
+   {
+    "name": "Faulty mode switch or button",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the switch",
+    "how": "common"
+   },
+   {
+    "name": "Liquid spilled into the shifter or console area",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test whether the mode button changes the dash indicator",
+   "Inspect the switch and its wiring at the shifter or dash"
+  ],
+  "fix": "Usually a new mode switch or a wiring repair.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P071C",
+  "title": "Transmission Mode Switch A Circuit High",
+  "plain": "The transmission mode button signal is higher than expected, often from an open wire or failed switch.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Mode button (such as tow/haul, sport or winter) may not work",
+   "Mode light on the dash may not change"
+  ],
+  "causes": [
+   {
+    "name": "Faulty mode switch or button",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the switch",
+    "how": "common"
+   },
+   {
+    "name": "Liquid spilled into the shifter or console area",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test whether the mode button changes the dash indicator",
+   "Inspect the switch and its wiring at the shifter or dash"
+  ],
+  "fix": "Usually a new mode switch or a wiring repair.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P071D",
+  "title": "Transmission Mode Switch B Circuit",
+  "plain": "There's a problem in the circuit for the second transmission mode button.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Mode button (such as tow/haul, sport or winter) may not work",
+   "Mode light on the dash may not change"
+  ],
+  "causes": [
+   {
+    "name": "Faulty mode switch or button",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the switch",
+    "how": "common"
+   },
+   {
+    "name": "Liquid spilled into the shifter or console area",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test whether the mode button changes the dash indicator",
+   "Inspect the switch and its wiring at the shifter or dash"
+  ],
+  "fix": "Usually a new mode switch or a wiring repair.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P071E",
+  "title": "Transmission Mode Switch B Circuit Low",
+  "plain": "The second transmission mode button signal is lower than expected, often from a short to ground or a stuck switch.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Mode button (such as tow/haul, sport or winter) may not work",
+   "Mode light on the dash may not change"
+  ],
+  "causes": [
+   {
+    "name": "Faulty mode switch or button",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the switch",
+    "how": "common"
+   },
+   {
+    "name": "Liquid spilled into the shifter or console area",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test whether the mode button changes the dash indicator",
+   "Inspect the switch and its wiring at the shifter or dash"
+  ],
+  "fix": "Usually a new mode switch or a wiring repair.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P071F",
+  "title": "Transmission Mode Switch B Circuit High",
+  "plain": "The second transmission mode button signal is higher than expected, often from an open wire or failed switch.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Mode button (such as tow/haul, sport or winter) may not work",
+   "Mode light on the dash may not change"
+  ],
+  "causes": [
+   {
+    "name": "Faulty mode switch or button",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the switch",
+    "how": "common"
+   },
+   {
+    "name": "Liquid spilled into the shifter or console area",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test whether the mode button changes the dash indicator",
+   "Inspect the switch and its wiring at the shifter or dash"
+  ],
+  "fix": "Usually a new mode switch or a wiring repair.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0720",
+  "title": "Output Shaft Speed Sensor Circuit",
+  "plain": "The computer isn't getting a good signal from the sensor that measures how fast the transmission's output shaft (and so the wheels) is turning.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer may stop working or jump around",
+   "Harsh or erratic shifts, or limp mode",
+   "ABS or traction control light may come on in some vehicles"
+  ],
+  "causes": [
+   {
+    "name": "Faulty output shaft speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Metal debris on the sensor tip",
+    "how": "possible"
+   },
+   {
+    "name": "Damaged reluctor (tone) ring",
+    "how": "possible"
+   },
+   {
+    "name": "Transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the speedometer works",
+   "Inspect the sensor connector and wiring",
+   "Pull the sensor and check its tip for metal debris"
+  ],
+  "fix": "Most often a new output speed sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace output shaft speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0721",
+  "title": "Output Shaft Speed Sensor Circuit Range/Performance",
+  "plain": "The output shaft speed signal doesn't match what the computer expects from other speed readings.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer may stop working or jump around",
+   "Harsh or erratic shifts, or limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Faulty output shaft speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Metal debris on the sensor tip",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the speedometer works",
+   "Inspect the sensor connector and wiring",
+   "Pull the sensor and check its tip for metal debris"
+  ],
+  "fix": "Most often a new output speed sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace output shaft speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0722",
+  "title": "Output Shaft Speed Sensor Circuit No Signal",
+  "plain": "The computer isn't getting any signal from the transmission's output shaft speed sensor.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer may stop working or jump around",
+   "Harsh or erratic shifts, or limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Faulty output shaft speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Metal debris on the sensor tip",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the speedometer works",
+   "Inspect the sensor connector and wiring",
+   "Pull the sensor and check its tip for metal debris"
+  ],
+  "fix": "Most often a new output speed sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace output shaft speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0723",
+  "title": "Output Shaft Speed Sensor Circuit Intermittent",
+  "plain": "The output shaft speed signal keeps dropping in and out, often from a loose connector or damaged wiring.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer may stop working or jump around",
+   "Harsh or erratic shifts, or limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Faulty output shaft speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector to the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Metal debris on the sensor tip",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the speedometer works",
+   "Inspect the sensor connector and wiring",
+   "Pull the sensor and check its tip for metal debris"
+  ],
+  "fix": "Most often a new output speed sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace output shaft speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0724",
+  "title": "Torque Converter/Brake Switch B Circuit High",
+  "plain": "There's a problem with the brake pedal switch signal the transmission uses to know when you're braking. The signal is higher than expected, often meaning the computer thinks the brake is always pressed.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Brake lights may stay on or not work",
+   "Torque converter may not unlock when stopping, causing a stall or shudder",
+   "Cruise control may not work"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or misadjusted brake pedal switch",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the brake light circuit",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector at the brake switch",
+    "how": "possible"
+   },
+   {
+    "name": "Burned-out brake bulbs on some models",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Have someone confirm the brake lights come on and go off with the pedal",
+   "Check the brake light fuse",
+   "Inspect and test the brake pedal switch and its connector"
+  ],
+  "fix": "Most often a new or readjusted brake pedal switch, or repair of a fuse or wiring fault in that circuit.",
+  "cost": {
+   "job": "Replace brake pedal switch",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0725",
+  "title": "Engine Speed Input Circuit",
+  "plain": "The transmission computer isn't getting a good engine speed (RPM) signal, which it needs to time shifts.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or erratic shifting",
+   "Tachometer may act up",
+   "Engine may stall or not start if the crankshaft signal is lost"
+  ],
+  "causes": [
+   {
+    "name": "Faulty crankshaft position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring between the engine and transmission computers",
+    "how": "common"
+   },
+   {
+    "name": "Network or computer communication fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for crankshaft sensor or network codes and fix those first",
+   "Inspect the wiring and connectors between the computers"
+  ],
+  "fix": "Usually a crankshaft position sensor or a wiring repair, depending on where the signal is lost.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0726",
+  "title": "Engine Speed Input Circuit Range/Performance",
+  "plain": "The engine speed signal the transmission computer receives doesn't make sense compared with other readings.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or erratic shifting",
+   "Tachometer may act up",
+   "Engine may stall or not start if the crankshaft signal is lost"
+  ],
+  "causes": [
+   {
+    "name": "Faulty crankshaft position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring between the engine and transmission computers",
+    "how": "common"
+   },
+   {
+    "name": "Network or computer communication fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for crankshaft sensor or network codes and fix those first",
+   "Inspect the wiring and connectors between the computers"
+  ],
+  "fix": "Usually a crankshaft position sensor or a wiring repair, depending on where the signal is lost.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ },
+ {
+  "code": "P0727",
+  "title": "Engine Speed Input Circuit No Signal",
+  "plain": "The transmission computer isn't receiving any engine speed (RPM) signal.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or erratic shifting",
+   "Tachometer may act up",
+   "Engine may stall or not start if the crankshaft signal is lost"
+  ],
+  "causes": [
+   {
+    "name": "Faulty crankshaft position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring between the engine and transmission computers",
+    "how": "common"
+   },
+   {
+    "name": "Network or computer communication fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for crankshaft sensor or network codes and fix those first",
+   "Inspect the wiring and connectors between the computers"
+  ],
+  "fix": "Usually a crankshaft position sensor or a wiring repair, depending on where the signal is lost.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_799.htm"
+  ]
+ }
+]

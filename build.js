@@ -105,6 +105,58 @@ ${j.related.length?`<h2 style="font-size:20px;margin-top:26px">Related guides</h
 <div class="trust" style="margin-top:18px">This guide helps you understand what may be going on and how urgent it is. It doesn't replace an in-person inspection.</div></div>`;
   urls.push(page(`/symptoms/${j.id}/`,`${j.h1.replace(/\?$/,'')}? Causes & What to Do | VehicleSymptoms.com`.replace('??','?'),j.metaDesc,{inner,pageData:`<script>window.JOURNEY=${JSON.stringify(j).replace(/</g,'\\u003c')};</script>\n`}));
 }
+// ---------- trouble codes (src/codes/*.json) ----------
+const CODES=[];const cseen=new Set();
+if(fs.existsSync('src/codes'))for(const f of fs.readdirSync('src/codes').filter(f=>f.endsWith('.json')).sort()){
+  for(const c of JSON.parse(fs.readFileSync('src/codes/'+f,'utf8'))){if(cseen.has(c.code))continue;cseen.add(c.code);CODES.push(c)}}
+CODES.sort((a,b)=>a.code.localeCompare(b.code));
+// vehicles whose known problems mention a code
+const codeVeh={};
+for(const v of V)for(const i of v.issues){const t=[i.t,i.sym,i.why,i.next].join(' ');for(const m of new Set(t.match(/\b[PBCU][0-3][0-9A-F]{3}\b/g)||[])){(codeVeh[m]=codeVeh[m]||[]).push({v,i})}}
+const CURG={stop:["Stop driving soon. This can cause damage or be unsafe.","high"],soon:["Get it checked in the next few days","med"],check:["Book a check when convenient","info"]};
+const cpr=k=>{const lo=rnd(k.parts[0]+k.hours[0]*RATE[0],false),hi=Math.max(rnd(k.parts[1]+k.hours[1]*RATE[1],true),lo+10);return '$'+lo.toLocaleString('en-US')+'–$'+hi.toLocaleString('en-US')};
+const famName=c=>({P:'Powertrain',B:'Body',C:'Chassis',U:'Network'})[c[0]];
+const JT=Object.fromEntries(J.map(j=>[j.id,j]));
+for(let k=0;k<CODES.length;k++){const c=CODES[k],low=c.code.toLowerCase(),u=CURG[c.sev];
+  const fam=CODES.filter(x=>x.code.slice(0,3)===c.code.slice(0,3)&&x.code!==c.code).slice(0,12);
+  const veh=(codeVeh[c.code]||[]).slice(0,10);const g=c.guide&&JT[c.guide];
+  const faq=[{q:`What does ${c.code} mean?`,a:c.plain},{q:`Can I drive with code ${c.code}?`,a:u[0]+'. '+(c.sev==='stop'?'If the check engine light is flashing or the car runs badly, pull over safely.':'Keep an eye on how the car drives and get the code checked.')},{q:`What causes ${c.code}?`,a:'The most common causes are: '+c.causes.slice(0,4).map(x=>x.name.toLowerCase()).join('; ')+'.'}];
+  const ld='<script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}).replace(/</g,'\\u003c')+'</script>\n';
+  const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/codes/">Code lookup</a> › ${c.code}</div>
+<div class="ghead"><div class="eyebrow">${escH(famName(c.code))} code · ${escH(c.sys)}</div><h1><span class="code-big">${c.code}</span> ${escH(c.title)}</h1></div>
+<div class="urg ${u[1]}"><b>How urgent?</b> ${escH(u[0])}</div>
+<div id="codeMy"></div>
+<section class="card csec"><h2>What it means</h2><p class="lead2">${escH(c.plain)}</p></section>
+<div class="cgrid">
+<section class="card csec"><h2>Signs you may notice</h2><ul class="dots">${c.symptoms.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section>
+<section class="card csec"><h2>What to check first</h2><ol class="nums">${c.checks.map(x=>`<li>${escH(x)}</li>`).join('')}</ol></section>
+</div>
+<section class="card csec"><h2>Possible causes</h2><p class="muted">Most likely first.</p><ul class="causes2">${c.causes.map(x=>`<li><span class="ctag ${x.how}">${x.how==='common'?'Common':'Possible'}</span>${escH(x.name)}</li>`).join('')}</ul></section>
+<section class="card csec"><h2>Most common fix</h2><p>${escH(c.fix)}</p>${c.cost?`<div class="cost"><div class="cost-top"><span class="cost-l">Typical repair cost</span><span class="cost-v">${cpr(c.cost)}</span></div><div class="cost-job">${escH(c.cost.job)}</div></div><p class="pg-disc" style="margin-top:12px"><b>Estimate only.</b> Typical parts plus standard labor time at $120–$160 an hour. Your price depends on your vehicle, area and shop, and what the shop finds.</p>`:''}</section>
+${c.examples&&c.examples.length?`<section class="card csec"><h2>Where it shows up</h2><ul class="dots">${c.examples.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section>`:''}
+${veh.length?`<section class="card csec"><h2>Known on these vehicles</h2><div class="glist">${veh.map(({v,i})=>`<a class="gcard" href="/vehicles/${v.id}/${i.y[0]}/"><b>${escH(v.make+' '+v.model)} ${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</b><span>${escH(i.t)}</span></a>`).join('')}</div></section>`:''}
+${g?`<a class="walk big" href="/symptoms/${g.id}/">Walk through it step by step: ${escH(g.title)} →</a>`:''}
+<section class="csec"><h2 style="font-size:18px">Common questions</h2>${faq.map(f=>`<details class="faq"><summary>${escH(f.q)}</summary><p>${escH(f.a)}</p></details>`).join('')}</section>
+${fam.length?`<section class="csec"><h2 style="font-size:18px">Related codes</h2><div class="codechips">${fam.map(x=>`<a href="/codes/${x.code.toLowerCase()}/"><b>${x.code}</b> ${escH(x.title)}</a>`).join('')}</div></section>`:''}
+<div class="trust">Trouble codes point to where a problem was detected, not always to the failed part. A scan and a few tests confirm the cause before parts are replaced. This is a general guide, not a diagnosis.</div>`;
+  urls.push(page('/codes/'+low+'/',`${c.code} Code: ${c.title} — Meaning, Causes & Fixes | VehicleSymptoms.com`.slice(0,140),`${c.code} means: ${c.plain}`.slice(0,165),{inner,pageData:ld}));
+}
+if(CODES.length){
+  const groups={};for(const c of CODES){const k=c.code.slice(0,3);(groups[k]=groups[k]||[]).push(c)}
+  const common=CODES.filter(c=>c.common);
+  const idx='window.CODE_INDEX='+JSON.stringify(CODES.map(c=>[c.code,c.title,c.sys])).replace(/</g,'\\u003c')+';';
+  fs.writeFileSync('dist/codes-index.js',idx);
+  urls.push(page('/codes/','Car Trouble Code Lookup (OBD-II): What Every Code Means | VehicleSymptoms.com','Look up any OBD-II trouble code like P0420 or P0300. Plain-English meaning, how urgent it is, common causes, what to check first and typical repair cost.',{pageData:'<script src="/codes-index.js"></script>\n',inner:`<div class="crumb"><a href="/">Home</a> › Code lookup</div>
+<div class="ghead"><div class="eyebrow">Code lookup</div><h1>What does your trouble code mean?</h1><p class="sub">Type the code from your scanner or parts-store scan, like <b>P0420</b> or <b>P0300</b>. You'll get the meaning in plain English, how urgent it is, the likely causes and what to check first.</p></div>
+<form class="codesearch" id="codeForm" autocomplete="off"><input id="codeQ" type="search" placeholder="Enter a code, e.g. P0420, or a word like misfire" aria-label="Trouble code"><button class="btn" type="submit">Look it up</button></form>
+<div id="codeRes" class="glist" style="margin-top:12px"></div>
+<p class="muted" style="font-size:14px">${CODES.length.toLocaleString('en-US')} codes so far: the universal codes every car uses. Manufacturer-specific codes are being added.</p>
+<section class="csec"><h2>Most common codes</h2><div class="codechips">${common.map(c=>`<a href="/codes/${c.code.toLowerCase()}/"><b>${c.code}</b> ${escH(c.title)}</a>`).join('')}</div></section>
+<section class="csec"><h2>Browse all codes</h2>${Object.entries(groups).map(([k,l])=>`<details class="mk"><summary>${k}xx codes <span>${l.length} codes</span></summary><div class="codechips">${l.map(c=>`<a href="/codes/${c.code.toLowerCase()}/"><b>${c.code}</b> ${escH(c.title)}</a>`).join('')}</div></details>`).join('')}</section>
+<div class="trust">A code tells you which system detected a problem. It doesn't always name the failed part, so a few checks before buying parts can save money.</div>`}));
+}
+console.log(`${CODES.length} trouble codes`);
+
 // hub
 urls.push(page('/symptoms/','All Car Symptom Guides | VehicleSymptoms.com','Step-by-step guides for car problems: won\'t start, warning lights, noises, shaking, leaks, smells, smoke, overheating and more.',{inner:`<div class="crumb"><a href="/">Home</a> › Symptom guides</div><div class="ghead"><h1>Symptom guides</h1><p class="sub">Pick what your car is doing. Each guide asks a few quick questions and tells you how urgent it is and what to do next.</p></div><div id="guideHub">${Object.entries(GL).map(([k,l])=>{const list=J.filter(j=>j.group===k);return list.length?`<section class="hubsec" id="${k}"><h2>${escH(l)}</h2><div class="glist">${list.map(j=>`<a class="gcard" href="/symptoms/${j.id}/"><b>${escH(j.title)}</b><span>${escH(j.h1)}</span></a>`).join('')}</div></section>`:''}).join('')}</div>`}));
 
