@@ -24,7 +24,7 @@ if(fs.existsSync('src/prices'))for(const f of fs.readdirSync('src/prices').filte
   const byT=new Map(P.items.map(x=>[x.t,x]));
   for(const i of v.issues){const x=byT.get(i.t);if(!x)continue;
     const lo=rnd(x.parts[0]+x.hours[0]*RATE[0],false),hi=Math.max(rnd(x.parts[1]+x.hours[1]*RATE[1],true),lo+10);
-    i.cost={job:x.job,lo:Math.max(lo,0),hi,note:x.note||'',recall:!!x.recall};priced++}
+    i.cost=(x.parts[1]===0&&x.hours[1]===0)?{job:x.job,free:true,note:x.note||'',recall:true}:{job:x.job,lo:Math.max(lo,0),hi,note:x.note||'',recall:!!x.recall};priced++}
 }
 const CATS=['Warning Lights','Smoke','Leaks','Noises','Smells','Starting Problems','Driving'],ids=new Set();let bad=0;
 V.forEach(v=>{if(ids.has(v.id)){console.log('DUP',v.id);bad++}ids.add(v.id);
