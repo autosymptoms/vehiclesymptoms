@@ -1,0 +1,1910 @@
+[
+ {
+  "code": "P2140",
+  "title": "Throttle/Pedal Position Sensor/Switch E/F Voltage Correlation",
+  "plain": "Two position sensors that should agree with each other (sensors E and F) are giving different readings. The computer uses this check to make sure the throttle is safe.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Failing throttle body or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "common"
+   },
+   {
+    "name": "Shared 5-volt reference circuit shorted by another sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle body and pedal connectors for corrosion or loose pins",
+   "Watch both sensor readings together in live data while moving the throttle or pedal"
+  ],
+  "fix": "Repair wiring or connector problems; otherwise replace the throttle body or pedal assembly, whichever holds the two sensors.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2141",
+  "title": "Exhaust Gas Recirculation Throttle Control Circuit Low",
+  "plain": "The control circuit for the EGR throttle valve is reading low voltage. This part restricts intake air on some diesels to help pull exhaust gas back into the engine. A wire shorted to ground or a shorted part is the usual reason.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in drivability",
+   "Possible rough running or shutdown shudder on diesels"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Internally shorted EGR throttle valve",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR throttle valve wiring for rubbed-through insulation",
+   "Measure the EGR throttle valve resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the EGR throttle valve.",
+  "cost": {
+   "job": "Replace EGR throttle valve",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  }
+ },
+ {
+  "code": "P2142",
+  "title": "Exhaust Gas Recirculation Throttle Control Circuit High",
+  "plain": "The control circuit for the EGR throttle valve is reading high voltage. This part restricts intake air on some diesels to help pull exhaust gas back into the engine. A wire shorted to power, an open circuit or a failed part is the usual reason.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in drivability",
+   "Possible rough running or shutdown shudder on diesels"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR throttle valve",
+    "how": "common"
+   },
+   {
+    "name": "Control wire shorted to a power source",
+    "how": "common"
+   },
+   {
+    "name": "Open circuit or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR throttle valve wiring for shorts to other wires",
+   "Measure the EGR throttle valve resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the EGR throttle valve.",
+  "cost": {
+   "job": "Replace EGR throttle valve",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  }
+ },
+ {
+  "code": "P2143",
+  "title": "Exhaust Gas Recirculation Vent Control Circuit/Open",
+  "plain": "The engine computer can't properly control the EGR vent solenoid, which vents vacuum from the EGR valve so it can close. It sees an open or broken circuit, often from wiring, a connector or the part itself.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough idle if the EGR valve stays open"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR vent solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the EGR vent solenoid connector and wiring",
+   "Check for power at the connector and measure the part's resistance"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the EGR vent solenoid.",
+  "cost": {
+   "job": "Replace EGR vent solenoid",
+   "parts": [
+    30,
+    150
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  }
+ },
+ {
+  "code": "P2144",
+  "title": "Exhaust Gas Recirculation Vent Control Circuit Low",
+  "plain": "The control circuit for the EGR vent solenoid is reading low voltage. This part vents vacuum from the EGR valve so it can close. A wire shorted to ground or a shorted part is the usual reason.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough idle if the EGR valve stays open"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Internally shorted EGR vent solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR vent solenoid wiring for rubbed-through insulation",
+   "Measure the EGR vent solenoid resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the EGR vent solenoid.",
+  "cost": {
+   "job": "Replace EGR vent solenoid",
+   "parts": [
+    30,
+    150
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  }
+ },
+ {
+  "code": "P2145",
+  "title": "Exhaust Gas Recirculation Vent Control Circuit High",
+  "plain": "The control circuit for the EGR vent solenoid is reading high voltage. This part vents vacuum from the EGR valve so it can close. A wire shorted to power, an open circuit or a failed part is the usual reason.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough idle if the EGR valve stays open"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR vent solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Control wire shorted to a power source",
+    "how": "common"
+   },
+   {
+    "name": "Open circuit or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR vent solenoid wiring for shorts to other wires",
+   "Measure the EGR vent solenoid resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the EGR vent solenoid.",
+  "cost": {
+   "job": "Replace EGR vent solenoid",
+   "parts": [
+    30,
+    150
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  }
+ },
+ {
+  "code": "P2146",
+  "title": "Fuel Injector Group \"A\" Supply Voltage Circuit/Open",
+  "plain": "The power supply that feeds a group of fuel injectors (group A) has lost its power feed. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2147",
+  "title": "Fuel Injector Group \"A\" Supply Voltage Circuit Low",
+  "plain": "The power supply that feeds a group of fuel injectors (group A) is reading too low. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2148",
+  "title": "Fuel Injector Group \"A\" Supply Voltage Circuit High",
+  "plain": "The power supply that feeds a group of fuel injectors (group A) is reading too high. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2149",
+  "title": "Fuel Injector Group \"B\" Supply Voltage Circuit/Open",
+  "plain": "The power supply that feeds a group of fuel injectors (group B) has lost its power feed. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2150",
+  "title": "Fuel Injector Group \"B\" Supply Voltage Circuit Low",
+  "plain": "The power supply that feeds a group of fuel injectors (group B) is reading too low. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2151",
+  "title": "Fuel Injector Group \"B\" Supply Voltage Circuit High",
+  "plain": "The power supply that feeds a group of fuel injectors (group B) is reading too high. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2152",
+  "title": "Fuel Injector Group \"C\" Supply Voltage Circuit/Open",
+  "plain": "The power supply that feeds a group of fuel injectors (group C) has lost its power feed. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2153",
+  "title": "Fuel Injector Group \"C\" Supply Voltage Circuit Low",
+  "plain": "The power supply that feeds a group of fuel injectors (group C) is reading too low. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2154",
+  "title": "Fuel Injector Group \"C\" Supply Voltage Circuit High",
+  "plain": "The power supply that feeds a group of fuel injectors (group C) is reading too high. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2155",
+  "title": "Fuel Injector Group \"D\" Supply Voltage Circuit/Open",
+  "plain": "The power supply that feeds a group of fuel injectors (group D) has lost its power feed. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2156",
+  "title": "Fuel Injector Group \"D\" Supply Voltage Circuit Low",
+  "plain": "The power supply that feeds a group of fuel injectors (group D) is reading too low. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2157",
+  "title": "Fuel Injector Group \"D\" Supply Voltage Circuit High",
+  "plain": "The power supply that feeds a group of fuel injectors (group D) is reading too high. Those injectors may not fire properly, causing misfires or rough running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine misfire or rough running",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed injector power relay",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector supply wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector pulling the circuit down",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the injector fuses and relay",
+   "Check for supply voltage at each injector in the group"
+  ],
+  "fix": "Replace a blown fuse or bad relay and repair the wiring or shorted injector that caused it.",
+  "cost": {
+   "job": "Repair injector supply wiring or relay",
+   "parts": [
+    20,
+    250
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "engine-sputtering-misfire"
+ },
+ {
+  "code": "P2158",
+  "title": "Vehicle Speed Sensor \"B\"",
+  "plain": "The engine computer has found a problem in the circuit for the vehicle speed sensor B, which measures how fast the vehicle is going (often the transmission output speed). It usually points to wiring, a connector or the sensor itself.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer erratic or not working",
+   "Harsh or odd shifting"
+  ],
+  "causes": [
+   {
+    "name": "Faulty vehicle speed sensor B",
+    "how": "common"
+   },
+   {
+    "name": "Damaged, corroded or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the speed sensor connector and wiring for damage or corrosion",
+   "Check the sensor power, ground and signal with a meter"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the vehicle speed sensor B.",
+  "cost": {
+   "job": "Replace vehicle speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "harsh-or-hard-shifting"
+ },
+ {
+  "code": "P2159",
+  "title": "Vehicle Speed Sensor \"B\" Range/Performance",
+  "plain": "The vehicle speed sensor B is giving readings that don't make sense compared with what the computer expects. This sensor measures how fast the vehicle is going (often the transmission output speed). The sensor may be failing or the system it watches may have a real problem.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer erratic or not working",
+   "Harsh or odd shifting"
+  ],
+  "causes": [
+   {
+    "name": "Failing or out-of-calibration vehicle speed sensor B",
+    "how": "common"
+   },
+   {
+    "name": "Damaged tone ring or metal debris on the sensor tip",
+    "how": "common"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the speed sensor reading with related sensors in live data",
+   "Check wiring and connector for corrosion or looseness"
+  ],
+  "fix": "Confirm the system itself is working, then replace the vehicle speed sensor B if its readings are off.",
+  "cost": {
+   "job": "Replace vehicle speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "harsh-or-hard-shifting"
+ },
+ {
+  "code": "P2160",
+  "title": "Vehicle Speed Sensor \"B\" Circuit Low",
+  "plain": "The signal from the vehicle speed sensor B is lower than the computer expects. This sensor measures how fast the vehicle is going (often the transmission output speed). A wire shorted to ground or a failed sensor is the usual reason.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer erratic or not working",
+   "Harsh or odd shifting"
+  ],
+  "causes": [
+   {
+    "name": "Signal or reference wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed vehicle speed sensor B",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the speed sensor wiring for rubbed-through or pinched spots",
+   "Unplug the sensor and see if the reading changes, which helps separate wiring from sensor"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the vehicle speed sensor B.",
+  "cost": {
+   "job": "Replace vehicle speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "harsh-or-hard-shifting"
+ },
+ {
+  "code": "P2161",
+  "title": "Vehicle Speed Sensor \"B\" Intermittent/Erratic",
+  "plain": "The signal from the vehicle speed sensor B keeps dropping out or jumping around. This sensor measures how fast the vehicle is going (often the transmission output speed). A loose connection or a damaged wire is the usual reason.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer erratic or not working",
+   "Harsh or odd shifting"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wire that opens or shorts as the engine moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing vehicle speed sensor B",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data for dropouts",
+   "Inspect the speed sensor wiring along its whole route"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the vehicle speed sensor B.",
+  "cost": {
+   "job": "Replace vehicle speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "harsh-or-hard-shifting"
+ },
+ {
+  "code": "P2162",
+  "title": "Vehicle Speed Sensor \"A\"/\"B\" Correlation",
+  "plain": "The vehicle has two speed sensors and their readings don't agree. One sensor or its wiring is usually giving a bad signal.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer erratic or not working",
+   "Harsh or odd shifting",
+   "ABS or traction light may come on"
+  ],
+  "causes": [
+   {
+    "name": "Failing speed sensor A or B",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector at a speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Metal debris on a sensor tip or damaged tone ring",
+    "how": "possible"
+   },
+   {
+    "name": "Wrong tire sizes front to rear",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare both speed readings in live data while driving",
+   "Inspect both sensors, connectors and wiring"
+  ],
+  "fix": "Replace the sensor that reads wrong and repair any wiring damage.",
+  "cost": {
+   "job": "Replace vehicle speed sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "harsh-or-hard-shifting"
+ },
+ {
+  "code": "P2163",
+  "title": "Throttle/Pedal Position Sensor \"A\" Maximum Stop Performance",
+  "plain": "Throttle or pedal position sensor A isn't reading what the computer expects when the throttle or pedal is fully pressed. The sensor may be worn or the pedal may not be reaching full travel.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power at full throttle",
+   "Possible limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Floor mat or object blocking full pedal travel",
+    "how": "common"
+   },
+   {
+    "name": "Throttle body not opening fully",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure nothing blocks the pedal and that it reaches full travel",
+   "Watch sensor readings at full pedal in live data"
+  ],
+  "fix": "Clear any obstruction; replace the pedal or throttle body if its sensor reads wrong at full travel.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2164",
+  "title": "Throttle/Pedal Position Sensor \"B\" Maximum Stop Performance",
+  "plain": "Throttle or pedal position sensor B isn't reading what the computer expects when the throttle or pedal is fully pressed. The sensor may be worn or the pedal may not be reaching full travel.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power at full throttle",
+   "Possible limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Floor mat or object blocking full pedal travel",
+    "how": "common"
+   },
+   {
+    "name": "Throttle body not opening fully",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure nothing blocks the pedal and that it reaches full travel",
+   "Watch sensor readings at full pedal in live data"
+  ],
+  "fix": "Clear any obstruction; replace the pedal or throttle body if its sensor reads wrong at full travel.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2165",
+  "title": "Throttle/Pedal Position Sensor \"C\" Maximum Stop Performance",
+  "plain": "Throttle or pedal position sensor C isn't reading what the computer expects when the throttle or pedal is fully pressed. The sensor may be worn or the pedal may not be reaching full travel.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power at full throttle",
+   "Possible limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Floor mat or object blocking full pedal travel",
+    "how": "common"
+   },
+   {
+    "name": "Throttle body not opening fully",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure nothing blocks the pedal and that it reaches full travel",
+   "Watch sensor readings at full pedal in live data"
+  ],
+  "fix": "Clear any obstruction; replace the pedal or throttle body if its sensor reads wrong at full travel.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2166",
+  "title": "Throttle/Pedal Position Sensor \"D\" Maximum Stop Performance",
+  "plain": "Throttle or pedal position sensor D isn't reading what the computer expects when the throttle or pedal is fully pressed. The sensor may be worn or the pedal may not be reaching full travel.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power at full throttle",
+   "Possible limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Floor mat or object blocking full pedal travel",
+    "how": "common"
+   },
+   {
+    "name": "Throttle body not opening fully",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure nothing blocks the pedal and that it reaches full travel",
+   "Watch sensor readings at full pedal in live data"
+  ],
+  "fix": "Clear any obstruction; replace the pedal or throttle body if its sensor reads wrong at full travel.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2167",
+  "title": "Throttle/Pedal Position Sensor \"E\" Maximum Stop Performance",
+  "plain": "Throttle or pedal position sensor E isn't reading what the computer expects when the throttle or pedal is fully pressed. The sensor may be worn or the pedal may not be reaching full travel.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power at full throttle",
+   "Possible limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Floor mat or object blocking full pedal travel",
+    "how": "common"
+   },
+   {
+    "name": "Throttle body not opening fully",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure nothing blocks the pedal and that it reaches full travel",
+   "Watch sensor readings at full pedal in live data"
+  ],
+  "fix": "Clear any obstruction; replace the pedal or throttle body if its sensor reads wrong at full travel.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2168",
+  "title": "Throttle/Pedal Position Sensor \"F\" Maximum Stop Performance",
+  "plain": "Throttle or pedal position sensor F isn't reading what the computer expects when the throttle or pedal is fully pressed. The sensor may be worn or the pedal may not be reaching full travel.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power at full throttle",
+   "Possible limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Floor mat or object blocking full pedal travel",
+    "how": "common"
+   },
+   {
+    "name": "Throttle body not opening fully",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure nothing blocks the pedal and that it reaches full travel",
+   "Watch sensor readings at full pedal in live data"
+  ],
+  "fix": "Clear any obstruction; replace the pedal or throttle body if its sensor reads wrong at full travel.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2169",
+  "title": "Exhaust Pressure Regulator Vent Solenoid Control Circuit/Open",
+  "plain": "The engine computer can't properly control the exhaust pressure regulator vent solenoid, which controls a valve that builds exhaust back pressure to help some diesels warm up faster. It sees an open or broken circuit, often from wiring, a connector or the part itself.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slower warm-up in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Failed exhaust pressure regulator vent solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the exhaust pressure regulator solenoid connector and wiring",
+   "Check for power at the connector and measure the part's resistance"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the exhaust pressure regulator vent solenoid.",
+  "cost": {
+   "job": "Replace exhaust pressure regulator solenoid",
+   "parts": [
+    40,
+    200
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  }
+ },
+ {
+  "code": "P2170",
+  "title": "Exhaust Pressure Regulator Vent Solenoid Control Circuit Low",
+  "plain": "The control circuit for the exhaust pressure regulator vent solenoid is reading low voltage. This part controls a valve that builds exhaust back pressure to help some diesels warm up faster. A wire shorted to ground or a shorted part is the usual reason.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slower warm-up in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Internally shorted exhaust pressure regulator vent solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the exhaust pressure regulator solenoid wiring for rubbed-through insulation",
+   "Measure the exhaust pressure regulator solenoid resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the exhaust pressure regulator vent solenoid.",
+  "cost": {
+   "job": "Replace exhaust pressure regulator solenoid",
+   "parts": [
+    40,
+    200
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  }
+ },
+ {
+  "code": "P2171",
+  "title": "Exhaust Pressure Regulator Vent Solenoid Control Circuit High",
+  "plain": "The control circuit for the exhaust pressure regulator vent solenoid is reading high voltage. This part controls a valve that builds exhaust back pressure to help some diesels warm up faster. A wire shorted to power, an open circuit or a failed part is the usual reason.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slower warm-up in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Failed exhaust pressure regulator vent solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Control wire shorted to a power source",
+    "how": "common"
+   },
+   {
+    "name": "Open circuit or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the exhaust pressure regulator solenoid wiring for shorts to other wires",
+   "Measure the exhaust pressure regulator solenoid resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the exhaust pressure regulator vent solenoid.",
+  "cost": {
+   "job": "Replace exhaust pressure regulator solenoid",
+   "parts": [
+    40,
+    200
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  }
+ },
+ {
+  "code": "P2172",
+  "title": "Throttle Actuator Control System - Sudden High Airflow Detected",
+  "plain": "The computer has seen a sudden jump in airflow that doesn't match the throttle position. It may limit engine power to stay safe.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible surging or reduced power",
+   "Reduced engine power warning possible"
+  ],
+  "causes": [
+   {
+    "name": "Large vacuum or intake air leak",
+    "how": "common"
+   },
+   {
+    "name": "Faulty mass airflow sensor",
+    "how": "common"
+   },
+   {
+    "name": "Throttle body sticking or worn",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring problem at the throttle or airflow sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the air intake ducts, filter and vacuum hoses",
+   "Compare airflow and throttle readings in live data"
+  ],
+  "fix": "Fix air leaks or restrictions and clean or replace the airflow sensor or throttle body as testing shows.",
+  "cost": {
+   "job": "Replace mass airflow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2173",
+  "title": "Throttle Actuator Control System - High Airflow Detected",
+  "plain": "The computer has seen more airflow than should be possible for the throttle position. It may limit engine power to stay safe.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "High idle or surging",
+   "Reduced engine power warning possible"
+  ],
+  "causes": [
+   {
+    "name": "Large vacuum or intake air leak",
+    "how": "common"
+   },
+   {
+    "name": "Faulty mass airflow sensor",
+    "how": "common"
+   },
+   {
+    "name": "Throttle body sticking or worn",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring problem at the throttle or airflow sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the air intake ducts, filter and vacuum hoses",
+   "Compare airflow and throttle readings in live data"
+  ],
+  "fix": "Fix air leaks or restrictions and clean or replace the airflow sensor or throttle body as testing shows.",
+  "cost": {
+   "job": "Replace mass airflow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2174",
+  "title": "Throttle Actuator Control System - Sudden Low Airflow Detected",
+  "plain": "The computer has seen a sudden drop in airflow that doesn't match the throttle position. It may limit engine power to stay safe.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation or stalling",
+   "Reduced engine power warning possible"
+  ],
+  "causes": [
+   {
+    "name": "Clogged air filter or blocked intake",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow sensor",
+    "how": "common"
+   },
+   {
+    "name": "Throttle body sticking or worn",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring problem at the throttle or airflow sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the air intake ducts, filter and vacuum hoses",
+   "Compare airflow and throttle readings in live data"
+  ],
+  "fix": "Fix air leaks or restrictions and clean or replace the airflow sensor or throttle body as testing shows.",
+  "cost": {
+   "job": "Replace mass airflow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2175",
+  "title": "Throttle Actuator Control System - Low Airflow Detected",
+  "plain": "The computer has seen less airflow than expected for the throttle position. It may limit engine power to stay safe.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low power or stalling",
+   "Reduced engine power warning possible"
+  ],
+  "causes": [
+   {
+    "name": "Clogged air filter or blocked intake",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow sensor",
+    "how": "common"
+   },
+   {
+    "name": "Throttle body sticking or worn",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring problem at the throttle or airflow sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the air intake ducts, filter and vacuum hoses",
+   "Compare airflow and throttle readings in live data"
+  ],
+  "fix": "Fix air leaks or restrictions and clean or replace the airflow sensor or throttle body as testing shows.",
+  "cost": {
+   "job": "Replace mass airflow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2176",
+  "title": "Throttle Actuator Control System - Idle Position Not Learned",
+  "plain": "The computer hasn't learned the throttle's resting (idle) position. This often happens after a battery disconnect, throttle cleaning or replacement.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "High, low or unstable idle",
+   "Possible stalling"
+  ],
+  "causes": [
+   {
+    "name": "Throttle idle relearn not completed after battery or throttle work",
+    "how": "common"
+   },
+   {
+    "name": "Dirty throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Failing throttle body",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Perform the throttle relearn procedure for your vehicle",
+   "Clean the throttle body if it is dirty"
+  ],
+  "fix": "Run the idle relearn; replace the throttle body only if it fails to learn after cleaning.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "rough-idle-shaking"
+ },
+ {
+  "code": "P2177",
+  "title": "System Too Lean Off Idle Bank 1",
+  "plain": "The engine on bank 1 (the side of the engine with cylinder 1) is running too lean when driving just above idle, and the computer has reached the limit of what it can correct. Too much air or too little fuel is getting in.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation when pulling away",
+   "Possible stalling",
+   "Often no other symptoms"
+  ],
+  "causes": [
+   {
+    "name": "Vacuum leak (cracked hose, intake gasket or PCV valve)",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow (MAF) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking intake manifold gasket",
+    "how": "common"
+   },
+   {
+    "name": "Low fuel pressure or weak fuel pump",
+    "how": "possible"
+   },
+   {
+    "name": "Exhaust leak before the front oxygen sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen and smoke-test for vacuum leaks",
+   "Inspect and clean the MAF sensor",
+   "Check fuel trims at idle and at higher RPM"
+  ],
+  "fix": "Find and repair the leak or fuel delivery problem; replacing parts without testing rarely fixes it.",
+  "cost": {
+   "job": "Find and repair vacuum leak (hose or intake gasket)",
+   "parts": [
+    10,
+    250
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "guide": "hesitation-when-accelerating",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2004.html"
+  ]
+ },
+ {
+  "code": "P2178",
+  "title": "System Too Rich Off Idle Bank 1",
+  "plain": "The engine on bank 1 (the side of the engine with cylinder 1) is running too rich when driving just above idle, and the computer has reached the limit of what it can correct. Too much fuel or too little air is getting in.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation when pulling away",
+   "Poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Leaking or stuck-open fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pressure too high (bad regulator)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty mass airflow (MAF) or upstream oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged air filter or intake",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fuel pressure and look for a leaking injector",
+   "Inspect the air filter and MAF sensor"
+  ],
+  "fix": "Find the source of extra fuel (injector, pressure regulator or sensor) and repair it.",
+  "cost": {
+   "job": "Replace fuel injector",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  },
+  "guide": "hesitation-when-accelerating"
+ },
+ {
+  "code": "P2179",
+  "title": "System Too Lean Off Idle Bank 2",
+  "plain": "The engine on bank 2 (the side of the engine opposite cylinder 1) is running too lean when driving just above idle, and the computer has reached the limit of what it can correct. Too much air or too little fuel is getting in.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation when pulling away",
+   "Possible stalling"
+  ],
+  "causes": [
+   {
+    "name": "Vacuum leak (cracked hose, intake gasket or PCV valve)",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow (MAF) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking intake manifold gasket",
+    "how": "common"
+   },
+   {
+    "name": "Low fuel pressure or weak fuel pump",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen and smoke-test for vacuum leaks",
+   "Inspect and clean the MAF sensor"
+  ],
+  "fix": "Find and repair the leak or fuel delivery problem; replacing parts without testing rarely fixes it.",
+  "cost": {
+   "job": "Find and repair vacuum leak (hose or intake gasket)",
+   "parts": [
+    10,
+    250
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "guide": "hesitation-when-accelerating"
+ }
+]

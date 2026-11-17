@@ -1,0 +1,1311 @@
+[
+ {
+  "code": "P2549",
+  "title": "Torque Management Request Input Signal \"B\" Range/Performance",
+  "plain": "The computer is watching the torque management request signal and is getting a signal that does not make sense for current conditions. Another module (often the transmission computer) uses this signal to ask the engine to cut power briefly, such as during shifts.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or firm shifts",
+   "Reduced power mode possible"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking torque management request signal",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the torque management request signal reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the torque management request signal itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P254F",
+  "title": "Engine Hood Switch Circuit",
+  "plain": "The computer is watching the hood switch and has spotted a fault in its circuit. The car checks whether the hood is closed, for safety with remote start and engine stop-start.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Remote start or stop-start may stop working",
+   "Hood open warning may show"
+  ],
+  "causes": [
+   {
+    "name": "Hood switch dirty, misadjusted or damaged",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged, loose or corroded connector at the hood switch",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the hood switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed hood switch",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the hood switch connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the hood switch.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2550",
+  "title": "Torque Management Request Input Signal \"B\" Low",
+  "plain": "The computer is watching the torque management request signal and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. Another module (often the transmission computer) uses this signal to ask the engine to cut power briefly, such as during shifts.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or firm shifts",
+   "Reduced power mode possible"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the torque management request signal shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed torque management request signal",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the torque management request signal wiring for rubbed-through insulation touching metal",
+   "Unplug the torque management request signal and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the torque management request signal.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2551",
+  "title": "Torque Management Request Input Signal \"B\" High",
+  "plain": "The computer is watching the torque management request signal and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. Another module (often the transmission computer) uses this signal to ask the engine to cut power briefly, such as during shifts.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or firm shifts",
+   "Reduced power mode possible"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed torque management request signal",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the torque management request signal wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the torque management request signal.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2552",
+  "title": "Throttle/Fuel Inhibit Circuit",
+  "plain": "The computer is watching the throttle/fuel inhibit circuit and has spotted a fault in its circuit. This circuit lets another module tell the engine to limit throttle or fuel, for example for safety or security.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or engine may not rev",
+   "Engine may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the throttle/fuel inhibit circuit",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the throttle/fuel inhibit circuit circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed throttle/fuel inhibit circuit",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the throttle/fuel inhibit circuit connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the throttle/fuel inhibit circuit.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2553",
+  "title": "Throttle/Fuel Inhibit Circuit Range/Performance",
+  "plain": "The computer is watching the throttle/fuel inhibit circuit and is getting a signal that does not make sense for current conditions. This circuit lets another module tell the engine to limit throttle or fuel, for example for safety or security.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or engine may not rev",
+   "Engine may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking throttle/fuel inhibit circuit",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the throttle/fuel inhibit circuit reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the throttle/fuel inhibit circuit itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2554",
+  "title": "Throttle/Fuel Inhibit Circuit Low",
+  "plain": "The computer is watching the throttle/fuel inhibit circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This circuit lets another module tell the engine to limit throttle or fuel, for example for safety or security.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or engine may not rev",
+   "Engine may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the throttle/fuel inhibit circuit shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed throttle/fuel inhibit circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle/fuel inhibit circuit wiring for rubbed-through insulation touching metal",
+   "Unplug the throttle/fuel inhibit circuit and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the throttle/fuel inhibit circuit.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2555",
+  "title": "Throttle/Fuel Inhibit Circuit High",
+  "plain": "The computer is watching the throttle/fuel inhibit circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This circuit lets another module tell the engine to limit throttle or fuel, for example for safety or security.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or engine may not rev",
+   "Engine may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed throttle/fuel inhibit circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle/fuel inhibit circuit wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the throttle/fuel inhibit circuit.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2556",
+  "title": "Engine Coolant Level Sensor/Switch Circuit",
+  "plain": "The computer is watching the engine coolant level sensor and has spotted a fault in its circuit. This sensor warns the computer when the coolant reservoir gets low.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low coolant warning may come on or stay on",
+   "Possible false warnings"
+  ],
+  "causes": [
+   {
+    "name": "Coolant level actually low",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged, loose or corroded connector at the engine coolant level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the engine coolant level sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed engine coolant level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "With the engine cold, check the coolant level first",
+   "Look over the engine coolant level sensor connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the engine coolant level sensor.",
+  "guide": "losing-coolant-no-visible-leak",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2557",
+  "title": "Engine Coolant Level Sensor/Switch Circuit Range/Performance",
+  "plain": "The computer is watching the engine coolant level sensor and is getting a signal that does not make sense for current conditions. This sensor warns the computer when the coolant reservoir gets low.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low coolant warning may come on or stay on",
+   "Possible false warnings"
+  ],
+  "causes": [
+   {
+    "name": "Coolant level actually low",
+    "how": "common"
+   },
+   {
+    "name": "Failing or sticking engine coolant level sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "With the engine cold, check the coolant level first",
+   "Check for other codes that point to the underlying problem",
+   "Compare the engine coolant level sensor reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the engine coolant level sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "losing-coolant-no-visible-leak",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2558",
+  "title": "Engine Coolant Level Sensor/Switch Circuit Low",
+  "plain": "The computer is watching the engine coolant level sensor and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This sensor warns the computer when the coolant reservoir gets low.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low coolant warning may come on or stay on",
+   "Possible false warnings"
+  ],
+  "causes": [
+   {
+    "name": "Coolant level actually low",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire to the engine coolant level sensor shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed engine coolant level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "With the engine cold, check the coolant level first",
+   "Inspect the engine coolant level sensor wiring for rubbed-through insulation touching metal",
+   "Unplug the engine coolant level sensor and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the engine coolant level sensor.",
+  "guide": "losing-coolant-no-visible-leak",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2559",
+  "title": "Engine Coolant Level Sensor/Switch Circuit High",
+  "plain": "The computer is watching the engine coolant level sensor and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This sensor warns the computer when the coolant reservoir gets low.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low coolant warning may come on or stay on",
+   "Possible false warnings"
+  ],
+  "causes": [
+   {
+    "name": "Coolant level actually low",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed engine coolant level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "With the engine cold, check the coolant level first",
+   "Inspect the engine coolant level sensor wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the engine coolant level sensor.",
+  "guide": "losing-coolant-no-visible-leak",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P255F",
+  "title": "A/C Request \"A\" Circuit Range/Performance",
+  "plain": "The computer is watching the A/C request signal and is getting a signal that does not make sense for current conditions. This is the signal from the A/C controls asking the engine computer to turn on the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may not turn on or may not shut off",
+   "Idle may change when A/C is switched"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking A/C request signal",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the A/C request signal reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the A/C request signal itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2560",
+  "title": "Engine Coolant Level Low",
+  "plain": "The coolant level sensor says the coolant reservoir is low. Low coolant can lead to overheating.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or low coolant warning on",
+   "Temperature gauge may climb",
+   "Heater may blow cooler air"
+  ],
+  "causes": [
+   {
+    "name": "Coolant leak from a hose, radiator or water pump",
+    "how": "common"
+   },
+   {
+    "name": "Coolant slowly lost over time",
+    "how": "common"
+   },
+   {
+    "name": "Leaking head gasket",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty coolant level sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "With the engine cold, check the coolant reservoir level",
+   "Look for wet spots or dried coolant around hoses and the radiator",
+   "Watch the temperature gauge and stop if it climbs"
+  ],
+  "fix": "Top up and find the leak; replace the level sensor only if the level is correct.",
+  "guide": "losing-coolant-no-visible-leak",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2561",
+  "title": "A/C Control Module Requested MIL Illumination",
+  "plain": "The climate control module found a problem in its own system and asked the engine computer to turn on the check engine light.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C or heater may not work properly"
+  ],
+  "causes": [
+   {
+    "name": "Stored fault in the A/C or climate control module",
+    "how": "common"
+   },
+   {
+    "name": "Climate control wiring problem",
+    "how": "possible"
+   },
+   {
+    "name": "Climate control module fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Scan the climate control module for its own codes",
+   "Fix those codes first, then clear this one"
+  ],
+  "fix": "Repair whatever fault is stored in the climate control module.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2562",
+  "title": "Turbocharger Boost Control Position Sensor \"A\" Circuit",
+  "plain": "The computer is watching the turbocharger boost control position sensor and has spotted a fault in its circuit. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Turbo may over-boost or under-boost"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the turbocharger boost control position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the turbocharger boost control position sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed turbocharger boost control position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the turbocharger boost control position sensor connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the turbocharger boost control position sensor.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2563",
+  "title": "Turbocharger Boost Control Position Sensor \"A\" Circuit Range/Performance",
+  "plain": "The sensor that reports the position of the turbo boost control (usually the variable vanes) is giving readings that do not match what the computer commanded.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Slow or no turbo boost",
+   "Sometimes black smoke"
+  ],
+  "causes": [
+   {
+    "name": "Sticking turbo vanes from carbon buildup",
+    "how": "common"
+   },
+   {
+    "name": "Failed turbo actuator or position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Vacuum leak or bad vacuum control valve on vacuum-operated actuators",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector fault at the actuator",
+    "how": "possible"
+   },
+   {
+    "name": "Worn turbo linkage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch commanded versus actual vane position with a scan tool",
+   "Check vacuum lines and the boost control valve if the actuator uses vacuum",
+   "Check whether the actuator rod moves freely"
+  ],
+  "fix": "Often a new turbo actuator or position sensor; sometimes the turbo vanes must be cleaned or the turbo replaced.",
+  "cost": {
+   "job": "Replace turbo actuator or position sensor",
+   "parts": [
+    150,
+    900
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "examples": [
+   "Well known on Volkswagen and Audi TDI diesels with variable-vane turbos"
+  ],
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550",
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2564",
+  "title": "Turbocharger Boost Control Position Sensor \"A\" Circuit Low",
+  "plain": "The computer is watching the turbocharger boost control position sensor and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Turbo may over-boost or under-boost"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the turbocharger boost control position sensor shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed turbocharger boost control position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the turbocharger boost control position sensor wiring for rubbed-through insulation touching metal",
+   "Unplug the turbocharger boost control position sensor and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the turbocharger boost control position sensor.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2565",
+  "title": "Turbocharger Boost Control Position Sensor \"A\" Circuit High",
+  "plain": "The computer is watching the turbocharger boost control position sensor and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Turbo may over-boost or under-boost"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed turbocharger boost control position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the turbocharger boost control position sensor wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the turbocharger boost control position sensor.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2566",
+  "title": "Turbocharger Boost Control Position Sensor \"A\" Circuit Intermittent",
+  "plain": "The computer is watching the turbocharger boost control position sensor and is seeing a signal that cuts in and out. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Turbo may over-boost or under-boost"
+  ],
+  "causes": [
+   {
+    "name": "Loose connector or chafed wire that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Turbocharger boost control position sensor failing on and off",
+    "how": "common"
+   },
+   {
+    "name": "Corrosion inside the connector",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground connection",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the turbocharger boost control position sensor wiring with the engine running while watching live data",
+   "Check connector pins for corrosion or spread terminals",
+   "Note when it happens (hot, cold, bumps) to narrow it down"
+  ],
+  "fix": "Repair the loose or corroded connection; replace the turbocharger boost control position sensor if the wiring is solid.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2567",
+  "title": "Direct Ozone Reduction Catalyst Temperature Sensor Circuit",
+  "plain": "The computer is watching the ozone-reducing radiator catalyst temperature sensor and has spotted a fault in its circuit. Some cars have a special coating on the radiator that breaks down ozone in the air; this sensor helps the computer monitor it.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the ozone-reducing radiator catalyst temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the ozone-reducing radiator catalyst temperature sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed ozone-reducing radiator catalyst temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the ozone-reducing radiator catalyst temperature sensor connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the ozone-reducing radiator catalyst temperature sensor.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2568",
+  "title": "Direct Ozone Reduction Catalyst Temperature Sensor Circuit Range/Performance",
+  "plain": "The computer is watching the ozone-reducing radiator catalyst temperature sensor and is getting a signal that does not make sense for current conditions. Some cars have a special coating on the radiator that breaks down ozone in the air; this sensor helps the computer monitor it.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking ozone-reducing radiator catalyst temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the ozone-reducing radiator catalyst temperature sensor reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the ozone-reducing radiator catalyst temperature sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2569",
+  "title": "Direct Ozone Reduction Catalyst Temperature Sensor Circuit Low",
+  "plain": "The computer is watching the ozone-reducing radiator catalyst temperature sensor and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the ozone-reducing radiator catalyst temperature sensor shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed ozone-reducing radiator catalyst temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the ozone-reducing radiator catalyst temperature sensor wiring for rubbed-through insulation touching metal",
+   "Unplug the ozone-reducing radiator catalyst temperature sensor and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the ozone-reducing radiator catalyst temperature sensor.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P256F",
+  "title": "A/C Request \"B\" Circuit Range/Performance",
+  "plain": "The computer is watching the A/C request signal and is getting a signal that does not make sense for current conditions. This is the signal from the A/C controls asking the engine computer to turn on the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may not turn on or may not shut off",
+   "Idle may change when A/C is switched"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking A/C request signal",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the A/C request signal reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the A/C request signal itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2570",
+  "title": "Direct Ozone Reduction Catalyst Temperature Sensor Circuit High",
+  "plain": "The computer is watching the ozone-reducing radiator catalyst temperature sensor and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed ozone-reducing radiator catalyst temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the ozone-reducing radiator catalyst temperature sensor wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the ozone-reducing radiator catalyst temperature sensor.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2571",
+  "title": "Direct Ozone Reduction Catalyst Temperature Sensor Circuit Intermittent/Erratic",
+  "plain": "The computer is watching the ozone-reducing radiator catalyst temperature sensor and is seeing a signal that cuts in and out. Some cars have a special coating on the radiator that breaks down ozone in the air; this sensor helps the computer monitor it.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Loose connector or chafed wire that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Ozone-reducing radiator catalyst temperature sensor failing on and off",
+    "how": "common"
+   },
+   {
+    "name": "Corrosion inside the connector",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground connection",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the ozone-reducing radiator catalyst temperature sensor wiring with the engine running while watching live data",
+   "Check connector pins for corrosion or spread terminals",
+   "Note when it happens (hot, cold, bumps) to narrow it down"
+  ],
+  "fix": "Repair the loose or corroded connection; replace the ozone-reducing radiator catalyst temperature sensor if the wiring is solid.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2572",
+  "title": "Direct Ozone Reduction Catalyst Deterioration Sensor Circuit",
+  "plain": "The computer is watching the ozone-reducing radiator catalyst monitoring sensor and has spotted a fault in its circuit. Some cars have a special coating on the radiator that breaks down ozone; this sensor checks whether it still works.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the ozone-reducing radiator catalyst monitoring sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the ozone-reducing radiator catalyst monitoring sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed ozone-reducing radiator catalyst monitoring sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the ozone-reducing radiator catalyst monitoring sensor connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the ozone-reducing radiator catalyst monitoring sensor.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2573",
+  "title": "Direct Ozone Reduction Catalyst Deterioration Sensor Circuit Range/Performance",
+  "plain": "The computer is watching the ozone-reducing radiator catalyst monitoring sensor and is getting a signal that does not make sense for current conditions. Some cars have a special coating on the radiator that breaks down ozone; this sensor checks whether it still works.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking ozone-reducing radiator catalyst monitoring sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the ozone-reducing radiator catalyst monitoring sensor reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the ozone-reducing radiator catalyst monitoring sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2574",
+  "title": "Direct Ozone Reduction Catalyst Deterioration Sensor Circuit Low",
+  "plain": "The computer is watching the ozone-reducing radiator catalyst monitoring sensor and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. Some cars have a special coating on the radiator that breaks down ozone; this sensor checks whether it still works.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the ozone-reducing radiator catalyst monitoring sensor shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed ozone-reducing radiator catalyst monitoring sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the ozone-reducing radiator catalyst monitoring sensor wiring for rubbed-through insulation touching metal",
+   "Unplug the ozone-reducing radiator catalyst monitoring sensor and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the ozone-reducing radiator catalyst monitoring sensor.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2575",
+  "title": "Direct Ozone Reduction Catalyst Deterioration Sensor Circuit High",
+  "plain": "The computer is watching the ozone-reducing radiator catalyst monitoring sensor and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. Some cars have a special coating on the radiator that breaks down ozone; this sensor checks whether it still works.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed ozone-reducing radiator catalyst monitoring sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the ozone-reducing radiator catalyst monitoring sensor wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the ozone-reducing radiator catalyst monitoring sensor.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2576",
+  "title": "Direct Ozone Reduction Catalyst Deterioration Sensor Circuit Intermittent/Erratic",
+  "plain": "The computer is watching the ozone-reducing radiator catalyst monitoring sensor and is seeing a signal that cuts in and out. Some cars have a special coating on the radiator that breaks down ozone; this sensor checks whether it still works.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Loose connector or chafed wire that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Ozone-reducing radiator catalyst monitoring sensor failing on and off",
+    "how": "common"
+   },
+   {
+    "name": "Corrosion inside the connector",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground connection",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the ozone-reducing radiator catalyst monitoring sensor wiring with the engine running while watching live data",
+   "Check connector pins for corrosion or spread terminals",
+   "Note when it happens (hot, cold, bumps) to narrow it down"
+  ],
+  "fix": "Repair the loose or corroded connection; replace the ozone-reducing radiator catalyst monitoring sensor if the wiring is solid.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ }
+]

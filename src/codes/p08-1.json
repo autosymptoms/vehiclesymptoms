@@ -1,0 +1,1886 @@
+[
+ {
+  "code": "P0800",
+  "title": "Transfer Case Control System (MIL Request)",
+  "plain": "The transfer case control module (the computer that runs four-wheel drive) found a fault and asked the engine computer to turn on the check engine light.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Check engine light on",
+   "4WD may not engage or may be stuck in one mode",
+   "4WD indicator may flash"
+  ],
+  "causes": [
+   {
+    "name": "Fault stored in the transfer case control module",
+    "how": "common"
+   },
+   {
+    "name": "Transfer case shift motor or position sensor problem",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector fault at the transfer case",
+    "how": "possible"
+   },
+   {
+    "name": "Low battery voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Scan the transfer case module for its own codes, which point to the real problem",
+   "Check the transfer case shift motor connector for corrosion"
+  ],
+  "fix": "Fix the fault stored in the transfer case module; this code clears once that problem is repaired.",
+  "guide": "four-wheel-drive-not-engaging",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0801",
+  "title": "Reverse Inhibit Control Circuit",
+  "plain": "There is an electrical problem in the circuit that blocks reverse gear when the car is moving forward. This is mostly found on some manual transmissions.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Check engine light on",
+   "Reverse may be hard or impossible to select",
+   "Or reverse may not be blocked while moving"
+  ],
+  "causes": [
+   {
+    "name": "Failed reverse lockout solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector at the solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the solenoid connector on the side of the transmission",
+   "Test the solenoid resistance and its power supply"
+  ],
+  "fix": "Repair the wiring or replace the reverse lockout solenoid.",
+  "guide": "car-wont-go-into-gear",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0802",
+  "title": "Transmission Control System MIL Request Circuit/Open",
+  "plain": "The wire the transmission computer uses to ask the engine computer to turn on the check engine light has an open or electrical fault.",
+  "sys": "Computer",
+  "sev": "check",
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Broken wire between the transmission and engine computers",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector at either module",
+    "how": "common"
+   },
+   {
+    "name": "Faulty transmission or engine computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission computer for its own stored codes",
+   "Check the request wire between the modules for an open"
+  ],
+  "fix": "Repair the open wire or connector between the transmission and engine computers.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0803",
+  "title": "1-4 Upshift (Skip Shift) Solenoid Control Circuit",
+  "plain": "On some manual transmissions, a solenoid forces a shift from 1st straight to 4th during light driving to save fuel. The computer found an electrical problem in that solenoid circuit.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Check engine light on",
+   "Skip shift may stop working, or shifter may block 2nd gear unexpectedly"
+  ],
+  "causes": [
+   {
+    "name": "Failed skip shift solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector at the solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the solenoid connector on the transmission",
+   "Test the solenoid resistance and its power supply"
+  ],
+  "fix": "Repair the wiring or replace the skip shift solenoid.",
+  "examples": [
+   "Known on manual-transmission Chevrolet Corvette and Camaro models with the 1-to-4 skip shift feature"
+  ],
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0804",
+  "title": "1-4 Upshift (Skip Shift) Lamp Control Circuit",
+  "plain": "The dash light that tells you the car will shift from 1st straight to 4th has an electrical problem in its control circuit.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Check engine light on",
+   "Skip shift light on the dash may not work or stay on"
+  ],
+  "causes": [
+   {
+    "name": "Burned-out bulb or failed instrument cluster indicator",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the skip shift light works during the bulb check at start-up",
+   "Check the lamp circuit wiring for an open or short"
+  ],
+  "fix": "Repair the lamp circuit wiring or the indicator in the instrument cluster.",
+  "examples": [
+   "Known on manual-transmission Chevrolet Corvette and Camaro models with the 1-to-4 skip shift feature"
+  ],
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0805",
+  "title": "Clutch Position Sensor Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the clutch position sensor, which tells the computer how far the clutch pedal is pressed, or how far an automated clutch is engaged.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank, or cruise control may not work",
+   "Jerky clutch engagement on automated manual transmissions"
+  ],
+  "causes": [
+   {
+    "name": "Failed clutch position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the clutch position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the clutch position sensor for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the clutch position sensor against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the clutch position sensor.",
+  "cost": {
+   "job": "Replace clutch position sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0806",
+  "title": "Clutch Position Sensor Circuit Range/Performance",
+  "plain": "The clutch position sensor is giving readings that don't match what the computer expects for the current conditions. The clutch position sensor tells the computer how far the clutch pedal is pressed, or how far an automated clutch is engaged.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank, or cruise control may not work",
+   "Jerky clutch engagement on automated manual transmissions"
+  ],
+  "causes": [
+   {
+    "name": "Failing clutch position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Sensor out of adjustment or not calibrated",
+    "how": "common"
+   },
+   {
+    "name": "Clutch hydraulic problem or worn clutch",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the clutch position sensor reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the clutch position sensor.",
+  "cost": {
+   "job": "Replace clutch position sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0807",
+  "title": "Clutch Position Sensor Circuit Low",
+  "plain": "The computer sees a signal or voltage in the clutch position sensor circuit that is lower than it should be. The clutch position sensor tells the computer how far the clutch pedal is pressed, or how far an automated clutch is engaged.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank, or cruise control may not work",
+   "Jerky clutch engagement on automated manual transmissions"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the clutch position sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed clutch position sensor (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the clutch position sensor wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the clutch position sensor and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the clutch position sensor.",
+  "cost": {
+   "job": "Replace clutch position sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0808",
+  "title": "Clutch Position Sensor Circuit High",
+  "plain": "The computer sees a signal or voltage in the clutch position sensor circuit that is higher than it should be. The clutch position sensor tells the computer how far the clutch pedal is pressed, or how far an automated clutch is engaged.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank, or cruise control may not work",
+   "Jerky clutch engagement on automated manual transmissions"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the clutch position sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed clutch position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the clutch position sensor circuit for an open wire or a short to voltage",
+   "Test the clutch position sensor against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the clutch position sensor.",
+  "cost": {
+   "job": "Replace clutch position sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0809",
+  "title": "Clutch Position Sensor Circuit Intermittent",
+  "plain": "The signal from the clutch position sensor keeps dropping out or jumping around, which usually points to a loose connection or a damaged wire.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank, or cruise control may not work",
+   "Jerky clutch engagement on automated manual transmissions",
+   "Problem may come and go, often over bumps"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that opens or shorts as it moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing clutch position sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the wiring and connector while watching live data",
+   "Look for rubbed-through wiring near brackets and moving parts"
+  ],
+  "fix": "Repair the loose connection or damaged wire; replace the clutch position sensor only if it fails testing.",
+  "cost": {
+   "job": "Replace clutch position sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P080A",
+  "title": "Clutch Position Not Learned",
+  "plain": "The computer has not yet learned the clutch engagement point, which it needs to control starting, cruise or an automated clutch correctly.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank, or clutch engagement may feel off",
+   "Cruise control may not work"
+  ],
+  "causes": [
+   {
+    "name": "Clutch position relearn not done after a clutch, sensor or module replacement",
+    "how": "common"
+   },
+   {
+    "name": "Battery was disconnected or went dead",
+    "how": "possible"
+   },
+   {
+    "name": "Failing clutch position sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Run the clutch position learn procedure with a scan tool",
+   "Check the clutch position sensor reading and adjustment"
+  ],
+  "fix": "Perform the clutch position relearn with a capable scan tool; replace the sensor only if it will not learn.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0810",
+  "title": "Clutch Position Control Error",
+  "plain": "The computer is commanding the automated clutch to a position, but the clutch is not getting there as expected.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Jerky take-off or clutch slipping",
+   "Car may not move or may refuse a gear"
+  ],
+  "causes": [
+   {
+    "name": "Worn clutch or clutch needing a relearn",
+    "how": "common"
+   },
+   {
+    "name": "Faulty clutch actuator",
+    "how": "common"
+   },
+   {
+    "name": "Low hydraulic fluid or hydraulic leak",
+    "how": "possible"
+   },
+   {
+    "name": "Clutch position sensor problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other clutch or actuator codes",
+   "Run the clutch adaptation relearn with a scan tool",
+   "Check hydraulic fluid level if the system uses one"
+  ],
+  "fix": "Relearn the clutch first; if the fault returns, repair the actuator or replace the worn clutch.",
+  "guide": "clutch-slipping",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0811",
+  "title": "Excessive Clutch Slippage",
+  "plain": "The computer sees the engine speed running higher than the transmission input speed while the clutch should be fully engaged, which means the clutch is slipping.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Engine revs rise without the car speeding up",
+   "Burning smell after hard driving",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Worn clutch disc",
+    "how": "common"
+   },
+   {
+    "name": "Oil leaking onto the clutch",
+    "how": "possible"
+   },
+   {
+    "name": "Clutch hydraulic or actuator problem holding the clutch partly open",
+    "how": "possible"
+   },
+   {
+    "name": "Weak pressure plate",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check clutch fluid level and look for leaks",
+   "Do a road test in a high gear at low speed to confirm slipping",
+   "Check for a rear main seal oil leak"
+  ],
+  "fix": "Usually a clutch replacement, fixing any oil leak at the same time.",
+  "cost": {
+   "job": "Replace clutch",
+   "parts": [
+    200,
+    800
+   ],
+   "hours": [
+    4,
+    8
+   ]
+  },
+  "guide": "clutch-slipping",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0812",
+  "title": "Reverse Input Circuit",
+  "plain": "There is an electrical problem in the circuit that tells the computer reverse gear has been selected.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Check engine light on",
+   "Backup lights or backup camera may not work"
+  ],
+  "causes": [
+   {
+    "name": "Failed reverse switch or range sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the backup lights come on in reverse",
+   "Inspect the reverse switch or range sensor connector"
+  ],
+  "fix": "Repair the wiring or replace the reverse switch or range sensor.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0813",
+  "title": "Reverse Output Circuit",
+  "plain": "There is an electrical problem in the circuit the computer uses to send out the reverse signal to other systems, such as the backup lights.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Check engine light on",
+   "Backup lights or backup camera may not work"
+  ],
+  "causes": [
+   {
+    "name": "Damaged or shorted wiring in the reverse output circuit",
+    "how": "common"
+   },
+   {
+    "name": "Problem in a module or lamp circuit that receives the signal",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether backup lights and camera work in reverse",
+   "Check the reverse output wire for an open or short"
+  ],
+  "fix": "Repair the wiring fault in the reverse output circuit.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0814",
+  "title": "Transmission Range Display Circuit",
+  "plain": "The circuit that drives the gear position display (P R N D) on the dash has an electrical problem.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Gear indicator may be blank or wrong",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or connector to the display",
+    "how": "common"
+   },
+   {
+    "name": "Faulty instrument cluster or display",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the gear display works at all",
+   "Check the display circuit wiring for opens or shorts"
+  ],
+  "fix": "Repair the display wiring or the instrument cluster.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0815",
+  "title": "Upshift Switch Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the up and down shift switch, which sends your manual upshift and downshift requests (from the shifter or paddles) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual or paddle shifting may not work",
+   "Check engine light on",
+   "Normal automatic shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Failed up/down shift switch",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the shift switch",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the shift switch for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the shift switch against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the shift switch.",
+  "cost": {
+   "job": "Replace up/down shift switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0816",
+  "title": "Downshift Switch Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the up and down shift switch, which sends your manual upshift and downshift requests (from the shifter or paddles) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual or paddle shifting may not work",
+   "Check engine light on",
+   "Normal automatic shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Failed up/down shift switch",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the shift switch",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the shift switch for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the shift switch against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the shift switch.",
+  "cost": {
+   "job": "Replace up/down shift switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0817",
+  "title": "Starter Disable Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the starter disable circuit, which lets the computer block the starter unless it is safe to crank, such as in Park or with the clutch pressed.",
+  "sys": "Electrical",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Engine may not crank, or only cranks some of the time",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Failed starter relay or starter disable relay",
+    "how": "common"
+   },
+   {
+    "name": "Park/neutral or clutch switch problem",
+    "how": "possible"
+   },
+   {
+    "name": "Broken or damaged wiring to the starter disable circuit",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the starter disable circuit for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the starter disable circuit against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the starter disable circuit.",
+  "cost": {
+   "job": "Replace starter relay",
+   "parts": [
+    10,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0818",
+  "title": "Driveline Disconnect Switch Input Circuit",
+  "plain": "There is an electrical problem in the switch circuit that tells the computer whether part of the driveline has been disconnected, as on some 4WD and hybrid systems.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Check engine light on",
+   "4WD or AWD may not engage or disengage properly"
+  ],
+  "causes": [
+   {
+    "name": "Failed driveline disconnect switch",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the switch connector for corrosion or damage",
+   "Watch the switch status on a scan tool while engaging and disengaging"
+  ],
+  "fix": "Repair the wiring or replace the disconnect switch.",
+  "guide": "four-wheel-drive-not-engaging",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0819",
+  "title": "Up and Down Shift Switch to Transmission Range Correlation",
+  "plain": "The manual up/down shift switch signal does not agree with the gear range the transmission says it is in.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Manual or paddle shifting may not work",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty up/down shift switch",
+    "how": "common"
+   },
+   {
+    "name": "Transmission range sensor out of adjustment or failing",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the shift switch and range sensor readings on a scan tool",
+   "Check range sensor and shift cable adjustment"
+  ],
+  "fix": "Adjust or replace the range sensor or the up/down shift switch, whichever reads wrong.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P081A",
+  "title": "Starter Disable Circuit Low",
+  "plain": "The computer sees a signal or voltage in the starter disable circuit circuit that is lower than it should be. The starter disable circuit lets the computer block the starter unless it is safe to crank, such as in Park or with the clutch pressed.",
+  "sys": "Electrical",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Engine may not crank, or only cranks some of the time",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the starter disable circuit circuit",
+    "how": "common"
+   },
+   {
+    "name": "Park/neutral or clutch switch problem",
+    "how": "possible"
+   },
+   {
+    "name": "Failed starter relay or starter disable relay (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the starter disable circuit wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the starter disable circuit and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the starter disable circuit.",
+  "cost": {
+   "job": "Replace starter relay",
+   "parts": [
+    10,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P081B",
+  "title": "Starter Disable Circuit High",
+  "plain": "The computer sees a signal or voltage in the starter disable circuit circuit that is higher than it should be. The starter disable circuit lets the computer block the starter unless it is safe to crank, such as in Park or with the clutch pressed.",
+  "sys": "Electrical",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Engine may not crank, or only cranks some of the time",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the starter disable circuit circuit",
+    "how": "common"
+   },
+   {
+    "name": "Park/neutral or clutch switch problem",
+    "how": "possible"
+   },
+   {
+    "name": "Failed starter relay or starter disable relay",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the starter disable circuit circuit for an open wire or a short to voltage",
+   "Test the starter disable circuit against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the starter disable circuit.",
+  "cost": {
+   "job": "Replace starter relay",
+   "parts": [
+    10,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P081C",
+  "title": "Park Input Circuit",
+  "plain": "The computer found an electrical problem in the circuit that tells it the transmission is in Park.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank, or may only crank in Neutral",
+   "Gear indicator or idle quality may be slightly off"
+  ],
+  "causes": [
+   {
+    "name": "Failed park/neutral position switch",
+    "how": "common"
+   },
+   {
+    "name": "Switch or shift cable out of adjustment",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the park/neutral switch",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the park/neutral switch for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the park/neutral switch against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the park/neutral switch.",
+  "cost": {
+   "job": "Replace park/neutral position (range) switch",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P081D",
+  "title": "Neutral Input Circuit",
+  "plain": "The computer found an electrical problem in the circuit that tells it the transmission is in Neutral.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank, or may only crank in Neutral",
+   "Gear indicator or idle quality may be slightly off"
+  ],
+  "causes": [
+   {
+    "name": "Failed park/neutral position switch",
+    "how": "common"
+   },
+   {
+    "name": "Switch or shift cable out of adjustment",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the park/neutral switch",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the park/neutral switch for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the park/neutral switch against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the park/neutral switch.",
+  "cost": {
+   "job": "Replace park/neutral position (range) switch",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0820",
+  "title": "Gear Lever X-Y Position Sensor Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the gear lever position sensor, which tells the transmission computer where the shift lever is on shift-by-wire or automated manual systems.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Gear selected may not match the lever, or gears may be refused",
+   "Transmission may go into a default gear"
+  ],
+  "causes": [
+   {
+    "name": "Failed gear lever position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the gear lever sensor",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the gear lever sensor for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the gear lever sensor against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the gear lever sensor.",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0821",
+  "title": "Gear Lever X Position Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the gear lever position sensor, which tells the transmission computer where the shift lever is on shift-by-wire or automated manual systems.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Gear selected may not match the lever, or gears may be refused",
+   "Transmission may go into a default gear"
+  ],
+  "causes": [
+   {
+    "name": "Failed gear lever position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the gear lever sensor",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the gear lever sensor for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the gear lever sensor against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the gear lever sensor.",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0822",
+  "title": "Gear Lever Y Position Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the gear lever position sensor, which tells the transmission computer where the shift lever is on shift-by-wire or automated manual systems.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Gear selected may not match the lever, or gears may be refused",
+   "Transmission may go into a default gear"
+  ],
+  "causes": [
+   {
+    "name": "Failed gear lever position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the gear lever sensor",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the gear lever sensor for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the gear lever sensor against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the gear lever sensor.",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0823",
+  "title": "Gear Lever X Position Circuit Intermittent",
+  "plain": "The signal from the gear lever position sensor keeps dropping out or jumping around, which usually points to a loose connection or a damaged wire.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Gear selected may not match the lever, or gears may be refused",
+   "Transmission may go into a default gear",
+   "Problem may come and go, often over bumps"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that opens or shorts as it moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing gear lever position sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the wiring and connector while watching live data",
+   "Look for rubbed-through wiring near brackets and moving parts"
+  ],
+  "fix": "Repair the loose connection or damaged wire; replace the gear lever sensor only if it fails testing.",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0824",
+  "title": "Gear Lever Y Position Circuit Intermittent",
+  "plain": "The signal from the gear lever position sensor keeps dropping out or jumping around, which usually points to a loose connection or a damaged wire.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Gear selected may not match the lever, or gears may be refused",
+   "Transmission may go into a default gear",
+   "Problem may come and go, often over bumps"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that opens or shorts as it moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing gear lever position sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the wiring and connector while watching live data",
+   "Look for rubbed-through wiring near brackets and moving parts"
+  ],
+  "fix": "Repair the loose connection or damaged wire; replace the gear lever sensor only if it fails testing.",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0825",
+  "title": "Gear Lever Push-Pull Switch (Shift Anticipate)",
+  "plain": "The switch that senses you are about to push or pull the gear lever has a fault, so the transmission computer cannot prepare for the shift.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Slower or rougher shifts"
+  ],
+  "causes": [
+   {
+    "name": "Failed push-pull switch in the shifter",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch the switch status on a scan tool while moving the lever",
+   "Inspect the shifter wiring and connector"
+  ],
+  "fix": "Repair the wiring or replace the shifter switch or shifter assembly.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0826",
+  "title": "Up and Down Shift Switch Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the up and down shift switch, which sends your manual upshift and downshift requests (from the shifter or paddles) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual or paddle shifting may not work",
+   "Check engine light on",
+   "Normal automatic shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Failed up/down shift switch",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the shift switch",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the shift switch for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the shift switch against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the shift switch.",
+  "cost": {
+   "job": "Replace up/down shift switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0827",
+  "title": "Up and Down Shift Switch Circuit Low",
+  "plain": "The computer sees a signal or voltage in the up and down shift switch circuit that is lower than it should be. The shift switch sends your manual upshift and downshift requests (from the shifter or paddles) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual or paddle shifting may not work",
+   "Check engine light on",
+   "Normal automatic shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the shift switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed up/down shift switch (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the shift switch wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the shift switch and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the shift switch.",
+  "cost": {
+   "job": "Replace up/down shift switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0828",
+  "title": "Up and Down Shift Switch Circuit High",
+  "plain": "The computer sees a signal or voltage in the up and down shift switch circuit that is higher than it should be. The shift switch sends your manual upshift and downshift requests (from the shifter or paddles) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual or paddle shifting may not work",
+   "Check engine light on",
+   "Normal automatic shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the shift switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed up/down shift switch",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the shift switch circuit for an open wire or a short to voltage",
+   "Test the shift switch against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the shift switch.",
+  "cost": {
+   "job": "Replace up/down shift switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0829",
+  "title": "5-6 Shift",
+  "plain": "The transmission computer found a problem with the shift between 5th and 6th gear: it took too long, did not happen, or did not feel right.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Check engine light on",
+   "No 6th gear or a flare during the 5-6 shift",
+   "Higher engine speed on the highway"
+  ],
+  "causes": [
+   {
+    "name": "Low or worn-out transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Shift solenoid or valve body problem",
+    "how": "common"
+   },
+   {
+    "name": "Worn clutch pack inside the transmission",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fluid level and condition",
+   "Check for software updates or service bulletins",
+   "Watch the 5-6 shift on a scan tool during a road test"
+  ],
+  "fix": "Correct the fluid and check for updates first; solenoid or internal repair may be needed.",
+  "guide": "transmission-slipping",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0830",
+  "title": "Clutch Pedal Switch A Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the clutch pedal switch A, which tells the computer when the clutch pedal is pressed, which matters for starting and cruise control.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank with the clutch pressed",
+   "Cruise control may not work or may not cancel"
+  ],
+  "causes": [
+   {
+    "name": "Failed clutch pedal switch",
+    "how": "common"
+   },
+   {
+    "name": "Switch out of adjustment at the pedal",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the clutch pedal switch",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the clutch pedal switch for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the clutch pedal switch against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the clutch pedal switch.",
+  "cost": {
+   "job": "Replace clutch pedal switch",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0831",
+  "title": "Clutch Pedal Switch A Circuit Low",
+  "plain": "The computer sees a signal or voltage in the clutch pedal switch A circuit that is lower than it should be. The clutch pedal switch tells the computer when the clutch pedal is pressed, which matters for starting and cruise control.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank with the clutch pressed",
+   "Cruise control may not work or may not cancel"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the clutch pedal switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Switch out of adjustment at the pedal",
+    "how": "common"
+   },
+   {
+    "name": "Failed clutch pedal switch (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the clutch pedal switch wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the clutch pedal switch and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the clutch pedal switch.",
+  "cost": {
+   "job": "Replace clutch pedal switch",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0832",
+  "title": "Clutch Pedal Switch A Circuit High",
+  "plain": "The computer sees a signal or voltage in the clutch pedal switch A circuit that is higher than it should be. The clutch pedal switch tells the computer when the clutch pedal is pressed, which matters for starting and cruise control.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank with the clutch pressed",
+   "Cruise control may not work or may not cancel"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the clutch pedal switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Switch out of adjustment at the pedal",
+    "how": "common"
+   },
+   {
+    "name": "Failed clutch pedal switch",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the clutch pedal switch circuit for an open wire or a short to voltage",
+   "Test the clutch pedal switch against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the clutch pedal switch.",
+  "cost": {
+   "job": "Replace clutch pedal switch",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0833",
+  "title": "Clutch Pedal Switch B Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the clutch pedal switch B, which tells the computer when the clutch pedal is pressed, which matters for starting and cruise control.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank with the clutch pressed",
+   "Cruise control may not work or may not cancel"
+  ],
+  "causes": [
+   {
+    "name": "Failed clutch pedal switch",
+    "how": "common"
+   },
+   {
+    "name": "Switch out of adjustment at the pedal",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the clutch pedal switch",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the clutch pedal switch for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the clutch pedal switch against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the clutch pedal switch.",
+  "cost": {
+   "job": "Replace clutch pedal switch",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0834",
+  "title": "Clutch Pedal Switch B Circuit Low",
+  "plain": "The computer sees a signal or voltage in the clutch pedal switch B circuit that is lower than it should be. The clutch pedal switch tells the computer when the clutch pedal is pressed, which matters for starting and cruise control.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not crank with the clutch pressed",
+   "Cruise control may not work or may not cancel"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the clutch pedal switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Switch out of adjustment at the pedal",
+    "how": "common"
+   },
+   {
+    "name": "Failed clutch pedal switch (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the clutch pedal switch wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the clutch pedal switch and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the clutch pedal switch.",
+  "cost": {
+   "job": "Replace clutch pedal switch",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ }
+]

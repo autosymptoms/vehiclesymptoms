@@ -1,0 +1,2071 @@
+[
+ {
+  "code": "P0940",
+  "title": "Hydraulic Oil Temperature Sensor Circuit High",
+  "plain": "The computer sees a signal or voltage in the hydraulic oil temperature sensor circuit that is higher than it should be. The hydraulic oil temperature sensor tells the computer how warm the fluid in the shift and clutch hydraulic unit is.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine or transmission light on",
+   "Shifts may feel firmer or slower than normal"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the hydraulic oil temperature sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed hydraulic oil temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the hydraulic oil temperature sensor circuit for an open wire or a short to voltage",
+   "Test the hydraulic oil temperature sensor against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the hydraulic oil temperature sensor.",
+  "cost": {
+   "job": "Replace hydraulic oil temperature sensor",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0941",
+  "title": "Hydraulic Oil Temperature Sensor Circuit Intermittent",
+  "plain": "The signal from the hydraulic oil temperature sensor keeps dropping out or jumping around, which usually points to a loose connection or a damaged wire.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine or transmission light on",
+   "Shifts may feel firmer or slower than normal",
+   "Problem may come and go, often over bumps"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that opens or shorts as it moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing hydraulic oil temperature sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the wiring and connector while watching live data",
+   "Look for rubbed-through wiring near brackets and moving parts"
+  ],
+  "fix": "Repair the loose connection or damaged wire; replace the hydraulic oil temperature sensor only if it fails testing.",
+  "cost": {
+   "job": "Replace hydraulic oil temperature sensor",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0942",
+  "title": "Hydraulic Pressure Unit",
+  "plain": "The hydraulic unit that works the clutch and shifting on an automated manual transmission is not working as expected.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Gears may be refused, slow or harsh to engage",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Low hydraulic fluid or a leak",
+    "how": "common"
+   },
+   {
+    "name": "Weak or failed hydraulic pump",
+    "how": "common"
+   },
+   {
+    "name": "Faulty hydraulic pressure sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Pump relay or wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check hydraulic fluid level and look for leaks",
+   "Watch hydraulic pressure on a scan tool while the pump runs"
+  ],
+  "fix": "Fix any leak and refill; replace the pump or hydraulic unit if it cannot build pressure.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0943",
+  "title": "Hydraulic Pressure Unit Cycling Period Too Short",
+  "plain": "The hydraulic pump on an automated manual transmission is switching on again too soon, which means pressure is leaking down quickly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Pump may be heard running often",
+   "Transmission warning light on",
+   "Shifts may become slow or harsh"
+  ],
+  "causes": [
+   {
+    "name": "Internal or external hydraulic leak",
+    "how": "common"
+   },
+   {
+    "name": "Weak pressure accumulator",
+    "how": "common"
+   },
+   {
+    "name": "Faulty hydraulic pressure sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look for hydraulic fluid leaks",
+   "Check how fast pressure drops after the pump shuts off"
+  ],
+  "fix": "Repair the leak or replace the accumulator or hydraulic unit.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0944",
+  "title": "Hydraulic Pressure Unit Loss of Pressure",
+  "plain": "The hydraulic unit that works the clutch and shifting on an automated manual transmission has lost pressure.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Car may not move or may not shift",
+   "Transmission warning light on",
+   "Clutch may not engage or release"
+  ],
+  "causes": [
+   {
+    "name": "Hydraulic fluid leak",
+    "how": "common"
+   },
+   {
+    "name": "Failed hydraulic pump",
+    "how": "common"
+   },
+   {
+    "name": "Pump relay, fuse or wiring fault",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty hydraulic pressure sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fluid level and look for leaks",
+   "Check that the pump runs and its fuse and relay are good"
+  ],
+  "fix": "Fix the leak or replace the pump or hydraulic unit, then bleed and relearn the system.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0945",
+  "title": "Hydraulic Pump Relay Circuit/Open",
+  "plain": "The computer found an electrical problem in the circuit for the hydraulic pump relay, which switches on the electric pump that builds pressure for the clutch and shift hydraulics.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Gears may be refused, slow or harsh to engage",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Failed hydraulic pump relay",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the hydraulic pump relay",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the hydraulic pump relay for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the hydraulic pump relay against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the hydraulic pump relay.",
+  "cost": {
+   "job": "Replace hydraulic pump relay",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0946",
+  "title": "Hydraulic Pump Relay Circuit Range/Performance",
+  "plain": "The hydraulic pump relay is giving readings that don't match what the computer expects for the current conditions. The hydraulic pump relay switches on the electric pump that builds pressure for the clutch and shift hydraulics.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Gears may be refused, slow or harsh to engage",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Failing hydraulic pump relay",
+    "how": "common"
+   },
+   {
+    "name": "Hydraulic pump motor drawing too much current",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the hydraulic pump relay reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the hydraulic pump relay.",
+  "cost": {
+   "job": "Replace hydraulic pump relay",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0947",
+  "title": "Hydraulic Pump Relay Circuit Low",
+  "plain": "The computer sees a signal or voltage in the hydraulic pump relay circuit that is lower than it should be. The hydraulic pump relay switches on the electric pump that builds pressure for the clutch and shift hydraulics.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Gears may be refused, slow or harsh to engage",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the hydraulic pump relay circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed hydraulic pump relay (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the hydraulic pump relay wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the hydraulic pump relay and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the hydraulic pump relay.",
+  "cost": {
+   "job": "Replace hydraulic pump relay",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0948",
+  "title": "Hydraulic Pump Relay Circuit High",
+  "plain": "The computer sees a signal or voltage in the hydraulic pump relay circuit that is higher than it should be. The hydraulic pump relay switches on the electric pump that builds pressure for the clutch and shift hydraulics.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Gears may be refused, slow or harsh to engage",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the hydraulic pump relay circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed hydraulic pump relay",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the hydraulic pump relay circuit for an open wire or a short to voltage",
+   "Test the hydraulic pump relay against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the hydraulic pump relay.",
+  "cost": {
+   "job": "Replace hydraulic pump relay",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0949",
+  "title": "Auto Shift Manual Adaptive Learning Not Complete",
+  "plain": "The computer has not finished learning how the clutch and shift system behave, so shifts may not be as smooth as they should be.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Transmission warning or check engine light on",
+   "Shifts or take-off may feel rough"
+  ],
+  "causes": [
+   {
+    "name": "Adaptive learn not done after repair, battery disconnect or module replacement",
+    "how": "common"
+   },
+   {
+    "name": "Clutch or actuator problem stopping the learn from finishing",
+    "how": "possible"
+   },
+   {
+    "name": "Low battery voltage during the learn",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Run the adaptive learn procedure with a capable scan tool",
+   "Scan for other clutch or actuator codes that block learning"
+  ],
+  "fix": "Complete the adaptive learn procedure; repair any fault that stops it from finishing.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0950",
+  "title": "Auto Shift Manual Control Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the manual shift control (tap-shift) circuit, which carries your up and down requests when you shift the automatic yourself.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual or paddle shifting may not work",
+   "Check engine light on",
+   "Normal shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Failed manual shift (tap-shift) switch",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the manual shift switch",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the manual shift switch for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the manual shift switch against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the manual shift switch.",
+  "cost": {
+   "job": "Replace manual shift switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0951",
+  "title": "Auto Shift Manual Control Circuit Range/Performance",
+  "plain": "The manual shift control (tap-shift) circuit is giving readings that don't match what the computer expects for the current conditions. The manual shift switch carries your up and down requests when you shift the automatic yourself.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual or paddle shifting may not work",
+   "Check engine light on",
+   "Normal shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Failing manual shift (tap-shift) switch",
+    "how": "common"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the manual shift switch reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the manual shift switch.",
+  "cost": {
+   "job": "Replace manual shift switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0952",
+  "title": "Auto Shift Manual Control Circuit Low",
+  "plain": "The computer sees a signal or voltage in the manual shift control (tap-shift) circuit circuit that is lower than it should be. The manual shift switch carries your up and down requests when you shift the automatic yourself.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual or paddle shifting may not work",
+   "Check engine light on",
+   "Normal shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the manual shift switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed manual shift (tap-shift) switch (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the manual shift switch wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the manual shift switch and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the manual shift switch.",
+  "cost": {
+   "job": "Replace manual shift switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0953",
+  "title": "Auto Shift Manual Control Circuit High",
+  "plain": "The computer sees a signal or voltage in the manual shift control (tap-shift) circuit circuit that is higher than it should be. The manual shift switch carries your up and down requests when you shift the automatic yourself.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual or paddle shifting may not work",
+   "Check engine light on",
+   "Normal shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the manual shift switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed manual shift (tap-shift) switch",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the manual shift switch circuit for an open wire or a short to voltage",
+   "Test the manual shift switch against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the manual shift switch.",
+  "cost": {
+   "job": "Replace manual shift switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0954",
+  "title": "Auto Shift Manual Control Circuit Intermittent",
+  "plain": "The signal from the manual shift control (tap-shift) circuit keeps dropping out or jumping around, which usually points to a loose connection or a damaged wire.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual or paddle shifting may not work",
+   "Check engine light on",
+   "Normal shifting in Drive usually still works",
+   "Problem may come and go, often over bumps"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that opens or shorts as it moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing manual shift (tap-shift) switch",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the wiring and connector while watching live data",
+   "Look for rubbed-through wiring near brackets and moving parts"
+  ],
+  "fix": "Repair the loose connection or damaged wire; replace the manual shift switch only if it fails testing.",
+  "cost": {
+   "job": "Replace manual shift switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0955",
+  "title": "Auto Shift Manual Mode Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the manual mode switch circuit, which tells the computer you have moved the shifter into manual (plus/minus) mode.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual mode may not work or may switch on by itself",
+   "Check engine light on",
+   "Normal shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Failed manual mode switch",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the manual mode switch",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the manual mode switch for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the manual mode switch against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the manual mode switch.",
+  "cost": {
+   "job": "Replace manual mode switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0956",
+  "title": "Auto Shift Manual Mode Circuit Range/Performance",
+  "plain": "The manual mode switch circuit is giving readings that don't match what the computer expects for the current conditions. The manual mode switch tells the computer you have moved the shifter into manual (plus/minus) mode.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual mode may not work or may switch on by itself",
+   "Check engine light on",
+   "Normal shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Failing manual mode switch",
+    "how": "common"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the manual mode switch reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the manual mode switch.",
+  "cost": {
+   "job": "Replace manual mode switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0957",
+  "title": "Auto Shift Manual Mode Circuit Low",
+  "plain": "The computer sees a signal or voltage in the manual mode switch circuit circuit that is lower than it should be. The manual mode switch tells the computer you have moved the shifter into manual (plus/minus) mode.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual mode may not work or may switch on by itself",
+   "Check engine light on",
+   "Normal shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the manual mode switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed manual mode switch (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the manual mode switch wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the manual mode switch and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the manual mode switch.",
+  "cost": {
+   "job": "Replace manual mode switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0958",
+  "title": "Auto Shift Manual Mode Circuit High",
+  "plain": "The computer sees a signal or voltage in the manual mode switch circuit circuit that is higher than it should be. The manual mode switch tells the computer you have moved the shifter into manual (plus/minus) mode.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual mode may not work or may switch on by itself",
+   "Check engine light on",
+   "Normal shifting in Drive usually still works"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the manual mode switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed manual mode switch",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the manual mode switch circuit for an open wire or a short to voltage",
+   "Test the manual mode switch against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the manual mode switch.",
+  "cost": {
+   "job": "Replace manual mode switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0959",
+  "title": "Auto Shift Manual Mode Circuit Intermittent",
+  "plain": "The signal from the manual mode switch circuit keeps dropping out or jumping around, which usually points to a loose connection or a damaged wire.",
+  "sys": "Transmission",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Manual mode may not work or may switch on by itself",
+   "Check engine light on",
+   "Normal shifting in Drive usually still works",
+   "Problem may come and go, often over bumps"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that opens or shorts as it moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing manual mode switch",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the wiring and connector while watching live data",
+   "Look for rubbed-through wiring near brackets and moving parts"
+  ],
+  "fix": "Repair the loose connection or damaged wire; replace the manual mode switch only if it fails testing.",
+  "cost": {
+   "job": "Replace manual mode switch",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0960",
+  "title": "Pressure Control Solenoid A Control Circuit/Open",
+  "plain": "The computer found an electrical problem in the circuit for the pressure control solenoid A, which adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failed pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the pressure control solenoid for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the pressure control solenoid against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0961",
+  "title": "Pressure Control Solenoid A Control Circuit Range/Performance",
+  "plain": "The pressure control solenoid A is giving readings that don't match what the computer expects for the current conditions. The pressure control solenoid adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or contaminated transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty pressure control solenoid A",
+    "how": "common"
+   },
+   {
+    "name": "Clogged filter or blocked hydraulic passage",
+    "how": "possible"
+   },
+   {
+    "name": "Sticking valve body",
+    "how": "possible"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission fluid level and condition",
+   "Compare the pressure control solenoid reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://partsavatar.ca/p0961-obd-ii-trouble-code-pressure-control-solenoid-a-circuit-range-performance-solution-transmission-fluid",
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0962",
+  "title": "Pressure Control Solenoid A Control Circuit Low",
+  "plain": "The computer sees a signal or voltage in the pressure control solenoid A circuit that is lower than it should be. The pressure control solenoid adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)",
+   "Erratic shift timing"
+  ],
+  "causes": [
+   {
+    "name": "Failed pressure control solenoid A",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or corroded wiring in the transmission harness",
+    "how": "common"
+   },
+   {
+    "name": "Loose or poor-contact connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or relay in the transmission circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the pressure control solenoid wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the pressure control solenoid and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://autos.yahoo.com/ownership/articles/p0962-engine-code-explained-causes-202600389.html",
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0963",
+  "title": "Pressure Control Solenoid A Control Circuit High",
+  "plain": "The computer sees a signal or voltage in the pressure control solenoid A circuit that is higher than it should be. The pressure control solenoid adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the pressure control solenoid circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the pressure control solenoid circuit for an open wire or a short to voltage",
+   "Test the pressure control solenoid against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0964",
+  "title": "Pressure Control Solenoid B Control Circuit/Open",
+  "plain": "The computer found an electrical problem in the circuit for the pressure control solenoid B, which adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failed pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the pressure control solenoid for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the pressure control solenoid against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0965",
+  "title": "Pressure Control Solenoid B Control Circuit Range/Performance",
+  "plain": "The pressure control solenoid B is giving readings that don't match what the computer expects for the current conditions. The pressure control solenoid adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failing pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low, dirty or wrong-type transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking valve in the valve body",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission fluid level and condition",
+   "Compare the pressure control solenoid reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0966",
+  "title": "Pressure Control Solenoid B Control Circuit Low",
+  "plain": "The computer sees a signal or voltage in the pressure control solenoid B circuit that is lower than it should be. The pressure control solenoid adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the pressure control solenoid circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed pressure control solenoid (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the pressure control solenoid wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the pressure control solenoid and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0967",
+  "title": "Pressure Control Solenoid B Control Circuit High",
+  "plain": "The computer sees a signal or voltage in the pressure control solenoid B circuit that is higher than it should be. The pressure control solenoid adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the pressure control solenoid circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the pressure control solenoid circuit for an open wire or a short to voltage",
+   "Test the pressure control solenoid against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0968",
+  "title": "Pressure Control Solenoid C Control Circuit/Open",
+  "plain": "The computer found an electrical problem in the circuit for the pressure control solenoid C, which adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failed pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the pressure control solenoid for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the pressure control solenoid against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0969",
+  "title": "Pressure Control Solenoid C Control Circuit Range/Performance",
+  "plain": "The pressure control solenoid C is giving readings that don't match what the computer expects for the current conditions. The pressure control solenoid adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failing pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low, dirty or wrong-type transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking valve in the valve body",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission fluid level and condition",
+   "Compare the pressure control solenoid reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0970",
+  "title": "Pressure Control Solenoid C Control Circuit Low",
+  "plain": "The computer sees a signal or voltage in the pressure control solenoid C circuit that is lower than it should be. The pressure control solenoid adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the pressure control solenoid circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed pressure control solenoid (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the pressure control solenoid wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the pressure control solenoid and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0971",
+  "title": "Pressure Control Solenoid C Control Circuit High",
+  "plain": "The computer sees a signal or voltage in the pressure control solenoid C circuit that is higher than it should be. The pressure control solenoid adjusts hydraulic pressure inside the transmission so the clutches apply firmly and smoothly.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, delayed or slipping shifts",
+   "Transmission may be stuck in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the pressure control solenoid circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the pressure control solenoid circuit for an open wire or a short to voltage",
+   "Test the pressure control solenoid against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the pressure control solenoid.",
+  "cost": {
+   "job": "Replace pressure control solenoid",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0972",
+  "title": "Shift Solenoid A Control Circuit Range/Performance",
+  "plain": "The shift solenoid A is giving readings that don't match what the computer expects for the current conditions. The shift solenoid opens and closes oil passages so the transmission can change gears.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Missing, late or harsh shifts",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failing shift solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low, dirty or wrong-type transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking valve in the valve body",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission fluid level and condition",
+   "Compare the shift solenoid reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the shift solenoid.",
+  "cost": {
+   "job": "Replace shift solenoid",
+   "parts": [
+    40,
+    350
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0973",
+  "title": "Shift Solenoid A Control Circuit Low",
+  "plain": "The computer sees a voltage in the shift solenoid A control circuit that is lower than it should be, often from a shorted wire or a failed solenoid. This solenoid helps the transmission change gears.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Missing, late or harsh shifts",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failed shift solenoid A",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to ground in the solenoid circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or fluid-soaked connector at the transmission",
+    "how": "common"
+   },
+   {
+    "name": "Faulty transmission computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the shift solenoid wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the shift solenoid and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the shift solenoid.",
+  "cost": {
+   "job": "Replace shift solenoid",
+   "parts": [
+    40,
+    350
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0974",
+  "title": "Shift Solenoid A Control Circuit High",
+  "plain": "The computer sees a signal or voltage in the shift solenoid A circuit that is higher than it should be. The shift solenoid opens and closes oil passages so the transmission can change gears.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Missing, late or harsh shifts",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the shift solenoid circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed shift solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the shift solenoid circuit for an open wire or a short to voltage",
+   "Test the shift solenoid against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the shift solenoid.",
+  "cost": {
+   "job": "Replace shift solenoid",
+   "parts": [
+    40,
+    350
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0975",
+  "title": "Shift Solenoid B Control Circuit Range/Performance",
+  "plain": "The shift solenoid B is giving readings that don't match what the computer expects for the current conditions. The shift solenoid opens and closes oil passages so the transmission can change gears.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Missing, late or harsh shifts",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failing shift solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low, dirty or wrong-type transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking valve in the valve body",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission fluid level and condition",
+   "Compare the shift solenoid reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the shift solenoid.",
+  "cost": {
+   "job": "Replace shift solenoid",
+   "parts": [
+    40,
+    350
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0976",
+  "title": "Shift Solenoid B Control Circuit Low",
+  "plain": "The computer sees a voltage in the shift solenoid B control circuit that is lower than it should be, often from a shorted wire or a failed solenoid. This solenoid helps the transmission change gears.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Missing, late or harsh shifts",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failed shift solenoid B",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to ground in the solenoid circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or fluid-soaked connector at the transmission",
+    "how": "common"
+   },
+   {
+    "name": "Faulty transmission computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the shift solenoid wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the shift solenoid and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the shift solenoid.",
+  "cost": {
+   "job": "Replace shift solenoid",
+   "parts": [
+    40,
+    350
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0977",
+  "title": "Shift Solenoid B Control Circuit High",
+  "plain": "The computer sees a signal or voltage in the shift solenoid B circuit that is higher than it should be. The shift solenoid opens and closes oil passages so the transmission can change gears.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Missing, late or harsh shifts",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the shift solenoid circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed shift solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the shift solenoid circuit for an open wire or a short to voltage",
+   "Test the shift solenoid against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the shift solenoid.",
+  "cost": {
+   "job": "Replace shift solenoid",
+   "parts": [
+    40,
+    350
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0978",
+  "title": "Shift Solenoid C Control Circuit Range/Performance",
+  "plain": "The shift solenoid C is giving readings that don't match what the computer expects for the current conditions. The shift solenoid opens and closes oil passages so the transmission can change gears.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Missing, late or harsh shifts",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failing shift solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low, dirty or wrong-type transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking valve in the valve body",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission fluid level and condition",
+   "Compare the shift solenoid reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the shift solenoid.",
+  "cost": {
+   "job": "Replace shift solenoid",
+   "parts": [
+    40,
+    350
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0979",
+  "title": "Shift Solenoid C Control Circuit Low",
+  "plain": "The computer sees a signal or voltage in the shift solenoid C circuit that is lower than it should be. The shift solenoid opens and closes oil passages so the transmission can change gears.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Missing, late or harsh shifts",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the shift solenoid circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed shift solenoid (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the shift solenoid wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the shift solenoid and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the shift solenoid.",
+  "cost": {
+   "job": "Replace shift solenoid",
+   "parts": [
+    40,
+    350
+   ],
+   "hours": [
+    1.5,
+    4
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ }
+]

@@ -1,0 +1,1393 @@
+[
+ {
+  "code": "P0620",
+  "title": "Generator Control Circuit",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the alternator. This part charges the battery and powers the electrical system while the engine runs.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Battery warning light on",
+   "Dim lights or a battery that keeps going dead",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty alternator",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the alternator wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the alternator with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a new alternator or a repair to the alternator wiring or connector.",
+  "cost": {
+   "job": "Replace alternator",
+   "parts": [
+    150,
+    500
+   ],
+   "hours": [
+    1,
+    2.5
+   ]
+  },
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0621",
+  "title": "Generator Lamp/L-Terminal Circuit",
+  "plain": "The computer sees a problem in the alternator \"L\" circuit, which the alternator uses to turn on the charging warning light and signal that it is working.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Battery warning light on",
+   "Dim lights or a battery that keeps going dead",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty alternator or voltage regulator",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wire or corroded connector at the alternator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check charging voltage with the engine running",
+   "Inspect the alternator connector and wiring"
+  ],
+  "fix": "Usually a new alternator or a repair to the alternator wiring or connector.",
+  "cost": {
+   "job": "Replace alternator",
+   "parts": [
+    150,
+    500
+   ],
+   "hours": [
+    1,
+    2.5
+   ]
+  },
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0622",
+  "title": "Generator Field/F Terminal Circuit",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the alternator field circuit. This part lets the computer control how hard the alternator charges.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Battery warning light on",
+   "Dim lights or a battery that keeps going dead",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty alternator field circuit",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the alternator field circuit wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the alternator field circuit with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a new alternator or a repair to the alternator wiring or connector.",
+  "cost": {
+   "job": "Replace alternator",
+   "parts": [
+    150,
+    500
+   ],
+   "hours": [
+    1,
+    2.5
+   ]
+  },
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0623",
+  "title": "Generator Lamp Control Circuit",
+  "plain": "The computer found a problem in the circuit it uses to turn the charging system warning light on and off.",
+  "sys": "Electrical",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Battery warning light stays on or never comes on",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector problem to the instrument cluster",
+    "how": "common"
+   },
+   {
+    "name": "Faulty instrument cluster",
+    "how": "common"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the battery light comes on with the key on and engine off",
+   "Test charging voltage to rule out a real charging problem"
+  ],
+  "fix": "Usually a wiring repair or instrument cluster repair.",
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0624",
+  "title": "Fuel Cap Lamp Control Circuit",
+  "plain": "The computer found a problem in the circuit for the \"check fuel cap\" warning light on the dash.",
+  "sys": "Electrical",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Fuel cap warning light not working or stuck on",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector problem to the instrument cluster",
+    "how": "common"
+   },
+   {
+    "name": "Faulty instrument cluster",
+    "how": "common"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the fuel cap light comes on during the startup bulb check",
+   "Inspect wiring between the computer and the cluster"
+  ],
+  "fix": "Usually a wiring or instrument cluster repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0625",
+  "title": "Generator Field/F Terminal Circuit Low",
+  "plain": "The computer sees lower voltage than expected in the circuit that controls the alternator field circuit, often from a wire shorted to ground. This part lets the computer control how hard the alternator charges.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Battery warning light on",
+   "Dim lights or a battery that keeps going dead",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty alternator field circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the alternator field circuit wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the alternator field circuit with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a new alternator or a repair to the alternator wiring or connector.",
+  "cost": {
+   "job": "Replace alternator",
+   "parts": [
+    150,
+    500
+   ],
+   "hours": [
+    1,
+    2.5
+   ]
+  },
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0626",
+  "title": "Generator Field/F Terminal Circuit High",
+  "plain": "The computer sees higher voltage than expected in the circuit that controls the alternator field circuit, often from a wire shorted to power or a failed part. This part lets the computer control how hard the alternator charges.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Battery warning light on",
+   "Dim lights or a battery that keeps going dead",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or shorted alternator field circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the alternator field circuit wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the alternator field circuit with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a new alternator or a repair to the alternator wiring or connector.",
+  "cost": {
+   "job": "Replace alternator",
+   "parts": [
+    150,
+    500
+   ],
+   "hours": [
+    1,
+    2.5
+   ]
+  },
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0627",
+  "title": "Fuel Pump \"A\" Control Circuit/Open",
+  "plain": "The computer found a break or problem in the circuit it uses to run the fuel pump, so the engine may not get enough fuel.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Engine cranks but will not start",
+   "Stalling or sputtering while driving",
+   "Hesitation or loss of power",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty fuel pump driver or control module",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector at the fuel pump or its module",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fuel pump",
+    "how": "possible"
+   },
+   {
+    "name": "Blown fuse or failed fuel pump relay",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the fuel pump fuse and relay",
+   "Inspect the connectors at the fuel pump and fuel pump module for corrosion",
+   "Check fuel pressure while cranking and running"
+  ],
+  "fix": "Usually a wiring or connector repair or a new fuel pump control module; sometimes the fuel pump itself.",
+  "cost": {
+   "job": "Replace fuel pump control module",
+   "parts": [
+    80,
+    350
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_699.htm"
+  ]
+ },
+ {
+  "code": "P0628",
+  "title": "Fuel Pump \"A\" Control Circuit Low",
+  "plain": "The computer sees lower voltage than expected in the circuit that controls the fuel pump control circuit, often from a wire shorted to ground. This part runs the fuel pump that feeds fuel to the engine.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine cranks but will not start",
+   "Stalling or loss of power",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fuel pump control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the fuel pump control circuit wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the fuel pump control circuit with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new fuel pump control module or fuel pump.",
+  "cost": {
+   "job": "Replace fuel pump control module",
+   "parts": [
+    80,
+    350
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0629",
+  "title": "Fuel Pump \"A\" Control Circuit High",
+  "plain": "The computer sees higher voltage than expected in the circuit that controls the fuel pump control circuit, often from a wire shorted to power or a failed part. This part runs the fuel pump that feeds fuel to the engine.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine cranks but will not start",
+   "Stalling or loss of power",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or shorted fuel pump control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the fuel pump control circuit wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the fuel pump control circuit with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new fuel pump control module or fuel pump.",
+  "cost": {
+   "job": "Replace fuel pump control module",
+   "parts": [
+    80,
+    350
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P062A",
+  "title": "Fuel Pump \"A\" Control Circuit Range/Performance",
+  "plain": "The circuit that controls the fuel pump control circuit is not behaving the way the computer expects. This part runs the fuel pump that feeds fuel to the engine.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine cranks but will not start",
+   "Stalling or loss of power",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty fuel pump control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector or high resistance in the wiring",
+    "how": "common"
+   },
+   {
+    "name": "Low system voltage",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the fuel pump control circuit wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the fuel pump control circuit with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new fuel pump control module or fuel pump.",
+  "cost": {
+   "job": "Replace fuel pump control module",
+   "parts": [
+    80,
+    350
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P062B",
+  "title": "Internal Control Module Fuel Injector Control Performance",
+  "plain": "The part of the engine computer that fires the fuel injectors failed a self-check.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Misfire, rough running or stalling",
+   "Possible no start"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Shorted fuel injector or injector wiring overloading the driver",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground connections",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "engine-sputtering-misfire",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P062C",
+  "title": "Internal Control Module Vehicle Speed Performance",
+  "plain": "The engine computer's internal check of the vehicle speed signal failed.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer or cruise control may act up",
+   "Possible odd shifting"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Erratic vehicle or wheel speed sensor signal",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground connections",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P062D",
+  "title": "Fuel Injector Driver Circuit Performance Bank 1",
+  "plain": "The computer circuit that fires the fuel injectors on bank 1 is not performing correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Misfire or rough running",
+   "Loss of power or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Shorted fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer injector driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for misfire or injector circuit codes on the same bank",
+   "Measure injector resistance and inspect the injector harness"
+  ],
+  "fix": "Usually a new injector or wiring repair; sometimes the engine computer.",
+  "guide": "engine-sputtering-misfire",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P062E",
+  "title": "Fuel Injector Driver Circuit Performance Bank 2",
+  "plain": "The computer circuit that fires the fuel injectors on bank 2 is not performing correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Misfire or rough running",
+   "Loss of power or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Shorted fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Damaged injector wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer injector driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for misfire or injector circuit codes on the same bank",
+   "Measure injector resistance and inspect the injector harness"
+  ],
+  "fix": "Usually a new injector or wiring repair; sometimes the engine computer.",
+  "guide": "engine-sputtering-misfire",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P062F",
+  "title": "Internal Control Module EEPROM Error",
+  "plain": "The engine computer found an error in the memory chip that stores its settings and learned values.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power, stalling or no start",
+   "Other warning lights may come on"
+  ],
+  "causes": [
+   {
+    "name": "Low battery voltage or poor power or ground connections at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update or reprogramming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0630",
+  "title": "VIN Not Programmed or Incompatible - ECM/PCM",
+  "plain": "The engine computer doesn't have this car's vehicle identification number (VIN) stored, or it has the wrong one.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start on some vehicles"
+  ],
+  "causes": [
+   {
+    "name": "Engine computer replaced or reprogrammed without the vehicle ID being set",
+    "how": "common"
+   },
+   {
+    "name": "Used computer from another vehicle installed",
+    "how": "common"
+   },
+   {
+    "name": "Interrupted programming",
+    "how": "possible"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read the stored VIN with a scan tool and compare it with the car",
+   "Program the VIN with a dealer-level scan tool"
+  ],
+  "fix": "Program the correct VIN into the engine computer.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0631",
+  "title": "VIN Not Programmed or Incompatible - TCM",
+  "plain": "The transmission computer doesn't have this car's vehicle identification number (VIN) stored, or it has the wrong one.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Transmission computer replaced or reprogrammed without the vehicle ID being set",
+    "how": "common"
+   },
+   {
+    "name": "Used computer from another vehicle installed",
+    "how": "common"
+   },
+   {
+    "name": "Interrupted programming",
+    "how": "possible"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read the stored VIN with a scan tool and compare it with the car",
+   "Program the VIN with a dealer-level scan tool"
+  ],
+  "fix": "Program the correct VIN into the transmission computer.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0632",
+  "title": "Odometer Not Programmed - ECM/PCM",
+  "plain": "The engine computer does not have the vehicle mileage stored, usually after the computer was replaced.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Engine computer replaced or reprogrammed without the vehicle ID being set",
+    "how": "common"
+   },
+   {
+    "name": "Used computer from another vehicle installed",
+    "how": "common"
+   },
+   {
+    "name": "Interrupted programming",
+    "how": "possible"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Ask whether the engine computer was recently replaced",
+   "Program mileage with a dealer-level scan tool"
+  ],
+  "fix": "Program the mileage into the engine computer.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0633",
+  "title": "Immobilizer Key Not Programmed - ECM/PCM",
+  "plain": "The engine computer hasn't been paired with the car's anti-theft system and keys, so it may block the engine from starting.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine will not start, or starts and dies",
+   "Security light on or flashing"
+  ],
+  "causes": [
+   {
+    "name": "Engine computer replaced without immobilizer pairing",
+    "how": "common"
+   },
+   {
+    "name": "Keys not programmed after computer or module replacement",
+    "how": "common"
+   },
+   {
+    "name": "Faulty immobilizer module",
+    "how": "possible"
+   },
+   {
+    "name": "Interrupted programming",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Ask whether the computer or immobilizer was recently replaced",
+   "Have the computer and keys paired with a dealer-level scan tool"
+  ],
+  "fix": "Pair the engine computer and keys to the immobilizer system.",
+  "guide": "security-light-flashing-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0634",
+  "title": "PCM/ECM/TCM Internal Temperature Too High",
+  "plain": "A control computer is reporting that it is running too hot inside.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power, limp mode or stalling",
+   "Possible harsh shifting"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Shorted sensor, solenoid or actuator overloading the computer",
+    "how": "common"
+   },
+   {
+    "name": "Computer mounted near a heat source or blocked cooling",
+    "how": "possible"
+   },
+   {
+    "name": "Low or overheated transmission fluid (computers mounted in the transmission)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any shorted part or heat problem first; otherwise replace and program the computer.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0635",
+  "title": "Power Steering Control Circuit",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the power steering control circuit. This part controls the steering assist motor or valve on electric or variable-assist power steering.",
+  "sys": "Steering and suspension",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Steering heavier than normal",
+   "Power steering warning light on",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty power steering control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the power steering control circuit wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the power steering control circuit with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new power steering control circuit if it tests bad.",
+  "guide": "steering-hard-to-turn",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0636",
+  "title": "Power Steering Control Circuit Low",
+  "plain": "The computer sees lower voltage than expected in the circuit that controls the power steering control circuit, often from a wire shorted to ground. This part controls the steering assist motor or valve on electric or variable-assist power steering.",
+  "sys": "Steering and suspension",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Steering heavier than normal",
+   "Power steering warning light on",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty power steering control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the power steering control circuit wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the power steering control circuit with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new power steering control circuit if it tests bad.",
+  "guide": "steering-hard-to-turn",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0637",
+  "title": "Power Steering Control Circuit High",
+  "plain": "The computer sees higher voltage than expected in the circuit that controls the power steering control circuit, often from a wire shorted to power or a failed part. This part controls the steering assist motor or valve on electric or variable-assist power steering.",
+  "sys": "Steering and suspension",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Steering heavier than normal",
+   "Power steering warning light on",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or shorted power steering control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the power steering control circuit wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the power steering control circuit with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new power steering control circuit if it tests bad.",
+  "guide": "steering-hard-to-turn",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0638",
+  "title": "Throttle Actuator Control Range/Performance Bank 1",
+  "plain": "The electronic throttle on bank 1 isn't opening or closing to the position the computer commands.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Reduced power or limp mode warning",
+   "Rough, high or low idle, or stalling",
+   "Poor or delayed acceleration",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Dirty or sticking throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Faulty electronic throttle body motor or position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector at the throttle body",
+    "how": "possible"
+   },
+   {
+    "name": "Low system voltage",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect and clean the throttle body",
+   "Check the throttle body connector and wiring",
+   "Compare commanded and actual throttle position on a scan tool",
+   "Perform a throttle relearn after cleaning"
+  ],
+  "fix": "Usually a throttle body cleaning and relearn, or a new electronic throttle body.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    500
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_699.htm"
+  ]
+ },
+ {
+  "code": "P0639",
+  "title": "Throttle Actuator Control Range/Performance Bank 2",
+  "plain": "The electronic throttle on bank 2 isn't opening or closing to the position the computer commands.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Reduced power or limp mode warning",
+   "Rough idle or stalling",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Dirty or sticking throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Faulty electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the throttle body",
+    "how": "possible"
+   },
+   {
+    "name": "Low system voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect and clean the throttle body",
+   "Compare commanded and actual throttle position on a scan tool"
+  ],
+  "fix": "Usually a throttle body cleaning and relearn, or a new electronic throttle body.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    500
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P063A",
+  "title": "Generator Voltage Sense Circuit",
+  "plain": "The wire the computer uses to sense the alternator output voltage has a problem, so it may not control charging correctly.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Battery warning light on",
+   "Battery undercharging or overcharging",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Damaged sense wire or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty alternator or voltage regulator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure charging voltage at the battery with the engine running",
+   "Inspect the alternator connector and sense wiring"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new alternator.",
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P063B",
+  "title": "Generator Voltage Sense Circuit Range/Performance",
+  "plain": "The wire the computer uses to sense the alternator output voltage is giving a reading that does not make sense, so it may not control charging correctly.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Battery warning light on",
+   "Battery undercharging or overcharging",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Damaged sense wire or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty alternator or voltage regulator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure charging voltage at the battery with the engine running",
+   "Inspect the alternator connector and sense wiring"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new alternator.",
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P063C",
+  "title": "Generator Voltage Sense Circuit Low",
+  "plain": "The wire the computer uses to sense the alternator output voltage is reading too low, so it may not control charging correctly.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Battery warning light on",
+   "Battery undercharging or overcharging",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Sense wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty alternator or voltage regulator",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure charging voltage at the battery with the engine running",
+   "Inspect the alternator connector and sense wiring"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new alternator.",
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P063D",
+  "title": "Generator Voltage Sense Circuit High",
+  "plain": "The wire the computer uses to sense the alternator output voltage is reading too high, so it may not control charging correctly.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Battery warning light on",
+   "Battery undercharging or overcharging",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Sense wire shorted to voltage",
+    "how": "common"
+   },
+   {
+    "name": "Faulty alternator or voltage regulator",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector or poor ground",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure charging voltage at the battery with the engine running",
+   "Inspect the alternator connector and sense wiring"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new alternator.",
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P063E",
+  "title": "Auto Configuration Throttle Input Not Present",
+  "plain": "While setting itself up, the computer couldn't detect the throttle or gas pedal input it expected.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start or may stay at idle"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged or damaged throttle or pedal sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Wiring problem in the throttle or pedal circuit",
+    "how": "common"
+   },
+   {
+    "name": "Computer not configured for this vehicle",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty throttle or pedal sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that throttle and pedal connectors are plugged in and undamaged",
+   "Confirm the computer is configured for the vehicle"
+  ],
+  "fix": "Usually reconnecting or repairing the throttle or pedal wiring, then configuring the computer.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P063F",
+  "title": "Auto Configuration Engine Coolant Temperature Input Not Present",
+  "plain": "While setting itself up, the computer couldn't detect the engine coolant temperature sensor input.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fans may run constantly",
+   "Engine may run poorly"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged or damaged coolant temperature sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Wiring problem in the sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Faulty coolant temperature sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Computer not configured for this vehicle",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the coolant temperature sensor is plugged in and undamaged",
+   "Check the sensor reading on a scan tool"
+  ],
+  "fix": "Usually reconnecting or repairing the sensor wiring, or a new coolant temperature sensor.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ }
+]

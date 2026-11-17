@@ -1,0 +1,1157 @@
+[
+ {
+  "code": "P2577",
+  "title": "Direct Ozone Reduction Catalyst Efficiency Below Threshold",
+  "plain": "The ozone-reducing coating on the radiator is not working as well as it should. It does not affect how the car drives.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Radiator replaced with one that lacks the special coating",
+    "how": "common"
+   },
+   {
+    "name": "Coating worn or dirty",
+    "how": "common"
+   },
+   {
+    "name": "Faulty monitoring sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the radiator has been replaced with an aftermarket part",
+   "Check for other ozone catalyst sensor codes"
+  ],
+  "fix": "Usually a radiator with the correct factory coating.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2578",
+  "title": "Turbocharger Speed Sensor Circuit",
+  "plain": "The computer is watching the turbocharger speed sensor and has spotted a fault in its circuit. It measures how fast the turbo is spinning so the computer can control boost safely.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Turbo boost may be limited"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the turbocharger speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the turbocharger speed sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed turbocharger speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the turbocharger speed sensor connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the turbocharger speed sensor.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2579",
+  "title": "Turbocharger Speed Sensor Circuit Range/Performance",
+  "plain": "The computer is watching the turbocharger speed sensor and is getting a signal that does not make sense for current conditions. It measures how fast the turbo is spinning so the computer can control boost safely.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Turbo boost may be limited"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking turbocharger speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the turbocharger speed sensor reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the turbocharger speed sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P257A",
+  "title": "Vacuum Reservoir Control Circuit/Open",
+  "plain": "The computer is watching the vacuum reservoir control valve and sees what looks like a broken or disconnected circuit. This valve manages stored engine vacuum used by the brake booster or other systems.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Brake pedal may feel harder than normal"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the vacuum reservoir control valve",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the vacuum reservoir control valve circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed vacuum reservoir control valve",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the vacuum reservoir control valve connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the vacuum reservoir control valve.",
+  "guide": "hard-brake-pedal",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P257B",
+  "title": "Vacuum Reservoir Control Circuit Low",
+  "plain": "The computer is watching the vacuum reservoir control valve and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This valve manages stored engine vacuum used by the brake booster or other systems.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Brake pedal may feel harder than normal"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the vacuum reservoir control valve shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed vacuum reservoir control valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the vacuum reservoir control valve wiring for rubbed-through insulation touching metal",
+   "Unplug the vacuum reservoir control valve and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the vacuum reservoir control valve.",
+  "guide": "hard-brake-pedal",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P257C",
+  "title": "Vacuum Reservoir Control Circuit High",
+  "plain": "The computer is watching the vacuum reservoir control valve and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This valve manages stored engine vacuum used by the brake booster or other systems.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Brake pedal may feel harder than normal"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the vacuum reservoir control valve shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed vacuum reservoir control valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the vacuum reservoir control valve wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the vacuum reservoir control valve.",
+  "guide": "hard-brake-pedal",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P257D",
+  "title": "Engine Hood Switch Circuit Range/Performance",
+  "plain": "The computer is watching the hood switch and is getting a signal that does not make sense for current conditions. The car checks whether the hood is closed, for safety with remote start and engine stop-start.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Remote start or stop-start may stop working",
+   "Hood open warning may show"
+  ],
+  "causes": [
+   {
+    "name": "Hood switch dirty, misadjusted or damaged",
+    "how": "common"
+   },
+   {
+    "name": "Failing or sticking hood switch",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the hood switch reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the hood switch itself or the system it works with is at fault, then repair or replace as needed.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P257E",
+  "title": "Engine Hood Switch Circuit Low",
+  "plain": "The computer is watching the hood switch and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The car checks whether the hood is closed, for safety with remote start and engine stop-start.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Remote start or stop-start may stop working",
+   "Hood open warning may show"
+  ],
+  "causes": [
+   {
+    "name": "Hood switch dirty, misadjusted or damaged",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire to the hood switch shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed hood switch",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the hood switch wiring for rubbed-through insulation touching metal",
+   "Unplug the hood switch and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the hood switch.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P257F",
+  "title": "Engine Hood Switch Circuit High",
+  "plain": "The computer is watching the hood switch and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The car checks whether the hood is closed, for safety with remote start and engine stop-start.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Remote start or stop-start may stop working",
+   "Hood open warning may show"
+  ],
+  "causes": [
+   {
+    "name": "Hood switch dirty, misadjusted or damaged",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed hood switch",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the hood switch wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the hood switch.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2580",
+  "title": "Turbocharger Speed Sensor Circuit Low",
+  "plain": "The computer is watching the turbocharger speed sensor and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. It measures how fast the turbo is spinning so the computer can control boost safely.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Turbo boost may be limited"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the turbocharger speed sensor shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed turbocharger speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the turbocharger speed sensor wiring for rubbed-through insulation touching metal",
+   "Unplug the turbocharger speed sensor and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the turbocharger speed sensor.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2581",
+  "title": "Turbocharger Speed Sensor Circuit High",
+  "plain": "The computer is watching the turbocharger speed sensor and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. It measures how fast the turbo is spinning so the computer can control boost safely.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Turbo boost may be limited"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed turbocharger speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the turbocharger speed sensor wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the turbocharger speed sensor.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2582",
+  "title": "Turbocharger Speed Sensor Circuit Intermittent",
+  "plain": "The computer is watching the turbocharger speed sensor and is seeing a signal that cuts in and out. It measures how fast the turbo is spinning so the computer can control boost safely.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Turbo boost may be limited"
+  ],
+  "causes": [
+   {
+    "name": "Loose connector or chafed wire that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Turbocharger speed sensor failing on and off",
+    "how": "common"
+   },
+   {
+    "name": "Corrosion inside the connector",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground connection",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the turbocharger speed sensor wiring with the engine running while watching live data",
+   "Check connector pins for corrosion or spread terminals",
+   "Note when it happens (hot, cold, bumps) to narrow it down"
+  ],
+  "fix": "Repair the loose or corroded connection; replace the turbocharger speed sensor if the wiring is solid.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2583",
+  "title": "Cruise Control Front Distance Range Sensor Single Sensor or Center",
+  "plain": "The computer is watching the adaptive cruise front distance sensor and is getting a signal that does not make sense for current conditions. This radar or camera sensor measures the distance to the car ahead for adaptive cruise control.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Adaptive cruise or collision warning may not work"
+  ],
+  "causes": [
+   {
+    "name": "Sensor blocked by dirt, snow or ice",
+    "how": "common"
+   },
+   {
+    "name": "Sensor knocked out of alignment",
+    "how": "common"
+   },
+   {
+    "name": "Failing or sticking adaptive cruise front distance sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the adaptive cruise front distance sensor reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the adaptive cruise front distance sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2584",
+  "title": "Fuel Additive Control Module Requested MIL Illumination",
+  "plain": "The module that adds a cleaning fluid to diesel fuel found a fault and asked for the check engine light.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible particulate filter warning"
+  ],
+  "causes": [
+   {
+    "name": "Fuel additive tank low or empty",
+    "how": "common"
+   },
+   {
+    "name": "Fault stored in the fuel additive module",
+    "how": "common"
+   },
+   {
+    "name": "Additive pump or wiring problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Scan the fuel additive module for its own codes",
+   "Check the additive fluid level"
+  ],
+  "fix": "Refill the additive and repair the fault stored in the additive module.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2585",
+  "title": "Fuel Additive Control Module Warning Lamp Request",
+  "plain": "The diesel fuel additive module is asking for a warning light, usually because the additive is low or its system has a fault.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Warning light on",
+   "Possible particulate filter warning"
+  ],
+  "causes": [
+   {
+    "name": "Fuel additive fluid low",
+    "how": "common"
+   },
+   {
+    "name": "Fault stored in the fuel additive module",
+    "how": "common"
+   },
+   {
+    "name": "Additive pump or wiring problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the additive fluid level",
+   "Scan the fuel additive module for codes"
+  ],
+  "fix": "Refill the additive and fix any stored additive system fault.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2586",
+  "title": "Turbocharger Boost Control Position Sensor \"B\" Circuit",
+  "plain": "The computer is watching the turbocharger boost control position sensor and has spotted a fault in its circuit. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Turbo may over-boost or under-boost"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the turbocharger boost control position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the turbocharger boost control position sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed turbocharger boost control position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the turbocharger boost control position sensor connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the turbocharger boost control position sensor.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2587",
+  "title": "Turbocharger Boost Control Position Sensor \"B\" Circuit Range/Performance",
+  "plain": "The computer is watching the turbocharger boost control position sensor and is getting a signal that does not make sense for current conditions. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Turbo may over-boost or under-boost"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking turbocharger boost control position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Sticking turbo vanes or wastegate linkage",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the turbocharger boost control position sensor reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the turbocharger boost control position sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2588",
+  "title": "Turbocharger Boost Control Position Sensor \"B\" Circuit Low",
+  "plain": "The computer is watching the turbocharger boost control position sensor and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Turbo may over-boost or under-boost"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the turbocharger boost control position sensor shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed turbocharger boost control position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the turbocharger boost control position sensor wiring for rubbed-through insulation touching metal",
+   "Unplug the turbocharger boost control position sensor and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the turbocharger boost control position sensor.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2589",
+  "title": "Turbocharger Boost Control Position Sensor \"B\" Circuit High",
+  "plain": "The computer is watching the turbocharger boost control position sensor and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Turbo may over-boost or under-boost"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed turbocharger boost control position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the turbocharger boost control position sensor wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the turbocharger boost control position sensor.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P258A",
+  "title": "Vacuum Pump Control Circuit/Open",
+  "plain": "The computer is watching the electric vacuum pump and sees what looks like a broken or disconnected circuit. The pump supplies vacuum for the brake booster when the engine cannot make enough on its own.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or brake warning light on",
+   "Brake pedal may feel hard",
+   "Pump may run constantly or not at all"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the electric vacuum pump",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the electric vacuum pump circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed electric vacuum pump",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the electric vacuum pump connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the electric vacuum pump.",
+  "guide": "hard-brake-pedal",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P258B",
+  "title": "Vacuum Pump Control Range/Performance",
+  "plain": "The computer is watching the electric vacuum pump and is getting a signal that does not make sense for current conditions. The pump supplies vacuum for the brake booster when the engine cannot make enough on its own.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or brake warning light on",
+   "Brake pedal may feel hard",
+   "Pump may run constantly or not at all"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking electric vacuum pump",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the electric vacuum pump reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the electric vacuum pump itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "hard-brake-pedal",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P258C",
+  "title": "Vacuum Pump Control Circuit Low",
+  "plain": "The computer is watching the electric vacuum pump and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The pump supplies vacuum for the brake booster when the engine cannot make enough on its own.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or brake warning light on",
+   "Brake pedal may feel hard",
+   "Pump may run constantly or not at all"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the electric vacuum pump shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed electric vacuum pump",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the electric vacuum pump wiring for rubbed-through insulation touching metal",
+   "Unplug the electric vacuum pump and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the electric vacuum pump.",
+  "guide": "hard-brake-pedal",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P258D",
+  "title": "Vacuum Pump Control Circuit High",
+  "plain": "The computer is watching the electric vacuum pump and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The pump supplies vacuum for the brake booster when the engine cannot make enough on its own.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or brake warning light on",
+   "Brake pedal may feel hard",
+   "Pump may run constantly or not at all"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the electric vacuum pump shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed electric vacuum pump",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the electric vacuum pump wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the electric vacuum pump.",
+  "guide": "hard-brake-pedal",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P258E",
+  "title": "PTO Enable Switch Performance",
+  "plain": "The switch that turns on the power take-off (used on work trucks to run equipment) is not acting as expected.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Power take-off may not engage"
+  ],
+  "causes": [
+   {
+    "name": "Faulty PTO switch",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector fault",
+    "how": "common"
+   },
+   {
+    "name": "PTO control module fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the PTO switch and wiring",
+   "Watch the switch signal in live data while operating it"
+  ],
+  "fix": "Repair the wiring or replace the PTO switch.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P258F",
+  "title": "Torque Management Request Output Signal",
+  "plain": "The engine computer sends a signal that tells other modules how much engine power to allow, and that signal has a fault.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh shifts or reduced power possible"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or network fault between modules",
+    "how": "common"
+   },
+   {
+    "name": "Engine or transmission computer needing a software update",
+    "how": "common"
+   },
+   {
+    "name": "Control module fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for network or transmission codes",
+   "Inspect wiring between the engine and transmission computers"
+  ],
+  "fix": "Repair the wiring or update the module software as directed by the maker.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2590",
+  "title": "Turbocharger Boost Control Position Sensor \"B\" Circuit Intermittent/Erratic",
+  "plain": "The computer is watching the turbocharger boost control position sensor and is seeing a signal that cuts in and out. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Turbo may over-boost or under-boost"
+  ],
+  "causes": [
+   {
+    "name": "Loose connector or chafed wire that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Turbocharger boost control position sensor failing on and off",
+    "how": "common"
+   },
+   {
+    "name": "Corrosion inside the connector",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground connection",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the turbocharger boost control position sensor wiring with the engine running while watching live data",
+   "Check connector pins for corrosion or spread terminals",
+   "Note when it happens (hot, cold, bumps) to narrow it down"
+  ],
+  "fix": "Repair the loose or corroded connection; replace the turbocharger boost control position sensor if the wiring is solid.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2591",
+  "title": "Cruise Control Front Distance Range Sensor Left",
+  "plain": "The computer is watching the adaptive cruise front distance sensor and is getting a signal that does not make sense for current conditions. This radar or camera sensor measures the distance to the car ahead for adaptive cruise control.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Adaptive cruise or collision warning may not work"
+  ],
+  "causes": [
+   {
+    "name": "Sensor blocked by dirt, snow or ice",
+    "how": "common"
+   },
+   {
+    "name": "Sensor knocked out of alignment",
+    "how": "common"
+   },
+   {
+    "name": "Failing or sticking adaptive cruise front distance sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the adaptive cruise front distance sensor reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the adaptive cruise front distance sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2592",
+  "title": "Cruise Control Front Distance Range Sensor Right",
+  "plain": "The computer is watching the adaptive cruise front distance sensor and is getting a signal that does not make sense for current conditions. This radar or camera sensor measures the distance to the car ahead for adaptive cruise control.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Adaptive cruise or collision warning may not work"
+  ],
+  "causes": [
+   {
+    "name": "Sensor blocked by dirt, snow or ice",
+    "how": "common"
+   },
+   {
+    "name": "Sensor knocked out of alignment",
+    "how": "common"
+   },
+   {
+    "name": "Failing or sticking adaptive cruise front distance sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the adaptive cruise front distance sensor reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the adaptive cruise front distance sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ }
+]

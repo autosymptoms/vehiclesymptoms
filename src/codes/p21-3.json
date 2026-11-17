@@ -1,0 +1,1027 @@
+[
+ {
+  "code": "P2180",
+  "title": "System Too Rich Off Idle Bank 2",
+  "plain": "The engine on bank 2 (the side of the engine opposite cylinder 1) is running too rich when driving just above idle, and the computer has reached the limit of what it can correct. Too much fuel or too little air is getting in.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation when pulling away",
+   "Poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Leaking or stuck-open fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pressure too high (bad regulator)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty mass airflow (MAF) or upstream oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged air filter or intake",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fuel pressure and look for a leaking injector",
+   "Inspect the air filter and MAF sensor"
+  ],
+  "fix": "Find the source of extra fuel (injector, pressure regulator or sensor) and repair it.",
+  "cost": {
+   "job": "Replace fuel injector",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  },
+  "guide": "hesitation-when-accelerating"
+ },
+ {
+  "code": "P2181",
+  "title": "Cooling System Performance",
+  "plain": "The engine isn't reaching or holding its normal operating temperature the way the computer expects. Most often the thermostat is stuck open, but low coolant or a bad temperature sensor can do it too.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge reads low or moves around",
+   "Heater blows lukewarm air",
+   "Poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Thermostat stuck open",
+    "how": "common"
+   },
+   {
+    "name": "Low coolant level or air in the system",
+    "how": "common"
+   },
+   {
+    "name": "Faulty coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Cooling fan running all the time",
+    "how": "possible"
+   },
+   {
+    "name": "Coolant leak or failing water pump",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level when the engine is cold",
+   "Watch engine temperature in live data as it warms up",
+   "Compare readings from both coolant temperature sensors if equipped"
+  ],
+  "fix": "Most often a new thermostat; top off and bleed the coolant and test the temperature sensor too.",
+  "cost": {
+   "job": "Replace thermostat",
+   "parts": [
+    20,
+    150
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2004.html"
+  ]
+ },
+ {
+  "code": "P2182",
+  "title": "Engine Coolant Temperature Sensor 2 Circuit",
+  "plain": "The engine computer has found a problem in the circuit for the engine coolant temperature sensor 2, which gives the computer a second reading of engine coolant temperature. It usually points to wiring, a connector or the sensor itself.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge may read wrong",
+   "Cooling fans may run all the time"
+  ],
+  "causes": [
+   {
+    "name": "Faulty coolant temperature sensor 2",
+    "how": "common"
+   },
+   {
+    "name": "Damaged, corroded or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the coolant temperature sensor connector and wiring for damage or corrosion",
+   "Check the sensor power, ground and signal with a meter"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the coolant temperature sensor 2.",
+  "cost": {
+   "job": "Replace coolant temperature sensor",
+   "parts": [
+    20,
+    90
+   ],
+   "hours": [
+    0.3,
+    1.5
+   ]
+  },
+  "guide": "temperature-gauge-fluctuating"
+ },
+ {
+  "code": "P2183",
+  "title": "Engine Coolant Temperature Sensor 2 Circuit Range/Performance",
+  "plain": "The engine coolant temperature sensor 2 is giving readings that don't make sense compared with what the computer expects. This sensor gives the computer a second reading of engine coolant temperature. The sensor may be failing or the system it watches may have a real problem.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge may read wrong",
+   "Cooling fans may run all the time"
+  ],
+  "causes": [
+   {
+    "name": "Failing or out-of-calibration coolant temperature sensor 2",
+    "how": "common"
+   },
+   {
+    "name": "Low coolant or a stuck thermostat",
+    "how": "common"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the coolant temperature sensor reading with related sensors in live data",
+   "Check wiring and connector for corrosion or looseness"
+  ],
+  "fix": "Confirm the system itself is working, then replace the coolant temperature sensor 2 if its readings are off.",
+  "cost": {
+   "job": "Replace coolant temperature sensor",
+   "parts": [
+    20,
+    90
+   ],
+   "hours": [
+    0.3,
+    1.5
+   ]
+  },
+  "guide": "temperature-gauge-fluctuating"
+ },
+ {
+  "code": "P2184",
+  "title": "Engine Coolant Temperature Sensor 2 Circuit Low",
+  "plain": "The signal from the engine coolant temperature sensor 2 is lower than the computer expects. This sensor gives the computer a second reading of engine coolant temperature. A wire shorted to ground or a failed sensor is the usual reason.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge may read wrong",
+   "Cooling fans may run all the time"
+  ],
+  "causes": [
+   {
+    "name": "Signal or reference wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed coolant temperature sensor 2",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the coolant temperature sensor wiring for rubbed-through or pinched spots",
+   "Unplug the sensor and see if the reading changes, which helps separate wiring from sensor"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the coolant temperature sensor 2.",
+  "cost": {
+   "job": "Replace coolant temperature sensor",
+   "parts": [
+    20,
+    90
+   ],
+   "hours": [
+    0.3,
+    1.5
+   ]
+  },
+  "guide": "temperature-gauge-fluctuating"
+ },
+ {
+  "code": "P2185",
+  "title": "Engine Coolant Temperature Sensor 2 Circuit High",
+  "plain": "The signal from the engine coolant temperature sensor 2 is higher than the computer expects. This sensor gives the computer a second reading of engine coolant temperature. An open (broken) wire, a bad ground or a failed sensor is the usual reason.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge may read wrong",
+   "Cooling fans may run all the time"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken signal or ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed coolant temperature sensor 2",
+    "how": "possible"
+   },
+   {
+    "name": "Wire shorted to a power source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure the coolant temperature sensor connector is fully plugged in and clean",
+   "Check the sensor ground and signal wire for an open circuit"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the coolant temperature sensor 2.",
+  "cost": {
+   "job": "Replace coolant temperature sensor",
+   "parts": [
+    20,
+    90
+   ],
+   "hours": [
+    0.3,
+    1.5
+   ]
+  },
+  "guide": "temperature-gauge-fluctuating"
+ },
+ {
+  "code": "P2186",
+  "title": "Engine Coolant Temperature Sensor 2 Circuit Intermittent/Erratic",
+  "plain": "The signal from the engine coolant temperature sensor 2 keeps dropping out or jumping around. This sensor gives the computer a second reading of engine coolant temperature. A loose connection or a damaged wire is the usual reason.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge may read wrong",
+   "Cooling fans may run all the time"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wire that opens or shorts as the engine moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing coolant temperature sensor 2",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data for dropouts",
+   "Inspect the coolant temperature sensor wiring along its whole route"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the coolant temperature sensor 2.",
+  "cost": {
+   "job": "Replace coolant temperature sensor",
+   "parts": [
+    20,
+    90
+   ],
+   "hours": [
+    0.3,
+    1.5
+   ]
+  },
+  "guide": "temperature-gauge-fluctuating"
+ },
+ {
+  "code": "P2187",
+  "title": "System Too Lean at Idle Bank 1",
+  "plain": "The engine on bank 1 (the side of the engine with cylinder 1) is running too lean at idle, and the computer has reached the limit of what it can correct. Too much air or too little fuel is getting in.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough or unstable idle",
+   "Possible stalling",
+   "Often no other symptoms"
+  ],
+  "causes": [
+   {
+    "name": "Vacuum leak (cracked hose, intake gasket or PCV valve)",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow (MAF) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking intake manifold gasket",
+    "how": "common"
+   },
+   {
+    "name": "Low fuel pressure or weak fuel pump",
+    "how": "possible"
+   },
+   {
+    "name": "Exhaust leak before the front oxygen sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen and smoke-test for vacuum leaks",
+   "Inspect and clean the MAF sensor",
+   "Check fuel trims at idle and at higher RPM"
+  ],
+  "fix": "Find and repair the leak or fuel delivery problem; replacing parts without testing rarely fixes it.",
+  "cost": {
+   "job": "Find and repair vacuum leak (hose or intake gasket)",
+   "parts": [
+    10,
+    250
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "examples": [
+   "Often appears with P2189 on V-type engines when a shared vacuum leak affects both banks"
+  ],
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2004.html",
+   "https://www.fixdapp.com/blog/p2187-code/"
+  ]
+ },
+ {
+  "code": "P2188",
+  "title": "System Too Rich at Idle Bank 1",
+  "plain": "The engine on bank 1 (the side of the engine with cylinder 1) is running too rich at idle, and the computer has reached the limit of what it can correct. Too much fuel or too little air is getting in.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough or unstable idle",
+   "Poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Leaking or stuck-open fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pressure too high (bad regulator)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty mass airflow (MAF) or upstream oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged air filter or intake",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fuel pressure and look for a leaking injector",
+   "Inspect the air filter and MAF sensor"
+  ],
+  "fix": "Find the source of extra fuel (injector, pressure regulator or sensor) and repair it.",
+  "cost": {
+   "job": "Replace fuel injector",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  },
+  "guide": "rough-idle-shaking"
+ },
+ {
+  "code": "P2189",
+  "title": "System Too Lean at Idle Bank 2",
+  "plain": "The engine on bank 2 (the side of the engine opposite cylinder 1) is running too lean at idle, and the computer has reached the limit of what it can correct. Too much air or too little fuel is getting in.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough or unstable idle",
+   "Possible stalling",
+   "Often no other symptoms"
+  ],
+  "causes": [
+   {
+    "name": "Vacuum leak (cracked hose, intake gasket or PCV valve)",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow (MAF) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking intake manifold gasket",
+    "how": "common"
+   },
+   {
+    "name": "Low fuel pressure or weak fuel pump",
+    "how": "possible"
+   },
+   {
+    "name": "Exhaust leak before the front oxygen sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen and smoke-test for vacuum leaks",
+   "Inspect and clean the MAF sensor",
+   "Check fuel trims at idle and at higher RPM"
+  ],
+  "fix": "Find and repair the leak or fuel delivery problem; replacing parts without testing rarely fixes it.",
+  "cost": {
+   "job": "Find and repair vacuum leak (hose or intake gasket)",
+   "parts": [
+    10,
+    250
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2004.html"
+  ]
+ },
+ {
+  "code": "P2190",
+  "title": "System Too Rich at Idle Bank 2",
+  "plain": "The engine on bank 2 (the side of the engine opposite cylinder 1) is running too rich at idle, and the computer has reached the limit of what it can correct. Too much fuel or too little air is getting in.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough or unstable idle",
+   "Poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Leaking or stuck-open fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pressure too high (bad regulator)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty mass airflow (MAF) or upstream oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged air filter or intake",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fuel pressure and look for a leaking injector",
+   "Inspect the air filter and MAF sensor"
+  ],
+  "fix": "Find the source of extra fuel (injector, pressure regulator or sensor) and repair it.",
+  "cost": {
+   "job": "Replace fuel injector",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  },
+  "guide": "rough-idle-shaking"
+ },
+ {
+  "code": "P2191",
+  "title": "System Too Lean at Higher Load Bank 1",
+  "plain": "The engine on bank 1 (the side of the engine with cylinder 1) is running too lean under heavier load like accelerating or climbing hills, and the computer has reached the limit of what it can correct. Too much air or too little fuel is getting in.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation or lack of power when accelerating",
+   "Possible stalling",
+   "Often no other symptoms"
+  ],
+  "causes": [
+   {
+    "name": "Weak fuel pump or clogged fuel filter",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow (MAF) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged or weak fuel injectors",
+    "how": "common"
+   },
+   {
+    "name": "Vacuum or intake air leak",
+    "how": "possible"
+   },
+   {
+    "name": "Low fuel pressure from a bad regulator",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fuel pressure under load",
+   "Inspect and clean the MAF sensor",
+   "Check fuel trims at idle and at higher RPM"
+  ],
+  "fix": "Find and repair the leak or fuel delivery problem; replacing parts without testing rarely fixes it.",
+  "cost": {
+   "job": "Replace fuel pump",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    1.5,
+    3.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2004.html"
+  ]
+ },
+ {
+  "code": "P2192",
+  "title": "System Too Rich at Higher Load Bank 1",
+  "plain": "The engine on bank 1 (the side of the engine with cylinder 1) is running too rich under heavier load like accelerating or climbing hills, and the computer has reached the limit of what it can correct. Too much fuel or too little air is getting in.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation or lack of power when accelerating",
+   "Poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Leaking or stuck-open fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pressure too high (bad regulator)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty mass airflow (MAF) or upstream oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged air filter or intake",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fuel pressure and look for a leaking injector",
+   "Inspect the air filter and MAF sensor"
+  ],
+  "fix": "Find the source of extra fuel (injector, pressure regulator or sensor) and repair it.",
+  "cost": {
+   "job": "Replace fuel injector",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating"
+ },
+ {
+  "code": "P2193",
+  "title": "System Too Lean at Higher Load Bank 2",
+  "plain": "The engine on bank 2 (the side of the engine opposite cylinder 1) is running too lean under heavier load like accelerating or climbing hills, and the computer has reached the limit of what it can correct. Too much air or too little fuel is getting in.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation or lack of power when accelerating",
+   "Possible stalling"
+  ],
+  "causes": [
+   {
+    "name": "Weak fuel pump or clogged fuel filter",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow (MAF) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged or weak fuel injectors",
+    "how": "common"
+   },
+   {
+    "name": "Vacuum or intake air leak",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fuel pressure under load",
+   "Inspect and clean the MAF sensor"
+  ],
+  "fix": "Find and repair the leak or fuel delivery problem; replacing parts without testing rarely fixes it.",
+  "cost": {
+   "job": "Replace fuel pump",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    1.5,
+    3.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating"
+ },
+ {
+  "code": "P2194",
+  "title": "System Too Rich at Higher Load Bank 2",
+  "plain": "The engine on bank 2 (the side of the engine opposite cylinder 1) is running too rich under heavier load like accelerating or climbing hills, and the computer has reached the limit of what it can correct. Too much fuel or too little air is getting in.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation or lack of power when accelerating",
+   "Poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Leaking or stuck-open fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pressure too high (bad regulator)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty mass airflow (MAF) or upstream oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged air filter or intake",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fuel pressure and look for a leaking injector",
+   "Inspect the air filter and MAF sensor"
+  ],
+  "fix": "Find the source of extra fuel (injector, pressure regulator or sensor) and repair it.",
+  "cost": {
+   "job": "Replace fuel injector",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating"
+ },
+ {
+  "code": "P2195",
+  "title": "O2 Sensor Signal Biased/Stuck Lean Bank 1 Sensor 1",
+  "plain": "The front oxygen sensor on bank 1 (the side of the engine with cylinder 1) keeps reading lean and isn't responding normally. The sensor may be worn out, or the engine may really be running lean.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Poor fuel economy",
+   "Possible rough idle or hesitation",
+   "Often no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Worn or contaminated front oxygen (air-fuel ratio) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Vacuum or intake air leak",
+    "how": "common"
+   },
+   {
+    "name": "Exhaust leak near the front oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Oxygen sensor wiring or heater problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look for vacuum and exhaust leaks",
+   "Watch the front O2 sensor reading respond to a snap of the throttle",
+   "Check fuel trims and MAF readings"
+  ],
+  "fix": "Fix any leaks or fuel problems first; if the sensor is slow or stuck, replace it.",
+  "cost": {
+   "job": "Replace upstream oxygen (air-fuel ratio) sensor",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "poor-gas-mileage",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2004.html",
+   "https://www.fixdapp.com/blog/p2195-code/"
+  ]
+ },
+ {
+  "code": "P2196",
+  "title": "O2 Sensor Signal Biased/Stuck Rich Bank 1 Sensor 1",
+  "plain": "The front oxygen sensor on bank 1 (the side of the engine with cylinder 1) keeps reading rich and isn't responding normally. The sensor may be worn out, or the engine may really be running rich.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Poor fuel economy",
+   "Possible rough idle or hesitation",
+   "Possible fuel smell or black smoke"
+  ],
+  "causes": [
+   {
+    "name": "Worn or contaminated front oxygen (air-fuel ratio) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pressure too high",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Oxygen sensor wiring or heater problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fuel pressure and look for leaking injectors",
+   "Watch the front O2 sensor reading respond to a snap of the throttle",
+   "Check fuel trims and MAF readings"
+  ],
+  "fix": "Fix any leaks or fuel problems first; if the sensor is slow or stuck, replace it.",
+  "cost": {
+   "job": "Replace upstream oxygen (air-fuel ratio) sensor",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "poor-gas-mileage",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2004.html"
+  ]
+ },
+ {
+  "code": "P2197",
+  "title": "O2 Sensor Signal Biased/Stuck Lean Bank 2 Sensor 1",
+  "plain": "The front oxygen sensor on bank 2 (the side of the engine opposite cylinder 1) keeps reading lean and isn't responding normally. The sensor may be worn out, or the engine may really be running lean.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Poor fuel economy",
+   "Possible rough idle or hesitation"
+  ],
+  "causes": [
+   {
+    "name": "Worn or contaminated front oxygen (air-fuel ratio) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Vacuum or intake air leak",
+    "how": "common"
+   },
+   {
+    "name": "Exhaust leak near the front oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look for vacuum and exhaust leaks",
+   "Watch the front O2 sensor reading respond to a snap of the throttle"
+  ],
+  "fix": "Fix any leaks or fuel problems first; if the sensor is slow or stuck, replace it.",
+  "cost": {
+   "job": "Replace upstream oxygen (air-fuel ratio) sensor",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "poor-gas-mileage",
+  "src": [
+   "https://www.fixdapp.com/blog/p2197-code/"
+  ]
+ },
+ {
+  "code": "P2198",
+  "title": "O2 Sensor Signal Biased/Stuck Rich Bank 2 Sensor 1",
+  "plain": "The front oxygen sensor on bank 2 (the side of the engine opposite cylinder 1) keeps reading rich and isn't responding normally. The sensor may be worn out, or the engine may really be running rich.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Poor fuel economy",
+   "Possible rough idle or hesitation"
+  ],
+  "causes": [
+   {
+    "name": "Worn or contaminated front oxygen (air-fuel ratio) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pressure too high",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty mass airflow sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fuel pressure and look for leaking injectors",
+   "Watch the front O2 sensor reading respond to a snap of the throttle"
+  ],
+  "fix": "Fix any leaks or fuel problems first; if the sensor is slow or stuck, replace it.",
+  "cost": {
+   "job": "Replace upstream oxygen (air-fuel ratio) sensor",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "poor-gas-mileage",
+  "src": [
+   "https://www.fixdapp.com/blog/p2198-code/"
+  ]
+ },
+ {
+  "code": "P2199",
+  "title": "Intake Air Temperature Sensor 1/2 Correlation",
+  "plain": "The vehicle has two intake air temperature sensors, and their readings don't agree with each other. One sensor or its wiring is usually at fault.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Possible small drop in fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor (often inside the MAF sensor)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty second IAT sensor (often in the intake manifold or MAP sensor)",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Heat soak after a short hot shutdown",
+    "how": "possible"
+   },
+   {
+    "name": "Damaged wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare both IAT readings in live data with the engine cold",
+   "Inspect both sensor connectors and wiring",
+   "Check for service bulletins for your vehicle"
+  ],
+  "fix": "Replace whichever IAT sensor reads wrong, which is often part of the MAF or MAP sensor.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2004.html"
+  ]
+ }
+]

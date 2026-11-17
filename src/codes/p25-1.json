@@ -1,0 +1,1353 @@
+[
+ {
+  "code": "P2500",
+  "title": "Generator Lamp/L-Terminal Circuit Low",
+  "plain": "The computer is watching the alternator warning lamp (L-terminal) circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This line lets the computer and the alternator talk about charging, so a fault here can affect charging.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or battery light on",
+   "Battery may run down over time",
+   "Dim or flickering lights in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the alternator warning lamp (L-terminal) circuit shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed alternator warning lamp (L-terminal) circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the alternator warning lamp (L-terminal) circuit wiring for rubbed-through insulation touching metal",
+   "Unplug the alternator warning lamp (L-terminal) circuit and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the alternator warning lamp (L-terminal) circuit.",
+  "guide": "battery-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2501",
+  "title": "Generator Lamp/L-Terminal Circuit High",
+  "plain": "The computer is watching the alternator warning lamp (L-terminal) circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This line lets the computer and the alternator talk about charging, so a fault here can affect charging.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or battery light on",
+   "Battery may run down over time",
+   "Dim or flickering lights in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed alternator warning lamp (L-terminal) circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the alternator warning lamp (L-terminal) circuit wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the alternator warning lamp (L-terminal) circuit.",
+  "guide": "battery-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2502",
+  "title": "Charging System Voltage",
+  "plain": "The computer sees that the charging system voltage is not where it should be. The alternator may not be charging the battery properly.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or battery light on",
+   "Battery may go dead",
+   "Dim or flickering lights"
+  ],
+  "causes": [
+   {
+    "name": "Failing alternator",
+    "how": "common"
+   },
+   {
+    "name": "Loose or worn drive belt",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded battery or alternator cables",
+    "how": "common"
+   },
+   {
+    "name": "Blown alternator fuse or fusible link",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring fault between alternator and computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test battery voltage with the engine off and running (about 12.6 off and 13.5 to 14.7 running)",
+   "Check the drive belt and battery cable connections",
+   "Have the alternator load tested"
+  ],
+  "fix": "Often a new alternator, but clean and tighten the cables and check the belt first.",
+  "cost": {
+   "job": "Replace alternator",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "battery-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2503",
+  "title": "Charging System Voltage Low",
+  "plain": "The charging system voltage is lower than it should be, so the battery is not being recharged fully while you drive.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Battery light or check engine light on",
+   "Battery runs down or the car will not start",
+   "Dim lights or weak accessories"
+  ],
+  "causes": [
+   {
+    "name": "Failing alternator",
+    "how": "common"
+   },
+   {
+    "name": "Slipping or broken drive belt",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose battery or alternator cables",
+    "how": "common"
+   },
+   {
+    "name": "Blown charging fuse",
+    "how": "possible"
+   },
+   {
+    "name": "Very heavy electrical load from add-on accessories",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure voltage at the battery with the engine running",
+   "Inspect the belt and the alternator and battery connections",
+   "Have the battery and alternator tested"
+  ],
+  "fix": "Usually an alternator replacement after confirming the belt and cables are good.",
+  "cost": {
+   "job": "Replace alternator",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "battery-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2504",
+  "title": "Charging System Voltage High",
+  "plain": "The charging system is putting out more voltage than it should. Too much voltage can damage the battery and electronics.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Battery or check engine light on",
+   "Very bright or flickering lights",
+   "Battery may smell or swell from overcharging"
+  ],
+  "causes": [
+   {
+    "name": "Faulty voltage regulator inside the alternator",
+    "how": "common"
+   },
+   {
+    "name": "Bad sense or ground wire to the alternator",
+    "how": "common"
+   },
+   {
+    "name": "Battery with an internal fault",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer charging control fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure battery voltage with the engine running (much above 15 volts is too high)",
+   "Check alternator and engine ground connections",
+   "Test the battery"
+  ],
+  "fix": "Usually a new alternator (or regulator), after checking the ground and sense wiring.",
+  "cost": {
+   "job": "Replace alternator",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "battery-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2505",
+  "title": "ECM/PCM Power Input Signal",
+  "plain": "The computer is watching the power feed to the engine computer and has spotted a fault in its circuit. The engine computer needs a steady supply voltage to run everything else correctly.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling in some cases",
+   "Other electrical codes may appear"
+  ],
+  "causes": [
+   {
+    "name": "Weak battery or loose, corroded battery terminals",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged, loose or corroded connector at the power feed to the engine computer",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the power feed to the engine computer circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed power feed to the engine computer",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the power feed to the engine computer connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the power feed to the engine computer.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2506",
+  "title": "ECM/PCM Power Input Signal Range/Performance",
+  "plain": "The computer is watching the power feed to the engine computer and is getting a signal that does not make sense for current conditions. The engine computer needs a steady supply voltage to run everything else correctly.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling in some cases",
+   "Other electrical codes may appear"
+  ],
+  "causes": [
+   {
+    "name": "Weak battery or loose, corroded battery terminals",
+    "how": "common"
+   },
+   {
+    "name": "Failing or sticking power feed to the engine computer",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the power feed to the engine computer reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the power feed to the engine computer itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2507",
+  "title": "ECM/PCM Power Input Signal Low",
+  "plain": "The computer is watching the power feed to the engine computer and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The engine computer needs a steady supply voltage to run everything else correctly.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling in some cases",
+   "Other electrical codes may appear"
+  ],
+  "causes": [
+   {
+    "name": "Weak battery or loose, corroded battery terminals",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire to the power feed to the engine computer shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed power feed to the engine computer",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the power feed to the engine computer wiring for rubbed-through insulation touching metal",
+   "Unplug the power feed to the engine computer and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the power feed to the engine computer.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2508",
+  "title": "ECM/PCM Power Input Signal High",
+  "plain": "The computer is watching the power feed to the engine computer and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The engine computer needs a steady supply voltage to run everything else correctly.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling in some cases",
+   "Other electrical codes may appear"
+  ],
+  "causes": [
+   {
+    "name": "Weak battery or loose, corroded battery terminals",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed power feed to the engine computer",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the power feed to the engine computer wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the power feed to the engine computer.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2509",
+  "title": "ECM/PCM Power Input Signal Intermittent",
+  "plain": "The computer is watching the power feed to the engine computer and is seeing a signal that cuts in and out. The engine computer needs a steady supply voltage to run everything else correctly.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling in some cases",
+   "Other electrical codes may appear"
+  ],
+  "causes": [
+   {
+    "name": "Weak battery or loose, corroded battery terminals",
+    "how": "common"
+   },
+   {
+    "name": "Loose connector or chafed wire that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Power feed to the engine computer failing on and off",
+    "how": "common"
+   },
+   {
+    "name": "Corrosion inside the connector",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground connection",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the power feed to the engine computer wiring with the engine running while watching live data",
+   "Check connector pins for corrosion or spread terminals",
+   "Note when it happens (hot, cold, bumps) to narrow it down"
+  ],
+  "fix": "Repair the loose or corroded connection; replace the power feed to the engine computer if the wiring is solid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P250A",
+  "title": "Engine Oil Level Sensor Circuit",
+  "plain": "The computer is watching the engine oil level sensor and has spotted a fault in its circuit. This sensor tells the car how much oil is in the oil pan.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light or oil level warning on",
+   "Oil level reading may be missing or wrong"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the engine oil level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the engine oil level sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed engine oil level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level with the dipstick (if equipped) before driving",
+   "Look over the engine oil level sensor connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the engine oil level sensor.",
+  "guide": "burning-oil-low-oil-level",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P250B",
+  "title": "Engine Oil Level Sensor Circuit Range/Performance",
+  "plain": "The computer is watching the engine oil level sensor and is getting a signal that does not make sense for current conditions. This sensor tells the car how much oil is in the oil pan.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light or oil level warning on",
+   "Oil level reading may be missing or wrong"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking engine oil level sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level with the dipstick (if equipped) before driving",
+   "Check for other codes that point to the underlying problem",
+   "Compare the engine oil level sensor reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the engine oil level sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "burning-oil-low-oil-level",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P250C",
+  "title": "Engine Oil Level Sensor Circuit Low",
+  "plain": "The computer is watching the engine oil level sensor and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This sensor tells the car how much oil is in the oil pan.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light or oil level warning on",
+   "Oil level reading may be missing or wrong"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the engine oil level sensor shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed engine oil level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level with the dipstick (if equipped) before driving",
+   "Inspect the engine oil level sensor wiring for rubbed-through insulation touching metal",
+   "Unplug the engine oil level sensor and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the engine oil level sensor.",
+  "guide": "burning-oil-low-oil-level",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P250D",
+  "title": "Engine Oil Level Sensor Circuit High",
+  "plain": "The computer is watching the engine oil level sensor and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This sensor tells the car how much oil is in the oil pan.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light or oil level warning on",
+   "Oil level reading may be missing or wrong"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed engine oil level sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level with the dipstick (if equipped) before driving",
+   "Inspect the engine oil level sensor wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the engine oil level sensor.",
+  "guide": "burning-oil-low-oil-level",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P250E",
+  "title": "Engine Oil Level Sensor Circuit Intermittent/Erratic",
+  "plain": "The computer is watching the engine oil level sensor and is seeing a signal that cuts in and out. This sensor tells the car how much oil is in the oil pan.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light or oil level warning on",
+   "Oil level reading may be missing or wrong"
+  ],
+  "causes": [
+   {
+    "name": "Loose connector or chafed wire that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Engine oil level sensor failing on and off",
+    "how": "common"
+   },
+   {
+    "name": "Corrosion inside the connector",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground connection",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level with the dipstick (if equipped) before driving",
+   "Wiggle the engine oil level sensor wiring with the engine running while watching live data",
+   "Check connector pins for corrosion or spread terminals",
+   "Note when it happens (hot, cold, bumps) to narrow it down"
+  ],
+  "fix": "Repair the loose or corroded connection; replace the engine oil level sensor if the wiring is solid.",
+  "guide": "burning-oil-low-oil-level",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P250F",
+  "title": "Engine Oil Level Too Low",
+  "plain": "The oil level sensor says the engine is low on oil. Running an engine low on oil can cause serious damage.",
+  "sys": "Engine",
+  "sev": "stop",
+  "common": false,
+  "symptoms": [
+   "Oil level warning or check engine light on",
+   "Engine may tick or knock if very low",
+   "Oil pressure light may come on"
+  ],
+  "causes": [
+   {
+    "name": "Oil level actually low from leaks or burning",
+    "how": "common"
+   },
+   {
+    "name": "Overdue oil change",
+    "how": "common"
+   },
+   {
+    "name": "Faulty oil level sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Car parked on a steep slope when checked",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Park on level ground and check the oil level right away",
+   "Look for oil leaks under the car",
+   "Top up with the correct oil before driving further"
+  ],
+  "fix": "Add oil to the correct level and find out why it was low; replace the sensor only if the level is actually fine.",
+  "guide": "burning-oil-low-oil-level",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2510",
+  "title": "ECM/PCM Power Relay Sense Circuit Range/Performance",
+  "plain": "The computer is watching the engine computer power relay sense circuit and is getting a signal that does not make sense for current conditions. The relay that powers the engine computer is not reporting back as expected.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Car may not start or may stall",
+   "Engine may stay powered after shut-off"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking engine computer power relay sense circuit",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the engine computer power relay sense circuit reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the engine computer power relay sense circuit itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2511",
+  "title": "ECM/PCM Power Relay Sense Circuit Intermittent",
+  "plain": "The computer is watching the engine computer power relay sense circuit and is seeing a signal that cuts in and out. The relay that powers the engine computer is not reporting back as expected.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Car may not start or may stall",
+   "Engine may stay powered after shut-off"
+  ],
+  "causes": [
+   {
+    "name": "Loose connector or chafed wire that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer power relay sense circuit failing on and off",
+    "how": "common"
+   },
+   {
+    "name": "Corrosion inside the connector",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground connection",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the engine computer power relay sense circuit wiring with the engine running while watching live data",
+   "Check connector pins for corrosion or spread terminals",
+   "Note when it happens (hot, cold, bumps) to narrow it down"
+  ],
+  "fix": "Repair the loose or corroded connection; replace the engine computer power relay sense circuit if the wiring is solid.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2512",
+  "title": "Event Data Recorder Request Circuit/Open",
+  "plain": "The computer is watching the event data recorder request circuit and sees what looks like a broken or disconnected circuit. This is the line used to tell the crash data recorder to save information. It does not affect how the car drives.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the event data recorder request circuit",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the event data recorder request circuit circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed event data recorder request circuit",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the event data recorder request circuit connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the event data recorder request circuit.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
+   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+  ]
+ },
+ {
+  "code": "P2513",
+  "title": "Event Data Recorder Request Circuit Low",
+  "plain": "The computer is watching the event data recorder request circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This is the line used to tell the crash data recorder to save information. It does not affect how the car drives.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the event data recorder request circuit shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed event data recorder request circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the event data recorder request circuit wiring for rubbed-through insulation touching metal",
+   "Unplug the event data recorder request circuit and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the event data recorder request circuit.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2514",
+  "title": "Event Data Recorder Request Circuit High",
+  "plain": "The computer is watching the event data recorder request circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This is the line used to tell the crash data recorder to save information. It does not affect how the car drives.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed event data recorder request circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the event data recorder request circuit wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the event data recorder request circuit.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2515",
+  "title": "A/C Refrigerant Pressure Sensor \"B\" Circuit",
+  "plain": "The computer is watching the second A/C refrigerant pressure sensor and has spotted a fault in its circuit. This sensor tells the computer how much pressure is in the A/C system so it can protect the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may blow warm or cut out",
+   "Cooling fans may run more than usual"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the second A/C refrigerant pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the second A/C refrigerant pressure sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed second A/C refrigerant pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the second A/C refrigerant pressure sensor connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the second A/C refrigerant pressure sensor.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2516",
+  "title": "A/C Refrigerant Pressure Sensor \"B\" Circuit Range/Performance",
+  "plain": "The computer is watching the second A/C refrigerant pressure sensor and is getting a signal that does not make sense for current conditions. This sensor tells the computer how much pressure is in the A/C system so it can protect the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may blow warm or cut out",
+   "Cooling fans may run more than usual"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking second A/C refrigerant pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Refrigerant charge too low or too high",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the second A/C refrigerant pressure sensor reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the second A/C refrigerant pressure sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2517",
+  "title": "A/C Refrigerant Pressure Sensor \"B\" Circuit Low",
+  "plain": "The computer is watching the second A/C refrigerant pressure sensor and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This sensor tells the computer how much pressure is in the A/C system so it can protect the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may blow warm or cut out",
+   "Cooling fans may run more than usual"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the second A/C refrigerant pressure sensor shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed second A/C refrigerant pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the second A/C refrigerant pressure sensor wiring for rubbed-through insulation touching metal",
+   "Unplug the second A/C refrigerant pressure sensor and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the second A/C refrigerant pressure sensor.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2518",
+  "title": "A/C Refrigerant Pressure Sensor \"B\" Circuit High",
+  "plain": "The computer is watching the second A/C refrigerant pressure sensor and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This sensor tells the computer how much pressure is in the A/C system so it can protect the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may blow warm or cut out",
+   "Cooling fans may run more than usual"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed second A/C refrigerant pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the second A/C refrigerant pressure sensor wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the second A/C refrigerant pressure sensor.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2519",
+  "title": "A/C Request \"A\" Circuit",
+  "plain": "The computer is watching the A/C request signal and has spotted a fault in its circuit. This is the signal from the A/C controls asking the engine computer to turn on the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may not turn on or may not shut off",
+   "Idle may change when A/C is switched"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the A/C request signal",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the A/C request signal circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed A/C request signal",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the A/C request signal connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the A/C request signal.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2520",
+  "title": "A/C Request \"A\" Circuit Low",
+  "plain": "The computer is watching the A/C request signal and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This is the signal from the A/C controls asking the engine computer to turn on the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may not turn on or may not shut off",
+   "Idle may change when A/C is switched"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the A/C request signal shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed A/C request signal",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the A/C request signal wiring for rubbed-through insulation touching metal",
+   "Unplug the A/C request signal and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the A/C request signal.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2521",
+  "title": "A/C Request \"A\" Circuit High",
+  "plain": "The computer is watching the A/C request signal and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This is the signal from the A/C controls asking the engine computer to turn on the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may not turn on or may not shut off",
+   "Idle may change when A/C is switched"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed A/C request signal",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the A/C request signal wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the A/C request signal.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2522",
+  "title": "A/C Request \"B\" Circuit",
+  "plain": "The computer is watching the A/C request signal and has spotted a fault in its circuit. This is the signal from the A/C controls asking the engine computer to turn on the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may not turn on or may not shut off",
+   "Idle may change when A/C is switched"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the A/C request signal",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the A/C request signal circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed A/C request signal",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the A/C request signal connector and wiring for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the A/C request signal.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2523",
+  "title": "A/C Request \"B\" Circuit Low",
+  "plain": "The computer is watching the A/C request signal and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This is the signal from the A/C controls asking the engine computer to turn on the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may not turn on or may not shut off",
+   "Idle may change when A/C is switched"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire to the A/C request signal shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed A/C request signal",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the A/C request signal wiring for rubbed-through insulation touching metal",
+   "Unplug the A/C request signal and see if the reading changes",
+   "Check the circuit with a meter before replacing parts"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the A/C request signal.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2524",
+  "title": "A/C Request \"B\" Circuit High",
+  "plain": "The computer is watching the A/C request signal and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This is the signal from the A/C controls asking the engine computer to turn on the compressor.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "A/C may not turn on or may not shut off",
+   "Idle may change when A/C is switched"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed A/C request signal",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the A/C request signal wiring and ground connection",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the A/C request signal.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ }
+]

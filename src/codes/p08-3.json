@@ -1,0 +1,1873 @@
+[
+ {
+  "code": "P0865",
+  "title": "TCM Communication Circuit Low",
+  "plain": "The computer sees a signal or voltage in the transmission computer (TCM) communication circuit circuit that is lower than it should be. The TCM data line carries data between the transmission computer and the other modules.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be in limp mode or shift harshly",
+   "Other modules may also store communication codes"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the TCM data line circuit",
+    "how": "common"
+   },
+   {
+    "name": "Low battery voltage or poor ground",
+    "how": "possible"
+   },
+   {
+    "name": "Failed transmission control module (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the TCM data line wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the TCM data line and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the TCM data line.",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0866",
+  "title": "TCM Communication Circuit High",
+  "plain": "The computer sees a signal or voltage in the transmission computer (TCM) communication circuit circuit that is higher than it should be. The TCM data line carries data between the transmission computer and the other modules.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be in limp mode or shift harshly",
+   "Other modules may also store communication codes"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the TCM data line circuit",
+    "how": "common"
+   },
+   {
+    "name": "Low battery voltage or poor ground",
+    "how": "possible"
+   },
+   {
+    "name": "Failed transmission control module",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the TCM data line circuit for an open wire or a short to voltage",
+   "Test the TCM data line against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the TCM data line.",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0867",
+  "title": "Transmission Fluid Pressure",
+  "plain": "The transmission computer found that hydraulic pressure is not what it should be for the current conditions.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Check engine light on",
+   "Slipping, harsh or delayed shifts",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Low or dirty transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fluid pressure sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Worn pump or internal leak",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fluid level and condition",
+   "Compare actual and commanded pressure on a scan tool",
+   "Do a mechanical line pressure test"
+  ],
+  "fix": "Correct the fluid level first, then repair the solenoid, sensor or internal leak that is causing the pressure problem.",
+  "guide": "transmission-slipping",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0868",
+  "title": "Transmission Fluid Pressure Low",
+  "common": true,
+  "plain": "The transmission computer sees hydraulic pressure lower than it should be. Low pressure lets clutches slip and can quickly damage the transmission.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Slipping or delayed shifts",
+   "Check engine light on",
+   "Transmission may go into limp mode",
+   "Transmission may run hot"
+  ],
+  "causes": [
+   {
+    "name": "Low transmission fluid from a leak or under-filling",
+    "how": "common"
+   },
+   {
+    "name": "Clogged transmission filter",
+    "how": "common"
+   },
+   {
+    "name": "Faulty pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Worn pump or internal leak from seals or valve body",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty pressure sensor reading falsely low",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the fluid level and look for leaks",
+   "Do a mechanical line pressure test to confirm low pressure",
+   "Check the pressure control solenoid and its wiring"
+  ],
+  "fix": "Fix any leak and correct the fluid level, then service the filter; a solenoid or pump repair may be needed if pressure stays low.",
+  "cost": {
+   "job": "Transmission fluid and filter service",
+   "parts": [
+    40,
+    180
+   ],
+   "hours": [
+    1,
+    2
+   ]
+  },
+  "guide": "transmission-slipping",
+  "src": [
+   "https://www.carwhere.com/obd-codes/p0868",
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0869",
+  "title": "Transmission Fluid Pressure High",
+  "plain": "The transmission computer sees hydraulic pressure that is higher than it should be, which can make shifts harsh.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or banging shifts",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Sticking pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Stuck pressure regulator valve in the valve body",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fluid pressure sensor reading high",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring fault to the pressure control solenoid",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fluid level and condition",
+   "Do a mechanical line pressure test to confirm the reading",
+   "Check the pressure control solenoid and its wiring"
+  ],
+  "fix": "Usually a pressure control solenoid or valve body repair, after confirming the pressure is truly high.",
+  "guide": "harsh-or-hard-shifting",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0870",
+  "title": "Transmission Fluid Pressure Sensor/Switch C Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the transmission fluid pressure sensor/switch C, which reports hydraulic pressure (or on some transmissions, the selected gear range) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifting",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failed transmission fluid pressure sensor/switch",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the pressure sensor/switch",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the pressure sensor/switch for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the pressure sensor/switch against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the pressure sensor/switch.",
+  "cost": {
+   "job": "Replace transmission fluid pressure sensor/switch",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0871",
+  "title": "Transmission Fluid Pressure Sensor/Switch C Circuit Range/Performance",
+  "plain": "The transmission fluid pressure sensor/switch C is giving readings that don't match what the computer expects for the current conditions. The pressure sensor/switch reports hydraulic pressure (or on some transmissions, the selected gear range) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifting",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failing transmission fluid pressure sensor/switch",
+    "how": "common"
+   },
+   {
+    "name": "Low, dirty or burnt transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking valve or blocked passage in the valve body",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission fluid level and condition",
+   "Compare the pressure sensor/switch reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the pressure sensor/switch.",
+  "cost": {
+   "job": "Replace transmission fluid pressure sensor/switch",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0872",
+  "title": "Transmission Fluid Pressure Sensor/Switch C Circuit Low",
+  "plain": "The computer sees a signal or voltage in the transmission fluid pressure sensor/switch C circuit that is lower than it should be. The pressure sensor/switch reports hydraulic pressure (or on some transmissions, the selected gear range) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifting",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the pressure sensor/switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed transmission fluid pressure sensor/switch (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the pressure sensor/switch wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the pressure sensor/switch and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the pressure sensor/switch.",
+  "cost": {
+   "job": "Replace transmission fluid pressure sensor/switch",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0873",
+  "title": "Transmission Fluid Pressure Sensor/Switch C Circuit High",
+  "plain": "The computer sees a signal or voltage in the transmission fluid pressure sensor/switch C circuit that is higher than it should be. The pressure sensor/switch reports hydraulic pressure (or on some transmissions, the selected gear range) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifting",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the pressure sensor/switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed transmission fluid pressure sensor/switch",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the pressure sensor/switch circuit for an open wire or a short to voltage",
+   "Test the pressure sensor/switch against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the pressure sensor/switch.",
+  "cost": {
+   "job": "Replace transmission fluid pressure sensor/switch",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0874",
+  "title": "Transmission Fluid Pressure Sensor/Switch C Circuit Intermittent",
+  "plain": "The signal from the transmission fluid pressure sensor/switch C keeps dropping out or jumping around, which usually points to a loose connection or a damaged wire.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifting",
+   "Transmission may stay in one gear (limp mode)",
+   "Problem may come and go, often over bumps"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that opens or shorts as it moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing transmission fluid pressure sensor/switch",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the wiring and connector while watching live data",
+   "Look for rubbed-through wiring near brackets and moving parts"
+  ],
+  "fix": "Repair the loose connection or damaged wire; replace the pressure sensor/switch only if it fails testing.",
+  "cost": {
+   "job": "Replace transmission fluid pressure sensor/switch",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0875",
+  "title": "Transmission Fluid Pressure Sensor/Switch D Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the transmission fluid pressure sensor/switch D, which reports hydraulic pressure (or on some transmissions, the selected gear range) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifting",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failed transmission fluid pressure sensor/switch",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the pressure sensor/switch",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the pressure sensor/switch for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the pressure sensor/switch against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the pressure sensor/switch.",
+  "cost": {
+   "job": "Replace transmission fluid pressure sensor/switch",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0876",
+  "title": "Transmission Fluid Pressure Sensor/Switch D Circuit Range/Performance",
+  "plain": "The transmission fluid pressure sensor/switch D is giving readings that don't match what the computer expects for the current conditions. The pressure sensor/switch reports hydraulic pressure (or on some transmissions, the selected gear range) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifting",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Failing transmission fluid pressure sensor/switch",
+    "how": "common"
+   },
+   {
+    "name": "Low, dirty or burnt transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking valve or blocked passage in the valve body",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission fluid level and condition",
+   "Compare the pressure sensor/switch reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the pressure sensor/switch.",
+  "cost": {
+   "job": "Replace transmission fluid pressure sensor/switch",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0877",
+  "title": "Transmission Fluid Pressure Sensor/Switch D Circuit Low",
+  "plain": "The computer sees a signal or voltage in the transmission fluid pressure sensor/switch D circuit that is lower than it should be. The pressure sensor/switch reports hydraulic pressure (or on some transmissions, the selected gear range) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifting",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the pressure sensor/switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed transmission fluid pressure sensor/switch (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the pressure sensor/switch wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the pressure sensor/switch and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the pressure sensor/switch.",
+  "cost": {
+   "job": "Replace transmission fluid pressure sensor/switch",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0878",
+  "title": "Transmission Fluid Pressure Sensor/Switch D Circuit High",
+  "plain": "The computer sees a signal or voltage in the transmission fluid pressure sensor/switch D circuit that is higher than it should be. The pressure sensor/switch reports hydraulic pressure (or on some transmissions, the selected gear range) to the transmission computer.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifting",
+   "Transmission may stay in one gear (limp mode)"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the pressure sensor/switch circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed transmission fluid pressure sensor/switch",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the pressure sensor/switch circuit for an open wire or a short to voltage",
+   "Test the pressure sensor/switch against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the pressure sensor/switch.",
+  "cost": {
+   "job": "Replace transmission fluid pressure sensor/switch",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0879",
+  "title": "Transmission Fluid Pressure Sensor/Switch D Circuit Intermittent",
+  "plain": "The signal from the transmission fluid pressure sensor/switch D keeps dropping out or jumping around, which usually points to a loose connection or a damaged wire.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh, late or erratic shifting",
+   "Transmission may stay in one gear (limp mode)",
+   "Problem may come and go, often over bumps"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that opens or shorts as it moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing transmission fluid pressure sensor/switch",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the wiring and connector while watching live data",
+   "Look for rubbed-through wiring near brackets and moving parts"
+  ],
+  "fix": "Repair the loose connection or damaged wire; replace the pressure sensor/switch only if it fails testing.",
+  "cost": {
+   "job": "Replace transmission fluid pressure sensor/switch",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0880",
+  "title": "TCM Power Input Signal",
+  "plain": "The computer found an electrical problem in the circuit for the transmission computer (TCM) power input, which supplies the voltage the transmission computer needs to run.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "Harsh shifts or no upshifts"
+  ],
+  "causes": [
+   {
+    "name": "Failed transmission control module",
+    "how": "common"
+   },
+   {
+    "name": "Weak battery, bad battery terminals or charging problem",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the TCM power feed",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the TCM power feed for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the TCM power feed against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the TCM power feed.",
+  "cost": {
+   "job": "Replace battery",
+   "parts": [
+    130,
+    300
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ]
+  },
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0881",
+  "title": "TCM Power Input Signal Range/Performance",
+  "plain": "The transmission computer (TCM) power input is giving readings that don't match what the computer expects for the current conditions. The TCM power feed supplies the voltage the transmission computer needs to run.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "Harsh shifts or no upshifts"
+  ],
+  "causes": [
+   {
+    "name": "Failing transmission control module",
+    "how": "common"
+   },
+   {
+    "name": "Weak battery, bad battery terminals or charging problem",
+    "how": "common"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the TCM power feed reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the TCM power feed.",
+  "cost": {
+   "job": "Replace battery",
+   "parts": [
+    130,
+    300
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ]
+  },
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0882",
+  "title": "TCM Power Input Signal Low",
+  "plain": "The transmission computer is seeing lower voltage than it needs on its power feed. A weak battery or bad connection is the usual reason.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission stuck in one gear (limp mode)",
+   "Harsh shifts or no upshifts",
+   "Slow cranking or other low-voltage warnings"
+  ],
+  "causes": [
+   {
+    "name": "Weak or failing battery",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded battery terminals or grounds",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay in the TCM power feed",
+    "how": "common"
+   },
+   {
+    "name": "Charging system not keeping the battery up",
+    "how": "possible"
+   },
+   {
+    "name": "Damaged wiring or a faulty transmission computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Clean and tighten battery terminals and main grounds",
+   "Check the TCM fuse and relay and voltage at the module"
+  ],
+  "fix": "Usually fixed by replacing a weak battery or cleaning bad connections; clear the code and check that it stays off.",
+  "cost": {
+   "job": "Replace battery",
+   "parts": [
+    130,
+    300
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ]
+  },
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ],
+  "examples": [
+   "Often set on Chrysler and Dodge vehicles after a weak battery, dead battery or jump start"
+  ]
+ },
+ {
+  "code": "P0883",
+  "title": "TCM Power Input Signal High",
+  "plain": "The computer sees a signal or voltage in the transmission computer (TCM) power input circuit that is higher than it should be. The TCM power feed supplies the voltage the transmission computer needs to run.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "Harsh shifts or no upshifts"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the TCM power feed circuit",
+    "how": "common"
+   },
+   {
+    "name": "Weak battery, bad battery terminals or charging problem",
+    "how": "common"
+   },
+   {
+    "name": "Failed transmission control module",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the TCM power feed circuit for an open wire or a short to voltage",
+   "Test the TCM power feed against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the TCM power feed.",
+  "cost": {
+   "job": "Replace battery",
+   "parts": [
+    130,
+    300
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ]
+  },
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0884",
+  "title": "TCM Power Input Signal Intermittent",
+  "plain": "The signal from the transmission computer (TCM) power input keeps dropping out or jumping around, which usually points to a loose connection or a damaged wire.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "Harsh shifts or no upshifts",
+   "Problem may come and go, often over bumps"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Weak battery, bad battery terminals or charging problem",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that opens or shorts as it moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing transmission control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the wiring and connector while watching live data",
+   "Look for rubbed-through wiring near brackets and moving parts"
+  ],
+  "fix": "Repair the loose connection or damaged wire; replace the TCM power feed only if it fails testing.",
+  "cost": {
+   "job": "Replace battery",
+   "parts": [
+    130,
+    300
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ]
+  },
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0885",
+  "title": "TCM Power Relay Control Circuit/Open",
+  "plain": "The computer found an electrical problem in the circuit for the transmission computer (TCM) power relay control circuit, which switches main power on to the transmission computer.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "No shifting or harsh shifting"
+  ],
+  "causes": [
+   {
+    "name": "Failed TCM power relay",
+    "how": "common"
+   },
+   {
+    "name": "Broken or damaged wiring to the TCM power relay",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the TCM power relay for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the TCM power relay against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the TCM power relay.",
+  "cost": {
+   "job": "Replace TCM power relay",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0886",
+  "title": "TCM Power Relay Control Circuit Low",
+  "plain": "The computer sees a signal or voltage in the transmission computer (TCM) power relay control circuit circuit that is lower than it should be. The TCM power relay switches main power on to the transmission computer.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "No shifting or harsh shifting"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the TCM power relay circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed TCM power relay (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the TCM power relay wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the TCM power relay and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the TCM power relay.",
+  "cost": {
+   "job": "Replace TCM power relay",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0887",
+  "title": "TCM Power Relay Control Circuit High",
+  "plain": "The computer sees a signal or voltage in the transmission computer (TCM) power relay control circuit circuit that is higher than it should be. The TCM power relay switches main power on to the transmission computer.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "No shifting or harsh shifting"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the TCM power relay circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed TCM power relay",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the TCM power relay circuit for an open wire or a short to voltage",
+   "Test the TCM power relay against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the TCM power relay.",
+  "cost": {
+   "job": "Replace TCM power relay",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0888",
+  "title": "TCM Power Relay Sense Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the transmission computer (TCM) power relay sense circuit, which lets the transmission computer confirm its power relay has switched on.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "No shifting or harsh shifting"
+  ],
+  "causes": [
+   {
+    "name": "Failed TCM power relay",
+    "how": "common"
+   },
+   {
+    "name": "Weak battery or charging problem",
+    "how": "possible"
+   },
+   {
+    "name": "Broken or damaged wiring to the TCM power relay",
+    "how": "common"
+   },
+   {
+    "name": "Loose, corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the wiring and connector at the TCM power relay for damage, rubbing or corrosion",
+   "Check related fuses, power and ground with a meter",
+   "Test the TCM power relay against the factory specification before replacing it"
+  ],
+  "fix": "Repair any wiring or connector fault found; if the circuit tests good, replace the TCM power relay.",
+  "cost": {
+   "job": "Replace TCM power relay",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0889",
+  "title": "TCM Power Relay Sense Circuit Range/Performance",
+  "plain": "The transmission computer (TCM) power relay sense circuit is giving readings that don't match what the computer expects for the current conditions. The TCM power relay lets the transmission computer confirm its power relay has switched on.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "No shifting or harsh shifting"
+  ],
+  "causes": [
+   {
+    "name": "Failing TCM power relay",
+    "how": "common"
+   },
+   {
+    "name": "Weak battery or charging problem",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the TCM power relay reading with what it should be on a scan tool",
+   "Inspect the wiring and connector for corrosion or damage"
+  ],
+  "fix": "Correct any fluid or wiring problem first; if the readings are still wrong, replace the TCM power relay.",
+  "cost": {
+   "job": "Replace TCM power relay",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P088A",
+  "title": "Transmission Filter Deteriorated",
+  "plain": "The computer estimates that the transmission filter is getting clogged and should be serviced soon.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Check engine or service light on",
+   "Usually no change in how the car drives yet"
+  ],
+  "causes": [
+   {
+    "name": "Transmission filter due for service",
+    "how": "common"
+   },
+   {
+    "name": "Fluid and filter service done but the computer counter not reset",
+    "how": "possible"
+   },
+   {
+    "name": "Heavy towing or hot running wearing the fluid faster",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check service records for the last fluid and filter change",
+   "Reset the filter life counter with a scan tool after service"
+  ],
+  "fix": "Service the transmission fluid and filter, then reset the filter monitor.",
+  "cost": {
+   "job": "Transmission fluid and filter service",
+   "parts": [
+    40,
+    180
+   ],
+   "hours": [
+    1,
+    2
+   ]
+  },
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P088B",
+  "title": "Transmission Filter Very Deteriorated",
+  "plain": "The computer estimates that the transmission filter is badly clogged and needs to be serviced now.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Check engine or service light on",
+   "Shifts may become slow or harsh"
+  ],
+  "causes": [
+   {
+    "name": "Transmission filter well past its service interval",
+    "how": "common"
+   },
+   {
+    "name": "Fluid and filter service done but the computer counter not reset",
+    "how": "possible"
+   },
+   {
+    "name": "Debris from internal wear loading up the filter",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check service records for the last fluid and filter change",
+   "Look for metal or clutch material in the pan during service"
+  ],
+  "fix": "Service the transmission fluid and filter promptly, then reset the filter monitor.",
+  "cost": {
+   "job": "Transmission fluid and filter service",
+   "parts": [
+    40,
+    180
+   ],
+   "hours": [
+    1,
+    2
+   ]
+  },
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0890",
+  "title": "TCM Power Relay Sense Circuit Low",
+  "plain": "The computer sees a signal or voltage in the transmission computer (TCM) power relay sense circuit circuit that is lower than it should be. The TCM power relay lets the transmission computer confirm its power relay has switched on.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "No shifting or harsh shifting"
+  ],
+  "causes": [
+   {
+    "name": "Wire shorted to ground in the TCM power relay circuit",
+    "how": "common"
+   },
+   {
+    "name": "Weak battery or charging problem",
+    "how": "possible"
+   },
+   {
+    "name": "Failed TCM power relay (internal short)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the TCM power relay wiring for chafed spots touching metal",
+   "Check the circuit for a short to ground with a meter",
+   "Unplug the TCM power relay and see whether the reading changes"
+  ],
+  "fix": "Fix any shorted or damaged wiring; if the wiring is good, replace the TCM power relay.",
+  "cost": {
+   "job": "Replace TCM power relay",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0891",
+  "title": "TCM Power Relay Sense Circuit High",
+  "plain": "The computer sees a signal or voltage in the transmission computer (TCM) power relay sense circuit circuit that is higher than it should be. The TCM power relay lets the transmission computer confirm its power relay has switched on.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "No shifting or harsh shifting"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken wire in the TCM power relay circuit",
+    "how": "common"
+   },
+   {
+    "name": "Weak battery or charging problem",
+    "how": "possible"
+   },
+   {
+    "name": "Failed TCM power relay",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to another power circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty control module (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the connector for pushed-out or loose pins",
+   "Check the TCM power relay circuit for an open wire or a short to voltage",
+   "Test the TCM power relay against the factory specification"
+  ],
+  "fix": "Repair the open or shorted wire or bad connector; if the wiring is good, replace the TCM power relay.",
+  "cost": {
+   "job": "Replace TCM power relay",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0892",
+  "title": "TCM Power Relay Sense Circuit Intermittent",
+  "plain": "The signal from the transmission computer (TCM) power relay sense circuit keeps dropping out or jumping around, which usually points to a loose connection or a damaged wire.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be stuck in one gear (limp mode)",
+   "No shifting or harsh shifting",
+   "Problem may come and go, often over bumps"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Weak battery or charging problem",
+    "how": "possible"
+   },
+   {
+    "name": "Chafed wiring that opens or shorts as it moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing TCM power relay",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the wiring and connector while watching live data",
+   "Look for rubbed-through wiring near brackets and moving parts"
+  ],
+  "fix": "Repair the loose connection or damaged wire; replace the TCM power relay only if it fails testing.",
+  "cost": {
+   "job": "Replace TCM power relay",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0893",
+  "title": "Multiple Gears Engaged",
+  "plain": "The transmission computer sees signs that more than one gear is engaged at the same time. This can lock up or jerk the drivetrain.",
+  "sys": "Transmission",
+  "sev": "stop",
+  "symptoms": [
+   "Sudden jerk, bind or slowdown while driving",
+   "Transmission warning or check engine light on",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Sticking shift solenoid or valve in the valve body",
+    "how": "common"
+   },
+   {
+    "name": "Low or contaminated transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Clutch pack not releasing inside the transmission",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty speed sensor giving false readings",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fluid level and condition",
+   "Scan for solenoid and speed sensor codes",
+   "Check gear ratio data on a scan tool during a road test"
+  ],
+  "fix": "Often a valve body or solenoid repair; internal clutch damage may need a rebuild.",
+  "guide": "transmission-warning-light",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0894",
+  "title": "Transmission Component Slipping",
+  "common": true,
+  "plain": "The computer compares engine and transmission speeds and sees that something inside the transmission is slipping when it should be locked up.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Engine revs rise without the car speeding up",
+   "Delayed or slipping shifts",
+   "Check engine light on",
+   "Transmission may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Low or worn-out transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Worn clutch packs or bands inside the transmission",
+    "how": "common"
+   },
+   {
+    "name": "Faulty shift or pressure control solenoid",
+    "how": "possible"
+   },
+   {
+    "name": "Torque converter problem",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the fluid level and condition (burnt smell, debris)",
+   "Scan for solenoid codes and check for software updates",
+   "Watch input and output speeds on a scan tool during a road test"
+  ],
+  "fix": "Check fluid and solenoids first; if parts inside are worn, the transmission needs a rebuild or replacement.",
+  "cost": {
+   "job": "Rebuild or replace transmission",
+   "parts": [
+    1500,
+    4500
+   ],
+   "hours": [
+    8,
+    16
+   ]
+  },
+  "guide": "transmission-slipping",
+  "src": [
+   "https://repairpal.com/OBD-II-Code-P0894",
+   "https://www.carwhere.com/obd-codes/p0894",
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0895",
+  "title": "Shift Time Too Short",
+  "plain": "A gear change happened faster than the computer expected, which often feels like a harsh or banging shift.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Harsh or firm shifts",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Pressure control solenoid problem causing high pressure",
+    "how": "common"
+   },
+   {
+    "name": "Transmission adaptive values need a reset or relearn",
+    "how": "common"
+   },
+   {
+    "name": "Wrong or worn transmission fluid",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fluid level and type",
+   "Check for software updates or service bulletins",
+   "Reset transmission adaptives and road test"
+  ],
+  "fix": "Check fluid and updates, relearn the transmission, then repair the pressure control if harsh shifts continue.",
+  "guide": "harsh-or-hard-shifting",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0896",
+  "title": "Shift Time Too Long",
+  "plain": "A gear change took longer than the computer expected, which can feel like a slip or flare between gears.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "symptoms": [
+   "Delayed or slipping shifts",
+   "Engine revs flare between gears",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Low or worn-out transmission fluid",
+    "how": "common"
+   },
+   {
+    "name": "Pressure control or shift solenoid problem",
+    "how": "common"
+   },
+   {
+    "name": "Worn clutch packs inside the transmission",
+    "how": "possible"
+   },
+   {
+    "name": "Control module software needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check fluid level and condition",
+   "Scan for solenoid codes",
+   "Check for software updates or service bulletins"
+  ],
+  "fix": "Correct the fluid and check for updates first; solenoid or internal repair may be needed.",
+  "guide": "transmission-slipping",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0897",
+  "title": "Transmission Fluid Deteriorated",
+  "plain": "The transmission computer estimates that the fluid has broken down from age or heat and needs to be changed.",
+  "sys": "Transmission",
+  "sev": "check",
+  "symptoms": [
+   "Check engine or transmission light on",
+   "Shifts may feel rough or slow",
+   "Fluid may look dark or smell burnt"
+  ],
+  "causes": [
+   {
+    "name": "Transmission fluid past its service life",
+    "how": "common"
+   },
+   {
+    "name": "Overheating from towing or heavy loads",
+    "how": "common"
+   },
+   {
+    "name": "Fluid changed but the fluid life counter not reset",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the fluid color and smell",
+   "Check service records and reset the fluid life counter after service"
+  ],
+  "fix": "Change the transmission fluid (and filter if fitted), then reset the fluid life monitor.",
+  "cost": {
+   "job": "Transmission fluid and filter service",
+   "parts": [
+    40,
+    180
+   ],
+   "hours": [
+    1,
+    2
+   ]
+  },
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0898",
+  "title": "Transmission Control System MIL Request Circuit Low",
+  "plain": "The circuit the transmission computer uses to request the check engine light has a voltage that is too low, often from a wire shorted to ground.",
+  "sys": "Computer",
+  "sev": "check",
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Request wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector at the transmission computer",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission computer for its own stored codes",
+   "Check the request wire for a short to ground"
+  ],
+  "fix": "Repair the shorted wire or connector; replace a module only after the wiring tests good.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ },
+ {
+  "code": "P0899",
+  "title": "Transmission Control System MIL Request Circuit High",
+  "plain": "The circuit the transmission computer uses to request the check engine light has a voltage that is too high, often from an open wire or short to power.",
+  "sys": "Computer",
+  "sev": "check",
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Request wire open or shorted to voltage",
+    "how": "common"
+   },
+   {
+    "name": "Loose connector at either module",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty transmission or engine computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission computer for its own stored codes",
+   "Check the request wire for an open or a short to voltage"
+  ],
+  "fix": "Repair the faulty wire or connector; replace a module only after the wiring tests good.",
+  "common": false,
+  "src": [
+   "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
+  ]
+ }
+]

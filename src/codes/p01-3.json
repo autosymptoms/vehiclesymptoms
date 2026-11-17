@@ -1,0 +1,659 @@
+[
+  {
+    "code": "P0150",
+    "title": "O2 Sensor Circuit (Bank 2 Sensor 1)",
+    "plain": "There's a problem with the front oxygen sensor on bank 2 (the side of a V6 or V8 without cylinder 1). It sits before the catalytic converter and helps set the fuel mixture.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Lower fuel economy", "Possible rough idle or hesitation", "May fail an emissions test"],
+    "causes": [
+      {"name": "Failed upstream oxygen sensor", "how": "common"},
+      {"name": "Damaged or burned wiring near the exhaust", "how": "common"},
+      {"name": "Exhaust leak near the sensor", "how": "possible"},
+      {"name": "Corroded or loose connector", "how": "possible"}
+    ],
+    "checks": ["Inspect the sensor wiring where it runs near hot exhaust parts", "Check for exhaust manifold leaks on bank 2", "Watch the live sensor reading for normal rich-lean switching"],
+    "fix": "Usually a new upstream oxygen sensor, or a wiring or exhaust leak repair.",
+    "cost": {"job": "Replace upstream oxygen sensor (bank 2)", "parts": [40, 250], "hours": [0.3, 1.5]},
+    "guide": "poor-gas-mileage",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0151",
+    "title": "O2 Sensor Circuit Low Voltage (Bank 2 Sensor 1)",
+    "plain": "The front oxygen sensor on bank 2 is stuck reading low, which looks like a lean (too much air) mixture. It can be a real lean condition or a bad sensor or wire.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Lower fuel economy", "Possible hesitation or rough idle"],
+    "causes": [
+      {"name": "Failed upstream oxygen sensor", "how": "common"},
+      {"name": "Exhaust leak ahead of the sensor", "how": "common"},
+      {"name": "Signal wire shorted to ground", "how": "possible"},
+      {"name": "Real lean condition on bank 2 from a vacuum leak", "how": "possible"}
+    ],
+    "checks": ["Check for exhaust leaks at the bank 2 manifold", "Look at bank 2 fuel trims for a real lean condition", "Inspect the sensor wiring for melted or rubbed spots"],
+    "fix": "Fix exhaust or vacuum leaks first; otherwise replace the upstream oxygen sensor.",
+    "cost": {"job": "Replace upstream oxygen sensor (bank 2)", "parts": [40, 250], "hours": [0.3, 1.5]},
+    "guide": "poor-gas-mileage",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0152",
+    "title": "O2 Sensor Circuit High Voltage (Bank 2 Sensor 1)",
+    "plain": "The front oxygen sensor on bank 2 is stuck reading high, which looks like a rich (too much fuel) mixture. It can be a real rich condition or a shorted or contaminated sensor.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Lower fuel economy", "Possible fuel smell or black smoke"],
+    "causes": [
+      {"name": "Failed or contaminated upstream oxygen sensor", "how": "common"},
+      {"name": "Signal wire shorted to voltage", "how": "common"},
+      {"name": "Real rich condition from a leaking injector", "how": "possible"},
+      {"name": "Coolant or oil burning and fouling the sensor", "how": "possible"}
+    ],
+    "checks": ["Inspect the sensor wiring for melted spots", "Look at bank 2 fuel trims for a real rich condition", "Check for coolant loss or oil burning"],
+    "fix": "Usually a new upstream oxygen sensor; fix any real rich condition first.",
+    "cost": {"job": "Replace upstream oxygen sensor (bank 2)", "parts": [40, 250], "hours": [0.3, 1.5]},
+    "guide": "black-smoke-from-exhaust",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0153",
+    "title": "O2 Sensor Circuit Slow Response (Bank 2 Sensor 1)",
+    "plain": "The front oxygen sensor on bank 2 is reacting too slowly to changes in the exhaust, which usually means it's worn out.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Lower fuel economy", "Usually no obvious change in driving"],
+    "causes": [
+      {"name": "Aged or worn upstream oxygen sensor", "how": "common"},
+      {"name": "Sensor contaminated by oil, coolant or additives", "how": "common"},
+      {"name": "Exhaust leak near the sensor", "how": "possible"},
+      {"name": "Vacuum leak or other fuel mixture problem", "how": "possible"}
+    ],
+    "checks": ["Watch the live sensor reading at a steady 2,500 rpm; it should switch rich and lean quickly", "Check for exhaust leaks ahead of the sensor", "Check for oil burning or coolant loss"],
+    "fix": "Usually a new upstream oxygen sensor.",
+    "cost": {"job": "Replace upstream oxygen sensor (bank 2)", "parts": [40, 250], "hours": [0.3, 1.5]},
+    "guide": "poor-gas-mileage",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0154",
+    "title": "O2 Sensor Circuit No Activity Detected (Bank 2 Sensor 1)",
+    "plain": "The front oxygen sensor on bank 2 isn't sending any changing signal. It may be dead, unplugged, or its heater may not be working.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Lower fuel economy", "Possible rough running"],
+    "causes": [
+      {"name": "Failed upstream oxygen sensor", "how": "common"},
+      {"name": "Open circuit in the sensor wiring", "how": "common"},
+      {"name": "Sensor heater not working", "how": "possible"},
+      {"name": "Unplugged or corroded connector", "how": "possible"}
+    ],
+    "checks": ["Check that the sensor connector is plugged in and clean", "Check for heater circuit codes and the heater fuse", "Watch the live reading on a warm engine for any switching"],
+    "fix": "Usually a new upstream oxygen sensor, or a wiring repair.",
+    "cost": {"job": "Replace upstream oxygen sensor (bank 2)", "parts": [40, 250], "hours": [0.3, 1.5]},
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0155",
+    "title": "O2 Sensor Heater Circuit (Bank 2 Sensor 1)",
+    "plain": "The heater inside the front oxygen sensor on bank 2, which helps it start working quickly, or the heater's wiring has a problem.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives", "Slightly worse fuel economy after cold starts"],
+    "causes": [
+      {"name": "Burned-out heater inside the oxygen sensor", "how": "common"},
+      {"name": "Blown oxygen sensor heater fuse", "how": "common"},
+      {"name": "Damaged wiring or connector near the exhaust", "how": "possible"},
+      {"name": "Faulty heater control in the engine computer", "how": "possible"}
+    ],
+    "checks": ["Check the oxygen sensor heater fuse", "Measure the heater resistance at the sensor connector", "Inspect the wiring for melted or chafed spots"],
+    "fix": "Usually a new upstream oxygen sensor; check the fuse and wiring first.",
+    "cost": {"job": "Replace upstream oxygen sensor (bank 2)", "parts": [40, 250], "hours": [0.3, 1.5]},
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0156",
+    "title": "O2 Sensor Circuit (Bank 2 Sensor 2)",
+    "plain": "There's a problem with the rear oxygen sensor on bank 2, after the catalytic converter. It mainly checks that the converter is working.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives", "May fail an emissions test"],
+    "causes": [
+      {"name": "Failed downstream oxygen sensor", "how": "common"},
+      {"name": "Damaged wiring under the car", "how": "common"},
+      {"name": "Corroded or loose connector", "how": "possible"},
+      {"name": "Exhaust leak near the sensor", "how": "possible"}
+    ],
+    "checks": ["Inspect the sensor wiring and connector under the car", "Check for exhaust leaks near the converter", "Watch the live sensor reading on a warm engine"],
+    "fix": "Usually a new downstream oxygen sensor or a wiring repair.",
+    "cost": {"job": "Replace downstream oxygen sensor (bank 2)", "parts": [35, 200], "hours": [0.3, 1.0]},
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0157",
+    "title": "O2 Sensor Circuit Low Voltage (Bank 2 Sensor 2)",
+    "plain": "The rear oxygen sensor on bank 2 is stuck reading low (lean). An exhaust leak letting in outside air or a failed sensor is the usual cause.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives", "May fail an emissions test"],
+    "causes": [
+      {"name": "Failed downstream oxygen sensor", "how": "common"},
+      {"name": "Exhaust leak near the sensor", "how": "common"},
+      {"name": "Signal wire shorted to ground", "how": "possible"},
+      {"name": "Real lean condition", "how": "possible"}
+    ],
+    "checks": ["Look and listen for exhaust leaks around the converter and sensor", "Inspect the wiring under the car", "Check fuel trims for a real lean condition"],
+    "fix": "Fix any exhaust leak; otherwise replace the downstream oxygen sensor.",
+    "cost": {"job": "Replace downstream oxygen sensor (bank 2)", "parts": [35, 200], "hours": [0.3, 1.0]},
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0158",
+    "title": "O2 Sensor Circuit High Voltage (Bank 2 Sensor 2)",
+    "plain": "The rear oxygen sensor on bank 2 is stuck reading high (rich). The sensor may be shorted or contaminated, or the engine may really be running rich.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives", "Possible lower fuel economy"],
+    "causes": [
+      {"name": "Failed or contaminated downstream oxygen sensor", "how": "common"},
+      {"name": "Signal wire shorted to voltage", "how": "common"},
+      {"name": "Real rich condition", "how": "possible"},
+      {"name": "Engine computer fault", "how": "possible"}
+    ],
+    "checks": ["Inspect the sensor wiring under the car", "Check fuel trims for a real rich condition", "Watch the live reading; one pinned above 1 volt points to a short"],
+    "fix": "Usually a new downstream oxygen sensor, or a wiring repair.",
+    "cost": {"job": "Replace downstream oxygen sensor (bank 2)", "parts": [35, 200], "hours": [0.3, 1.0]},
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0159",
+    "title": "O2 Sensor Circuit Slow Response (Bank 2 Sensor 2)",
+    "plain": "The rear oxygen sensor on bank 2 is reacting too slowly when the fuel mixture changes, which usually means it's aging.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives", "May fail an emissions test"],
+    "causes": [
+      {"name": "Aged downstream oxygen sensor", "how": "common"},
+      {"name": "Sensor contaminated by oil or coolant", "how": "common"},
+      {"name": "Exhaust leak near the sensor", "how": "possible"},
+      {"name": "Wiring or connector problem", "how": "possible"}
+    ],
+    "checks": ["Check for exhaust leaks near the converter", "Watch how quickly the rear sensor reacts during a coast-down or sudden throttle change", "Check for oil burning or coolant loss"],
+    "fix": "Usually a new downstream oxygen sensor.",
+    "cost": {"job": "Replace downstream oxygen sensor (bank 2)", "parts": [35, 200], "hours": [0.3, 1.0]},
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P015A",
+    "title": "O2 Sensor Delayed Response - Rich to Lean (Bank 1 Sensor 1)",
+    "plain": "The front oxygen sensor on bank 1 takes too long to start reacting when the exhaust goes from rich to lean. Since it guides fuel control, mileage can suffer.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Possible lower fuel economy"],
+    "causes": [
+      {"name": "Aged or contaminated upstream oxygen sensor", "how": "common"},
+      {"name": "Exhaust leak ahead of the sensor", "how": "possible"},
+      {"name": "Wiring or connector problem", "how": "possible"}
+    ],
+    "checks": ["Check for exhaust leaks ahead of the sensor", "Check fuel trims and look for other fuel or misfire codes"],
+    "fix": "Usually a new upstream oxygen sensor.",
+    "cost": {"job": "Replace upstream oxygen sensor (bank 1)", "parts": [40, 250], "hours": [0.3, 1.0]},
+    "guide": "poor-gas-mileage",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  },
+  {
+    "code": "P015B",
+    "title": "O2 Sensor Delayed Response - Lean to Rich (Bank 1 Sensor 1)",
+    "plain": "The front oxygen sensor on bank 1 takes too long to start reacting when the exhaust goes from lean to rich. Since it guides fuel control, mileage can suffer.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Possible lower fuel economy"],
+    "causes": [
+      {"name": "Aged or contaminated upstream oxygen sensor", "how": "common"},
+      {"name": "Exhaust leak ahead of the sensor", "how": "possible"},
+      {"name": "Wiring or connector problem", "how": "possible"}
+    ],
+    "checks": ["Check for exhaust leaks ahead of the sensor", "Check fuel trims and look for other fuel or misfire codes"],
+    "fix": "Usually a new upstream oxygen sensor.",
+    "cost": {"job": "Replace upstream oxygen sensor (bank 1)", "parts": [40, 250], "hours": [0.3, 1.0]},
+    "guide": "poor-gas-mileage",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  },
+  {
+    "code": "P015C",
+    "title": "O2 Sensor Delayed Response - Rich to Lean (Bank 2 Sensor 1)",
+    "plain": "The front oxygen sensor on bank 2 takes too long to start reacting when the exhaust goes from rich to lean. Since it guides fuel control, mileage can suffer.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Possible lower fuel economy"],
+    "causes": [
+      {"name": "Aged or contaminated upstream oxygen sensor", "how": "common"},
+      {"name": "Exhaust leak ahead of the sensor", "how": "possible"},
+      {"name": "Wiring or connector problem", "how": "possible"}
+    ],
+    "checks": ["Check for exhaust leaks ahead of the sensor", "Check fuel trims and look for other fuel or misfire codes"],
+    "fix": "Usually a new upstream oxygen sensor.",
+    "cost": {"job": "Replace upstream oxygen sensor (bank 2)", "parts": [40, 250], "hours": [0.3, 1.5]},
+    "guide": "poor-gas-mileage",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  },
+  {
+    "code": "P015D",
+    "title": "O2 Sensor Delayed Response - Lean to Rich (Bank 2 Sensor 1)",
+    "plain": "The front oxygen sensor on bank 2 takes too long to start reacting when the exhaust goes from lean to rich. Since it guides fuel control, mileage can suffer.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Possible lower fuel economy"],
+    "causes": [
+      {"name": "Aged or contaminated upstream oxygen sensor", "how": "common"},
+      {"name": "Exhaust leak ahead of the sensor", "how": "possible"},
+      {"name": "Wiring or connector problem", "how": "possible"}
+    ],
+    "checks": ["Check for exhaust leaks ahead of the sensor", "Check fuel trims and look for other fuel or misfire codes"],
+    "fix": "Usually a new upstream oxygen sensor.",
+    "cost": {"job": "Replace upstream oxygen sensor (bank 2)", "parts": [40, 250], "hours": [0.3, 1.5]},
+    "guide": "poor-gas-mileage",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  },
+  {
+    "code": "P0160",
+    "title": "O2 Sensor Circuit No Activity Detected (Bank 2 Sensor 2)",
+    "plain": "The rear oxygen sensor on bank 2 isn't sending any changing signal. It may be dead, unplugged, or its heater may have failed.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives", "May fail an emissions test"],
+    "causes": [
+      {"name": "Failed downstream oxygen sensor", "how": "common"},
+      {"name": "Open circuit in the wiring under the car", "how": "common"},
+      {"name": "Sensor heater not working", "how": "possible"},
+      {"name": "Unplugged or corroded connector", "how": "possible"}
+    ],
+    "checks": ["Check that the sensor connector is plugged in and not corroded", "Check for heater circuit codes and the heater fuse", "Watch the live reading on a warm engine; a flat reading means no activity"],
+    "fix": "Usually a new downstream oxygen sensor, or a wiring repair.",
+    "cost": {"job": "Replace downstream oxygen sensor (bank 2)", "parts": [35, 200], "hours": [0.3, 1.0]},
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0161",
+    "title": "O2 Sensor Heater Circuit (Bank 2 Sensor 2)",
+    "plain": "The heater inside the rear oxygen sensor on bank 2, which helps it warm up quickly, or the heater's wiring has a problem.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": true,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives", "May fail an emissions test"],
+    "causes": [
+      {"name": "Burned-out heater inside the oxygen sensor", "how": "common"},
+      {"name": "Blown oxygen sensor heater fuse", "how": "common"},
+      {"name": "Damaged wiring or connector under the car", "how": "possible"},
+      {"name": "Faulty heater control in the engine computer", "how": "possible"}
+    ],
+    "checks": ["Check the oxygen sensor heater fuse", "Measure the heater resistance at the sensor connector", "Inspect the wiring under the car for damage or corrosion"],
+    "fix": "Usually a new downstream oxygen sensor; check the fuse and wiring first.",
+    "cost": {"job": "Replace downstream oxygen sensor (bank 2)", "parts": [35, 200], "hours": [0.3, 1.0]},
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0162",
+    "title": "O2 Sensor Circuit (Bank 2 Sensor 3)",
+    "plain": "Some vehicles have a third oxygen sensor further down the exhaust. This code means there's a problem with that sensor on bank 2 or its wiring.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives"],
+    "causes": [
+      {"name": "Failed oxygen sensor 3", "how": "common"},
+      {"name": "Damaged wiring or connector under the car", "how": "common"},
+      {"name": "Exhaust leak near the sensor", "how": "possible"}
+    ],
+    "checks": ["Inspect the sensor wiring and connector under the car", "Check for exhaust leaks near the sensor"],
+    "fix": "Usually a new oxygen sensor or a wiring repair.",
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0163",
+    "title": "O2 Sensor Circuit Low Voltage (Bank 2 Sensor 3)",
+    "plain": "The third oxygen sensor on bank 2 is stuck reading low (lean), often from an exhaust leak or a failed sensor.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives"],
+    "causes": [
+      {"name": "Failed oxygen sensor 3", "how": "common"},
+      {"name": "Exhaust leak near the sensor", "how": "common"},
+      {"name": "Signal wire shorted to ground", "how": "possible"}
+    ],
+    "checks": ["Check for exhaust leaks near the sensor", "Inspect the wiring under the car"],
+    "fix": "Fix any exhaust leak; otherwise replace the oxygen sensor.",
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0164",
+    "title": "O2 Sensor Circuit High Voltage (Bank 2 Sensor 3)",
+    "plain": "The third oxygen sensor on bank 2 is stuck reading high (rich), usually from a shorted or contaminated sensor.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives"],
+    "causes": [
+      {"name": "Failed or contaminated oxygen sensor 3", "how": "common"},
+      {"name": "Signal wire shorted to voltage", "how": "common"},
+      {"name": "Real rich condition", "how": "possible"}
+    ],
+    "checks": ["Inspect the wiring under the car", "Check fuel trims for a real rich condition"],
+    "fix": "Usually a new oxygen sensor or a wiring repair.",
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0165",
+    "title": "O2 Sensor Circuit Slow Response (Bank 2 Sensor 3)",
+    "plain": "The third oxygen sensor on bank 2 is reacting too slowly, which usually means the sensor is aging.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives"],
+    "causes": [
+      {"name": "Aged oxygen sensor 3", "how": "common"},
+      {"name": "Sensor contamination", "how": "possible"},
+      {"name": "Exhaust leak near the sensor", "how": "possible"}
+    ],
+    "checks": ["Check for exhaust leaks near the sensor", "Watch how the sensor responds to throttle changes"],
+    "fix": "Usually a new oxygen sensor.",
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0166",
+    "title": "O2 Sensor Circuit No Activity Detected (Bank 2 Sensor 3)",
+    "plain": "The third oxygen sensor on bank 2 isn't sending any changing signal, so it may be dead or disconnected.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives"],
+    "causes": [
+      {"name": "Failed oxygen sensor 3", "how": "common"},
+      {"name": "Open circuit in the wiring", "how": "common"},
+      {"name": "Sensor heater not working", "how": "possible"}
+    ],
+    "checks": ["Check the sensor connector and wiring under the car", "Check for heater codes and the heater fuse"],
+    "fix": "Usually a new oxygen sensor or a wiring repair.",
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0167",
+    "title": "O2 Sensor Heater Circuit (Bank 2 Sensor 3)",
+    "plain": "The heater inside the third oxygen sensor on bank 2, or its wiring, has a problem.",
+    "sys": "Emissions",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Usually no change in how the car drives"],
+    "causes": [
+      {"name": "Burned-out sensor heater", "how": "common"},
+      {"name": "Blown heater fuse", "how": "common"},
+      {"name": "Damaged wiring or connector", "how": "possible"}
+    ],
+    "checks": ["Check the oxygen sensor heater fuse", "Measure the heater resistance at the sensor connector"],
+    "fix": "Usually a new oxygen sensor; check the fuse and wiring first.",
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0168",
+    "title": "Fuel Temperature Too High",
+    "plain": "The fuel is hotter than it should be. This is mostly seen on diesels, where hot fuel can reduce power and is hard on the injection system.",
+    "sys": "Fuel and air",
+    "sev": "soon",
+    "common": false,
+    "symptoms": ["Check engine light on", "Reduced power, especially in hot weather", "Possible hard starting when hot"],
+    "causes": [
+      {"name": "Faulty fuel temperature sensor", "how": "common"},
+      {"name": "Fuel cooler blocked or not working", "how": "common"},
+      {"name": "Running with a very low fuel level", "how": "possible"},
+      {"name": "Wiring or connector fault", "how": "possible"}
+    ],
+    "checks": ["Compare the fuel temperature reading with other temperature sensors on a cold engine", "Inspect the fuel cooler for blockage or damage"],
+    "fix": "Replace the fuel temperature sensor or repair the fuel cooling system.",
+    "guide": "loss-of-power-when-accelerating",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0169",
+    "title": "Incorrect Fuel Composition",
+    "plain": "The computer thinks the fuel in the tank isn't what the engine should be running on, such as contaminated fuel or the wrong type of fuel.",
+    "sys": "Fuel and air",
+    "sev": "soon",
+    "common": false,
+    "symptoms": ["Check engine light on", "Rough running, hesitation or hard starting", "Possible loss of power"],
+    "causes": [
+      {"name": "Wrong or contaminated fuel in the tank", "how": "common"},
+      {"name": "Water in the fuel", "how": "common"},
+      {"name": "Faulty fuel composition sensor or its wiring", "how": "possible"}
+    ],
+    "checks": ["Think back to the last fill-up and whether the right fuel was used", "Take a fuel sample and check for water or the wrong fuel"],
+    "fix": "Drain and replace bad fuel, replace filters, or repair the fuel composition sensor circuit.",
+    "guide": "engine-sputtering-misfire",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0170",
+    "title": "Fuel Trim (Bank 1)",
+    "plain": "The computer has had to adjust the fuel mixture on bank 1 beyond its normal limits to keep the engine running right. Something is throwing the air or fuel off.",
+    "sys": "Fuel and air",
+    "sev": "soon",
+    "common": false,
+    "symptoms": ["Check engine light on", "Rough idle or hesitation", "Lower fuel economy"],
+    "causes": [
+      {"name": "Vacuum or intake air leak", "how": "common"},
+      {"name": "Dirty or faulty mass air flow sensor", "how": "common"},
+      {"name": "Fuel pressure too low or too high", "how": "possible"},
+      {"name": "Leaking or clogged fuel injector", "how": "possible"}
+    ],
+    "checks": ["Check fuel trims to see if the engine is running lean or rich", "Look for vacuum leaks and inspect the intake ducting"],
+    "fix": "Find and fix the air or fuel problem behind the trim, such as a vacuum leak or dirty MAF sensor.",
+    "guide": "rough-idle-shaking",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0171",
+    "title": "System Too Lean (Bank 1)",
+    "plain": "The engine on bank 1 is getting too much air or not enough fuel, and the computer has run out of room to correct it. A vacuum leak is the most common reason.",
+    "sys": "Fuel and air",
+    "sev": "soon",
+    "common": true,
+    "symptoms": ["Check engine light on", "Rough or unsteady idle", "Hesitation or stumble when accelerating", "Possible misfires or hard starting"],
+    "causes": [
+      {"name": "Vacuum leak from a cracked hose, PCV hose or intake gasket", "how": "common"},
+      {"name": "Dirty or faulty mass air flow sensor", "how": "common"},
+      {"name": "Weak fuel pump or clogged fuel filter", "how": "possible"},
+      {"name": "Clogged or dirty fuel injectors", "how": "possible"},
+      {"name": "Exhaust leak ahead of the upstream oxygen sensor", "how": "possible"}
+    ],
+    "checks": ["Listen for hissing and inspect vacuum and PCV hoses, or have a smoke test done", "Clean or test the mass air flow sensor", "Check fuel pressure if no air leak is found"],
+    "fix": "Most often a vacuum leak repair or a MAF sensor cleaning; low fuel pressure needs a pump or filter.",
+    "cost": {"job": "Repair vacuum leak (hose, PCV or intake gasket)", "parts": [10, 200], "hours": [0.5, 3.0]},
+    "examples": ["Frequently traced to cracked PCV or intake hoses on older V8 trucks and SUVs"],
+    "guide": "rough-idle-shaking",
+    "src": ["https://www.samarins.com/diagnose/p0171.html", "https://repairpal.com/OBD-II-Code-P0171-and-P0174"]
+  },
+  {
+    "code": "P0172",
+    "title": "System Too Rich (Bank 1)",
+    "plain": "The engine on bank 1 is getting too much fuel or not enough air, and the computer can't trim it back enough. Left alone, it can hurt fuel economy and the catalytic converter.",
+    "sys": "Fuel and air",
+    "sev": "soon",
+    "common": true,
+    "symptoms": ["Check engine light on", "Poor fuel economy", "Fuel smell or black smoke from the exhaust", "Rough idle or misfires"],
+    "causes": [
+      {"name": "Dirty or faulty mass air flow sensor", "how": "common"},
+      {"name": "Leaking fuel injector", "how": "common"},
+      {"name": "Faulty fuel pressure regulator or high fuel pressure", "how": "possible"},
+      {"name": "Faulty coolant temperature sensor reading cold", "how": "possible"},
+      {"name": "Clogged air filter or restricted intake", "how": "possible"}
+    ],
+    "checks": ["Check the air filter and clean or test the MAF sensor", "Check fuel pressure and look for fuel in the regulator vacuum hose where fitted", "Confirm the coolant temperature reading matches the real engine temperature"],
+    "fix": "Often a MAF sensor cleaning or replacement; leaking injectors or a bad regulator also need replacing.",
+    "cost": {"job": "Replace mass air flow sensor", "parts": [60, 350], "hours": [0.2, 0.8]},
+    "guide": "black-smoke-from-exhaust",
+    "src": ["https://www.samarins.com/diagnose/p0172.html", "https://www.oreillyauto.com/check-engine-light-code-p0172-and-p0175-fuel-system-rich"]
+  },
+  {
+    "code": "P0173",
+    "title": "Fuel Trim (Bank 2)",
+    "plain": "The computer has had to adjust the fuel mixture on bank 2 beyond its normal limits. Something is throwing the air or fuel off on that side of the engine.",
+    "sys": "Fuel and air",
+    "sev": "soon",
+    "common": false,
+    "symptoms": ["Check engine light on", "Rough idle or hesitation", "Lower fuel economy"],
+    "causes": [
+      {"name": "Vacuum or intake leak on bank 2", "how": "common"},
+      {"name": "Dirty or faulty mass air flow sensor", "how": "common"},
+      {"name": "Leaking or clogged fuel injector on bank 2", "how": "possible"},
+      {"name": "Fuel pressure problem", "how": "possible"}
+    ],
+    "checks": ["Compare bank 1 and bank 2 fuel trims to see whether one side is off", "Look for vacuum leaks, especially on the bank 2 side of the intake"],
+    "fix": "Find and fix the air or fuel problem behind the trim.",
+    "guide": "rough-idle-shaking",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0174",
+    "title": "System Too Lean (Bank 2)",
+    "plain": "The engine on bank 2 is getting too much air or not enough fuel, and the computer can't add enough fuel to correct it. When it shows up with P0171, look for a problem that affects both sides.",
+    "sys": "Fuel and air",
+    "sev": "soon",
+    "common": true,
+    "symptoms": ["Check engine light on", "Rough or unsteady idle", "Hesitation when accelerating", "Possible misfires or stalling"],
+    "causes": [
+      {"name": "Vacuum leak from a cracked hose, PCV hose or intake gasket", "how": "common"},
+      {"name": "Dirty or faulty mass air flow sensor", "how": "common"},
+      {"name": "Weak fuel pump, clogged filter or faulty pressure regulator", "how": "possible"},
+      {"name": "Clogged fuel injectors on bank 2", "how": "possible"},
+      {"name": "Exhaust leak ahead of the bank 2 oxygen sensor", "how": "possible"}
+    ],
+    "checks": ["Have a smoke test done to find vacuum leaks", "Clean or test the mass air flow sensor", "Check fuel pressure, especially if P0171 is also set"],
+    "fix": "Most often a vacuum leak repair or MAF sensor cleaning; low fuel pressure needs a pump or filter.",
+    "cost": {"job": "Repair vacuum leak (hose, PCV or intake gasket)", "parts": [10, 200], "hours": [0.5, 3.0]},
+    "examples": ["Often appears together with P0171 when one leak or a dirty MAF affects both banks"],
+    "guide": "rough-idle-shaking",
+    "src": ["https://torquemech.com/obd/p0174", "https://repairpal.com/OBD-II-Code-P0171-and-P0174"]
+  },
+  {
+    "code": "P0175",
+    "title": "System Too Rich (Bank 2)",
+    "plain": "The engine on bank 2 is getting too much fuel or not enough air, and the computer can't trim it back enough. It can hurt fuel economy and the catalytic converter over time.",
+    "sys": "Fuel and air",
+    "sev": "soon",
+    "common": true,
+    "symptoms": ["Check engine light on", "Poor fuel economy", "Fuel smell or black smoke", "Rough idle or misfires"],
+    "causes": [
+      {"name": "Dirty or faulty mass air flow sensor", "how": "common"},
+      {"name": "Leaking fuel injector on bank 2", "how": "common"},
+      {"name": "Faulty fuel pressure regulator or high fuel pressure", "how": "possible"},
+      {"name": "Faulty coolant temperature sensor", "how": "possible"},
+      {"name": "Restricted air filter or intake", "how": "possible"}
+    ],
+    "checks": ["Check the air filter and clean or test the MAF sensor", "Check fuel pressure and look for leaking injectors", "Confirm the coolant temperature reading is correct"],
+    "fix": "Often a MAF sensor cleaning or replacement; leaking injectors or a bad regulator also need replacing.",
+    "cost": {"job": "Replace mass air flow sensor", "parts": [60, 350], "hours": [0.2, 0.8]},
+    "guide": "black-smoke-from-exhaust",
+    "src": ["https://www.repairsmith.com/estimates/trouble-codes/p0175", "https://www.oreillyauto.com/check-engine-light-code-p0172-and-p0175-fuel-system-rich"]
+  },
+  {
+    "code": "P0176",
+    "title": "Fuel Composition Sensor Circuit",
+    "plain": "Flex-fuel vehicles use a sensor to measure how much ethanol is in the fuel. This code means there's an electrical problem with that sensor or its wiring.",
+    "sys": "Fuel and air",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Possible hard starting or rough running on high-ethanol fuel"],
+    "causes": [
+      {"name": "Failed fuel composition (flex fuel) sensor", "how": "common"},
+      {"name": "Damaged or corroded connector", "how": "common"},
+      {"name": "Open or shorted wiring", "how": "possible"}
+    ],
+    "checks": ["Inspect the sensor connector and wiring along the fuel line", "Check the sensor's power, ground and signal"],
+    "fix": "Repair the wiring or replace the fuel composition sensor.",
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0177",
+    "title": "Fuel Composition Sensor Circuit Range/Performance",
+    "plain": "The flex-fuel sensor's ethanol reading doesn't make sense. The engine may not be getting the right amount of fuel for the blend in the tank.",
+    "sys": "Fuel and air",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Possible hard starting or hesitation"],
+    "causes": [
+      {"name": "Faulty fuel composition sensor", "how": "common"},
+      {"name": "Water or contamination in the fuel", "how": "possible"},
+      {"name": "Corroded connector or poor ground", "how": "possible"}
+    ],
+    "checks": ["Compare the ethanol reading with what was put in the tank", "Inspect the connector and wiring"],
+    "fix": "Replace the fuel composition sensor or deal with contaminated fuel.",
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0178",
+    "title": "Fuel Composition Sensor Circuit Low",
+    "plain": "The flex-fuel sensor's signal is lower than its normal range, usually from a wiring problem or a failed sensor.",
+    "sys": "Fuel and air",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Possible hard starting or rough running"],
+    "causes": [
+      {"name": "Failed fuel composition sensor", "how": "common"},
+      {"name": "Signal wire open or shorted to ground", "how": "common"},
+      {"name": "Corroded connector", "how": "possible"}
+    ],
+    "checks": ["Inspect the sensor connector and wiring", "Check the sensor's power, ground and signal"],
+    "fix": "Repair the wiring or replace the fuel composition sensor.",
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  },
+  {
+    "code": "P0179",
+    "title": "Fuel Composition Sensor Circuit High",
+    "plain": "The flex-fuel sensor's signal is higher than its normal range, usually from a short in the wiring or a failed sensor.",
+    "sys": "Fuel and air",
+    "sev": "check",
+    "common": false,
+    "symptoms": ["Check engine light on", "Possible hard starting or rough running"],
+    "causes": [
+      {"name": "Failed fuel composition sensor", "how": "common"},
+      {"name": "Signal wire shorted to voltage", "how": "common"},
+      {"name": "Open sensor ground", "how": "possible"}
+    ],
+    "checks": ["Inspect the sensor wiring for damage", "Check the sensor ground and signal"],
+    "fix": "Repair the wiring or replace the fuel composition sensor.",
+    "guide": "check-engine-light-on",
+    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  }
+]

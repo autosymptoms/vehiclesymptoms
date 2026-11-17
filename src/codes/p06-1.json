@@ -1,0 +1,1338 @@
+[
+ {
+  "code": "P0600",
+  "title": "Serial Communication Link",
+  "plain": "The engine computer has lost or is getting bad communication with another computer in the car over a data link.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Several other warning lights may come on",
+   "Transmission may go into limp mode",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector on the communication network",
+    "how": "common"
+   },
+   {
+    "name": "Low battery voltage or poor grounds",
+    "how": "common"
+   },
+   {
+    "name": "Faulty module on the network",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty engine computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and check main grounds",
+   "Scan every module for communication (U) codes to see which one is missing",
+   "Inspect network wiring and connectors, especially near the computers"
+  ],
+  "fix": "Usually a wiring, connector or power and ground repair; sometimes a faulty module.",
+  "cost": {
+   "job": "Diagnose and repair network wiring",
+   "parts": [
+    0,
+    50
+   ],
+   "hours": [
+    1,
+    3
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_699.htm"
+  ]
+ },
+ {
+  "code": "P0601",
+  "title": "Internal Control Module Memory Check Sum Error",
+  "plain": "The engine computer's self-check found that its stored program doesn't add up correctly, meaning its memory may be corrupted.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start or may stall",
+   "Runs poorly or goes into limp mode",
+   "Sometimes no other symptoms"
+  ],
+  "causes": [
+   {
+    "name": "Failing engine computer",
+    "how": "common"
+   },
+   {
+    "name": "Corrupted software from an interrupted or failed reprogramming",
+    "how": "common"
+   },
+   {
+    "name": "Low battery voltage during programming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage at the computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground connections",
+   "Try reprogramming the computer with the latest software"
+  ],
+  "fix": "Reprogram the computer first; replace and program it if the code returns.",
+  "cost": {
+   "job": "Replace and program engine computer",
+   "parts": [
+    200,
+    1200
+   ],
+   "hours": [
+    1,
+    2.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_699.htm"
+  ]
+ },
+ {
+  "code": "P0602",
+  "title": "Control Module Programming Error",
+  "plain": "The engine computer is not programmed, or its programming did not complete correctly.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start or may run poorly"
+  ],
+  "causes": [
+   {
+    "name": "Computer not programmed after replacement",
+    "how": "common"
+   },
+   {
+    "name": "Interrupted or failed software update",
+    "how": "common"
+   },
+   {
+    "name": "Low battery voltage during programming",
+    "how": "possible"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Ask whether the computer was recently replaced or updated",
+   "Reprogram with a battery maintainer connected"
+  ],
+  "fix": "Usually reprogramming the computer; replace it only if programming will not take.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0603",
+  "title": "Internal Control Module Keep Alive Memory (KAM) Error",
+  "plain": "The computer's keep-alive memory, which stores learned settings, lost its data. This often happens after the battery is disconnected or goes dead.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Idle or shifting may feel off until the computer relearns",
+   "Often shows up after battery work"
+  ],
+  "causes": [
+   {
+    "name": "Battery recently disconnected, replaced or run dead",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded battery terminals",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or poor connection on the computer constant-power feed",
+    "how": "possible"
+   },
+   {
+    "name": "Failing engine computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Find out whether the battery was recently disconnected or died",
+   "Check the battery terminals and the computer constant-power fuse",
+   "Clear the code and see if it returns after a few drives"
+  ],
+  "fix": "Often goes away after fixing the battery connection and clearing the code; replace the computer only if it keeps coming back with good power.",
+  "cost": {
+   "job": "Clean battery terminals and check computer power feed",
+   "parts": [
+    0,
+    40
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_699.htm"
+  ]
+ },
+ {
+  "code": "P0604",
+  "title": "Internal Control Module Random Access Memory (RAM) Error",
+  "plain": "The engine computer's self-test found an error in its working memory (RAM).",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power, stalling or no start",
+   "Other warning lights may come on"
+  ],
+  "causes": [
+   {
+    "name": "Low battery voltage or poor power or ground connections at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update or reprogramming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0605",
+  "title": "Internal Control Module Read Only Memory (ROM) Error",
+  "plain": "The engine computer's self-test found an error in its permanent program memory (ROM).",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power, stalling or no start",
+   "Other warning lights may come on"
+  ],
+  "causes": [
+   {
+    "name": "Low battery voltage or poor power or ground connections at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update or reprogramming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0606",
+  "title": "Control Module Processor",
+  "plain": "The engine computer's self-test found a problem with its own processor, the chip that runs the engine.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Stalling or no start",
+   "Erratic shifting on some vehicles"
+  ],
+  "causes": [
+   {
+    "name": "Internal engine computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Low system voltage or poor power and ground connections",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   },
+   {
+    "name": "Shorted sensor or actuator dragging down computer circuits",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for software updates or service bulletins",
+   "Clear the code and see if it returns"
+  ],
+  "fix": "Fix any voltage or ground problem first; if the code returns, the computer usually needs reprogramming or replacement.",
+  "cost": {
+   "job": "Replace and program engine computer",
+   "parts": [
+    200,
+    1200
+   ],
+   "hours": [
+    1,
+    2.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/",
+   "https://www.aa1car.com/trouble-codes/codes_699.htm"
+  ]
+ },
+ {
+  "code": "P0607",
+  "title": "Control Module Performance",
+  "plain": "The engine computer detected that it is not performing correctly internally.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power, stalling or no start",
+   "Other warning lights may come on"
+  ],
+  "causes": [
+   {
+    "name": "Low battery voltage or poor power or ground connections at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update or reprogramming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0608",
+  "title": "Control Module VSS Output \"A\"",
+  "plain": "The engine computer sends a vehicle speed signal (\"A\") to other systems, and it found a problem in that output circuit.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer, cruise control or other speed-based features may not work"
+  ],
+  "causes": [
+   {
+    "name": "Short or open in the speed output wiring",
+    "how": "common"
+   },
+   {
+    "name": "Faulty module that receives the speed signal",
+    "how": "common"
+   },
+   {
+    "name": "Faulty vehicle speed sensor input",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the speed output wiring and connectors",
+   "Check for speed sensor codes and fix those first"
+  ],
+  "fix": "Usually a wiring repair; sometimes a receiving module or the engine computer.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0609",
+  "title": "Control Module VSS Output \"B\"",
+  "plain": "The engine computer sends a vehicle speed signal (\"B\") to other systems, and it found a problem in that output circuit.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer, cruise control or other speed-based features may not work"
+  ],
+  "causes": [
+   {
+    "name": "Short or open in the speed output wiring",
+    "how": "common"
+   },
+   {
+    "name": "Faulty module that receives the speed signal",
+    "how": "common"
+   },
+   {
+    "name": "Faulty vehicle speed sensor input",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the speed output wiring and connectors",
+   "Check for speed sensor codes and fix those first"
+  ],
+  "fix": "Usually a wiring repair; sometimes a receiving module or the engine computer.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P060A",
+  "title": "Internal Control Module Monitoring Processor Performance",
+  "plain": "The engine computer has a second, watchdog processor that checks the main one, and it found a fault.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power, stalling or no start",
+   "Other warning lights may come on"
+  ],
+  "causes": [
+   {
+    "name": "Low battery voltage or poor power or ground connections at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update or reprogramming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P060B",
+  "title": "Internal Control Module A/D Processing Performance",
+  "plain": "The part of the engine computer that converts sensor signals into numbers is not working correctly.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power, stalling or no start",
+   "Other warning lights may come on"
+  ],
+  "causes": [
+   {
+    "name": "Low battery voltage or poor power or ground connections at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update or reprogramming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P060C",
+  "title": "Internal Control Module Main Processor Performance",
+  "plain": "The engine computer's main processor failed a self-check.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power, stalling or no start",
+   "Other warning lights may come on"
+  ],
+  "causes": [
+   {
+    "name": "Low battery voltage or poor power or ground connections at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update or reprogramming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P060D",
+  "title": "Internal Control Module Accelerator Pedal Position Performance",
+  "plain": "The engine computer's two processors disagree about the gas pedal position.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Gas pedal may feel unresponsive"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Erratic or faulty accelerator pedal sensor signal",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground connections",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P060E",
+  "title": "Internal Control Module Throttle Position Performance",
+  "plain": "The engine computer's two processors disagree about the throttle position.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Possible rough idle or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Erratic or faulty throttle position sensor signal",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground connections",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P060F",
+  "title": "Internal Control Module Coolant Temperature Performance",
+  "plain": "The engine computer's internal check of the coolant temperature reading failed.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fans may run constantly",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Erratic or faulty coolant temperature sensor signal",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground connections",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0610",
+  "title": "Control Module Vehicle Options Error",
+  "plain": "The engine computer isn't set up with the right options for this vehicle, often after it was replaced.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start or features may not work right"
+  ],
+  "causes": [
+   {
+    "name": "Replacement computer not configured for the vehicle",
+    "how": "common"
+   },
+   {
+    "name": "Wrong computer part number installed",
+    "how": "common"
+   },
+   {
+    "name": "Interrupted programming",
+    "how": "possible"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Confirm the computer part number matches the vehicle",
+   "Have the computer configured or programmed with a dealer-level scan tool"
+  ],
+  "fix": "Usually programming or configuring the computer for the vehicle.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0611",
+  "title": "Fuel Injector Control Module Performance",
+  "plain": "The separate module that fires the fuel injectors, mostly on diesels, is not performing correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Hard starting or no start",
+   "Rough running, misfire or stalling",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Low voltage reaching the injector control module",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fuel injector control module",
+    "how": "common"
+   },
+   {
+    "name": "Weak batteries",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the batteries and charging system",
+   "Check the module supply voltage while cranking and running",
+   "Inspect the module connectors"
+  ],
+  "fix": "Usually a repaired or new fuel injector control module, after confirming good battery and charging voltage.",
+  "examples": [
+   "Ford 6.0L Power Stroke diesels are known for injector control module failures"
+  ],
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0612",
+  "title": "Fuel Injector Control Module Relay Control",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the fuel injector control module relay. This part powers the module that fires the fuel injectors.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Hard starting or no start",
+   "Possible stalling",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty fuel injector control module relay",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the fuel injector control module relay wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the fuel injector control module relay with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new fuel injector control module relay if it tests bad.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0613",
+  "title": "TCM Processor",
+  "plain": "The transmission computer's self-test found a problem with its own processor.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission stuck in one gear or limp mode",
+   "Harsh or erratic shifting"
+  ],
+  "causes": [
+   {
+    "name": "Low battery voltage or poor power or ground connections at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update or reprogramming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check transmission computer power and ground connections",
+   "Check for transmission computer software updates"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the transmission computer needs reprogramming or replacement.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0614",
+  "title": "ECM / TCM Incompatible",
+  "plain": "The engine computer and transmission computer don't match each other, usually after one was replaced or reprogrammed.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Transmission may be in limp mode",
+   "Engine may not start on some vehicles"
+  ],
+  "causes": [
+   {
+    "name": "Wrong engine or transmission computer installed",
+    "how": "common"
+   },
+   {
+    "name": "Computer not programmed after replacement",
+    "how": "common"
+   },
+   {
+    "name": "Mismatched software versions",
+    "how": "possible"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Ask whether either computer was recently replaced or updated",
+   "Confirm part numbers and update software on both computers"
+  ],
+  "fix": "Usually programming both computers with matching software, or installing the correct part.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0615",
+  "title": "Starter Relay Circuit",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the starter relay. This part switches power to the starter when you turn the key or press start.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine may not crank",
+   "Clicking with no crank, or cranking only sometimes",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty starter relay",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the starter relay wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the starter relay with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new starter relay if it tests bad.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0616",
+  "title": "Starter Relay Circuit Low",
+  "plain": "The computer sees lower voltage than expected in the circuit that controls the starter relay, often from a wire shorted to ground. This part switches power to the starter when you turn the key or press start.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine may not crank",
+   "Clicking with no crank, or cranking only sometimes",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty starter relay",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the starter relay wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the starter relay with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new starter relay if it tests bad.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0617",
+  "title": "Starter Relay Circuit High",
+  "plain": "The computer sees higher voltage than expected in the circuit that controls the starter relay, often from a wire shorted to power or a failed part. This part switches power to the starter when you turn the key or press start.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine may not crank",
+   "Clicking with no crank, or cranking only sometimes",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or shorted starter relay",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the starter relay wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the starter relay with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new starter relay if it tests bad.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0618",
+  "title": "Alternative Fuel Control Module KAM Error",
+  "plain": "On vehicles that run on natural gas or propane, the fuel system module lost its stored learned settings.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "May switch to gasoline or run poorly on the alternative fuel"
+  ],
+  "causes": [
+   {
+    "name": "Low voltage or poor power and ground at the module",
+    "how": "common"
+   },
+   {
+    "name": "Internal alternative fuel module fault",
+    "how": "common"
+   },
+   {
+    "name": "Module software that needs updating",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and module power and grounds",
+   "Clear the code and see if it returns"
+  ],
+  "fix": "Fix any power problem; otherwise the alternative fuel module may need replacement.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P0619",
+  "title": "Alternative Fuel Control Module RAM/ROM Error",
+  "plain": "On vehicles that run on natural gas or propane, the fuel system module found an error in its internal memory.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "May switch to gasoline or run poorly on the alternative fuel"
+  ],
+  "causes": [
+   {
+    "name": "Low voltage or poor power and ground at the module",
+    "how": "common"
+   },
+   {
+    "name": "Internal alternative fuel module fault",
+    "how": "common"
+   },
+   {
+    "name": "Module software that needs updating",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and module power and grounds",
+   "Check for module software updates"
+  ],
+  "fix": "Usually reprogramming or replacing the alternative fuel module.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P061A",
+  "title": "Internal Control Module Torque Performance",
+  "plain": "The engine computer's check of how much power the engine is making, versus what was requested, failed.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Possible stalling"
+  ],
+  "causes": [
+   {
+    "name": "Low battery voltage or poor power or ground connections at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update or reprogramming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P061B",
+  "title": "Internal Control Module Torque Calculation Performance",
+  "plain": "The engine computer's two processors calculated different engine torque values.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Possible stalling"
+  ],
+  "causes": [
+   {
+    "name": "Low battery voltage or poor power or ground connections at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update or reprogramming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P061C",
+  "title": "Internal Control Module Engine RPM Performance",
+  "plain": "The engine computer's internal check of engine speed (RPM) failed.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Possible stalling"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Erratic or faulty crankshaft position sensor signal",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground connections",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P061D",
+  "title": "Internal Control Module Engine Air Mass Performance",
+  "plain": "The engine computer's internal check of how much air the engine is taking in failed.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Possible stalling"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Erratic or faulty mass air flow sensor signal",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground connections",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P061E",
+  "title": "Internal Control Module Brake Signal Performance",
+  "plain": "The engine computer's internal check of the brake pedal signal failed.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cruise control may not work",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Erratic or faulty brake light switch signal",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground connections",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P061F",
+  "title": "Internal Control Module Throttle Actuator Controller Performance",
+  "plain": "The part of the engine computer that drives the electronic throttle failed a self-check.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Possible stalling"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or faulty electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground connections",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ }
+]

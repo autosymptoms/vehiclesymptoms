@@ -1,0 +1,1986 @@
+[
+ {
+  "code": "P2100",
+  "title": "Throttle Actuator Control Motor Circuit/Open",
+  "plain": "The engine computer can't properly control the electronic throttle motor, which opens and closes the throttle when you press the gas pedal. It sees an open or broken circuit, often from wiring, a connector or the part itself.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor idle or slow response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Failed electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle body connector and wiring",
+   "Check for power at the connector and measure the part's resistance"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the electronic throttle body.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2101",
+  "title": "Throttle Actuator Control Motor Circuit Range/Performance",
+  "plain": "The computer is commanding the electronic throttle to move, but the throttle isn't ending up where it should. A dirty or failing throttle body or a wiring problem is the usual reason.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Engine may idle high or stall",
+   "Slow or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Failing electronic throttle body (motor or gears)",
+    "how": "common"
+   },
+   {
+    "name": "Carbon buildup making the throttle plate stick",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded throttle body connector",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring between the throttle and computer",
+    "how": "possible"
+   },
+   {
+    "name": "Low battery voltage or poor ground",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect and clean the throttle body bore and plate",
+   "Check the throttle connector and wiring",
+   "Check battery voltage and engine grounds"
+  ],
+  "fix": "Clean the throttle body and repair wiring; if the fault returns, replace the throttle body.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2003.html"
+  ]
+ },
+ {
+  "code": "P2102",
+  "title": "Throttle Actuator Control Motor Circuit Low",
+  "plain": "The control circuit for the electronic throttle motor is reading low voltage. This part opens and closes the throttle when you press the gas pedal. A wire shorted to ground or a shorted part is the usual reason.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor idle or slow response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Internally shorted electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the throttle body wiring for rubbed-through insulation",
+   "Measure the throttle body resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the electronic throttle body.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2103",
+  "title": "Throttle Actuator Control Motor Circuit High",
+  "plain": "The control circuit for the electronic throttle motor is reading high voltage. This part opens and closes the throttle when you press the gas pedal. A wire shorted to power, an open circuit or a failed part is the usual reason.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor idle or slow response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Failed electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Control wire shorted to a power source",
+    "how": "common"
+   },
+   {
+    "name": "Open circuit or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the throttle body wiring for shorts to other wires",
+   "Measure the throttle body resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the electronic throttle body.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2104",
+  "title": "Throttle Actuator Control System - Forced Idle",
+  "plain": "The engine computer has found a problem with the electronic throttle system and is protecting the engine by holding the engine at idle no matter how far you press the gas. Another throttle or pedal code usually explains why.",
+  "sys": "Speed and idle control",
+  "sev": "stop",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine stays at idle and won't speed up",
+   "Reduced engine power warning may show"
+  ],
+  "causes": [
+   {
+    "name": "Throttle body or pedal sensor fault (see other stored codes)",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or sticking throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the throttle or pedal",
+    "how": "possible"
+   },
+   {
+    "name": "Brake switch problem",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read all stored codes and fix the other throttle or pedal codes first",
+   "Inspect the throttle body and its connector"
+  ],
+  "fix": "Repair the underlying throttle, pedal or wiring fault; this code clears once that is fixed.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2105",
+  "title": "Throttle Actuator Control System - Forced Engine Shutdown",
+  "plain": "The engine computer has found a problem with the electronic throttle system and is protecting the engine by shut the engine off for safety. Another throttle or pedal code usually explains why.",
+  "sys": "Speed and idle control",
+  "sev": "stop",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine shuts off or won't stay running",
+   "Reduced engine power warning may show"
+  ],
+  "causes": [
+   {
+    "name": "Throttle body or pedal sensor fault (see other stored codes)",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or sticking throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the throttle or pedal",
+    "how": "possible"
+   },
+   {
+    "name": "Brake switch problem",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read all stored codes and fix the other throttle or pedal codes first",
+   "Inspect the throttle body and its connector"
+  ],
+  "fix": "Repair the underlying throttle, pedal or wiring fault; this code clears once that is fixed.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "engine-stalls-while-driving"
+ },
+ {
+  "code": "P2106",
+  "title": "Throttle Actuator Control System - Forced Limited Power",
+  "plain": "The engine computer has found a problem with the electronic throttle system and is protecting the engine by limiting engine power. Another throttle or pedal code usually explains why.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Limited power and slow acceleration",
+   "Reduced engine power warning may show"
+  ],
+  "causes": [
+   {
+    "name": "Throttle body or pedal sensor fault (see other stored codes)",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or sticking throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the throttle or pedal",
+    "how": "possible"
+   },
+   {
+    "name": "Brake switch problem",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read all stored codes and fix the other throttle or pedal codes first",
+   "Inspect the throttle body and its connector"
+  ],
+  "fix": "Repair the underlying throttle, pedal or wiring fault; this code clears once that is fixed.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2107",
+  "title": "Throttle Actuator Control Module Processor",
+  "plain": "The part of the computer that controls the electronic throttle has found an internal fault. The engine may go into limp mode to stay safe.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Engine may idle only"
+  ],
+  "causes": [
+   {
+    "name": "Internal engine computer or throttle control module fault",
+    "how": "common"
+   },
+   {
+    "name": "Low system voltage or poor computer ground",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage to the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Software issue needing an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check battery voltage, charging system and computer grounds",
+   "Check for software updates or service bulletins"
+  ],
+  "fix": "Fix voltage or ground problems first; if the code returns, the computer may need reprogramming or replacement.",
+  "cost": {
+   "job": "Replace or reprogram engine computer",
+   "parts": [
+    300,
+    1200
+   ],
+   "hours": [
+    1.0,
+    2.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2108",
+  "title": "Throttle Actuator Control Module Performance",
+  "plain": "The throttle control part of the engine computer isn't performing as expected. It's often triggered by voltage or wiring problems around the throttle system.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor throttle response"
+  ],
+  "causes": [
+   {
+    "name": "Low battery or charging voltage",
+    "how": "common"
+   },
+   {
+    "name": "Poor computer ground",
+    "how": "common"
+   },
+   {
+    "name": "Throttle body fault",
+    "how": "possible"
+   },
+   {
+    "name": "Internal engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check battery and charging voltage and ground connections",
+   "Check for other throttle codes and service bulletins"
+  ],
+  "fix": "Correct voltage and ground problems; replace or reprogram the computer only after other causes are ruled out.",
+  "cost": {
+   "job": "Replace or reprogram engine computer",
+   "parts": [
+    300,
+    1200
+   ],
+   "hours": [
+    1.0,
+    2.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2109",
+  "title": "Throttle/Pedal Position Sensor A Minimum Stop Performance",
+  "plain": "Throttle or pedal position sensor A isn't reading what the computer expects when the throttle or pedal is fully released. The resting position may be off or the sensor may be worn.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Idle too high or too low",
+   "Possible reduced power mode"
+  ],
+  "causes": [
+   {
+    "name": "Carbon buildup keeping the throttle from closing fully",
+    "how": "common"
+   },
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Sticking pedal or throttle return spring",
+    "how": "possible"
+   },
+   {
+    "name": "Throttle relearn not done after cleaning or battery disconnect",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Clean the throttle body and check that it closes fully",
+   "Run a throttle position relearn with a scan tool"
+  ],
+  "fix": "Clean the throttle and run a relearn; replace the throttle body or pedal if the reading is still off.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "engine-revs-high-at-idle"
+ },
+ {
+  "code": "P2110",
+  "title": "Throttle Actuator Control System - Forced Limited RPM",
+  "plain": "The engine computer has found a problem with the electronic throttle system and is protecting the engine by capping how high the engine will rev. Another throttle or pedal code usually explains why.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine won't rev past a low limit",
+   "Reduced engine power warning may show"
+  ],
+  "causes": [
+   {
+    "name": "Throttle body or pedal sensor fault (see other stored codes)",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or sticking throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the throttle or pedal",
+    "how": "possible"
+   },
+   {
+    "name": "Brake switch problem",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read all stored codes and fix the other throttle or pedal codes first",
+   "Inspect the throttle body and its connector"
+  ],
+  "fix": "Repair the underlying throttle, pedal or wiring fault; this code clears once that is fixed.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2111",
+  "title": "Throttle Actuator Control System - Stuck Open",
+  "plain": "The computer has found the electronic throttle stuck open and not moving when commanded. The engine may idle high or feel like it is surging.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "High idle",
+   "Engine may feel like it surges"
+  ],
+  "causes": [
+   {
+    "name": "Sticking or failing electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Heavy carbon buildup on the throttle plate",
+    "how": "common"
+   },
+   {
+    "name": "Throttle motor wiring problem",
+    "how": "possible"
+   },
+   {
+    "name": "Ice in the throttle body in freezing weather",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look inside the throttle body for carbon or anything blocking the plate",
+   "Check the throttle connector and wiring",
+   "Clear the code and see if it returns after cleaning"
+  ],
+  "fix": "Clean the throttle body; if it still sticks or the code returns, replace the throttle body.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2003.html"
+  ]
+ },
+ {
+  "code": "P2112",
+  "title": "Throttle Actuator Control System - Stuck Closed",
+  "plain": "The computer has found the electronic throttle stuck closed and not moving when commanded. The engine may have little power or stall.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Stalling or very low power"
+  ],
+  "causes": [
+   {
+    "name": "Sticking or failing electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Heavy carbon buildup on the throttle plate",
+    "how": "common"
+   },
+   {
+    "name": "Throttle motor wiring problem",
+    "how": "possible"
+   },
+   {
+    "name": "Ice in the throttle body in freezing weather",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look inside the throttle body for carbon or anything blocking the plate",
+   "Check the throttle connector and wiring"
+  ],
+  "fix": "Clean the throttle body; if it still sticks or the code returns, replace the throttle body.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2113",
+  "title": "Throttle/Pedal Position Sensor B Minimum Stop Performance",
+  "plain": "Throttle or pedal position sensor B isn't reading what the computer expects when the throttle or pedal is fully released. The resting position may be off or the sensor may be worn.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Idle too high or too low",
+   "Possible reduced power mode"
+  ],
+  "causes": [
+   {
+    "name": "Carbon buildup keeping the throttle from closing fully",
+    "how": "common"
+   },
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Sticking pedal or throttle return spring",
+    "how": "possible"
+   },
+   {
+    "name": "Throttle relearn not done after cleaning or battery disconnect",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Clean the throttle body and check that it closes fully",
+   "Run a throttle position relearn with a scan tool"
+  ],
+  "fix": "Clean the throttle and run a relearn; replace the throttle body or pedal if the reading is still off.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "engine-revs-high-at-idle"
+ },
+ {
+  "code": "P2114",
+  "title": "Throttle/Pedal Position Sensor C Minimum Stop Performance",
+  "plain": "Throttle or pedal position sensor C isn't reading what the computer expects when the throttle or pedal is fully released. The resting position may be off or the sensor may be worn.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Idle too high or too low",
+   "Possible reduced power mode"
+  ],
+  "causes": [
+   {
+    "name": "Carbon buildup keeping the throttle from closing fully",
+    "how": "common"
+   },
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Sticking pedal or throttle return spring",
+    "how": "possible"
+   },
+   {
+    "name": "Throttle relearn not done after cleaning or battery disconnect",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Clean the throttle body and check that it closes fully",
+   "Run a throttle position relearn with a scan tool"
+  ],
+  "fix": "Clean the throttle and run a relearn; replace the throttle body or pedal if the reading is still off.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "engine-revs-high-at-idle"
+ },
+ {
+  "code": "P2115",
+  "title": "Throttle/Pedal Position Sensor D Minimum Stop Performance",
+  "plain": "Throttle or pedal position sensor D isn't reading what the computer expects when the throttle or pedal is fully released. The resting position may be off or the sensor may be worn.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Idle too high or too low",
+   "Possible reduced power mode"
+  ],
+  "causes": [
+   {
+    "name": "Carbon buildup keeping the throttle from closing fully",
+    "how": "common"
+   },
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Sticking pedal or throttle return spring",
+    "how": "possible"
+   },
+   {
+    "name": "Throttle relearn not done after cleaning or battery disconnect",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Clean the throttle body and check that it closes fully",
+   "Run a throttle position relearn with a scan tool"
+  ],
+  "fix": "Clean the throttle and run a relearn; replace the throttle body or pedal if the reading is still off.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "engine-revs-high-at-idle"
+ },
+ {
+  "code": "P2116",
+  "title": "Throttle/Pedal Position Sensor E Minimum Stop Performance",
+  "plain": "Throttle or pedal position sensor E isn't reading what the computer expects when the throttle or pedal is fully released. The resting position may be off or the sensor may be worn.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Idle too high or too low",
+   "Possible reduced power mode"
+  ],
+  "causes": [
+   {
+    "name": "Carbon buildup keeping the throttle from closing fully",
+    "how": "common"
+   },
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Sticking pedal or throttle return spring",
+    "how": "possible"
+   },
+   {
+    "name": "Throttle relearn not done after cleaning or battery disconnect",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Clean the throttle body and check that it closes fully",
+   "Run a throttle position relearn with a scan tool"
+  ],
+  "fix": "Clean the throttle and run a relearn; replace the throttle body or pedal if the reading is still off.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "engine-revs-high-at-idle"
+ },
+ {
+  "code": "P2117",
+  "title": "Throttle/Pedal Position Sensor F Minimum Stop Performance",
+  "plain": "Throttle or pedal position sensor F isn't reading what the computer expects when the throttle or pedal is fully released. The resting position may be off or the sensor may be worn.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Idle too high or too low",
+   "Possible reduced power mode"
+  ],
+  "causes": [
+   {
+    "name": "Carbon buildup keeping the throttle from closing fully",
+    "how": "common"
+   },
+   {
+    "name": "Worn throttle or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Sticking pedal or throttle return spring",
+    "how": "possible"
+   },
+   {
+    "name": "Throttle relearn not done after cleaning or battery disconnect",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Clean the throttle body and check that it closes fully",
+   "Run a throttle position relearn with a scan tool"
+  ],
+  "fix": "Clean the throttle and run a relearn; replace the throttle body or pedal if the reading is still off.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "engine-revs-high-at-idle"
+ },
+ {
+  "code": "P2118",
+  "title": "Throttle Actuator Control Motor Current Range/Performance",
+  "plain": "The electric motor that moves the throttle is drawing more or less current than expected. It may be binding, worn or have a wiring issue.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor throttle response"
+  ],
+  "causes": [
+   {
+    "name": "Throttle motor binding from carbon or wear",
+    "how": "common"
+   },
+   {
+    "name": "Failing throttle motor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector fault",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Clean the throttle body and check that the plate moves freely",
+   "Inspect the throttle wiring and connector"
+  ],
+  "fix": "Clean the throttle; replace the throttle body if the motor is worn.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2119",
+  "title": "Throttle Actuator Control Throttle Body Range/Performance",
+  "plain": "The throttle plate isn't returning to or holding the position the computer expects. Carbon buildup or a worn throttle body is the usual reason.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Rough or high idle",
+   "Stalling in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Carbon buildup on the throttle plate and bore",
+    "how": "common"
+   },
+   {
+    "name": "Worn or failing electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Weak throttle return spring",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Ice in the throttle body in cold weather",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect and clean the throttle body",
+   "Check the throttle connector and wiring",
+   "Check for service bulletins for your vehicle"
+  ],
+  "fix": "Clean the throttle body and run a relearn; if the code returns, replace the throttle body.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2003.html"
+  ]
+ },
+ {
+  "code": "P2120",
+  "title": "Throttle/Pedal Position Sensor/Switch D Circuit",
+  "plain": "The engine computer has found a problem in the circuit for the throttle/pedal position sensor D, which helps tell the computer how far the gas pedal is pressed or how open the throttle is. It usually points to wiring, a connector or the sensor itself.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Faulty accelerator pedal position sensor (usually part of the pedal)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged, corroded or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the pedal or throttle sensor connector and wiring for damage or corrosion",
+   "Check the sensor power, ground and signal with a meter"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the accelerator pedal position sensor (usually part of the pedal).",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2121",
+  "title": "Throttle/Pedal Position Sensor/Switch D Circuit Range/Performance",
+  "plain": "The throttle/pedal position sensor D is giving readings that don't make sense compared with what the computer expects. This sensor helps tell the computer how far the gas pedal is pressed or how open the throttle is. The sensor may be failing or the system it watches may have a real problem.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Failing or out-of-calibration accelerator pedal position sensor (usually part of the pedal)",
+    "how": "common"
+   },
+   {
+    "name": "A real fault in the system the sensor monitors",
+    "how": "common"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the pedal or throttle sensor reading with related sensors in live data",
+   "Check wiring and connector for corrosion or looseness"
+  ],
+  "fix": "Confirm the system itself is working, then replace the accelerator pedal position sensor (usually part of the pedal) if its readings are off.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2122",
+  "title": "Throttle/Pedal Position Sensor/Switch D Circuit Low",
+  "plain": "One of the sensors that tells the computer how far you are pressing the gas pedal (sensor D) is reading lower voltage than expected. It's usually the pedal sensor or its wiring.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal",
+   "Possible stalling"
+  ],
+  "causes": [
+   {
+    "name": "Failed accelerator pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector at the pedal",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded pedal connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the pedal connector and wiring under the dash",
+   "Watch pedal sensor readings while slowly pressing the pedal",
+   "Check the 5-volt reference and ground at the pedal"
+  ],
+  "fix": "Repair any wiring problems; otherwise replace the accelerator pedal assembly.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2003.html"
+  ]
+ },
+ {
+  "code": "P2123",
+  "title": "Throttle/Pedal Position Sensor/Switch D Circuit High",
+  "plain": "The signal from the throttle/pedal position sensor D is higher than the computer expects. This sensor helps tell the computer how far the gas pedal is pressed or how open the throttle is. An open (broken) wire, a bad ground or a failed sensor is the usual reason.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken signal or ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed accelerator pedal position sensor (usually part of the pedal)",
+    "how": "possible"
+   },
+   {
+    "name": "Wire shorted to a power source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure the pedal or throttle sensor connector is fully plugged in and clean",
+   "Check the sensor ground and signal wire for an open circuit"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the accelerator pedal position sensor (usually part of the pedal).",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2124",
+  "title": "Throttle/Pedal Position Sensor/Switch D Circuit Intermittent",
+  "plain": "The signal from the throttle/pedal position sensor D keeps dropping out or jumping around. This sensor helps tell the computer how far the gas pedal is pressed or how open the throttle is. A loose connection or a damaged wire is the usual reason.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wire that opens or shorts as the engine moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing accelerator pedal position sensor (usually part of the pedal)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data for dropouts",
+   "Inspect the pedal or throttle sensor wiring along its whole route"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the accelerator pedal position sensor (usually part of the pedal).",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2125",
+  "title": "Throttle/Pedal Position Sensor/Switch E Circuit",
+  "plain": "The engine computer has found a problem in the circuit for the throttle/pedal position sensor E, which helps tell the computer how far the gas pedal is pressed or how open the throttle is. It usually points to wiring, a connector or the sensor itself.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Faulty accelerator pedal position sensor (usually part of the pedal)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged, corroded or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the pedal or throttle sensor connector and wiring for damage or corrosion",
+   "Check the sensor power, ground and signal with a meter"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the accelerator pedal position sensor (usually part of the pedal).",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2126",
+  "title": "Throttle/Pedal Position Sensor/Switch E Circuit Range/Performance",
+  "plain": "The throttle/pedal position sensor E is giving readings that don't make sense compared with what the computer expects. This sensor helps tell the computer how far the gas pedal is pressed or how open the throttle is. The sensor may be failing or the system it watches may have a real problem.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Failing or out-of-calibration accelerator pedal position sensor (usually part of the pedal)",
+    "how": "common"
+   },
+   {
+    "name": "A real fault in the system the sensor monitors",
+    "how": "common"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the pedal or throttle sensor reading with related sensors in live data",
+   "Check wiring and connector for corrosion or looseness"
+  ],
+  "fix": "Confirm the system itself is working, then replace the accelerator pedal position sensor (usually part of the pedal) if its readings are off.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2127",
+  "title": "Throttle/Pedal Position Sensor/Switch E Circuit Low",
+  "plain": "One of the sensors that tells the computer how far you are pressing the gas pedal (sensor E) is reading lower voltage than expected. It's usually the pedal sensor or its wiring.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal",
+   "Possible stalling"
+  ],
+  "causes": [
+   {
+    "name": "Failed accelerator pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector at the pedal",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded pedal connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the pedal connector and wiring under the dash",
+   "Watch pedal sensor readings while slowly pressing the pedal",
+   "Check the 5-volt reference and ground at the pedal"
+  ],
+  "fix": "Repair any wiring problems; otherwise replace the accelerator pedal assembly.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2003.html"
+  ]
+ },
+ {
+  "code": "P2128",
+  "title": "Throttle/Pedal Position Sensor/Switch E Circuit High",
+  "plain": "The signal from the throttle/pedal position sensor E is higher than the computer expects. This sensor helps tell the computer how far the gas pedal is pressed or how open the throttle is. An open (broken) wire, a bad ground or a failed sensor is the usual reason.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken signal or ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed accelerator pedal position sensor (usually part of the pedal)",
+    "how": "possible"
+   },
+   {
+    "name": "Wire shorted to a power source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure the pedal or throttle sensor connector is fully plugged in and clean",
+   "Check the sensor ground and signal wire for an open circuit"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the accelerator pedal position sensor (usually part of the pedal).",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2129",
+  "title": "Throttle/Pedal Position Sensor/Switch E Circuit Intermittent",
+  "plain": "The signal from the throttle/pedal position sensor E keeps dropping out or jumping around. This sensor helps tell the computer how far the gas pedal is pressed or how open the throttle is. A loose connection or a damaged wire is the usual reason.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wire that opens or shorts as the engine moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing accelerator pedal position sensor (usually part of the pedal)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data for dropouts",
+   "Inspect the pedal or throttle sensor wiring along its whole route"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the accelerator pedal position sensor (usually part of the pedal).",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2130",
+  "title": "Throttle/Pedal Position Sensor/Switch F Circuit",
+  "plain": "The engine computer has found a problem in the circuit for the throttle/pedal position sensor F, which helps tell the computer how far the gas pedal is pressed or how open the throttle is. It usually points to wiring, a connector or the sensor itself.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Faulty accelerator pedal position sensor (usually part of the pedal)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged, corroded or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the pedal or throttle sensor connector and wiring for damage or corrosion",
+   "Check the sensor power, ground and signal with a meter"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the accelerator pedal position sensor (usually part of the pedal).",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2131",
+  "title": "Throttle/Pedal Position Sensor/Switch F Circuit Range/Performance",
+  "plain": "The throttle/pedal position sensor F is giving readings that don't make sense compared with what the computer expects. This sensor helps tell the computer how far the gas pedal is pressed or how open the throttle is. The sensor may be failing or the system it watches may have a real problem.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Failing or out-of-calibration accelerator pedal position sensor (usually part of the pedal)",
+    "how": "common"
+   },
+   {
+    "name": "A real fault in the system the sensor monitors",
+    "how": "common"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the pedal or throttle sensor reading with related sensors in live data",
+   "Check wiring and connector for corrosion or looseness"
+  ],
+  "fix": "Confirm the system itself is working, then replace the accelerator pedal position sensor (usually part of the pedal) if its readings are off.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2132",
+  "title": "Throttle/Pedal Position Sensor/Switch F Circuit Low",
+  "plain": "The signal from the throttle/pedal position sensor F is lower than the computer expects. This sensor helps tell the computer how far the gas pedal is pressed or how open the throttle is. A wire shorted to ground or a failed sensor is the usual reason.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Signal or reference wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed accelerator pedal position sensor (usually part of the pedal)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the pedal or throttle sensor wiring for rubbed-through or pinched spots",
+   "Unplug the sensor and see if the reading changes, which helps separate wiring from sensor"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the accelerator pedal position sensor (usually part of the pedal).",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2133",
+  "title": "Throttle/Pedal Position Sensor/Switch F Circuit High",
+  "plain": "The signal from the throttle/pedal position sensor F is higher than the computer expects. This sensor helps tell the computer how far the gas pedal is pressed or how open the throttle is. An open (broken) wire, a bad ground or a failed sensor is the usual reason.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken signal or ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed accelerator pedal position sensor (usually part of the pedal)",
+    "how": "possible"
+   },
+   {
+    "name": "Wire shorted to a power source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure the pedal or throttle sensor connector is fully plugged in and clean",
+   "Check the sensor ground and signal wire for an open circuit"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the accelerator pedal position sensor (usually part of the pedal).",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2134",
+  "title": "Throttle/Pedal Position Sensor/Switch F Circuit Intermittent",
+  "plain": "The signal from the throttle/pedal position sensor F keeps dropping out or jumping around. This sensor helps tell the computer how far the gas pedal is pressed or how open the throttle is. A loose connection or a damaged wire is the usual reason.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wire that opens or shorts as the engine moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing accelerator pedal position sensor (usually part of the pedal)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data for dropouts",
+   "Inspect the pedal or throttle sensor wiring along its whole route"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the accelerator pedal position sensor (usually part of the pedal).",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2135",
+  "title": "Throttle/Pedal Position Sensor/Switch A/B Voltage Correlation",
+  "plain": "Two position sensors that should agree with each other (sensors A and B) are giving different readings. On most cars these are the two sensors inside the throttle body.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal",
+   "Rough idle or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Failing electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Throttle sensor wiring or connector problem",
+    "how": "common"
+   },
+   {
+    "name": "Carbon buildup on the throttle",
+    "how": "common"
+   },
+   {
+    "name": "Shared 5-volt reference circuit shorted by another sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle body and pedal connectors for corrosion or loose pins",
+   "Watch both sensor readings together in live data while moving the throttle or pedal",
+   "Wiggle the harness while watching for dropouts"
+  ],
+  "fix": "Repair wiring or connector problems; otherwise replace the throttle body or pedal assembly, whichever holds the two sensors.",
+  "cost": {
+   "job": "Replace electronic throttle body",
+   "parts": [
+    120,
+    550
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.yourmechanic.com/article/p2135-obd-ii-trouble-code-throttle-pedal-position-sensor-switch-a-b-voltage-correlation-by-blake-griffin",
+   "https://automecanico.com/auto2001/obdllp2003.html"
+  ]
+ },
+ {
+  "code": "P2136",
+  "title": "Throttle/Pedal Position Sensor/Switch A/C Voltage Correlation",
+  "plain": "Two position sensors that should agree with each other (sensors A and C) are giving different readings. The computer uses this check to make sure the throttle is safe.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Failing throttle body or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "common"
+   },
+   {
+    "name": "Shared 5-volt reference circuit shorted by another sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle body and pedal connectors for corrosion or loose pins",
+   "Watch both sensor readings together in live data while moving the throttle or pedal"
+  ],
+  "fix": "Repair wiring or connector problems; otherwise replace the throttle body or pedal assembly, whichever holds the two sensors.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ },
+ {
+  "code": "P2137",
+  "title": "Throttle/Pedal Position Sensor/Switch B/C Voltage Correlation",
+  "plain": "Two position sensors that should agree with each other (sensors B and C) are giving different readings. The computer uses this check to make sure the throttle is safe.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Failing throttle body or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "common"
+   },
+   {
+    "name": "Shared 5-volt reference circuit shorted by another sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle body and pedal connectors for corrosion or loose pins",
+   "Watch both sensor readings together in live data while moving the throttle or pedal"
+  ],
+  "fix": "Repair wiring or connector problems; otherwise replace the throttle body or pedal assembly, whichever holds the two sensors.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.fixdapp.com/blog/p2137-meaning-causes-symptoms-fixes/"
+  ]
+ },
+ {
+  "code": "P2138",
+  "title": "Throttle/Pedal Position Sensor/Switch D/E Voltage Correlation",
+  "plain": "Two position sensors that should agree with each other (sensors D and E) are giving different readings. On most cars these are the two sensors in the gas pedal.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal",
+   "Rough idle or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Failing accelerator pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Pedal wiring or connector problem",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Shared 5-volt reference circuit shorted by another sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle body and pedal connectors for corrosion or loose pins",
+   "Watch both sensor readings together in live data while moving the throttle or pedal",
+   "Wiggle the harness while watching for dropouts"
+  ],
+  "fix": "Repair wiring or connector problems; otherwise replace the throttle body or pedal assembly, whichever holds the two sensors.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2003.html",
+   "https://www.fixdapp.com/blog/p2138-meaning-causes-symptoms-fixes/"
+  ]
+ },
+ {
+  "code": "P2139",
+  "title": "Throttle/Pedal Position Sensor/Switch D/F Voltage Correlation",
+  "plain": "Two position sensors that should agree with each other (sensors D and F) are giving different readings. The computer uses this check to make sure the throttle is safe.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power or limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Failing throttle body or pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "common"
+   },
+   {
+    "name": "Shared 5-volt reference circuit shorted by another sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle body and pedal connectors for corrosion or loose pins",
+   "Watch both sensor readings together in live data while moving the throttle or pedal"
+  ],
+  "fix": "Repair wiring or connector problems; otherwise replace the throttle body or pedal assembly, whichever holds the two sensors.",
+  "cost": {
+   "job": "Replace accelerator pedal assembly",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ }
+]
