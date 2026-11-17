@@ -219,3 +219,15 @@ details.allm>summary{cursor:pointer;color:var(--blue2);font-weight:600;font-size
 #emailMsg{margin-top:8px;font-size:14px}
 .fine{font-size:12px;color:#6F87A0;margin:8px 0 0!important}
 .fine a,.foot-links a{color:var(--blue2)}
+/* Year / Make / Model picker */
+.vcard{max-width:860px;margin:0 auto}
+.picker.ymm{display:grid;grid-template-columns:1fr 1.3fr 1.6fr auto;gap:10px}
+.picker.ymm select{min-width:0}
+.picker.ymm select:disabled{opacity:.5}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+@media (max-width:720px){.picker.ymm{grid-template-columns:1fr 1fr}.picker.ymm select:nth-child(3),.picker.ymm .btn{grid-column:1 / -1}}
+.or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:13px;margin:20px 0 14px}
+.or:before,.or:after{content:"";flex:1;height:1px;background:var(--line)}
+.vcard .vin form{display:flex;gap:8px}
+.vcard .vin form input{flex:1;min-width:0}
+@media (max-width:560px){.vcard .vin form{flex-wrap:wrap}.vcard .vin form input,.vcard .vin form .btn{flex:1 1 100%}}

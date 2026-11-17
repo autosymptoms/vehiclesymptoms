@@ -11,6 +11,21 @@ const URG={
 };
 window.VS_GUIDES={G,GROUPS,URG,esc,search,forIssue,gurl:id=>'/symptoms/'+id+'/'};
 
+// ---- Year / Make / Model picker, used on the homepage and in guide results ----
+// fill(ySel,mSel,moSel,{year,id},onChange): only offers makes/models actually sold in the chosen year.
+window.YMM=function(ys,ms,mos,init,onChange){
+  const V=window.VEHICLES||[];const sold=(v,y)=>y>=v.years[0]&&y<=v.years[1];
+  let maxY=Math.max(...V.map(v=>v.years[1])),minY=Math.min(...V.map(v=>v.years[0]));
+  ys.innerHTML='<option value="">Year</option>';for(let y=maxY;y>=minY;y--)ys.add(new Option(y,y));
+  function makes(){const y=+ys.value;ms.innerHTML='<option value="">Make</option>';mos.innerHTML='<option value="">Model</option>';mos.disabled=true;
+    if(!y){ms.disabled=true;return}ms.disabled=false;[...new Set(V.filter(v=>sold(v,y)).map(v=>v.make))].sort().forEach(m=>ms.add(new Option(m,m)))}
+  function models(){const y=+ys.value,m=ms.value;mos.innerHTML='<option value="">Model</option>';if(!m){mos.disabled=true;return}mos.disabled=false;
+    V.filter(v=>v.make===m&&sold(v,y)).sort((a,b)=>a.model.localeCompare(b.model)).forEach(v=>mos.add(new Option(v.model,v.id)))}
+  ys.onchange=()=>{makes();onChange&&onChange()};ms.onchange=()=>{models();onChange&&onChange()};mos.onchange=()=>{onChange&&onChange()};
+  if(init&&init.id){const v=V.find(x=>x.id===init.id);if(v){if(init.year)ys.value=init.year;else ys.value=v.years[1];makes();ms.value=v.make;models();mos.value=v.id}}else{makes()}
+  return{get:()=>({v:V.find(x=>x.id===mos.value)||null,y:+ys.value||null})};
+};
+
 // ---- search: ranks guides against free text ----
 const STOP=new Set('the a an my is it its and or of to in on when i car vehicle truck it\'s im i\'m with from at some keeps very really just'.split(' '));
 const toks=t=>t.toLowerCase().replace(/[^a-z0-9' ]/g,' ').split(/\s+/).filter(w=>w.length>2&&!STOP.has(w));
@@ -66,8 +81,6 @@ if(J&&root){
   }
   function drawResult(r){
     const u=URG[r.urgency];
-    let vopts='<option value="">Choose your vehicle</option>'+V.map(v=>`<option value="${v.id}" ${veh&&veh.id===v.id?'selected':''}>${esc(v.make+' '+v.model)}</option>`).join('');
-    let yopts='<option value="">Year</option>';if(veh)for(let y=veh.years[1];y>=veh.years[0];y--)yopts+=`<option ${y===vyear?'selected':''}>${y}</option>`;
     root.innerHTML=`<div class="result card">
       <div class="urg ${u.cls}"><span>${esc(u.label)}</span></div>
       <h2 class="rt">${esc(r.title)}</h2>
@@ -75,7 +88,7 @@ if(J&&root){
       <section class="rsec"><h3>Why</h3><p>${esc(r.why)}</p></section>
       <section class="rsec"><h3>Possible causes</h3>${r.causes.map(c=>`<div class="cause"><b>${esc(c.name)}</b>${c.clues?`<div><span class="lbl2">Points here:</span> ${esc(c.clues)}</div>`:''}${c.against?`<div><span class="lbl2">Less likely if:</span> ${esc(c.against)}</div>`:''}</div>`).join('')}</section>
       <section class="rsec two"><div><h3>You can check</h3><ul>${r.confirm.you.map(x=>`<li>${esc(x)}</li>`).join('')||'<li>Nothing safe to check yourself. Leave it to a technician.</li>'}</ul></div><div><h3>Your shop will test</h3><ul>${r.confirm.shop.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></section>
-      <section class="rsec"><h3>Make it specific to your vehicle</h3><div class="picker"><select id="gv">${vopts}</select><select id="gy">${yopts}</select></div><div id="gvm" style="margin-top:10px">${vehicleMatches()}</div></section>
+      <section class="rsec"><h3>Make it specific to your vehicle</h3><div class="picker ymm"><select id="gy" aria-label="Year"></select><select id="gm" aria-label="Make"></select><select id="gv" aria-label="Model"></select></div><div id="gvm" style="margin-top:10px">${vehicleMatches()}</div></section>
       <section class="rsec"><h3>Summary for your mechanic</h3><pre class="summary" id="sum">${esc(summary(r))}</pre>
         <div class="row-btns"><button class="btn sm" id="copy">Copy summary</button><button class="btn ghost sm" id="print">Print</button><span id="copied" class="muted"></span></div></section>
       <section class="rsec emailbox" id="emailbox" ${EMAIL_ON?'':'hidden'}><h3>Email this to yourself</h3><p class="muted" style="margin:0 0 10px">Get this result and your mechanic summary in your inbox, so it's handy at the shop.</p>
@@ -84,9 +97,8 @@ if(J&&root){
         <div id="emailMsg" class="muted" role="status"></div><p class="fine">We only use your email for what you ask. <a href="/privacy/">Privacy</a></p></section>
       <div class="flow-nav"><button class="linkbtn" id="back">← Change my last answer</button><button class="linkbtn" id="restart">Start over</button></div>
     </div>`;
-    const gv=document.getElementById('gv'),gy=document.getElementById('gy');
-    gv.onchange=()=>{veh=V.find(x=>x.id===gv.value)||null;vyear=null;drawResult(r)};
-    gy.onchange=()=>{vyear=+gy.value||null;document.getElementById('gvm').innerHTML=vehicleMatches();document.getElementById('sum').textContent=summary(r)};
+    const pick=window.YMM(document.getElementById('gy'),document.getElementById('gm'),document.getElementById('gv'),veh?{id:veh.id,year:vyear}:null,()=>{
+      const s=pick.get();veh=s.v;vyear=s.v?s.y:null;document.getElementById('gvm').innerHTML=vehicleMatches();document.getElementById('sum').textContent=summary(r)});
     document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(summary(r));document.getElementById('copied').textContent='Copied'}catch(e){document.getElementById('copied').textContent='Select the text above and copy it'}};
     document.getElementById('print').onclick=()=>{try{window.print()}catch(e){}};
     const ef=document.getElementById('emailForm');if(ef)ef.onsubmit=async e=>{e.preventDefault();const m=document.getElementById('emailMsg'),btn=ef.querySelector('button');btn.disabled=true;m.textContent='Sending…';

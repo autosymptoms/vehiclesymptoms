@@ -22,11 +22,8 @@ function go(v,y,q){y=clampYear(v,y);location.href=url(v,y)+(q?'?q='+encodeURICom
 const state={q:'',tab:'All'};
 
 // picker
-const pm=document.getElementById('pickModel'),py=document.getElementById('pickYear');
-V.forEach(v=>pm.add(new Option(v.make+' '+v.model,v.id)));
-function fillYears(){const v=V.find(x=>x.id===pm.value);py.innerHTML='';for(let y=v.years[1];y>=v.years[0];y--)py.add(new Option(y,y))}
-pm.onchange=fillYears;fillYears();
-document.getElementById('pickForm').addEventListener('submit',e=>{e.preventDefault();go(V.find(x=>x.id===pm.value),+py.value)});
+const homePick=window.YMM(document.getElementById('pickYear'),document.getElementById('pickMake'),document.getElementById('pickModel'),null,()=>{const s=homePick.get();document.getElementById('pickGo').disabled=!s.v});
+document.getElementById('pickForm').addEventListener('submit',e=>{e.preventDefault();const s=homePick.get();if(s.v)go(s.v,s.y)});
 const makes=[...new Set(V.map(v=>v.make))];
 document.getElementById('mgrid').outerHTML=`<div id="mgrid">${makes.map(m=>`<details class="mk"><summary>${esc(m)} <span>${V.filter(v=>v.make===m).length} models</span></summary><div class="mgrid">${V.filter(v=>v.make===m).map(v=>`<a href="${url(v)}">${esc(v.model)}<span>${v.years[0]}–${v.years[1]}</span></a>`).join('')}</div></details>`).join('')}</div>`;
 

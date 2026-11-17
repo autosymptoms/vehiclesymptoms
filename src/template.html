@@ -56,23 +56,23 @@
   </div>
 
   <section id="vehicle">
-    <div class="wrap split">
-      <div class="card">
-        <h3>Known problems for your vehicle</h3>
-        <p class="d">Pick your vehicle to see documented problems for that exact year, plus safety recalls.</p>
-        <form class="picker" id="pickForm">
-          <select id="pickModel" aria-label="Make and model"></select>
+    <div class="wrap">
+      <div class="card vcard">
+        <h3>Find problems for your vehicle</h3>
+        <p class="d">Choose your vehicle to see documented problems and safety recalls for that exact year.</p>
+        <form class="picker ymm" id="pickForm">
           <select id="pickYear" aria-label="Year"></select>
-          <button class="btn" type="submit">Show</button>
+          <select id="pickMake" aria-label="Make" disabled></select>
+          <select id="pickModel" aria-label="Model" disabled></select>
+          <button class="btn" id="pickGo" type="submit" disabled>Show problems</button>
         </form>
+        <div class="or"><span>or use your VIN</span></div>
+        <div class="vin">
+          <form id="vinForm"><input id="vinInput" maxlength="17" placeholder="Enter your 17-character VIN" aria-label="VIN"><button class="btn" type="submit">Decode VIN</button></form>
+          <div class="vin-out" id="vinOut"></div>
+          <p class="note">Find it on the driver's door sticker, the dash at the base of the windshield, or your registration. Decoded with the free U.S. government (NHTSA) database; we don't store it.</p>
+        </div>
         <details class="allm"><summary>Browse all 100 models</summary><div id="mgrid"></div></details>
-      </div>
-      <div class="card vin">
-        <h3>Decode your VIN</h3>
-        <p class="d">Your 17-character VIN is on the driver's door sticker, the dash by the windshield, or your registration.</p>
-        <form id="vinForm"><input id="vinInput" maxlength="17" placeholder="1HGCM82633A004352" aria-label="VIN"><button class="btn" type="submit">Decode</button></form>
-        <div class="vin-out" id="vinOut"></div>
-        <p class="note">Decoded with the free U.S. government (NHTSA) database. Your VIN isn't stored.</p>
       </div>
     </div>
   </section>
