@@ -1,0 +1,1535 @@
+[
+ {
+  "code": "P0400",
+  "title": "Exhaust Gas Recirculation Flow",
+  "plain": "The computer sees a problem with how much exhaust gas is being fed back into the engine by the EGR system. Too much or too little flow can both set this code.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or stalling if the EGR is stuck open",
+   "Pinging or knocking when accelerating if the EGR is not flowing",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Carbon buildup clogging the EGR valve or passages",
+    "how": "common"
+   },
+   {
+    "name": "Faulty EGR valve",
+    "how": "common"
+   },
+   {
+    "name": "Bad EGR pressure or position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Cracked or disconnected vacuum hose to the EGR valve",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty EGR control solenoid or wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look for other EGR codes that narrow down the problem",
+   "Inspect vacuum hoses and wiring at the EGR valve",
+   "Check whether the EGR valve opens and closes when commanded with a scan tool"
+  ],
+  "fix": "Usually cleaning carbon from the EGR valve and passages or replacing the EGR valve.",
+  "cost": {
+   "job": "Replace EGR valve",
+   "parts": [
+    80,
+    450
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0400",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0401",
+  "title": "Exhaust Gas Recirculation Flow Insufficient Detected",
+  "plain": "The EGR system is supposed to send a small amount of exhaust back into the engine to keep combustion cooler, and the computer sees too little of it getting through.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Pinging or spark knock under acceleration or uphill",
+   "Usually no other change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Carbon-clogged EGR passages or ports",
+    "how": "common"
+   },
+   {
+    "name": "Stuck-closed or worn EGR valve",
+    "how": "common"
+   },
+   {
+    "name": "Faulty EGR pressure (DPFE) or position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking or disconnected vacuum line or bad EGR vacuum solenoid",
+    "how": "possible"
+   },
+   {
+    "name": "Cracked sensor hoses on the DPFE sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the EGR valve and intake passages for heavy carbon",
+   "Check vacuum hoses and DPFE sensor hoses for cracks",
+   "Watch EGR position or pressure readings on a scan tool while the valve is commanded open"
+  ],
+  "fix": "Most often cleaning clogged EGR passages or replacing the EGR valve or its pressure sensor.",
+  "cost": {
+   "job": "Replace EGR valve",
+   "parts": [
+    80,
+    450
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "examples": [
+   "Well known on older Ford models with a DPFE sensor",
+   "Common on older Honda engines with clogged intake EGR ports"
+  ],
+  "guide": "engine-knocking",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0401",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0402",
+  "title": "Exhaust Gas Recirculation Flow Excessive Detected",
+  "plain": "Too much exhaust gas is being fed back into the engine, often because the EGR valve is stuck open. That can make the engine idle rough or stall.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or stalling, especially when stopping",
+   "Hesitation or stumble when accelerating",
+   "Hard starting in some cases"
+  ],
+  "causes": [
+   {
+    "name": "EGR valve stuck open from carbon",
+    "how": "common"
+   },
+   {
+    "name": "Faulty EGR pressure (DPFE) or position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Faulty EGR control solenoid stuck on",
+    "how": "common"
+   },
+   {
+    "name": "Wrong vacuum hose routing to the EGR valve",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring fault to the EGR solenoid",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check if the idle smooths out with the EGR valve unplugged or blocked off",
+   "Inspect the EGR valve for carbon holding it open",
+   "Compare EGR sensor readings at idle with the valve closed"
+  ],
+  "fix": "Usually cleaning or replacing the EGR valve, or replacing a faulty EGR sensor or solenoid.",
+  "cost": {
+   "job": "Replace EGR valve",
+   "parts": [
+    80,
+    450
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0402",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0403",
+  "title": "Exhaust Gas Recirculation Control Circuit",
+  "plain": "The computer found an electrical problem in the circuit that controls the EGR valve or its control solenoid, so it cannot operate the valve properly.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Possible pinging under load",
+   "Rough idle in some cases",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR valve or EGR control solenoid coil",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or corroded connector at the EGR valve",
+    "how": "common"
+   },
+   {
+    "name": "Broken or shorted wiring",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse feeding the EGR circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the EGR connector for corrosion and loose pins",
+   "Measure the EGR solenoid resistance against spec",
+   "Check for power and ground at the connector with the key on"
+  ],
+  "fix": "Most often a new EGR valve or EGR control solenoid; sometimes a wiring or connector repair.",
+  "cost": {
+   "job": "Replace EGR valve",
+   "parts": [
+    80,
+    450
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0403",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0404",
+  "title": "Exhaust Gas Recirculation Control Circuit Range/Performance",
+  "plain": "The EGR valve is not moving to the position the computer asks for, usually because carbon is making it stick or the valve is wearing out.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or stalling if the valve sticks open",
+   "Pinging under acceleration if it sticks closed"
+  ],
+  "causes": [
+   {
+    "name": "Carbon buildup making the EGR valve stick",
+    "how": "common"
+   },
+   {
+    "name": "Worn or failing EGR valve",
+    "how": "common"
+   },
+   {
+    "name": "Faulty EGR position sensor in the valve",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the valve",
+    "how": "possible"
+   },
+   {
+    "name": "Vacuum supply problem on vacuum-operated valves",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the EGR open and closed with a scan tool and watch actual position",
+   "Remove and inspect the valve for carbon",
+   "Check the connector and wiring for damage"
+  ],
+  "fix": "Usually cleaning or replacing the EGR valve.",
+  "cost": {
+   "job": "Replace EGR valve",
+   "parts": [
+    80,
+    450
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0404",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0405",
+  "title": "Exhaust Gas Recirculation Sensor \"A\" Circuit Low",
+  "plain": "The sensor that tells the computer how much the EGR valve is open, or how much exhaust is flowing, is sending a signal that is lower than possible.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Possible pinging under load"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR position or pressure (DPFE) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed EGR valve with built-in sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read the sensor voltage with key on and engine off",
+   "Check the 5 volt reference and ground at the sensor",
+   "Inspect wiring for chafing against the engine or exhaust"
+  ],
+  "fix": "Usually replacing the EGR sensor, or the EGR valve if the sensor is built in.",
+  "cost": {
+   "job": "Replace EGR position or pressure sensor",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0405",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0406",
+  "title": "Exhaust Gas Recirculation Sensor \"A\" Circuit High",
+  "plain": "The EGR position or pressure sensor is sending a signal that is higher than it should ever be, which usually points to a wiring or sensor problem.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in driving",
+   "Possible rough idle"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR position or pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Open signal or ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to voltage",
+    "how": "common"
+   },
+   {
+    "name": "Failed EGR valve with built-in sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check sensor voltage and ground at the connector",
+   "Inspect the connector for water or corrosion"
+  ],
+  "fix": "Usually replacing the EGR sensor or the EGR valve assembly, or repairing wiring.",
+  "cost": {
+   "job": "Replace EGR position or pressure sensor",
+   "parts": [
+    30,
+    200
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0407",
+  "title": "Exhaust Gas Recirculation Sensor \"B\" Circuit Low",
+  "plain": "On engines with a second EGR sensor, that sensor is reading lower than possible, usually from a wiring short or a failed sensor.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in driving"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR sensor \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or damaged connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor signal and reference voltage at the connector",
+   "Inspect wiring for chafing"
+  ],
+  "fix": "Replace the faulty sensor or repair the wiring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0408",
+  "title": "Exhaust Gas Recirculation Sensor \"B\" Circuit High",
+  "plain": "The second EGR sensor is reading higher than possible, which usually means an open wire or a bad sensor.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in driving"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR sensor \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Open ground or signal wire",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor ground and signal at the connector",
+   "Look for broken or corroded wiring"
+  ],
+  "fix": "Replace the faulty sensor or repair the wiring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0409",
+  "title": "Exhaust Gas Recirculation Sensor \"A\" Circuit",
+  "plain": "The computer sees a general electrical fault in the EGR sensor \"A\" circuit, such as a signal that drops out or makes no sense.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in driving",
+   "Possible rough idle"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR position or pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed EGR valve with built-in sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Watch the sensor reading on a scan tool for dropouts while wiggling the harness"
+  ],
+  "fix": "Usually a new EGR sensor or EGR valve, or a wiring repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P040A",
+  "title": "Exhaust Gas Recirculation Temperature Sensor \"A\" Circuit",
+  "plain": "The computer sees an electrical problem with the sensor that measures the temperature of the recirculated exhaust gas. This sensor is mostly found on diesels and some newer gas engines.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the vehicle drives",
+   "EGR may be shut off, raising emissions"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or heat-cracked wiring",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR temperature sensor reading against engine temperature when cold",
+   "Inspect the sensor connector and wiring near the hot exhaust parts"
+  ],
+  "fix": "Usually a new EGR temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace EGR temperature sensor",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P040B",
+  "title": "Exhaust Gas Recirculation Temperature Sensor \"A\" Circuit Range/Performance",
+  "plain": "The EGR temperature sensor is giving readings that do not make sense for how the engine is running, such as staying the same when it should change.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the vehicle drives",
+   "EGR may be shut off, raising emissions"
+  ],
+  "causes": [
+   {
+    "name": "Failed or sluggish EGR temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged EGR cooler or passages changing the gas temperature",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR temperature sensor reading against engine temperature when cold",
+   "Inspect the sensor connector and wiring near the hot exhaust parts"
+  ],
+  "fix": "Usually a new EGR temperature sensor; check the EGR cooler and valve too.",
+  "cost": {
+   "job": "Replace EGR temperature sensor",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P040C",
+  "title": "Exhaust Gas Recirculation Temperature Sensor \"A\" Circuit Low",
+  "plain": "The EGR temperature sensor signal is lower than it should ever be, usually from a short in the wiring or a failed sensor.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the vehicle drives",
+   "EGR may be shut off, raising emissions"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR temperature sensor reading against engine temperature when cold",
+   "Inspect the sensor connector and wiring near the hot exhaust parts"
+  ],
+  "fix": "Replace the sensor or repair the shorted wiring.",
+  "cost": {
+   "job": "Replace EGR temperature sensor",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P040D",
+  "title": "Exhaust Gas Recirculation Temperature Sensor \"A\" Circuit High",
+  "plain": "The EGR temperature sensor signal is higher than it should ever be, which often means an open wire or unplugged sensor.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the vehicle drives",
+   "EGR may be shut off, raising emissions"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Open or broken wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR temperature sensor reading against engine temperature when cold",
+   "Inspect the sensor connector and wiring near the hot exhaust parts"
+  ],
+  "fix": "Replace the sensor or repair the broken wiring.",
+  "cost": {
+   "job": "Replace EGR temperature sensor",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P040E",
+  "title": "Exhaust Gas Recirculation Temperature Sensor \"A\" Circuit Intermittent/Erratic",
+  "plain": "The EGR temperature sensor signal is jumping around or cutting in and out.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the vehicle drives",
+   "EGR may be shut off, raising emissions"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Wiring rubbing through near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Failing EGR temperature sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR temperature sensor reading against engine temperature when cold",
+   "Inspect the sensor connector and wiring near the hot exhaust parts"
+  ],
+  "fix": "Repair the wiring or connector, or replace the sensor.",
+  "cost": {
+   "job": "Replace EGR temperature sensor",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P040F",
+  "title": "Exhaust Gas Recirculation Temperature Sensor \"A\"/\"B\" Correlation",
+  "plain": "On engines with two EGR temperature sensors, their readings do not agree with each other the way the computer expects.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the vehicle drives",
+   "EGR may be shut off, raising emissions"
+  ],
+  "causes": [
+   {
+    "name": "One EGR temperature sensor failing",
+    "how": "common"
+   },
+   {
+    "name": "Clogged or leaking EGR cooler",
+    "how": "common"
+   },
+   {
+    "name": "Wiring problem on one of the sensors",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR temperature sensor reading against engine temperature when cold",
+   "Inspect the sensor connector and wiring near the hot exhaust parts"
+  ],
+  "fix": "Compare both sensor readings, then replace the faulty sensor or fix the EGR cooler.",
+  "cost": {
+   "job": "Replace EGR temperature sensor",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0410",
+  "title": "Secondary Air Injection System",
+  "plain": "Many engines pump fresh air into the exhaust right after a cold start to help the catalytic converter warm up faster. The computer found a problem with that air injection system.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Loud whine or roar from the air pump after a cold start, or no pump noise at all",
+   "Usually no change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed secondary air pump",
+    "how": "common"
+   },
+   {
+    "name": "Stuck or leaking air check (combination) valve",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad air pump relay",
+    "how": "common"
+   },
+   {
+    "name": "Cracked air hoses or clogged air passages",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring problem to the pump or valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen for the air pump running for a minute or so after a cold start",
+   "Check the air pump fuse and relay",
+   "Inspect the check valve and hoses for moisture, carbon and cracks"
+  ],
+  "fix": "Often a new air pump and check valve; sometimes just a relay, fuse or hose.",
+  "cost": {
+   "job": "Replace secondary air injection pump",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "examples": [
+   "Air pumps that take in water and seize are a frequent cause"
+  ],
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0410",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0411",
+  "title": "Secondary Air Injection System Incorrect Flow Detected",
+  "plain": "The system that blows fresh air into the exhaust during cold starts is not moving the amount of air the computer expects.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Air pump may sound unusually loud or quiet on cold start"
+  ],
+  "causes": [
+   {
+    "name": "Weak or failed secondary air pump",
+    "how": "common"
+   },
+   {
+    "name": "Stuck check or switching valve",
+    "how": "common"
+   },
+   {
+    "name": "Clogged or carbon-blocked air passages",
+    "how": "common"
+   },
+   {
+    "name": "Leaking air hoses",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty upstream oxygen sensor reading the wrong result",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Run the air pump with a scan tool and watch upstream O2 sensor readings go lean",
+   "Check hoses and the check valve for leaks or blockage",
+   "Check the pump fuse and relay"
+  ],
+  "fix": "Usually replacing the air pump or the switching/check valve, or clearing blocked passages.",
+  "cost": {
+   "job": "Replace secondary air injection pump",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0411",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0412",
+  "title": "Secondary Air Injection System Switching Valve \"A\" Circuit",
+  "plain": "The computer sees an electrical fault in the circuit for the valve that lets air from the air pump into the exhaust.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed switching valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the valve resistance and the wiring to it",
+   "Inspect the connector for corrosion or water"
+  ],
+  "fix": "Usually a new switching valve or a wiring repair.",
+  "cost": {
+   "job": "Replace secondary air switching (check) valve",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0413",
+  "title": "Secondary Air Injection System Switching Valve \"A\" Circuit Open",
+  "plain": "The circuit for the secondary air switching valve appears to be broken, so the valve cannot be switched on.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Open wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed valve solenoid coil",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the valve resistance and the wiring to it",
+   "Inspect the connector for corrosion or water"
+  ],
+  "fix": "Usually a new switching valve or a wiring repair.",
+  "cost": {
+   "job": "Replace secondary air switching (check) valve",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0414",
+  "title": "Secondary Air Injection System Switching Valve \"A\" Circuit Shorted",
+  "plain": "The circuit for the secondary air switching valve appears to be shorted.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Shorted valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to ground or power",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the valve resistance and the wiring to it",
+   "Inspect the connector for corrosion or water"
+  ],
+  "fix": "Usually a new switching valve or a wiring repair.",
+  "cost": {
+   "job": "Replace secondary air switching (check) valve",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0415",
+  "title": "Secondary Air Injection System Switching Valve \"B\" Circuit",
+  "plain": "The computer sees an electrical fault in the circuit for the second secondary air switching valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed switching valve \"B\" solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the valve resistance and the wiring to it",
+   "Inspect the connector for corrosion or water"
+  ],
+  "fix": "Usually a new switching valve or a wiring repair.",
+  "cost": {
+   "job": "Replace secondary air switching (check) valve",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0416",
+  "title": "Secondary Air Injection System Switching Valve \"B\" Circuit Open",
+  "plain": "The circuit for the second secondary air switching valve appears to be broken.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Open wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed valve solenoid coil",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the valve resistance and the wiring to it",
+   "Inspect the connector for corrosion or water"
+  ],
+  "fix": "Usually a new switching valve or a wiring repair.",
+  "cost": {
+   "job": "Replace secondary air switching (check) valve",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0417",
+  "title": "Secondary Air Injection System Switching Valve \"B\" Circuit Shorted",
+  "plain": "The circuit for the second secondary air switching valve appears to be shorted.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Shorted valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to ground or power",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the valve resistance and the wiring to it",
+   "Inspect the connector for corrosion or water"
+  ],
+  "fix": "Usually a new switching valve or a wiring repair.",
+  "cost": {
+   "job": "Replace secondary air switching (check) valve",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0418",
+  "title": "Secondary Air Injection System Relay \"A\" Circuit",
+  "plain": "The computer sees a problem in the circuit for the relay that switches the secondary air pump on after a cold start.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Air pump does not run, or runs all the time",
+   "Usually no change in driving"
+  ],
+  "causes": [
+   {
+    "name": "Failed air pump relay",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector fault",
+    "how": "possible"
+   },
+   {
+    "name": "Seized air pump overloading the circuit",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Swap the relay with an identical one and retest",
+   "Check the fuse and relay socket for corrosion"
+  ],
+  "fix": "Often a new relay; if the pump is seized, the pump too.",
+  "cost": {
+   "job": "Replace secondary air pump relay",
+   "parts": [
+    15,
+    60
+   ],
+   "hours": [
+    0.2,
+    0.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0419",
+  "title": "Secondary Air Injection System Relay \"B\" Circuit",
+  "plain": "The computer sees a problem in the circuit for the second relay that controls the secondary air injection system.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in driving"
+  ],
+  "causes": [
+   {
+    "name": "Failed relay \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Swap the relay with a known-good one",
+   "Check the fuse and wiring"
+  ],
+  "fix": "Usually a new relay or a wiring repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P041A",
+  "title": "Exhaust Gas Recirculation Temperature Sensor \"B\" Circuit",
+  "plain": "The computer sees an electrical fault with the second EGR temperature sensor, used mostly on diesel engines.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the vehicle drives",
+   "EGR may be shut off, raising emissions"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR temperature sensor \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or heat-cracked wiring",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR temperature sensor reading against engine temperature when cold",
+   "Inspect the sensor connector and wiring near the hot exhaust parts"
+  ],
+  "fix": "Usually a new sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace EGR temperature sensor",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P041B",
+  "title": "Exhaust Gas Recirculation Temperature Sensor \"B\" Circuit Range/Performance",
+  "plain": "The second EGR temperature sensor reads values that do not fit how the engine is running.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the vehicle drives",
+   "EGR may be shut off, raising emissions"
+  ],
+  "causes": [
+   {
+    "name": "Failed or sluggish sensor \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Clogged or leaking EGR cooler",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR temperature sensor reading against engine temperature when cold",
+   "Inspect the sensor connector and wiring near the hot exhaust parts"
+  ],
+  "fix": "Usually a new sensor; check the EGR cooler and valve too.",
+  "cost": {
+   "job": "Replace EGR temperature sensor",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P041C",
+  "title": "Exhaust Gas Recirculation Temperature Sensor \"B\" Circuit Low",
+  "plain": "The second EGR temperature sensor signal is lower than possible.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the vehicle drives",
+   "EGR may be shut off, raising emissions"
+  ],
+  "causes": [
+   {
+    "name": "Failed sensor \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR temperature sensor reading against engine temperature when cold",
+   "Inspect the sensor connector and wiring near the hot exhaust parts"
+  ],
+  "fix": "Replace the sensor or repair the shorted wiring.",
+  "cost": {
+   "job": "Replace EGR temperature sensor",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P041D",
+  "title": "Exhaust Gas Recirculation Temperature Sensor \"B\" Circuit High",
+  "plain": "The second EGR temperature sensor signal is higher than possible, often from an open wire.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the vehicle drives",
+   "EGR may be shut off, raising emissions"
+  ],
+  "causes": [
+   {
+    "name": "Failed sensor \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Open or broken wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR temperature sensor reading against engine temperature when cold",
+   "Inspect the sensor connector and wiring near the hot exhaust parts"
+  ],
+  "fix": "Replace the sensor or repair the wiring.",
+  "cost": {
+   "job": "Replace EGR temperature sensor",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P041E",
+  "title": "Exhaust Gas Recirculation Temperature Sensor \"B\" Circuit Intermittent/Erratic",
+  "plain": "The second EGR temperature sensor signal keeps dropping out or jumping around.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the vehicle drives",
+   "EGR may be shut off, raising emissions"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Wiring chafed near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Failing sensor \"B\"",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR temperature sensor reading against engine temperature when cold",
+   "Inspect the sensor connector and wiring near the hot exhaust parts"
+  ],
+  "fix": "Repair the wiring or connector, or replace the sensor.",
+  "cost": {
+   "job": "Replace EGR temperature sensor",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P041F",
+  "title": "Secondary Air Injection System Switching Valve \"A\" Circuit Low",
+  "plain": "The control circuit for the secondary air switching valve is reading lower voltage than expected, usually from a short to ground or a bad valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Wiring shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed switching valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the valve resistance and the wiring to it",
+   "Inspect the connector for corrosion or water"
+  ],
+  "fix": "Usually a new switching valve or a wiring repair.",
+  "cost": {
+   "job": "Replace secondary air switching (check) valve",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ }
+]

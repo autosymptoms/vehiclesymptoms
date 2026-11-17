@@ -1,0 +1,1569 @@
+[
+ {
+  "code": "P0040",
+  "title": "Oxygen Sensor Signals Swapped (Bank 1 Sensor 1 / Bank 2 Sensor 1)",
+  "plain": "On a V-type engine there is an upstream oxygen sensor for each side. The computer has noticed that the bank 1 and bank 2 upstream sensor signals appear to be swapped.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough running or poor fuel economy",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Sensor connectors plugged into the wrong side after a repair",
+    "how": "common"
+   },
+   {
+    "name": "Sensor harnesses routed or wired incorrectly",
+    "how": "common"
+   },
+   {
+    "name": "Wrong sensors installed on each bank",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check if oxygen sensors or exhaust parts were recently replaced",
+   "Trace each sensor wire to make sure it plugs into the correct connector",
+   "Watch both sensor readings while making one bank richer with a scan tool"
+  ],
+  "fix": "Usually correcting the connections or wiring so each sensor plugs into its own side.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0041",
+  "title": "Oxygen Sensor Signals Swapped (Bank 1 Sensor 2 / Bank 2 Sensor 2)",
+  "plain": "On engines with two exhaust sides, the computer has noticed that the downstream (after the catalytic converter) oxygen sensor signals for bank 1 and bank 2 appear to be swapped.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Downstream sensor connectors swapped after a repair",
+    "how": "common"
+   },
+   {
+    "name": "Sensor harnesses routed or wired incorrectly",
+    "how": "common"
+   },
+   {
+    "name": "Wrong sensors installed on each side",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check if oxygen sensors or converters were recently replaced",
+   "Trace each downstream sensor wire to its correct connector"
+  ],
+  "fix": "Usually correcting the sensor connections so each one plugs into its own side.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0042",
+  "title": "HO2S Heater Control Circuit (Bank 1 Sensor 3)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a fault, such as an open circuit, in the heater circuit of the third, furthest-downstream oxygen sensor on bank 1.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    30,
+    180
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0043",
+  "title": "HO2S Heater Control Circuit Low (Bank 1 Sensor 3)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a voltage that is too low in the heater circuit of the third, furthest-downstream oxygen sensor on bank 1.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    30,
+    180
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0044",
+  "title": "HO2S Heater Control Circuit High (Bank 1 Sensor 3)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a voltage that is too high in the heater circuit of the third, furthest-downstream oxygen sensor on bank 1.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    30,
+    180
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0045",
+  "title": "Turbocharger/Supercharger Boost Control \"A\" Circuit/Open",
+  "plain": "The boost control system (usually a wastegate or variable vane actuator) sets how much pressure the turbo or supercharger makes. The computer found an open or broken connection in the \"A\" boost control circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow acceleration",
+   "Engine may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the boost control solenoid or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Failed boost control solenoid or electronic actuator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or poor power feed",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the boost control solenoid or actuator connector and wiring",
+   "Measure the solenoid resistance and compare to spec",
+   "Command the actuator with a scan tool and watch it move"
+  ],
+  "fix": "Usually a wiring repair or a new boost control solenoid or actuator.",
+  "cost": {
+   "job": "Replace boost control solenoid",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0046",
+  "title": "Turbocharger/Supercharger Boost Control \"A\" Circuit Range/Performance",
+  "plain": "The boost control system (usually a wastegate or variable vane actuator) sets how much pressure the turbo or supercharger makes. The computer found a response that does not match what it commanded in the \"A\" boost control circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow acceleration",
+   "Engine may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Sticking wastegate or variable vane mechanism",
+    "how": "common"
+   },
+   {
+    "name": "Faulty boost control solenoid or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Cracked or leaking vacuum or boost hose",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect vacuum and boost hoses for cracks or loose clamps",
+   "Check the wastegate or vane linkage for binding",
+   "Compare commanded and actual boost with a scan tool"
+  ],
+  "fix": "Often a sticking wastegate or vane linkage, a leaking hose, or a failed boost control solenoid.",
+  "cost": {
+   "job": "Replace boost control solenoid",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0047",
+  "title": "Turbocharger/Supercharger Boost Control \"A\" Circuit Low",
+  "plain": "The boost control system (usually a wastegate or variable vane actuator) sets how much pressure the turbo or supercharger makes. The computer found a voltage that is too low in the \"A\" boost control circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow acceleration",
+   "Engine may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the boost control solenoid or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Failed boost control solenoid or electronic actuator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or poor power feed",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the boost control solenoid or actuator connector and wiring",
+   "Measure the solenoid resistance and compare to spec",
+   "Command the actuator with a scan tool and watch it move"
+  ],
+  "fix": "Usually a wiring repair or a new boost control solenoid or actuator.",
+  "cost": {
+   "job": "Replace boost control solenoid",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0048",
+  "title": "Turbocharger/Supercharger Boost Control \"A\" Circuit High",
+  "plain": "The boost control system (usually a wastegate or variable vane actuator) sets how much pressure the turbo or supercharger makes. The computer found a voltage that is too high in the \"A\" boost control circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow acceleration",
+   "Engine may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the boost control solenoid or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Failed boost control solenoid or electronic actuator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or poor power feed",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the boost control solenoid or actuator connector and wiring",
+   "Measure the solenoid resistance and compare to spec",
+   "Command the actuator with a scan tool and watch it move"
+  ],
+  "fix": "Usually a wiring repair or a new boost control solenoid or actuator.",
+  "cost": {
+   "job": "Replace boost control solenoid",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0049",
+  "title": "Turbocharger/Supercharger Turbine Overspeed",
+  "plain": "The computer has calculated or measured that the turbocharger is spinning faster than its safe limit. This can quickly wear out or damage the turbo.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may go into limp mode",
+   "Whistling or unusual turbo noise",
+   "Possible black smoke"
+  ],
+  "causes": [
+   {
+    "name": "Wastegate or variable vanes stuck in the high-boost position",
+    "how": "common"
+   },
+   {
+    "name": "Boost leak making the turbo work harder",
+    "how": "common"
+   },
+   {
+    "name": "Faulty boost pressure or turbo speed sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Restricted air filter or intake",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for boost leaks at hoses and the intercooler",
+   "Check the wastegate or vane actuator for sticking",
+   "Compare boost pressure readings with a scan tool"
+  ],
+  "fix": "Fix whatever is making the turbo overspin, often a stuck wastegate or vane actuator or a boost leak. Avoid hard driving until repaired.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P004A",
+  "title": "Turbocharger/Supercharger Boost Control \"B\" Circuit/Open",
+  "plain": "The boost control system (usually a wastegate or variable vane actuator) sets how much pressure the turbo or supercharger makes. The computer found an open or broken connection in the \"B\" boost control circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow acceleration",
+   "Engine may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the boost control solenoid or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Failed boost control solenoid or electronic actuator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or poor power feed",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the boost control solenoid or actuator connector and wiring",
+   "Measure the solenoid resistance and compare to spec",
+   "Command the actuator with a scan tool and watch it move"
+  ],
+  "fix": "Usually a wiring repair or a new boost control solenoid or actuator.",
+  "cost": {
+   "job": "Replace boost control solenoid",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P004B",
+  "title": "Turbocharger/Supercharger Boost Control \"B\" Circuit Range/Performance",
+  "plain": "The boost control system (usually a wastegate or variable vane actuator) sets how much pressure the turbo or supercharger makes. The computer found a response that does not match what it commanded in the \"B\" boost control circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow acceleration",
+   "Engine may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Sticking wastegate or variable vane mechanism",
+    "how": "common"
+   },
+   {
+    "name": "Faulty boost control solenoid or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Cracked or leaking vacuum or boost hose",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect vacuum and boost hoses for cracks or loose clamps",
+   "Check the wastegate or vane linkage for binding",
+   "Compare commanded and actual boost with a scan tool"
+  ],
+  "fix": "Often a sticking wastegate or vane linkage, a leaking hose, or a failed boost control solenoid.",
+  "cost": {
+   "job": "Replace boost control solenoid",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P004C",
+  "title": "Turbocharger/Supercharger Boost Control \"B\" Circuit Low",
+  "plain": "The boost control system (usually a wastegate or variable vane actuator) sets how much pressure the turbo or supercharger makes. The computer found a voltage that is too low in the \"B\" boost control circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow acceleration",
+   "Engine may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the boost control solenoid or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Failed boost control solenoid or electronic actuator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or poor power feed",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the boost control solenoid or actuator connector and wiring",
+   "Measure the solenoid resistance and compare to spec",
+   "Command the actuator with a scan tool and watch it move"
+  ],
+  "fix": "Usually a wiring repair or a new boost control solenoid or actuator.",
+  "cost": {
+   "job": "Replace boost control solenoid",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P004D",
+  "title": "Turbocharger/Supercharger Boost Control \"B\" Circuit High",
+  "plain": "The boost control system (usually a wastegate or variable vane actuator) sets how much pressure the turbo or supercharger makes. The computer found a voltage that is too high in the \"B\" boost control circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow acceleration",
+   "Engine may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the boost control solenoid or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Failed boost control solenoid or electronic actuator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or poor power feed",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the boost control solenoid or actuator connector and wiring",
+   "Measure the solenoid resistance and compare to spec",
+   "Command the actuator with a scan tool and watch it move"
+  ],
+  "fix": "Usually a wiring repair or a new boost control solenoid or actuator.",
+  "cost": {
+   "job": "Replace boost control solenoid",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P004E",
+  "title": "Turbocharger/Supercharger Boost Control \"A\" Circuit Intermittent/Erratic",
+  "plain": "The boost control system (usually a wastegate or variable vane actuator) sets how much pressure the turbo or supercharger makes. The computer found a signal that keeps cutting in and out in the \"A\" boost control circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow acceleration",
+   "Engine may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the boost control solenoid or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Failed boost control solenoid or electronic actuator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or poor power feed",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the boost control solenoid or actuator connector and wiring",
+   "Measure the solenoid resistance and compare to spec",
+   "Command the actuator with a scan tool and watch it move"
+  ],
+  "fix": "Usually a wiring repair or a new boost control solenoid or actuator.",
+  "cost": {
+   "job": "Replace boost control solenoid",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P004F",
+  "title": "Turbocharger/Supercharger Boost Control \"B\" Circuit Intermittent/Erratic",
+  "plain": "The boost control system (usually a wastegate or variable vane actuator) sets how much pressure the turbo or supercharger makes. The computer found a signal that keeps cutting in and out in the \"B\" boost control circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow acceleration",
+   "Engine may go into limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the boost control solenoid or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Failed boost control solenoid or electronic actuator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or poor power feed",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the boost control solenoid or actuator connector and wiring",
+   "Measure the solenoid resistance and compare to spec",
+   "Command the actuator with a scan tool and watch it move"
+  ],
+  "fix": "Usually a wiring repair or a new boost control solenoid or actuator.",
+  "cost": {
+   "job": "Replace boost control solenoid",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0050",
+  "title": "HO2S Heater Control Circuit (Bank 2 Sensor 1)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a fault, such as an open circuit, in the heater circuit of the upstream (before the catalytic converter) oxygen sensor on bank 2.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Fuel economy may drop slightly, mostly after cold starts"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace upstream oxygen sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://www.carwhere.com/obd-codes/p0050",
+   "https://cartreatments.com/?p=512794"
+  ]
+ },
+ {
+  "code": "P0051",
+  "title": "HO2S Heater Control Circuit Low (Bank 2 Sensor 1)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a voltage that is too low in the heater circuit of the upstream (before the catalytic converter) oxygen sensor on bank 2.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Fuel economy may drop slightly, mostly after cold starts"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace upstream oxygen sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0052",
+  "title": "HO2S Heater Control Circuit High (Bank 2 Sensor 1)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a voltage that is too high in the heater circuit of the upstream (before the catalytic converter) oxygen sensor on bank 2.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Fuel economy may drop slightly, mostly after cold starts"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace upstream oxygen sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0053",
+  "title": "HO2S Heater Resistance (Bank 1 Sensor 1)",
+  "plain": "The computer checks the resistance of the heater inside each oxygen sensor. The heater in the upstream (before the catalytic converter) sensor on bank 1 measured outside its normal range.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions or readiness test"
+  ],
+  "causes": [
+   {
+    "name": "Worn or failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wrong or aftermarket sensor with a different heater rating",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance from a corroded connector or damaged wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Measure the heater resistance and compare to spec",
+   "Make sure any replacement sensor is the correct part for the vehicle"
+  ],
+  "fix": "Usually a new oxygen sensor of the correct type.",
+  "cost": {
+   "job": "Replace upstream oxygen sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0054",
+  "title": "HO2S Heater Resistance (Bank 1 Sensor 2)",
+  "plain": "The computer checks the resistance of the heater inside each oxygen sensor. The heater in the downstream (after the catalytic converter) sensor on bank 1 measured outside its normal range.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions or readiness test"
+  ],
+  "causes": [
+   {
+    "name": "Worn or failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wrong or aftermarket sensor with a different heater rating",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance from a corroded connector or damaged wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Measure the heater resistance and compare to spec",
+   "Make sure any replacement sensor is the correct part for the vehicle"
+  ],
+  "fix": "Usually a new oxygen sensor of the correct type.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    30,
+    180
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0055",
+  "title": "HO2S Heater Resistance (Bank 1 Sensor 3)",
+  "plain": "The computer checks the resistance of the heater inside each oxygen sensor. The heater in the third, furthest-downstream sensor on bank 1 measured outside its normal range.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions or readiness test"
+  ],
+  "causes": [
+   {
+    "name": "Worn or failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wrong or aftermarket sensor with a different heater rating",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance from a corroded connector or damaged wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Measure the heater resistance and compare to spec",
+   "Make sure any replacement sensor is the correct part for the vehicle"
+  ],
+  "fix": "Usually a new oxygen sensor of the correct type.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    30,
+    180
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0056",
+  "title": "HO2S Heater Control Circuit (Bank 2 Sensor 2)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a fault, such as an open circuit, in the heater circuit of the downstream (after the catalytic converter) oxygen sensor on bank 2.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    30,
+    180
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0057",
+  "title": "HO2S Heater Control Circuit Low (Bank 2 Sensor 2)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a voltage that is too low in the heater circuit of the downstream (after the catalytic converter) oxygen sensor on bank 2.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    30,
+    180
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0058",
+  "title": "HO2S Heater Control Circuit High (Bank 2 Sensor 2)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a voltage that is too high in the heater circuit of the downstream (after the catalytic converter) oxygen sensor on bank 2.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    30,
+    180
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0059",
+  "title": "HO2S Heater Resistance (Bank 2 Sensor 1)",
+  "plain": "The computer checks the resistance of the heater inside each oxygen sensor. The heater in the upstream (before the catalytic converter) sensor on bank 2 measured outside its normal range.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions or readiness test"
+  ],
+  "causes": [
+   {
+    "name": "Worn or failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wrong or aftermarket sensor with a different heater rating",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance from a corroded connector or damaged wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Measure the heater resistance and compare to spec",
+   "Make sure any replacement sensor is the correct part for the vehicle"
+  ],
+  "fix": "Usually a new oxygen sensor of the correct type.",
+  "cost": {
+   "job": "Replace upstream oxygen sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P005A",
+  "title": "\"B\" Camshaft Profile Control Performance/Stuck Off (Bank 1)",
+  "plain": "Some engines can switch between two camshaft lobe shapes. On bank 1, the computer found the \"B\" cam switching system not switching properly or stuck in its off position.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Less power at higher engine speeds",
+   "Possible lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low oil pressure to the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking cam follower or locking pin",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check oil pressure",
+   "Inspect the switching solenoid and its screen for sludge"
+  ],
+  "fix": "Often an oil change and a new switching solenoid. Mechanical wear inside the valvetrain is less common.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P005B",
+  "title": "\"B\" Camshaft Profile Control Stuck On (Bank 1)",
+  "plain": "Some engines can switch between two camshaft lobe shapes. On bank 1, the computer found the \"B\" cam switching system stuck in its switched-on position.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or poor low-speed running",
+   "Possible lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low oil pressure to the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking cam follower or locking pin",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check oil pressure",
+   "Inspect the switching solenoid and its screen for sludge"
+  ],
+  "fix": "Often an oil change and a new switching solenoid. Mechanical wear inside the valvetrain is less common.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P005C",
+  "title": "\"B\" Camshaft Profile Control Performance/Stuck Off (Bank 2)",
+  "plain": "Some engines can switch between two camshaft lobe shapes. On bank 2, the computer found the \"B\" cam switching system not switching properly or stuck in its off position.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Less power at higher engine speeds",
+   "Possible lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low oil pressure to the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking cam follower or locking pin",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check oil pressure",
+   "Inspect the switching solenoid and its screen for sludge"
+  ],
+  "fix": "Often an oil change and a new switching solenoid. Mechanical wear inside the valvetrain is less common.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P005D",
+  "title": "\"B\" Camshaft Profile Control Stuck On (Bank 2)",
+  "plain": "Some engines can switch between two camshaft lobe shapes. On bank 2, the computer found the \"B\" cam switching system stuck in its switched-on position.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or poor low-speed running",
+   "Possible lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low oil pressure to the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking cam follower or locking pin",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check oil pressure",
+   "Inspect the switching solenoid and its screen for sludge"
+  ],
+  "fix": "Often an oil change and a new switching solenoid. Mechanical wear inside the valvetrain is less common.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P005E",
+  "title": "Turbocharger/Supercharger Boost Control \"B\" Supply Voltage Circuit Low",
+  "plain": "The \"B\" boost control actuator needs a steady power supply to work. The computer found that the supply voltage to it is too low.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Blown fuse or failed relay for the actuator",
+    "how": "common"
+   },
+   {
+    "name": "Damaged power or ground wiring",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Weak battery or charging problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the fuse and relay feeding the actuator",
+   "Measure supply voltage at the actuator connector",
+   "Inspect the wiring harness for damage"
+  ],
+  "fix": "Usually a fuse, relay or wiring repair; sometimes a new boost actuator.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P005F",
+  "title": "Turbocharger/Supercharger Boost Control \"B\" Supply Voltage Circuit High",
+  "plain": "The \"B\" boost control actuator needs a steady power supply to work. The computer found that the supply voltage to it is too high.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Power wire shorted to another voltage source",
+    "how": "common"
+   },
+   {
+    "name": "Charging system putting out too much voltage",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty boost control actuator",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the fuse and relay feeding the actuator",
+   "Measure supply voltage at the actuator connector",
+   "Inspect the wiring harness for damage"
+  ],
+  "fix": "Usually a fuse, relay or wiring repair; sometimes a new boost actuator.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ }
+]

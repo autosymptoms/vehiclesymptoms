@@ -1,0 +1,1652 @@
+[
+ {
+  "code": "P0228",
+  "title": "Throttle/Pedal Position Sensor/Switch \"C\" Circuit High",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ],
+  "plain": "Your car uses two or more sensors to report gas pedal or throttle position. Sensor C's signal voltage is higher than it should ever be.",
+  "symptoms": [
+   "Check engine light on, often with a reduced power warning",
+   "Engine stuck near idle or in limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Faulty electronic throttle body (sensor is built in)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty gas pedal position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Open ground wire or signal wire shorted to voltage",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector at the throttle body or pedal",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the connectors at the throttle body and gas pedal for corrosion or loose pins",
+   "Check the sensor's 5-volt reference and ground at the connector"
+  ],
+  "fix": "Usually a new throttle body or gas pedal assembly, depending on which part holds the faulty sensor. Fix any wiring or connector damage first."
+ },
+ {
+  "code": "P0229",
+  "title": "Throttle/Pedal Position Sensor/Switch \"C\" Circuit Intermittent",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ],
+  "plain": "Your car uses two or more sensors to report gas pedal or throttle position. Sensor C's signal keeps cutting in and out.",
+  "symptoms": [
+   "Check engine light on, often with a reduced power warning",
+   "Engine stuck near idle or in limp mode",
+   "Poor or no response to the gas pedal"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector at the throttle body or pedal",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Faulty electronic throttle body (sensor is built in)",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty gas pedal position sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the connectors at the throttle body and gas pedal for corrosion or loose pins",
+   "Watch the sensor readings on a scan tool while wiggling the harness"
+  ],
+  "fix": "Usually a new throttle body or gas pedal assembly, depending on which part holds the faulty sensor. Fix any wiring or connector damage first."
+ },
+ {
+  "code": "P022A",
+  "title": "Charge Air Cooler Bypass Control \"A\" Circuit Open",
+  "plain": "Some turbo engines, mostly diesels, have a valve that can route intake air around the intercooler, for example to warm up faster. The computer sees an open (broken) circuit in the control for bypass valve A.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives",
+   "Possibly reduced power or slower warm-up"
+  ],
+  "causes": [
+   {
+    "name": "Faulty bypass valve actuator",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the bypass valve connector and wiring",
+   "Check the actuator's resistance and the computer's control signal"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new bypass valve actuator.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P022B",
+  "title": "Charge Air Cooler Bypass Control \"A\" Circuit Low",
+  "plain": "Some turbo engines, mostly diesels, have a valve that can route intake air around the intercooler, for example to warm up faster. The control circuit for bypass valve A reads lower than expected, often from a short to ground.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives",
+   "Possibly reduced power or slower warm-up"
+  ],
+  "causes": [
+   {
+    "name": "Faulty bypass valve actuator",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the bypass valve connector and wiring",
+   "Check the actuator's resistance and the computer's control signal"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new bypass valve actuator.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P022C",
+  "title": "Charge Air Cooler Bypass Control \"A\" Circuit High",
+  "plain": "Some turbo engines, mostly diesels, have a valve that can route intake air around the intercooler, for example to warm up faster. The control circuit for bypass valve A reads higher than expected, often from a short to power.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives",
+   "Possibly reduced power or slower warm-up"
+  ],
+  "causes": [
+   {
+    "name": "Faulty bypass valve actuator",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the bypass valve connector and wiring",
+   "Check the actuator's resistance and the computer's control signal"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new bypass valve actuator.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P022D",
+  "title": "Charge Air Cooler Bypass Control \"B\" Circuit Open",
+  "plain": "Some turbo engines, mostly diesels, have a valve that can route intake air around the intercooler, for example to warm up faster. The computer sees an open (broken) circuit in the control for bypass valve B.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives",
+   "Possibly reduced power or slower warm-up"
+  ],
+  "causes": [
+   {
+    "name": "Faulty bypass valve actuator",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the bypass valve connector and wiring",
+   "Check the actuator's resistance and the computer's control signal"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new bypass valve actuator.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P022E",
+  "title": "Charge Air Cooler Bypass Control \"B\" Circuit Low",
+  "plain": "Some turbo engines, mostly diesels, have a valve that can route intake air around the intercooler, for example to warm up faster. The control circuit for bypass valve B reads lower than expected, often from a short to ground.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives",
+   "Possibly reduced power or slower warm-up"
+  ],
+  "causes": [
+   {
+    "name": "Faulty bypass valve actuator",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the bypass valve connector and wiring",
+   "Check the actuator's resistance and the computer's control signal"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new bypass valve actuator.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P022F",
+  "title": "Charge Air Cooler Bypass Control \"B\" Circuit High",
+  "plain": "Some turbo engines, mostly diesels, have a valve that can route intake air around the intercooler, for example to warm up faster. The control circuit for bypass valve B reads higher than expected, often from a short to power.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives",
+   "Possibly reduced power or slower warm-up"
+  ],
+  "causes": [
+   {
+    "name": "Faulty bypass valve actuator",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the bypass valve connector and wiring",
+   "Check the actuator's resistance and the computer's control signal"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new bypass valve actuator.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0230",
+  "title": "Fuel Pump Primary Circuit",
+  "plain": "The computer switches the fuel pump on through a relay or driver module. It sees a problem in the circuit that does the switching.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Engine cranks but won't start",
+   "Stalling while driving",
+   "No fuel pump hum when the key is turned on",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty fuel pump relay",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuel pump fuse",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector in the relay control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fuel pump driver module",
+    "how": "possible"
+   },
+   {
+    "name": "Tripped fuel shutoff (inertia) switch on some Ford vehicles",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen for the fuel pump to hum for a couple of seconds with the key on",
+   "Check the fuel pump fuse and swap in a known-good relay",
+   "Inspect the relay control wiring, and the inertia switch if the vehicle has one"
+  ],
+  "fix": "Usually a new fuel pump relay or fuse, or a wiring repair. A driver module or computer fault is less common.",
+  "cost": {
+   "job": "Replace fuel pump relay and repair control circuit",
+   "parts": [
+    10,
+    120
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0231",
+  "title": "Fuel Pump Secondary Circuit Low",
+  "plain": "The computer watches the power that goes out to the fuel pump. Here the voltage on the output side is lower than expected.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine may crank but not start",
+   "Stalling or sputtering while driving",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Worn fuel pump drawing too much current",
+    "how": "common"
+   },
+   {
+    "name": "Wiring to the pump shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector at the fuel pump",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty fuel pump relay or driver module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen for the fuel pump to hum for a couple of seconds when the key is turned on",
+   "Inspect the fuel pump connector (often on top of the tank) and its wiring",
+   "Check fuel pump voltage and ground at the pump"
+  ],
+  "fix": "Usually a wiring or connector repair at the tank, or a new fuel pump if it is worn out.",
+  "guide": "engine-stalls-while-driving",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0232",
+  "title": "Fuel Pump Secondary Circuit High",
+  "plain": "The computer watches the power that goes out to the fuel pump. Here the voltage on the output side is higher than expected.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine may crank but not start",
+   "Stalling or sputtering while driving",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Fuel pump wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pump relay stuck on",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pump unplugged or open circuit to the pump",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty fuel pump driver module or computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen for the fuel pump to hum for a couple of seconds when the key is turned on",
+   "Inspect the fuel pump connector (often on top of the tank) and its wiring",
+   "Check fuel pump voltage and ground at the pump"
+  ],
+  "fix": "Usually a wiring or connector repair at the tank, or a new fuel pump if it is worn out.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0233",
+  "title": "Fuel Pump Secondary Circuit Intermittent",
+  "plain": "The computer watches the power that goes out to the fuel pump. Here the signal on the output side keeps cutting in and out.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine may crank but not start",
+   "Stalling or sputtering while driving",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector at the fuel pump or relay",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring near the tank",
+    "how": "common"
+   },
+   {
+    "name": "Failing fuel pump",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty fuel pump relay",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen for the fuel pump to hum for a couple of seconds when the key is turned on",
+   "Inspect the fuel pump connector (often on top of the tank) and its wiring",
+   "Check fuel pump voltage and ground at the pump"
+  ],
+  "fix": "Usually a wiring or connector repair at the tank, or a new fuel pump if it is worn out.",
+  "guide": "engine-stalls-while-driving",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0234",
+  "title": "Turbocharger/Supercharger \"A\" Overboost Condition",
+  "plain": "The turbo or supercharger made more boost pressure than the computer asked for. The computer usually cuts power to protect the engine.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on, often with limp mode",
+   "Sudden loss of power while accelerating",
+   "A surge of power just before the power cut",
+   "Possible engine knock or pinging"
+  ],
+  "causes": [
+   {
+    "name": "Wastegate or wastegate actuator stuck closed",
+    "how": "common"
+   },
+   {
+    "name": "Faulty boost control solenoid or cracked vacuum hoses",
+    "how": "common"
+   },
+   {
+    "name": "Sticking variable-vane turbo (mostly diesels)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty boost pressure sensor reading too high",
+    "how": "possible"
+   },
+   {
+    "name": "Aftermarket tune or boost controller",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect boost control vacuum hoses and the wastegate linkage",
+   "Compare the boost sensor reading with barometric pressure with the engine off",
+   "Command the boost control solenoid and wastegate with a scan tool and watch them move"
+  ],
+  "fix": "Usually a new wastegate actuator or boost control solenoid, or freeing a sticking wastegate or turbo vanes. Replace the turbo only if it's confirmed stuck.",
+  "cost": {
+   "job": "Replace wastegate actuator or boost control solenoid",
+   "parts": [
+    50,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "examples": [
+   "Often seen on small turbo gas engines such as the GM 1.4L turbo in the Cruze, Trax and Encore"
+  ],
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.yourmechanic.com/article/p0234-obd-ii-trouble-code-engine-overboost-condition-by-jay-safford",
+   "https://ricksfreeautorepairadvice.com/how-to-diagnose-and-fix-p0234-or-p0299-code/"
+  ]
+ },
+ {
+  "code": "P0235",
+  "title": "Turbocharger/Supercharger Boost Sensor \"A\" Circuit",
+  "plain": "The boost sensor tells the computer how much pressure the turbo or supercharger is making. The computer sees a problem in this sensor's circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Sluggish or hesitant acceleration",
+   "Possible black smoke on diesels"
+  ],
+  "causes": [
+   {
+    "name": "Faulty boost pressure sensor \"A\"",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring between the sensor and computer",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil contamination",
+   "With the engine off, compare the boost sensor reading with barometric pressure",
+   "Check the boost hoses and intercooler pipes for leaks"
+  ],
+  "fix": "Usually a new boost pressure sensor or a wiring or connector repair. On diesels, cleaning a soot-clogged sensor or port sometimes fixes it.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0236",
+  "title": "Turbocharger/Supercharger Boost Sensor \"A\" Circuit Range/Performance",
+  "plain": "The boost sensor tells the computer how much pressure the turbo or supercharger is making. Its reading doesn't make sense for how the engine is running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Sluggish or hesitant acceleration",
+   "Possible black smoke on diesels"
+  ],
+  "causes": [
+   {
+    "name": "Faulty boost pressure sensor \"A\"",
+    "how": "common"
+   },
+   {
+    "name": "Leaking or cracked boost hose or intercooler pipe",
+    "how": "common"
+   },
+   {
+    "name": "Sensor port or hose clogged with oil or soot",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil contamination",
+   "With the engine off, compare the boost sensor reading with barometric pressure",
+   "Check the boost hoses and intercooler pipes for leaks"
+  ],
+  "fix": "Usually a new boost pressure sensor or a wiring or connector repair. On diesels, cleaning a soot-clogged sensor or port sometimes fixes it.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://yourmechanic.com/article/p0236-obd-ii-trouble-code-turbocharger-boost-sensor-a-circuit-range-performance-by-jay-safford",
+   "https://www.kbb.com/obd-ii/p0236/"
+  ],
+  "cost": {
+   "job": "Replace boost pressure sensor",
+   "parts": [
+    40,
+    200
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  }
+ },
+ {
+  "code": "P0237",
+  "title": "Turbocharger/Supercharger Boost Sensor \"A\" Circuit Low",
+  "plain": "The boost sensor tells the computer how much pressure the turbo or supercharger is making. Its signal voltage is lower than it should ever be.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Sluggish or hesitant acceleration",
+   "Possible black smoke on diesels"
+  ],
+  "causes": [
+   {
+    "name": "Faulty boost pressure sensor \"A\"",
+    "how": "common"
+   },
+   {
+    "name": "Open in the 5-volt reference wire or signal shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil contamination",
+   "With the engine off, compare the boost sensor reading with barometric pressure",
+   "Check the boost hoses and intercooler pipes for leaks"
+  ],
+  "fix": "Usually a new boost pressure sensor or a wiring or connector repair. On diesels, cleaning a soot-clogged sensor or port sometimes fixes it.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.yourmechanic.com/article/p0237-obd-ii-trouble-code-turbocharger-boost-sensor-a-circuit-low-by-jay-safford",
+   "https://repairpal.com/obd-ii-code-p0237"
+  ],
+  "cost": {
+   "job": "Replace boost pressure sensor",
+   "parts": [
+    40,
+    200
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  }
+ },
+ {
+  "code": "P0238",
+  "title": "Turbocharger/Supercharger Boost Sensor \"A\" Circuit High",
+  "plain": "The boost sensor tells the computer how much pressure the turbo or supercharger is making. Its signal voltage is higher than it should ever be.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Sluggish or hesitant acceleration",
+   "Possible black smoke on diesels"
+  ],
+  "causes": [
+   {
+    "name": "Faulty boost pressure sensor \"A\"",
+    "how": "common"
+   },
+   {
+    "name": "Open ground wire or signal shorted to voltage",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil contamination",
+   "With the engine off, compare the boost sensor reading with barometric pressure",
+   "Check the boost hoses and intercooler pipes for leaks"
+  ],
+  "fix": "Usually a new boost pressure sensor or a wiring or connector repair. On diesels, cleaning a soot-clogged sensor or port sometimes fixes it.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.yourmechanic.com:443/article/p0238-obd-ii-trouble-code-turbocharger-boost-sensor-a-circuit-high-by-jay-safford",
+   "https://www.autobarn.net/specs/obd-codes/p0238"
+  ],
+  "cost": {
+   "job": "Replace boost pressure sensor",
+   "parts": [
+    40,
+    200
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  }
+ },
+ {
+  "code": "P0239",
+  "title": "Turbocharger/Supercharger Boost Sensor \"B\" Circuit",
+  "plain": "The boost sensor tells the computer how much pressure the turbo or supercharger is making. The computer sees a problem in this sensor's circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Sluggish or hesitant acceleration",
+   "Possible black smoke on diesels"
+  ],
+  "causes": [
+   {
+    "name": "Faulty boost pressure sensor \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring between the sensor and computer",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil contamination",
+   "With the engine off, compare the boost sensor reading with barometric pressure",
+   "Check the boost hoses and intercooler pipes for leaks"
+  ],
+  "fix": "Usually a new boost pressure sensor or a wiring or connector repair. On diesels, cleaning a soot-clogged sensor or port sometimes fixes it.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P023A",
+  "title": "Charge Air Cooler Coolant Pump Control Circuit/Open",
+  "plain": "Some turbo and supercharged engines use an electric pump to send coolant through the intercooler. The computer sees an open (broken) circuit in the pump's control.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power in hot weather or hard driving",
+   "Often no other noticeable change"
+  ],
+  "causes": [
+   {
+    "name": "Failed intercooler coolant pump",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded pump connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the pump fuse and relay",
+   "Inspect the pump connector and wiring",
+   "Command the pump on with a scan tool and feel or listen for it running"
+  ],
+  "fix": "Usually a new intercooler coolant pump or a wiring repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P023B",
+  "title": "Charge Air Cooler Coolant Pump Control Circuit Low",
+  "plain": "Some turbo and supercharged engines use an electric pump to send coolant through the intercooler. The pump's control circuit reads lower than expected, often from a short to ground.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power in hot weather or hard driving",
+   "Often no other noticeable change"
+  ],
+  "causes": [
+   {
+    "name": "Failed intercooler coolant pump",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded pump connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the pump fuse and relay",
+   "Inspect the pump connector and wiring",
+   "Command the pump on with a scan tool and feel or listen for it running"
+  ],
+  "fix": "Usually a new intercooler coolant pump or a wiring repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P023C",
+  "title": "Charge Air Cooler Coolant Pump Control Circuit High",
+  "plain": "Some turbo and supercharged engines use an electric pump to send coolant through the intercooler. The pump's control circuit reads higher than expected, often from a short to power.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power in hot weather or hard driving",
+   "Often no other noticeable change"
+  ],
+  "causes": [
+   {
+    "name": "Failed intercooler coolant pump",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded pump connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the pump fuse and relay",
+   "Inspect the pump connector and wiring",
+   "Command the pump on with a scan tool and feel or listen for it running"
+  ],
+  "fix": "Usually a new intercooler coolant pump or a wiring repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P023D",
+  "title": "Manifold Absolute Pressure - Turbocharger/Supercharger Boost Sensor \"A\" Correlation",
+  "plain": "The computer compares the intake manifold pressure sensor with boost sensor A. When the engine isn't making boost they should read about the same, and here they don't.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Hesitation when accelerating"
+  ],
+  "causes": [
+   {
+    "name": "Faulty boost pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Faulty manifold absolute pressure (MAP) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking, cracked or clogged sensor hoses or ports",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem at either sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "With the engine off, compare both sensor readings with barometric pressure",
+   "Inspect both sensors' connectors, hoses and ports for leaks or clogging"
+  ],
+  "fix": "Usually replacing whichever sensor reads wrong when compared with barometric pressure.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P023E",
+  "title": "Manifold Absolute Pressure - Turbocharger/Supercharger Boost Sensor \"B\" Correlation",
+  "plain": "The computer compares the intake manifold pressure sensor with boost sensor B. When the engine isn't making boost they should read about the same, and here they don't.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Hesitation when accelerating"
+  ],
+  "causes": [
+   {
+    "name": "Faulty boost pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Faulty manifold absolute pressure (MAP) sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking, cracked or clogged sensor hoses or ports",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem at either sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "With the engine off, compare both sensor readings with barometric pressure",
+   "Inspect both sensors' connectors, hoses and ports for leaks or clogging"
+  ],
+  "fix": "Usually replacing whichever sensor reads wrong when compared with barometric pressure.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P023F",
+  "title": "Fuel Pump Secondary Circuit/Open",
+  "plain": "The computer watches the power that goes out to the fuel pump. Here the output side appears to be open (broken).",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine may crank but not start",
+   "Stalling or sputtering while driving",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Broken wire between the relay or module and the pump",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or burnt fuel pump connector",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pump with an open motor winding",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty fuel pump driver module or computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen for the fuel pump to hum for a couple of seconds when the key is turned on",
+   "Inspect the fuel pump connector (often on top of the tank) and its wiring",
+   "Check fuel pump voltage and ground at the pump"
+  ],
+  "fix": "Usually a wiring or connector repair at the tank, or a new fuel pump if it is worn out.",
+  "guide": "engine-stalls-while-driving",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0240",
+  "title": "Turbocharger/Supercharger Boost Sensor \"B\" Circuit Range/Performance",
+  "plain": "The boost sensor tells the computer how much pressure the turbo or supercharger is making. Its reading doesn't make sense for how the engine is running.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Sluggish or hesitant acceleration",
+   "Possible black smoke on diesels"
+  ],
+  "causes": [
+   {
+    "name": "Faulty boost pressure sensor \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Leaking or cracked boost hose or intercooler pipe",
+    "how": "common"
+   },
+   {
+    "name": "Sensor port or hose clogged with oil or soot",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil contamination",
+   "With the engine off, compare the boost sensor reading with barometric pressure",
+   "Check the boost hoses and intercooler pipes for leaks"
+  ],
+  "fix": "Usually a new boost pressure sensor or a wiring or connector repair. On diesels, cleaning a soot-clogged sensor or port sometimes fixes it.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0241",
+  "title": "Turbocharger/Supercharger Boost Sensor \"B\" Circuit Low",
+  "plain": "The boost sensor tells the computer how much pressure the turbo or supercharger is making. Its signal voltage is lower than it should ever be.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Sluggish or hesitant acceleration",
+   "Possible black smoke on diesels"
+  ],
+  "causes": [
+   {
+    "name": "Faulty boost pressure sensor \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Open in the 5-volt reference wire or signal shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil contamination",
+   "With the engine off, compare the boost sensor reading with barometric pressure",
+   "Check the boost hoses and intercooler pipes for leaks"
+  ],
+  "fix": "Usually a new boost pressure sensor or a wiring or connector repair. On diesels, cleaning a soot-clogged sensor or port sometimes fixes it.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0242",
+  "title": "Turbocharger/Supercharger Boost Sensor \"B\" Circuit High",
+  "plain": "The boost sensor tells the computer how much pressure the turbo or supercharger is making. Its signal voltage is higher than it should ever be.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Sluggish or hesitant acceleration",
+   "Possible black smoke on diesels"
+  ],
+  "causes": [
+   {
+    "name": "Faulty boost pressure sensor \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Open ground wire or signal shorted to voltage",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring for damage or oil contamination",
+   "With the engine off, compare the boost sensor reading with barometric pressure",
+   "Check the boost hoses and intercooler pipes for leaks"
+  ],
+  "fix": "Usually a new boost pressure sensor or a wiring or connector repair. On diesels, cleaning a soot-clogged sensor or port sometimes fixes it.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0243",
+  "title": "Turbocharger/Supercharger Wastegate Solenoid \"A\"",
+  "plain": "The wastegate solenoid helps control how much boost the turbo makes. The computer sees a problem in this solenoid's circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low power or limp mode",
+   "Boost may surge or feel too strong at times"
+  ],
+  "causes": [
+   {
+    "name": "Faulty wastegate (boost control) solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the solenoid connector, wiring and vacuum hoses",
+   "Check the solenoid's resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a new wastegate control solenoid or a wiring or hose repair.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0244",
+  "title": "Turbocharger/Supercharger Wastegate Solenoid \"A\" Range/Performance",
+  "plain": "The wastegate solenoid helps control how much boost the turbo makes. The solenoid isn't controlling boost the way the computer expects.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low power or limp mode",
+   "Boost may surge or feel too strong at times"
+  ],
+  "causes": [
+   {
+    "name": "Faulty wastegate (boost control) solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Cracked, loose or misrouted vacuum hoses",
+    "how": "common"
+   },
+   {
+    "name": "Sticking wastegate or actuator",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the solenoid connector, wiring and vacuum hoses",
+   "Check the solenoid's resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a new wastegate control solenoid or a wiring or hose repair.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0245",
+  "title": "Turbocharger/Supercharger Wastegate Solenoid \"A\" Low",
+  "plain": "The wastegate solenoid helps control how much boost the turbo makes. Its control circuit reads lower than expected, often from a short to ground.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low power or limp mode",
+   "Boost may surge or feel too strong at times"
+  ],
+  "causes": [
+   {
+    "name": "Faulty wastegate (boost control) solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the solenoid connector, wiring and vacuum hoses",
+   "Check the solenoid's resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a new wastegate control solenoid or a wiring or hose repair.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0246",
+  "title": "Turbocharger/Supercharger Wastegate Solenoid \"A\" High",
+  "plain": "The wastegate solenoid helps control how much boost the turbo makes. Its control circuit reads higher than expected, often from a short to power or an open.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low power or limp mode",
+   "Boost may surge or feel too strong at times"
+  ],
+  "causes": [
+   {
+    "name": "Faulty wastegate (boost control) solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the solenoid connector, wiring and vacuum hoses",
+   "Check the solenoid's resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a new wastegate control solenoid or a wiring or hose repair.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0247",
+  "title": "Turbocharger/Supercharger Wastegate Solenoid \"B\"",
+  "plain": "The wastegate solenoid helps control how much boost the turbo makes. The computer sees a problem in this solenoid's circuit.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low power or limp mode",
+   "Boost may surge or feel too strong at times"
+  ],
+  "causes": [
+   {
+    "name": "Faulty wastegate (boost control) solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the solenoid connector, wiring and vacuum hoses",
+   "Check the solenoid's resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a new wastegate control solenoid or a wiring or hose repair.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0248",
+  "title": "Turbocharger/Supercharger Wastegate Solenoid \"B\" Range/Performance",
+  "plain": "The wastegate solenoid helps control how much boost the turbo makes. The solenoid isn't controlling boost the way the computer expects.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low power or limp mode",
+   "Boost may surge or feel too strong at times"
+  ],
+  "causes": [
+   {
+    "name": "Faulty wastegate (boost control) solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Cracked, loose or misrouted vacuum hoses",
+    "how": "common"
+   },
+   {
+    "name": "Sticking wastegate or actuator",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the solenoid connector, wiring and vacuum hoses",
+   "Check the solenoid's resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a new wastegate control solenoid or a wiring or hose repair.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P0249",
+  "title": "Turbocharger/Supercharger Wastegate Solenoid \"B\" Low",
+  "plain": "The wastegate solenoid helps control how much boost the turbo makes. Its control circuit reads lower than expected, often from a short to ground.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low power or limp mode",
+   "Boost may surge or feel too strong at times"
+  ],
+  "causes": [
+   {
+    "name": "Faulty wastegate (boost control) solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the solenoid connector, wiring and vacuum hoses",
+   "Check the solenoid's resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a new wastegate control solenoid or a wiring or hose repair.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P024A",
+  "title": "Charge Air Cooler Bypass Control \"A\" Range/Performance",
+  "plain": "Some turbo engines, mostly diesels, have a valve that can route intake air around the intercooler, for example to warm up faster. Bypass valve A isn't moving to the position the computer asks for.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives",
+   "Possibly reduced power or slower warm-up"
+  ],
+  "causes": [
+   {
+    "name": "Bypass valve sticking from soot or carbon buildup",
+    "how": "common"
+   },
+   {
+    "name": "Faulty bypass valve actuator",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty bypass position sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the bypass valve connector and wiring",
+   "Command the valve with a scan tool and watch whether it moves"
+  ],
+  "fix": "Usually cleaning or replacing the bypass valve and actuator.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P024B",
+  "title": "Charge Air Cooler Bypass Control \"A\" Stuck",
+  "plain": "Some turbo engines, mostly diesels, have a valve that can route intake air around the intercooler, for example to warm up faster. Bypass valve A appears to be stuck and isn't moving when commanded.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives",
+   "Possibly reduced power or slower warm-up"
+  ],
+  "causes": [
+   {
+    "name": "Bypass valve sticking from soot or carbon buildup",
+    "how": "common"
+   },
+   {
+    "name": "Faulty bypass valve actuator",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty bypass position sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the bypass valve connector and wiring",
+   "Command the valve with a scan tool and watch whether it moves"
+  ],
+  "fix": "Usually cleaning or replacing the bypass valve and actuator.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P024C",
+  "title": "Charge Air Cooler Bypass Position Sensor \"A\" Circuit",
+  "plain": "A position sensor tells the computer where the intercooler bypass valve is sitting. The computer sees a problem with the sensor signal.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives"
+  ],
+  "causes": [
+   {
+    "name": "Faulty bypass position sensor (often part of the valve assembly)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Short or open in the sensor reference or ground wire",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Check the sensor's reference voltage, ground and signal with a meter"
+  ],
+  "fix": "Usually a new bypass valve assembly with its sensor, or a wiring repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P024D",
+  "title": "Charge Air Cooler Bypass Position Sensor \"A\" Circuit Range/Performance",
+  "plain": "A position sensor tells the computer where the intercooler bypass valve is sitting. The sensor's reading doesn't match what the computer expects.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives"
+  ],
+  "causes": [
+   {
+    "name": "Faulty bypass position sensor (often part of the valve assembly)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Sticking bypass valve",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Check the sensor's reference voltage, ground and signal with a meter"
+  ],
+  "fix": "Usually a new bypass valve assembly with its sensor, or a wiring repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P024E",
+  "title": "Charge Air Cooler Bypass Position Sensor \"A\" Circuit Low",
+  "plain": "A position sensor tells the computer where the intercooler bypass valve is sitting. The sensor's signal voltage is lower than it should ever be.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives"
+  ],
+  "causes": [
+   {
+    "name": "Faulty bypass position sensor (often part of the valve assembly)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Short or open in the sensor reference or ground wire",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Check the sensor's reference voltage, ground and signal with a meter"
+  ],
+  "fix": "Usually a new bypass valve assembly with its sensor, or a wiring repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ },
+ {
+  "code": "P024F",
+  "title": "Charge Air Cooler Bypass Position Sensor \"A\" Circuit High",
+  "plain": "A position sensor tells the computer where the intercooler bypass valve is sitting. The sensor's signal voltage is higher than it should ever be.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no noticeable change in how it drives"
+  ],
+  "causes": [
+   {
+    "name": "Faulty bypass position sensor (often part of the valve assembly)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Short or open in the sensor reference or ground wire",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Check the sensor's reference voltage, ground and signal with a meter"
+  ],
+  "fix": "Usually a new bypass valve assembly with its sensor, or a wiring repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0200-p0299/"
+  ]
+ }
+]

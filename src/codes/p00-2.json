@@ -1,0 +1,1598 @@
+[
+ {
+  "code": "P0020",
+  "title": "\"A\" Camshaft Position Actuator Circuit (Bank 2)",
+  "plain": "The engine uses an electric oil control valve to adjust the \"A\" (usually intake) camshaft timing on bank 2. The computer found a problem in the wiring or the valve itself, such as an open or shorted circuit.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or stalling",
+   "Reduced power and fuel economy",
+   "Engine may run fine but with a light on"
+  ],
+  "causes": [
+   {
+    "name": "Failed camshaft oil control valve (VVT solenoid)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or loose connector at the solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Oil leaking into the solenoid connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the solenoid connector for oil, corrosion or a loose fit",
+   "Measure the solenoid resistance and compare to spec",
+   "Command the solenoid on with a scan tool and watch for a response"
+  ],
+  "fix": "Usually a new camshaft oil control valve, or a wiring or connector repair.",
+  "cost": {
+   "job": "Replace camshaft oil control valve (VVT solenoid)",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://ericthecarguy.com/p0001-p0099-fuel-and-air-metering-and-auxiliary-emission-controls"
+  ]
+ },
+ {
+  "code": "P0021",
+  "title": "\"A\" Camshaft Position - Timing Over-Advanced or System Performance (Bank 2)",
+  "plain": "The \"A\" (usually intake) camshaft on bank 2 is further ahead of, or not following, the position the computer asked for. The variable valve timing system is not controlling it correctly.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle, especially when warm",
+   "Hesitation or loss of power",
+   "Possible stalling or rattle at startup"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or failed camshaft oil control valve",
+    "how": "common"
+   },
+   {
+    "name": "Camshaft phaser stuck or worn",
+    "how": "common"
+   },
+   {
+    "name": "Stretched timing chain or jumped timing",
+    "how": "possible"
+   },
+   {
+    "name": "Clogged oil screen at the oil control valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and change it if dirty or overdue, using the correct grade",
+   "Remove and inspect the oil control valve for sludge or a stuck spool",
+   "Check cam timing values with a scan tool before replacing the phaser or chain"
+  ],
+  "fix": "Start with an oil change. If it comes back, the oil control valve is the most common fix, then the phaser or timing chain.",
+  "cost": {
+   "job": "Replace camshaft oil control valve (VVT solenoid)",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://mechanicbase.com/trouble-code/p0021/",
+   "https://www.kbb.com/obd-ii/p0021/"
+  ]
+ },
+ {
+  "code": "P0022",
+  "title": "\"A\" Camshaft Position - Timing Over-Retarded (Bank 2)",
+  "plain": "The \"A\" (usually intake) camshaft on bank 2 is further behind the position the computer asked for. The variable valve timing system is not controlling it correctly.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle, especially when warm",
+   "Hesitation or loss of power",
+   "Possible stalling or rattle at startup"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or failed camshaft oil control valve",
+    "how": "common"
+   },
+   {
+    "name": "Worn camshaft phaser or phaser stuck retarded",
+    "how": "common"
+   },
+   {
+    "name": "Stretched timing chain or jumped timing",
+    "how": "possible"
+   },
+   {
+    "name": "Clogged oil screen at the oil control valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and change it if dirty or overdue, using the correct grade",
+   "Remove and inspect the oil control valve for sludge or a stuck spool",
+   "Check cam timing values with a scan tool before replacing the phaser or chain"
+  ],
+  "fix": "Start with an oil change. If it comes back, the oil control valve is the most common fix, then the phaser or timing chain.",
+  "cost": {
+   "job": "Replace camshaft oil control valve (VVT solenoid)",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "examples": [
+   "Often paired with P0012 on the Ford 5.4L 3-valve V8 when the cam phasers wear"
+  ],
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://ericthecarguy.com/p0001-p0099-fuel-and-air-metering-and-auxiliary-emission-controls"
+  ]
+ },
+ {
+  "code": "P0023",
+  "title": "\"B\" Camshaft Position Actuator Circuit (Bank 2)",
+  "plain": "The engine uses an electric oil control valve to adjust the \"B\" (usually exhaust) camshaft timing on bank 2. The computer found a problem in the wiring or the valve itself, such as an open or shorted circuit.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or stalling",
+   "Reduced power and fuel economy",
+   "Engine may run fine but with a light on"
+  ],
+  "causes": [
+   {
+    "name": "Failed camshaft oil control valve (VVT solenoid)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or loose connector at the solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Oil leaking into the solenoid connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the solenoid connector for oil, corrosion or a loose fit",
+   "Measure the solenoid resistance and compare to spec",
+   "Command the solenoid on with a scan tool and watch for a response"
+  ],
+  "fix": "Usually a new camshaft oil control valve, or a wiring or connector repair.",
+  "cost": {
+   "job": "Replace camshaft oil control valve (VVT solenoid)",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://ericthecarguy.com/p0001-p0099-fuel-and-air-metering-and-auxiliary-emission-controls"
+  ]
+ },
+ {
+  "code": "P0024",
+  "title": "\"B\" Camshaft Position - Timing Over-Advanced or System Performance (Bank 2)",
+  "plain": "The \"B\" (usually exhaust) camshaft on bank 2 is further ahead of, or not following, the position the computer asked for. The variable valve timing system is not controlling it correctly.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle, especially when warm",
+   "Hesitation or loss of power",
+   "Possible stalling or rattle at startup"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or failed camshaft oil control valve",
+    "how": "common"
+   },
+   {
+    "name": "Camshaft phaser stuck or worn",
+    "how": "common"
+   },
+   {
+    "name": "Stretched timing chain or jumped timing",
+    "how": "possible"
+   },
+   {
+    "name": "Clogged oil screen at the oil control valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and change it if dirty or overdue, using the correct grade",
+   "Remove and inspect the oil control valve for sludge or a stuck spool",
+   "Check cam timing values with a scan tool before replacing the phaser or chain"
+  ],
+  "fix": "Start with an oil change. If it comes back, the oil control valve is the most common fix, then the phaser or timing chain.",
+  "cost": {
+   "job": "Replace camshaft oil control valve (VVT solenoid)",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://ericthecarguy.com/p0001-p0099-fuel-and-air-metering-and-auxiliary-emission-controls"
+  ]
+ },
+ {
+  "code": "P0025",
+  "title": "\"B\" Camshaft Position - Timing Over-Retarded (Bank 2)",
+  "plain": "The \"B\" (usually exhaust) camshaft on bank 2 is further behind the position the computer asked for. The variable valve timing system is not controlling it correctly.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle, especially when warm",
+   "Hesitation or loss of power",
+   "Possible stalling or rattle at startup"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or failed camshaft oil control valve",
+    "how": "common"
+   },
+   {
+    "name": "Worn camshaft phaser or phaser stuck retarded",
+    "how": "common"
+   },
+   {
+    "name": "Stretched timing chain or jumped timing",
+    "how": "possible"
+   },
+   {
+    "name": "Clogged oil screen at the oil control valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and change it if dirty or overdue, using the correct grade",
+   "Remove and inspect the oil control valve for sludge or a stuck spool",
+   "Check cam timing values with a scan tool before replacing the phaser or chain"
+  ],
+  "fix": "Start with an oil change. If it comes back, the oil control valve is the most common fix, then the phaser or timing chain.",
+  "cost": {
+   "job": "Replace camshaft oil control valve (VVT solenoid)",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://ericthecarguy.com/p0001-p0099-fuel-and-air-metering-and-auxiliary-emission-controls"
+  ]
+ },
+ {
+  "code": "P0026",
+  "title": "Intake Valve Control Solenoid Circuit Range/Performance (Bank 1)",
+  "plain": "The intake valve control solenoid on bank 1 helps change valve timing or lift. The computer sees that the solenoid circuit is working, but the result is not what it expected.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation",
+   "Reduced power or fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Sticking valve control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the solenoid",
+    "how": "possible"
+   },
+   {
+    "name": "Worn camshaft phaser or timing components",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Inspect the solenoid and its screen for sludge",
+   "Check the solenoid wiring and resistance"
+  ],
+  "fix": "Often an oil change, then a new valve control solenoid if the code returns.",
+  "cost": {
+   "job": "Replace valve control solenoid",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0027",
+  "title": "Exhaust Valve Control Solenoid Circuit Range/Performance (Bank 1)",
+  "plain": "The exhaust valve control solenoid on bank 1 helps change valve timing or lift. The computer sees that the solenoid circuit is working, but the result is not what it expected.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation",
+   "Reduced power or fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Sticking valve control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the solenoid",
+    "how": "possible"
+   },
+   {
+    "name": "Worn camshaft phaser or timing components",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Inspect the solenoid and its screen for sludge",
+   "Check the solenoid wiring and resistance"
+  ],
+  "fix": "Often an oil change, then a new valve control solenoid if the code returns.",
+  "cost": {
+   "job": "Replace valve control solenoid",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0028",
+  "title": "Intake Valve Control Solenoid Circuit Range/Performance (Bank 2)",
+  "plain": "The intake valve control solenoid on bank 2 helps change valve timing or lift. The computer sees that the solenoid circuit is working, but the result is not what it expected.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation",
+   "Reduced power or fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Sticking valve control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the solenoid",
+    "how": "possible"
+   },
+   {
+    "name": "Worn camshaft phaser or timing components",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Inspect the solenoid and its screen for sludge",
+   "Check the solenoid wiring and resistance"
+  ],
+  "fix": "Often an oil change, then a new valve control solenoid if the code returns.",
+  "cost": {
+   "job": "Replace valve control solenoid",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0029",
+  "title": "Exhaust Valve Control Solenoid Circuit Range/Performance (Bank 2)",
+  "plain": "The exhaust valve control solenoid on bank 2 helps change valve timing or lift. The computer sees that the solenoid circuit is working, but the result is not what it expected.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation",
+   "Reduced power or fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Sticking valve control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the solenoid",
+    "how": "possible"
+   },
+   {
+    "name": "Worn camshaft phaser or timing components",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Inspect the solenoid and its screen for sludge",
+   "Check the solenoid wiring and resistance"
+  ],
+  "fix": "Often an oil change, then a new valve control solenoid if the code returns.",
+  "cost": {
+   "job": "Replace valve control solenoid",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P002A",
+  "title": "\"B\" Camshaft Profile Control Circuit/Open (Bank 1)",
+  "plain": "Some engines can switch between two camshaft lobe shapes, one for economy and one for power. The computer found an open or broken connection in the control circuit for the \"B\" camshaft switching on bank 1.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Less power at higher engine speeds",
+   "Engine may stay in one cam mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the cam profile solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Failed cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low or dirty engine oil affecting the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Inspect the solenoid connector and wiring",
+   "Test the solenoid resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a wiring repair or a new cam profile switching solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P002B",
+  "title": "\"B\" Camshaft Profile Control Circuit Low (Bank 1)",
+  "plain": "Some engines can switch between two camshaft lobe shapes, one for economy and one for power. The computer found a voltage lower than expected in the control circuit for the \"B\" camshaft switching on bank 1.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Less power at higher engine speeds",
+   "Engine may stay in one cam mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the cam profile solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Failed cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low or dirty engine oil affecting the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Inspect the solenoid connector and wiring",
+   "Test the solenoid resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a wiring repair or a new cam profile switching solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P002C",
+  "title": "\"B\" Camshaft Profile Control Circuit High (Bank 1)",
+  "plain": "Some engines can switch between two camshaft lobe shapes, one for economy and one for power. The computer found a voltage higher than expected in the control circuit for the \"B\" camshaft switching on bank 1.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Less power at higher engine speeds",
+   "Engine may stay in one cam mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the cam profile solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Failed cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low or dirty engine oil affecting the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Inspect the solenoid connector and wiring",
+   "Test the solenoid resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a wiring repair or a new cam profile switching solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P002D",
+  "title": "\"B\" Camshaft Profile Control Circuit/Open (Bank 2)",
+  "plain": "Some engines can switch between two camshaft lobe shapes, one for economy and one for power. The computer found an open or broken connection in the control circuit for the \"B\" camshaft switching on bank 2.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Less power at higher engine speeds",
+   "Engine may stay in one cam mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the cam profile solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Failed cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low or dirty engine oil affecting the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Inspect the solenoid connector and wiring",
+   "Test the solenoid resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a wiring repair or a new cam profile switching solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P002E",
+  "title": "\"B\" Camshaft Profile Control Circuit Low (Bank 2)",
+  "plain": "Some engines can switch between two camshaft lobe shapes, one for economy and one for power. The computer found a voltage lower than expected in the control circuit for the \"B\" camshaft switching on bank 2.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Less power at higher engine speeds",
+   "Engine may stay in one cam mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the cam profile solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Failed cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low or dirty engine oil affecting the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Inspect the solenoid connector and wiring",
+   "Test the solenoid resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a wiring repair or a new cam profile switching solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P002F",
+  "title": "\"B\" Camshaft Profile Control Circuit High (Bank 2)",
+  "plain": "Some engines can switch between two camshaft lobe shapes, one for economy and one for power. The computer found a voltage higher than expected in the control circuit for the \"B\" camshaft switching on bank 2.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Less power at higher engine speeds",
+   "Engine may stay in one cam mode"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector to the cam profile solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Failed cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low or dirty engine oil affecting the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Inspect the solenoid connector and wiring",
+   "Test the solenoid resistance and command it with a scan tool"
+  ],
+  "fix": "Usually a wiring repair or a new cam profile switching solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0030",
+  "title": "HO2S Heater Control Circuit (Bank 1 Sensor 1)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a fault, such as an open circuit, in the heater circuit of the upstream (before the catalytic converter) oxygen sensor on bank 1.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Fuel economy may drop slightly, mostly after cold starts"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace upstream oxygen sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://www.jegs.com/tech-articles/p0030-code-causes-fixes-ho2s-heater-control-circuit-bank-1-sensor-1/",
+   "https://www.kbb.com/obd-ii/p0030/"
+  ]
+ },
+ {
+  "code": "P0031",
+  "title": "HO2S Heater Control Circuit Low (Bank 1 Sensor 1)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a voltage that is too low in the heater circuit of the upstream (before the catalytic converter) oxygen sensor on bank 1.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Fuel economy may drop slightly, mostly after cold starts"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace upstream oxygen sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://ricksfreeautorepairadvice.com/p0031-code-explained-causes-symptoms-and-fixes/",
+   "https://carista.com/pages/obd2-diagnostic-trouble-codes/p0031"
+  ]
+ },
+ {
+  "code": "P0032",
+  "title": "HO2S Heater Control Circuit High (Bank 1 Sensor 1)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a voltage that is too high in the heater circuit of the upstream (before the catalytic converter) oxygen sensor on bank 1.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Fuel economy may drop slightly, mostly after cold starts"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace upstream oxygen sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://ricksfreeautorepairadvice.com/replace-an-oxygen-sensor/"
+  ]
+ },
+ {
+  "code": "P0033",
+  "title": "Turbocharger/Supercharger Bypass Valve Control Circuit",
+  "plain": "On turbocharged or supercharged engines, a bypass (blow-off or diverter) valve releases boost pressure when you lift off the gas. The computer found a fault, such as an open circuit, in the circuit that controls this valve.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow boost build-up",
+   "Possible limp mode or whooshing noise"
+  ],
+  "causes": [
+   {
+    "name": "Failed bypass (diverter) valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or loose connector",
+    "how": "common"
+   },
+   {
+    "name": "Cracked vacuum hose to the valve, on vacuum-operated types",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the valve connector and wiring",
+   "Check vacuum hoses around the turbo for cracks",
+   "Command the valve with a scan tool and listen or watch for it to move"
+  ],
+  "fix": "Usually a new bypass valve or a wiring repair.",
+  "cost": {
+   "job": "Replace turbo bypass (diverter) valve",
+   "parts": [
+    40,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0034",
+  "title": "Turbocharger/Supercharger Bypass Valve Control Circuit Low",
+  "plain": "On turbocharged or supercharged engines, a bypass (blow-off or diverter) valve releases boost pressure when you lift off the gas. The computer found a voltage that is too low in the circuit that controls this valve.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow boost build-up",
+   "Possible limp mode or whooshing noise"
+  ],
+  "causes": [
+   {
+    "name": "Failed bypass (diverter) valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or loose connector",
+    "how": "common"
+   },
+   {
+    "name": "Cracked vacuum hose to the valve, on vacuum-operated types",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the valve connector and wiring",
+   "Check vacuum hoses around the turbo for cracks",
+   "Command the valve with a scan tool and listen or watch for it to move"
+  ],
+  "fix": "Usually a new bypass valve or a wiring repair.",
+  "cost": {
+   "job": "Replace turbo bypass (diverter) valve",
+   "parts": [
+    40,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0035",
+  "title": "Turbocharger/Supercharger Bypass Valve Control Circuit High",
+  "plain": "On turbocharged or supercharged engines, a bypass (blow-off or diverter) valve releases boost pressure when you lift off the gas. The computer found a voltage that is too high in the circuit that controls this valve.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or slow boost build-up",
+   "Possible limp mode or whooshing noise"
+  ],
+  "causes": [
+   {
+    "name": "Failed bypass (diverter) valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or loose connector",
+    "how": "common"
+   },
+   {
+    "name": "Cracked vacuum hose to the valve, on vacuum-operated types",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the valve connector and wiring",
+   "Check vacuum hoses around the turbo for cracks",
+   "Command the valve with a scan tool and listen or watch for it to move"
+  ],
+  "fix": "Usually a new bypass valve or a wiring repair.",
+  "cost": {
+   "job": "Replace turbo bypass (diverter) valve",
+   "parts": [
+    40,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P0036",
+  "title": "HO2S Heater Control Circuit (Bank 1 Sensor 2)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a fault, such as an open circuit, in the heater circuit of the downstream (after the catalytic converter) oxygen sensor on bank 1.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions or readiness test"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    30,
+    180
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://ricksfreeautorepairadvice.com/replace-an-oxygen-sensor/"
+  ]
+ },
+ {
+  "code": "P0037",
+  "title": "HO2S Heater Control Circuit Low (Bank 1 Sensor 2)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a voltage that is too low in the heater circuit of the downstream (after the catalytic converter) oxygen sensor on bank 1.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions or readiness test"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    30,
+    180
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://cartreatments.com/?p=509736"
+  ]
+ },
+ {
+  "code": "P0038",
+  "title": "HO2S Heater Control Circuit High (Bank 1 Sensor 2)",
+  "plain": "Oxygen sensors have a built-in heater so they start working soon after a cold start. The computer found a voltage that is too high in the heater circuit of the downstream (after the catalytic converter) oxygen sensor on bank 1.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions or readiness test"
+  ],
+  "causes": [
+   {
+    "name": "Failed heater inside the oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse for the oxygen sensor heaters",
+    "how": "common"
+   },
+   {
+    "name": "Damaged or melted wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose sensor connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer heater driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oxygen sensor heater fuse",
+   "Inspect the sensor wiring for melted or rubbed-through spots near the exhaust",
+   "Measure the heater resistance at the sensor and compare to spec"
+  ],
+  "fix": "Most often a new oxygen sensor. If the fuse is blown, find the short that blew it before replacing the sensor.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    30,
+    180
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/",
+   "https://ricksfreeautorepairadvice.com/replace-an-oxygen-sensor/"
+  ]
+ },
+ {
+  "code": "P0039",
+  "title": "Turbocharger/Supercharger Bypass Valve Control Circuit Range/Performance",
+  "plain": "The bypass (blow-off or diverter) valve on a boosted engine is not responding the way the computer expects, even though the circuit is not fully open or shorted.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or uneven boost",
+   "Possible limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Sticking or worn bypass valve",
+    "how": "common"
+   },
+   {
+    "name": "Torn diaphragm in the bypass valve",
+    "how": "common"
+   },
+   {
+    "name": "Boost or vacuum leak near the valve",
+    "how": "possible"
+   },
+   {
+    "name": "Intermittent wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the bypass valve and hoses for leaks or tears",
+   "Check the wiring and connector",
+   "Watch commanded vs actual boost on a scan tool"
+  ],
+  "fix": "Usually a new bypass valve, or repair of a leaking boost hose.",
+  "cost": {
+   "job": "Replace turbo bypass (diverter) valve",
+   "parts": [
+    40,
+    300
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P003A",
+  "title": "Turbocharger/Supercharger Boost Control \"A\" Position Exceeded Learning Limit",
+  "plain": "The computer learns the normal resting and travel positions of the boost control actuator (often the wastegate or variable vane control). The \"A\" actuator position has drifted beyond what the computer will accept.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Too little or too much boost",
+   "Possible limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Worn or sticking wastegate or vane mechanism",
+    "how": "common"
+   },
+   {
+    "name": "Faulty boost control actuator or its position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Actuator not set up or relearned after a repair",
+    "how": "possible"
+   },
+   {
+    "name": "Carbon buildup in the turbo",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the turbo or actuator was recently replaced and needs a relearn",
+   "Inspect the actuator linkage for binding",
+   "Run the actuator test or relearn with a scan tool"
+  ],
+  "fix": "Often an actuator relearn or a new boost actuator; a sticking turbo may need cleaning or replacement.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P003B",
+  "title": "Turbocharger/Supercharger Boost Control \"B\" Position Exceeded Learning Limit",
+  "plain": "The computer learns the normal resting and travel positions of the boost control actuator (often the wastegate or variable vane control). The \"B\" actuator position has drifted beyond what the computer will accept.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Too little or too much boost",
+   "Possible limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Worn or sticking wastegate or vane mechanism",
+    "how": "common"
+   },
+   {
+    "name": "Faulty boost control actuator or its position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Actuator not set up or relearned after a repair",
+    "how": "possible"
+   },
+   {
+    "name": "Carbon buildup in the turbo",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the turbo or actuator was recently replaced and needs a relearn",
+   "Inspect the actuator linkage for binding",
+   "Run the actuator test or relearn with a scan tool"
+  ],
+  "fix": "Often an actuator relearn or a new boost actuator; a sticking turbo may need cleaning or replacement.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P003C",
+  "title": "\"A\" Camshaft Profile Control Performance/Stuck Off (Bank 1)",
+  "plain": "Some engines can switch between two camshaft lobe shapes. On bank 1, the computer found the \"A\" cam switching system not switching properly or stuck in its off position.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Less power at higher engine speeds",
+   "Possible lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low oil pressure to the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking cam follower or locking pin",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check oil pressure",
+   "Inspect the switching solenoid and its screen for sludge"
+  ],
+  "fix": "Often an oil change and a new switching solenoid. Mechanical wear inside the valvetrain is less common.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P003D",
+  "title": "\"A\" Camshaft Profile Control Stuck On (Bank 1)",
+  "plain": "Some engines can switch between two camshaft lobe shapes. On bank 1, the computer found the \"A\" cam switching system stuck in its switched-on position.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or poor low-speed running",
+   "Possible lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low oil pressure to the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking cam follower or locking pin",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check oil pressure",
+   "Inspect the switching solenoid and its screen for sludge"
+  ],
+  "fix": "Often an oil change and a new switching solenoid. Mechanical wear inside the valvetrain is less common.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P003E",
+  "title": "\"A\" Camshaft Profile Control Performance/Stuck Off (Bank 2)",
+  "plain": "Some engines can switch between two camshaft lobe shapes. On bank 2, the computer found the \"A\" cam switching system not switching properly or stuck in its off position.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Less power at higher engine speeds",
+   "Possible lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low oil pressure to the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking cam follower or locking pin",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check oil pressure",
+   "Inspect the switching solenoid and its screen for sludge"
+  ],
+  "fix": "Often an oil change and a new switching solenoid. Mechanical wear inside the valvetrain is less common.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P003F",
+  "title": "\"A\" Camshaft Profile Control Stuck On (Bank 2)",
+  "plain": "Some engines can switch between two camshaft lobe shapes. On bank 2, the computer found the \"A\" cam switching system stuck in its switched-on position.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or poor low-speed running",
+   "Possible lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking cam profile switching solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low oil pressure to the switching mechanism",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking cam follower or locking pin",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check oil pressure",
+   "Inspect the switching solenoid and its screen for sludge"
+  ],
+  "fix": "Often an oil change and a new switching solenoid. Mechanical wear inside the valvetrain is less common.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ }
+]

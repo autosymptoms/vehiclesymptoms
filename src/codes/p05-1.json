@@ -1,0 +1,1355 @@
+[
+ {
+  "code": "P0500",
+  "title": "Vehicle Speed Sensor \"A\"",
+  "plain": "The engine computer isn't getting a usable signal from the sensor that tells it how fast the car is moving.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Speedometer not working or jumping around",
+   "Harsh or erratic automatic shifting",
+   "Cruise control may stop working",
+   "ABS or traction control light may come on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty vehicle speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector at the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Faulty ABS wheel speed sensor (on cars that use it for road speed)",
+    "how": "possible"
+   },
+   {
+    "name": "Damaged sensor drive gear or tone ring",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note whether the speedometer works",
+   "Inspect the speed sensor wiring and connector for damage or oil",
+   "Check for ABS wheel speed sensor codes, which may be the real source",
+   "Watch the speed reading on a scan tool while driving"
+  ],
+  "fix": "Usually a new vehicle speed sensor or a wiring repair at the sensor connector.",
+  "cost": {
+   "job": "Replace vehicle speed sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/",
+   "https://www.aa1car.com/trouble-codes/codes_599.htm"
+  ]
+ },
+ {
+  "code": "P0501",
+  "title": "Vehicle Speed Sensor \"A\" Range/Performance",
+  "plain": "The vehicle speed sensor is sending a reading that doesn't make sense or doesn't match other sensors. This part tells the computer how fast the car is moving.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer erratic or not working",
+   "Harsh or odd automatic shifting"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or sluggish vehicle speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wrong tire size or axle ratio not matching the computer setting",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem skewing the reading",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the vehicle speed sensor reading on a scan tool with real conditions",
+   "Confirm the tire size and gear ratio match the original setup",
+   "Inspect the wiring and connector for damage or corrosion"
+  ],
+  "fix": "Usually a new vehicle speed sensor or repair of the underlying problem, after ruling out wiring.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0502",
+  "title": "Vehicle Speed Sensor \"A\" Circuit Low Input",
+  "plain": "The signal from the vehicle speed sensor is lower than it should ever be, which usually points to a wiring short or a failed sensor. This part tells the computer how fast the car is moving.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer erratic or not working",
+   "Harsh or odd automatic shifting"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty vehicle speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Problem with the sensor's reference voltage supply",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and connector for rubbing, damage or corrosion",
+   "Check reference voltage and ground at the connector with a meter"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new vehicle speed sensor if it tests bad.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0503",
+  "title": "Vehicle Speed Sensor \"A\" Intermittent/Erratic/High",
+  "plain": "The signal from the vehicle speed sensor keeps cutting in and out or jumping around. This part tells the computer how fast the car is moving.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Speedometer erratic or not working",
+   "Harsh or odd automatic shifting"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that shorts or opens over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Failing vehicle speed sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data on a scan tool",
+   "Look for chafed wires near hot or moving parts"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new vehicle speed sensor if it tests bad.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0504",
+  "title": "Brake Switch \"A\"/\"B\" Correlation",
+  "plain": "The brake pedal switch sends two signals that should always agree, and the computer saw them disagree.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Brake lights may stay on or not work",
+   "Cruise control may not engage",
+   "Push-button start or shifting out of Park may not work normally",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty brake light switch",
+    "how": "common"
+   },
+   {
+    "name": "Misadjusted brake light switch or broken pedal stopper pad",
+    "how": "common"
+   },
+   {
+    "name": "Blown stop lamp fuse",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem at the switch",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Have someone confirm the brake lights come on and go off with the pedal",
+   "Look for a missing or broken plastic stopper pad on the brake pedal arm",
+   "Check the stop lamp fuse",
+   "Compare both switch signals on a scan tool while pressing the pedal"
+  ],
+  "fix": "Most often a new brake light switch, adjusted correctly.",
+  "cost": {
+   "job": "Replace brake light switch",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "examples": [
+   "Often seen on Hyundai and Kia models with a failing brake light switch"
+  ],
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0505",
+  "title": "Idle Control System",
+  "plain": "The computer can't control the engine's idle speed the way it expects to.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Idle speed too high or too low",
+   "Engine stalls when coming to a stop",
+   "Rough or surging idle",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Dirty throttle body or idle air control valve",
+    "how": "common"
+   },
+   {
+    "name": "Faulty idle air control valve",
+    "how": "common"
+   },
+   {
+    "name": "Vacuum leak",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring problem to the idle control valve or electronic throttle",
+    "how": "possible"
+   },
+   {
+    "name": "Idle relearn needed after cleaning or a battery disconnect",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Clean the throttle body and idle air passages",
+   "Check for vacuum leaks around hoses and the intake",
+   "Test the idle air control valve and its wiring",
+   "Perform an idle relearn if the vehicle needs one"
+  ],
+  "fix": "Often a throttle body and idle air control valve cleaning; replace the valve if it tests bad.",
+  "cost": {
+   "job": "Replace idle air control valve",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "examples": [
+   "Well known on 1990s and 2000s Honda models with a dirty or failing idle air control valve"
+  ],
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/",
+   "https://www.kbb.com/obd-ii/p0505/"
+  ]
+ },
+ {
+  "code": "P0506",
+  "title": "Idle Control System RPM Lower Than Expected",
+  "plain": "The engine is idling slower than the computer is asking for, even after it tried to raise the idle.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Low or rough idle",
+   "Stalling at stops",
+   "Shaking at idle, often worse with the A/C on",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Dirty throttle body with carbon buildup",
+    "how": "common"
+   },
+   {
+    "name": "Faulty idle air control valve or electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Clogged air filter or restricted intake",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty PCV valve",
+    "how": "possible"
+   },
+   {
+    "name": "Extra engine load from a dragging accessory",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Clean the throttle body and check that the throttle plate moves freely",
+   "Check the air filter and intake for restrictions",
+   "Watch commanded vs actual idle speed on a scan tool"
+  ],
+  "fix": "Most often a throttle body cleaning and idle relearn; a new idle valve or throttle body if cleaning does not help.",
+  "cost": {
+   "job": "Clean throttle body and idle passages",
+   "parts": [
+    8,
+    30
+   ],
+   "hours": [
+    0.5,
+    1
+   ]
+  },
+  "guide": "car-dies-when-coming-to-stop",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/",
+   "https://www.yourmechanic.com/article/p0507-obd-ii-trouble-code-idle-control-system-rpm-higher-than-expected-by-spencer-clayton"
+  ]
+ },
+ {
+  "code": "P0507",
+  "title": "Idle Control System RPM Higher Than Expected",
+  "plain": "The engine is idling faster than the computer wants, even after it tried to bring the idle down.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "High idle speed",
+   "Car pushes forward harder at stops",
+   "Revs slow to drop after letting off the gas",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Vacuum leak from a cracked hose or intake gasket",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or sticking throttle body or idle air control valve",
+    "how": "common"
+   },
+   {
+    "name": "Faulty idle air control valve or electronic throttle body",
+    "how": "possible"
+   },
+   {
+    "name": "Leaking PCV valve or hose",
+    "how": "possible"
+   },
+   {
+    "name": "Idle relearn needed after battery disconnect or cleaning",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen and smoke-test for vacuum leaks",
+   "Clean the throttle body and idle air passages",
+   "Check the PCV valve and hoses",
+   "Perform an idle relearn"
+  ],
+  "fix": "Usually fixing a vacuum leak or cleaning the throttle body, then an idle relearn.",
+  "cost": {
+   "job": "Repair vacuum leak and clean throttle body",
+   "parts": [
+    10,
+    60
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "engine-revs-high-at-idle",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/",
+   "https://www.yourmechanic.com/article/p0507-obd-ii-trouble-code-idle-control-system-rpm-higher-than-expected-by-spencer-clayton"
+  ]
+ },
+ {
+  "code": "P0508",
+  "title": "Idle Air Control System Circuit Low",
+  "plain": "The computer sees lower voltage than expected in the circuit that controls the idle air control valve, often from a wire shorted to ground. This part controls how much air bypasses the throttle to set idle speed.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Idle too high, too low or unstable",
+   "Possible stalling at stops"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty idle air control valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the idle air control valve wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the idle air control valve with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new idle air control valve if it tests bad.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0509",
+  "title": "Idle Air Control System Circuit High",
+  "plain": "The computer sees higher voltage than expected in the circuit that controls the idle air control valve, often from a wire shorted to power or a failed part. This part controls how much air bypasses the throttle to set idle speed.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Idle too high, too low or unstable",
+   "Possible stalling at stops"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or shorted idle air control valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the idle air control valve wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the idle air control valve with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new idle air control valve if it tests bad.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P050A",
+  "title": "Cold Start Idle Air Control System Performance",
+  "plain": "On a cold start the computer raises idle speed to heat the catalytic converter quickly, and the idle did not reach its target.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Idle may be lower or higher than normal right after a cold start"
+  ],
+  "causes": [
+   {
+    "name": "Dirty throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Vacuum leak",
+    "how": "common"
+   },
+   {
+    "name": "Faulty electronic throttle body or idle air control valve",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer software needing an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Clean the throttle body and check for vacuum leaks",
+   "Look for a manufacturer service bulletin or software update"
+  ],
+  "fix": "Usually a throttle body cleaning or vacuum leak repair; some models need a computer update.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P050B",
+  "title": "Cold Start Ignition Timing Performance",
+  "plain": "On a cold start the computer delays spark timing to warm the catalytic converter, and it could not hold the timing where it wanted.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough idle right after a cold start"
+  ],
+  "causes": [
+   {
+    "name": "Dirty throttle body or vacuum leak upsetting idle control",
+    "how": "common"
+   },
+   {
+    "name": "Engine misfire",
+    "how": "possible"
+   },
+   {
+    "name": "Knock sensor input pulling timing",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer software needing an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other idle, misfire or knock codes and fix those first",
+   "Look for a manufacturer service bulletin or software update"
+  ],
+  "fix": "Fix any idle air or misfire problem first; some models need a computer update.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P050C",
+  "title": "Cold Start Engine Coolant Temperature Performance",
+  "plain": "During the cold start check, the engine coolant temperature did not behave the way the computer expected.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge may read low or warm up slowly",
+   "Heater may be slow to get warm"
+  ],
+  "causes": [
+   {
+    "name": "Thermostat stuck open",
+    "how": "common"
+   },
+   {
+    "name": "Faulty coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Low coolant level",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring problem at the coolant temperature sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level",
+   "Watch coolant temperature on a scan tool as the engine warms up",
+   "Check whether the thermostat opens too early"
+  ],
+  "fix": "Usually a new thermostat or coolant temperature sensor.",
+  "guide": "heater-blowing-cold-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P050D",
+  "title": "Cold Start Rough Idle",
+  "plain": "The computer noticed the engine idling roughly during the first minutes after a cold start.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Shaking or rough idle when the engine is cold",
+   "Check engine light on",
+   "May smooth out once warm"
+  ],
+  "causes": [
+   {
+    "name": "Worn spark plugs or weak ignition coil",
+    "how": "common"
+   },
+   {
+    "name": "Vacuum leak",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or leaking fuel injectors",
+    "how": "possible"
+   },
+   {
+    "name": "Carbon buildup on intake valves (direct injection engines)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for misfire codes and misfire counts on a scan tool",
+   "Inspect spark plugs and coils",
+   "Check for vacuum leaks"
+  ],
+  "fix": "Usually ignition parts or a vacuum leak repair; carbon cleaning on some direct injection engines.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P050E",
+  "title": "Cold Start Engine Exhaust Temperature Too Low",
+  "plain": "After a cold start the exhaust did not heat up as fast as the computer expected, so the catalytic converter may be slow to start working.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Cold start idle or timing strategy not working (dirty throttle body or vacuum leak)",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer software needing an update",
+    "how": "common"
+   },
+   {
+    "name": "Thermostat stuck open",
+    "how": "possible"
+   },
+   {
+    "name": "Exhaust leak near the front of the exhaust",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other cold start, idle or thermostat codes",
+   "Look for a manufacturer service bulletin or software update"
+  ],
+  "fix": "Repair any idle or thermostat problem; some vehicles need a computer software update.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P050F",
+  "title": "Brake Assist Vacuum Too Low",
+  "plain": "The computer sees too little vacuum in the brake booster, so the brakes may take more effort to stop the car.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Hard brake pedal that needs more push",
+   "Hissing sound near the brake pedal or booster",
+   "Check engine or brake warning light on"
+  ],
+  "causes": [
+   {
+    "name": "Cracked or disconnected brake booster vacuum hose",
+    "how": "common"
+   },
+   {
+    "name": "Faulty booster check valve",
+    "how": "common"
+   },
+   {
+    "name": "Leaking brake booster",
+    "how": "possible"
+   },
+   {
+    "name": "Weak engine vacuum pump (on engines that use one)",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty booster vacuum sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the booster vacuum hose and check valve",
+   "Check booster vacuum with a gauge",
+   "Listen for hissing at the booster with the engine running"
+  ],
+  "fix": "Usually a vacuum hose or check valve; a new brake booster or vacuum pump if those test bad.",
+  "guide": "hard-brake-pedal",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0510",
+  "title": "Closed Throttle Position Switch",
+  "plain": "The switch that tells the computer the throttle is fully closed (foot off the gas) isn't reading correctly. Mostly found on older vehicles.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Unstable or high idle",
+   "Possible stalling when coming to a stop"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or misadjusted closed throttle switch or throttle position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "common"
+   },
+   {
+    "name": "Sticking throttle linkage or dirty throttle body",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the throttle closes fully and smoothly",
+   "Watch the closed throttle signal on a scan tool while opening and closing the throttle"
+  ],
+  "fix": "Usually a throttle position sensor or switch, or a throttle body cleaning.",
+  "guide": "engine-revs-high-at-idle",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0511",
+  "title": "Idle Air Control Circuit",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the idle air control valve. This part controls how much air bypasses the throttle to set idle speed.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Idle too high, too low or unstable",
+   "Possible stalling at stops"
+  ],
+  "causes": [
+   {
+    "name": "Faulty idle air control valve",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the idle air control valve wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the idle air control valve with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new idle air control valve if it tests bad.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0512",
+  "title": "Starter Request Circuit",
+  "plain": "The signal that asks the computer to crank the engine, from the key or start button, is not behaving as expected.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine may not crank, or cranks only sometimes",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty ignition switch or start button",
+    "how": "common"
+   },
+   {
+    "name": "Faulty clutch or neutral safety switch",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem in the start circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty starter relay",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Try starting in Neutral or with the clutch fully pressed",
+   "Check the start signal on a scan tool while turning the key or pressing the button"
+  ],
+  "fix": "Usually an ignition switch, start button, safety switch or wiring repair.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0513",
+  "title": "Incorrect Immobilizer Key",
+  "plain": "The anti-theft system doesn't recognize the key, so the computer may block the engine from starting.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Engine will not start, or starts and dies right away",
+   "Security light on or flashing"
+  ],
+  "causes": [
+   {
+    "name": "Key not programmed to the vehicle",
+    "how": "common"
+   },
+   {
+    "name": "Damaged chip in the key",
+    "how": "common"
+   },
+   {
+    "name": "Faulty antenna ring around the ignition",
+    "how": "possible"
+   },
+   {
+    "name": "Weak key fob battery (push-button start)",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty immobilizer module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Try the spare key",
+   "Replace the key fob battery on push-button start cars",
+   "Have a shop or dealer check key programming"
+  ],
+  "fix": "Usually programming or replacing the key; sometimes an antenna or immobilizer module.",
+  "guide": "security-light-flashing-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0514",
+  "title": "Battery Temperature Sensor Circuit Range/Performance",
+  "plain": "The battery temperature sensor is sending a reading that doesn't make sense or doesn't match other sensors. This part helps the computer adjust charging voltage to the battery temperature.",
+  "sys": "Electrical",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Battery may be undercharged or overcharged"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or sluggish battery temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Sensor not seated against the battery after a battery replacement",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem skewing the reading",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the battery temperature sensor reading on a scan tool with real conditions",
+   "Make sure the sensor is clipped in place at the battery",
+   "Inspect the wiring and connector for damage or corrosion"
+  ],
+  "fix": "Usually a new battery temperature sensor or repair of the underlying problem, after ruling out wiring.",
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0515",
+  "title": "Battery Temperature Sensor Circuit",
+  "plain": "The computer has spotted a problem in the wiring circuit for the battery temperature sensor. This part helps the computer adjust charging voltage to the battery temperature.",
+  "sys": "Electrical",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Battery may be undercharged or overcharged"
+  ],
+  "causes": [
+   {
+    "name": "Faulty battery temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or a loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground to the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the battery temperature sensor wiring and connector for damage, corrosion or a loose fit",
+   "Check related fuses and confirm power and ground at the sensor"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new battery temperature sensor if it tests bad.",
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0516",
+  "title": "Battery Temperature Sensor Circuit Low",
+  "plain": "The signal from the battery temperature sensor is lower than it should ever be, which usually points to a wiring short or a failed sensor. This part helps the computer adjust charging voltage to the battery temperature.",
+  "sys": "Electrical",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Battery may be undercharged or overcharged"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty battery temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Problem with the sensor's reference voltage supply",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and connector for rubbing, damage or corrosion",
+   "Check reference voltage and ground at the connector with a meter"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new battery temperature sensor if it tests bad.",
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0517",
+  "title": "Battery Temperature Sensor Circuit High",
+  "plain": "The signal from the battery temperature sensor is higher than it should ever be, which usually points to a broken wire, bad ground or a failed sensor. This part helps the computer adjust charging voltage to the battery temperature.",
+  "sys": "Electrical",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Battery may be undercharged or overcharged"
+  ],
+  "causes": [
+   {
+    "name": "Broken wire or poor ground in the sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Faulty battery temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Signal wire shorted to a voltage source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and connector for broken wires or corrosion",
+   "Check reference voltage and ground at the connector with a meter"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new battery temperature sensor if it tests bad.",
+  "guide": "battery-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0518",
+  "title": "Idle Air Control Circuit Intermittent",
+  "plain": "The circuit that controls the idle air control valve is cutting in and out.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Idle speed that surges or drops at random",
+   "Occasional stalling",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector at the idle air control valve",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring",
+    "how": "common"
+   },
+   {
+    "name": "Failing idle air control valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness while watching idle speed",
+   "Inspect the connector pins for corrosion"
+  ],
+  "fix": "Usually a connector or wiring repair, or a new idle air control valve.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0519",
+  "title": "Idle Air Control System Performance",
+  "plain": "The idle speed isn't responding properly when the computer adjusts the idle air control system.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Unstable, high or low idle",
+   "Stalling when coming to a stop",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Dirty throttle body or idle air passages",
+    "how": "common"
+   },
+   {
+    "name": "Vacuum leak",
+    "how": "common"
+   },
+   {
+    "name": "Faulty idle air control valve or electronic throttle body",
+    "how": "possible"
+   },
+   {
+    "name": "Idle relearn needed",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Clean the throttle body and idle passages",
+   "Check for vacuum leaks",
+   "Perform an idle relearn"
+  ],
+  "fix": "Usually a throttle body cleaning or vacuum leak repair, then an idle relearn.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P051A",
+  "title": "Crankcase Pressure Sensor Circuit",
+  "plain": "The computer has spotted a problem in the wiring circuit for the crankcase pressure sensor. This part monitors pressure inside the engine crankcase to check the PCV system.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Faulty crankcase pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or a loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground to the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the crankcase pressure sensor wiring and connector for damage, corrosion or a loose fit",
+   "Check related fuses and confirm power and ground at the sensor"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new crankcase pressure sensor if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P051B",
+  "title": "Crankcase Pressure Sensor Circuit Range/Performance",
+  "plain": "The crankcase pressure sensor is sending a reading that doesn't make sense or doesn't match other sensors. This part monitors pressure inside the engine crankcase to check the PCV system.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or sluggish crankcase pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged, cracked or disconnected PCV hose or valve",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem skewing the reading",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the crankcase pressure sensor reading on a scan tool with real conditions",
+   "Inspect the PCV valve, oil separator and hoses",
+   "Inspect the wiring and connector for damage or corrosion"
+  ],
+  "fix": "Usually a new crankcase pressure sensor or repair of the underlying problem, after ruling out wiring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P051C",
+  "title": "Crankcase Pressure Sensor Circuit Low",
+  "plain": "The signal from the crankcase pressure sensor is lower than it should ever be, which usually points to a wiring short or a failed sensor. This part monitors pressure inside the engine crankcase to check the PCV system.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty crankcase pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Problem with the sensor's reference voltage supply",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and connector for rubbing, damage or corrosion",
+   "Check reference voltage and ground at the connector with a meter"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new crankcase pressure sensor if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P051D",
+  "title": "Crankcase Pressure Sensor Circuit High",
+  "plain": "The signal from the crankcase pressure sensor is higher than it should ever be, which usually points to a broken wire, bad ground or a failed sensor. This part monitors pressure inside the engine crankcase to check the PCV system.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Broken wire or poor ground in the sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Faulty crankcase pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Signal wire shorted to a voltage source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and connector for broken wires or corrosion",
+   "Check reference voltage and ground at the connector with a meter"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new crankcase pressure sensor if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P051E",
+  "title": "Crankcase Pressure Sensor Circuit Intermittent/Erratic",
+  "plain": "The signal from the crankcase pressure sensor keeps cutting in and out or jumping around. This part monitors pressure inside the engine crankcase to check the PCV system.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that shorts or opens over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Failing crankcase pressure sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data on a scan tool",
+   "Look for chafed wires near hot or moving parts"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new crankcase pressure sensor if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P051F",
+  "title": "Positive Crankcase Ventilation Filter Restriction",
+  "plain": "The filter or separator that lets oil vapor vent from inside the engine is clogged, so pressure can build up in the crankcase.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Oil leaks from seals or gaskets",
+   "Higher oil consumption"
+  ],
+  "causes": [
+   {
+    "name": "Clogged PCV filter or oil separator",
+    "how": "common"
+   },
+   {
+    "name": "Sludge from overdue oil changes",
+    "how": "common"
+   },
+   {
+    "name": "Excess blow-by from worn piston rings",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect and replace the PCV filter or oil separator",
+   "Check the oil condition and change interval"
+  ],
+  "fix": "Usually a new PCV filter or oil separator.",
+  "guide": "oil-leak",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ }
+]
