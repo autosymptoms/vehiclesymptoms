@@ -25,7 +25,7 @@
     <nav class="links" id="links">
       <a href="/">Home</a>
       <a href="/symptoms/">Symptom guides</a>
-      <a href="/#vehicle">Your vehicle &amp; VIN</a>
+      <a href="/#vehicle" id="navMy">Your vehicle &amp; VIN</a>
       <a href="/#about">About</a>
     </nav>
     <a class="btn hcta" href="/#top">Find <span class="hm">my </span>problem</a>
@@ -37,7 +37,9 @@
 <main id="top">
 <div id="homeView"{{HOMEHIDE}}>
   <div class="hero">
-    <div class="wrap" style="position:relative">
+    <div class="wrap hero-grid" style="position:relative">
+    <div class="hero-main">
+      <a class="mybar" id="myBar" href="#vehicle"><span class="mb-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17l1.5-5h9L18 17M7.5 12 9 8h6l1.5 4"/><circle cx="8" cy="17.5" r="1.5"/><circle cx="16" cy="17.5" r="1.5"/></svg></span><span id="myBarTxt"><b>Start with your vehicle</b> Year, make and model</span><span class="mb-go">›</span></a>
       <p class="eyebrow">Free help from people who fix cars</p>
       <h1>Know what's wrong with your car <em>before you pay for it.</em></h1>
       <p class="sub">Tell us what your car is doing in your own words. In about a minute you'll know how urgent it is, what it's most likely to be, what it usually costs, and exactly what to tell your mechanic.</p>
@@ -63,6 +65,26 @@
           <li><b>No</b> sign-up, ever</li>
         </ul>
       </div>
+    </div>
+    <aside class="mycar" id="vehicle">
+      <div id="mycarSaved" hidden></div>
+      <div id="mycarPick">
+        <p class="eyebrow">Start with your vehicle</p>
+        <h2>What do you drive?</h2>
+        <p class="d">See its known problems, repair costs, upkeep and recalls.</p>
+        <form class="ymm-stack" id="pickForm">
+          <select id="pickYear" aria-label="Year"></select>
+          <select id="pickMake" aria-label="Make" disabled></select>
+          <select id="pickModel" aria-label="Model" disabled></select>
+          <button class="btn" id="pickGo" type="submit" disabled>Show my vehicle</button>
+        </form>
+        <details class="vin-d"><summary>Or use your VIN</summary>
+          <form id="vinForm"><input id="vinInput" maxlength="17" placeholder="17-character VIN" aria-label="VIN"><button class="btn" type="submit">Decode</button></form>
+          <p class="note">On the driver's door sticker or the dash at the base of the windshield. Decoded with the free NHTSA database; we don't store it.</p>
+        </details>
+        <div class="vin-out" id="vinOut"></div>
+      </div>
+    </aside>
     </div>
   </div>
 
@@ -105,25 +127,9 @@
     </div>
   </section>
 
-  <section id="vehicle">
+  <section class="browse-sec">
     <div class="wrap">
-      <div class="card vcard">
-        <h3>Start with your vehicle</h3>
-        <p class="d">See the known problems, safety recalls and average repair costs for your exact year, make and model.</p>
-        <form class="picker ymm" id="pickForm">
-          <select id="pickYear" aria-label="Year"></select>
-          <select id="pickMake" aria-label="Make" disabled></select>
-          <select id="pickModel" aria-label="Model" disabled></select>
-          <button class="btn" id="pickGo" type="submit" disabled>Show problems</button>
-        </form>
-        <div class="or"><span>or use your VIN</span></div>
-        <div class="vin">
-          <form id="vinForm"><input id="vinInput" maxlength="17" placeholder="Enter your 17-character VIN" aria-label="VIN"><button class="btn" type="submit">Decode VIN</button></form>
-          <div class="vin-out" id="vinOut"></div>
-          <p class="note">Find it on the driver's door sticker, the dash at the base of the windshield, or your registration. Decoded with the free U.S. government (NHTSA) database; we don't store it.</p>
-        </div>
-        <details class="allm"><summary>Browse all 100 models</summary><div id="mgrid"></div></details>
-      </div>
+      <details class="allm"><summary>Browse all 100 models</summary><div id="mgrid"></div></details>
     </div>
   </section>
 

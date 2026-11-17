@@ -20,10 +20,26 @@ function clampYear(v,y){return y&&y>=v.years[0]&&y<=v.years[1]?y:null}
 function url(v,y){return '/vehicles/'+v.id+'/'+(y?y+'/':'')}
 function go(v,y,q){y=clampYear(v,y);location.href=url(v,y)+(q?'?q='+encodeURIComponent(q):'')}
 const state={q:'',tab:'All'};
+// "My car": remember the driver's vehicle in this browser (light convenience only)
+const MY_KEY='vs_mycar';
+function getMy(){try{const m=JSON.parse(localStorage.getItem(MY_KEY)||'null');return m&&V.find(v=>v.id===m.id)?m:null}catch(_){return null}}
+function setMy(id,y){try{localStorage.setItem(MY_KEY,JSON.stringify({id,y:y||null}))}catch(_){}}
+function clearMy(){try{localStorage.removeItem(MY_KEY)}catch(_){}}
+function showMy(){
+  const m=getMy(),box=document.getElementById('mycarSaved'),pick=document.getElementById('mycarPick');
+  const nav=document.getElementById('navMy');
+  const mb=document.getElementById('myBar'),mbt=document.getElementById('myBarTxt');
+  if(mb&&!m){mb.href='#vehicle';mbt.innerHTML='<b>Start with your vehicle</b> Year, make and model'}
+  if(m){const v=V.find(x=>x.id===m.id),name=(m.y?m.y+' ':'')+v.make+' '+v.model;if(nav){nav.textContent='My '+name;nav.href=url(v,m.y)}
+    if(mb){mb.href=url(v,m.y);mbt.innerHTML='<b>Your '+esc(name)+'</b> Problems, costs and recalls'}
+    if(box&&pick){box.hidden=false;pick.hidden=true;box.innerHTML=`<div class="mysaved"><p class="eyebrow">Your vehicle</p><a class="big" href="${url(v,m.y)}"><b>${esc(name)}</b><span>Problems, repair costs, upkeep and recalls →</span></a><div class="row2"><a href="/symptoms/">Something wrong? Start here</a><button type="button" id="myChange">Change vehicle</button></div></div>`;
+      document.getElementById('myChange').onclick=()=>{clearMy();box.hidden=true;pick.hidden=false;if(nav){nav.textContent='Your vehicle & VIN';nav.href='/#vehicle'}showMy()}}}
+}
+
 
 // picker
 const homePick=window.YMM(document.getElementById('pickYear'),document.getElementById('pickMake'),document.getElementById('pickModel'),null,()=>{const s=homePick.get();document.getElementById('pickGo').disabled=!s.v});
-document.getElementById('pickForm').addEventListener('submit',e=>{e.preventDefault();const s=homePick.get();if(s.v)go(s.v,s.y)});
+document.getElementById('pickForm').addEventListener('submit',e=>{e.preventDefault();const s=homePick.get();if(s.v){setMy(s.v.id||s.v,s.y);go(s.v,s.y)}});
 const makes=[...new Set(V.map(v=>v.make))];
 document.getElementById('mgrid').outerHTML=`<div id="mgrid">${makes.map(m=>`<details class="mk"><summary>${esc(m)} <span>${V.filter(v=>v.make===m).length} models</span></summary><div class="mgrid">${V.filter(v=>v.make===m).map(v=>`<a href="${url(v)}">${esc(v.model)}<span>${v.years[0]}–${v.years[1]}</span></a>`).join('')}</div></details>`).join('')}</div>`;
 
@@ -70,7 +86,7 @@ function renderVehicle(v,year){
   const general=state.q?searchGuides(state.q,3):[];
   const SR={high:0,med:1,low:2};const sorted=shown.slice().sort((a,b)=>SR[a.sev]-SR[b.sev]);
   el.innerHTML=`<div class="crumb"><a href="/">Home</a> › ${esc(v.make)} › ${esc(v.model)}${year?' › '+year:''}</div>
-  <div class="vhead"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div><h1>${year?'Your '+esc(name):esc(name)}<span class="h1s">problems, repair costs and recalls</span></h1>
+  <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div>${year?`<button type="button" class="savecar" id="saveCar" data-id="${v.id}" data-y="${year}">Save as my vehicle</button>`:''}</div><h1>${year?'Your '+esc(name):esc(name)}<span class="h1s">problems, repair costs and recalls</span></h1>
   <p class="sub">${year?`Everything we know about the ${esc(name)}: what tends to go wrong, what it costs to fix and keep running, and any safety recalls.`:`Problems reported across ${v.years[0]}–${v.years[1]}. Pick your model year below to see what applies to your vehicle.`}${v.alt?' '+esc(v.alt.replace(/\.$/,''))+'.':''}</p></div>
   <div class="yearbar"><label for="vy" style="color:var(--muted);font-size:14px">Model year</label><select id="vy">${yopts}</select></div>
   ${snapshot(v,year,list,name)}
@@ -82,6 +98,7 @@ function renderVehicle(v,year){
   ${priceGuide(list,name)}
   <div class="livebox" id="nhtsa"><b>Safety recalls${year?' for the '+esc(name):''}</b><br>${year?'Checking the NHTSA recall database…':'Pick a model year to see its safety recalls.'}</div>
   <div class="trust">This page is a general guide based on widely reported problems. Not every vehicle is affected, and it doesn't replace an in-person diagnosis.</div>`;
+  const sc=el.querySelector('#saveCar');if(sc){const m=getMy(),on=()=>{sc.textContent='✓ Saved as my vehicle';sc.classList.add('on')};if(m&&m.id===v.id&&m.y===year)on();sc.onclick=()=>{setMy(v.id,year);on();showMy()}}
   el.querySelector('#vy').onchange=e=>{location.href=url(v,+e.target.value||null)};
   loadNhtsa(v,year);
   el.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{state.tab=b.dataset.tab;renderVehicle(v,year)});
@@ -145,3 +162,5 @@ if(hf){const hi=document.getElementById('helpInput'),out=document.getElementById
 // StoryBrand homepage: CTA buttons jump to the symptom box and focus it
 ['planCta','finalCta'].forEach(id=>{const a=document.getElementById(id);if(a)a.onclick=e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>{const i=document.getElementById('helpInput');if(i)i.focus({preventScroll:true})},400)}});
 document.querySelectorAll('.hcta').forEach(a=>a.onclick=e=>{const i=document.getElementById('helpInput');if(i&&document.getElementById('homeView').style.display!=='none'){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>i.focus({preventScroll:true}),400)}});
+
+showMy();
