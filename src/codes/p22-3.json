@@ -1,0 +1,965 @@
+[
+ {
+  "code": "P2280",
+  "title": "Air Flow Restriction / Air Leak Between Air Filter and MAF",
+  "plain": "Air is either being blocked or leaking in between the air filter and the airflow (MAF) sensor. The engine may run lean or rough.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation",
+   "Possible hissing sound"
+  ],
+  "causes": [
+   {
+    "name": "Clogged air filter",
+    "how": "common"
+   },
+   {
+    "name": "Loose or cracked air filter housing or duct",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty MAF sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Cracked PCV hose",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the air filter, housing and ducts",
+   "Smoke-test the intake for leaks"
+  ],
+  "fix": "Replace a clogged filter or repair the leak found.",
+  "cost": {
+   "job": "Find and repair intake air leak",
+   "parts": [
+    10,
+    250
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "guide": "rough-idle-shaking"
+ },
+ {
+  "code": "P2281",
+  "title": "Air Leak Between MAF and Throttle Body",
+  "plain": "Air is leaking into the intake between the airflow (MAF) sensor and the throttle body, so it isn't being measured. The engine may run lean or rough.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation",
+   "Possible hissing sound"
+  ],
+  "causes": [
+   {
+    "name": "Cracked or loose intake duct or clamp",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty MAF sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Cracked PCV hose",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the air filter, housing and ducts",
+   "Smoke-test the intake for leaks"
+  ],
+  "fix": "Replace a clogged filter or repair the leak found.",
+  "cost": {
+   "job": "Find and repair intake air leak",
+   "parts": [
+    10,
+    250
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "guide": "rough-idle-shaking"
+ },
+ {
+  "code": "P2282",
+  "title": "Air Leak Between Throttle Body and Intake Valves",
+  "plain": "Air is leaking into the engine after the throttle body, such as from a vacuum hose or intake gasket. The engine may run lean or rough.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation",
+   "Possible hissing sound"
+  ],
+  "causes": [
+   {
+    "name": "Leaking intake manifold gasket",
+    "how": "common"
+   },
+   {
+    "name": "Cracked vacuum hose",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty MAF sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Cracked PCV hose",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the air filter, housing and ducts",
+   "Smoke-test the intake for leaks"
+  ],
+  "fix": "Replace a clogged filter or repair the leak found.",
+  "cost": {
+   "job": "Find and repair intake air leak",
+   "parts": [
+    10,
+    250
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "guide": "rough-idle-shaking"
+ },
+ {
+  "code": "P2283",
+  "title": "Injector Control Pressure Sensor Circuit",
+  "plain": "The engine computer has found a problem in the circuit for the injection control pressure (ICP) sensor, which reads the high oil pressure used to fire the fuel injectors on some diesels. It usually points to wiring, a connector or the sensor itself.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or no start",
+   "Rough running or low power"
+  ],
+  "causes": [
+   {
+    "name": "Faulty injection control pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged, corroded or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the ICP sensor connector and wiring for damage or corrosion",
+   "Check the sensor power, ground and signal with a meter"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the injection control pressure sensor.",
+  "cost": {
+   "job": "Replace injection control pressure sensor",
+   "parts": [
+    50,
+    200
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "examples": [
+   "Used on oil-fired injection diesels such as the Ford Power Stroke 7.3L and 6.0L"
+  ]
+ },
+ {
+  "code": "P2284",
+  "title": "Injector Control Pressure Sensor Circuit Range/Performance",
+  "plain": "The injection control pressure (ICP) sensor is giving readings that don't make sense compared with what the computer expects. This sensor reads the high oil pressure used to fire the fuel injectors on some diesels. The sensor may be failing or the system it watches may have a real problem.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or no start",
+   "Rough running or low power"
+  ],
+  "causes": [
+   {
+    "name": "Failing or out-of-calibration injection control pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real fault in the system the sensor monitors",
+    "how": "common"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the ICP sensor reading with related sensors in live data",
+   "Check wiring and connector for corrosion or looseness"
+  ],
+  "fix": "Confirm the system itself is working, then replace the injection control pressure sensor if its readings are off.",
+  "cost": {
+   "job": "Replace injection control pressure sensor",
+   "parts": [
+    50,
+    200
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "examples": [
+   "Used on oil-fired injection diesels such as the Ford Power Stroke 7.3L and 6.0L"
+  ]
+ },
+ {
+  "code": "P2285",
+  "title": "Injector Control Pressure Sensor Circuit Low",
+  "plain": "The signal from the injection control pressure (ICP) sensor is lower than the computer expects. This sensor reads the high oil pressure used to fire the fuel injectors on some diesels. A wire shorted to ground or a failed sensor is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or no start",
+   "Rough running or low power"
+  ],
+  "causes": [
+   {
+    "name": "Signal or reference wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed injection control pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the ICP sensor wiring for rubbed-through or pinched spots",
+   "Unplug the sensor and see if the reading changes, which helps separate wiring from sensor"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the injection control pressure sensor.",
+  "cost": {
+   "job": "Replace injection control pressure sensor",
+   "parts": [
+    50,
+    200
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "examples": [
+   "Used on oil-fired injection diesels such as the Ford Power Stroke 7.3L and 6.0L"
+  ]
+ },
+ {
+  "code": "P2286",
+  "title": "Injector Control Pressure Sensor Circuit High",
+  "plain": "The signal from the injection control pressure (ICP) sensor is higher than the computer expects. This sensor reads the high oil pressure used to fire the fuel injectors on some diesels. An open (broken) wire, a bad ground or a failed sensor is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or no start",
+   "Rough running or low power"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken signal or ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed injection control pressure sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Wire shorted to a power source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure the ICP sensor connector is fully plugged in and clean",
+   "Check the sensor ground and signal wire for an open circuit"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the injection control pressure sensor.",
+  "cost": {
+   "job": "Replace injection control pressure sensor",
+   "parts": [
+    50,
+    200
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "examples": [
+   "Used on oil-fired injection diesels such as the Ford Power Stroke 7.3L and 6.0L"
+  ]
+ },
+ {
+  "code": "P2287",
+  "title": "Injector Control Pressure Sensor Circuit Intermittent",
+  "plain": "The signal from the injection control pressure (ICP) sensor keeps dropping out or jumping around. This sensor reads the high oil pressure used to fire the fuel injectors on some diesels. A loose connection or a damaged wire is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or no start",
+   "Rough running or low power"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wire that opens or shorts as the engine moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing injection control pressure sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data for dropouts",
+   "Inspect the ICP sensor wiring along its whole route"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the injection control pressure sensor.",
+  "cost": {
+   "job": "Replace injection control pressure sensor",
+   "parts": [
+    50,
+    200
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "examples": [
+   "Used on oil-fired injection diesels such as the Ford Power Stroke 7.3L and 6.0L"
+  ]
+ },
+ {
+  "code": "P2288",
+  "title": "Injector Control Pressure Too High",
+  "plain": "The oil pressure used to fire the diesel fuel injectors is higher than it should be.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running or knocking",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Faulty injection pressure regulator valve",
+    "how": "common"
+   },
+   {
+    "name": "Faulty ICP sensor reading high",
+    "how": "common"
+   },
+   {
+    "name": "Low or wrong-grade engine oil",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check engine oil level and condition",
+   "Compare commanded and actual injection pressure in live data"
+  ],
+  "fix": "Repair the oil leak, regulator or sensor problem that testing points to.",
+  "cost": {
+   "job": "Replace injection pressure regulator or ICP sensor",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "examples": [
+   "Seen on oil-fired injection diesels such as the Ford Power Stroke 7.3L and 6.0L"
+  ]
+ },
+ {
+  "code": "P2289",
+  "title": "Injector Control Pressure Too High - Engine Off",
+  "plain": "The computer sees injection oil pressure while the engine is off, which shouldn't happen. Usually the pressure sensor is giving a false reading.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Often no running symptoms",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Faulty ICP sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the ICP sensor",
+    "how": "common"
+   },
+   {
+    "name": "Low or wrong-grade engine oil",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check engine oil level and condition",
+   "Compare commanded and actual injection pressure in live data"
+  ],
+  "fix": "Repair the oil leak, regulator or sensor problem that testing points to.",
+  "cost": {
+   "job": "Replace injection pressure regulator or ICP sensor",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "examples": [
+   "Seen on oil-fired injection diesels such as the Ford Power Stroke 7.3L and 6.0L"
+  ]
+ },
+ {
+  "code": "P2290",
+  "title": "Injector Control Pressure Too Low",
+  "plain": "The oil pressure used to fire the diesel fuel injectors is lower than it should be.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Low power, hard starting or stalling",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Leaking high-pressure oil system (seals or fittings)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty injection pressure regulator valve",
+    "how": "common"
+   },
+   {
+    "name": "Low or wrong-grade engine oil",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check engine oil level and condition",
+   "Compare commanded and actual injection pressure in live data"
+  ],
+  "fix": "Repair the oil leak, regulator or sensor problem that testing points to.",
+  "cost": {
+   "job": "Replace injection pressure regulator or ICP sensor",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "examples": [
+   "Seen on oil-fired injection diesels such as the Ford Power Stroke 7.3L and 6.0L"
+  ]
+ },
+ {
+  "code": "P2291",
+  "title": "Injector Control Pressure Too Low - Engine Cranking",
+  "plain": "There isn't enough injection oil pressure while cranking for the injectors to fire, so the engine may not start.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Long crank or no start",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Leaking high-pressure oil system (seals or fittings)",
+    "how": "common"
+   },
+   {
+    "name": "Weak high-pressure oil pump or low engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Low or wrong-grade engine oil",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check engine oil level and condition",
+   "Compare commanded and actual injection pressure in live data"
+  ],
+  "fix": "Repair the oil leak, regulator or sensor problem that testing points to.",
+  "cost": {
+   "job": "Replace injection pressure regulator or ICP sensor",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "examples": [
+   "Seen on oil-fired injection diesels such as the Ford Power Stroke 7.3L and 6.0L"
+  ],
+  "guide": "car-wont-start"
+ },
+ {
+  "code": "P2292",
+  "title": "Injector Control Pressure Erratic",
+  "plain": "The injection oil pressure is jumping around instead of holding steady.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running or surging",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Faulty injection pressure regulator valve",
+    "how": "common"
+   },
+   {
+    "name": "Faulty ICP sensor or wiring",
+    "how": "common"
+   },
+   {
+    "name": "Low or wrong-grade engine oil",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check engine oil level and condition",
+   "Compare commanded and actual injection pressure in live data"
+  ],
+  "fix": "Repair the oil leak, regulator or sensor problem that testing points to.",
+  "cost": {
+   "job": "Replace injection pressure regulator or ICP sensor",
+   "parts": [
+    50,
+    400
+   ],
+   "hours": [
+    0.5,
+    3.0
+   ]
+  },
+  "examples": [
+   "Seen on oil-fired injection diesels such as the Ford Power Stroke 7.3L and 6.0L"
+  ]
+ },
+ {
+  "code": "P2293",
+  "title": "Fuel Pressure Regulator 2 Performance",
+  "plain": "The second fuel pressure regulator isn't holding fuel pressure where the computer wants it. Fuel delivery may be too high or too low.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting",
+   "Hesitation, stalling or low power"
+  ],
+  "causes": [
+   {
+    "name": "Faulty fuel pressure regulator 2",
+    "how": "common"
+   },
+   {
+    "name": "Weak fuel pump or clogged fuel filter",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fuel pressure sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare actual and desired fuel pressure in live data",
+   "Check the low-pressure fuel supply"
+  ],
+  "fix": "Repair the fuel supply or replace the regulator as testing shows.",
+  "cost": {
+   "job": "Replace fuel pressure regulator",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  }
+ },
+ {
+  "code": "P2294",
+  "title": "Fuel Pressure Regulator 2 Control Circuit",
+  "plain": "The engine computer can't properly control the fuel pressure regulator 2, which controls fuel pressure in a second fuel circuit, such as the high-pressure side on direct-injection engines. It sees an open or broken circuit, often from wiring, a connector or the part itself.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting",
+   "Hesitation, stalling or low power"
+  ],
+  "causes": [
+   {
+    "name": "Failed fuel pressure regulator 2",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the fuel pressure regulator connector and wiring",
+   "Check for power at the connector and measure the part's resistance"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the fuel pressure regulator 2.",
+  "cost": {
+   "job": "Replace fuel pressure regulator",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  }
+ },
+ {
+  "code": "P2295",
+  "title": "Fuel Pressure Regulator 2 Control Circuit Low",
+  "plain": "The control circuit for the fuel pressure regulator 2 is reading low voltage. This part controls fuel pressure in a second fuel circuit, such as the high-pressure side on direct-injection engines. A wire shorted to ground or a shorted part is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting",
+   "Hesitation, stalling or low power"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Internally shorted fuel pressure regulator 2",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the fuel pressure regulator wiring for rubbed-through insulation",
+   "Measure the fuel pressure regulator resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the fuel pressure regulator 2.",
+  "cost": {
+   "job": "Replace fuel pressure regulator",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  }
+ },
+ {
+  "code": "P2296",
+  "title": "Fuel Pressure Regulator 2 Control Circuit High",
+  "plain": "The control circuit for the fuel pressure regulator 2 is reading high voltage. This part controls fuel pressure in a second fuel circuit, such as the high-pressure side on direct-injection engines. A wire shorted to power, an open circuit or a failed part is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting",
+   "Hesitation, stalling or low power"
+  ],
+  "causes": [
+   {
+    "name": "Failed fuel pressure regulator 2",
+    "how": "common"
+   },
+   {
+    "name": "Control wire shorted to a power source",
+    "how": "common"
+   },
+   {
+    "name": "Open circuit or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the fuel pressure regulator wiring for shorts to other wires",
+   "Measure the fuel pressure regulator resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the fuel pressure regulator 2.",
+  "cost": {
+   "job": "Replace fuel pressure regulator",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  }
+ },
+ {
+  "code": "P2297",
+  "title": "O2 Sensor Out of Range During Deceleration Bank 1 Sensor 1",
+  "plain": "When you lift off the gas, fuel is cut and the front oxygen sensor on bank 1 (the side of the engine with cylinder 1) should read very lean. It isn't, so the sensor may be slow or something is adding fuel.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Possible small drop in fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Slow or worn front oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Exhaust leak near the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "EVAP purge valve stuck open",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch the front O2 sensor during a coast-down in live data",
+   "Check for leaking injectors and exhaust leaks"
+  ],
+  "fix": "Repair any leak or fuel problem; otherwise replace the front oxygen sensor.",
+  "cost": {
+   "job": "Replace upstream oxygen sensor",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  }
+ },
+ {
+  "code": "P2298",
+  "title": "O2 Sensor Out of Range During Deceleration Bank 2 Sensor 1",
+  "plain": "When you lift off the gas, fuel is cut and the front oxygen sensor on bank 2 (the side of the engine opposite cylinder 1) should read very lean. It isn't, so the sensor may be slow or something is adding fuel.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Possible small drop in fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Slow or worn front oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Exhaust leak near the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "EVAP purge valve stuck open",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch the front O2 sensor during a coast-down in live data",
+   "Check for leaking injectors and exhaust leaks"
+  ],
+  "fix": "Repair any leak or fuel problem; otherwise replace the front oxygen sensor.",
+  "cost": {
+   "job": "Replace upstream oxygen sensor",
+   "parts": [
+    60,
+    300
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  }
+ },
+ {
+  "code": "P2299",
+  "title": "Brake Pedal Position / Accelerator Pedal Position Incompatible",
+  "plain": "The computer saw the brake and gas pedals pressed at the same time, or a sensor said they were. As a safety step it may cut engine power.",
+  "sys": "Speed and idle control",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power while braking",
+   "Brake lights may stay on or not work"
+  ],
+  "causes": [
+   {
+    "name": "Driver resting a foot on both pedals",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or misadjusted brake light switch",
+    "how": "common"
+   },
+   {
+    "name": "Floor mat pressing the gas pedal",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty accelerator pedal sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure floor mats aren't touching the pedals",
+   "Check that the brake lights work and turn off when released"
+  ],
+  "fix": "Adjust or replace the brake light switch if faulty and correct any pedal interference.",
+  "cost": {
+   "job": "Replace brake light switch",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "reduced-engine-power-warning"
+ }
+]
