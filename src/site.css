@@ -316,3 +316,11 @@ details.allm>summary{cursor:pointer;color:var(--blue2);font-weight:600;font-size
 .pg-more summary{cursor:pointer;color:var(--blue2);font-weight:700;padding:12px 0;font-size:14.5px}
 .pg-disc{margin:16px 0 0;padding:12px 14px;background:rgba(255,176,32,.07);border:1px solid rgba(255,176,32,.3);border-radius:10px;color:#D6E2EE;font-size:13px;line-height:1.5}
 @media (max-width:560px){.pguide{padding:16px}.pg-head{flex-direction:column}.pg-lab{font-size:14px}}
+/* home button: visible on phones, where the nav links are tucked into the menu */
+.home-btn{display:none;align-items:center;gap:5px;border:1px solid var(--line);border-radius:8px;padding:6px 9px;color:var(--text);font-size:13px;font-weight:600;margin-right:8px}
+.menu-btn{display:none;align-items:center;justify-content:center;padding:6px 8px}
+@media (max-width:720px){.home-btn{display:inline-flex}.menu-btn{display:inline-flex}}
+@media (max-width:420px){.home-btn span{display:none}.home-btn{padding:6px 8px;margin-right:6px}.hcta{margin-right:6px}}
+@media (max-width:400px){.nav{padding:0 12px}.logo{font-size:14px;gap:6px}.logo .mark{width:26px;height:26px}.hcta{font-size:12.5px;padding:7px 9px;margin-right:5px}.home-btn{margin-right:5px;padding:6px 7px}.menu-btn{padding:6px 7px}}
+@media (max-width:330px){.logo span{display:none}}
+@media (max-width:380px){.hcta .hm{display:none}}
