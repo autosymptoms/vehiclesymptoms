@@ -157,6 +157,55 @@ if(CODES.length){
 }
 console.log(`${CODES.length} trouble codes`);
 
+// ---------- warning lights (src/lights.js) ----------
+const LIGHTS=require('./src/lights.js');
+const LCOL={red:'#FF5A5F',amber:'#FFB020',green:'#34C77B',blue:'#5AB0FF'};
+const LSEV={stop:["Stop driving as soon as it's safe","high"],soon:["Get it checked soon","med"],check:["Check it when you can","info"],info:["Information only","low"]};
+const LCOLNAME={red:'Red: serious, act now',amber:'Amber/yellow: check soon',green:'Green: system on',blue:'Blue: information'};
+const lIcon=(l,size)=>`<svg class="licon" width="${size}" height="${size}" viewBox="0 0 48 48" fill="none" stroke="${LCOL[l.color]}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${l.icon}</svg>`;
+const codeSet=new Set(CODES.map(c=>c.code));
+for(const l of LIGHTS){const u=LSEV[l.sev];const gs=l.guides.filter(g=>JT[g]).map(g=>JT[g]);const cs=l.codes.filter(c=>codeSet.has(c));
+  const faq=[{q:`What does the ${l.name.toLowerCase()} mean?`,a:l.meaning},{q:`Can I drive with the ${l.name.toLowerCase()} on?`,a:l.drive}];
+  const ld='<script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}).replace(/</g,'\\u003c')+'</script>\n';
+  const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/warning-lights/">Warning lights</a> › ${escH(l.name)}</div>
+<div class="lhead"><div class="lbig" style="border-color:${LCOL[l.color]}55">${lIcon(l,72)}</div><div><div class="eyebrow">${escH(LCOLNAME[l.color])}</div><h1>${escH(l.name)}</h1>${l.aka.length?`<p class="muted" style="margin:4px 0 0">Also called: ${l.aka.map(escH).join(', ')}</p>`:''}</div></div>
+<div class="urg ${u[1]}"><b>How urgent?</b> ${escH(u[0])}</div>
+<section class="card csec"><h2>What it means</h2><p class="lead2">${escH(l.meaning)}</p></section>
+<section class="card csec drivebox" style="border-left-color:${LCOL[l.color]}"><h2>Can I keep driving?</h2><p>${escH(l.drive)}</p></section>
+<div class="cgrid"><section class="card csec"><h2>What to do now</h2><ol class="nums">${l.todo.map(x=>`<li>${escH(x)}</li>`).join('')}</ol></section>
+<section class="card csec"><h2>Common causes</h2><ul class="dots">${l.causes.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section></div>
+${gs.length?`<section class="csec"><h2 style="font-size:18px">Walk through it step by step</h2><div class="glist">${gs.map(g=>`<a class="gcard" href="/symptoms/${g.id}/"><b>${escH(g.title)}</b><span>${escH(g.h1)}</span></a>`).join('')}</div></section>`:''}
+${cs.length?`<section class="csec"><h2 style="font-size:18px">Trouble codes often stored with this light</h2><div class="codechips">${cs.map(c=>{const x=CODES.find(y=>y.code===c);return `<a href="/codes/${c.toLowerCase()}/"><b>${c}</b> ${escH(x.title)}</a>`}).join('')}</div></section>`:''}
+<section class="csec"><h2 style="font-size:18px">Common questions</h2>${faq.map(f=>`<details class="faq"><summary>${escH(f.q)}</summary><p>${escH(f.a)}</p></details>`).join('')}</section>
+<div class="trust">Symbols vary a little between makes. Your owner's manual shows the exact lights for your vehicle. This is a general guide, not a diagnosis.</div>`;
+  urls.push(page('/warning-lights/'+l.id+'/',`${l.name}: What It Means & Can You Drive? | VehicleSymptoms.com`,`${l.meaning} ${l.drive}`.slice(0,165),{inner,pageData:ld}));
+}
+const lcard=l=>`<a class="lcard c-${l.color}" href="/warning-lights/${l.id}/" data-c="${l.color}">${lIcon(l,44)}<b>${escH(l.name.replace(/ \(.*\)$/,''))}</b><span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span></a>`;
+urls.push(page('/warning-lights/','Dashboard Warning Lights: What Each Light Means | VehicleSymptoms.com','Every common dashboard warning light explained: what it means, whether you can keep driving, and what to do now. Red, amber, green and blue lights.',{inner:`<div class="crumb"><a href="/">Home</a> › Warning lights</div>
+<div class="ghead"><div class="eyebrow">Warning lights</div><h1>Which light is on?</h1><p class="sub">Tap the symbol that matches your dashboard. You'll see what it means, whether it's safe to keep driving and what to do now.</p></div>
+<div class="lkey"><span><i style="background:#FF5A5F"></i>Red: serious, act now</span><span><i style="background:#FFB020"></i>Amber: check soon</span><span><i style="background:#34C77B"></i>Green or blue: information</span></div>
+<div class="lfilter" id="lfilter"><button class="on" data-c="all">All</button><button data-c="red">Red</button><button data-c="amber">Amber</button><button data-c="info">Green / blue</button></div>
+<div class="lgrid" id="lgrid">${LIGHTS.map(lcard).join('')}</div>
+<p class="muted" style="margin-top:18px;font-size:14px">Several lights on at once, or the whole dash lit up? See <a href="/symptoms/dashboard-lights-all-on/" style="color:var(--blue2)">all dashboard lights on</a>. Got a code from a scanner? Use <a href="/codes/" style="color:var(--blue2)">Code lookup</a>.</p>`}));
+console.log(`${LIGHTS.length} warning lights`);
+
+// ---------- "Is my quote fair?" price check ----------
+{const gen=new Map();
+ for(const c of CODES)if(c.cost){const k=c.cost.job.replace(/\s*\(.*?\)\s*/g,' ').trim();if(gen.has(k))continue;
+   const lo=rnd(c.cost.parts[0]+c.cost.hours[0]*RATE[0],false),hi=Math.max(rnd(c.cost.parts[1]+c.cost.hours[1]*RATE[1],true),lo+10);gen.set(k,[k,lo,hi])}
+ fs.writeFileSync('dist/price-index.js','window.GEN_PRICES='+JSON.stringify([...gen.values()].sort((a,b)=>a[0].localeCompare(b[0]))).replace(/</g,'\\u003c')+';');
+ urls.push(page('/price-check/','Is My Car Repair Quote Fair? Free Price Check | VehicleSymptoms.com','Got a repair quote? Enter your vehicle, the repair and the price to see how it compares with typical costs, plus the questions to ask your shop.',{pageData:'<script src="/price-index.js"></script>\n',inner:`<div class="crumb"><a href="/">Home</a> › Price check</div>
+<div class="ghead"><div class="eyebrow">Price check</div><h1>Is my repair quote fair?</h1><p class="sub">Enter your vehicle, the repair and the price you were quoted. We'll show how it compares with what that job typically costs, and what to ask your shop.</p></div>
+<div class="card pc" id="pcApp">
+  <div class="pc-step"><span class="pn">1</span><div class="pc-body"><h2>Your vehicle</h2><div id="pcGarage" class="pc-garage"></div>
+    <div class="ymm-row"><select id="pcY" aria-label="Year"></select><select id="pcM" aria-label="Make" disabled></select><select id="pcMo" aria-label="Model" disabled></select></div></div></div>
+  <div class="pc-step"><span class="pn">2</span><div class="pc-body"><h2>The repair</h2><input id="pcJob" type="search" placeholder="Start typing, e.g. brakes, alternator, water pump" autocomplete="off" aria-label="Repair"><div id="pcSug" class="pc-sug"></div><div id="pcPicked" class="pc-picked" hidden></div></div></div>
+  <div class="pc-step"><span class="pn">3</span><div class="pc-body"><h2>Your quote</h2><div class="pc-q"><span>$</span><input id="pcAmt" type="number" inputmode="decimal" min="0" placeholder="Total quoted, parts and labor" aria-label="Quoted price"></div>
+    <button class="btn" id="pcGo" type="button" disabled>Check my quote</button></div></div>
+</div>
+<div id="pcOut"></div>
+<p class="pg-disc" style="margin-top:18px"><b>How this works:</b> typical ranges are averages built from common parts prices plus standard book labor time at $120–$160 an hour, what about half of U.S. repair shops charge. Dealers and high-cost areas often charge more. Diagnosis fees, taxes and shop supplies are usually extra. This is a guide to help you ask good questions, not a quote.</p>`}));}
+
 // hub
 urls.push(page('/symptoms/','All Car Symptom Guides | VehicleSymptoms.com','Step-by-step guides for car problems: won\'t start, warning lights, noises, shaking, leaks, smells, smoke, overheating and more.',{inner:`<div class="crumb"><a href="/">Home</a> › Symptom guides</div><div class="ghead"><h1>Symptom guides</h1><p class="sub">Pick what your car is doing. Each guide asks a few quick questions and tells you how urgent it is and what to do next.</p></div><div id="guideHub">${Object.entries(GL).map(([k,l])=>{const list=J.filter(j=>j.group===k);return list.length?`<section class="hubsec" id="${k}"><h2>${escH(l)}</h2><div class="glist">${list.map(j=>`<a class="gcard" href="/symptoms/${j.id}/"><b>${escH(j.title)}</b><span>${escH(j.h1)}</span></a>`).join('')}</div></section>`:''}).join('')}</div>`}));
 

@@ -38,7 +38,7 @@ const carUrl=m=>url(V.find(x=>x.id===m.id),m.y);
 function showMy(){
   const g=getG(),box=document.getElementById('mycarSaved'),pick=document.getElementById('mycarPick');
   const nav=document.getElementById('navMy'),mb=document.getElementById('myBar'),mbt=document.getElementById('myBarTxt');
-  if(nav){if(!g.length){nav.textContent='Your vehicle & VIN';nav.href='/#vehicle'}else if(g.length===1){nav.textContent='My '+carName(g[0]);nav.href=carUrl(g[0])}else{nav.textContent='My garage ('+g.length+')';nav.href='/#vehicle'}}
+  if(nav){if(!g.length){nav.textContent='My vehicle';nav.href='/#vehicle'}else if(g.length===1){nav.textContent='My '+carName(g[0]);nav.href=carUrl(g[0])}else{nav.textContent='My garage ('+g.length+')';nav.href='/#vehicle'}}
   if(mb){if(!g.length){mb.href='#vehicle';mbt.innerHTML='<b>Start with your vehicle</b> Year, make and model'}
     else if(g.length===1){mb.href=carUrl(g[0]);mbt.innerHTML='<b>Your '+esc(carName(g[0]))+'</b> Problems, costs and recalls'}
     else{mb.href='#vehicle';mbt.innerHTML='<b>Your garage</b> '+g.length+' vehicles saved'}}
@@ -76,7 +76,7 @@ function priceGuide(list,name){
   return `<section class="pguide" id="prices"><div class="pg-head"><div><div class="eyebrow">Price guide</div><h2>What repairs usually cost on your ${esc(name)}</h2></div><span class="pg-badge">Average estimates</span></div>
   ${pay.length?`<p class="pg-sub">Repairs owners of this vehicle may have to pay for, most serious first. Bars show the low-to-high range.</p>${first.map(row).join('')}${rest.length?`<details class="pg-more"><summary>Show ${rest.length} more repair${rest.length>1?'s':''}</summary>${rest.map(row).join('')}</details>`:''}`:`<p class="pg-sub">No common out-of-pocket repairs on file for this year. The repairs below are normally covered by recalls.</p>`}
   ${rec.length?`<div class="pg-rec"><h3>Recall repairs: usually free at the dealer</h3><p class="pg-sub">Check your VIN. If your vehicle is included, the dealer fixes it at no charge.</p><ul>${rec.map(i=>`<li><b>${esc(i.cost.job.replace(/\s*\(recall\)$/i,''))}</b><span>${i.cost.free?'No charge':'No charge under recall · '+rngTxt(i.cost)+' if you paid'}</span></li>`).join('')}</ul></div>`:''}
-  <p class="pg-disc"><b>Disclaimer:</b> ${PRICE_DISC}</p></section>`;
+  <a class="walk big" href="/price-check/" id="pgQuote">Got a quote from a shop? Check if it's fair →</a><p class="pg-disc"><b>Disclaimer:</b> ${PRICE_DISC}</p></section>`;
 }
 function snapshot(v,year,list,name){
   const own=v.own,serious=list.filter(i=>i.sev==='high').length;
@@ -115,6 +115,7 @@ function renderVehicle(v,year){
   ${priceGuide(list,name)}
   <div class="livebox" id="nhtsa"><b>Safety recalls${year?' for the '+esc(name):''}</b><br>${year?'Checking the NHTSA recall database…':'Pick a model year to see its safety recalls.'}</div>
   <div class="trust">This page is a general guide based on widely reported problems. Not every vehicle is affected, and it doesn't replace an in-person diagnosis.</div>`;
+  const pq=el.querySelector('#pgQuote');if(pq)pq.href='/price-check/?v='+v.id+(year?'&y='+year:'');
   const sc=el.querySelector('#saveCar');if(sc){const paint=()=>{const on=inG(v.id,year);sc.textContent=on?'✓ In my garage':'+ Save to my garage';sc.classList.toggle('on',on)};paint();sc.onclick=()=>{inG(v.id,year)?removeG(v.id,year):addG(v.id,year);paint();showMy()}}
   el.querySelector('#vy').onchange=e=>{location.href=url(v,+e.target.value||null)};
   loadNhtsa(v,year);
@@ -195,3 +196,42 @@ showMy();
 // personal touch on code pages
 (function(){const box=document.getElementById('codeMy');if(!box)return;const g=getG();if(!g.length)return;
   box.innerHTML=`<div class="codemy"><span>Your ${g.length>1?'vehicles':'vehicle'}:</span>${g.map(m=>`<a href="${carUrl(m)}">${esc(carName(m))} ›</a>`).join('')}</div>`})();
+// warning light hub filter
+(function(){const f=document.getElementById('lfilter');if(!f)return;f.querySelectorAll('button').forEach(b=>b.onclick=()=>{f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const c=b.dataset.c;
+  document.querySelectorAll('#lgrid .lcard').forEach(a=>{const k=a.dataset.c;a.hidden=!(c==='all'||k===c||(c==='info'&&(k==='green'||k==='blue')))})})})();
+// "Is my quote fair?" price check
+(function(){const app=document.getElementById('pcApp');if(!app)return;
+  const qs=new URLSearchParams(location.search);const g=getG();
+  const init=qs.get('v')?{id:qs.get('v'),year:+qs.get('y')||null}:(g[0]?{id:g[0].id,year:g[0].y}:null);
+  let job=null;const ji=document.getElementById('pcJob'),sug=document.getElementById('pcSug'),picked=document.getElementById('pcPicked'),amt=document.getElementById('pcAmt'),goB=document.getElementById('pcGo'),out=document.getElementById('pcOut');
+  const pick=window.YMM(document.getElementById('pcY'),document.getElementById('pcM'),document.getElementById('pcMo'),init,()=>{job=null;picked.hidden=true;ji.hidden=false;ready();list()});
+  const gb=document.getElementById('pcGarage');if(g.length)gb.innerHTML='<span>Your garage:</span>'+g.map((m,i)=>`<button type="button" data-i="${i}">${esc(carName(m))}</button>`).join('');
+  gb.querySelectorAll('button').forEach(b=>b.onclick=()=>{const m=g[+b.dataset.i];location.search='?v='+m.id+(m.y?'&y='+m.y:'')});
+  function jobs(){const s=pick.get(),out=[];const seen=new Set();
+    if(s.v){const vname=(s.y?s.y+' ':'')+s.v.make+' '+s.v.model;
+      for(const i of s.v.issues)if(i.cost&&!i.cost.free&&(!s.y||(s.y>=i.y[0]&&s.y<=i.y[1]))&&!seen.has(i.cost.job)){seen.add(i.cost.job);out.push({job:i.cost.job,lo:i.cost.lo,hi:i.cost.hi,src:'Known problem on the '+vname,recall:i.cost.recall})}
+      if(s.v.own)for(const m of s.v.own.maint)if(!seen.has(m.job)){seen.add(m.job);out.push({job:m.job,lo:m.lo,hi:m.hi,src:'Routine maintenance for the '+s.v.make+' '+s.v.model})}}
+    for(const x of (window.GEN_PRICES||[]))if(!seen.has(x[0]))out.push({job:x[0],lo:x[1],hi:x[2],src:'General estimate (all vehicles)',gen:true});
+    return out}
+  function list(){const q=ji.value.trim().toLowerCase();const all=jobs();const ws=q.split(/\s+/).filter(Boolean);
+    const hits=(ws.length?all.filter(j=>ws.every(w=>j.job.toLowerCase().includes(w))):all.filter(j=>!j.gen)).slice(0,ws.length?12:8);
+    sug.innerHTML=hits.length?(ws.length?'':'<p class="muted" style="margin:6px 0">Common for this vehicle:</p>')+hits.map((j,k)=>`<button type="button" data-k="${k}"><b>${esc(j.job)}</b><span>${esc(j.src)}</span></button>`).join(''):(ws.length?'<p class="muted">No match yet. Try a simpler word, like "brake", "pump" or "sensor".</p>':'');
+    sug.querySelectorAll('button').forEach(b=>b.onclick=()=>{job=hits[+b.dataset.k];sug.innerHTML='';ji.hidden=true;picked.hidden=false;picked.innerHTML=`<b>${esc(job.job)}</b><span>${esc(job.src)}</span><button type="button" id="pcRe">Change</button>`;document.getElementById('pcRe').onclick=()=>{job=null;picked.hidden=true;ji.hidden=false;ji.focus();list();ready()};ready();amt.focus()})}
+  function ready(){goB.disabled=!(job&&+amt.value>0)}
+  ji.oninput=list;amt.oninput=ready;list();
+  const m$=n=>'$'+Math.round(n).toLocaleString('en-US');
+  goB.onclick=()=>{const q=+amt.value,lo=job.lo,hi=job.hi;let cls,head,txt;
+    if(q<lo*0.85){cls='low';head='Lower than typical';txt="That's below the usual range. It could be a good deal, but make sure it includes all the parts and labor, and ask what quality of parts they're using and what warranty comes with it."}
+    else if(q<=hi*1.1){cls='ok';head='Within the typical range';txt="That's in line with what this job usually costs. It's still worth asking the questions below so you know exactly what you're getting."}
+    else if(q<=hi*1.5){cls='high';head='Higher than typical';txt="That's above the usual range. Dealers and shops in high-cost areas often charge more, and some jobs need extra parts once the shop gets in. Ask the questions below, and consider a second quote."}
+    else{cls='vhigh';head='Well above typical';txt="That's well above what this job usually costs. Ask for an itemized quote and get a second opinion before you approve it."}
+    const max=Math.max(hi*1.6,q*1.08),L=lo/max*100,W=(hi-lo)/max*100,Q=Math.min(q/max*100,99);
+    const s=pick.get();const vname=s.v?(s.y?s.y+' ':'')+s.v.make+' '+s.v.model:'';
+    out.innerHTML=`<section class="card pcr ${cls}"><div class="eyebrow">Your result${vname?' · '+esc(vname):''}</div><h2>${head}</h2><p class="pcr-job">${esc(job.job)}: you were quoted <b>${m$(q)}</b>. Typical: <b>${m$(lo)}–${m$(hi)}</b>.</p>
+      <div class="pcr-bar"><span class="band" style="left:${L.toFixed(1)}%;width:${W.toFixed(1)}%"></span><span class="mark" style="left:${Q.toFixed(1)}%"><i></i><em>Your quote</em></span></div>
+      <div class="pcr-scale"><span>${m$(0)}</span><span>${m$(max)}</span></div>
+      <p>${txt}</p>${job.recall?'<p class="rc">This repair may be covered by a recall or extended warranty. Check your VIN before paying.</p>':''}${job.gen?'<p class="muted" style="font-size:13.5px">This is a general estimate across all vehicles. Prices for trucks, luxury and European models usually run higher.</p>':''}
+      <h3>Questions to ask your shop</h3><ul class="dots"><li>Is that the total, including diagnosis, taxes and shop fees?</li><li>How many labor hours is that, and at what hourly rate?</li><li>Are the parts new original (OEM), aftermarket or remanufactured?</li><li>What warranty comes with the parts and the labor?</li><li>Can you show me the worn or failed part before it's replaced?</li>${job.recall?'<li>Is there a recall, service bulletin or extended warranty that covers this?</li>':''}</ul>
+      <div class="row-btns"><button class="btn" type="button" onclick="window.print()">Print or save this</button>${s.v?`<a class="btn ghost" href="${url(s.v,s.y)}">See your vehicle's page</a>`:''}</div></section>`;
+    out.scrollIntoView({behavior:'smooth',block:'start'})};
+})();
