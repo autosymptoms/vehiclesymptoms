@@ -1,0 +1,1197 @@
+[
+ {
+  "code": "P0570",
+  "title": "Cruise Control Accelerate Signal",
+  "plain": "The computer is seeing an incorrect signal from the cruise control \"Accel\" button.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0571",
+  "title": "Brake Switch \"A\" Circuit",
+  "plain": "The computer sees a problem with the brake pedal switch signal. This switch turns on the brake lights and tells the car's computers when you're braking.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Brake lights not working or staying on",
+   "Cruise control will not engage",
+   "Shifter may not come out of Park",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty brake light switch",
+    "how": "common"
+   },
+   {
+    "name": "Misadjusted brake light switch or broken pedal stopper pad",
+    "how": "common"
+   },
+   {
+    "name": "Blown stop lamp fuse",
+    "how": "possible"
+   },
+   {
+    "name": "Burned-out brake light bulbs (on some vehicles)",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem at the switch",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Have someone confirm the brake lights work when the pedal is pressed",
+   "Check the stop lamp fuse and bulbs",
+   "Look at the brake switch signal on a scan tool while pressing the pedal"
+  ],
+  "fix": "Most often a new brake light switch, adjusted correctly.",
+  "cost": {
+   "job": "Replace brake light switch",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/",
+   "https://www.aa1car.com/trouble-codes/codes_599.htm"
+  ]
+ },
+ {
+  "code": "P0572",
+  "title": "Brake Switch \"A\" Circuit Low",
+  "plain": "The brake pedal switch signal is stuck low, so the computer may not know when the brakes are applied.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Brake lights not working or staying on",
+   "Cruise control will not engage",
+   "Shifter may not come out of Park",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty brake light switch",
+    "how": "common"
+   },
+   {
+    "name": "Blown stop lamp fuse",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to ground",
+    "how": "possible"
+   },
+   {
+    "name": "Misadjusted switch",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the stop lamp fuse and that brake lights work",
+   "Check the switch signal on a scan tool while pressing the pedal"
+  ],
+  "fix": "Usually a new brake light switch or a fuse and wiring repair.",
+  "cost": {
+   "job": "Replace brake light switch",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0573",
+  "title": "Brake Switch \"A\" Circuit High",
+  "plain": "The brake pedal switch signal is stuck high, so the computer may think the brakes are always applied.",
+  "sys": "Brakes",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Brake lights not working or staying on",
+   "Cruise control will not engage",
+   "Shifter may not come out of Park",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or stuck brake light switch",
+    "how": "common"
+   },
+   {
+    "name": "Misadjusted switch or broken pedal stopper pad",
+    "how": "common"
+   },
+   {
+    "name": "Wire shorted to voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the brake lights stay on with the pedal released",
+   "Look for a missing stopper pad on the brake pedal arm"
+  ],
+  "fix": "Usually a new brake light switch or adjustment.",
+  "cost": {
+   "job": "Replace brake light switch",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0574",
+  "title": "Cruise Control System - Vehicle Speed Too High",
+  "plain": "Cruise control shut itself off because the vehicle went faster than the highest speed the system allows, often on a steep downhill.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control turns itself off",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Vehicle sped up past the cruise limit on a downhill",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or erratic vehicle speed signal",
+    "how": "common"
+   },
+   {
+    "name": "Faulty cruise control switch",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note whether it happened going downhill",
+   "Check for vehicle or wheel speed sensor codes"
+  ],
+  "fix": "Often no repair is needed; clear the code. If it returns, check the speed sensor signal.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0575",
+  "title": "Cruise Control Input Circuit",
+  "plain": "The computer is seeing an incorrect signal from the cruise control input circuit.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0576",
+  "title": "Cruise Control Input Circuit Low",
+  "plain": "The computer is seeing a signal that is too low from the cruise control input circuit.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0577",
+  "title": "Cruise Control Input Circuit High",
+  "plain": "The computer is seeing a signal that is too high from the cruise control input circuit.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0578",
+  "title": "Cruise Control Multi-Function Input \"A\" Circuit Stuck",
+  "plain": "The computer is seeing a button signal that seems stuck on from the cruise control multi-function switch \"A\".",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0579",
+  "title": "Cruise Control Multi-Function Input \"A\" Circuit Range/Performance",
+  "plain": "The computer is seeing an out-of-range signal from the cruise control multi-function switch \"A\".",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0580",
+  "title": "Cruise Control Multi-Function Input \"A\" Circuit Low",
+  "plain": "The computer is seeing a signal that is too low from the cruise control multi-function switch \"A\".",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0581",
+  "title": "Cruise Control Multi-Function Input \"A\" Circuit High",
+  "plain": "The computer is seeing a signal that is too high from the cruise control multi-function switch \"A\".",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0582",
+  "title": "Cruise Control Vacuum Control Circuit/Open",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the cruise control vacuum solenoid. This part lets engine vacuum into the cruise servo on older vacuum-operated cruise systems.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control vacuum solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the cruise control vacuum solenoid wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the cruise control vacuum solenoid with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new cruise control vacuum solenoid if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0583",
+  "title": "Cruise Control Vacuum Control Circuit Low",
+  "plain": "The computer sees lower voltage than expected in the circuit that controls the cruise control vacuum solenoid, often from a wire shorted to ground. This part lets engine vacuum into the cruise servo on older vacuum-operated cruise systems.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty cruise control vacuum solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the cruise control vacuum solenoid wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the cruise control vacuum solenoid with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new cruise control vacuum solenoid if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0584",
+  "title": "Cruise Control Vacuum Control Circuit High",
+  "plain": "The computer sees higher voltage than expected in the circuit that controls the cruise control vacuum solenoid, often from a wire shorted to power or a failed part. This part lets engine vacuum into the cruise servo on older vacuum-operated cruise systems.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or shorted cruise control vacuum solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the cruise control vacuum solenoid wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the cruise control vacuum solenoid with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new cruise control vacuum solenoid if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0585",
+  "title": "Cruise Control Multi-Function Input \"A\"/\"B\" Correlation",
+  "plain": "The computer is seeing two switch signals that should agree but do not from the cruise control switch inputs \"A\" and \"B\".",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0586",
+  "title": "Cruise Control Vent Control Circuit/Open",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the cruise control vent solenoid. This part releases vacuum from the cruise servo so cruise lets go of the throttle.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or slow to release",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control vent solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the cruise control vent solenoid wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the cruise control vent solenoid with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new cruise control vent solenoid if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0587",
+  "title": "Cruise Control Vent Control Circuit Low",
+  "plain": "The computer sees lower voltage than expected in the circuit that controls the cruise control vent solenoid, often from a wire shorted to ground. This part releases vacuum from the cruise servo so cruise lets go of the throttle.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or slow to release",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty cruise control vent solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the cruise control vent solenoid wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the cruise control vent solenoid with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new cruise control vent solenoid if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0588",
+  "title": "Cruise Control Vent Control Circuit High",
+  "plain": "The computer sees higher voltage than expected in the circuit that controls the cruise control vent solenoid, often from a wire shorted to power or a failed part. This part releases vacuum from the cruise servo so cruise lets go of the throttle.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or slow to release",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or shorted cruise control vent solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the cruise control vent solenoid wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the cruise control vent solenoid with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new cruise control vent solenoid if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0589",
+  "title": "Cruise Control Multi-Function Input \"B\" Circuit",
+  "plain": "The computer is seeing an incorrect signal from the cruise control multi-function switch input \"B\".",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0590",
+  "title": "Cruise Control Multi-Function Input \"B\" Circuit Stuck",
+  "plain": "The computer is seeing a button signal that seems stuck on from the cruise control multi-function switch \"B\".",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0591",
+  "title": "Cruise Control Multi-Function Input \"B\" Circuit Range/Performance",
+  "plain": "The computer is seeing an out-of-range signal from the cruise control multi-function switch \"B\".",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0592",
+  "title": "Cruise Control Multi-Function Input \"B\" Circuit Low",
+  "plain": "The computer is seeing a signal that is too low from the cruise control multi-function switch \"B\".",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0593",
+  "title": "Cruise Control Multi-Function Input \"B\" Circuit High",
+  "plain": "The computer is seeing a signal that is too high from the cruise control multi-function switch \"B\".",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control switch on the steering wheel or stalk",
+    "how": "common"
+   },
+   {
+    "name": "Worn clockspring (the coiled wiring inside the steering wheel)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the horn and other steering wheel buttons work",
+   "Watch the cruise switch signals on a scan tool while pressing each button"
+  ],
+  "fix": "Usually a new cruise control switch or clockspring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0594",
+  "title": "Cruise Control Servo Control Circuit/Open",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the cruise control servo. This part moves the throttle to hold your set speed.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control servo",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the cruise control servo wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the cruise control servo with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new cruise control servo if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0595",
+  "title": "Cruise Control Servo Control Circuit Low",
+  "plain": "The computer sees lower voltage than expected in the circuit that controls the cruise control servo, often from a wire shorted to ground. This part moves the throttle to hold your set speed.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty cruise control servo",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the cruise control servo wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the cruise control servo with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new cruise control servo if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0596",
+  "title": "Cruise Control Servo Control Circuit High",
+  "plain": "The computer sees higher voltage than expected in the circuit that controls the cruise control servo, often from a wire shorted to power or a failed part. This part moves the throttle to hold your set speed.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or shorted cruise control servo",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the cruise control servo wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the cruise control servo with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new cruise control servo if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0597",
+  "title": "Thermostat Heater Control Circuit/Open",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the thermostat heater. This part warms an electronic thermostat so the computer can open it early and keep the engine cooler under load.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may run hotter than normal under load",
+   "Temperature gauge may read higher than usual"
+  ],
+  "causes": [
+   {
+    "name": "Faulty thermostat heater",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the thermostat heater wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the thermostat heater with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new thermostat assembly, since the heater is built into it.",
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0598",
+  "title": "Thermostat Heater Control Circuit Low",
+  "plain": "The computer sees lower voltage than expected in the circuit that controls the thermostat heater, often from a wire shorted to ground. This part warms an electronic thermostat so the computer can open it early and keep the engine cooler under load.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may run hotter than normal under load",
+   "Temperature gauge may read higher than usual"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty thermostat heater",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the thermostat heater wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the thermostat heater with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new thermostat assembly, since the heater is built into it.",
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0599",
+  "title": "Thermostat Heater Control Circuit High",
+  "plain": "The computer sees higher voltage than expected in the circuit that controls the thermostat heater, often from a wire shorted to power or a failed part. This part warms an electronic thermostat so the computer can open it early and keep the engine cooler under load.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may run hotter than normal under load",
+   "Temperature gauge may read higher than usual"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or shorted thermostat heater",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the thermostat heater wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the thermostat heater with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new thermostat assembly, since the heater is built into it.",
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ }
+]

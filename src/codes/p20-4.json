@@ -1,0 +1,111 @@
+[
+ {
+  "code": "P2099",
+  "title": "Post Catalyst Fuel Trim System Too Rich Bank 2",
+  "plain": "The oxygen sensor after the catalytic converter on bank 2 (the side of the engine opposite cylinder 1) shows the engine has been running too rich for the computer's fine-tuning to fix. This usually points to a problem before the converter, such as a leaking injector or high fuel pressure.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Possible drop in fuel economy",
+   "Possible rotten egg smell from the exhaust"
+  ],
+  "causes": [
+   {
+    "name": "Faulty upstream or downstream oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Leaking fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Fuel pressure too high",
+    "how": "common"
+   },
+   {
+    "name": "Worn catalytic converter",
+    "how": "possible"
+   },
+   {
+    "name": "Engine burning oil or coolant",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Fix any other fuel trim, misfire or O2 sensor codes first",
+   "Check for exhaust leaks ahead of and around the O2 sensors",
+   "Compare upstream and downstream O2 sensor readings and fuel trims"
+  ],
+  "fix": "Find and repair the rich running cause first; replace the downstream O2 sensor or catalytic converter only after testing.",
+  "cost": {
+   "job": "Replace downstream oxygen sensor",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.3,
+    1.0
+   ]
+  },
+  "guide": "check-engine-light-on"
+ },
+ {
+  "code": "P20EE",
+  "title": "SCR NOx Catalyst Efficiency Below Threshold Bank 1",
+  "plain": "The diesel exhaust treatment system (SCR) on bank 1 isn't cutting NOx pollution as much as it should. Bad DEF fluid, a faulty NOx sensor or a worn SCR catalyst are typical reasons.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "DEF or emissions warning on the dash",
+   "A countdown to reduced speed may start if not repaired"
+  ],
+  "causes": [
+   {
+    "name": "Poor quality, diluted or old DEF fluid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty NOx sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged or crystallized DEF injector",
+    "how": "common"
+   },
+   {
+    "name": "Worn or contaminated SCR catalyst",
+    "how": "possible"
+   },
+   {
+    "name": "Exhaust leak near the sensors",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check DEF quality with a refractometer",
+   "Compare upstream and downstream NOx sensor readings",
+   "Run a DEF dosing test and inspect the injector"
+  ],
+  "fix": "Fix DEF quality, sensor or injector problems first; replace the SCR catalyst only after testing.",
+  "cost": {
+   "job": "Replace NOx sensor",
+   "parts": [
+    250,
+    900
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "examples": [
+   "Frequently seen on modern diesel pickups such as Ram Cummins, Ford Power Stroke and GM Duramax"
+  ]
+ }
+]

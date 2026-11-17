@@ -1,0 +1,1843 @@
+[
+ {
+  "code": "P2000",
+  "title": "NOx Trap Efficiency Below Threshold Bank 1",
+  "plain": "The NOx trap (a special catalytic converter that stores and burns off nitrogen oxide pollution) on bank 1 (the side of the engine with cylinder 1) isn't working as well as it should. This is found on some diesel and lean-burn gasoline engines.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions inspection"
+  ],
+  "causes": [
+   {
+    "name": "Worn-out or sulfur-contaminated NOx trap",
+    "how": "common"
+   },
+   {
+    "name": "Faulty NOx sensor",
+    "how": "common"
+   },
+   {
+    "name": "Exhaust leak near the sensors",
+    "how": "possible"
+   },
+   {
+    "name": "Engine running rich or burning oil",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for exhaust leaks and other engine codes first",
+   "Check NOx sensor readings in live data",
+   "Use high-quality, low-sulfur fuel and let the system run a cleaning cycle"
+  ],
+  "fix": "Fix sensor or leak problems first; a worn NOx trap has to be replaced.",
+  "cost": {
+   "job": "Replace NOx storage catalyst",
+   "parts": [
+    600,
+    2500
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  },
+  "guide": "check-engine-light-on"
+ },
+ {
+  "code": "P2001",
+  "title": "NOx Trap Efficiency Below Threshold Bank 2",
+  "plain": "The NOx trap (a special catalytic converter that stores and burns off nitrogen oxide pollution) on bank 2 (the side of the engine opposite cylinder 1) isn't working as well as it should. This is found on some diesel and lean-burn gasoline engines.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions inspection"
+  ],
+  "causes": [
+   {
+    "name": "Worn-out or sulfur-contaminated NOx trap",
+    "how": "common"
+   },
+   {
+    "name": "Faulty NOx sensor",
+    "how": "common"
+   },
+   {
+    "name": "Exhaust leak near the sensors",
+    "how": "possible"
+   },
+   {
+    "name": "Engine running rich or burning oil",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for exhaust leaks and other engine codes first",
+   "Check NOx sensor readings in live data",
+   "Use high-quality, low-sulfur fuel and let the system run a cleaning cycle"
+  ],
+  "fix": "Fix sensor or leak problems first; a worn NOx trap has to be replaced.",
+  "cost": {
+   "job": "Replace NOx storage catalyst",
+   "parts": [
+    600,
+    2500
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  },
+  "guide": "check-engine-light-on"
+ },
+ {
+  "code": "P2002",
+  "title": "Diesel Particulate Filter Efficiency Below Threshold Bank 1",
+  "plain": "The computer thinks the diesel particulate filter (DPF) on bank 1 isn't trapping soot like it should. Most often the filter is cracked or the pressure sensor that watches it is giving bad readings.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Possible black smoke or soot at the tailpipe",
+   "Possible reduced engine power",
+   "May fail an emissions inspection"
+  ],
+  "causes": [
+   {
+    "name": "Cracked or damaged diesel particulate filter",
+    "how": "common"
+   },
+   {
+    "name": "Faulty DPF differential pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Cracked, loose or plugged DPF pressure sensor hoses",
+    "how": "common"
+   },
+   {
+    "name": "Exhaust leak before the filter",
+    "how": "possible"
+   },
+   {
+    "name": "Filter removed or tampered with",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the DPF pressure sensor hoses for cracks or soot buildup",
+   "Compare DPF pressure readings in live data at idle and higher RPM",
+   "Look for soot at the tailpipe, which points to a cracked filter"
+  ],
+  "fix": "Repair hoses or the pressure sensor if they are bad; a cracked filter must be replaced.",
+  "cost": {
+   "job": "Replace diesel particulate filter",
+   "parts": [
+    900,
+    4000
+   ],
+   "hours": [
+    1.5,
+    4.0
+   ]
+  },
+  "guide": "black-smoke-from-exhaust",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2001.html"
+  ]
+ },
+ {
+  "code": "P2003",
+  "title": "Diesel Particulate Filter Efficiency Below Threshold Bank 2",
+  "plain": "The computer thinks the diesel particulate filter (DPF) on bank 2 isn't trapping soot like it should, usually from a cracked filter or bad pressure readings.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible black smoke at the tailpipe",
+   "Possible reduced engine power"
+  ],
+  "causes": [
+   {
+    "name": "Cracked or damaged diesel particulate filter",
+    "how": "common"
+   },
+   {
+    "name": "Faulty DPF pressure sensor or hoses",
+    "how": "common"
+   },
+   {
+    "name": "Exhaust leak before the filter",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect DPF pressure sensor hoses",
+   "Compare DPF pressure readings in live data"
+  ],
+  "fix": "Repair the pressure sensor or hoses if faulty; replace the filter if it is cracked.",
+  "cost": {
+   "job": "Replace diesel particulate filter",
+   "parts": [
+    900,
+    4000
+   ],
+   "hours": [
+    1.5,
+    4.0
+   ]
+  }
+ },
+ {
+  "code": "P2004",
+  "title": "Intake Manifold Runner Control Stuck Open Bank 1",
+  "plain": "The flaps inside the intake manifold on bank 1 (the side of the engine with cylinder 1) seem stuck open. These flaps change how air flows into the engine to help power at different speeds.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Weaker power at low engine speeds",
+   "Rough or uneven idle in some cases",
+   "Possible rattle or ticking from the intake"
+  ],
+  "causes": [
+   {
+    "name": "Intake runner flaps or linkage stuck with carbon buildup",
+    "how": "common"
+   },
+   {
+    "name": "Failed intake manifold runner actuator",
+    "how": "common"
+   },
+   {
+    "name": "Broken flap, shaft or linkage inside the manifold",
+    "how": "possible"
+   },
+   {
+    "name": "Vacuum leak to a vacuum-operated actuator",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector fault at the actuator",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch the actuator move (or not) when the engine is started or revved",
+   "Check vacuum lines to the actuator if it is vacuum-operated",
+   "Look for broken linkage or a binding flap shaft"
+  ],
+  "fix": "Clean or free up the runner flaps if possible; often the actuator or the whole intake manifold has to be replaced.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    600
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "examples": [
+   "Well known on Mercedes-Benz V6 and V8 engines (M272/M273) with intake manifold flap problems"
+  ],
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2001.html"
+  ]
+ },
+ {
+  "code": "P2005",
+  "title": "Intake Manifold Runner Control Stuck Open Bank 2",
+  "plain": "The flaps inside the intake manifold on bank 2 (the side of the engine opposite cylinder 1) seem stuck open. These flaps change how air flows into the engine to help power at different speeds.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Weaker power at low engine speeds",
+   "Rough or uneven idle in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Intake runner flaps or linkage stuck with carbon buildup",
+    "how": "common"
+   },
+   {
+    "name": "Failed intake manifold runner actuator",
+    "how": "common"
+   },
+   {
+    "name": "Broken flap, shaft or linkage inside the manifold",
+    "how": "possible"
+   },
+   {
+    "name": "Vacuum leak to a vacuum-operated actuator",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch the actuator move (or not) when the engine is started or revved",
+   "Check vacuum lines to the actuator if it is vacuum-operated"
+  ],
+  "fix": "Clean or free up the runner flaps if possible; often the actuator or the whole intake manifold has to be replaced.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    600
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "check-engine-light-on"
+ },
+ {
+  "code": "P2006",
+  "title": "Intake Manifold Runner Control Stuck Closed Bank 1",
+  "plain": "The flaps inside the intake manifold on bank 1 (the side of the engine with cylinder 1) seem stuck closed. These flaps change how air flows into the engine to help power at different speeds.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Weaker power at higher engine speeds",
+   "Rough or uneven idle in some cases",
+   "Possible rattle or ticking from the intake"
+  ],
+  "causes": [
+   {
+    "name": "Intake runner flaps or linkage stuck with carbon buildup",
+    "how": "common"
+   },
+   {
+    "name": "Failed intake manifold runner actuator",
+    "how": "common"
+   },
+   {
+    "name": "Broken flap, shaft or linkage inside the manifold",
+    "how": "possible"
+   },
+   {
+    "name": "Vacuum leak to a vacuum-operated actuator",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector fault at the actuator",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch the actuator move (or not) when the engine is started or revved",
+   "Check vacuum lines to the actuator if it is vacuum-operated",
+   "Look for broken linkage or a binding flap shaft"
+  ],
+  "fix": "Clean or free up the runner flaps if possible; often the actuator or the whole intake manifold has to be replaced.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    600
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2001.html"
+  ]
+ },
+ {
+  "code": "P2007",
+  "title": "Intake Manifold Runner Control Stuck Closed Bank 2",
+  "plain": "The flaps inside the intake manifold on bank 2 (the side of the engine opposite cylinder 1) seem stuck closed. These flaps change how air flows into the engine to help power at different speeds.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Weaker power at higher engine speeds",
+   "Rough or uneven idle in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Intake runner flaps or linkage stuck with carbon buildup",
+    "how": "common"
+   },
+   {
+    "name": "Failed intake manifold runner actuator",
+    "how": "common"
+   },
+   {
+    "name": "Broken flap, shaft or linkage inside the manifold",
+    "how": "possible"
+   },
+   {
+    "name": "Vacuum leak to a vacuum-operated actuator",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch the actuator move (or not) when the engine is started or revved",
+   "Check vacuum lines to the actuator if it is vacuum-operated"
+  ],
+  "fix": "Clean or free up the runner flaps if possible; often the actuator or the whole intake manifold has to be replaced.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    600
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "check-engine-light-on"
+ },
+ {
+  "code": "P2008",
+  "title": "Intake Manifold Runner Control Circuit/Open Bank 1",
+  "plain": "The engine computer can't properly control the intake manifold runner control on bank 1, which moves flaps in the intake to change how air flows into the engine. It sees an open or broken circuit, often from wiring, a connector or the part itself.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Failed intake manifold runner control actuator",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the runner control actuator connector and wiring",
+   "Check for power at the connector and measure the part's resistance"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the intake manifold runner control actuator.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2009",
+  "title": "Intake Manifold Runner Control Circuit Low Bank 1",
+  "plain": "The control circuit for the intake manifold runner control on bank 1 is reading low voltage. This part moves flaps in the intake to change how air flows into the engine. A wire shorted to ground or a shorted part is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Internally shorted intake manifold runner control actuator",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the runner control actuator wiring for rubbed-through insulation",
+   "Measure the runner control actuator resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the intake manifold runner control actuator.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P200A",
+  "title": "Intake Manifold Runner Performance Bank 1",
+  "plain": "The intake runner flaps on bank 1 (the side of the engine with cylinder 1) aren't moving the way the computer commands. They may be sticking, slow or not reaching the right position.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds",
+   "Possible rough idle"
+  ],
+  "causes": [
+   {
+    "name": "Carbon buildup making the flaps stick",
+    "how": "common"
+   },
+   {
+    "name": "Worn or failed runner actuator",
+    "how": "common"
+   },
+   {
+    "name": "Broken linkage or flap shaft",
+    "how": "possible"
+   },
+   {
+    "name": "Vacuum leak on a vacuum-operated system",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch the actuator and linkage move with a scan tool command",
+   "Check for vacuum leaks or broken linkage"
+  ],
+  "fix": "Free up or repair the flaps and linkage; replace the actuator or intake manifold if worn.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    600
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  }
+ },
+ {
+  "code": "P200B",
+  "title": "Intake Manifold Runner Performance Bank 2",
+  "plain": "The intake runner flaps on bank 2 (the side of the engine opposite cylinder 1) aren't moving the way the computer commands. They may be sticking, slow or not reaching the right position.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds",
+   "Possible rough idle"
+  ],
+  "causes": [
+   {
+    "name": "Carbon buildup making the flaps stick",
+    "how": "common"
+   },
+   {
+    "name": "Worn or failed runner actuator",
+    "how": "common"
+   },
+   {
+    "name": "Broken linkage or flap shaft",
+    "how": "possible"
+   },
+   {
+    "name": "Vacuum leak on a vacuum-operated system",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch the actuator and linkage move with a scan tool command",
+   "Check for vacuum leaks or broken linkage"
+  ],
+  "fix": "Free up or repair the flaps and linkage; replace the actuator or intake manifold if worn.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    600
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  }
+ },
+ {
+  "code": "P200C",
+  "title": "Diesel Particulate Filter Over Temperature Bank 1",
+  "plain": "The diesel particulate filter on bank 1 (the side of the engine with cylinder 1) got hotter than it should. This can happen during a soot burn-off when too much soot or extra fuel burns at once.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power",
+   "Possible smell of hot exhaust"
+  ],
+  "causes": [
+   {
+    "name": "Too much soot in the filter burning at once",
+    "how": "common"
+   },
+   {
+    "name": "Leaking or dripping fuel injector adding raw fuel",
+    "how": "common"
+   },
+   {
+    "name": "Faulty exhaust temperature sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Oil getting into the exhaust from a turbo or engine problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check exhaust temperature sensor readings",
+   "Check for leaking injectors or oil getting into the exhaust"
+  ],
+  "fix": "Fix the source of extra fuel or soot, then check the filter for heat damage; replace the filter if it is cracked.",
+  "cost": {
+   "job": "Replace diesel particulate filter",
+   "parts": [
+    900,
+    4000
+   ],
+   "hours": [
+    1.5,
+    4.0
+   ]
+  }
+ },
+ {
+  "code": "P200D",
+  "title": "Diesel Particulate Filter Over Temperature Bank 2",
+  "plain": "The diesel particulate filter on bank 2 (the side of the engine opposite cylinder 1) got hotter than it should. This can happen during a soot burn-off when too much soot or extra fuel burns at once.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced engine power",
+   "Possible smell of hot exhaust"
+  ],
+  "causes": [
+   {
+    "name": "Too much soot in the filter burning at once",
+    "how": "common"
+   },
+   {
+    "name": "Leaking or dripping fuel injector adding raw fuel",
+    "how": "common"
+   },
+   {
+    "name": "Faulty exhaust temperature sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Oil getting into the exhaust from a turbo or engine problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check exhaust temperature sensor readings",
+   "Check for leaking injectors or oil getting into the exhaust"
+  ],
+  "fix": "Fix the source of extra fuel or soot, then check the filter for heat damage; replace the filter if it is cracked.",
+  "cost": {
+   "job": "Replace diesel particulate filter",
+   "parts": [
+    900,
+    4000
+   ],
+   "hours": [
+    1.5,
+    4.0
+   ]
+  }
+ },
+ {
+  "code": "P200E",
+  "title": "Catalyst System Over Temperature Bank 1",
+  "plain": "The catalytic converter on bank 1 (the side of the engine with cylinder 1) is running too hot. Unburned fuel from a misfire or rich running is usually burning inside it.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible misfire or rough running",
+   "Possible rotten egg or burning smell"
+  ],
+  "causes": [
+   {
+    "name": "Engine misfire sending unburned fuel into the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Engine running too rich",
+    "how": "common"
+   },
+   {
+    "name": "Faulty exhaust temperature sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Leaking fuel injector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for misfire and fuel trim codes and fix them first",
+   "Check exhaust temperature sensor readings"
+  ],
+  "fix": "Fix the misfire or rich condition quickly; a converter that overheated may need replacing.",
+  "guide": "check-engine-light-on"
+ },
+ {
+  "code": "P200F",
+  "title": "Catalyst System Over Temperature Bank 2",
+  "plain": "The catalytic converter on bank 2 (the side of the engine opposite cylinder 1) is running too hot. Unburned fuel from a misfire or rich running is usually burning inside it.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible misfire or rough running",
+   "Possible rotten egg or burning smell"
+  ],
+  "causes": [
+   {
+    "name": "Engine misfire sending unburned fuel into the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Engine running too rich",
+    "how": "common"
+   },
+   {
+    "name": "Faulty exhaust temperature sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Leaking fuel injector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for misfire and fuel trim codes and fix them first",
+   "Check exhaust temperature sensor readings"
+  ],
+  "fix": "Fix the misfire or rich condition quickly; a converter that overheated may need replacing.",
+  "guide": "check-engine-light-on"
+ },
+ {
+  "code": "P2010",
+  "title": "Intake Manifold Runner Control Circuit High Bank 1",
+  "plain": "The control circuit for the intake manifold runner control on bank 1 is reading high voltage. This part moves flaps in the intake to change how air flows into the engine. A wire shorted to power, an open circuit or a failed part is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Failed intake manifold runner control actuator",
+    "how": "common"
+   },
+   {
+    "name": "Control wire shorted to a power source",
+    "how": "common"
+   },
+   {
+    "name": "Open circuit or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the runner control actuator wiring for shorts to other wires",
+   "Measure the runner control actuator resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the intake manifold runner control actuator.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2011",
+  "title": "Intake Manifold Runner Control Circuit/Open Bank 2",
+  "plain": "The engine computer can't properly control the intake manifold runner control on bank 2, which moves flaps in the intake to change how air flows into the engine. It sees an open or broken circuit, often from wiring, a connector or the part itself.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Failed intake manifold runner control actuator",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the runner control actuator connector and wiring",
+   "Check for power at the connector and measure the part's resistance"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the intake manifold runner control actuator.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2012",
+  "title": "Intake Manifold Runner Control Circuit Low Bank 2",
+  "plain": "The control circuit for the intake manifold runner control on bank 2 is reading low voltage. This part moves flaps in the intake to change how air flows into the engine. A wire shorted to ground or a shorted part is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Internally shorted intake manifold runner control actuator",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the runner control actuator wiring for rubbed-through insulation",
+   "Measure the runner control actuator resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the intake manifold runner control actuator.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2013",
+  "title": "Intake Manifold Runner Control Circuit High Bank 2",
+  "plain": "The control circuit for the intake manifold runner control on bank 2 is reading high voltage. This part moves flaps in the intake to change how air flows into the engine. A wire shorted to power, an open circuit or a failed part is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Failed intake manifold runner control actuator",
+    "how": "common"
+   },
+   {
+    "name": "Control wire shorted to a power source",
+    "how": "common"
+   },
+   {
+    "name": "Open circuit or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the runner control actuator wiring for shorts to other wires",
+   "Measure the runner control actuator resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the intake manifold runner control actuator.",
+  "cost": {
+   "job": "Replace intake manifold runner actuator",
+   "parts": [
+    60,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2014",
+  "title": "Intake Manifold Runner Position Sensor/Switch Circuit Bank 1",
+  "plain": "The engine computer has found a problem in the circuit for the intake manifold runner position sensor on bank 1, which tells the computer where the intake flaps are. It usually points to wiring, a connector or the sensor itself.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Faulty runner position sensor (often part of the actuator)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged, corroded or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the runner position sensor connector and wiring for damage or corrosion",
+   "Check the sensor power, ground and signal with a meter"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the runner position sensor (often part of the actuator).",
+  "cost": {
+   "job": "Replace intake runner position sensor or actuator",
+   "parts": [
+    50,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2015",
+  "title": "Intake Manifold Runner Position Sensor/Switch Circuit Range/Performance Bank 1",
+  "plain": "The sensor that reports the position of the intake manifold flaps on bank 1 is giving readings that don't match what the computer commanded. Often the flaps or their linkage are actually stuck or broken.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at low or high speeds",
+   "Rough idle in some cases",
+   "Often no other symptoms"
+  ],
+  "causes": [
+   {
+    "name": "Broken or worn intake runner linkage or flap",
+    "how": "common"
+   },
+   {
+    "name": "Failed runner position sensor or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Carbon buildup making the flaps stick",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Vacuum leak on a vacuum-operated system",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look at the runner linkage for a popped-off or broken arm",
+   "Watch the position reading change while commanding the flaps",
+   "Inspect the sensor connector and wiring"
+  ],
+  "fix": "Repair the linkage if possible; otherwise replace the actuator/sensor or, on some engines, the intake manifold.",
+  "cost": {
+   "job": "Replace intake runner actuator or intake manifold",
+   "parts": [
+    50,
+    900
+   ],
+   "hours": [
+    0.5,
+    3.5
+   ]
+  },
+  "examples": [
+   "Very common on Mercedes-Benz M272 V6 engines and some VW/Audi 2.0T engines"
+  ],
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://automecanico.com/auto2001/obdllp2001.html"
+  ]
+ },
+ {
+  "code": "P2016",
+  "title": "Intake Manifold Runner Position Sensor/Switch Circuit Low Bank 1",
+  "plain": "The signal from the intake manifold runner position sensor on bank 1 is lower than the computer expects. This sensor tells the computer where the intake flaps are. A wire shorted to ground or a failed sensor is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Signal or reference wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed runner position sensor (often part of the actuator)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the runner position sensor wiring for rubbed-through or pinched spots",
+   "Unplug the sensor and see if the reading changes, which helps separate wiring from sensor"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the runner position sensor (often part of the actuator).",
+  "cost": {
+   "job": "Replace intake runner position sensor or actuator",
+   "parts": [
+    50,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2017",
+  "title": "Intake Manifold Runner Position Sensor/Switch Circuit High Bank 1",
+  "plain": "The signal from the intake manifold runner position sensor on bank 1 is higher than the computer expects. This sensor tells the computer where the intake flaps are. An open (broken) wire, a bad ground or a failed sensor is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken signal or ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed runner position sensor (often part of the actuator)",
+    "how": "possible"
+   },
+   {
+    "name": "Wire shorted to a power source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure the runner position sensor connector is fully plugged in and clean",
+   "Check the sensor ground and signal wire for an open circuit"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the runner position sensor (often part of the actuator).",
+  "cost": {
+   "job": "Replace intake runner position sensor or actuator",
+   "parts": [
+    50,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2018",
+  "title": "Intake Manifold Runner Position Sensor/Switch Circuit Intermittent Bank 1",
+  "plain": "The signal from the intake manifold runner position sensor on bank 1 keeps dropping out or jumping around. This sensor tells the computer where the intake flaps are. A loose connection or a damaged wire is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wire that opens or shorts as the engine moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing runner position sensor (often part of the actuator)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data for dropouts",
+   "Inspect the runner position sensor wiring along its whole route"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the runner position sensor (often part of the actuator).",
+  "cost": {
+   "job": "Replace intake runner position sensor or actuator",
+   "parts": [
+    50,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2019",
+  "title": "Intake Manifold Runner Position Sensor/Switch Circuit Bank 2",
+  "plain": "The engine computer has found a problem in the circuit for the intake manifold runner position sensor on bank 2, which tells the computer where the intake flaps are. It usually points to wiring, a connector or the sensor itself.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Faulty runner position sensor (often part of the actuator)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged, corroded or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the runner position sensor connector and wiring for damage or corrosion",
+   "Check the sensor power, ground and signal with a meter"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the runner position sensor (often part of the actuator).",
+  "cost": {
+   "job": "Replace intake runner position sensor or actuator",
+   "parts": [
+    50,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2020",
+  "title": "Intake Manifold Runner Position Sensor/Switch Circuit Range/Performance Bank 2",
+  "plain": "The intake manifold runner position sensor on bank 2 is giving readings that don't make sense compared with what the computer expects. This sensor tells the computer where the intake flaps are. The sensor may be failing or the system it watches may have a real problem.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Failing or out-of-calibration runner position sensor (often part of the actuator)",
+    "how": "common"
+   },
+   {
+    "name": "Intake flaps sticking or linkage broken",
+    "how": "common"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the runner position sensor reading with related sensors in live data",
+   "Check wiring and connector for corrosion or looseness"
+  ],
+  "fix": "Confirm the system itself is working, then replace the runner position sensor (often part of the actuator) if its readings are off.",
+  "cost": {
+   "job": "Replace intake runner position sensor or actuator",
+   "parts": [
+    50,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2021",
+  "title": "Intake Manifold Runner Position Sensor/Switch Circuit Low Bank 2",
+  "plain": "The signal from the intake manifold runner position sensor on bank 2 is lower than the computer expects. This sensor tells the computer where the intake flaps are. A wire shorted to ground or a failed sensor is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Signal or reference wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed runner position sensor (often part of the actuator)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the runner position sensor wiring for rubbed-through or pinched spots",
+   "Unplug the sensor and see if the reading changes, which helps separate wiring from sensor"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the runner position sensor (often part of the actuator).",
+  "cost": {
+   "job": "Replace intake runner position sensor or actuator",
+   "parts": [
+    50,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2022",
+  "title": "Intake Manifold Runner Position Sensor/Switch Circuit High Bank 2",
+  "plain": "The signal from the intake manifold runner position sensor on bank 2 is higher than the computer expects. This sensor tells the computer where the intake flaps are. An open (broken) wire, a bad ground or a failed sensor is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken signal or ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed runner position sensor (often part of the actuator)",
+    "how": "possible"
+   },
+   {
+    "name": "Wire shorted to a power source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure the runner position sensor connector is fully plugged in and clean",
+   "Check the sensor ground and signal wire for an open circuit"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the runner position sensor (often part of the actuator).",
+  "cost": {
+   "job": "Replace intake runner position sensor or actuator",
+   "parts": [
+    50,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2023",
+  "title": "Intake Manifold Runner Position Sensor/Switch Circuit Intermittent Bank 2",
+  "plain": "The signal from the intake manifold runner position sensor on bank 2 keeps dropping out or jumping around. This sensor tells the computer where the intake flaps are. A loose connection or a damaged wire is the usual reason.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slightly weaker power at some engine speeds"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wire that opens or shorts as the engine moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing runner position sensor (often part of the actuator)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data for dropouts",
+   "Inspect the runner position sensor wiring along its whole route"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the runner position sensor (often part of the actuator).",
+  "cost": {
+   "job": "Replace intake runner position sensor or actuator",
+   "parts": [
+    50,
+    450
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2024",
+  "title": "Evaporative Emissions (EVAP) Fuel Vapor Temperature Sensor Circuit",
+  "plain": "The engine computer has found a problem in the circuit for the EVAP fuel vapor temperature sensor, which measures the temperature of fuel vapor in the evaporative emissions system. It usually points to wiring, a connector or the sensor itself.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Faulty fuel vapor temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged, corroded or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the vapor temperature sensor connector and wiring for damage or corrosion",
+   "Check the sensor power, ground and signal with a meter"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the fuel vapor temperature sensor.",
+  "cost": {
+   "job": "Replace fuel vapor temperature sensor",
+   "parts": [
+    30,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  }
+ },
+ {
+  "code": "P2025",
+  "title": "Evaporative Emissions (EVAP) Fuel Vapor Temperature Sensor Performance",
+  "plain": "The EVAP fuel vapor temperature sensor is giving readings that don't make sense compared with what the computer expects. This sensor measures the temperature of fuel vapor in the evaporative emissions system. The sensor may be failing or the system it watches may have a real problem.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Failing or out-of-calibration fuel vapor temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real fault in the system the sensor monitors",
+    "how": "common"
+   },
+   {
+    "name": "High resistance in the wiring or connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the vapor temperature sensor reading with related sensors in live data",
+   "Check wiring and connector for corrosion or looseness"
+  ],
+  "fix": "Confirm the system itself is working, then replace the fuel vapor temperature sensor if its readings are off.",
+  "cost": {
+   "job": "Replace fuel vapor temperature sensor",
+   "parts": [
+    30,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  }
+ },
+ {
+  "code": "P2026",
+  "title": "Evaporative Emissions (EVAP) Fuel Vapor Temperature Sensor Circuit Low Voltage",
+  "plain": "The signal from the EVAP fuel vapor temperature sensor is lower than the computer expects. This sensor measures the temperature of fuel vapor in the evaporative emissions system. A wire shorted to ground or a failed sensor is the usual reason.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Signal or reference wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed fuel vapor temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the vapor temperature sensor wiring for rubbed-through or pinched spots",
+   "Unplug the sensor and see if the reading changes, which helps separate wiring from sensor"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the fuel vapor temperature sensor.",
+  "cost": {
+   "job": "Replace fuel vapor temperature sensor",
+   "parts": [
+    30,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  }
+ },
+ {
+  "code": "P2027",
+  "title": "Evaporative Emissions (EVAP) Fuel Vapor Temperature Sensor Circuit High Voltage",
+  "plain": "The signal from the EVAP fuel vapor temperature sensor is higher than the computer expects. This sensor measures the temperature of fuel vapor in the evaporative emissions system. An open (broken) wire, a bad ground or a failed sensor is the usual reason.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Open or broken signal or ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed fuel vapor temperature sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Wire shorted to a power source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure the vapor temperature sensor connector is fully plugged in and clean",
+   "Check the sensor ground and signal wire for an open circuit"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the fuel vapor temperature sensor.",
+  "cost": {
+   "job": "Replace fuel vapor temperature sensor",
+   "parts": [
+    30,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  }
+ },
+ {
+  "code": "P2028",
+  "title": "Evaporative Emissions (EVAP) Fuel Vapor Temperature Sensor Circuit Intermittent",
+  "plain": "The signal from the EVAP fuel vapor temperature sensor keeps dropping out or jumping around. This sensor measures the temperature of fuel vapor in the evaporative emissions system. A loose connection or a damaged wire is the usual reason.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wire that opens or shorts as the engine moves",
+    "how": "common"
+   },
+   {
+    "name": "Failing fuel vapor temperature sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data for dropouts",
+   "Inspect the vapor temperature sensor wiring along its whole route"
+  ],
+  "fix": "Repair any damaged wiring or connector first; if the circuit tests good, replace the fuel vapor temperature sensor.",
+  "cost": {
+   "job": "Replace fuel vapor temperature sensor",
+   "parts": [
+    30,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  }
+ },
+ {
+  "code": "P2029",
+  "title": "Fuel Fired Heater Disabled",
+  "plain": "The small fuel-burning heater that some diesel vehicles use to warm the cabin or engine has been shut off by the control system because of a fault.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Slow cabin or engine warm-up in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Auxiliary heater fault (glow pin, fuel pump or fan)",
+    "how": "common"
+   },
+   {
+    "name": "Low fuel level, which stops the heater from running",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or fuse problem",
+    "how": "possible"
+   },
+   {
+    "name": "Heater control module fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other heater codes stored in the heater module",
+   "Check the heater fuse, fuel supply and exhaust outlet for blockage"
+  ],
+  "fix": "Repair the fault that disabled the heater; parts like the glow pin or dosing pump may need replacing."
+ },
+ {
+  "code": "P202A",
+  "title": "Reductant Tank Heater Control Circuit/Open",
+  "plain": "The engine computer can't properly control the reductant (DEF) tank heater, which warms the diesel exhaust fluid so it does not freeze. It sees an open or broken circuit, often from wiring, a connector or the part itself.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "DEF or emissions warning on the dash",
+   "A countdown to reduced speed may start if not repaired"
+  ],
+  "causes": [
+   {
+    "name": "Failed DEF tank heater (often part of the tank sender)",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the DEF heater connector and wiring",
+   "Check for power at the connector and measure the part's resistance"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the DEF tank heater (often part of the tank sender).",
+  "cost": {
+   "job": "Replace DEF tank heater or sender",
+   "parts": [
+    150,
+    900
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  }
+ },
+ {
+  "code": "P202B",
+  "title": "Reductant Tank Heater Control Circuit Low",
+  "plain": "The control circuit for the reductant (DEF) tank heater is reading low voltage. This part warms the diesel exhaust fluid so it does not freeze. A wire shorted to ground or a shorted part is the usual reason.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "DEF or emissions warning on the dash",
+   "A countdown to reduced speed may start if not repaired"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Internally shorted DEF tank heater (often part of the tank sender)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver problem (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the DEF heater wiring for rubbed-through insulation",
+   "Measure the DEF heater resistance and compare with spec"
+  ],
+  "fix": "Repair any wiring fault first; if the wiring tests good, replace the DEF tank heater (often part of the tank sender).",
+  "cost": {
+   "job": "Replace DEF tank heater or sender",
+   "parts": [
+    150,
+    900
+   ],
+   "hours": [
+    1.0,
+    3.0
+   ]
+  }
+ },
+ {
+  "code": "P202D",
+  "title": "Reductant Leakage",
+  "plain": "The system that sprays diesel exhaust fluid (DEF) into the exhaust has detected a leak somewhere in its lines or parts.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "DEF or emissions warning on the dash",
+   "A countdown to reduced speed may start if not repaired",
+   "White crystal buildup around DEF lines or injector"
+  ],
+  "causes": [
+   {
+    "name": "Leaking DEF line or fitting",
+    "how": "common"
+   },
+   {
+    "name": "Leaking DEF injector seal",
+    "how": "common"
+   },
+   {
+    "name": "Cracked DEF tank or pump module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look for white crusty DEF deposits along the lines, pump and injector",
+   "Check that line fittings are tight and not cracked"
+  ],
+  "fix": "Repair the leaking line, fitting or component and clear the code.",
+  "cost": {
+   "job": "Replace DEF line or injector",
+   "parts": [
+    50,
+    650
+   ],
+   "hours": [
+    0.5,
+    2.0
+   ]
+  }
+ },
+ {
+  "code": "P2030",
+  "title": "Fuel Fired Heater Performance",
+  "plain": "The fuel-burning auxiliary heater on this vehicle isn't producing heat the way it should.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Little or no extra heat in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Carbon-fouled burner or glow pin",
+    "how": "common"
+   },
+   {
+    "name": "Weak or failing heater fuel pump",
+    "how": "common"
+   },
+   {
+    "name": "Blocked heater exhaust or air intake",
+    "how": "possible"
+   },
+   {
+    "name": "Heater control module fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the heater exhaust and intake for blockage",
+   "Read codes from the heater module itself"
+  ],
+  "fix": "Clean or service the auxiliary heater, replacing the glow pin, fuel pump or burner as needed."
+ }
+]

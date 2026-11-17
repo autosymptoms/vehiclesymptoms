@@ -1,0 +1,1743 @@
+[
+ {
+  "code": "P009A",
+  "title": "Intake Air Temperature/Ambient Air Temperature Correlation",
+  "plain": "After the car has sat long enough to cool down, the intake air temperature and outside air temperature readings should be close. The computer found that they disagree by too much.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Outside temperature on the dash may look wrong"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor (often built into the MAF sensor)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty ambient air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem on either sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Car parked in strong sun or near a heat source, skewing one reading",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare both readings with a scan tool after the car sits overnight",
+   "Inspect both sensors and their connectors"
+  ],
+  "fix": "Usually replacing whichever sensor reads wrong, often the intake air temperature sensor or MAF sensor that contains it.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P009B",
+  "title": "Fuel Pressure Relief Control Circuit/Open",
+  "plain": "Some high-pressure fuel systems, mostly on diesels, use an electric valve to bleed off fuel pressure when needed. The computer found an open or broken connection in the circuit that controls this relief valve.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running, stalling or loss of power",
+   "Possible hard starting"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector at the relief valve",
+    "how": "common"
+   },
+   {
+    "name": "Failed fuel pressure relief valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the relief valve connector and wiring",
+   "Measure the solenoid resistance and compare to spec"
+  ],
+  "fix": "Usually a wiring repair or a new fuel pressure relief valve.",
+  "guide": "engine-stalls-while-driving",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P009C",
+  "title": "Fuel Pressure Relief Control Circuit Low",
+  "plain": "Some high-pressure fuel systems, mostly on diesels, use an electric valve to bleed off fuel pressure when needed. The computer found a voltage that is too low in the circuit that controls this relief valve.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running, stalling or loss of power",
+   "Possible hard starting"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector at the relief valve",
+    "how": "common"
+   },
+   {
+    "name": "Failed fuel pressure relief valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the relief valve connector and wiring",
+   "Measure the solenoid resistance and compare to spec"
+  ],
+  "fix": "Usually a wiring repair or a new fuel pressure relief valve.",
+  "guide": "engine-stalls-while-driving",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P009D",
+  "title": "Fuel Pressure Relief Control Circuit High",
+  "plain": "Some high-pressure fuel systems, mostly on diesels, use an electric valve to bleed off fuel pressure when needed. The computer found a voltage that is too high in the circuit that controls this relief valve.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running, stalling or loss of power",
+   "Possible hard starting"
+  ],
+  "causes": [
+   {
+    "name": "Damaged wiring or loose connector at the relief valve",
+    "how": "common"
+   },
+   {
+    "name": "Failed fuel pressure relief valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the relief valve connector and wiring",
+   "Measure the solenoid resistance and compare to spec"
+  ],
+  "fix": "Usually a wiring repair or a new fuel pressure relief valve.",
+  "guide": "engine-stalls-while-driving",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P009E",
+  "title": "Fuel Pressure Relief Control Performance/Stuck Off",
+  "plain": "The electric fuel pressure relief valve does not seem to open when the computer tells it to, so fuel pressure is not dropping the way it should.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running or stumbling when slowing down",
+   "Possible limp mode"
+  ],
+  "causes": [
+   {
+    "name": "Sticking fuel pressure relief valve",
+    "how": "common"
+   },
+   {
+    "name": "Contaminated fuel",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fuel rail pressure sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring with high resistance",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch commanded and actual rail pressure with a scan tool",
+   "Check the fuel for water or debris"
+  ],
+  "fix": "Usually a new fuel pressure relief valve, plus a fuel filter if the fuel is contaminated.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P009F",
+  "title": "Fuel Pressure Relief Control Stuck On",
+  "plain": "The electric fuel pressure relief valve appears to be stuck open, letting fuel pressure bleed away when it should be holding.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or no start",
+   "Loss of power or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Fuel pressure relief valve stuck open",
+    "how": "common"
+   },
+   {
+    "name": "Debris in the valve from contaminated fuel",
+    "how": "common"
+   },
+   {
+    "name": "Control circuit shorted so the valve stays on",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch rail pressure while cranking and running with a scan tool",
+   "Check the control wiring for a short"
+  ],
+  "fix": "Usually a new fuel pressure relief valve.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00A0",
+  "title": "Charge Air Cooler Temperature Sensor Circuit (Bank 2)",
+  "plain": "On turbocharged engines, the charge air cooler (intercooler) cools the boosted air. A sensor measures that air temperature, and the computer found a fault in the circuit from the bank 2 sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Faulty charge air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Oil contamination in the connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new charge air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace charge air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00A1",
+  "title": "Charge Air Cooler Temperature Sensor Circuit Range/Performance (Bank 2)",
+  "plain": "On turbocharged engines, the charge air cooler (intercooler) cools the boosted air. A sensor measures that air temperature, and the computer found a reading that does not make sense compared with other sensors from the bank 2 sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Faulty charge air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Oil or soot fouling the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Intercooler or boost leak",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new charge air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace charge air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00A2",
+  "title": "Charge Air Cooler Temperature Sensor Circuit Low (Bank 2)",
+  "plain": "On turbocharged engines, the charge air cooler (intercooler) cools the boosted air. A sensor measures that air temperature, and the computer found a signal that is too low (often reads very hot) from the bank 2 sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Faulty charge air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Oil contamination in the connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new charge air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace charge air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00A3",
+  "title": "Charge Air Cooler Temperature Sensor Circuit High (Bank 2)",
+  "plain": "On turbocharged engines, the charge air cooler (intercooler) cools the boosted air. A sensor measures that air temperature, and the computer found a signal that is too high (often reads very cold) from the bank 2 sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Faulty charge air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Oil contamination in the connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new charge air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace charge air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00A4",
+  "title": "Charge Air Cooler Temperature Sensor Circuit Intermittent/Erratic (Bank 2)",
+  "plain": "On turbocharged engines, the charge air cooler (intercooler) cools the boosted air. A sensor measures that air temperature, and the computer found a signal that cuts in and out from the bank 2 sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Faulty charge air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Oil contamination in the connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new charge air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace charge air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00A5",
+  "title": "Intake Air Temperature Sensor 2 Circuit (Bank 2)",
+  "plain": "Intake air temperature sensor 2 on bank 2 tells the computer how warm the incoming air is at a second point in the intake, often after the turbo or intercooler. The computer found a fault in the circuit from this sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in driving",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor 2",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Sensor unplugged after other work",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new intake air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00A6",
+  "title": "Intake Air Temperature Sensor 2 Circuit Range/Performance (Bank 2)",
+  "plain": "Intake air temperature sensor 2 on bank 2 tells the computer how warm the incoming air is at a second point in the intake, often after the turbo or intercooler. The computer found a reading that does not make sense compared with other sensors from this sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in driving",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor 2",
+    "how": "common"
+   },
+   {
+    "name": "Oil or dirt fouling the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring with high resistance",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new intake air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00A7",
+  "title": "Intake Air Temperature Sensor 2 Circuit Low (Bank 2)",
+  "plain": "Intake air temperature sensor 2 on bank 2 tells the computer how warm the incoming air is at a second point in the intake, often after the turbo or intercooler. The computer found a signal that is too low (often reads very hot) from this sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in driving",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor 2",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Sensor unplugged after other work",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new intake air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00A8",
+  "title": "Intake Air Temperature Sensor 2 Circuit High (Bank 2)",
+  "plain": "Intake air temperature sensor 2 on bank 2 tells the computer how warm the incoming air is at a second point in the intake, often after the turbo or intercooler. The computer found a signal that is too high (often reads very cold) from this sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in driving",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor 2",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Sensor unplugged after other work",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new intake air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00A9",
+  "title": "Intake Air Temperature Sensor 2 Circuit Intermittent/Erratic (Bank 2)",
+  "plain": "Intake air temperature sensor 2 on bank 2 tells the computer how warm the incoming air is at a second point in the intake, often after the turbo or intercooler. The computer found a signal that cuts in and out from this sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in driving",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor 2",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Sensor unplugged after other work",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new intake air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00AA",
+  "title": "Intake Air Temperature Sensor 1 Circuit (Bank 2)",
+  "plain": "Intake air temperature sensor 1 on bank 2 tells the computer how warm the incoming air is. The computer found a fault in the circuit from this sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in driving",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor 1",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Sensor unplugged after other work",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new intake air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00AB",
+  "title": "Intake Air Temperature Sensor 1 Circuit Range/Performance (Bank 2)",
+  "plain": "Intake air temperature sensor 1 on bank 2 tells the computer how warm the incoming air is. The computer found a reading that does not make sense compared with other sensors from this sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in driving",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor 1",
+    "how": "common"
+   },
+   {
+    "name": "Oil or dirt fouling the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring with high resistance",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new intake air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00AC",
+  "title": "Intake Air Temperature Sensor 1 Circuit Low (Bank 2)",
+  "plain": "Intake air temperature sensor 1 on bank 2 tells the computer how warm the incoming air is. The computer found a signal that is too low (often reads very hot) from this sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in driving",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor 1",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Sensor unplugged after other work",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new intake air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00AD",
+  "title": "Intake Air Temperature Sensor 1 Circuit High (Bank 2)",
+  "plain": "Intake air temperature sensor 1 on bank 2 tells the computer how warm the incoming air is. The computer found a signal that is too high (often reads very cold) from this sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in driving",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor 1",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Sensor unplugged after other work",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new intake air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00AE",
+  "title": "Intake Air Temperature Sensor 1 Circuit Intermittent/Erratic (Bank 2)",
+  "plain": "Intake air temperature sensor 1 on bank 2 tells the computer how warm the incoming air is. The computer found a signal that cuts in and out from this sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in driving",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor 1",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Sensor unplugged after other work",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the sensor connector and wiring",
+   "Compare its reading with other temperature sensors after a cold soak"
+  ],
+  "fix": "Usually a new intake air temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00AF",
+  "title": "Turbocharger/Supercharger Boost Control \"A\" Module Performance",
+  "plain": "Some turbos use an electronic actuator with its own small control module to move the wastegate or variable vanes. The computer found that the \"A\" actuator module is not performing correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Possible slow boost build-up"
+  ],
+  "causes": [
+   {
+    "name": "Failed electronic boost actuator or its module",
+    "how": "common"
+   },
+   {
+    "name": "Sticking wastegate or vane mechanism overloading the actuator",
+    "how": "common"
+   },
+   {
+    "name": "Power, ground or network wiring problem to the actuator",
+    "how": "possible"
+   },
+   {
+    "name": "Actuator not calibrated after replacement",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other actuator or network codes",
+   "Inspect the actuator wiring and connector",
+   "Run the actuator self-test or relearn with a scan tool"
+  ],
+  "fix": "Often a new electronic boost actuator, which sometimes comes only with the turbo. Check for a sticking mechanism first.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00B0",
+  "title": "Turbocharger/Supercharger Boost Control \"B\" Module Performance",
+  "plain": "Some turbos use an electronic actuator with its own small control module to move the wastegate or variable vanes. The computer found that the \"B\" actuator module is not performing correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power or limp mode",
+   "Possible slow boost build-up"
+  ],
+  "causes": [
+   {
+    "name": "Failed electronic boost actuator or its module",
+    "how": "common"
+   },
+   {
+    "name": "Sticking wastegate or vane mechanism overloading the actuator",
+    "how": "common"
+   },
+   {
+    "name": "Power, ground or network wiring problem to the actuator",
+    "how": "possible"
+   },
+   {
+    "name": "Actuator not calibrated after replacement",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other actuator or network codes",
+   "Inspect the actuator wiring and connector",
+   "Run the actuator self-test or relearn with a scan tool"
+  ],
+  "fix": "Often a new electronic boost actuator, which sometimes comes only with the turbo. Check for a sticking mechanism first.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00B1",
+  "title": "Radiator Coolant Temperature Sensor Circuit",
+  "plain": "Some engines have a second coolant temperature sensor at the radiator outlet to help control the cooling fans and thermostat. The computer found a fault in the circuit from this sensor.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fans may run all the time",
+   "Usually no change in engine temperature"
+  ],
+  "causes": [
+   {
+    "name": "Faulty radiator coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Coolant leaking into the connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level",
+   "Inspect the sensor connector and wiring at the radiator",
+   "Compare its reading with the engine coolant temperature sensor after a cold soak"
+  ],
+  "fix": "Usually a new radiator coolant temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace radiator coolant temperature sensor",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00B2",
+  "title": "Radiator Coolant Temperature Sensor Circuit Range/Performance",
+  "plain": "Some engines have a second coolant temperature sensor at the radiator outlet to help control the cooling fans and thermostat. The computer found a reading that does not make sense compared with other sensors from this sensor.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fans may run all the time",
+   "Usually no change in engine temperature"
+  ],
+  "causes": [
+   {
+    "name": "Faulty radiator coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Thermostat stuck open or low coolant",
+    "how": "common"
+   },
+   {
+    "name": "Wiring with high resistance",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level",
+   "Inspect the sensor connector and wiring at the radiator",
+   "Compare its reading with the engine coolant temperature sensor after a cold soak"
+  ],
+  "fix": "Usually a new radiator coolant temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace radiator coolant temperature sensor",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00B3",
+  "title": "Radiator Coolant Temperature Sensor Circuit Low",
+  "plain": "Some engines have a second coolant temperature sensor at the radiator outlet to help control the cooling fans and thermostat. The computer found a signal that is too low (often reads very hot) from this sensor.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fans may run all the time",
+   "Usually no change in engine temperature"
+  ],
+  "causes": [
+   {
+    "name": "Faulty radiator coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Coolant leaking into the connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level",
+   "Inspect the sensor connector and wiring at the radiator",
+   "Compare its reading with the engine coolant temperature sensor after a cold soak"
+  ],
+  "fix": "Usually a new radiator coolant temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace radiator coolant temperature sensor",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00B4",
+  "title": "Radiator Coolant Temperature Sensor Circuit High",
+  "plain": "Some engines have a second coolant temperature sensor at the radiator outlet to help control the cooling fans and thermostat. The computer found a signal that is too high (often reads very cold) from this sensor.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fans may run all the time",
+   "Usually no change in engine temperature"
+  ],
+  "causes": [
+   {
+    "name": "Faulty radiator coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Coolant leaking into the connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level",
+   "Inspect the sensor connector and wiring at the radiator",
+   "Compare its reading with the engine coolant temperature sensor after a cold soak"
+  ],
+  "fix": "Usually a new radiator coolant temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace radiator coolant temperature sensor",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00B5",
+  "title": "Radiator Coolant Temperature Sensor Circuit Intermittent/Erratic",
+  "plain": "Some engines have a second coolant temperature sensor at the radiator outlet to help control the cooling fans and thermostat. The computer found a signal that cuts in and out from this sensor.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fans may run all the time",
+   "Usually no change in engine temperature"
+  ],
+  "causes": [
+   {
+    "name": "Faulty radiator coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Coolant leaking into the connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level",
+   "Inspect the sensor connector and wiring at the radiator",
+   "Compare its reading with the engine coolant temperature sensor after a cold soak"
+  ],
+  "fix": "Usually a new radiator coolant temperature sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace radiator coolant temperature sensor",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00B6",
+  "title": "Radiator Coolant Temperature/Engine Coolant Temperature Correlation",
+  "plain": "After the engine has cooled down, the radiator coolant temperature and engine coolant temperature readings should be close. The computer found they disagree by too much.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fans may run more than normal"
+  ],
+  "causes": [
+   {
+    "name": "Faulty radiator coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Faulty engine coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Thermostat stuck open",
+    "how": "possible"
+   },
+   {
+    "name": "Low coolant or air in the cooling system",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level",
+   "Compare both readings after the car sits overnight",
+   "Watch both readings as the engine warms up"
+  ],
+  "fix": "Usually replacing whichever sensor reads wrong, or a thermostat if it is stuck open.",
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00B7",
+  "title": "Engine Coolant Flow Low/Performance",
+  "plain": "The computer has found that coolant is not flowing through the engine as well as it should. This can lead to overheating.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge may run high",
+   "Heater may blow cooler air than normal"
+  ],
+  "causes": [
+   {
+    "name": "Low coolant level or air trapped in the system",
+    "how": "common"
+   },
+   {
+    "name": "Failing water pump, often an electric pump on newer engines",
+    "how": "common"
+   },
+   {
+    "name": "Stuck thermostat or coolant control valve",
+    "how": "common"
+   },
+   {
+    "name": "Clogged radiator or coolant passages",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level with the engine cold",
+   "Watch the temperature gauge; stop driving if it climbs toward hot",
+   "Have a shop test the water pump and thermostat"
+  ],
+  "fix": "Usually topping off and bleeding the coolant, or a new water pump or thermostat. Do not keep driving if the engine starts to overheat.",
+  "cost": {
+   "job": "Replace water pump",
+   "parts": [
+    60,
+    500
+   ],
+   "hours": [
+    1,
+    4
+   ]
+  },
+  "guide": "engine-overheating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00B8",
+  "title": "MAP - Mass or Volume Air Flow Correlation (Bank 2)",
+  "plain": "The computer compares the manifold pressure sensor with the mass air flow sensor. Their readings for bank 2 do not agree, which usually means an air leak or a bad sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation",
+   "Possible poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Vacuum or intake leak",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or faulty MAF sensor",
+    "how": "common"
+   },
+   {
+    "name": "Faulty MAP sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring problem at either sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look for cracked intake hoses and vacuum leaks",
+   "Clean or test the MAF sensor",
+   "Compare MAP and MAF readings with a scan tool"
+  ],
+  "fix": "Usually fixing an air leak or replacing the MAF or MAP sensor.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00B9",
+  "title": "Low Pressure Fuel System Pressure - Too Low, Low Ambient Temperature",
+  "plain": "In cold weather, the computer measured that the low-pressure fuel supply (from the tank pump) is lower than it should be.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling in cold weather",
+   "Loss of power"
+  ],
+  "causes": [
+   {
+    "name": "Diesel fuel gelling or waxing in the cold",
+    "how": "common"
+   },
+   {
+    "name": "Clogged fuel filter",
+    "how": "common"
+   },
+   {
+    "name": "Weak in-tank fuel pump",
+    "how": "common"
+   },
+   {
+    "name": "Water in the fuel freezing",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "On diesels, make sure winter-blend fuel or an anti-gel additive is being used",
+   "Replace the fuel filter and drain any water",
+   "Check low-side fuel pressure with a gauge"
+  ],
+  "fix": "Often a new fuel filter and winter-grade fuel on diesels; otherwise a weak fuel pump.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00BA",
+  "title": "Low Fuel Pressure - Forced Limited Power",
+  "plain": "Fuel pressure has been too low for long enough that the computer has cut engine power to protect the engine.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Hesitation or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Clogged fuel filter",
+    "how": "common"
+   },
+   {
+    "name": "Weak fuel pump or high-pressure pump",
+    "how": "common"
+   },
+   {
+    "name": "Fuel leak or restricted fuel line",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty fuel pressure sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other fuel pressure codes",
+   "Replace the fuel filter if it is due",
+   "Check low-side and rail pressure with a gauge and scan tool"
+  ],
+  "fix": "Fix the cause of low fuel pressure, often a fuel filter or fuel pump.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00BB",
+  "title": "Fuel Injector Insufficient Flow - Forced Limited Power",
+  "plain": "The computer has determined that the fuel injectors are not delivering enough fuel, so it has cut engine power to protect the engine.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Rough running or smoke"
+  ],
+  "causes": [
+   {
+    "name": "Clogged or worn fuel injectors",
+    "how": "common"
+   },
+   {
+    "name": "Low fuel supply pressure",
+    "how": "common"
+   },
+   {
+    "name": "Contaminated fuel",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty fuel rail pressure sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for low fuel pressure codes and fix those first",
+   "Have a shop run injector balance or flow tests"
+  ],
+  "fix": "Often fuel filter service and fuel system cleaning; worn injectors may need replacing.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00BC",
+  "title": "Mass or Volume Air Flow \"A\" Circuit Range/Performance - Air Flow Too Low",
+  "plain": "The mass air flow sensor measures how much air the engine takes in. The computer compared the \"A\" sensor reading with what it expected and found the measured air flow is too low.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation, rough idle or stalling",
+   "Possible reduced power or poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Dirty or contaminated MAF sensor",
+    "how": "common"
+   },
+   {
+    "name": "Intake air leak after the MAF sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged air filter or restricted intake",
+    "how": "common"
+   },
+   {
+    "name": "Faulty MAF sensor or wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the air filter and intake ducts",
+   "Clean the MAF sensor with MAF-safe cleaner",
+   "Compare MAF readings to expected values with a scan tool"
+  ],
+  "fix": "Often cleaning the MAF sensor or fixing an air leak; otherwise a new MAF sensor.",
+  "cost": {
+   "job": "Replace mass air flow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "hesitation-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00BD",
+  "title": "Mass or Volume Air Flow \"A\" Circuit Range/Performance - Air Flow Too High",
+  "plain": "The mass air flow sensor measures how much air the engine takes in. The computer compared the \"A\" sensor reading with what it expected and found the measured air flow is too high.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation, rough idle or stalling",
+   "Possible reduced power or poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or contaminated MAF sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wrong or oiled aftermarket air filter fouling the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring problem at the MAF sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Boost or intake system problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the air filter and intake ducts",
+   "Clean the MAF sensor with MAF-safe cleaner",
+   "Compare MAF readings to expected values with a scan tool"
+  ],
+  "fix": "Often cleaning the MAF sensor or fixing an air leak; otherwise a new MAF sensor.",
+  "cost": {
+   "job": "Replace mass air flow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "hesitation-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00BE",
+  "title": "Mass or Volume Air Flow \"B\" Circuit Range/Performance - Air Flow Too Low",
+  "plain": "The mass air flow sensor measures how much air the engine takes in. The computer compared the \"B\" sensor reading with what it expected and found the measured air flow is too low.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation, rough idle or stalling",
+   "Possible reduced power or poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Dirty or contaminated MAF sensor",
+    "how": "common"
+   },
+   {
+    "name": "Intake air leak after the MAF sensor",
+    "how": "common"
+   },
+   {
+    "name": "Clogged air filter or restricted intake",
+    "how": "common"
+   },
+   {
+    "name": "Faulty MAF sensor or wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the air filter and intake ducts",
+   "Clean the MAF sensor with MAF-safe cleaner",
+   "Compare MAF readings to expected values with a scan tool"
+  ],
+  "fix": "Often cleaning the MAF sensor or fixing an air leak; otherwise a new MAF sensor.",
+  "cost": {
+   "job": "Replace mass air flow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "hesitation-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ },
+ {
+  "code": "P00BF",
+  "title": "Mass or Volume Air Flow \"B\" Circuit Range/Performance - Air Flow Too High",
+  "plain": "The mass air flow sensor measures how much air the engine takes in. The computer compared the \"B\" sensor reading with what it expected and found the measured air flow is too high.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation, rough idle or stalling",
+   "Possible reduced power or poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or contaminated MAF sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wrong or oiled aftermarket air filter fouling the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring problem at the MAF sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Boost or intake system problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the air filter and intake ducts",
+   "Clean the MAF sensor with MAF-safe cleaner",
+   "Compare MAF readings to expected values with a scan tool"
+  ],
+  "fix": "Often cleaning the MAF sensor or fixing an air leak; otherwise a new MAF sensor.",
+  "cost": {
+   "job": "Replace mass air flow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "hesitation-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0001-p0099/"
+  ]
+ }
+]

@@ -1,0 +1,1541 @@
+[
+ {
+  "code": "P0480",
+  "title": "Cooling Fan 1 Control Circuit",
+  "plain": "The computer found an electrical problem in the circuit that turns on the main radiator cooling fan. If the fan does not run, the engine can overheat when you are stopped or in slow traffic.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Engine runs hot in traffic or at idle",
+   "A/C blows warm when stopped",
+   "Fan runs all the time, or never runs"
+  ],
+  "causes": [
+   {
+    "name": "Failed cooling fan relay",
+    "how": "common"
+   },
+   {
+    "name": "Failed cooling fan motor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or melted connector at the fan",
+    "how": "possible"
+   },
+   {
+    "name": "Failed fan control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Turn on the A/C and see whether the cooling fans come on",
+   "Check the cooling fan fuses and relays",
+   "Check for power and ground at the fan connector"
+  ],
+  "fix": "Usually a new fan relay or fan motor, or a wiring repair at the fan connector.",
+  "cost": {
+   "job": "Replace cooling fan motor or fan assembly",
+   "parts": [
+    100,
+    450
+   ],
+   "hours": [
+    0.8,
+    2
+   ]
+  },
+  "guide": "overheats-only-in-traffic",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0480",
+   "https://www.aa1car.com/library/electric_cooling_fan.htm",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0481",
+  "title": "Cooling Fan 2 Control Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the second cooling fan, or the high-speed fan circuit on some vehicles. Without it the engine may run hot in traffic and the A/C may blow warm.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Engine runs hot in traffic or at idle",
+   "A/C blows warm when stopped",
+   "Fan runs all the time, or never runs"
+  ],
+  "causes": [
+   {
+    "name": "Failed cooling fan relay",
+    "how": "common"
+   },
+   {
+    "name": "Failed cooling fan motor",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or melted connector at the fan",
+    "how": "possible"
+   },
+   {
+    "name": "Failed fan control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Turn on the A/C and see whether the cooling fans come on",
+   "Check the cooling fan fuses and relays",
+   "Check for power and ground at the fan connector"
+  ],
+  "fix": "Usually a new fan relay or fan motor, or a wiring repair.",
+  "cost": {
+   "job": "Replace cooling fan motor or fan assembly",
+   "parts": [
+    100,
+    450
+   ],
+   "hours": [
+    0.8,
+    2
+   ]
+  },
+  "guide": "overheats-only-in-traffic",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0481",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0482",
+  "title": "Cooling Fan 3 Control Circuit",
+  "plain": "The computer found an electrical problem in the circuit for the third cooling fan speed or fan on vehicles that have one.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may run hot in traffic",
+   "A/C may blow warm at idle"
+  ],
+  "causes": [
+   {
+    "name": "Failed fan relay",
+    "how": "common"
+   },
+   {
+    "name": "Failed fan motor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or fuse problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Turn on the A/C and see whether the cooling fans come on",
+   "Check the cooling fan fuses and relays",
+   "Check for power and ground at the fan connector"
+  ],
+  "fix": "Usually a new fan relay or fan motor, or a wiring repair.",
+  "cost": {
+   "job": "Replace cooling fan motor or fan assembly",
+   "parts": [
+    100,
+    450
+   ],
+   "hours": [
+    0.8,
+    2
+   ]
+  },
+  "guide": "overheats-only-in-traffic",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0483",
+  "title": "Cooling Fan Rationality Check",
+  "plain": "The computer turned the cooling fan on but did not see the engine temperature or fan speed respond the way it expected.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may run hot in traffic",
+   "Fan may run weakly or not at all"
+  ],
+  "causes": [
+   {
+    "name": "Worn or weak cooling fan motor",
+    "how": "common"
+   },
+   {
+    "name": "Failed fan relay or control module",
+    "how": "common"
+   },
+   {
+    "name": "Low coolant or other cooling system problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the fans run at full speed when commanded",
+   "Check coolant level and look for other cooling codes"
+  ],
+  "fix": "Usually a new cooling fan motor or control module.",
+  "cost": {
+   "job": "Replace cooling fan motor or fan assembly",
+   "parts": [
+    100,
+    450
+   ],
+   "hours": [
+    0.8,
+    2
+   ]
+  },
+  "guide": "overheats-only-in-traffic",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0483",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0484",
+  "title": "Cooling Fan Circuit Over Current",
+  "plain": "The cooling fan circuit is drawing more current than it should, which usually means the fan motor is binding or shorted.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Fan may not run",
+   "Engine may run hot in traffic"
+  ],
+  "causes": [
+   {
+    "name": "Worn or seized fan motor",
+    "how": "common"
+   },
+   {
+    "name": "Debris jamming the fan blade",
+    "how": "common"
+   },
+   {
+    "name": "Shorted wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Spin the fan by hand with the engine off and key out to feel for binding",
+   "Measure fan current draw"
+  ],
+  "fix": "Usually a new cooling fan motor.",
+  "cost": {
+   "job": "Replace cooling fan motor or fan assembly",
+   "parts": [
+    100,
+    450
+   ],
+   "hours": [
+    0.8,
+    2
+   ]
+  },
+  "guide": "overheats-only-in-traffic",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0485",
+  "title": "Cooling Fan Power/Ground Circuit",
+  "plain": "The computer sees a problem with the power or ground supply to the cooling fan.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Fan may not run",
+   "Engine may run hot in traffic"
+  ],
+  "causes": [
+   {
+    "name": "Blown fan fuse or failed relay",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose ground connection",
+    "how": "common"
+   },
+   {
+    "name": "Melted or damaged fan connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the fan fuse and relay",
+   "Check power and ground at the fan connector"
+  ],
+  "fix": "Usually a fuse, relay, ground or connector repair.",
+  "cost": {
+   "job": "Replace cooling fan relay",
+   "parts": [
+    15,
+    70
+   ],
+   "hours": [
+    0.2,
+    0.5
+   ]
+  },
+  "guide": "overheats-only-in-traffic",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0486",
+  "title": "Exhaust Gas Recirculation Sensor \"B\" Circuit",
+  "plain": "The computer sees a general electrical problem with the second EGR sensor, used on some engines to monitor EGR position or flow.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in driving"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR sensor \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor reference voltage, ground and signal",
+   "Inspect wiring near the hot exhaust"
+  ],
+  "fix": "Usually a new sensor or a wiring repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0487",
+  "title": "Exhaust Gas Recirculation Throttle Control Circuit \"A\" Open",
+  "plain": "Some engines, mostly diesels, use a throttle plate to help pull exhaust gas into the intake. The computer sees an open circuit to that throttle.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power on diesels",
+   "EGR flow may be reduced"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed EGR throttle motor",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the connector at the EGR or intake throttle",
+   "Check the motor resistance and wiring"
+  ],
+  "fix": "Usually a wiring repair or a new throttle valve assembly.",
+  "cost": {
+   "job": "Replace EGR or intake throttle valve",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0488",
+  "title": "Exhaust Gas Recirculation Throttle Control Circuit \"A\" Range/Performance",
+  "plain": "The EGR throttle plate is not moving to the position the computer asks for, usually because soot is making it stick.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power on diesels",
+   "EGR flow may be reduced"
+  ],
+  "causes": [
+   {
+    "name": "Soot or carbon buildup on the throttle plate",
+    "how": "common"
+   },
+   {
+    "name": "Failing throttle motor or position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle plate for soot and clean it",
+   "Command the throttle with a scan tool and watch actual position"
+  ],
+  "fix": "Usually cleaning or replacing the EGR or intake throttle valve.",
+  "cost": {
+   "job": "Replace EGR or intake throttle valve",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0489",
+  "title": "Exhaust Gas Recirculation \"A\" Control Circuit Low",
+  "plain": "The circuit that controls the EGR valve is reading lower voltage than it should, which usually points to a short or a failed EGR valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough idle or pinging",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Wiring shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed EGR valve or solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR valve resistance",
+   "Check the wiring for chafing or a short to ground"
+  ],
+  "fix": "Usually a new EGR valve or solenoid, or a wiring repair.",
+  "cost": {
+   "job": "Replace EGR valve",
+   "parts": [
+    80,
+    450
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0490",
+  "title": "Exhaust Gas Recirculation \"A\" Control Circuit High",
+  "plain": "The circuit that controls the EGR valve is reading higher voltage than it should, often from an open wire or a failed EGR valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible pinging under load",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Open wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed EGR valve or solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the EGR valve resistance and connector",
+   "Check for power at the connector with the key on"
+  ],
+  "fix": "Usually a new EGR valve or solenoid, or a wiring repair.",
+  "cost": {
+   "job": "Replace EGR valve",
+   "parts": [
+    80,
+    450
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P048A",
+  "title": "Exhaust Pressure Control Valve \"A\" Stuck Closed",
+  "plain": "The computer thinks the exhaust pressure control valve is stuck closed, which traps exhaust and can cut power and raise exhaust temperatures.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible loss of power on diesels",
+   "Slower warm-up in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Valve seized closed by soot or rust",
+    "how": "common"
+   },
+   {
+    "name": "Failed actuator or linkage",
+    "how": "common"
+   },
+   {
+    "name": "Wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the valve with a scan tool and watch its position reading",
+   "Inspect the position sensor connector and wiring"
+  ],
+  "fix": "Usually freeing up or replacing the valve or actuator.",
+  "cost": {
+   "job": "Replace exhaust pressure control valve",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P048B",
+  "title": "Exhaust Pressure Control Valve Position Sensor/Switch Circuit",
+  "plain": "The computer sees an electrical problem with the sensor that reports where the exhaust pressure control valve is.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible loss of power on diesels",
+   "Slower warm-up in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Failed position sensor (often built into the valve actuator)",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the valve with a scan tool and watch its position reading",
+   "Inspect the position sensor connector and wiring"
+  ],
+  "fix": "Usually a new valve actuator or a wiring repair.",
+  "cost": {
+   "job": "Replace exhaust pressure control valve",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P048C",
+  "title": "Exhaust Pressure Control Valve Position Sensor/Switch Circuit Range/Performance",
+  "plain": "The exhaust pressure control valve position reading does not match what the valve should be doing.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible loss of power on diesels",
+   "Slower warm-up in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Sticking valve",
+    "how": "common"
+   },
+   {
+    "name": "Failing position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Worn linkage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the valve with a scan tool and watch its position reading",
+   "Inspect the position sensor connector and wiring"
+  ],
+  "fix": "Usually freeing up or replacing the valve or actuator.",
+  "cost": {
+   "job": "Replace exhaust pressure control valve",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P048D",
+  "title": "Exhaust Pressure Control Valve Position Sensor/Switch Circuit Low",
+  "plain": "The exhaust pressure control valve position sensor signal is lower than possible.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible loss of power on diesels",
+   "Slower warm-up in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Failed position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the valve with a scan tool and watch its position reading",
+   "Inspect the position sensor connector and wiring"
+  ],
+  "fix": "Replace the actuator or sensor, or repair the wiring.",
+  "cost": {
+   "job": "Replace exhaust pressure control valve",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P048E",
+  "title": "Exhaust Pressure Control Valve Position Sensor/Switch Circuit High",
+  "plain": "The exhaust pressure control valve position sensor signal is higher than possible.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible loss of power on diesels",
+   "Slower warm-up in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Failed position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Open wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Signal shorted to voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the valve with a scan tool and watch its position reading",
+   "Inspect the position sensor connector and wiring"
+  ],
+  "fix": "Replace the actuator or sensor, or repair the wiring.",
+  "cost": {
+   "job": "Replace exhaust pressure control valve",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P048F",
+  "title": "Exhaust Pressure Control Valve Position Sensor/Switch Circuit Intermittent/Erratic",
+  "plain": "The exhaust pressure control valve position signal is cutting in and out or jumping around.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible loss of power on diesels",
+   "Slower warm-up in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring near the exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Failing position sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the valve with a scan tool and watch its position reading",
+   "Inspect the position sensor connector and wiring"
+  ],
+  "fix": "Repair the wiring or connector, or replace the actuator.",
+  "cost": {
+   "job": "Replace exhaust pressure control valve",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0491",
+  "title": "Secondary Air Injection System Insufficient Flow (Bank 1)",
+  "plain": "The system that blows fresh air into the bank 1 exhaust after a cold start is not moving enough air. It helps the catalytic converter warm up and does not affect normal driving.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Air pump may sound loud or be silent on cold start",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed secondary air pump",
+    "how": "common"
+   },
+   {
+    "name": "Stuck or clogged check (combi) valve",
+    "how": "common"
+   },
+   {
+    "name": "Carbon-blocked air passages in the head or exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Leaking air hoses",
+    "how": "possible"
+   },
+   {
+    "name": "Blown fuse or bad pump relay",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen for the air pump after a cold start",
+   "Check the pump fuse and relay",
+   "Inspect the check (combi) valve and hoses for moisture, carbon or cracks"
+  ],
+  "fix": "Usually a new air pump, a new check (combi) valve, or clearing blocked passages.",
+  "cost": {
+   "job": "Replace secondary air injection pump",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "examples": [
+   "Common on older VW and Audi models with a clogged or failed combi valve"
+  ],
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0492",
+  "title": "Secondary Air Injection System Insufficient Flow (Bank 2)",
+  "plain": "The system that blows fresh air into the bank 2 exhaust after a cold start is not moving enough air.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Air pump may sound loud or be silent on cold start",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed secondary air pump",
+    "how": "common"
+   },
+   {
+    "name": "Stuck or clogged check (combi) valve",
+    "how": "common"
+   },
+   {
+    "name": "Carbon-blocked air passages in the head or exhaust",
+    "how": "common"
+   },
+   {
+    "name": "Leaking air hoses",
+    "how": "possible"
+   },
+   {
+    "name": "Blown fuse or bad pump relay",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Listen for the air pump after a cold start",
+   "Check the pump fuse and relay",
+   "Inspect the check (combi) valve and hoses for moisture, carbon or cracks"
+  ],
+  "fix": "Usually a new air pump, a new check (combi) valve, or clearing blocked passages.",
+  "cost": {
+   "job": "Replace secondary air injection pump",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0493",
+  "title": "Fan Overspeed",
+  "plain": "The engine cooling fan is spinning faster than the computer commanded, which on trucks with a clutch fan often means the fan clutch is locked up.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loud roaring fan noise",
+   "Possible drop in fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Fan clutch stuck engaged",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fan speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Fan control solenoid or wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the fan clutch or fan speed changes as the engine warms up",
+   "Check the fan speed sensor and wiring"
+  ],
+  "fix": "Usually a new fan clutch, or a new fan speed sensor.",
+  "cost": {
+   "job": "Replace fan clutch",
+   "parts": [
+    80,
+    350
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0494",
+  "title": "Fan Speed Low",
+  "plain": "The engine cooling fan is spinning slower than the computer expects, so the engine may not get enough cooling at low speed.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine runs hot in traffic or while towing",
+   "A/C may blow warm at idle"
+  ],
+  "causes": [
+   {
+    "name": "Worn or slipping fan clutch",
+    "how": "common"
+   },
+   {
+    "name": "Weak electric fan motor",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fan speed sensor or wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the fan clutch or fan speed changes as the engine warms up",
+   "Check the fan speed sensor and wiring"
+  ],
+  "fix": "Usually a new fan clutch or fan motor.",
+  "cost": {
+   "job": "Replace fan clutch",
+   "parts": [
+    80,
+    350
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "overheats-only-in-traffic",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0495",
+  "title": "Fan Speed High",
+  "plain": "The engine cooling fan is spinning faster than expected or its speed signal reads too high.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loud fan noise",
+   "Possible drop in fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Fan clutch stuck engaged",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fan speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Fan control wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the fan clutch or fan speed changes as the engine warms up",
+   "Check the fan speed sensor and wiring"
+  ],
+  "fix": "Usually a new fan clutch or fan speed sensor.",
+  "cost": {
+   "job": "Replace fan clutch",
+   "parts": [
+    80,
+    350
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0496",
+  "title": "Evaporative Emission System High Purge Flow",
+  "plain": "Fuel vapors are being pulled into the engine when they should not be, usually because the purge valve is stuck open. This can make the engine hard to start right after filling up.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling right after refueling",
+   "Rough idle",
+   "Fuel smell in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Purge valve stuck open",
+    "how": "common"
+   },
+   {
+    "name": "Purge valve leaking when it should be closed",
+    "how": "common"
+   },
+   {
+    "name": "Charcoal canister damaged, sending charcoal into the purge line",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty fuel tank pressure sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check if the purge valve holds vacuum with the engine off",
+   "Look for charcoal granules in the purge hose",
+   "Watch fuel tank pressure while the purge valve is commanded closed"
+  ],
+  "fix": "Usually a new purge valve; also replace the canister if it is leaking charcoal.",
+  "cost": {
+   "job": "Replace EVAP purge valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "examples": [
+   "Often seen on GM cars and trucks when the purge valve sticks open"
+  ],
+  "guide": "hard-to-start-when-hot",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0497",
+  "title": "Evaporative Emission System Low Purge Flow",
+  "plain": "Less fuel vapor than expected is being drawn from the charcoal canister into the engine, usually because the purge valve or a hose is blocked.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Possible fuel smell",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Purge valve stuck closed",
+    "how": "common"
+   },
+   {
+    "name": "Blocked, kinked or disconnected purge hose",
+    "how": "common"
+   },
+   {
+    "name": "Clogged charcoal canister",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fuel tank pressure sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring fault to the purge valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the purge valve open and check for vacuum at the canister side",
+   "Inspect purge hoses for kinks or blockage",
+   "Check the purge valve wiring"
+  ],
+  "fix": "Usually a new purge valve or a hose repair.",
+  "cost": {
+   "job": "Replace EVAP purge valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0498",
+  "title": "Evaporative Emission System Vent Valve Control Circuit Low",
+  "plain": "The circuit for the EVAP vent valve is reading lower voltage than it should, usually from a short or a failed valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "Possible trouble filling the tank"
+  ],
+  "causes": [
+   {
+    "name": "Failed vent valve",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector near the fuel tank",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the vent valve resistance",
+   "Inspect the wiring under the vehicle near the tank"
+  ],
+  "fix": "Usually a new vent valve or a wiring repair.",
+  "cost": {
+   "job": "Replace EVAP vent valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0499",
+  "title": "Evaporative Emission System Vent Valve Control Circuit High",
+  "plain": "The circuit for the EVAP vent valve is reading higher voltage than it should, often from an open wire or failed valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "Possible trouble filling the tank"
+  ],
+  "causes": [
+   {
+    "name": "Failed vent valve coil",
+    "how": "common"
+   },
+   {
+    "name": "Open wire or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the vent valve resistance",
+   "Check the connector near the tank for corrosion"
+  ],
+  "fix": "Usually a new vent valve or a wiring repair.",
+  "cost": {
+   "job": "Replace EVAP vent valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P049A",
+  "title": "Exhaust Gas Recirculation \"B\" Flow",
+  "plain": "On engines with a second EGR valve or path, the computer sees too much or too little exhaust flow through it.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough running or reduced power",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Carbon or soot clogging the EGR \"B\" path",
+    "how": "common"
+   },
+   {
+    "name": "Sticking EGR valve \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Faulty EGR sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command EGR valve \"B\" with a scan tool and compare actual position",
+   "Inspect the valve and passages for carbon or soot"
+  ],
+  "fix": "Usually cleaning or replacing EGR valve \"B\" and its passages.",
+  "cost": {
+   "job": "Replace EGR valve \"B\"",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    3
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P049B",
+  "title": "Exhaust Gas Recirculation \"B\" Flow Insufficient Detected",
+  "plain": "Too little exhaust is flowing through the second EGR valve or path.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible pinging on gas engines",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Clogged EGR \"B\" passages or cooler",
+    "how": "common"
+   },
+   {
+    "name": "EGR valve \"B\" stuck closed",
+    "how": "common"
+   },
+   {
+    "name": "Faulty EGR sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command EGR valve \"B\" with a scan tool and compare actual position",
+   "Inspect the valve and passages for carbon or soot"
+  ],
+  "fix": "Usually cleaning passages or replacing EGR valve \"B\".",
+  "cost": {
+   "job": "Replace EGR valve \"B\"",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    3
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P049C",
+  "title": "Exhaust Gas Recirculation \"B\" Flow Excessive Detected",
+  "plain": "Too much exhaust is flowing through the second EGR valve or path, often because the valve is stuck open.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or stalling",
+   "Black smoke on diesels"
+  ],
+  "causes": [
+   {
+    "name": "EGR valve \"B\" stuck open",
+    "how": "common"
+   },
+   {
+    "name": "Faulty EGR sensor",
+    "how": "common"
+   },
+   {
+    "name": "Control wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command EGR valve \"B\" with a scan tool and compare actual position",
+   "Inspect the valve and passages for carbon or soot"
+  ],
+  "fix": "Usually cleaning or replacing EGR valve \"B\".",
+  "cost": {
+   "job": "Replace EGR valve \"B\"",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    3
+   ]
+  },
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P049D",
+  "title": "Exhaust Gas Recirculation \"A\" Control Position Exceeded Learning Limit",
+  "plain": "The computer learns where the EGR valve closed position is. That learned position has drifted outside the allowed range, usually from carbon buildup or a worn valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough idle",
+   "EGR may be shut off"
+  ],
+  "causes": [
+   {
+    "name": "Carbon or soot buildup on the EGR valve seat",
+    "how": "common"
+   },
+   {
+    "name": "Worn EGR valve",
+    "how": "common"
+   },
+   {
+    "name": "Faulty position sensor in the valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Remove and inspect the EGR valve for buildup",
+   "Run the EGR relearn with a scan tool after cleaning or replacing"
+  ],
+  "fix": "Usually cleaning or replacing the EGR valve, then running a relearn.",
+  "cost": {
+   "job": "Replace EGR valve",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    3
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P049E",
+  "title": "Exhaust Gas Recirculation \"B\" Control Position Exceeded Learning Limit",
+  "plain": "The learned closed position of the second EGR valve has drifted outside the allowed range, usually from carbon buildup or wear.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough idle",
+   "EGR may be shut off"
+  ],
+  "causes": [
+   {
+    "name": "Carbon or soot buildup on the valve seat",
+    "how": "common"
+   },
+   {
+    "name": "Worn EGR valve \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Faulty position sensor in the valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Remove and inspect the valve for buildup",
+   "Run the EGR relearn with a scan tool after the repair"
+  ],
+  "fix": "Usually cleaning or replacing EGR valve \"B\", then running a relearn.",
+  "cost": {
+   "job": "Replace EGR valve \"B\"",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    3
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P049F",
+  "title": "Exhaust Pressure Control Valve \"B\"",
+  "plain": "On engines with a second exhaust pressure control valve, the computer sees a problem with that valve or its circuit.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible loss of power on diesels",
+   "Slower warm-up in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Failed valve or actuator",
+    "how": "common"
+   },
+   {
+    "name": "Valve seized by soot or rust",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the valve with a scan tool and watch it move",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Usually a new valve or actuator, or a wiring repair.",
+  "cost": {
+   "job": "Replace exhaust pressure control valve",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ }
+]
