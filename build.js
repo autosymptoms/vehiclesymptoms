@@ -13,7 +13,7 @@ console.log(files.length,'files',V.length,'models',V.reduce((a,v)=>a+v.issues.le
 
 // ---- Static site output (dist/) ----
 const {JSDOM}=require('jsdom');
-const SITE='https://vehiclesymptoms.com';
+const SITE='https://www.vehiclesymptoms.com';
 const tpl=fs.readFileSync('src/template.html','utf8');
 const data=fs.readFileSync('vehicles.js','utf8');
 fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');
