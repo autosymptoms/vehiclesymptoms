@@ -27,8 +27,22 @@ document.getElementById('pickForm').addEventListener('submit',e=>{e.preventDefau
 const makes=[...new Set(V.map(v=>v.make))];
 document.getElementById('mgrid').outerHTML=`<div id="mgrid">${makes.map(m=>`<details class="mk"><summary>${esc(m)} <span>${V.filter(v=>v.make===m).length} models</span></summary><div class="mgrid">${V.filter(v=>v.make===m).map(v=>`<a href="${url(v)}">${esc(v.model)}<span>${v.years[0]}–${v.years[1]}</span></a>`).join('')}</div></details>`).join('')}</div>`;
 
+const money=n=>'$'+n.toLocaleString('en-US');
+const costLine=c=>c?`<div class="cost"><div class="cost-top"><span class="cost-l">Typical repair cost</span><span class="cost-v">${money(c.lo)}–${money(c.hi)}</span></div><div class="cost-job">${esc(c.job)}${c.recall?' <span class="rc">May be free under a recall or extended warranty.</span>':''}${c.note?`<br><span class="cost-note">${esc(c.note)}</span>`:''}</div></div>`:'';
+const PRICE_DISC='Estimates only, not a quote. Ranges are averages built from typical parts prices plus standard book labor time at $120–$160 an hour, what about half of U.S. repair shops charge. Your price will depend on your area, the shop, the parts used and what the shop finds. Dealers often charge more. Diagnosis and taxes are extra.';
+function priceGuide(list,name){
+  const seen=new Set(),rows=list.filter(i=>i.cost&&!seen.has(i.cost.job+i.cost.lo)&&seen.add(i.cost.job+i.cost.lo)).sort((a,b)=>b.cost.hi-a.cost.hi);
+  if(!rows.length)return '';
+  const max=Math.max(...rows.map(i=>i.cost.hi));
+  const row=i=>{const c=i.cost,l=c.lo/max*100,w=Math.max((c.hi-c.lo)/max*100,1.5);return `<div class="pg-row"><div class="pg-lab"><b>${esc(c.job)}</b>${c.recall?'<span class="rc-tag">Recall</span>':''}<span class="pg-val">${money(c.lo)}–${money(c.hi)}</span></div><div class="pg-track"><span class="pg-bar" style="left:${l.toFixed(1)}%;width:${w.toFixed(1)}%"></span></div></div>`};
+  const first=rows.slice(0,8),rest=rows.slice(8);
+  return `<section class="pguide" id="prices"><div class="pg-head"><div><div class="eyebrow">Price guide</div><h2>Average repair costs for the ${esc(name)}</h2></div><span class="pg-badge">Average estimates</span></div>
+  <p class="pg-sub">What the known problems below usually cost to fix, most expensive first. Bars show the low-to-high range.</p>
+  ${first.map(row).join('')}${rest.length?`<details class="pg-more"><summary>Show ${rest.length} more repair${rest.length>1?'s':''}</summary>${rest.map(row).join('')}</details>`:''}
+  <p class="pg-disc"><b>Disclaimer:</b> ${PRICE_DISC}</p></section>`;
+}
 function issueCard(i){return `<div class="issue"><div class="meta"><span class="sev ${i.sev}">${SEV[i.sev]}</span><span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><span class="pill">${esc(i.sys)}</span>${i.eng?`<span class="pill">${esc(i.eng)}</span>`:''}</div>
-<h3>${esc(i.t)}</h3><dl><div><dt>What you'll notice</dt><dd>${esc(i.sym)}</dd></div><div><dt>Why it happens</dt><dd>${esc(i.why)}</dd></div><div><dt>What to do</dt><dd>${esc(i.next)}</dd></div></dl>${(g=>g?`<a class="walk" href="${gurl(g.id)}?v=${i._v||''}${i._y?'&y='+i._y:''}">Walk through this symptom: ${esc(g.title)} →</a>`:'')(forIssue(i))}</div>`}
+<h3>${esc(i.t)}</h3><dl><div><dt>What you'll notice</dt><dd>${esc(i.sym)}</dd></div><div><dt>Why it happens</dt><dd>${esc(i.why)}</dd></div><div><dt>What to do</dt><dd>${esc(i.next)}</dd></div></dl>${costLine(i.cost)}${(g=>g?`<a class="walk" href="${gurl(g.id)}?v=${i._v||''}${i._y?'&y='+i._y:''}">Walk through this symptom: ${esc(g.title)} →</a>`:'')(forIssue(i))}</div>`}
 
 function renderVehicle(v,year){
   const el=document.getElementById('vehicleView');
@@ -44,6 +58,7 @@ function renderVehicle(v,year){
   <p class="sub">${year?`Problems owners and mechanics report most for the ${esc(name)}.`:`Problems reported most across ${v.years[0]}–${v.years[1]}. Pick your year to narrow it down.`}${v.alt?' '+esc(v.alt.replace(/\.$/,''))+'.':''}</p></div>
   <div class="yearbar"><label for="vy" style="color:var(--muted);font-size:14px">Model year</label><select id="vy">${yopts}</select></div>
   ${general.length?`<h2 style="font-size:20px">Walk through your symptom</h2><div class="glist" style="margin:10px 0 26px">${general.map(g=>`<a class="gcard" href="${gurl(g.id)}?v=${v.id}${year?'&y='+year:''}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}</div>`:''}
+  ${priceGuide(list,name)}
   <h2 style="font-size:20px">${shown.length?'Known problems for this vehicle':'No model-specific problems on file for this year yet'}</h2>
   <p class="lead">${list.length?list.length+' documented issue'+(list.length>1?'s':'')+(year?' apply to '+year:' across all years')+'.':'That can mean a solid year, or one we have not finished researching. General symptom search still works.'}</p>
   ${cats.length>2?`<div class="tabs">${cats.map(c=>`<button class="tab ${c===state.tab?'on':''}" data-tab="${c}">${c}</button>`).join('')}</div>`:''}
@@ -108,3 +123,7 @@ if(hf){const hi=document.getElementById('helpInput'),out=document.getElementById
       :`<p>We couldn't match that yet. Try different words, like "squeal when braking", or pick a shortcut below.</p>`;
     out.classList.add('show');});
 }
+
+// StoryBrand homepage: CTA buttons jump to the symptom box and focus it
+['planCta','finalCta'].forEach(id=>{const a=document.getElementById(id);if(a)a.onclick=e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>{const i=document.getElementById('helpInput');if(i)i.focus({preventScroll:true})},400)}});
+document.querySelectorAll('.hcta').forEach(a=>a.onclick=e=>{const i=document.getElementById('helpInput');if(i&&document.getElementById('homeView').style.display!=='none'){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>i.focus({preventScroll:true}),400)}});

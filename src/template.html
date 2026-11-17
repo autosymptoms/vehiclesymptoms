@@ -28,6 +28,7 @@
       <a href="/#vehicle">VIN lookup</a>
       <a href="/#about">About</a>
     </nav>
+    <a class="btn hcta" href="/#top">Find my problem</a>
     <button class="menu-btn" id="menuBtn" aria-label="Menu">Menu</button>
   </div>
 </header>
@@ -36,32 +37,78 @@
 <div id="homeView"{{HOMEHIDE}}>
   <div class="hero">
     <div class="wrap" style="position:relative">
-      <h1>What is your car <em>doing?</em></h1>
-      <p class="sub">Describe it in your own words. We'll ask a few quick questions, tell you how urgent it is, and give you a summary to take to your mechanic. Free, no sign-up.</p>
+      <p class="eyebrow">Free help from people who fix cars</p>
+      <h1>Know what's wrong with your car <em>before you pay for it.</em></h1>
+      <p class="sub">Tell us what your car is doing in your own words. In about a minute you'll know how urgent it is, what it's most likely to be, what it usually costs, and exactly what to tell your mechanic.</p>
       <div class="search">
         <form id="helpForm" autocomplete="off">
           <input id="helpInput" type="search" placeholder="Example: shakes when I brake" aria-label="What is your car doing?">
-          <button class="btn" type="submit">Help me understand it</button>
+          <button class="btn" type="submit">Find out what's wrong</button>
         </form>
         <div class="results" id="helpResults"></div>
+        <p class="sc-label">Or tap what's happening:</p>
         <div class="shortcuts">
           <a class="sc" href="/symptoms/car-wont-start/">Won't start</a>
           <a class="sc" href="/symptoms/#light">Warning light</a>
-          <a class="sc" href="/symptoms/#noise">Noise</a>
+          <a class="sc" href="/symptoms/#noise">Strange noise</a>
           <a class="sc" href="/symptoms/#shake">Shaking</a>
           <a class="sc" href="/symptoms/#leaksmell">Leak or smell</a>
           <a class="sc" href="/symptoms/engine-overheating/">Running hot</a>
         </div>
-        <p class="cred">{{CRED}}</p>
+        <ul class="proof">
+          <li><b>100</b> step-by-step symptom guides</li>
+          <li><b>100</b> popular models, 1996 to 2027</li>
+          <li><b>Free</b> VIN and safety recall lookup</li>
+          <li><b>No</b> sign-up, ever</li>
+        </ul>
       </div>
     </div>
   </div>
 
+  <section class="pains">
+    <div class="wrap">
+      <h2>Car trouble shouldn't feel like a gamble.</h2>
+      <p class="lead">A new noise or a warning light leaves you with three questions, and usually no one to answer them honestly.</p>
+      <div class="pain-grid">
+        <div class="pain"><span class="pi">?</span><h3>"Is it safe to drive?"</h3><p>Some problems can wait a month. Some mean pull over now. Guessing wrong costs money, or worse.</p></div>
+        <div class="pain"><span class="pi">$</span><h3>"What's this going to cost me?"</h3><p>Walking in blind is how a small repair turns into a surprise bill.</p></div>
+        <div class="pain"><span class="pi">!</span><h3>"Am I being told the truth?"</h3><p>When you don't understand the problem, it's hard to know if the fix makes sense.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-sec">
+    <div class="wrap guide-grid">
+      <div>
+        <p class="eyebrow">Why we built this</p>
+        <h2>We fix cars for a living. You deserve to understand yours.</h2>
+        <p class="lead">Every day we see drivers who waited too long, or paid for parts they didn't need, because nobody explained what was going on. VehicleSymptoms.com is the free, plain-English help we wish every driver had.</p>
+      </div>
+      <ul class="auth">
+        <li><b>Written by people who fix cars</b><span>Every guide is built from real shop experience, not copied from forums.</span></li>
+        <li><b>Checked against the record</b><span>Recalls, service bulletins and repair records for your exact model and year.</span></li>
+        <li><b>Honest about urgency</b><span>We tell you when it can wait, and when it can't.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="plan-sec">
+    <div class="wrap">
+      <h2>Three steps to a clear answer</h2>
+      <div class="plan">
+        <div class="pstep"><span class="pn">1</span><h3>Tell us what it's doing</h3><p>Type it in your own words, or pick your year, make and model.</p></div>
+        <div class="pstep"><span class="pn">2</span><h3>Get a straight answer</h3><p>How urgent it is, the most likely causes, and what repairs usually cost for your vehicle.</p></div>
+        <div class="pstep"><span class="pn">3</span><h3>Walk into the shop prepared</h3><p>Take a ready-made summary to your mechanic, so you know what to ask and what to expect.</p></div>
+      </div>
+      <p class="plan-cta"><a class="btn" href="#top" id="planCta">Start with what your car is doing</a></p>
+    </div>
+  </section>
+
   <section id="vehicle">
     <div class="wrap">
       <div class="card vcard">
-        <h3>Find problems for your vehicle</h3>
-        <p class="d">Choose your vehicle to see documented problems and safety recalls for that exact year.</p>
+        <h3>Start with your vehicle</h3>
+        <p class="d">See the known problems, safety recalls and average repair costs for your exact year, make and model.</p>
         <form class="picker ymm" id="pickForm">
           <select id="pickYear" aria-label="Year"></select>
           <select id="pickMake" aria-label="Make" disabled></select>
@@ -79,9 +126,32 @@
     </div>
   </section>
 
-  <section id="about">
+  <section class="compare-sec">
     <div class="wrap">
-      <div class="trust"><b>A guide, not a diagnosis.</b> VehicleSymptoms.com helps you understand what may be going on and how urgent it is before you talk to a mechanic. If a red warning light is flashing, you smell burning or fuel, or the brakes or steering feel wrong, pull over safely and get help.</div>
+      <h2>What changes when you know</h2>
+      <div class="compare">
+        <div class="col without"><h3>Guessing</h3><ul><li>Worrying every time you start the car</li><li>Driving on a problem that should have stopped you</li><li>Saying yes to a repair you don't understand</li><li>A surprise bill at the counter</li></ul></div>
+        <div class="col with"><h3>Knowing</h3><ul><li>You know if it's safe to drive today</li><li>You fix small problems before they get big</li><li>You know what to ask your mechanic</li><li>You have a fair idea of the cost before you go</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="faq-sec">
+    <div class="wrap">
+      <h2>Common questions</h2>
+      <details class="faq"><summary>What's wrong with my car?</summary><p>Start by describing what you notice: a noise, a smell, a warning light, shaking, or a leak, and when it happens. Our symptom guides ask a few quick questions and narrow it down to the most likely causes, with an urgency rating so you know whether it's safe to keep driving.</p></details>
+      <details class="faq"><summary>Is it safe to drive my car?</summary><p>Every result starts with an urgency rating: stop now, get it checked within a few days, book a check when convenient, or safe to check yourself first. If a red warning light is flashing, you smell fuel or burning, or the brakes or steering feel wrong, pull over safely and get help.</p></details>
+      <details class="faq"><summary>How much will the repair cost?</summary><p>Vehicle pages show an average cost range for common repairs on that model, based on typical parts prices and standard labor times. Your shop's price will depend on your area, the parts used and what they find, so treat it as a guide, not a quote.</p></details>
+      <details class="faq"><summary>Does this replace a mechanic?</summary><p>No. It helps you understand the problem and how urgent it is, and gives you a summary to take to a mechanic. A professional inspection is the only way to confirm a diagnosis.</p></details>
+      <details class="faq"><summary>Is it really free?</summary><p>Yes. No sign-up and no fees. If you'd like a copy of your result, you can email it to yourself; we don't send marketing email.</p></details>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <h2>Stop guessing. Find out what your car is telling you.</h2>
+      <a class="btn" href="#top" id="finalCta">Find out what's wrong</a>
+      <p class="trust-mini">A guide, not a diagnosis. If a red warning light is flashing, you smell burning or fuel, or the brakes or steering feel wrong, pull over safely and get help.</p>
     </div>
   </section>
 </div>
