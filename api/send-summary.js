@@ -2,7 +2,7 @@
 // The email is built on the server from the site's own guide data (guide id, answer choices,
 // vehicle id), never from text the browser sends, so this can't be used to send arbitrary mail.
 // Env vars (set in Vercel): RESEND_API_KEY (required), EMAIL_FROM (e.g. "VehicleSymptoms <help@vehiclesymptoms.com>"),
-// RESEND_AUDIENCE_ID (optional: saves contacts; people who don't tick the tips box are saved as unsubscribed).
+// Every requester is saved to Resend Contacts (marked unsubscribed; no marketing email is sent).
 const JOURNEYS = require('./_data/journeys.json');
 const VEHICLES = require('./_data/vehicles-lite.json');
 const SITE = 'https://www.vehiclesymptoms.com';
@@ -48,16 +48,16 @@ module.exports = async (req, res) => {
 <b>Vehicle:</b> ${esc(vname || 'not specified')}<br><b>Main concern:</b> ${esc(j.title)}<br><b>What I noticed:</b><ul style="margin:6px 0">${steps.map(s => `<li>${esc(s[0])} → ${esc(s[1])}</li>`).join('')}</ul>
 <b>Possible causes to check:</b> ${esc(r.causes.map(c => c.name).join('; '))}<br><b>Tests a shop usually does:</b> ${esc(r.confirm.shop.join('; '))}</div>
 <p style="margin:18px 0"><a href="${link}" style="background:#0A84FF;color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-weight:bold">Open this guide again</a></p>
-<p style="font-size:12px;color:#666">This is a general guide, not a diagnosis. If a red warning light is flashing, you smell fuel or burning, or the brakes or steering feel wrong, pull over safely and get help.<br>You received this because you asked VehicleSymptoms.com to email you this result.${b.optIn ? ' You also asked for occasional car-care tips; every tips email has an unsubscribe link.' : ''}</p></div>`;
+<p style="font-size:12px;color:#666">This is a general guide, not a diagnosis. If a red warning light is flashing, you smell fuel or burning, or the brakes or steering feel wrong, pull over safely and get help.<br>You received this because you asked VehicleSymptoms.com to email you this result.</p></div>`;
   const text = `${j.title}${vname ? ' — ' + vname : ''}\n${URG[r.urgency]}\n\n${r.title}\n\nWhat to do now: ${r.now}\n${r.if.map(x => '- ' + x).join('\n')}\n\nWhy: ${r.why}\n\nPossible causes: ${r.causes.map(c => c.name).join('; ')}\nTests a shop usually does: ${r.confirm.shop.join('; ')}\n\nOpen the guide: ${link}\n\nA general guide, not a diagnosis.`;
   const from = process.env.EMAIL_FROM || 'VehicleSymptoms <onboarding@resend.dev>';
   try {
     const s = await fetch('https://api.resend.com/emails', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
       body: JSON.stringify({ from, to: [email], subject: `Your result: ${j.title}${vname ? ' (' + vname + ')' : ''}`, html, text }) });
     if (!s.ok) { console.error('resend', s.status, await s.text()); return res.status(502).json({ error: 'Could not send right now. Please try again later.' }) }
-    const aud = process.env.RESEND_AUDIENCE_ID;
-    if (aud) fetch(`https://api.resend.com/audiences/${aud}/contacts`, { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, unsubscribed: !b.optIn }) }).catch(() => {});
+    // Save to Resend Contacts (global contacts). Marked unsubscribed: we don't send marketing email.
+    await fetch('https://api.resend.com/contacts', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, unsubscribed: true }) }).catch(() => {});
     return res.status(200).json({ ok: true });
   } catch (e) { console.error(e); return res.status(502).json({ error: 'Could not send right now. Please try again later.' }) }
 };
