@@ -11,7 +11,8 @@ const hits = new Map();
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 module.exports = async (req, res) => {
-  const key = process.env.RESEND_API_KEY;
+  const clean = v => String(v || '').trim().replace(/^["']+|["']+$/g, '').trim();
+  const key = clean(process.env.RESEND_API_KEY);
   if (req.method === 'GET') return res.status(200).json({ enabled: !!key });
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
   if (!key) return res.status(503).json({ error: 'Email is not set up yet' });
@@ -50,14 +51,15 @@ module.exports = async (req, res) => {
 <p style="margin:18px 0"><a href="${link}" style="background:#0A84FF;color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-weight:bold">Open this guide again</a></p>
 <p style="font-size:12px;color:#666">This is a general guide, not a diagnosis. If a red warning light is flashing, you smell fuel or burning, or the brakes or steering feel wrong, pull over safely and get help.<br>You received this because you asked VehicleSymptoms.com to email you this result.</p></div>`;
   const text = `${j.title}${vname ? ' — ' + vname : ''}\n${URG[r.urgency]}\n\n${r.title}\n\nWhat to do now: ${r.now}\n${r.if.map(x => '- ' + x).join('\n')}\n\nWhy: ${r.why}\n\nPossible causes: ${r.causes.map(c => c.name).join('; ')}\nTests a shop usually does: ${r.confirm.shop.join('; ')}\n\nOpen the guide: ${link}\n\nA general guide, not a diagnosis.`;
-  const from = process.env.EMAIL_FROM || 'VehicleSymptoms <onboarding@resend.dev>';
+  const from = clean(process.env.EMAIL_FROM) || 'VehicleSymptoms <onboarding@resend.dev>';
   try {
     const s = await fetch('https://api.resend.com/emails', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
       body: JSON.stringify({ from, to: [email], subject: `Your result: ${j.title}${vname ? ' (' + vname + ')' : ''}`, html, text }) });
-    if (!s.ok) { console.error('resend', s.status, await s.text()); return res.status(502).json({ error: 'Could not send right now. Please try again later.' }) }
+    if (!s.ok) { const t = await s.text(); console.error('resend', s.status, t); let m = ''; try { m = JSON.parse(t).message || '' } catch (e) {}
+      return res.status(502).json({ error: 'Could not send right now. Please try again later. (code ' + s.status + ')', detail: String(m).slice(0, 160) }) }
     // Save to Resend Contacts (global contacts). Marked unsubscribed: we don't send marketing email.
     await fetch('https://api.resend.com/contacts', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, unsubscribed: true }) }).catch(() => {});
     return res.status(200).json({ ok: true });
-  } catch (e) { console.error(e); return res.status(502).json({ error: 'Could not send right now. Please try again later.' }) }
+  } catch (e) { console.error(e); return res.status(502).json({ error: 'Could not send right now. Please try again later. (code net)', detail: String(e && e.message || e).slice(0, 160) }) }
 };

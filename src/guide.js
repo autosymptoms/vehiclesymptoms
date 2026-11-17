@@ -49,7 +49,7 @@ const J=window.JOURNEY;const root=document.getElementById('guideApp');
 if(J&&root){
   const V=window.VEHICLES||[];
   let path=[],cur=J.start,veh=null,vyear=null,EMAIL_ON=false;
-  fetch('/api/send-summary').then(r=>r.ok?r.json():{}).then(d=>{EMAIL_ON=!!d.enabled;const eb=document.getElementById('emailbox');if(eb)eb.hidden=!EMAIL_ON}).catch(()=>{});
+  fetch('/api/send-summary/').then(r=>r.ok?r.json():{}).then(d=>{EMAIL_ON=!!d.enabled;const eb=document.getElementById('emailbox');if(eb)eb.hidden=!EMAIL_ON}).catch(()=>{});
   try{const p=new URLSearchParams(location.search);const v=V.find(x=>x.id===p.get('v'));if(v){veh=v;const y=+p.get('y');if(y>=v.years[0]&&y<=v.years[1])vyear=y}}catch(e){}
   const node=k=>J.nodes[k];
   function draw(){
@@ -101,8 +101,8 @@ if(J&&root){
     document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(summary(r));document.getElementById('copied').textContent='Copied'}catch(e){document.getElementById('copied').textContent='Select the text above and copy it'}};
     document.getElementById('print').onclick=()=>{try{window.print()}catch(e){}};
     const ef=document.getElementById('emailForm');if(ef)ef.onsubmit=async e=>{e.preventDefault();const m=document.getElementById('emailMsg'),btn=ef.querySelector('button');btn.disabled=true;m.textContent='Sending…';
-      try{const rs=await fetch('/api/send-summary',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:document.getElementById('emailIn').value,website:document.getElementById('hp').value,guide:J.id,answers:path.map(p=>p.i),vehicle:veh?veh.id:'',year:vyear||''})});
-        const d=await rs.json().catch(()=>({}));if(rs.ok){m.textContent='Sent! Check your inbox (and spam folder, just in case).';ef.reset()}else{m.textContent=d.error||'Could not send right now.';btn.disabled=false}}catch(err){m.textContent='Could not send right now.';btn.disabled=false}};
+      try{const rs=await fetch('/api/send-summary/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:document.getElementById('emailIn').value,website:document.getElementById('hp').value,guide:J.id,answers:path.map(p=>p.i),vehicle:veh?veh.id:'',year:vyear||''})});
+        const d=await rs.json().catch(()=>({}));if(rs.ok){m.textContent='Sent! Check your inbox (and spam folder, just in case).';ef.reset()}else{m.textContent=(d.error||'Could not send right now. (code '+rs.status+')')+(d.detail?' — '+d.detail:'');btn.disabled=false}}catch(err){m.textContent='Could not send right now. (code browser)';btn.disabled=false}};
     const b=document.getElementById('back');b.onclick=()=>{const p=path.pop();cur=p?p.k:J.start;draw()};
     document.getElementById('restart').onclick=()=>{path=[];cur=J.start;draw()};
   }
