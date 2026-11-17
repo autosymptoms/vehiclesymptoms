@@ -1,0 +1,481 @@
+{
+ "id": "hard-to-start-when-hot",
+ "title": "Hard to start when hot",
+ "h1": "Why is my car hard to start when the engine is warm or hot?",
+ "metaDesc": "Car hard to start when the engine is hot? Answer a few quick questions to see if it's fuel, a sensor, the starter or overheating, and how urgent it is.",
+ "group": "start",
+ "cat": "Starting Problems",
+ "synonyms": [
+  "hard to start when hot",
+  "hard to start when warm",
+  "hot start problem",
+  "car wont start when hot",
+  "car won't restart after driving",
+  "hard to start after getting gas",
+  "car wont start after filling up",
+  "long crank when engine is warm",
+  "car won't start after short stop",
+  "starts fine cold but not hot",
+  "have to press gas to start when hot",
+  "car won't start until it cools down",
+  "heat soak starter"
+ ],
+ "intro": "When a car starts fine cold but struggles after it's been driven, heat is affecting a part that's already weak. Fuel, sensors and the starter all behave differently when hot. Answer the questions below to find the likely cause and how soon to deal with it.",
+ "safety": [
+  "If the temperature gauge is in the red or you see steam, turn off the engine and let it cool. Don't open the radiator cap.",
+  "If you smell raw fuel, stop trying to start it and keep sparks and flames away.",
+  "If the engine shuts off while you're driving, get off the road safely. Power steering and brake assist will be harder."
+ ],
+ "start": "q_temp",
+ "nodes": {
+  "q_temp": {
+   "q": "Before it was hard to start, was the temperature gauge higher than normal, or did you see steam?",
+   "help": "Most gauges sit near the middle once warm. Some cars only have a red thermometer warning light instead.",
+   "opts": [
+    {
+     "a": "Yes, it was high, in the red, or I saw steam",
+     "go": "r_overheating"
+    },
+    {
+     "a": "No, the gauge was in its normal spot",
+     "go": "q_what_happens"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_what_happens"
+    }
+   ]
+  },
+  "q_what_happens": {
+   "q": "What happens when you try to start it hot?",
+   "opts": [
+    {
+     "a": "It cranks at normal speed but takes a long time to fire up",
+     "go": "q_crank_clues"
+    },
+    {
+     "a": "It cranks slowly, clicks or does nothing, then starts fine once it cools",
+     "go": "r_heat_soak_starter"
+    },
+    {
+     "a": "It shuts off while driving when hot, and won't restart until it cools",
+     "go": "r_dies_when_hot"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_crank_clues": {
+   "q": "Which of these fits best?",
+   "opts": [
+    {
+     "a": "It mostly happens right after filling up with gas",
+     "go": "r_purge_valve"
+    },
+    {
+     "a": "It starts if I press the gas pedal partway, sometimes with a puff of black smoke",
+     "go": "r_running_rich"
+    },
+    {
+     "a": "I smell raw fuel, or see a wet spot under the car",
+     "go": "r_fuel_leak"
+    },
+    {
+     "a": "The check engine light is on",
+     "go": "r_sensor"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_fuel_pressure"
+    }
+   ]
+  },
+  "r_overheating": {
+   "result": {
+    "title": "The engine may be overheating. That needs to be fixed first",
+    "urgency": "stop",
+    "now": "Turn off the engine and let it cool for at least 30 minutes without opening the radiator cap. Then have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the coolant tank is low once the engine is cool, there's a leak or another fault behind it. Tell the shop.",
+     "If you see white smoke from the tailpipe or the coolant keeps disappearing, mention it. That can point to a head gasket problem."
+    ],
+    "why": "An engine that runs too hot can be hard to restart, and starting it again risks serious damage like a warped cylinder head or blown head gasket. The overheating is the real problem to solve.",
+    "causes": [
+     {
+      "name": "Low coolant from a leak",
+      "clues": "A sweet smell, drips under the front of the car, or a low overflow tank.",
+      "against": ""
+     },
+     {
+      "name": "Radiator fan not working",
+      "clues": "It runs hot in traffic or at idle, but is fine on the highway.",
+      "against": ""
+     },
+     {
+      "name": "Thermostat stuck closed",
+      "clues": "The gauge climbs quickly, with no visible leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once fully cool, check the coolant level.",
+      "Look under the front of the car for coolant drips."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Radiator fan circuit test",
+      "Thermostat check",
+      "Combustion gas (block) test"
+     ]
+    }
+   }
+  },
+  "r_heat_soak_starter": {
+   "result": {
+    "title": "The starter or its wiring is likely struggling when hot",
+    "urgency": "check",
+    "now": "Have the starter, battery and cables tested soon. Until then, plan stops so you aren't stranded if it won't restart.",
+    "if": [
+     "If it gets worse or it fails to start several times, get it checked right away. A starter like this usually fails completely.",
+     "If the battery is more than 4 to 5 years old, have it tested first."
+    ],
+    "why": "Engine heat raises the electrical resistance in a worn starter and its cables. A starter that's borderline when cold may only click or crank slowly when hot, then work again once it cools.",
+    "causes": [
+     {
+      "name": "Worn starter motor or solenoid",
+      "clues": "Slow cranking or a single click when hot, normal when cold.",
+      "against": ""
+     },
+     {
+      "name": "Corroded or loose battery cable or ground strap",
+      "clues": "Visible corrosion, or a cable that feels warm after cranking.",
+      "against": ""
+     },
+     {
+      "name": "Weak battery",
+      "clues": "The battery is older, or the crank is slow cold too.",
+      "against": "If it always cranks strongly when cold, the battery is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the battery terminals for corrosion.",
+      "Note whether it always works once cool."
+     ],
+     "shop": [
+      "Starter current draw test (hot)",
+      "Voltage-drop test on the battery cables",
+      "Battery load test"
+     ]
+    }
+   }
+  },
+  "r_dies_when_hot": {
+   "result": {
+    "title": "A part is failing when it heats up. Don't drive it until it's fixed",
+    "urgency": "stop",
+    "now": "Park it and have it towed to a shop, or have a mobile mechanic come to you.",
+    "if": [
+     "If it restarts after cooling down, don't count on it. These parts tend to fail more often and then completely.",
+     "If a check engine light came on, have the codes read. It can point straight to the part."
+    ],
+    "why": "An engine that cuts out when hot and only restarts once cool usually has a sensor, ignition part or fuel pump that stops working with heat. Losing the engine on the road means losing power steering and brake assist.",
+    "causes": [
+     {
+      "name": "Failing crankshaft position sensor",
+      "clues": "It cuts out suddenly with no sputter, and restarts after cooling.",
+      "against": ""
+     },
+     {
+      "name": "Failing fuel pump",
+      "clues": "Sputtering or loss of power before it died.",
+      "against": ""
+     },
+     {
+      "name": "Failing ignition coil or ignition module",
+      "clues": "Misfiring or rough running when hot.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note how long it runs before dying and how long it needs to cool.",
+      "Note any warning lights."
+     ],
+     "shop": [
+      "Code scan",
+      "Crank sensor signal test (hot)",
+      "Fuel pressure test (hot)",
+      "Ignition system test"
+     ]
+    }
+   }
+  },
+  "r_purge_valve": {
+   "result": {
+    "title": "A stuck evaporative (EVAP) purge valve is a common cause",
+    "urgency": "check",
+    "now": "After filling up, press the gas pedal slightly while cranking to help it start, and book a check when convenient.",
+    "if": [
+     "If the check engine light comes on, have the codes read. EVAP faults usually set a code.",
+     "If it starts stalling at stops, get it checked sooner."
+    ],
+    "why": "Your car stores fuel vapor in a charcoal canister and burns it off while driving through a purge valve. If that valve sticks open, filling the tank pushes extra vapor into the engine, making it run too rich to start easily.",
+    "causes": [
+     {
+      "name": "Purge valve stuck open",
+      "clues": "Hard starts and a rough idle right after refueling only.",
+      "against": ""
+     },
+     {
+      "name": "Saturated charcoal canister",
+      "clues": "The tank is often filled past the first click of the pump.",
+      "against": ""
+     },
+     {
+      "name": "Leaking fuel injector",
+      "clues": "Hard hot starts even when you haven't just refueled.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether it only happens right after refueling.",
+      "Stop filling at the first click of the pump."
+     ],
+     "shop": [
+      "Code scan",
+      "Purge valve test",
+      "EVAP system smoke test"
+     ]
+    }
+   }
+  },
+  "r_running_rich": {
+   "result": {
+    "title": "Extra fuel is likely leaking into the engine after you shut it off",
+    "urgency": "check",
+    "now": "When it's hot, press the gas pedal partway while cranking to help clear the extra fuel. Book a check when convenient.",
+    "if": [
+     "If you smell raw fuel around the car, stop trying to start it and have it inspected before driving.",
+     "If the check engine light starts flashing, don't drive it."
+    ],
+    "why": "If an injector drips or fuel pressure is too high, fuel seeps into the hot engine while it sits. The engine then floods slightly on restart, so it needs a little extra air from the gas pedal, and may puff black smoke.",
+    "causes": [
+     {
+      "name": "Leaking fuel injector",
+      "clues": "A puff of black smoke on hot restarts, or a misfire code.",
+      "against": ""
+     },
+     {
+      "name": "Faulty fuel pressure regulator",
+      "clues": "Fuel smell, or poor fuel economy.",
+      "against": ""
+     },
+     {
+      "name": "Coolant temperature sensor reading cold",
+      "clues": "The engine computer adds cold-start fuel to a hot engine. Often with a check engine light.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether pressing the gas helps it start.",
+      "Notice any fuel smell after shutting it off."
+     ],
+     "shop": [
+      "Fuel pressure and hold test",
+      "Injector leak test",
+      "Live coolant temperature data"
+     ]
+    }
+   }
+  },
+  "r_fuel_leak": {
+   "result": {
+    "title": "Possible fuel leak. Stop trying to start it",
+    "urgency": "stop",
+    "now": "Don't try to start it again. Keep sparks and flames away and have the car towed.",
+    "if": [
+     "If fuel is dripping or pooling, move people away from the car and call the fire department."
+    ],
+    "why": "A raw fuel smell or a wet spot means fuel is escaping. Leaked fuel on a hot engine or exhaust is a real fire risk, and the leak can also drop fuel pressure enough to cause hard starts.",
+    "causes": [
+     {
+      "name": "Leaking fuel line or fitting",
+      "clues": "A wet spot under the car along the fuel line route.",
+      "against": ""
+     },
+     {
+      "name": "Leaking injector seal or fuel rail",
+      "clues": "The smell is strongest at the engine.",
+      "against": ""
+     },
+     {
+      "name": "Flooded engine from repeated tries",
+      "clues": "Several long cranking attempts, and no visible leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From a distance, look for drips or wet spots under the car.",
+      "Don't smoke or use flames nearby."
+     ],
+     "shop": [
+      "Fuel leak inspection",
+      "Fuel pressure and leak-down test"
+     ]
+    }
+   }
+  },
+  "r_sensor": {
+   "result": {
+    "title": "A sensor fault is likely confusing the engine computer when hot",
+    "urgency": "check",
+    "now": "Have the trouble codes read, then book a check. Many parts stores read codes free.",
+    "if": [
+     "If the check engine light is flashing, don't drive it. That signals a serious misfire.",
+     "If it starts shutting off while driving, don't drive it until it's fixed."
+    ],
+    "why": "The computer sets fuel and spark timing based on sensor readings. A coolant temperature sensor reading wrong, or a crank sensor that weakens with heat, can make a hot restart slow or rough, and usually stores a code.",
+    "causes": [
+     {
+      "name": "Faulty coolant temperature sensor",
+      "clues": "The temperature gauge acts oddly, or there's a fuel smell on hot starts.",
+      "against": ""
+     },
+     {
+      "name": "Crankshaft or camshaft position sensor weakening",
+      "clues": "A long crank when hot, and sometimes stalling.",
+      "against": ""
+     },
+     {
+      "name": "EVAP purge valve fault",
+      "clues": "Worse right after refueling.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Get the codes read and write them down."
+     ],
+     "shop": [
+      "Code scan and live sensor data",
+      "Crank and cam sensor signal test",
+      "Purge valve test"
+     ]
+    }
+   }
+  },
+  "r_fuel_pressure": {
+   "result": {
+    "title": "Fuel pressure may be dropping while the engine sits hot",
+    "urgency": "check",
+    "now": "Try turning the key to ON for a few seconds before cranking to let the fuel pump build pressure. Book a check when convenient.",
+    "if": [
+     "If it starts hesitating or losing power while driving, get it checked sooner.",
+     "If it ever dies while driving, don't drive it until it's fixed."
+    ],
+    "why": "The fuel system should hold pressure after shutdown. If it bleeds off while the engine sits hot, fuel in the lines can turn to vapor and the pump has to work longer to restart. A weak pump makes this worse in heat.",
+    "causes": [
+     {
+      "name": "Leaking check valve in the fuel pump",
+      "clues": "Long cranks after a short stop, better when you pre-prime with the key.",
+      "against": ""
+     },
+     {
+      "name": "Weak fuel pump",
+      "clues": "Hesitation under hard acceleration or on hot days.",
+      "against": ""
+     },
+     {
+      "name": "Leaking injector",
+      "clues": "A puff of black smoke on restart.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether pre-priming with the key helps.",
+      "Listen for the pump's brief hum when you turn the key to ON."
+     ],
+     "shop": [
+      "Fuel pressure test (hot)",
+      "Fuel pressure hold (leak-down) test",
+      "Injector leak test"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "A shop should check fuel pressure and sensors with the engine hot",
+    "urgency": "check",
+    "now": "Book a check, and ask the shop to test it after the engine is fully warm so the problem shows up.",
+    "if": [
+     "If it shuts off while driving, don't drive it until it's fixed.",
+     "If you smell fuel, stop trying to start it."
+    ],
+    "why": "Hot-start problems usually come from fuel pressure bleeding off, a sensor that weakens with heat, or a starter struggling with engine heat. They often disappear once cool, so testing hot matters.",
+    "causes": [
+     {
+      "name": "Fuel pressure loss",
+      "clues": "A normal crank that takes a long time to fire.",
+      "against": ""
+     },
+     {
+      "name": "Heat-sensitive sensor",
+      "clues": "A check engine light, or stalling when hot.",
+      "against": ""
+     },
+     {
+      "name": "Starter heat soak",
+      "clues": "A slow crank or click when hot only.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound of a hot restart.",
+      "Note how long the car sat before the hard start."
+     ],
+     "shop": [
+      "Code scan",
+      "Fuel pressure hold test",
+      "Starter draw test (hot)"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "hard-to-start-when-cold",
+  "engine-stalls-while-driving",
+  "engine-overheating",
+  "car-cranks-slowly",
+  "car-wont-start"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Starting Problems"
+  ],
+  "words": [
+   "hot start",
+   "hard start",
+   "purge valve",
+   "evap",
+   "injector",
+   "fuel pressure",
+   "crankshaft position sensor",
+   "starter"
+  ]
+ },
+ "sources": [
+  "https://www.acg.aaa.com/connect/blogs/5c/auto/why-is-my-car-overheating",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

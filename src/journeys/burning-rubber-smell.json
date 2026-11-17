@@ -1,0 +1,549 @@
+{
+ "id": "burning-rubber-smell",
+ "title": "Burning rubber smell",
+ "h1": "Why does my car smell like burning rubber?",
+ "metaDesc": "Burning rubber or hot brake smell? Answer a few quick questions to see if it's the brakes, a belt, the clutch or something touching the exhaust, and how urgent it is.",
+ "group": "leaksmell",
+ "cat": "Smells",
+ "synonyms": [
+  "burning rubber smell",
+  "car smells like burning rubber",
+  "hot brake smell",
+  "brakes smell hot",
+  "burning smell from wheel",
+  "smell of burning brakes",
+  "burning rubber smell after driving",
+  "burning smell when braking",
+  "clutch smell",
+  "burning clutch smell",
+  "burnt rubber smell from engine",
+  "car smells hot after driving",
+  "smells like burning tires",
+  "burning smell from under the car"
+ ],
+ "intro": "A burning rubber smell usually comes from something rubbing, slipping or getting too hot: brakes, a drive belt, the clutch, or a hose or bit of debris touching the hot exhaust. Where the smell comes from and when you notice it narrows it down fast. Answer the questions below to see the likely cause and how soon to act.",
+ "safety": [
+  "If you see smoke from a wheel or from under the hood, pull over, turn off the engine and step away from the car.",
+  "If the brake pedal feels soft, sinks or the car won't stop normally, pull over as soon as it's safe and don't drive on.",
+  "Don't touch the wheels, brakes or exhaust after a burning smell. They can be hot enough to burn you."
+ ],
+ "start": "q_smoke",
+ "nodes": {
+  "q_smoke": {
+   "q": "Do you see smoke, or does anything else feel wrong along with the smell?",
+   "help": "Look at each wheel and at the hood. Smoke near one wheel almost always means a brake problem.",
+   "opts": [
+    {
+     "a": "Smoke from one wheel, or one wheel is much hotter than the others",
+     "go": "r_brake_stuck"
+    },
+    {
+     "a": "Smoke from under the hood",
+     "go": "r_hood_smoke"
+    },
+    {
+     "a": "The brake pedal feels soft or different, or the red brake light is on",
+     "go": "r_brake_stuck"
+    },
+    {
+     "a": "No smoke, just the smell",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When do you notice the smell?",
+   "opts": [
+    {
+     "a": "After a long downhill, heavy braking, or pulling a trailer",
+     "go": "r_overheated_brakes"
+    },
+    {
+     "a": "After driving with the parking brake partly on",
+     "go": "r_parking_brake"
+    },
+    {
+     "a": "From under the hood, often with a squeal on startup or when the A/C kicks on",
+     "go": "r_belt"
+    },
+    {
+     "a": "When pulling away or going uphill in a manual car",
+     "go": "r_clutch"
+    },
+    {
+     "a": "During normal driving, with no obvious reason",
+     "go": "q_drive_feel"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_drive_feel"
+    }
+   ]
+  },
+  "q_drive_feel": {
+   "q": "Does the car feel or sound different while you drive?",
+   "help": "A brake that won't fully let go makes the car feel like it's being held back, as if you're driving with the brakes lightly on.",
+   "opts": [
+    {
+     "a": "It feels held back, pulls to one side, or coasts poorly",
+     "go": "r_brake_dragging"
+    },
+    {
+     "a": "A rubbing or scraping sound, especially when turning or over bumps",
+     "go": "r_rubbing"
+    },
+    {
+     "a": "It drives normally, the smell just comes and goes",
+     "go": "r_rubbing"
+    },
+    {
+     "a": "It smells more like burning plastic than rubber",
+     "go": "r_plastic"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "r_brake_stuck": {
+   "result": {
+    "title": "A brake is probably stuck on and overheating",
+    "urgency": "stop",
+    "now": "Pull over somewhere safe, turn off the engine and let the brakes cool. Don't drive it further. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If there are flames or the smoke gets heavier, get everyone away from the car and call 911.",
+     "If the parking brake was on, release it fully and let everything cool for at least 30 minutes before deciding what to do. If the smoke or smell came back after that, it still needs a tow."
+    ],
+    "why": "When a brake doesn't release, it rubs constantly and builds up a lot of heat. That heat can boil the brake fluid and burn the pads, which can leave you with weak or failing brakes. In rare cases it can start a fire.",
+    "causes": [
+     {
+      "name": "Stuck brake caliper",
+      "clues": "Smoke or smell from one wheel, the car pulls to one side, or that wheel is far hotter than the others.",
+      "against": "If all four wheels feel about the same, a single stuck caliper is less likely."
+     },
+     {
+      "name": "Parking brake not fully released or sticking",
+      "clues": "It's coming from a rear wheel, or the parking brake light stayed on.",
+      "against": ""
+     },
+     {
+      "name": "Collapsed brake hose holding pressure on one wheel",
+      "clues": "The problem started or got worse after heavy braking.",
+      "against": "Less common than a stuck caliper."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Without touching anything, look for smoke near each wheel.",
+      "Check that the parking brake is fully released."
+     ],
+     "shop": [
+      "Brake inspection with the wheels off",
+      "Caliper slide and piston check",
+      "Brake hose and fluid condition check",
+      "Wheel temperature comparison after a short test"
+     ]
+    }
+   }
+  },
+  "r_hood_smoke": {
+   "result": {
+    "title": "Something under the hood is burning or slipping badly",
+    "urgency": "stop",
+    "now": "Pull over, turn off the engine and step away from the car. Don't open the hood if you see flames. Once it has cooled and there's no fire, have it towed.",
+    "if": [
+     "If you see flames, get everyone away from the car and call 911.",
+     "If the smoke stops once the engine is off and you can see a shredded or missing belt, it still needs a tow. The belt often drives the water pump and the charging system."
+    ],
+    "why": "Smoke from under the hood with a rubber smell usually means a belt is slipping or shredding, a hose is melting against something hot, or fluid is burning on the engine. Any of these can lead to overheating, a dead battery or a fire if you keep driving.",
+    "causes": [
+     {
+      "name": "Slipping or failing drive belt",
+      "clues": "A loud squeal, a battery or temperature warning, or heavy steering.",
+      "against": ""
+     },
+     {
+      "name": "Seized pulley, A/C compressor or other belt-driven part",
+      "clues": "A grinding or squealing noise that started recently.",
+      "against": ""
+     },
+     {
+      "name": "Hose or wiring touching a hot part",
+      "clues": "A smell that's more like melting plastic, or a hose that's been recently worked on.",
+      "against": ""
+     },
+     {
+      "name": "Oil or fluid leaking onto the hot exhaust",
+      "clues": "A recent oil change or a known leak, and blue-gray smoke.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Drive belt, tensioner and pulley inspection",
+      "Check of belt-driven parts for a seized bearing",
+      "Hose and wiring routing check",
+      "Leak inspection"
+     ]
+    }
+   }
+  },
+  "r_overheated_brakes": {
+   "result": {
+    "title": "The brakes got very hot from heavy use",
+    "urgency": "diy",
+    "now": "If you can, pull over safely and let the brakes cool for 20–30 minutes. On long downhills, use a lower gear so the engine helps slow the car and you don't ride the brakes.",
+    "if": [
+     "If the pedal felt soft or the car took longer to stop, have the brakes and brake fluid checked before your next long trip.",
+     "If the smell keeps coming back during normal driving, a brake may be dragging. Get it checked within a few days."
+    ],
+    "why": "Long downhill stretches and heavy loads make the brakes work hard. The pads can get hot enough to give off a sharp, burnt smell. A one-time smell after that kind of driving is common, but very hot brakes don't stop as well until they cool.",
+    "causes": [
+     {
+      "name": "Brakes overheated from heavy use",
+      "clues": "It happened on a steep descent, in mountain driving, or while hauling.",
+      "against": "If the smell shows up on flat roads with light braking, look for a dragging brake instead."
+     },
+     {
+      "name": "New brake pads bedding in",
+      "clues": "The pads were replaced recently.",
+      "against": ""
+     },
+     {
+      "name": "Dragging brake made worse by heavy use",
+      "clues": "One wheel stays much hotter, or the smell lingers after it cools.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "After it cools, see if the car rolls freely and doesn't pull to one side.",
+      "Notice whether the smell returns during normal, gentle driving."
+     ],
+     "shop": [
+      "Brake pad and rotor inspection",
+      "Brake fluid condition and moisture test",
+      "Caliper function check"
+     ]
+    }
+   }
+  },
+  "r_parking_brake": {
+   "result": {
+    "title": "The parking brake was rubbing while you drove",
+    "urgency": "diy",
+    "now": "Release the parking brake fully, check that its warning light goes out, and let the wheels cool before driving on.",
+    "if": [
+     "If the smell continues once it's fully released, the parking brake may be sticking. Have it checked within a few days.",
+     "If you drove a long way with it on, have the rear brakes inspected. The pads or shoes may be glazed or worn."
+    ],
+    "why": "Driving with the parking brake partly on makes the rear brakes rub the whole time. That creates heat and a strong burnt smell. Once it's released and cooled, the smell should fade.",
+    "causes": [
+     {
+      "name": "Parking brake not fully released",
+      "clues": "The parking brake light was on, or you forgot to release it.",
+      "against": ""
+     },
+     {
+      "name": "Sticking parking brake cable or mechanism",
+      "clues": "It was released, but a rear wheel still drags. This is more common in winter or on older cars.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure the parking brake lever, pedal or button is fully off.",
+      "After cooling, push the car gently on a flat surface to see if it rolls freely."
+     ],
+     "shop": [
+      "Parking brake cable and adjustment check",
+      "Rear brake inspection",
+      "Electronic parking brake scan if equipped"
+     ]
+    }
+   }
+  },
+  "r_belt": {
+   "result": {
+    "title": "A drive belt is probably slipping",
+    "urgency": "soon",
+    "now": "Have the belt, tensioner and pulleys checked within the next few days. Keep trips short until then.",
+    "if": [
+     "If the battery light or temperature warning comes on, or steering gets heavy, pull over and stop. The belt may have broken. Have it towed.",
+     "If you see smoke from under the hood, turn off the engine and don't drive it."
+    ],
+    "why": "The drive belt runs the alternator, and on many cars the water pump and power steering. When it slips over a pulley, the friction makes a burnt rubber smell and often a squeal. A slipping belt can wear through and snap.",
+    "causes": [
+     {
+      "name": "Worn or glazed drive belt",
+      "clues": "Cracks or a shiny surface on the belt, and a squeal on cold starts.",
+      "against": ""
+     },
+     {
+      "name": "Weak belt tensioner",
+      "clues": "The tensioner arm bounces or the belt flaps at idle.",
+      "against": ""
+     },
+     {
+      "name": "Pulley or belt-driven part starting to seize",
+      "clues": "The smell is worse with the A/C on, or there's a grinding or whirring noise.",
+      "against": ""
+     },
+     {
+      "name": "Fluid on the belt",
+      "clues": "A leak of oil, coolant or power steering fluid near the front of the engine.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look at the belt for cracks, fraying or a shiny glazed surface.",
+      "Notice whether the smell or squeal gets worse with the A/C on."
+     ],
+     "shop": [
+      "Belt wear and tension check",
+      "Tensioner and idler pulley inspection",
+      "Check of belt-driven parts for bearing noise",
+      "Leak inspection near the belt"
+     ]
+    }
+   }
+  },
+  "r_clutch": {
+   "result": {
+    "title": "The clutch is likely slipping or being overworked",
+    "urgency": "soon",
+    "now": "Have the clutch checked within a few days. Until then, pull away gently and avoid resting your foot on the clutch pedal.",
+    "if": [
+     "If the engine revs rise but the car doesn't speed up to match, the clutch is slipping. Get it checked as soon as you can.",
+     "If you see smoke from under the car or it won't move in gear, stop and have it towed."
+    ],
+    "why": "A clutch that slips turns engine power into heat instead of motion, which gives off a sharp burnt smell. A single smell after a tricky hill start is common. A smell that keeps coming back usually means the clutch is worn.",
+    "causes": [
+     {
+      "name": "Worn clutch",
+      "clues": "The engine revs climb in high gears without the car speeding up, especially uphill.",
+      "against": ""
+     },
+     {
+      "name": "Driving habit (riding the clutch or slow hill starts)",
+      "clues": "It only happens after hill starts, heavy loads or stop-and-go traffic.",
+      "against": ""
+     },
+     {
+      "name": "Oil contaminating the clutch",
+      "clues": "A known engine or transmission oil leak, and grabbing or slipping.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "In a high gear at a low speed, press the gas firmly. If the revs jump without the car speeding up, the clutch is slipping.",
+      "Notice whether the clutch now engages higher in the pedal travel than it used to."
+     ],
+     "shop": [
+      "Clutch slip test",
+      "Clutch hydraulic system check",
+      "Inspection for oil leaks at the bellhousing"
+     ]
+    }
+   }
+  },
+  "r_brake_dragging": {
+   "result": {
+    "title": "A brake is likely dragging",
+    "urgency": "soon",
+    "now": "Have the brakes checked within the next day or two. Keep trips short and gentle until then.",
+    "if": [
+     "If you see smoke from a wheel, or the brake pedal feels soft, pull over and stop. Have it towed.",
+     "If one wheel is far hotter than the others after a short drive, don't keep driving it. A stuck brake can overheat quickly."
+    ],
+    "why": "When a brake doesn't fully let go, it rubs constantly. That makes the car feel held back, can pull it to one side, and creates a hot, burnt smell. Left alone, it can overheat the brake and wear it out quickly.",
+    "causes": [
+     {
+      "name": "Sticking caliper or caliper slides",
+      "clues": "The car pulls to one side, and one wheel is hotter or has more brake dust.",
+      "against": ""
+     },
+     {
+      "name": "Sticking parking brake",
+      "clues": "The drag seems to come from the rear.",
+      "against": ""
+     },
+     {
+      "name": "Worn brake hose or brake fluid problem",
+      "clues": "More than one wheel drags, or the pedal feels different.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "After a short drive, carefully hold your hand near (not on) each wheel to compare heat.",
+      "Look for one wheel with much more brake dust than the others."
+     ],
+     "shop": [
+      "Brake inspection with the wheels off",
+      "Caliper and slide pin check",
+      "Brake hose and fluid check",
+      "Parking brake adjustment check"
+     ]
+    }
+   }
+  },
+  "r_rubbing": {
+   "result": {
+    "title": "Something may be rubbing on a tire or touching the hot exhaust",
+    "urgency": "check",
+    "now": "When the car has cooled, look under it and around the tires for a plastic bag, loose shield, sagging hose or rubbed tire. Book a check if you can't find the source.",
+    "if": [
+     "If a tire shows a bald strip, bulge or rubbed sidewall, have it looked at before your next drive.",
+     "If the smell gets stronger or you see smoke, pull over and turn off the engine."
+    ],
+    "why": "A smell that comes and goes, without any change in how the car drives, often comes from something brushing a tire when you turn, or a bit of plastic or rubber stuck on the hot exhaust. These are usually easy to fix once found.",
+    "causes": [
+     {
+      "name": "Debris stuck on the exhaust",
+      "clues": "You recently drove over trash or a plastic bag, and the smell is strongest after you stop.",
+      "against": ""
+     },
+     {
+      "name": "Tire rubbing on the fender liner or a part",
+      "clues": "A rubbing sound when turning or over bumps, new or larger tires, or a loose plastic liner.",
+      "against": ""
+     },
+     {
+      "name": "Hose or wire resting on a hot part",
+      "clues": "The smell comes from under the hood, and a hose or clip looks out of place.",
+      "against": ""
+     },
+     {
+      "name": "Small oil leak dripping onto the exhaust",
+      "clues": "Oily spots under the engine, or a smell more like hot oil.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once everything is cool, look under the car and along the exhaust for anything stuck to it.",
+      "Turn the steering fully each way and look for rub marks on the tires and liners."
+     ],
+     "shop": [
+      "Undercar and exhaust inspection",
+      "Tire and wheel well inspection",
+      "Hose routing and leak check"
+     ]
+    }
+   }
+  },
+  "r_plastic": {
+   "result": {
+    "title": "A burning plastic smell may be wiring or plastic touching something hot",
+    "urgency": "soon",
+    "now": "Have it checked within a day or two. Until then, avoid using any accessory that seems linked to the smell.",
+    "if": [
+     "If you see smoke from the dash, vents or under the hood, pull over, turn off the engine and get out.",
+     "If a fuse keeps blowing or something electrical stops working along with the smell, don't drive it until it's checked."
+    ],
+    "why": "A burning plastic smell can come from something harmless, like a bag melting on the exhaust. It can also come from overheated wiring, a failing blower motor or a short circuit, which can lead to a fire. It's worth finding the source quickly.",
+    "causes": [
+     {
+      "name": "Plastic stuck to the exhaust",
+      "clues": "The smell is strongest outside the car, near the back or underneath.",
+      "against": ""
+     },
+     {
+      "name": "Overheating electrical part or wiring",
+      "clues": "The smell comes through the vents or dash, or something electrical acts up.",
+      "against": ""
+     },
+     {
+      "name": "Failing heater blower motor or resistor",
+      "clues": "The smell starts when the fan is on, or some fan speeds don't work.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether the smell changes when you turn the fan, heater or A/C on and off.",
+      "Once cool, look under the car for melted plastic on the exhaust."
+     ],
+     "shop": [
+      "Electrical system inspection for heat damage",
+      "Blower motor and resistor check",
+      "Undercar inspection"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Have the brakes and belts checked to find the source",
+    "urgency": "check",
+    "now": "Note when the smell shows up and where it seems strongest, then book a brake and under-hood inspection.",
+    "if": [
+     "If you see smoke, the brake pedal changes, or a warning light comes on, pull over and stop.",
+     "If the smell gets stronger with each drive, get it checked within a day or two."
+    ],
+    "why": "Most burning rubber smells come from the brakes, a belt, the clutch or something touching the exhaust. A technician can usually find the source with a quick look and a short drive.",
+    "causes": [
+     {
+      "name": "Dragging brake",
+      "clues": "The smell is near a wheel, or the car feels held back.",
+      "against": ""
+     },
+     {
+      "name": "Slipping drive belt",
+      "clues": "The smell is under the hood, with a squeal.",
+      "against": ""
+     },
+     {
+      "name": "Something touching the exhaust",
+      "clues": "The smell is strongest after you park.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Write down when you notice the smell and whether it's stronger near one wheel or the hood."
+     ],
+     "shop": [
+      "Brake inspection",
+      "Drive belt inspection",
+      "Undercar and exhaust check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "burning-smell",
+  "brakes-dragging",
+  "burning-oil-smell",
+  "squeal-on-startup",
+  "clutch-slipping"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "burning rubber",
+   "caliper",
+   "brake drag",
+   "dragging",
+   "parking brake",
+   "drive belt",
+   "serpentine",
+   "clutch overheat",
+   "tensioner"
+  ]
+ },
+ "sources": [
+  "https://www.firestonecompleteautocare.com/blog/maintenance/smell-of-burning-from-car/",
+  "https://lifelanes.progressive.com/burning-smells-in-car"
+ ]
+}

@@ -1,0 +1,571 @@
+{
+ "id": "four-wheel-drive-not-engaging",
+ "title": "4WD or AWD not engaging",
+ "h1": "Why won't my 4WD engage?",
+ "metaDesc": "4WD won't engage or a Service 4WD or AWD message is on? Answer a few questions to see if it's how it's being used, hubs, an actuator or a sensor, and how urgent it is.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "4wd not working",
+  "4x4 not engaging",
+  "four wheel drive wont engage",
+  "service 4wd light",
+  "service 4wd message",
+  "awd warning light",
+  "service awd",
+  "4wd light flashing",
+  "4 low wont engage",
+  "front wheels not pulling in 4wd",
+  "transfer case wont shift",
+  "4wd grinding",
+  "truck binding when turning in 4wd",
+  "check 4wd system"
+ ],
+ "intro": "Four-wheel drive problems range from simply not following the engagement steps to a failed actuator or a damaged transfer case. What the dash shows and what you hear and feel are the best clues. Answer a few questions to find the likely cause and whether it's safe to keep using the vehicle.",
+ "safety": [
+  "If you hear loud grinding or banging from under the vehicle, or it shudders or jerks while driving, pull over safely and stop.",
+  "If you smell burning or see fluid leaking from the middle of the vehicle, stop and have it checked before driving further.",
+  "Don't rely on 4WD for snow, ice or towing until it engages properly."
+ ],
+ "start": "q_what_happens",
+ "nodes": {
+  "q_what_happens": {
+   "q": "What's happening?",
+   "help": "\"4WD\" sends power to all four wheels. On part-time 4WD you select it with a switch or lever. AWD works on its own with no switch.",
+   "opts": [
+    {
+     "a": "Loud grinding, banging or clunking under the vehicle, or a burning smell",
+     "go": "q_noise"
+    },
+    {
+     "a": "It feels tight, hops or scrubs the tires when turning in 4WD on pavement",
+     "go": "r_binding"
+    },
+    {
+     "a": "I select 4WD but the indicator flashes or never comes on",
+     "go": "q_engage_how"
+    },
+    {
+     "a": "The 4WD light is on, but it still acts like only two wheels are driving",
+     "go": "r_front_not_driving"
+    },
+    {
+     "a": "A Service 4WD, Service AWD or 4x4 warning light or message is on",
+     "go": "q_message"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_noise": {
+   "q": "When do you hear the noise?",
+   "opts": [
+    {
+     "a": "Only for a moment when shifting into 4WD, then it engages",
+     "go": "r_engage_grind"
+    },
+    {
+     "a": "Only when turning on dry pavement in 4WD, along with a tight or hopping feeling",
+     "go": "r_binding"
+    },
+    {
+     "a": "Constantly while driving, or with a burning smell or fluid leak",
+     "go": "r_driveline_damage"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_engage_grind"
+    }
+   ]
+  },
+  "q_engage_how": {
+   "q": "How were you trying to engage it?",
+   "help": "Most part-time systems shift into 4 High while rolling slowly in a straight line. 4 Low usually needs the vehicle stopped or barely rolling, in Neutral. Some trucks also have hubs you turn by hand on the front wheels.",
+   "opts": [
+    {
+     "a": "While parked, going fast, or turning, or I tried 4 Low without stopping in Neutral",
+     "go": "r_engage_procedure"
+    },
+    {
+     "a": "My truck has dials on the front wheel centers (manual locking hubs)",
+     "go": "r_manual_hubs"
+    },
+    {
+     "a": "I followed the owner's manual steps and it still won't engage",
+     "go": "r_actuator_switch"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_engage_procedure"
+    }
+   ]
+  },
+  "q_message": {
+   "q": "Along with the warning, do you notice anything else?",
+   "opts": [
+    {
+     "a": "Grinding, banging, or the vehicle shudders or jerks",
+     "go": "r_driveline_damage"
+    },
+    {
+     "a": "The ABS or traction control light is on too",
+     "go": "r_sensor_fault"
+    },
+    {
+     "a": "One tire was recently replaced, or the tires don't match in size or wear",
+     "go": "r_tire_mismatch"
+    },
+    {
+     "a": "Nothing else, it drives normally",
+     "go": "r_service_message"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_service_message"
+    }
+   ]
+  },
+  "r_binding": {
+   "result": {
+    "title": "This is driveline binding from using part-time 4WD on pavement",
+    "urgency": "diy",
+    "now": "Shift back to 2WD (or 2 High) as soon as you're on dry pavement. Driving straight for a short distance usually releases the tension.",
+    "if": [
+     "If it won't come out of 4WD, try reversing straight for a few feet, then shift again.",
+     "If you have full-time 4WD or AWD and feel this, it isn't normal. Have the vehicle checked soon."
+    ],
+    "why": "Part-time 4WD locks the front and rear axles together. In a turn the wheels need to travel different distances, and on grippy pavement they can't slip to make up the difference, so the driveline winds up. That's why part-time 4WD is meant for loose or slippery surfaces only.",
+    "causes": [
+     {
+      "name": "Part-time 4WD used on dry or grippy pavement",
+      "clues": "It happens in tight turns like parking lots, and goes away in 2WD.",
+      "against": "If it happens in 2WD too, look for another cause."
+     },
+     {
+      "name": "Mismatched tire sizes front to rear",
+      "clues": "Different brands, sizes or very different tread depths.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check which 4WD modes your owner's manual allows on dry pavement.",
+      "Check that all four tires are the same size and similar in wear."
+     ],
+     "shop": [
+      "Transfer case and axle inspection if the binding happens in 2WD",
+      "Tire size and tread depth check"
+     ]
+    }
+   }
+  },
+  "r_engage_procedure": {
+   "result": {
+    "title": "It likely needs to be engaged a specific way",
+    "urgency": "diy",
+    "now": "Check your owner's manual for the exact steps. For 4 High, most trucks want slow, straight rolling. For 4 Low, stop or barely roll, shift to Neutral, then select 4 Low.",
+    "if": [
+     "If the light keeps flashing after you follow the steps exactly, roll forward or backward a few feet in a straight line. That often lets the gears line up.",
+     "If it still won't engage, the actuator or switch may be at fault. Book a check."
+    ],
+    "why": "Many 4WD systems won't shift unless speed, gear position and steering are right. A flashing light usually means the system is waiting for the gears to line up or for the right conditions.",
+    "causes": [
+     {
+      "name": "Engagement steps not met",
+      "clues": "It was tried while parked, at speed, in a turn, or in gear for 4 Low.",
+      "against": ""
+     },
+     {
+      "name": "Gears not lined up yet",
+      "clues": "The light flashes, then turns solid after rolling a short distance.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Follow the owner's manual steps exactly.",
+      "Roll a few feet in a straight line and watch whether the light turns solid."
+     ],
+     "shop": [
+      "Code scan of the 4WD module if it still won't engage"
+     ]
+    }
+   }
+  },
+  "r_manual_hubs": {
+   "result": {
+    "title": "The front hubs may not be locked",
+    "urgency": "diy",
+    "now": "Stop the vehicle, then turn both front hub dials fully to LOCK before selecting 4WD.",
+    "if": [
+     "If one hub won't turn or won't stay locked, have the hub checked.",
+     "If both hubs are locked and the front wheels still don't drive, the transfer case or front axle needs to be checked."
+    ],
+    "why": "With manual hubs, the front wheels aren't connected to the front axle until you lock them. The transfer case can be in 4WD, but no power reaches the front wheels if the hubs are free.",
+    "causes": [
+     {
+      "name": "Hubs left in FREE",
+      "clues": "One or both dials point to FREE.",
+      "against": ""
+     },
+     {
+      "name": "Worn or damaged locking hub",
+      "clues": "The dial feels loose, or it pops back out.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check both hub dials are fully turned to LOCK.",
+      "With 4WD selected, see whether both front wheels pull on a loose surface."
+     ],
+     "shop": [
+      "Locking hub inspection",
+      "Front axle and transfer case check"
+     ]
+    }
+   }
+  },
+  "r_actuator_switch": {
+   "result": {
+    "title": "A shift motor, actuator or 4WD switch is likely at fault",
+    "urgency": "check",
+    "now": "Book a check, and don't count on 4WD until it's fixed. Have the 4WD module codes read.",
+    "if": [
+     "If you need 4WD for snow, mud or towing soon, get it checked before then.",
+     "If you hear grinding or the vehicle jerks, stop using 4WD and have it inspected right away."
+    ],
+    "why": "On most modern trucks, a switch tells a module to run an electric motor that shifts the transfer case. Some also use an actuator to connect the front axle. If any of these fail, the system can't complete the shift.",
+    "causes": [
+     {
+      "name": "Failed transfer case shift motor",
+      "clues": "No whir or click from under the vehicle when you select 4WD.",
+      "against": ""
+     },
+     {
+      "name": "Front axle actuator or automatic hub fault",
+      "clues": "The transfer case shifts, but the front wheels don't drive.",
+      "against": ""
+     },
+     {
+      "name": "Faulty 4WD switch, fuse or wiring",
+      "clues": "The indicator doesn't respond at all.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the 4WD fuses listed in the owner's manual.",
+      "Listen for a brief motor sound from under the vehicle when selecting 4WD."
+     ],
+     "shop": [
+      "4WD module code scan",
+      "Shift motor and actuator test",
+      "Switch and wiring check"
+     ]
+    }
+   }
+  },
+  "r_front_not_driving": {
+   "result": {
+    "title": "Power probably isn't reaching the front wheels",
+    "urgency": "soon",
+    "now": "Have it checked within a few days. Don't rely on 4WD in snow, mud or on steep ground until it's fixed.",
+    "if": [
+     "If you hear clunking or grinding from the front, stop using 4WD and have it inspected before driving further.",
+     "If your truck has manual hubs, check that both are locked first."
+    ],
+    "why": "The 4WD light only shows what the switch or transfer case thinks is happening. If the front axle isn't connected, or a part between the transfer case and front wheels has failed, the front wheels won't pull.",
+    "causes": [
+     {
+      "name": "Front axle actuator or automatic hubs not engaging",
+      "clues": "The light comes on but only the rear wheels spin when stuck.",
+      "against": ""
+     },
+     {
+      "name": "Broken front driveshaft, axle shaft or CV joint",
+      "clues": "Clicking or clunking in turns, or grease spattered inside a front wheel.",
+      "against": ""
+     },
+     {
+      "name": "Worn transfer case chain or shift fork",
+      "clues": "Grinding or a loose clunk from the middle of the vehicle.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "On a loose surface, see if the front wheels turn when the rear wheels spin.",
+      "Look for torn rubber boots or grease around the front axles."
+     ],
+     "shop": [
+      "Front axle engagement test",
+      "Driveshaft and CV inspection",
+      "Transfer case inspection"
+     ]
+    }
+   }
+  },
+  "r_service_message": {
+   "result": {
+    "title": "The 4WD or AWD system has stored a fault",
+    "urgency": "check",
+    "now": "Book a code scan and inspection. Until then, drive normally in 2WD and don't count on 4WD or AWD.",
+    "if": [
+     "If you hear grinding or banging or the vehicle jerks, stop and have it towed.",
+     "If the ABS or traction light comes on too, mention it. A wheel speed sensor is a common cause."
+    ],
+    "why": "A Service 4WD or AWD message means the system saw a problem and may have turned itself off to protect the parts. The car usually still drives, but the extra traction may not be there when you need it.",
+    "causes": [
+     {
+      "name": "Shift motor, actuator or switch fault",
+      "clues": "4WD won't engage, or engages slowly.",
+      "against": ""
+     },
+     {
+      "name": "Wheel speed sensor problem",
+      "clues": "ABS or traction control lights come on too.",
+      "against": ""
+     },
+     {
+      "name": "Low or worn fluid in the transfer case or rear drive unit",
+      "clues": "A shudder in turns, or fluid service is overdue.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note when the message appears and whether it goes away after restarting.",
+      "Check that all four tires match in size and wear."
+     ],
+     "shop": [
+      "4WD or AWD module code scan",
+      "Transfer case and differential fluid check",
+      "Wheel speed sensor test"
+     ]
+    }
+   }
+  },
+  "r_sensor_fault": {
+   "result": {
+    "title": "A wheel speed sensor problem is a likely cause",
+    "urgency": "check",
+    "now": "Book a code scan. Drive normally but gently, and allow extra stopping distance on slippery roads.",
+    "if": [
+     "If the red brake warning light comes on too, or the brake pedal feels different, have it checked right away.",
+     "If a wheel bearing is humming or growling, get it checked sooner."
+    ],
+    "why": "The 4WD, AWD, ABS and traction systems all share wheel speed information. When one sensor fails, all of them may switch off at once. Normal braking still works, but anti-lock braking and the extra traction may not.",
+    "causes": [
+     {
+      "name": "Failed or dirty wheel speed sensor",
+      "clues": "The lights came on after driving through snow, mud or water.",
+      "against": ""
+     },
+     {
+      "name": "Damaged sensor wiring",
+      "clues": "Recent suspension, brake or wheel work.",
+      "against": ""
+     },
+     {
+      "name": "Worn wheel bearing",
+      "clues": "A hum or growl that changes when you steer.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note which warning lights are on.",
+      "Look for torn or loose wires near each wheel."
+     ],
+     "shop": [
+      "ABS and 4WD code scan",
+      "Wheel speed sensor live data check",
+      "Wheel bearing inspection"
+     ]
+    }
+   }
+  },
+  "r_tire_mismatch": {
+   "result": {
+    "title": "Mismatched tires may be upsetting the system",
+    "urgency": "soon",
+    "now": "Within a few days, have all four tires measured for size and tread depth, then match them as your owner's manual requires.",
+    "if": [
+     "If you notice shuddering or binding in turns, have the transfer case or rear drive unit checked.",
+     "If only one tire was replaced on an AWD vehicle, ask whether it needs to be shaved to match the others."
+    ],
+    "why": "AWD and 4WD systems expect all four wheels to turn at almost the same speed. A new tire next to worn ones, or a different size, makes them turn at different speeds all the time. That can set a warning and wear out the parts that split power between the axles.",
+    "causes": [
+     {
+      "name": "One new tire with three worn ones",
+      "clues": "The warning came on soon after replacing a single tire.",
+      "against": ""
+     },
+     {
+      "name": "Different tire sizes or a low tire",
+      "clues": "Mixed tire brands or sizes, or one tire low on air.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all four tire pressures.",
+      "Check that all four tires have the same size printed on the sidewall."
+     ],
+     "shop": [
+      "Tread depth and tire circumference check",
+      "4WD or AWD code scan",
+      "Transfer case or coupling inspection"
+     ]
+    }
+   }
+  },
+  "r_engage_grind": {
+   "result": {
+    "title": "A brief grind when engaging usually means the shift is happening too fast or a part is wearing",
+    "urgency": "soon",
+    "now": "Engage 4WD only at the speed and conditions in your owner's manual, and have it checked within a few days if the grind continues.",
+    "if": [
+     "If the grinding continues after it engages, or there's a burning smell, stop and have it towed.",
+     "If it only happens when shifting at higher speeds, slowing down first may be all it needs."
+    ],
+    "why": "Gears and the front axle connection need to spin at matching speeds to engage smoothly. Shifting too fast, or a worn actuator or hub, can make them clash briefly before they lock in.",
+    "causes": [
+     {
+      "name": "Shifting at too high a speed or while turning",
+      "clues": "It only grinds when you shift on the move.",
+      "against": ""
+     },
+     {
+      "name": "Worn front axle actuator or locking hub",
+      "clues": "A grind or ratchet sound from a front wheel.",
+      "against": ""
+     },
+     {
+      "name": "Worn transfer case parts or low fluid",
+      "clues": "Grinding from the middle of the vehicle, or a leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try engaging at a slow, steady speed in a straight line.",
+      "Look under the middle of the vehicle for fluid leaks."
+     ],
+     "shop": [
+      "Transfer case fluid check",
+      "Front axle actuator and hub inspection",
+      "Transfer case inspection"
+     ]
+    }
+   }
+  },
+  "r_driveline_damage": {
+   "result": {
+    "title": "There may be damage in the transfer case, axles or driveshaft",
+    "urgency": "stop",
+    "now": "Pull over safely, turn the engine off, and have the vehicle towed or call a mobile mechanic.",
+    "if": [
+     "If you see a driveshaft hanging or hear metal scraping, don't move the vehicle at all.",
+     "If you smell burning, keep away from the underside until it cools."
+    ],
+    "why": "Constant grinding, banging or jerking means parts in the driveline are slipping or broken. Driving on them can lock a wheel or drop a driveshaft, and the damage spreads fast.",
+    "causes": [
+     {
+      "name": "Transfer case failure (chain, gears or low fluid)",
+      "clues": "Grinding or banging from the middle of the vehicle, or a leak there.",
+      "against": ""
+     },
+     {
+      "name": "Broken driveshaft joint (U-joint)",
+      "clues": "A clunk when shifting into gear, or vibration that got worse quickly.",
+      "against": ""
+     },
+     {
+      "name": "Front or rear differential failure",
+      "clues": "Howling or grinding from one end, or a leak at an axle.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Transfer case and differential fluid inspection",
+      "Driveshaft and U-joint inspection",
+      "Road test on a lift"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Have the 4WD system scanned and inspected",
+    "urgency": "check",
+    "now": "Book a check, and don't rely on 4WD or AWD until it's confirmed working. Note any lights or messages on the dash.",
+    "if": [
+     "If you hear grinding or banging, or the vehicle shudders, stop and have it towed.",
+     "If it only acts up on dry pavement in 4WD, switch back to 2WD. That may be normal binding."
+    ],
+    "why": "4WD trouble can come from how it's being engaged, a failed actuator or sensor, or worn driveline parts. A scan and a quick inspection usually narrow it down fast.",
+    "causes": [
+     {
+      "name": "Engagement steps not met",
+      "clues": "The indicator flashes and never turns solid.",
+      "against": ""
+     },
+     {
+      "name": "Actuator, shift motor or sensor fault",
+      "clues": "A Service 4WD or AWD message.",
+      "against": ""
+     },
+     {
+      "name": "Worn driveline parts",
+      "clues": "Grinding, clunking or a leak under the vehicle.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Read the 4WD section of your owner's manual.",
+      "Photograph any dash messages for the shop."
+     ],
+     "shop": [
+      "4WD or AWD module code scan",
+      "Fluid level check",
+      "Road test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "traction-control-light-on",
+  "abs-light-on",
+  "clunk-over-bumps",
+  "humming-noise-at-speed",
+  "uneven-tire-wear"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Warning Lights"
+  ],
+  "words": [
+   "4wd",
+   "4x4",
+   "awd",
+   "four wheel drive",
+   "transfer case",
+   "actuator",
+   "locking hub",
+   "differential"
+  ]
+ },
+ "sources": [
+  "https://www.jeep.com/4x4/faq-and-glossary.html",
+  "https://www.capitalone.com/cars/learn/finding-the-right-car/parttime-vs-automatic-4wd-when-to-use-each-mode/2536"
+ ]
+}

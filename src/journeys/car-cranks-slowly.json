@@ -1,0 +1,445 @@
+{
+ "id": "car-cranks-slowly",
+ "title": "Engine cranks slowly",
+ "h1": "Why does my engine crank slowly?",
+ "metaDesc": "Engine turning over slowly when you start it? Answer a few quick questions to see if it's the battery, cables or starter, and how soon to deal with it.",
+ "group": "start",
+ "cat": "Starting Problems",
+ "synonyms": [
+  "slow crank",
+  "cranks slowly",
+  "engine turns over slowly",
+  "car slow to start",
+  "slow to turn over",
+  "sluggish start",
+  "car struggles to start",
+  "engine labors to start",
+  "hard to crank",
+  "starter sounds slow",
+  "car barely turns over",
+  "turns over slow in the morning",
+  "wont crank fast"
+ ],
+ "intro": "A slow crank is often the first warning before a car won't start at all. Usually the battery is weak or a connection is poor, but a tired starter or a problem inside the engine can sound similar. Answer the questions below to find the likely cause and how soon to act.",
+ "safety": [
+  "If you smell burning or see smoke near the battery, cables or starter, stop trying to start it.",
+  "If the battery is swollen, cracked or leaking, don't jump or charge it.",
+  "Don't crank for more than 10 seconds at a time. Wait about a minute between tries so the starter doesn't overheat."
+ ],
+ "start": "q_what_happens",
+ "nodes": {
+  "q_what_happens": {
+   "q": "What happens when you try to start it?",
+   "help": "Cranking is the rrr-rrr-rrr sound of the engine turning over before it fires. A slow crank sounds drawn out and labored, like rrrr... rrrr... rrrr.",
+   "opts": [
+    {
+     "a": "It cranks slowly but does start",
+     "go": "q_when"
+    },
+    {
+     "a": "It cranks slowly, then gives up or turns into clicking",
+     "go": "q_jump"
+    },
+    {
+     "a": "I smell burning or see smoke near the engine or battery",
+     "go": "r_burning"
+    },
+    {
+     "a": "The engine turns a little, then stops hard with a thunk, or this started after driving through deep water",
+     "go": "r_engine_bind"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_jump"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When is the slow crank worst?",
+   "opts": [
+    {
+     "a": "On cold mornings",
+     "go": "r_cold_battery"
+    },
+    {
+     "a": "When the engine is hot, right after a drive",
+     "go": "r_hot_crank"
+    },
+    {
+     "a": "After the car has sat for a few days",
+     "go": "r_drain"
+    },
+    {
+     "a": "Every time, and it's slowly getting worse",
+     "go": "r_weak_battery_or_cables"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_weak_battery_or_cables"
+    }
+   ]
+  },
+  "q_jump": {
+   "q": "Does a jump start or battery booster make it crank at normal speed?",
+   "opts": [
+    {
+     "a": "Yes, it cranks quickly and starts",
+     "go": "r_battery_low"
+    },
+    {
+     "a": "No, it's still slow even with a good jump",
+     "go": "r_starter_or_cables"
+    },
+    {
+     "a": "I haven't tried one",
+     "go": "r_weak_battery_or_cables"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_weak_battery_or_cables"
+    }
+   ]
+  },
+  "r_burning": {
+   "result": {
+    "title": "A cable, connection or the starter may be overheating",
+    "urgency": "stop",
+    "now": "Stop trying to start it and step away from the car. Once nothing is smoking, have it towed or call a mobile mechanic.",
+    "if": [
+     "If smoke keeps coming or you see flames, get everyone away from the car and call 911.",
+     "If the smell was only faint and faded right away, still don't keep cranking. A shorted cable can start a fire."
+    ],
+    "why": "A burning smell while cranking means a lot of current is going somewhere it shouldn't, or the starter is straining against something. Heavy battery and starter cables carry enough power to melt insulation.",
+    "causes": [
+     {
+      "name": "Starter motor overheating or shorted",
+      "clues": "Smell or smoke from low on the engine, after long or repeated cranking.",
+      "against": ""
+     },
+     {
+      "name": "Damaged or shorted battery cable",
+      "clues": "Melted or chafed insulation, or a cable that's hot to the touch.",
+      "against": ""
+     },
+     {
+      "name": "Engine not turning freely",
+      "clues": "The crank was labored or stopped abruptly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Battery cable and starter wiring inspection",
+      "Starter current draw test",
+      "Check that the engine turns freely by hand"
+     ]
+    }
+   }
+  },
+  "r_engine_bind": {
+   "result": {
+    "title": "Something may be stopping the engine from turning",
+    "urgency": "stop",
+    "now": "Don't keep trying to start it. Have it towed to a shop.",
+    "if": [
+     "If this happened after driving through deep water, water may be in the engine. Cranking it again can bend internal parts."
+    ],
+    "why": "A healthy engine spins evenly when cranking, even if slowly. If it stops hard with a thunk, something inside may be blocking it, such as water or coolant in a cylinder, or a seized part. Forcing it with the starter can turn a fixable problem into a major one.",
+    "causes": [
+     {
+      "name": "Water or coolant in a cylinder",
+      "clues": "Recent deep water, white smoke before, or coolant level dropping.",
+      "against": ""
+     },
+     {
+      "name": "Seized or damaged engine part",
+      "clues": "Knocking, an oil light or low oil before this started.",
+      "against": ""
+     },
+     {
+      "name": "Starter gear jamming",
+      "clues": "A grinding sound, and the engine seemed fine before.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level on the dipstick without starting the engine."
+     ],
+     "shop": [
+      "Turn the engine over by hand",
+      "Check cylinders for water or coolant",
+      "Starter and flywheel inspection"
+     ]
+    }
+   }
+  },
+  "r_cold_battery": {
+   "result": {
+    "title": "The battery is probably getting weak, and cold makes it show",
+    "urgency": "diy",
+    "now": "Have the battery tested soon. Most auto parts stores do this free. If it's more than 4 years old, plan on replacing it.",
+    "if": [
+     "If the battery tests good, ask for a charging test and check the battery cables for corrosion.",
+     "If the slow crank turns into clicking, it's close to leaving you stranded. Replace or charge the battery right away."
+    ],
+    "why": "Cold weather lowers how much power a battery can deliver and makes engine oil thicker, so the starter has to work harder. A battery that's starting to fail often shows it first on cold mornings.",
+    "causes": [
+     {
+      "name": "Aging battery",
+      "clues": "It's more than 4 years old, and it's fine once the day warms up.",
+      "against": ""
+     },
+     {
+      "name": "Corroded or loose battery cables",
+      "clues": "Buildup on the terminals.",
+      "against": ""
+     },
+     {
+      "name": "Oil that's too thick for the season",
+      "clues": "A recent oil change with a different oil than your owner's manual lists.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the date on the battery.",
+      "Look at the terminals for buildup.",
+      "Check your owner's manual for the right oil."
+     ],
+     "shop": [
+      "Battery load test",
+      "Charging system test",
+      "Voltage-drop test on the battery cables"
+     ]
+    }
+   }
+  },
+  "r_hot_crank": {
+   "result": {
+    "title": "The starter may be wearing out, especially when hot",
+    "urgency": "check",
+    "now": "Have the battery and starter tested at your next opportunity. A shop can measure how much power the starter draws.",
+    "if": [
+     "If it sometimes won't crank at all when hot, but starts after it cools, the starter is close to failing. Get it checked soon.",
+     "If it's also slow when cold, start with the battery and cables."
+    ],
+    "why": "Heat from the engine raises the electrical resistance in a worn starter and its cables. A starter that's on its way out often cranks slowly or not at all when hot, then works again once things cool down.",
+    "causes": [
+     {
+      "name": "Worn starter motor",
+      "clues": "Slow or no crank only when the engine is hot.",
+      "against": ""
+     },
+     {
+      "name": "Poor cable connection at the starter or ground",
+      "clues": "It comes and goes, and the battery tests fine.",
+      "against": ""
+     },
+     {
+      "name": "Weak battery",
+      "clues": "It's also slow on cold mornings.",
+      "against": "If it's only slow when hot, the battery is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether it only happens after a drive.",
+      "Check the battery terminals."
+     ],
+     "shop": [
+      "Starter current draw test",
+      "Voltage-drop test on starter cables and ground",
+      "Battery load test"
+     ]
+    }
+   }
+  },
+  "r_drain": {
+   "result": {
+    "title": "The battery may be draining while the car sits",
+    "urgency": "diy",
+    "now": "Have the battery tested. If it's healthy, watch whether the slow crank only happens after the car sits.",
+    "if": [
+     "If it only happens after a week or more of sitting, a battery maintainer may be all you need.",
+     "If it happens after just a night or two, ask a shop for a parasitic draw test."
+    ],
+    "why": "Cars use a little power even when off. If something stays on, or the battery is aging, a few days of sitting leaves too little charge to spin the starter at full speed.",
+    "causes": [
+     {
+      "name": "Something staying on while parked",
+      "clues": "A trunk, glove box or dome light that stays on, or an added accessory.",
+      "against": ""
+     },
+     {
+      "name": "Aging battery",
+      "clues": "It's more than 4 years old.",
+      "against": ""
+     },
+     {
+      "name": "Short trips not recharging the battery",
+      "clues": "Mostly drives of a few minutes.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check for lights that stay on after you lock the car.",
+      "Check the date on the battery."
+     ],
+     "shop": [
+      "Battery load test",
+      "Parasitic draw test"
+     ]
+    }
+   }
+  },
+  "r_weak_battery_or_cables": {
+   "result": {
+    "title": "Most likely a weak battery or a poor battery connection",
+    "urgency": "diy",
+    "now": "Check that the battery clamps are clean and tight, then have the battery and charging system tested. Most auto parts stores do this free.",
+    "if": [
+     "If the battery and cables test fine, the starter is the next suspect.",
+     "If the battery light has come on while driving, have the alternator tested too."
+    ],
+    "why": "The starter needs a big burst of power. A weak battery or a corroded connection can't deliver it, so the engine turns slowly. These are the most common causes and the easiest to check.",
+    "causes": [
+     {
+      "name": "Weak or aging battery",
+      "clues": "It's more than 4 years old, or it's worse on cold mornings.",
+      "against": ""
+     },
+     {
+      "name": "Corroded or loose battery cable or ground",
+      "clues": "Buildup on the terminals, or a clamp that moves by hand.",
+      "against": ""
+     },
+     {
+      "name": "Worn starter",
+      "clues": "The battery tests good but the crank is still slow.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the battery terminals.",
+      "Check the date on the battery.",
+      "Try a jump start and see if it cranks faster."
+     ],
+     "shop": [
+      "Battery load test",
+      "Charging system test",
+      "Voltage-drop test on the battery cables"
+     ]
+    }
+   }
+  },
+  "r_battery_low": {
+   "result": {
+    "title": "The battery is low. Find out why before it leaves you stranded",
+    "urgency": "soon",
+    "now": "Drive for at least 30 minutes to recharge it, then get the battery and charging system tested within the next few days.",
+    "if": [
+     "If the battery light comes on while driving, go straight to a shop. The alternator may not be charging.",
+     "If the battery is more than 4 years old, plan on replacing it."
+    ],
+    "why": "A jump fixing the slow crank confirms the battery didn't have enough charge. The question is whether the battery is worn out, isn't being recharged, or is being drained while parked.",
+    "causes": [
+     {
+      "name": "Aging battery",
+      "clues": "More than 4 years old, or slow cranks on cold mornings.",
+      "against": ""
+     },
+     {
+      "name": "Alternator not charging",
+      "clues": "The battery light flickers or stays on, or the lights dim at idle.",
+      "against": ""
+     },
+     {
+      "name": "Drain while parked",
+      "clues": "It's worst after the car sits.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Watch for the battery warning light.",
+      "Check the date on the battery."
+     ],
+     "shop": [
+      "Battery load test",
+      "Alternator output test",
+      "Parasitic draw test"
+     ]
+    }
+   }
+  },
+  "r_starter_or_cables": {
+   "result": {
+    "title": "Likely a failing starter or a bad cable connection",
+    "urgency": "check",
+    "now": "Check that the battery clamps are clean and tight. If it still cranks slowly with a good jump, book a starter and cable test.",
+    "if": [
+     "If it stops cranking altogether, have it towed or call a mobile mechanic rather than cranking over and over.",
+     "If you smell burning while cranking, stop right away."
+    ],
+    "why": "When a good jump doesn't speed up the crank, the battery isn't the main problem. Either power is being lost in a cable or ground connection, or the starter itself is worn and drawing too much current.",
+    "causes": [
+     {
+      "name": "Worn starter motor",
+      "clues": "It's worse when hot, or it has been getting slower over months.",
+      "against": ""
+     },
+     {
+      "name": "Corroded cable or engine ground strap",
+      "clues": "A cable that's warm after cranking, or corrosion at either end.",
+      "against": ""
+     },
+     {
+      "name": "Engine harder to turn than normal",
+      "clues": "Wrong oil, or a recent engine problem.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Clean and tighten the battery clamps.",
+      "Look for a loose or broken ground strap between the engine and body."
+     ],
+     "shop": [
+      "Starter current draw test",
+      "Voltage-drop test on the positive cable and ground",
+      "Battery load test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "battery-keeps-dying",
+  "car-wont-start",
+  "hard-to-start-when-cold",
+  "hard-to-start-when-hot",
+  "battery-light-on"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Starting Problems"
+  ],
+  "words": [
+   "crank",
+   "starter",
+   "battery",
+   "slow start",
+   "cable",
+   "ground",
+   "turn over"
+  ]
+ },
+ "sources": [
+  "https://www.acg.aaa.com/connect/blogs/4c/auto/6-unexpected-reasons-your-car-battery-is-dead",
+  "https://repairpal.com/battery-cable"
+ ]
+}

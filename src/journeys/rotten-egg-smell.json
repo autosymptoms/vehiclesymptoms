@@ -1,0 +1,437 @@
+{
+ "id": "rotten-egg-smell",
+ "title": "Rotten egg smell",
+ "h1": "Why does my car smell like rotten eggs?",
+ "metaDesc": "Car smells like rotten eggs or sulfur? Answer a few questions to see if it's the catalytic converter, battery, fuel or gear oil, and how urgent it is.",
+ "group": "leaksmell",
+ "cat": "Smells",
+ "synonyms": [
+  "car smells like rotten eggs",
+  "sulfur smell from car",
+  "sulphur smell car",
+  "rotten egg smell from exhaust",
+  "car smells like sulfur when accelerating",
+  "catalytic converter smell",
+  "rotten egg smell inside car",
+  "car battery smells like rotten eggs",
+  "egg smell after driving",
+  "car smells like farts",
+  "stinky exhaust smell",
+  "rotten egg smell when I hit the gas"
+ ],
+ "intro": "A rotten egg or sulfur smell usually comes from the exhaust system, most often the catalytic converter dealing with too much fuel. Less often it's an overcharged battery or leaking gear oil, which need different handling. Answer the questions below to find the likely source and how soon to act.",
+ "safety": [
+  "If the check engine light is flashing and the engine shakes or loses power, pull over and turn it off. The catalytic converter can overheat and start a fire.",
+  "If the battery is hissing, steaming, swollen or leaking, don't touch it. Keep sparks and flames away.",
+  "If anyone feels a headache, dizziness or drowsiness in the car, open the windows, pull over and get into fresh air. Exhaust may be getting inside.",
+  "If you see smoke or a red glow from under the car, get everyone away from it."
+ ],
+ "start": "q_danger",
+ "nodes": {
+  "q_danger": {
+   "q": "Does either of these apply right now?",
+   "opts": [
+    {
+     "a": "The check engine light is flashing, or the engine is shaking or losing power",
+     "go": "r_misfire_cat"
+    },
+    {
+     "a": "The smell is strongest at the battery, or the battery is hot, hissing, swollen or leaking",
+     "go": "r_battery_overcharge"
+    },
+    {
+     "a": "Neither of these",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When and where do you notice the smell most?",
+   "opts": [
+    {
+     "a": "From the exhaust, mostly when accelerating hard, climbing hills or right after a drive",
+     "go": "q_cel"
+    },
+    {
+     "a": "Mostly after filling up at one particular gas station, and it fades",
+     "go": "r_fuel_sulfur"
+    },
+    {
+     "a": "Near a wheel or the middle or back of the car, with oily drips underneath",
+     "go": "r_gear_oil"
+    },
+    {
+     "a": "Along with the battery light, or lights that are unusually bright or flickering",
+     "go": "r_charging_fault"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general_sulfur"
+    }
+   ]
+  },
+  "q_cel": {
+   "q": "Is the check engine light on, or has the car changed how it drives?",
+   "help": "A steady (not flashing) check engine light means the car has stored a trouble code. Any auto parts store or shop can read it.",
+   "opts": [
+    {
+     "a": "The check engine light is on steady",
+     "go": "r_cat_with_code"
+    },
+    {
+     "a": "It feels down on power, or rattles from under the car",
+     "go": "r_cat_with_code"
+    },
+    {
+     "a": "No light, and it drives normally",
+     "go": "r_cat_occasional"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_cat_with_code"
+    }
+   ]
+  },
+  "r_misfire_cat": {
+   "result": {
+    "title": "The engine is likely misfiring and overheating the catalytic converter",
+    "urgency": "stop",
+    "now": "Pull over as soon as it's safe and turn off the engine. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If you see smoke or a glow under the car, get everyone away from the vehicle and call 911.",
+     "If the light stops flashing after a restart, don't trust it. Have the misfire diagnosed before driving any distance."
+    ],
+    "why": "A flashing check engine light means the engine is misfiring badly. Unburned fuel goes into the catalytic converter and burns there, making it extremely hot. That causes the sulfur smell and can melt the converter or set fire to things underneath the car.",
+    "causes": [
+     {
+      "name": "Failed ignition coil or spark plug",
+      "clues": "Shaking at idle or under load, and the problem started suddenly.",
+      "against": ""
+     },
+     {
+      "name": "Leaking or stuck fuel injector",
+      "clues": "A strong fuel smell along with the sulfur smell, or black smoke.",
+      "against": ""
+     },
+     {
+      "name": "Overheated or damaged catalytic converter",
+      "clues": "Heat felt through the floor, or loss of power that gets worse as you drive.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Code scan and misfire counter check",
+      "Ignition coil and spark plug test",
+      "Fuel injector balance test",
+      "Exhaust back-pressure test on the catalytic converter"
+     ]
+    }
+   }
+  },
+  "r_battery_overcharge": {
+   "result": {
+    "title": "The battery is likely being overcharged or has failed inside",
+    "urgency": "stop",
+    "now": "Turn off the engine, open the hood to let it vent, and step away. Don't touch the battery. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the battery is swollen, cracked or leaking liquid, keep everyone well away. Battery acid burns skin and the gas it gives off can ignite.",
+     "If the smell fades and the battery looks normal once cool, still don't drive it until the charging system has been tested."
+    ],
+    "why": "When a battery gets too much charging voltage or shorts inside, the acid boils and gives off a sulfur smell along with flammable gas. The battery can swell, leak or, rarely, burst. The cause is usually a faulty alternator voltage regulator or a battery at the end of its life.",
+    "causes": [
+     {
+      "name": "Alternator overcharging (faulty voltage regulator)",
+      "clues": "Lights that seem unusually bright, bulbs burning out, or the battery light flickering.",
+      "against": ""
+     },
+     {
+      "name": "Internal short in an old battery",
+      "clues": "The battery is more than 4–5 years old, or one side feels much hotter.",
+      "against": ""
+     },
+     {
+      "name": "Wrong charger or charger left on",
+      "clues": "The battery was recently charged with a home charger.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From a safe distance, look for swelling, cracks or wet residue on the battery case."
+     ],
+     "shop": [
+      "Battery test",
+      "Charging system voltage test",
+      "Alternator and voltage regulator check"
+     ]
+    }
+   }
+  },
+  "r_charging_fault": {
+   "result": {
+    "title": "The charging system may be cooking the battery",
+    "urgency": "soon",
+    "now": "Have the battery and charging system tested within the next few days. Most auto parts stores can test both.",
+    "if": [
+     "If the battery is hot, hissing, swollen or leaking, stop driving, turn the engine off and keep away from it.",
+     "If the battery light stays on and the lights start to dim, the alternator may be failing. Get it checked right away before the car dies on the road."
+    ],
+    "why": "A sulfur smell alongside a battery warning or odd lighting suggests the alternator isn't regulating voltage correctly. Too much voltage overcharges the battery and makes it give off sulfur gas. Too little and the car can stall.",
+    "causes": [
+     {
+      "name": "Faulty voltage regulator in the alternator",
+      "clues": "Unusually bright lights, bulbs failing often, or the battery light on.",
+      "against": ""
+     },
+     {
+      "name": "Failing battery",
+      "clues": "The battery is old, starts have been slow, or there's crusty buildup on the terminals.",
+      "against": ""
+     },
+     {
+      "name": "Bad charging system wiring or ground",
+      "clues": "The lights flicker over bumps or the gauges jump around.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note how old the battery is (often on a label on top).",
+      "Look for crusty buildup or swelling on the battery."
+     ],
+     "shop": [
+      "Charging voltage test with the engine running",
+      "Battery load test",
+      "Voltage-drop test on charging wires and grounds"
+     ]
+    }
+   }
+  },
+  "r_cat_with_code": {
+   "result": {
+    "title": "The engine may be running rich or the catalytic converter may be failing",
+    "urgency": "soon",
+    "now": "Get the check engine code read and have the car checked within a few days. Avoid hard acceleration and long trips until then.",
+    "if": [
+     "If the check engine light starts flashing or the engine shakes, pull over and turn it off.",
+     "If the car keeps losing power or the floor feels hot, stop driving it. A blocked converter can overheat."
+    ],
+    "why": "The catalytic converter normally turns sulfur in the exhaust into odorless gases. When the engine sends it too much fuel, or the converter is worn out, it can't keep up, and you smell sulfur. The underlying engine problem often damages the converter if left alone.",
+    "causes": [
+     {
+      "name": "Engine running rich (too much fuel)",
+      "clues": "Worse gas mileage, a fuel smell, or a code for an oxygen sensor or fuel trim.",
+      "against": ""
+     },
+     {
+      "name": "Worn or damaged catalytic converter",
+      "clues": "A catalyst efficiency code, a rattle from under the car, or power loss at speed.",
+      "against": ""
+     },
+     {
+      "name": "Faulty oxygen sensor",
+      "clues": "An oxygen sensor code with no other symptoms.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Have the trouble code read for free at many auto parts stores.",
+      "Note whether gas mileage has dropped recently."
+     ],
+     "shop": [
+      "Code scan with fuel trim and oxygen sensor data",
+      "Exhaust back-pressure test",
+      "Catalytic converter temperature check",
+      "Exhaust leak inspection"
+     ]
+    }
+   }
+  },
+  "r_cat_occasional": {
+   "result": {
+    "title": "An occasional sulfur smell after hard driving is often the catalytic converter working hard",
+    "urgency": "check",
+    "now": "Try a different gas station for your next couple of fill-ups, and book a check when convenient if the smell continues.",
+    "if": [
+     "If the smell becomes constant or the check engine light comes on, get it checked within a few days.",
+     "If you smell it inside the car, keep windows cracked and get the exhaust checked soon."
+    ],
+    "why": "Fuel naturally contains a little sulfur. Under hard acceleration the catalytic converter can briefly release some as a rotten egg smell, especially on newer cars or with certain fuel. If it's rare and the car runs normally, it isn't usually a sign of damage.",
+    "causes": [
+     {
+      "name": "Normal converter odor under heavy load",
+      "clues": "Only after hard acceleration, towing or long climbs, and it fades quickly.",
+      "against": ""
+     },
+     {
+      "name": "Fuel with higher sulfur content",
+      "clues": "It started after filling up at a new station.",
+      "against": ""
+     },
+     {
+      "name": "Engine running slightly rich",
+      "clues": "Gas mileage has crept down over time.",
+      "against": "If mileage and performance are unchanged, this is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Switch gas stations or fuel brands for a few tanks.",
+      "Keep track of your gas mileage."
+     ],
+     "shop": [
+      "Code scan and fuel trim check",
+      "Oxygen sensor test",
+      "Exhaust inspection"
+     ]
+    }
+   }
+  },
+  "r_fuel_sulfur": {
+   "result": {
+    "title": "The fuel is the likely cause",
+    "urgency": "diy",
+    "now": "Fill up at a different station for the next few tanks and see if the smell goes away.",
+    "if": [
+     "If the smell continues with different fuel, have the car checked when convenient.",
+     "If the check engine light comes on or the engine runs rough, get it checked within a few days."
+    ],
+    "why": "All gasoline has a small amount of sulfur, and some batches have more than others. The catalytic converter can't always clean all of it up, so a tank of higher-sulfur fuel can leave a temporary rotten egg smell.",
+    "causes": [
+     {
+      "name": "Higher-sulfur fuel batch",
+      "clues": "The smell started right after a fill-up and fades as you use the tank.",
+      "against": ""
+     },
+     {
+      "name": "Catalytic converter or fuel mixture problem",
+      "clues": "The smell continues no matter where you fill up.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try a different station for two or three fill-ups.",
+      "Note whether the smell comes back with each fill-up at the original station."
+     ],
+     "shop": [
+      "Code scan and fuel trim check",
+      "Catalytic converter efficiency check"
+     ]
+    }
+   }
+  },
+  "r_gear_oil": {
+   "result": {
+    "title": "Gear oil may be leaking from the transmission or a differential",
+    "urgency": "check",
+    "now": "Look under the car for thick, dark drips, and book a check when convenient so the leak can be found and the fluid level topped up.",
+    "if": [
+     "If the drips are steady or you hear new whining, grinding or howling from that area, get it checked within a few days. Running low on gear oil can ruin gears and bearings.",
+     "If the leak is near a wheel and there's oil on the brake parts, have it checked before driving. Oil on brakes reduces stopping power."
+    ],
+    "why": "Gear oil used in manual transmissions, differentials and transfer cases contains sulfur additives with a strong rotten egg smell. A leak that drips onto hot exhaust parts or collects underneath can make the whole car smell.",
+    "causes": [
+     {
+      "name": "Leaking differential seal or cover",
+      "clues": "Oily drips near the rear axle on rear-wheel-drive, all-wheel-drive or 4WD vehicles.",
+      "against": ""
+     },
+     {
+      "name": "Leaking manual transmission or transfer case",
+      "clues": "Drips under the middle of the car.",
+      "against": ""
+     },
+     {
+      "name": "Leaking axle seal",
+      "clues": "Oil on the inside of a wheel or tire.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Put cardboard under the car overnight and note where thick, dark drops land.",
+      "Check the inside of each wheel for oily residue."
+     ],
+     "shop": [
+      "Differential and transmission fluid level check",
+      "Seal and gasket leak inspection",
+      "Brake inspection if oil is near a wheel"
+     ]
+    }
+   }
+  },
+  "r_general_sulfur": {
+   "result": {
+    "title": "Most likely the exhaust or catalytic converter. Have it checked",
+    "urgency": "check",
+    "now": "Note when the smell happens and whether any warning lights are on, then book a check when convenient.",
+    "if": [
+     "If a warning light comes on, the engine runs rough, or the smell is strong inside the car, get it checked within a few days.",
+     "If the battery is hot, hissing or swollen, turn the engine off and keep away from it."
+    ],
+    "why": "The catalytic converter is the most common source of a rotten egg smell, but an overcharged battery or leaking gear oil can smell the same. A shop can quickly tell them apart with a code scan, a charging test and a look underneath.",
+    "causes": [
+     {
+      "name": "Catalytic converter or fuel mixture problem",
+      "clues": "The smell comes from the exhaust, especially after accelerating.",
+      "against": ""
+     },
+     {
+      "name": "Overcharging or failing battery",
+      "clues": "The smell is strongest under the hood near the battery.",
+      "against": ""
+     },
+     {
+      "name": "Gear oil leak",
+      "clues": "Oily drips under the middle or rear of the car.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off and cool, sniff near the battery and near the tailpipe to see where the smell is strongest.",
+      "Check for warning lights."
+     ],
+     "shop": [
+      "Code scan",
+      "Battery and charging system test",
+      "Exhaust and underbody leak inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "check-engine-light-flashing",
+  "check-engine-light-on",
+  "battery-light-on",
+  "exhaust-smell-in-cabin",
+  "poor-gas-mileage"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Smells"
+  ],
+  "words": [
+   "catalytic converter",
+   "sulfur",
+   "rotten egg",
+   "oxygen sensor",
+   "misfire",
+   "battery",
+   "alternator",
+   "differential"
+  ]
+ },
+ "sources": [
+  "https://cluballiance.aaa.com/the-extra-mile/series/the-extra-mile-magazine/why-does-my-car-smell"
+ ]
+}

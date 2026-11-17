@@ -1,0 +1,452 @@
+{
+ "id": "burning-oil-smell",
+ "title": "Burning oil smell",
+ "h1": "Why does my car smell like burning oil?",
+ "metaDesc": "Car smells like burning oil? Answer a few questions to see if it's a leak onto the exhaust, spilled oil or oil burning inside the engine, and how urgent it is.",
+ "group": "leaksmell",
+ "cat": "Smells",
+ "synonyms": [
+  "car smells like burning oil",
+  "burning oil smell",
+  "burning oil smell after driving",
+  "burning oil smell from vents",
+  "burning oil smell after oil change",
+  "oil smell in car",
+  "smell of burning oil from engine",
+  "oil leaking on exhaust",
+  "burnt oil smell",
+  "car smells like oil when ac is on",
+  "car smells like oil when heater is on",
+  "burning oil smell no leak",
+  "valve cover gasket leak smell",
+  "car smell burning oil when stopped"
+ ],
+ "intro": "A burning oil smell usually means oil is landing on something hot, most often the exhaust. Sometimes it's just spilled oil after an oil change, and sometimes the engine is burning oil inside. A few questions will tell you which, and how quickly you need to act.",
+ "safety": [
+  "If you see smoke from under the hood, pull over, turn off the engine and step away from the car. Call 911 if you see flames.",
+  "If the oil pressure light comes on, pull over and turn off the engine right away.",
+  "If the engine starts knocking or ticking loudly, pull over and turn it off."
+ ],
+ "start": "q_danger",
+ "nodes": {
+  "q_danger": {
+   "q": "Is there smoke from under the hood, or is the oil pressure light on?",
+   "help": "The oil pressure light usually looks like a red oil can with a drip. A faint whiff of smoke after parking is different from smoke you can see while driving.",
+   "opts": [
+    {
+     "a": "Yes, visible smoke from under the hood",
+     "go": "r_smoke"
+    },
+    {
+     "a": "The oil pressure or low oil light is on",
+     "go": "r_oil_pressure"
+    },
+    {
+     "a": "No, but there's blue-gray smoke from the tailpipe",
+     "go": "r_burning_inside"
+    },
+    {
+     "a": "No smoke and no warning lights",
+     "go": "q_recent"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_recent"
+    }
+   ]
+  },
+  "q_recent": {
+   "q": "Has the car had an oil change or engine work in the last few days?",
+   "opts": [
+    {
+     "a": "Yes",
+     "go": "r_spill"
+    },
+    {
+     "a": "No",
+     "go": "q_level"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_level"
+    }
+   ]
+  },
+  "q_level": {
+   "q": "With the engine off and the car on level ground, what does the oil dipstick show?",
+   "help": "Pull the dipstick (usually a yellow or orange handle), wipe it, push it all the way back in, then pull it out and read where the oil reaches between the two marks. Some newer cars show oil level on the dashboard instead.",
+   "opts": [
+    {
+     "a": "The level is fine and I don't see drips under the car",
+     "go": "r_small_seep"
+    },
+    {
+     "a": "The level is low and there are oily spots under the car",
+     "go": "r_external_leak"
+    },
+    {
+     "a": "The level is low, but I don't see any drips",
+     "go": "r_burning_inside"
+    },
+    {
+     "a": "It's below the lowest mark, or there's no oil on the stick at all",
+     "go": "r_very_low"
+    },
+    {
+     "a": "I'm not sure, or I can't check it",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "r_smoke": {
+   "result": {
+    "title": "Oil is likely burning on the exhaust. Treat it as a fire risk",
+    "urgency": "stop",
+    "now": "Pull over, turn off the engine and step away from the car. Don't open the hood if you see flames. Have it towed.",
+    "if": [
+     "If you see flames, get everyone away from the car and call 911.",
+     "If the smoke stops once the engine cools and you find a cap or dipstick that wasn't secured, the oil level and any spilled oil still need checking before you drive."
+    ],
+    "why": "Visible smoke means a fair amount of oil is hitting very hot parts. Engine oil can ignite on a hot exhaust, and a leak big enough to smoke can also run the engine low on oil.",
+    "causes": [
+     {
+      "name": "Major valve cover or gasket leak",
+      "clues": "Oil running down the side of the engine onto the exhaust.",
+      "against": ""
+     },
+     {
+      "name": "Oil filler cap left off or loose",
+      "clues": "Oil sprayed around the top of the engine, often after an oil change.",
+      "against": ""
+     },
+     {
+      "name": "Oil filter or line leak",
+      "clues": "Oil sprayed under the engine, and the oil level dropping fast.",
+      "against": ""
+     },
+     {
+      "name": "A different fluid, like power steering or transmission fluid",
+      "clues": "The oil level is fine, but another fluid is low.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Engine bay leak inspection",
+      "Oil level and pressure check",
+      "Exhaust and heat shield inspection for oil residue"
+     ]
+    }
+   }
+  },
+  "r_oil_pressure": {
+   "result": {
+    "title": "The engine may be running low on oil or losing oil pressure",
+    "urgency": "stop",
+    "now": "Pull over and turn off the engine. Don't restart it until you've checked the oil level. If it's empty or the light stays on, have it towed.",
+    "if": [
+     "If the oil level was very low and topping it up makes the light go off right away, still have it checked within a day or two. The engine may already be damaged.",
+     "If the engine was knocking or ticking loudly, don't restart it."
+    ],
+    "why": "A burning oil smell plus an oil pressure light usually means a leak has drained enough oil that the engine isn't being protected. Running an engine without oil pressure can destroy it within minutes.",
+    "causes": [
+     {
+      "name": "Major oil leak",
+      "clues": "Oil on the ground, on the engine, or smoke.",
+      "against": ""
+     },
+     {
+      "name": "Engine burning a lot of oil",
+      "clues": "Blue-gray exhaust smoke and no visible leak.",
+      "against": ""
+     },
+     {
+      "name": "Failed oil pump or pressure sensor",
+      "clues": "The oil level is full but the light is still on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Wait a few minutes after shutting off, then check the dipstick."
+     ],
+     "shop": [
+      "Mechanical oil pressure test",
+      "Oil leak inspection",
+      "Oil pressure sensor check"
+     ]
+    }
+   }
+  },
+  "r_burning_inside": {
+   "result": {
+    "title": "The engine is probably burning oil internally",
+    "urgency": "soon",
+    "now": "Check the oil level, top it up to the full mark if needed, and get it checked within a few days. Check the level every time you fill up until then.",
+    "if": [
+     "If the oil drops below the lowest mark between checks, don't drive it until it's topped up.",
+     "If the check engine light flashes or the engine runs rough, get it checked right away. Oil can foul the spark plugs and damage the catalytic converter."
+    ],
+    "why": "When oil gets past worn seals or rings, it burns with the fuel and leaves as blue-gray exhaust smoke with a burning oil smell. The level drops with no drips under the car.",
+    "causes": [
+     {
+      "name": "Stuck or clogged PCV valve",
+      "clues": "Oil use started suddenly, or there's oil in the air intake.",
+      "against": ""
+     },
+     {
+      "name": "Worn valve stem seals",
+      "clues": "A puff of blue smoke on startup or after idling, then it clears.",
+      "against": ""
+     },
+     {
+      "name": "Worn piston rings",
+      "clues": "Steady blue smoke when accelerating, often on a high-mileage engine.",
+      "against": ""
+     },
+     {
+      "name": "Leaking turbocharger seals (turbo engines)",
+      "clues": "Blue smoke and oil in the intake piping.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Track how much oil you add and over how many miles.",
+      "Notice whether the smoke shows at startup or while accelerating."
+     ],
+     "shop": [
+      "PCV valve check",
+      "Compression and leak-down test",
+      "Spark plug inspection for oil fouling"
+     ]
+    }
+   }
+  },
+  "r_spill": {
+   "result": {
+    "title": "Oil spilled during the service is probably burning off",
+    "urgency": "diy",
+    "now": "Check that the oil filler cap is tight and the dipstick is fully seated, look under the car for fresh drips, and give it a couple of days of driving.",
+    "if": [
+     "If you see fresh drips, or the smell gets stronger instead of fading, have the shop recheck the oil filter and drain plug right away.",
+     "If you see smoke from under the hood, pull over and turn off the engine."
+    ],
+    "why": "It's easy to spill a little oil on the engine or exhaust during an oil change. It smokes and smells for a few drives, then fades. A loose filter, drain plug or cap is the thing to rule out.",
+    "causes": [
+     {
+      "name": "Spilled oil burning off",
+      "clues": "The smell is fading day by day, and there are no drips.",
+      "against": ""
+     },
+     {
+      "name": "Loose or double-gasketed oil filter",
+      "clues": "Fresh oil drips under the front of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Loose drain plug or filler cap",
+      "clues": "Oil on the bottom of the engine, or sprayed around the cap.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level and filler cap.",
+      "Put cardboard under the engine overnight."
+     ],
+     "shop": [
+      "Recheck the oil filter and drain plug",
+      "Clean spilled oil off the engine and exhaust"
+     ]
+    }
+   }
+  },
+  "r_small_seep": {
+   "result": {
+    "title": "A slow oil seep onto the exhaust, often from the valve cover gasket",
+    "urgency": "check",
+    "now": "Look for oily residue on top and down the sides of the engine, check the oil level weekly, and book a check.",
+    "if": [
+     "If the oil level starts dropping or you see drips, get it checked within a few days.",
+     "If you see smoke from under the hood, pull over and turn off the engine."
+    ],
+    "why": "A very small leak can drip onto the exhaust and cook, giving a strong smell long before the oil level drops. The valve cover gasket on top of the engine is the most common source.",
+    "causes": [
+     {
+      "name": "Valve cover gasket seep",
+      "clues": "Oily residue along the top edge of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Oil filter housing or cooler gasket",
+      "clues": "Residue near the oil filter.",
+      "against": ""
+     },
+     {
+      "name": "Oil from a past spill or overfill",
+      "clues": "An oil change in the last few weeks.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for wet, oily areas on the engine with a flashlight.",
+      "Check the oil level weekly."
+     ],
+     "shop": [
+      "Oil leak inspection",
+      "Dye test if the source isn't clear"
+     ]
+    }
+   }
+  },
+  "r_external_leak": {
+   "result": {
+    "title": "An active oil leak is reaching hot parts",
+    "urgency": "soon",
+    "now": "Top up the oil to the full mark with the type in your owner's manual and get the leak fixed within a few days. Check the level before every drive until then.",
+    "if": [
+     "If the oil level drops noticeably after a single short drive, don't drive it. Have it towed.",
+     "If you see smoke from under the hood or the oil light comes on, pull over and turn off the engine."
+    ],
+    "why": "A low oil level plus spots under the car means oil is escaping fast enough to matter. It can run the engine low and, if it lands on the exhaust, create smoke and a fire risk.",
+    "causes": [
+     {
+      "name": "Valve cover gasket",
+      "clues": "Oil running down the sides of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Oil pan gasket or drain plug",
+      "clues": "Drips under the bottom of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Front or rear main seal",
+      "clues": "Oil at the front of the engine behind the pulley, or where the engine meets the transmission.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Put cardboard under the engine overnight to see where it drips.",
+      "Track how much oil you add."
+     ],
+     "shop": [
+      "Oil leak inspection",
+      "Dye test",
+      "Oil pressure check"
+     ]
+    }
+   }
+  },
+  "r_very_low": {
+   "result": {
+    "title": "The oil is dangerously low",
+    "urgency": "stop",
+    "now": "Don't run the engine. Add oil of the type in your owner's manual until it reaches the full mark, a little at a time, rechecking as you go.",
+    "if": [
+     "If it holds a full level, the oil light stays off and the engine sounds normal, you can make short trips while you get the leak or oil use checked within a few days.",
+     "If it takes a lot of oil, you see oil pouring out, or the engine knocks or ticks loudly, don't run it. Have it towed."
+    ],
+    "why": "With little or no oil on the dipstick, the engine's bearings and moving parts aren't being protected. Running it like that can ruin the engine quickly. The smell means some of the missing oil is ending up on hot parts.",
+    "causes": [
+     {
+      "name": "Significant oil leak",
+      "clues": "Oil spots under the car and oil on the engine.",
+      "against": ""
+     },
+     {
+      "name": "Engine burning oil",
+      "clues": "Blue-gray exhaust smoke and no visible leak.",
+      "against": ""
+     },
+     {
+      "name": "Missed oil changes",
+      "clues": "It's been a long time since the last oil change.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Add oil and recheck the level.",
+      "Look under the car for fresh oil."
+     ],
+     "shop": [
+      "Oil leak inspection",
+      "Oil consumption test",
+      "Engine noise and oil pressure check"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Get the oil level and leaks checked soon",
+    "urgency": "soon",
+    "now": "Have the oil level checked at a shop or parts store within a few days, and look under the car for fresh oil spots in the meantime.",
+    "if": [
+     "If you see smoke from under the hood or the oil light comes on, pull over and turn off the engine.",
+     "If the engine starts knocking or ticking, stop driving it."
+    ],
+    "why": "A burning oil smell almost always means oil is somewhere it shouldn't be. Knowing the oil level tells you whether it's a small seep or something that could leave the engine short of oil.",
+    "causes": [
+     {
+      "name": "Oil seeping onto the exhaust",
+      "clues": "The smell is strongest after a drive, from the hood.",
+      "against": ""
+     },
+     {
+      "name": "Engine burning oil",
+      "clues": "Blue-gray smoke from the tailpipe.",
+      "against": ""
+     },
+     {
+      "name": "Spill from a recent oil change",
+      "clues": "Recent service, and the smell is fading.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for fresh oil spots under the car.",
+      "Note when the smell is strongest."
+     ],
+     "shop": [
+      "Oil level check",
+      "Oil leak inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "oil-leak",
+  "blue-smoke-from-exhaust",
+  "burning-oil-low-oil-level",
+  "oil-pressure-light-on",
+  "burning-smell"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Smells",
+   "Leaks"
+  ],
+  "words": [
+   "oil",
+   "burning",
+   "valve cover",
+   "gasket",
+   "pcv",
+   "oil consumption",
+   "seal",
+   "smoke"
+  ]
+ },
+ "sources": [
+  "https://cluballiance.aaa.com/the-extra-mile/series/the-extra-mile-magazine/why-does-my-car-smell",
+  "https://lifelanes.progressive.com/burning-smells-in-car"
+ ]
+}

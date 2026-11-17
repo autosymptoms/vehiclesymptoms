@@ -1,0 +1,548 @@
+{
+ "id": "whining-noise-when-accelerating",
+ "title": "Whining noise when accelerating",
+ "h1": "Why does my car whine when I accelerate?",
+ "metaDesc": "Car whines when you accelerate? Answer a few questions to tell the transmission, differential, alternator or power steering apart, and how urgent it is.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "whining noise when accelerating",
+  "car whines when accelerating",
+  "whining sound when I press the gas",
+  "high pitched whine when accelerating",
+  "transmission whine",
+  "differential whine",
+  "alternator whine",
+  "whirring noise when accelerating",
+  "whining noise that gets louder as I speed up",
+  "car makes a whining noise when driving",
+  "whine in first gear",
+  "power steering pump whine",
+  "rear end whine",
+  "whining noise from engine when revving"
+ ],
+ "intro": "A whine that rises as you accelerate usually comes from something spinning fast: a belt-driven part on the engine, the transmission, or the differential. A simple test in Park tells you which side of the car to look at. Answer the questions below to find the most likely cause and how urgent it is.",
+ "safety": [
+  "If the temperature gauge goes into the red or you see steam, pull over and shut the engine off.",
+  "If the engine revs but the car doesn't speed up, or it slips out of gear, stop driving as soon as it's safe.",
+  "If the steering suddenly gets very heavy, slow down and pull over carefully."
+ ],
+ "start": "q_danger",
+ "nodes": {
+  "q_danger": {
+   "q": "Along with the whine, do you notice any of these?",
+   "opts": [
+    {
+     "a": "The engine revs up but the car doesn't speed up, or it slips or bangs into gear",
+     "go": "r_trans_slipping"
+    },
+    {
+     "a": "The temperature gauge is climbing, or the steering suddenly feels heavy",
+     "go": "r_belt_or_pump"
+    },
+    {
+     "a": "The battery light is on, or the lights dim and flicker",
+     "go": "r_alternator"
+    },
+    {
+     "a": "None of these, just the whine",
+     "go": "q_park_test"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_park_test"
+    }
+   ]
+  },
+  "q_park_test": {
+   "q": "With the car in Park (or Neutral with the parking brake on), gently rev the engine. Do you hear the same whine?",
+   "help": "Parts driven by the engine's belt, like the alternator and power steering pump, whine whenever the engine revs. The transmission, axles and differential usually only whine when the car is moving.",
+   "opts": [
+    {
+     "a": "Yes, it whines when I rev in Park",
+     "go": "q_engine_whine"
+    },
+    {
+     "a": "No, it only whines while driving",
+     "go": "q_driving_whine"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_driving_whine"
+    }
+   ]
+  },
+  "q_engine_whine": {
+   "q": "Which of these fits best?",
+   "opts": [
+    {
+     "a": "It gets louder when I turn the steering wheel",
+     "go": "r_power_steering"
+    },
+    {
+     "a": "It sounds electrical, or the headlights pulse along with it",
+     "go": "r_alternator"
+    },
+    {
+     "a": "A whistle or siren that rises sharply when I accelerate hard (turbocharged engine)",
+     "go": "r_turbo"
+    },
+    {
+     "a": "A steady whine or squeal from the front of the engine, near the belts",
+     "go": "r_belt_pulley"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_belt_pulley"
+    }
+   ]
+  },
+  "q_driving_whine": {
+   "q": "While driving, which best describes the whine?",
+   "opts": [
+    {
+     "a": "It changes pitch when the transmission shifts, or it's tied to engine speed in each gear",
+     "go": "r_transmission_whine"
+    },
+    {
+     "a": "It rises with road speed and changes when I let off the gas (rear-wheel, 4WD or AWD vehicle)",
+     "go": "r_differential"
+    },
+    {
+     "a": "It's an electric or hybrid car, and it's a smooth, faint whine that's always been there",
+     "go": "r_ev_normal"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_driving_general"
+    }
+   ]
+  },
+  "r_trans_slipping": {
+   "result": {
+    "title": "The transmission may be slipping. Driving on can cause major damage",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and check under the car for red or pink fluid. Have it towed or call a mobile mechanic rather than driving further.",
+    "if": [
+     "If you find the transmission fluid is low on a car with a dipstick, adding the correct fluid may help, but have it checked before relying on it.",
+     "If the car won't move at all, turn on your hazard lights and call roadside assistance."
+    ],
+    "why": "A whine together with revs that climb without the car speeding up usually means the transmission isn't gripping properly. Low fluid is a common reason. Continuing to drive can overheat and destroy the transmission, and it can lose drive without warning.",
+    "causes": [
+     {
+      "name": "Low transmission fluid from a leak",
+      "clues": "Red or pink drips under the middle of the car, or a burnt smell.",
+      "against": ""
+     },
+     {
+      "name": "Worn clutches or bands inside the transmission",
+      "clues": "Slipping that has been getting worse over weeks, especially in one gear.",
+      "against": ""
+     },
+     {
+      "name": "Torque converter or CVT problem",
+      "clues": "A whine and shudder when pulling away, or a loud whine that rises with engine speed.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for red or pink fluid under the car.",
+      "Check the transmission fluid level if your car has a dipstick for it, following the owner's manual."
+     ],
+     "shop": [
+      "Transmission fluid level and condition check",
+      "Transmission code scan",
+      "Line pressure test"
+     ]
+    }
+   }
+  },
+  "r_belt_or_pump": {
+   "result": {
+    "title": "A belt or belt-driven pump may be failing",
+    "urgency": "stop",
+    "now": "Pull over as soon as it's safe and shut the engine off. Once it cools, check whether the belt is still in place, then have the car towed or call a mobile mechanic rather than driving on.",
+    "if": [
+     "If the temperature gauge went into the red, don't restart the engine. Overheating can seriously damage it.",
+     "If you see coolant leaking from the front of the engine, the water pump may have failed."
+    ],
+    "why": "On many engines one belt drives the water pump, power steering pump and alternator. A whining bearing that seizes, or a belt that slips or breaks, can make the engine overheat and the steering go heavy within minutes.",
+    "causes": [
+     {
+      "name": "Failing water pump bearing",
+      "clues": "A whine from the front of the engine, coolant drips near the pump, and a rising temperature gauge.",
+      "against": ""
+     },
+     {
+      "name": "Slipping or broken drive belt",
+      "clues": "A squeal before the problem started, then heavy steering and a battery light.",
+      "against": ""
+     },
+     {
+      "name": "Seized idler or tensioner pulley",
+      "clues": "A loud whine or squeal that got worse quickly, then the belt came off.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off and cool, check that the belt is on its pulleys and not frayed.",
+      "Look for coolant drips at the front of the engine."
+     ],
+     "shop": [
+      "Belt and pulley inspection",
+      "Water pump inspection",
+      "Cooling system pressure test"
+     ]
+    }
+   }
+  },
+  "r_alternator": {
+   "result": {
+    "title": "The alternator is the most likely source",
+    "urgency": "soon",
+    "now": "Have the battery and charging system tested within a few days. Many auto parts stores do this free. Avoid long trips and night driving until then.",
+    "if": [
+     "If the battery light comes on and stays on, head straight to a shop. The car may only run for a short time on battery power.",
+     "If you smell burning or the engine bay smells hot, pull over and shut the engine off."
+    ],
+    "why": "The alternator spins fast and makes electricity as you drive. A worn bearing whines, and a failing internal part can make an electrical whine that rises with engine speed. If it stops charging, the car runs on the battery until it goes flat.",
+    "causes": [
+     {
+      "name": "Worn alternator bearing",
+      "clues": "A whine from the alternator that rises with engine speed, even in Park.",
+      "against": ""
+     },
+     {
+      "name": "Failing alternator diode or regulator",
+      "clues": "A whine through the radio speakers, dimming lights, or a battery light.",
+      "against": ""
+     },
+     {
+      "name": "Worn idler or tensioner pulley",
+      "clues": "The whine is from the belt area but not directly at the alternator.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Watch for the battery light while driving.",
+      "Note whether the lights pulse or dim with engine speed."
+     ],
+     "shop": [
+      "Charging system and alternator output test",
+      "Alternator ripple (diode) test",
+      "Belt and pulley bearing check"
+     ]
+    }
+   }
+  },
+  "r_power_steering": {
+   "result": {
+    "title": "Low power steering fluid or a worn pump is likely",
+    "urgency": "diy",
+    "now": "With the engine off, check the power steering fluid level against the marks on the reservoir, and top it up with the fluid type in your owner's manual if it's low.",
+    "if": [
+     "If the fluid was low, look for a leak and have it checked within a few days. Fluid doesn't get used up on its own.",
+     "If the whine stays after topping up, or the steering feels heavy or jerky, book a check.",
+     "If your car has electric power steering with no fluid reservoir, a whine needs a shop to check it."
+    ],
+    "why": "A hydraulic power steering pump works hardest when you turn the wheel, so a whine that rises when steering points to it. Low fluid makes the pump suck in air and whine, and a worn pump whines even when full.",
+    "causes": [
+     {
+      "name": "Low power steering fluid",
+      "clues": "The reservoir is below the mark, or there's oily residue on hoses or under the front of the car.",
+      "against": ""
+     },
+     {
+      "name": "Worn power steering pump",
+      "clues": "The fluid is full, but the whine is loudest at full lock.",
+      "against": ""
+     },
+     {
+      "name": "Air or old fluid in the system",
+      "clues": "The fluid looks foamy or dark.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the power steering fluid level and color.",
+      "Look for leaks around the pump, hoses and steering rack."
+     ],
+     "shop": [
+      "Power steering leak inspection",
+      "Pump pressure test",
+      "Fluid flush and bleed"
+     ]
+    }
+   }
+  },
+  "r_turbo": {
+   "result": {
+    "title": "Some turbo whistle is normal, but a louder siren needs a check",
+    "urgency": "check",
+    "now": "Book a check when convenient if the sound is new or louder than it used to be. Make sure the oil is full and changed on schedule, since turbos depend on clean oil.",
+    "if": [
+     "If you see blue or gray smoke from the exhaust, or the oil level drops, get it checked within a few days.",
+     "If the engine loses power or a warning light comes on, get it checked soon.",
+     "If there's a grinding or scraping sound from the turbo, stop driving and have it towed."
+    ],
+    "why": "Turbochargers spin very fast and naturally make a light whistle when they build boost. A loud siren-like whine that's new can mean worn turbo bearings or a boost leak from a loose or split hose.",
+    "causes": [
+     {
+      "name": "Normal turbo spool sound",
+      "clues": "A light whistle you've always heard when accelerating.",
+      "against": "If it's new or much louder, something else is more likely."
+     },
+     {
+      "name": "Boost leak from a loose clamp or split hose",
+      "clues": "A whoosh or whistle with less power than usual.",
+      "against": ""
+     },
+     {
+      "name": "Worn turbocharger bearings",
+      "clues": "A loud siren whine, oil use, or blue smoke.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level.",
+      "Look for loose or split hoses between the turbo and the engine."
+     ],
+     "shop": [
+      "Boost leak (smoke or pressure) test",
+      "Turbo shaft play check",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_belt_pulley": {
+   "result": {
+    "title": "Most likely a worn pulley bearing or another belt-driven part",
+    "urgency": "check",
+    "now": "Book a check within the next week or two. With the engine off, look at the belt for cracks or glazing.",
+    "if": [
+     "If the noise gets much louder, turns into a grind, or the battery light comes on, get it checked within a few days.",
+     "If the belt breaks, the engine can overheat and the steering can go heavy. Pull over right away if that happens."
+    ],
+    "why": "The front of the engine has several pulleys turned by one or more belts. When a pulley bearing wears, it whines in step with engine speed, in Park or driving. Catching it early can prevent a broken belt.",
+    "causes": [
+     {
+      "name": "Worn idler or tensioner pulley",
+      "clues": "A steady whine or rumble from the belt area that changes with engine speed.",
+      "against": ""
+     },
+     {
+      "name": "Worn alternator bearing",
+      "clues": "The whine is loudest at the alternator.",
+      "against": ""
+     },
+     {
+      "name": "Worn water pump bearing",
+      "clues": "Coolant seepage near the pump.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look at the belt for cracks or a shiny, glazed surface.",
+      "Record a short video with sound with the hood open."
+     ],
+     "shop": [
+      "Listen with an engine stethoscope",
+      "Belt-off pulley spin check",
+      "Charging system test"
+     ]
+    }
+   }
+  },
+  "r_transmission_whine": {
+   "result": {
+    "title": "The transmission is a likely source of the whine",
+    "urgency": "soon",
+    "now": "Have the transmission fluid level and condition checked within a few days. Avoid towing or heavy loads until then.",
+    "if": [
+     "If the transmission starts slipping, shifting harshly or a warning light comes on, stop driving and have it towed.",
+     "If you see red or pink fluid under the car, mention it. A leak can quickly lead to low fluid."
+    ],
+    "why": "A whine that changes when the transmission shifts is coming from inside it. Low or worn-out fluid is a common cause and is much cheaper to fix early. Worn bearings, a torque converter or a CVT belt can also whine.",
+    "causes": [
+     {
+      "name": "Low or old transmission fluid",
+      "clues": "A leak, a burnt smell, or no fluid service on a high-mileage car.",
+      "against": ""
+     },
+     {
+      "name": "Worn torque converter or pump",
+      "clues": "A whine that's loudest when pulling away and changes with engine speed.",
+      "against": ""
+     },
+     {
+      "name": "CVT wear",
+      "clues": "On a car with a CVT (no distinct gear shifts), a whine or drone that's getting louder.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for red or pink fluid under the car.",
+      "Check the transmission fluid if your car has a dipstick, following the owner's manual."
+     ],
+     "shop": [
+      "Transmission fluid level and condition check",
+      "Code scan",
+      "Road test"
+     ]
+    }
+   }
+  },
+  "r_differential": {
+   "result": {
+    "title": "Worn differential gears or bearings are likely",
+    "urgency": "soon",
+    "now": "Have the differential fluid checked within a few days, and avoid towing or heavy loads until then.",
+    "if": [
+     "If the whine becomes a grind or clunk, or you see gear oil leaking near the axle, stop driving and have it towed.",
+     "If the fluid is low, topping it up may quiet it, but worn parts may still need repair."
+    ],
+    "why": "The differential sends power to the drive wheels through a set of gears in thick gear oil. Worn gears or bearings, or low oil, make a whine that rises with road speed and changes when you switch between accelerating and coasting.",
+    "causes": [
+     {
+      "name": "Low or worn-out differential fluid",
+      "clues": "Oily residue on the differential, or the fluid has never been changed.",
+      "against": ""
+     },
+     {
+      "name": "Worn ring and pinion gears",
+      "clues": "A whine mostly when accelerating at certain speeds.",
+      "against": ""
+     },
+     {
+      "name": "Worn pinion or carrier bearings",
+      "clues": "A whine or growl that's worse when coasting or decelerating.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for oil leaking from the differential housing.",
+      "Note whether the whine is worse when accelerating or coasting."
+     ],
+     "shop": [
+      "Differential fluid level and condition check",
+      "Check drained fluid for metal",
+      "Road test and chassis microphone test"
+     ]
+    }
+   }
+  },
+  "r_ev_normal": {
+   "result": {
+    "title": "A faint whine is often normal in electric and hybrid cars",
+    "urgency": "diy",
+    "now": "Notice whether the sound is the same as it has always been. A smooth, faint whine that rises with speed is the normal sound of the electric motor and its gears.",
+    "if": [
+     "If the whine gets louder, changes in tone, or comes with a warning light or vibration, book a check with a shop that works on hybrids or EVs.",
+     "If you hear grinding or clunking, get it checked within a few days."
+    ],
+    "why": "Electric motors and their reduction gears spin very fast and make a light whine, which you notice more because there's no engine noise to cover it. Some cars also play an artificial sound at low speed so pedestrians can hear them.",
+    "causes": [
+     {
+      "name": "Normal electric motor and gear noise",
+      "clues": "A smooth whine that has always been there and rises with speed.",
+      "against": "If it's new or getting louder, wear is more likely."
+     },
+     {
+      "name": "Pedestrian warning sound",
+      "clues": "A hum or whine heard mostly at low speeds, from the front of the car.",
+      "against": ""
+     },
+     {
+      "name": "Worn reduction gear or bearing",
+      "clues": "The whine is louder than before, or there's a vibration.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Compare the sound with a similar car, or record it now so you can tell if it changes later."
+     ],
+     "shop": [
+      "Road test by a hybrid or EV technician",
+      "Drive unit inspection"
+     ]
+    }
+   }
+  },
+  "r_driving_general": {
+   "result": {
+    "title": "A driveline whine needs a road test to pin down",
+    "urgency": "check",
+    "now": "Book a road test and inspection within the next week or two. Tell the shop the whine only happens while driving, not when revving in Park.",
+    "if": [
+     "If the transmission starts slipping or shifting oddly, get it checked within a few days.",
+     "If you hear grinding or feel a new vibration, get it checked soon."
+    ],
+    "why": "A whine that only happens while moving comes from something that turns with the wheels or carries power to them: the transmission, the differential, or a wheel bearing. A technician can tell them apart quickly on a road test.",
+    "causes": [
+     {
+      "name": "Transmission noise",
+      "clues": "The whine changes with gear shifts.",
+      "against": ""
+     },
+     {
+      "name": "Differential noise",
+      "clues": "The whine rises with road speed and changes between accelerating and coasting.",
+      "against": ""
+     },
+     {
+      "name": "Worn wheel bearing",
+      "clues": "More of a hum or growl that changes when you steer left or right.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for fluid leaks under the car.",
+      "Note the speed and gear when the whine is loudest."
+     ],
+     "shop": [
+      "Road test",
+      "Transmission and differential fluid check",
+      "Chassis microphone test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "transmission-slipping",
+  "whining-when-turning-steering",
+  "battery-light-on",
+  "humming-noise-at-speed",
+  "transmission-fluid-leak"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises"
+  ],
+  "words": [
+   "whine",
+   "transmission",
+   "differential",
+   "alternator",
+   "power steering pump",
+   "pulley",
+   "torque converter",
+   "cvt"
+  ]
+ },
+ "sources": [
+  "https://differentials.com/technical-help-2/diagnosing-differential-problems",
+  "https://www.yourmechanic.com/question/truck-makes-whining-noises"
+ ]
+}

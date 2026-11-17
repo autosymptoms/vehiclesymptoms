@@ -1,0 +1,501 @@
+{
+ "id": "grinding-brakes",
+ "title": "Brakes grinding",
+ "h1": "Why do my brakes grind when I stop?",
+ "metaDesc": "Grinding noise when braking? Answer a few quick questions to see if it's worn-out pads, rust, debris or a sticking brake, how urgent it is, and what to do next.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "grinding brakes",
+  "brakes grinding",
+  "grinding noise when braking",
+  "grinding when I stop",
+  "metal on metal brakes",
+  "brakes scraping",
+  "scraping noise when braking",
+  "brakes grinding after sitting",
+  "grinding noise when stopping slowly",
+  "brakes grinding after new pads",
+  "grinding sound from wheel",
+  "brakes make a grinding noise",
+  "brakes grindng"
+ ],
+ "intro": "A grinding brake ranges from harmless morning rust to pads worn down to bare metal. How the car stops, and when you hear the noise, tells them apart. Answer the questions below to see how urgent it is and what to do next.",
+ "safety": [
+  "If the brake pedal feels soft, sinks, or the car takes longer to stop, stop driving and get help.",
+  "If the red brake warning light is on, don't drive until the brakes are checked.",
+  "If you smell burning or see smoke from a wheel, pull over safely and let it cool. Don't keep driving."
+ ],
+ "start": "q_stopping",
+ "nodes": {
+  "q_stopping": {
+   "q": "How does the car stop when you brake?",
+   "help": "This is the most important question. A change in how the car stops matters more than the noise itself.",
+   "opts": [
+    {
+     "a": "Normally. Only the noise is new",
+     "go": "q_when"
+    },
+    {
+     "a": "It takes longer to stop, the pedal feels soft or goes lower, or the red brake light is on",
+     "go": "r_brake_compromised"
+    },
+    {
+     "a": "It pulls hard to one side, or a wheel smells hot or burning",
+     "go": "r_stuck_caliper"
+    },
+    {
+     "a": "The pedal or steering wheel shakes or pulses along with the grinding",
+     "go": "r_rotor_damage"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When do you hear the grinding?",
+   "opts": [
+    {
+     "a": "Only on the first few stops after the car sat, or after rain or a wash, then it's gone",
+     "go": "r_rust"
+    },
+    {
+     "a": "Every time I brake: a harsh metal-on-metal grind",
+     "go": "r_pads_gone"
+    },
+    {
+     "a": "A light scraping that comes and goes, often after driving on gravel",
+     "go": "r_debris"
+    },
+    {
+     "a": "Even when I'm not braking, and it changes with speed or when turning",
+     "go": "r_bearing_shield"
+    },
+    {
+     "a": "Only during a hard stop or on a slippery road, with a buzzing pulse in the pedal",
+     "go": "r_abs_normal"
+    },
+    {
+     "a": "It started right after new brakes were put on",
+     "go": "r_new_brakes_grind"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure_grind"
+    }
+   ]
+  },
+  "r_brake_compromised": {
+   "result": {
+    "title": "The brakes are not working properly. This is a safety problem",
+    "urgency": "stop",
+    "now": "Don't drive it. Park it somewhere safe and have it towed, or have a mobile mechanic come to you.",
+    "if": [
+     "If you're on the road now, slow down gently, use a lower gear if you can, and pull over somewhere safe.",
+     "If you see fluid near a wheel or the brake fluid reservoir is low, tell the shop. That points to a leak."
+    ],
+    "why": "Grinding plus longer stops or a soft pedal means the brakes have lost some of their ability to stop the car. Pads worn to metal, a fluid leak or a damaged caliper can all do this, and it can get worse suddenly.",
+    "causes": [
+     {
+      "name": "Pads worn through to metal",
+      "clues": "There was a squeal for weeks or months before the grinding started.",
+      "against": ""
+     },
+     {
+      "name": "Brake fluid leak",
+      "clues": "A soft or sinking pedal, the red brake light, or a wet spot near a wheel.",
+      "against": ""
+     },
+     {
+      "name": "Damaged caliper or piston",
+      "clues": "Badly worn pads let the piston push out too far, and the pedal changed suddenly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off and cool, check the brake fluid reservoir level.",
+      "Look for wet spots on the inside of the wheels."
+     ],
+     "shop": [
+      "Full brake inspection",
+      "Brake fluid leak check",
+      "Caliper, rotor and pad replacement assessment"
+     ]
+    }
+   }
+  },
+  "r_stuck_caliper": {
+   "result": {
+    "title": "A brake is likely stuck on and overheating",
+    "urgency": "stop",
+    "now": "Pull over safely and let the wheel cool. Don't touch it. Have the car towed or have a mobile mechanic check it before using it again.",
+    "if": [
+     "If you see smoke or flames, get everyone out and away from the car and call for help.",
+     "If the parking brake was left partly on, release it fully. If the heat and smell go away and don't return, book a check when convenient."
+    ],
+    "why": "A brake that won't release keeps grinding against the rotor. That builds a lot of heat, which causes the burning smell and the pull, and it can make the brakes fade or damage the wheel bearing.",
+    "causes": [
+     {
+      "name": "Sticking caliper or slide pins",
+      "clues": "One wheel is much hotter or dustier, and the car pulls to that side.",
+      "against": ""
+     },
+     {
+      "name": "Parking brake not releasing",
+      "clues": "The heat is at a rear wheel.",
+      "against": ""
+     },
+     {
+      "name": "Collapsed brake hose",
+      "clues": "The pull comes and goes.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure the parking brake is fully released.",
+      "Notice which wheel smells hotter from a distance. Don't touch it."
+     ],
+     "shop": [
+      "Caliper and slide pin inspection",
+      "Brake hose check",
+      "Parking brake inspection"
+     ]
+    }
+   }
+  },
+  "r_rotor_damage": {
+   "result": {
+    "title": "The rotors are likely worn or damaged, often along with the pads",
+    "urgency": "soon",
+    "now": "Have the brakes inspected within the next day or two. Until then, drive only short distances and leave extra stopping room.",
+    "if": [
+     "If the pedal starts to feel soft or the car takes longer to stop, stop driving and have it towed.",
+     "If the pulsing only happens during a hard stop on a slippery road, it may just be the ABS working."
+    ],
+    "why": "A pulsing pedal means the rotor surface is uneven. Combined with grinding, that usually means the pads have worn into the rotor or the rotor is badly rusted or scored. It reduces braking and gets worse with every stop.",
+    "causes": [
+     {
+      "name": "Pads worn into the rotor",
+      "clues": "Grinding on most stops, and a squeal before it started.",
+      "against": ""
+     },
+     {
+      "name": "Uneven or rusted rotors",
+      "clues": "The car sat for a long time, or the rotor has a rough ring or lip on its surface.",
+      "against": ""
+     },
+     {
+      "name": "Sticking caliper",
+      "clues": "One wheel gets hotter than the others.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look through the wheel spokes at the rotor surface. Deep grooves or a rough surface point to damage.",
+      "Notice whether the shake is in the pedal or the steering wheel."
+     ],
+     "shop": [
+      "Rotor thickness and runout measurement",
+      "Pad inspection",
+      "Caliper check"
+     ]
+    }
+   }
+  },
+  "r_rust": {
+   "result": {
+    "title": "Probably surface rust on the rotors scraping off",
+    "urgency": "diy",
+    "now": "Drive normally and brake gently a few times. The noise should be gone within the first few stops.",
+    "if": [
+     "If the grinding lasts beyond the first few miles, have the brakes inspected soon.",
+     "If the car sat for weeks or months, have the rotors checked. Heavy rust can pit them."
+    ],
+    "why": "Brake rotors are bare iron and rust quickly when wet. After rain, a car wash or sitting overnight, the first stops scrape that rust off, which can sound like a brief grind. If it clears quickly, it's normal.",
+    "causes": [
+     {
+      "name": "Light surface rust",
+      "clues": "Only on the first stops after the car sat or got wet, and gone soon after.",
+      "against": "If it happens on every stop all day, look for another cause."
+     },
+     {
+      "name": "Heavier rust from long storage",
+      "clues": "The car sat for weeks, and the rotor edges look crusty.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether the noise is gone after the first few stops.",
+      "Look at the rotors through the wheel spokes for a shiny surface after driving."
+     ],
+     "shop": [
+      "Rotor inspection if the noise doesn't clear"
+     ]
+    }
+   }
+  },
+  "r_pads_gone": {
+   "result": {
+    "title": "The brake pads are likely worn down to bare metal",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed to a shop, or have a mobile mechanic replace the brakes where it's parked.",
+    "if": [
+     "If you're on the road now, slow down gently, leave plenty of room, and pull over somewhere safe. Then call for help.",
+     "If the pads were replaced recently and the grind started suddenly, a pad may have come apart. It still needs checking before you drive."
+    ],
+    "why": "A harsh grind on every stop usually means the pad lining is gone and the metal backing is rubbing the rotor. That cuts braking ability and destroys the rotor quickly. Waiting can also damage the caliper.",
+    "causes": [
+     {
+      "name": "Pads worn through",
+      "clues": "There was a squeal for a while before, and the pads haven't been replaced in a long time.",
+      "against": "Less likely if the pads are new."
+     },
+     {
+      "name": "Pad lining separated from its backing",
+      "clues": "The grind started suddenly on fairly new pads.",
+      "against": ""
+     },
+     {
+      "name": "Seized caliper wearing one pad unevenly",
+      "clues": "The noise is from one wheel, and that wheel runs hotter.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look through the wheel spokes. If you can't see any pad material between the metal plate and the rotor, it's worn out."
+     ],
+     "shop": [
+      "Pad and rotor inspection",
+      "Rotor thickness measurement",
+      "Caliper and piston inspection"
+     ]
+    }
+   }
+  },
+  "r_debris": {
+   "result": {
+    "title": "A small stone or bit of debris may be caught in the brake",
+    "urgency": "check",
+    "now": "Drive slowly in a safe place and back up a short distance. That often frees a trapped stone. If the scraping continues, book a brake check.",
+    "if": [
+     "If the scraping becomes constant or turns into a harsh grind, have it checked right away.",
+     "If the brakes feel different, stop driving and have it towed."
+    ],
+    "why": "Small stones can get caught between the rotor and the thin metal dust shield behind it, causing a scraping sound that comes and goes. It's usually harmless once removed, but it can score the rotor if it stays.",
+    "causes": [
+     {
+      "name": "Stone caught between the rotor and the dust shield",
+      "clues": "Started after gravel or a dirt road, and the noise is light and on and off.",
+      "against": ""
+     },
+     {
+      "name": "Bent dust shield touching the rotor",
+      "clues": "Started after a tire change or hitting something.",
+      "against": ""
+     },
+     {
+      "name": "Early pad wear",
+      "clues": "The pads are getting old, and a squeal came first.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice which wheel the sound comes from.",
+      "Look behind the wheel for a stone or a bent metal shield."
+     ],
+     "shop": [
+      "Remove the wheel and check the rotor and dust shield",
+      "Pad inspection"
+     ]
+    }
+   }
+  },
+  "r_bearing_shield": {
+   "result": {
+    "title": "Likely a wheel bearing, a dragging brake or a shield rubbing",
+    "urgency": "soon",
+    "now": "Have it checked within a few days. Drive gently and avoid highways until then.",
+    "if": [
+     "If the wheel feels loose, the steering suddenly feels different, or the noise gets louder fast, stop driving and have it towed.",
+     "If one wheel is hot or smells burnt, a brake is sticking. Don't drive it."
+    ],
+    "why": "A grind that happens without braking and changes with speed or turning isn't coming from normal pad contact. It's often a worn wheel bearing, a brake that isn't fully releasing, or the dust shield rubbing the rotor.",
+    "causes": [
+     {
+      "name": "Worn wheel bearing",
+      "clues": "A grinding or growling that gets louder with speed and changes when you turn one way.",
+      "against": ""
+     },
+     {
+      "name": "Brake dragging",
+      "clues": "One wheel is hotter or dustier than the others.",
+      "against": ""
+     },
+     {
+      "name": "Dust shield rubbing the rotor",
+      "clues": "A light scraping that started after a tire change or hitting something.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether the noise changes when you gently turn left vs. right at speed.",
+      "Notice if one wheel smells hot after a drive. Don't touch it."
+     ],
+     "shop": [
+      "Wheel bearing play and noise check",
+      "Brake drag test",
+      "Dust shield inspection"
+     ]
+    }
+   }
+  },
+  "r_abs_normal": {
+   "result": {
+    "title": "That's likely the anti-lock brakes (ABS) doing their job",
+    "urgency": "diy",
+    "now": "If it only happens during hard stops or on slippery roads, no repair is needed. Keep firm pressure on the pedal when you feel it.",
+    "if": [
+     "If the buzzing happens during normal, gentle stops on dry roads, or the ABS light comes on, have the brakes checked.",
+     "If the car doesn't slow down as it should, stop driving and have it checked."
+    ],
+    "why": "During a hard stop or on ice, rain or gravel, the ABS pulses the brakes rapidly so the wheels don't lock up. You can feel a buzz in the pedal and hear a grinding or chattering sound. That's normal.",
+    "causes": [
+     {
+      "name": "Normal ABS operation",
+      "clues": "Only during hard or slippery stops, with a pulsing pedal.",
+      "against": "Not normal if it happens on dry roads during gentle stops."
+     },
+     {
+      "name": "Faulty wheel speed sensor",
+      "clues": "The ABS kicks in at low speed on dry roads, or the ABS light is on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether it only happens on slippery surfaces or in hard stops.",
+      "Watch for the ABS warning light."
+     ],
+     "shop": [
+      "ABS code scan if it happens during normal stops",
+      "Wheel speed sensor check"
+     ]
+    }
+   }
+  },
+  "r_new_brakes_grind": {
+   "result": {
+    "title": "New brakes shouldn't grind. Something may not be fitted right",
+    "urgency": "soon",
+    "now": "Take it back to the shop that did the work within the next day or two. Drive gently until then.",
+    "if": [
+     "If the pedal feels different or the car takes longer to stop, don't drive it. Call the shop and ask them to come to you or arrange a tow."
+    ],
+    "why": "A little noise while new pads bed in can happen, but a true grind usually points to a fitting problem: a pad not seated right, a shield bent during the job, or old rotors with a worn lip that new pads are hitting.",
+    "causes": [
+     {
+      "name": "Pad or clip not seated correctly",
+      "clues": "The grind started right after the job and is constant.",
+      "against": ""
+     },
+     {
+      "name": "Old rotors not replaced or resurfaced",
+      "clues": "Only the pads were changed.",
+      "against": ""
+     },
+     {
+      "name": "Dust shield bent during the repair",
+      "clues": "A light scrape, even when not braking.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the invoice to see whether rotors were replaced.",
+      "Note which wheel it comes from."
+     ],
+     "shop": [
+      "Recheck pad seating and hardware",
+      "Rotor condition check",
+      "Dust shield clearance check"
+     ]
+    }
+   }
+  },
+  "r_unsure_grind": {
+   "result": {
+    "title": "Treat grinding as a brake problem until it's checked",
+    "urgency": "soon",
+    "now": "Have the brakes inspected within the next day or two. Until then, drive only short distances and leave extra stopping room.",
+    "if": [
+     "If the pedal feels soft, the car takes longer to stop, or the grind is harsh on every stop, don't drive it. Have it towed.",
+     "If it was only on the first stop or two after rain, it may just be rust."
+    ],
+    "why": "Grinding has harmless causes, like surface rust, but it's also the classic sign of pads worn to metal. Without knowing when it happens, it's safest to have the pads and rotors looked at soon.",
+    "causes": [
+     {
+      "name": "Pads worn to metal",
+      "clues": "There was a squeal before, and the pads are old.",
+      "against": ""
+     },
+     {
+      "name": "Surface rust",
+      "clues": "Only after the car sits or gets wet.",
+      "against": ""
+     },
+     {
+      "name": "Debris or a bent shield",
+      "clues": "A light scrape after gravel or a tire change.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound when it happens. It helps the shop.",
+      "Look at the pads through the wheel spokes."
+     ],
+     "shop": [
+      "Pad and rotor inspection",
+      "Caliper and wheel bearing check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "squealing-brakes",
+  "car-shakes-when-braking",
+  "brakes-dragging",
+  "soft-or-spongy-brake-pedal",
+  "humming-noise-at-speed"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises",
+   "Driving"
+  ],
+  "words": [
+   "brake",
+   "pad",
+   "rotor",
+   "grind",
+   "caliper",
+   "wheel bearing",
+   "abs"
+  ]
+ },
+ "sources": [
+  "https://www.acg.aaa.com/connect/blogs/5c/auto/how-to-know-if-your-brakes-are-going-bad",
+  "https://prnewswire.com/news-releases/car-care-council-are-your-brakes-trying-to-tell-you-something-300309286.html",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

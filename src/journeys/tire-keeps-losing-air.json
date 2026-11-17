@@ -1,0 +1,408 @@
+{
+ "id": "tire-keeps-losing-air",
+ "title": "Tire keeps losing air",
+ "h1": "Why does my tire keep losing air?",
+ "metaDesc": "One tire keeps going low? Answer a few quick questions to see if it's a nail, the valve, the rim seal or sidewall damage, how urgent it is, and what to ask the shop.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "slow leak in tire",
+  "tire keeps going flat",
+  "tire losing air",
+  "one tire keeps losing pressure",
+  "tire low every morning",
+  "tire leaking air",
+  "nail in tire",
+  "tire wont hold air",
+  "valve stem leak",
+  "bead leak",
+  "rim leak",
+  "tire goes low after a few days",
+  "flat tire keeps coming back",
+  "tire pressure light keeps coming on"
+ ],
+ "intro": "A tire that needs air every few days almost always has a small leak: a nail in the tread, a leaky valve, or a poor seal where the tire meets the wheel. Damage to the sidewall is the exception, and that one isn't safe to drive on. Answer a few questions to find the likely cause and the right fix.",
+ "safety": [
+  "If you see a bulge, bubble, deep cut or cords showing on a tire, don't drive on it. Put on the spare or call roadside help.",
+  "Don't drive on a tire that's flat or badly low. It can overheat and fail, and it ruins the tire.",
+  "If a tire starts to shake, thump or pull hard while driving, slow down gently and pull over somewhere safe."
+ ],
+ "start": "q_state",
+ "nodes": {
+  "q_state": {
+   "q": "What does the tire look like right now?",
+   "help": "Use a tire gauge if you have one. The correct pressure is on a sticker inside the driver's door, not the number printed on the tire.",
+   "opts": [
+    {
+     "a": "It's flat, or so low it looks squashed",
+     "go": "r_flat_now"
+    },
+    {
+     "a": "There's a bulge, bubble, cut or crack on the side of the tire",
+     "go": "r_sidewall"
+    },
+    {
+     "a": "It looks normal but needs air every few days or weeks",
+     "go": "q_inspect"
+    },
+    {
+     "a": "All my tires drop, mostly when the weather turns cold",
+     "go": "r_temperature"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_inspect"
+    }
+   ]
+  },
+  "q_inspect": {
+   "q": "Inflate the tire, then look closely at it. What do you find?",
+   "help": "Spray or brush soapy water over the tread, the valve stem and the edge where the tire meets the wheel. Growing bubbles show where air is escaping.",
+   "opts": [
+    {
+     "a": "A nail, screw or other object in the tread",
+     "go": "r_puncture"
+    },
+    {
+     "a": "Bubbles at the valve stem (where you add air)",
+     "go": "r_valve"
+    },
+    {
+     "a": "Bubbles where the tire meets the wheel, or the wheel is corroded or was hit hard on a pothole or curb",
+     "go": "r_bead_leak"
+    },
+    {
+     "a": "The tire was plugged or patched before",
+     "go": "r_old_repair"
+    },
+    {
+     "a": "Nothing visible / I'm not sure",
+     "go": "r_slow_leak_unknown"
+    }
+   ]
+  },
+  "r_flat_now": {
+   "result": {
+    "title": "The tire is too low to drive on",
+    "urgency": "stop",
+    "now": "Don't drive on it. Put on the spare or call roadside assistance. If you have a portable inflator, you can try adding air where the car is parked.",
+    "if": [
+     "If it holds air after inflating, have it repaired or inspected the same day and check the pressure again before every trip.",
+     "If it won't hold air or you see sidewall damage, use the spare and have the tire replaced."
+    ],
+    "why": "A very low tire flexes too much, builds heat and can come apart. It also makes steering and braking less predictable. Even a short drive on a flat can ruin a tire that could have been repaired.",
+    "causes": [
+     {
+      "name": "Puncture from a nail or screw",
+      "clues": "An object in the tread, or a hiss when you add air.",
+      "against": ""
+     },
+     {
+      "name": "Leaking valve stem",
+      "clues": "Bubbles or a hiss at the valve.",
+      "against": ""
+     },
+     {
+      "name": "Sidewall or rim damage",
+      "clues": "A recent pothole or curb strike.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look the tire over for nails, cuts and bulges.",
+      "Check the spare's pressure before you rely on it."
+     ],
+     "shop": [
+      "Remove the tire and inspect it inside and out",
+      "Leak test in a water tank",
+      "Repair from the inside or replace"
+     ]
+    }
+   }
+  },
+  "r_sidewall": {
+   "result": {
+    "title": "Sidewall damage means the tire needs replacing",
+    "urgency": "stop",
+    "now": "Don't drive on this tire. Put on the spare or call roadside assistance, then have the tire replaced.",
+    "if": [
+     "If the spare is a small temporary one, follow the speed and distance limits printed on it.",
+     "If the wheel is also bent or cracked, have it checked when the tire is replaced."
+    ],
+    "why": "A bulge means the cords inside the tire are broken and only the rubber is holding the air. Cuts and cracks in the sidewall can't be safely repaired. The tire can burst without warning.",
+    "causes": [
+     {
+      "name": "Impact damage from a pothole or curb",
+      "clues": "A bulge appeared after hitting something hard.",
+      "against": ""
+     },
+     {
+      "name": "Cut from road debris",
+      "clues": "A visible slice or gouge in the side of the tire.",
+      "against": ""
+     },
+     {
+      "name": "Age or long-term underinflation",
+      "clues": "Fine cracks across the sidewall, or a tire more than several years old.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Tire replacement",
+      "Wheel inspection for bends or cracks",
+      "Check the other tires for similar damage"
+     ]
+    }
+   }
+  },
+  "r_temperature": {
+   "result": {
+    "title": "Cold weather lowers tire pressure in all tires",
+    "urgency": "diy",
+    "now": "Check all four tires when they're cold (before driving) and fill them to the pressure on the driver's door sticker.",
+    "if": [
+     "If one tire keeps dropping faster than the others, it probably has its own leak. Go back and check it with soapy water.",
+     "If the tire pressure light stays on after filling all tires correctly, have the sensors checked."
+    ],
+    "why": "Air contracts as it cools, so pressure drops when the temperature falls, by about 1 psi for every 10 degrees Fahrenheit. All the tires drop together, and it often turns on the tire pressure light on the first cold morning.",
+    "causes": [
+     {
+      "name": "Normal pressure drop with colder weather",
+      "clues": "All tires are low by about the same amount, and the light comes on in the morning.",
+      "against": "If one tire is much lower than the rest, look for a leak."
+     },
+     {
+      "name": "Tires not checked in a while",
+      "clues": "Tires lose a little air naturally over weeks and months.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all tires with a gauge before driving.",
+      "Recheck a week later and see if one tire dropped more."
+     ],
+     "shop": [
+      "Tire pressure sensor check if the light stays on"
+     ]
+    }
+   }
+  },
+  "r_puncture": {
+   "result": {
+    "title": "A puncture in the tread is causing the leak",
+    "urgency": "soon",
+    "now": "Leave the object in place and have the tire repaired within a few days. Check and top up the pressure before each drive until then.",
+    "if": [
+     "If the hole is near the edge of the tread or on the sidewall, it usually can't be repaired safely and the tire should be replaced.",
+     "If the tire loses air quickly or goes flat, use the spare instead of driving on it."
+    ],
+    "why": "Nails and screws often seal themselves partly, so air leaks out slowly instead of all at once. The safe fix is to take the tire off the wheel and repair it from the inside with a patch and plug, so the shop can also check for hidden damage.",
+    "causes": [
+     {
+      "name": "Nail or screw in the tread",
+      "clues": "A shiny metal head in the tread, or bubbles around it.",
+      "against": ""
+     },
+     {
+      "name": "Small object that already fell out",
+      "clues": "A small hole that bubbles with soapy water.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Spray soapy water on the object to confirm it's leaking.",
+      "Note where it is: center tread, near the edge, or on the side."
+     ],
+     "shop": [
+      "Remove the tire and inspect the inside",
+      "Patch-and-plug repair from the inside if repairable",
+      "Balance after repair"
+     ]
+    }
+   }
+  },
+  "r_valve": {
+   "result": {
+    "title": "The valve stem is leaking",
+    "urgency": "diy",
+    "now": "Make sure the valve cap is on. If you have a valve core tool, snug the core gently, then test again with soapy water.",
+    "if": [
+     "If it still bubbles, or the rubber stem is cracked, have the valve stem replaced soon.",
+     "If your car has tire pressure sensors in the valve, a shop should replace the seal or valve so the sensor isn't damaged."
+    ],
+    "why": "The small spring valve inside the stem can loosen or get dirt in it, and rubber stems crack with age. Air slowly seeps out even though the tire itself is fine.",
+    "causes": [
+     {
+      "name": "Loose or dirty valve core",
+      "clues": "Bubbles from the center of the valve opening.",
+      "against": ""
+     },
+     {
+      "name": "Cracked or worn rubber valve stem",
+      "clues": "Cracks when you bend the stem gently, or bubbles at its base.",
+      "against": ""
+     },
+     {
+      "name": "Worn seal on a tire pressure sensor valve",
+      "clues": "A metal valve stem with bubbles where it meets the wheel.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Spray soapy water on the valve opening and the base of the stem.",
+      "Make sure a cap is fitted."
+     ],
+     "shop": [
+      "Valve core or valve stem replacement",
+      "Tire pressure sensor seal service"
+     ]
+    }
+   }
+  },
+  "r_bead_leak": {
+   "result": {
+    "title": "Air is likely leaking where the tire seals against the wheel",
+    "urgency": "check",
+    "now": "Keep the pressure topped up, and book a tire shop visit to have the tire taken off and the wheel edge cleaned and resealed.",
+    "if": [
+     "If the wheel is bent or cracked from a pothole, it may need repair or replacement. A bent wheel can also cause a vibration.",
+     "If the leak gets fast enough that the tire goes flat overnight, use the spare."
+    ],
+    "why": "The tire seals against a smooth lip on the wheel. Corrosion, dirt or a bend from an impact can break that seal so air seeps out slowly. It's common on older aluminum wheels and in places where roads are salted.",
+    "causes": [
+     {
+      "name": "Corrosion on the wheel's sealing edge",
+      "clues": "Older aluminum wheels, salty winters, and bubbles at several spots around the rim.",
+      "against": ""
+     },
+     {
+      "name": "Bent wheel from an impact",
+      "clues": "The leak started after a pothole or curb strike, or there's a new vibration.",
+      "against": ""
+     },
+     {
+      "name": "Cracked wheel",
+      "clues": "Bubbles from a spot on the wheel itself, not where the tire meets it.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Spray soapy water all the way around the edge where the tire meets the wheel.",
+      "Look at the wheel lip for dents or flat spots."
+     ],
+     "shop": [
+      "Dismount, clean and reseal the tire bead",
+      "Wheel runout check for bends",
+      "Wheel crack inspection"
+     ]
+    }
+   }
+  },
+  "r_old_repair": {
+   "result": {
+    "title": "The earlier repair may be failing",
+    "urgency": "soon",
+    "now": "Have the tire inspected within a few days and ask the shop to check the old repair from the inside.",
+    "if": [
+     "If the old repair is a plug pushed in from the outside only, ask about a proper inside repair or a new tire.",
+     "If the repair is near the edge of the tread or the tire was driven on flat, it will likely need replacing."
+    ],
+    "why": "A plug put in from the outside, without a patch on the inside, can work loose over time. Shops also find that a tire driven while low may have hidden inner damage that makes a new repair unsafe.",
+    "causes": [
+     {
+      "name": "Outside-only plug working loose",
+      "clues": "Bubbles at the old plug.",
+      "against": ""
+     },
+     {
+      "name": "Second puncture nearby",
+      "clues": "Bubbles at a different spot in the tread.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Spray soapy water over the old repair."
+     ],
+     "shop": [
+      "Inside inspection of the tire",
+      "Proper patch-and-plug repair or replacement"
+     ]
+    }
+   }
+  },
+  "r_slow_leak_unknown": {
+   "result": {
+    "title": "A slow leak you can't see is best found by a tire shop",
+    "urgency": "check",
+    "now": "Check the pressure before each drive and book a tire shop to find the leak. Note how many pounds it loses per day.",
+    "if": [
+     "If it starts going low overnight or faster, get it in sooner and use the spare if needed.",
+     "If the tire pressure light flashes for a minute and then stays on, the system itself may have a fault."
+    ],
+    "why": "Many leaks are tiny: a small object hidden in a tread groove, a pinhole, or corrosion under the wheel edge. A shop can dunk the wheel in water to find exactly where air is escaping.",
+    "causes": [
+     {
+      "name": "Small puncture hidden in the tread",
+      "clues": "The leak is steady no matter the weather.",
+      "against": ""
+     },
+     {
+      "name": "Leak at the wheel edge",
+      "clues": "Older wheels, or a recent pothole.",
+      "against": ""
+     },
+     {
+      "name": "Valve stem leak",
+      "clues": "A missing cap or an old rubber stem.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the tire with a gauge each morning and note the readings.",
+      "Spray soapy water over the whole tire and the valve."
+     ],
+     "shop": [
+      "Water tank leak test",
+      "Inside inspection of the tire",
+      "Valve and wheel edge check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "tire-pressure-light-on",
+  "uneven-tire-wear",
+  "car-pulls-to-one-side",
+  "vibration-at-highway-speed"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Warning Lights"
+  ],
+  "words": [
+   "tire",
+   "leak",
+   "flat",
+   "valve stem",
+   "bead",
+   "wheel",
+   "puncture",
+   "tpms"
+  ]
+ },
+ "sources": [
+  "https://www.ustires.org/tire-care-safety/tire-repair-basics",
+  "https://www.nhtsa.gov/vehicle-safety/tires"
+ ]
+}

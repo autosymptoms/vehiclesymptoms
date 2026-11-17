@@ -1,0 +1,690 @@
+{
+ "id": "car-wont-go-into-gear",
+ "title": "Car won't go into gear",
+ "h1": "Why won't my car go into gear or move?",
+ "metaDesc": "Car won't go into gear or won't move in Drive? A few questions show if it's the shifter, fluid, clutch or an axle, how urgent it is, and what to tell your mechanic.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "car won't go into gear",
+  "car wont go into gear",
+  "car won't move in drive",
+  "car wont move in drive or reverse",
+  "put it in drive and nothing happens",
+  "engine revs but car won't move",
+  "transmission won't engage",
+  "can't get into gear",
+  "cant get into gear manual",
+  "stick shift won't go into gear",
+  "car won't go in reverse",
+  "car won't move when I press the gas",
+  "shifter moves but car doesn't move",
+  "grinding when trying to get into gear"
+ ],
+ "intro": "When a car won't go into gear, the big clues are whether the shifter moves, whether the engine revs without the car moving, and whether you have an automatic or a manual. Some causes are simple, like a shift lock or a parking brake left on. Others, like a transmission that has lost its fluid, mean the car shouldn't be driven. Answer a few questions to find out which.",
+ "safety": [
+  "Before getting out, set the parking brake firmly. If the shifter or transmission is faulty, the car may not really be in Park.",
+  "If you smell burning or see smoke from under the car, turn the engine off and step away.",
+  "Don't keep revving the engine to force it to move. That can turn a repairable problem into a ruined transmission or clutch."
+ ],
+ "start": "q_type",
+ "nodes": {
+  "q_type": {
+   "q": "Is your car an automatic or a manual (stick shift)?",
+   "help": "If there are only two pedals, gas and brake, it's an automatic. A manual has a third pedal, the clutch.",
+   "opts": [
+    {
+     "a": "Automatic (two pedals)",
+     "go": "q_auto"
+    },
+    {
+     "a": "Manual (three pedals, with a clutch)",
+     "go": "q_manual"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_auto"
+    }
+   ]
+  },
+  "q_auto": {
+   "q": "What happens when you try to put it in Drive or Reverse?",
+   "help": "Keep your foot firmly on the brake while you shift.",
+   "opts": [
+    {
+     "a": "The shifter won't move out of Park at all",
+     "go": "r_stuck_park"
+    },
+    {
+     "a": "The shifter moves, but the car doesn't move and the engine just revs when I press the gas",
+     "go": "q_auto_display"
+    },
+    {
+     "a": "It goes into gear, but only after a pause of a few seconds, often with a thump",
+     "go": "r_delayed"
+    },
+    {
+     "a": "It moves in Reverse but not Drive, or the other way round",
+     "go": "r_one_direction"
+    },
+    {
+     "a": "It goes into gear, but the car feels held back, like the brakes are on",
+     "go": "r_dragging"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_auto_display": {
+   "q": "When you move the shifter, does the gear letter on the dash (P, R, N, D) change to match?",
+   "help": "Most cars show the selected gear on the instrument panel or next to the shifter.",
+   "opts": [
+    {
+     "a": "No, it stays on the same letter or doesn't match the shifter",
+     "go": "r_linkage"
+    },
+    {
+     "a": "The shifter feels loose or floppy",
+     "go": "r_linkage"
+    },
+    {
+     "a": "Yes, it matches, but the car still won't move",
+     "go": "q_auto_clues"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_auto_clues"
+    }
+   ]
+  },
+  "q_auto_clues": {
+   "q": "Which of these fits best?",
+   "opts": [
+    {
+     "a": "There's a reddish puddle under the car, or it was leaking fluid recently",
+     "go": "r_fluid_loss"
+    },
+    {
+     "a": "I heard a bang or loud clunk, then it stopped moving",
+     "go": "r_axle"
+    },
+    {
+     "a": "It had been slipping or revving oddly between gears before it quit",
+     "go": "r_trans_failure"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_trans_failure"
+    }
+   ]
+  },
+  "q_manual": {
+   "q": "What happens when you try to drive off?",
+   "help": "The clutch is the pedal on the far left. Pressing it to the floor lets you change gears.",
+   "opts": [
+    {
+     "a": "The clutch pedal feels soft, sinks to the floor, or stays down",
+     "go": "r_clutch_hydraulic"
+    },
+    {
+     "a": "The clutch pedal feels normal, but gears grind or won't go in, especially from a stop",
+     "go": "r_clutch_drag"
+    },
+    {
+     "a": "The gear goes in, but when I let the clutch out the engine revs and the car barely moves",
+     "go": "r_clutch_slip"
+    },
+    {
+     "a": "I heard a bang or loud clunk, and now it won't move in any gear",
+     "go": "r_axle"
+    },
+    {
+     "a": "The shifter feels loose or floppy and doesn't select gears",
+     "go": "r_linkage"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "r_stuck_park": {
+   "result": {
+    "title": "The shift lock is probably holding the shifter in Park",
+    "urgency": "diy",
+    "now": "With the key in ON or the engine running, press the brake pedal firmly and try again. If it still won't move, use the shift lock release, a small slot or button near the shifter (your owner's manual shows where).",
+    "if": [
+     "If the brake lights don't come on when you press the pedal, a brake light switch or fuse is the likely cause. Get that fixed before driving in traffic, because drivers behind you can't see you stop.",
+     "If the car is parked on a slope, set the parking brake, hold the brake pedal down and shift with a firm, steady pull. The car's weight can bind the Park lock."
+    ],
+    "why": "Automatic cars won't let you leave Park unless they sense your foot on the brake. If that signal doesn't arrive, a small lock keeps the shifter in place. The cause is usually simple and electrical, not a transmission failure.",
+    "causes": [
+     {
+      "name": "Faulty brake light switch or blown fuse",
+      "clues": "The brake lights don't come on when you press the pedal.",
+      "against": "If the brake lights work normally, look at the other causes first."
+     },
+     {
+      "name": "Weak or dead battery",
+      "clues": "Dim dash lights, slow cranking, or a push-button or dial shifter.",
+      "against": ""
+     },
+     {
+      "name": "Car's weight resting on the Park lock",
+      "clues": "Parked on a slope without the parking brake set first, and the shifter feels jammed rather than locked.",
+      "against": ""
+     },
+     {
+      "name": "Failed shift lock part or shift cable",
+      "clues": "The brake lights work, and the manual release lets you shift.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Have someone check whether the brake lights come on.",
+      "Check the brake light fuse.",
+      "Try the shift lock release."
+     ],
+     "shop": [
+      "Brake light switch test",
+      "Shift lock (interlock) check",
+      "Battery test"
+     ]
+    }
+   }
+  },
+  "r_delayed": {
+   "result": {
+    "title": "A delay before it engages usually points to low fluid or internal transmission wear",
+    "urgency": "soon",
+    "now": "Have the transmission checked within the next few days. If your car has a transmission dipstick, check the fluid level the way your owner's manual describes first.",
+    "if": [
+     "If the delay gets longer, or the engine revs before the car moves, stop driving and have it towed.",
+     "If you see reddish fluid under the car, don't drive it until the leak is found."
+    ],
+    "why": "An automatic transmission uses fluid pressure to engage each gear. When the fluid is low or worn, or internal seals are tired, it takes longer to build that pressure. Catching it early often means a smaller repair.",
+    "causes": [
+     {
+      "name": "Low transmission fluid",
+      "clues": "Reddish spots where you park, or the delay is worse when the engine is cold.",
+      "against": ""
+     },
+     {
+      "name": "Old or burnt fluid",
+      "clues": "Dark fluid with a burnt smell, or no transmission service in many years.",
+      "against": ""
+     },
+     {
+      "name": "Worn internal seals or valve body problem",
+      "clues": "Harsh or late shifts as well as the delay.",
+      "against": ""
+     },
+     {
+      "name": "Transmission control fault",
+      "clues": "A check engine or transmission warning light is on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for reddish spots where you park.",
+      "Note whether it's worse when cold or after a long drive.",
+      "Check the fluid if your car has a dipstick."
+     ],
+     "shop": [
+      "Transmission fluid level and condition check",
+      "Code scan for transmission codes",
+      "Line pressure test"
+     ]
+    }
+   }
+  },
+  "r_one_direction": {
+   "result": {
+    "title": "The transmission has likely lost one or more of its gears",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed to a transmission shop or a general repair shop.",
+    "if": [
+     "If it's blocking traffic, put it in Neutral and push it out of the way with help, or call roadside assistance.",
+     "If you find the fluid very low, tell the shop. A leak is a much easier fix than internal damage."
+    ],
+    "why": "Drive and Reverse use different clutches or bands inside the transmission. When one direction works and the other doesn't, one of those has failed or isn't getting enough fluid pressure. A car that can't be relied on to go forward isn't safe in traffic, and forcing it can cause more damage.",
+    "causes": [
+     {
+      "name": "Low transmission fluid",
+      "clues": "A leak, or delayed engagement in the weeks before.",
+      "against": ""
+     },
+     {
+      "name": "Worn or failed clutch pack or band inside the transmission",
+      "clues": "That gear slipped or flared before it quit.",
+      "against": ""
+     },
+     {
+      "name": "Shift solenoid or valve body fault",
+      "clues": "A transmission or check engine light, or the car seems stuck in one gear.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for reddish fluid under the car.",
+      "Note any warning lights on the dash."
+     ],
+     "shop": [
+      "Fluid level and condition check",
+      "Code scan",
+      "Transmission pressure test",
+      "Internal inspection if needed"
+     ]
+    }
+   }
+  },
+  "r_dragging": {
+   "result": {
+    "title": "The parking brake or a stuck brake is probably holding the car back",
+    "urgency": "soon",
+    "now": "Make sure the parking brake is fully released (pedal, lever or electronic switch), then try moving off gently.",
+    "if": [
+     "If a wheel smokes, smells burning or is too hot to go near, stop. Let it cool and have the car towed.",
+     "If it still feels held back with the parking brake off, have the brakes checked before driving any further."
+    ],
+    "why": "If you can feel the transmission go into gear but the car struggles to roll, something is resisting the wheels. A parking brake that's on, partly on or frozen, or a brake caliper that won't release, are the usual causes.",
+    "causes": [
+     {
+      "name": "Parking brake still on or partly on",
+      "clues": "The brake warning light is on, or the electronic parking brake didn't release.",
+      "against": ""
+     },
+     {
+      "name": "Parking brake frozen or rusted",
+      "clues": "Cold, wet weather, or the car sat unused for a while.",
+      "against": ""
+     },
+     {
+      "name": "Stuck brake caliper",
+      "clues": "One wheel is much hotter than the others, there's a burning smell, or the car pulls to one side.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the parking brake warning light.",
+      "After a short, slow move, hold your hand near (not on) each wheel to feel for one that's much hotter."
+     ],
+     "shop": [
+      "Brake inspection",
+      "Parking brake cable and mechanism check",
+      "Caliper release check"
+     ]
+    }
+   }
+  },
+  "r_linkage": {
+   "result": {
+    "title": "The shifter has likely come disconnected from the transmission",
+    "urgency": "stop",
+    "now": "Set the parking brake firmly and don't drive it. Have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If you can't be sure the car is in Park (or in gear, on a manual), block the wheels as well as setting the parking brake.",
+     "If the shifter suddenly goes loose while you're driving, pull over safely and stop as soon as you can."
+    ],
+    "why": "A cable or rod connects the shifter to the transmission. If it breaks, or the small bushing that holds it falls apart, moving the shifter no longer changes gears, so the transmission can be left in any gear, including one that lets the car roll. It's often a small part, but the car isn't safe to use until it's fixed.",
+    "causes": [
+     {
+      "name": "Worn-out shift cable bushing",
+      "clues": "The shifter feels loose or floppy. This is a common wear part.",
+      "against": ""
+     },
+     {
+      "name": "Broken, stretched or disconnected shift cable or linkage",
+      "clues": "The dash gear display doesn't match the shifter position.",
+      "against": ""
+     },
+     {
+      "name": "Linkage not reconnected after a repair",
+      "clues": "Recent work near the transmission or under the center console.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the dash gear display changes when you move the shifter.",
+      "Note whether the shifter feels loose or moves with almost no resistance."
+     ],
+     "shop": [
+      "Shift cable and bushing inspection",
+      "Shift linkage adjustment check",
+      "Gear position (range) sensor check"
+     ]
+    }
+   }
+  },
+  "r_fluid_loss": {
+   "result": {
+    "title": "The transmission has probably lost its fluid",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed so the leak can be found and fixed before more damage is done.",
+    "if": [
+     "If you can see where it's leaking, take a photo for the shop.",
+     "If you smell burning fluid or see smoke, turn the engine off and step away from the car."
+    ],
+    "why": "An automatic transmission needs fluid pressure to engage any gear. A large leak, like a split cooler line or a damaged pan, can drain it quickly, and the car stops moving. Running it with too little fluid, even briefly, can ruin the transmission.",
+    "causes": [
+     {
+      "name": "Leaking transmission cooler line",
+      "clues": "A puddle toward the front of the car and a sudden loss of drive.",
+      "against": ""
+     },
+     {
+      "name": "Leaking pan, gasket, seal or drain plug",
+      "clues": "Drips under the middle of the car, or a recent fluid service.",
+      "against": ""
+     },
+     {
+      "name": "Leaking axle seal",
+      "clues": "Fluid on the inside of a front wheel or tire.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the color of the fluid and where the puddle is.",
+      "Check the dipstick if your car has one."
+     ],
+     "shop": [
+      "Leak inspection",
+      "Refill and pressure test",
+      "Check for damage from running low"
+     ]
+    }
+   }
+  },
+  "r_axle": {
+   "result": {
+    "title": "A broken axle or drive shaft is likely",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed, ideally on a flatbed truck.",
+    "if": [
+     "If the engine sounds normal and you can feel it go into gear, but the wheels don't turn, that strongly points to a broken axle or drive shaft rather than the transmission.",
+     "If fluid is pouring out under the car, tell the tow driver and the shop."
+    ],
+    "why": "A loud bang or clunk followed by no movement usually means something between the transmission and the wheels has snapped. The engine and transmission may be fine, but the power isn't reaching the wheels. Clicking when turning in the days before often points to a worn CV joint.",
+    "causes": [
+     {
+      "name": "Broken CV axle",
+      "clues": "Clicking when turning beforehand, a front-wheel-drive car, or grease spattered inside a front wheel.",
+      "against": ""
+     },
+     {
+      "name": "Broken drive shaft or U-joint",
+      "clues": "A rear-wheel or all-wheel-drive vehicle, with clunking or vibration beforehand.",
+      "against": ""
+     },
+     {
+      "name": "Broken parts inside the differential or transmission",
+      "clues": "Grinding noises, or a fluid leak after the bang.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look behind each front wheel for a torn rubber boot or sprayed grease.",
+      "From beside the car, without getting under it, look for a drive shaft hanging down."
+     ],
+     "shop": [
+      "Axle and CV joint inspection",
+      "Drive shaft and U-joint check",
+      "Differential inspection"
+     ]
+    }
+   }
+  },
+  "r_trans_failure": {
+   "result": {
+    "title": "The transmission has likely stopped sending power to the wheels",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed to a shop and ask for a transmission diagnosis.",
+    "if": [
+     "If the fluid turns out to be very low, a leak may be the real cause, which is often a smaller repair.",
+     "If a transmission or check engine light is on, the stored codes will help the shop."
+    ],
+    "why": "When the gear display shows Drive and the engine revs but the car doesn't move, the transmission isn't engaging. Common reasons are very low fluid, worn internal clutches, a failed torque converter or pump, or an electronic fault. Revving it harder won't help and can cause more damage.",
+    "causes": [
+     {
+      "name": "Very low transmission fluid",
+      "clues": "Reddish spots where you park, or delayed engagement in the weeks before.",
+      "against": ""
+     },
+     {
+      "name": "Worn internal clutches",
+      "clues": "Slipping, or the revs flaring between gears before it quit.",
+      "against": ""
+     },
+     {
+      "name": "Failed torque converter or transmission pump",
+      "clues": "A whine that rises and falls with engine speed.",
+      "against": ""
+     },
+     {
+      "name": "Electronic control fault",
+      "clues": "A transmission warning light, or it was stuck in one gear before it quit.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the fluid if your car has a dipstick.",
+      "Note any warning lights on the dash."
+     ],
+     "shop": [
+      "Fluid level and condition check",
+      "Code scan",
+      "Line pressure test",
+      "Torque converter and pump check"
+     ]
+    }
+   }
+  },
+  "r_clutch_hydraulic": {
+   "result": {
+    "title": "The clutch hydraulics have probably failed",
+    "urgency": "stop",
+    "now": "Don't drive it. Check the clutch fluid reservoir and look for leaks, then have it towed or call a mobile mechanic.",
+    "if": [
+     "If the reservoir is low and there's fluid near the clutch pedal or under the car, a leaking clutch master or slave cylinder is likely.",
+     "If the brake pedal also feels soft, don't move the car at all. On many cars the brakes and clutch share one fluid reservoir."
+    ],
+    "why": "Most manual cars use fluid pressure to release the clutch. If the pedal sinks or stays down, that pressure is gone, so the clutch can't release and gears grind or won't go in. Forcing it into gear risks damaging the transmission and leaves you without control of when the car moves.",
+    "causes": [
+     {
+      "name": "Leaking clutch slave cylinder",
+      "clues": "Fluid dripping near where the engine meets the transmission.",
+      "against": ""
+     },
+     {
+      "name": "Failed clutch master cylinder",
+      "clues": "Fluid on the carpet or under the dash near the pedal, or the pedal sinks slowly.",
+      "against": ""
+     },
+     {
+      "name": "Air in the clutch line",
+      "clues": "Recent clutch work, or the reservoir ran low.",
+      "against": ""
+     },
+     {
+      "name": "Broken clutch cable",
+      "clues": "An older or cable-operated car, and the pedal went limp with no resistance.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the clutch fluid reservoir level (your owner's manual shows where).",
+      "Look for wet fluid near the pedal and under the car."
+     ],
+     "shop": [
+      "Clutch hydraulic inspection",
+      "Clutch master and slave cylinder test",
+      "Clutch system bleed"
+     ]
+    }
+   }
+  },
+  "r_clutch_drag": {
+   "result": {
+    "title": "The clutch probably isn't fully releasing",
+    "urgency": "soon",
+    "now": "Press the clutch all the way to the floor and wait two or three seconds before selecting first or Reverse, and book a clutch check in the next few days.",
+    "if": [
+     "If the gears go in easily with the engine off but grind with it running, the clutch is dragging and needs a shop.",
+     "If the pedal starts to feel soft or sinks, stop driving and have it towed.",
+     "If it only grinds going into Reverse, make sure the car is fully stopped and pause a moment first. Many manuals grind in Reverse if you shift too quickly."
+    ],
+    "why": "Gears go in smoothly only when the clutch fully disconnects the engine from the transmission. If it doesn't fully release, parts inside are still spinning and the gears clash. Low fluid, air in the line, or a worn clutch are the usual reasons.",
+    "causes": [
+     {
+      "name": "Low clutch fluid or air in the line",
+      "clues": "The pedal feels slightly soft, or the clutch only releases right at the floor.",
+      "against": ""
+     },
+     {
+      "name": "Worn or warped clutch parts",
+      "clues": "The clutch grabs very high or very low, or shudders when you pull away.",
+      "against": ""
+     },
+     {
+      "name": "Worn synchros in the transmission",
+      "clues": "It grinds mainly in one gear, especially when shifting quickly while moving.",
+      "against": "If it grinds going into every gear from a stop, the clutch is more likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the clutch fluid reservoir.",
+      "With the engine off, try selecting gears. If they go in easily, the clutch is the likely problem."
+     ],
+     "shop": [
+      "Clutch release check",
+      "Clutch hydraulic inspection",
+      "Transmission inspection for worn synchros"
+     ]
+    }
+   }
+  },
+  "r_clutch_slip": {
+   "result": {
+    "title": "The clutch is likely worn out and slipping badly",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed to a shop.",
+    "if": [
+     "If you smell burning, let the car sit and cool before anyone works on it.",
+     "If the car doesn't creep at all when you let the clutch out, a broken axle or drive shaft is also possible. Tell the shop."
+    ],
+    "why": "When the gear goes in but the engine revs without moving the car, the clutch is no longer gripping. That usually builds gradually as the clutch wears, then suddenly gets much worse. Oil on the clutch, or a hydraulic problem keeping it partly released, can do the same.",
+    "causes": [
+     {
+      "name": "Worn-out clutch disc",
+      "clues": "Revs flaring in higher gears for a while before, or a burning smell.",
+      "against": ""
+     },
+     {
+      "name": "Clutch hydraulics not letting it fully engage",
+      "clues": "The pedal is slow to come back up, or feels different than usual.",
+      "against": ""
+     },
+     {
+      "name": "Oil leaking onto the clutch",
+      "clues": "Oil dripping from where the engine meets the transmission.",
+      "against": ""
+     },
+     {
+      "name": "Broken axle or drive shaft",
+      "clues": "A bang beforehand, and no movement at all in any gear.",
+      "against": "If the car creeps slightly as you let the clutch out, the clutch is more likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether you smell burning after trying to move.",
+      "Look for oil dripping between the engine and transmission."
+     ],
+     "shop": [
+      "Clutch slip test",
+      "Clutch hydraulic check",
+      "Axle and drive shaft inspection"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "A shop needs to see what's stopping it from moving",
+    "urgency": "check",
+    "now": "Set the parking brake, note what you see and hear when you try to shift, and have it towed or call roadside assistance.",
+    "if": [
+     "If you see a puddle under the car or smell burning, don't try again. Tell the tow driver.",
+     "If the shifter won't leave Park, check whether the brake lights work. That's a common, simple cause."
+    ],
+    "why": "Without knowing whether the shifter moves, whether the engine revs, or whether there's a leak, it's hard to narrow it down safely. A technician can quickly tell a shifter problem from a fluid, clutch or axle problem.",
+    "causes": [
+     {
+      "name": "Shifter or shift lock problem",
+      "clues": "The shifter won't move, or feels loose.",
+      "against": ""
+     },
+     {
+      "name": "Low fluid or a transmission fault",
+      "clues": "A reddish puddle, or the engine revs but the car doesn't move.",
+      "against": ""
+     },
+     {
+      "name": "Clutch or axle problem",
+      "clues": "A manual car, or a bang or clunk before it stopped moving.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound of what happens when you try to shift. It helps the shop a lot."
+     ],
+     "shop": [
+      "Shift linkage check",
+      "Fluid level check",
+      "Code scan",
+      "Drive line inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "stuck-in-park",
+  "delayed-engagement-into-gear",
+  "transmission-slipping",
+  "clutch-slipping",
+  "grinding-when-shifting-gears"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "transmission",
+   "gear",
+   "shift",
+   "shifter",
+   "clutch",
+   "shift cable",
+   "axle",
+   "engage",
+   "torque converter"
+  ]
+ },
+ "sources": [
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

@@ -1,0 +1,463 @@
+{
+ "id": "security-light-flashing-wont-start",
+ "title": "Security light flashing, won't start",
+ "h1": "Why is my security light flashing and my car won't start?",
+ "metaDesc": "Security or key light flashing and the car won't start? Answer a few questions to see if it's the key, the fob battery or the anti-theft system, and what to do next.",
+ "group": "light",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "security light flashing car wont start",
+  "security light blinking won't start",
+  "key light flashing on dash",
+  "anti theft light flashing car wont start",
+  "immobilizer light flashing",
+  "car lock light blinking won't start",
+  "theft light on car won't start",
+  "car says key not detected",
+  "car cranks but won't start security light",
+  "car won't recognize key",
+  "anti-theft system won't let car start",
+  "security light stays on and car won't start",
+  "imobilizer light flashing"
+ ],
+ "intro": "Most cars have an anti-theft system called an immobilizer that only lets the engine run when it reads a valid key. A security light that blinks while the car is parked and locked is usually normal. If it flashes or stays on when you try to start the car and the engine won't run, the car isn't recognizing your key. Answer a few questions to find out why.",
+ "safety": [
+  "If you smell raw fuel, stop trying to start it and keep sparks and flames away.",
+  "Don't crank the engine for more than 10 seconds at a time. Wait about a minute between tries so the starter doesn't overheat.",
+  "If you see signs of a break-in, like a damaged ignition or a broken steering column cover, stop trying to start it and call the police."
+ ],
+ "start": "q_what_happens",
+ "nodes": {
+  "q_what_happens": {
+   "q": "What happens when you try to start the car?",
+   "help": "\"Cranking\" is the whirring sound of the engine turning over (rrr-rrr-rrr) before it fires up.",
+   "opts": [
+    {
+     "a": "The engine cranks but never fires up",
+     "go": "q_spare"
+    },
+    {
+     "a": "It starts, then dies after a second or two",
+     "go": "q_spare"
+    },
+    {
+     "a": "Nothing happens, or just a click, and the security light flashes",
+     "go": "q_power"
+    },
+    {
+     "a": "The light only blinks while the car is parked and locked, and the car starts fine",
+     "go": "r_normal_blink"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_power"
+    }
+   ]
+  },
+  "q_power": {
+   "q": "When you turn the key to ON (or press Start without your foot on the brake), are the dash lights and headlights bright?",
+   "help": "A weak car battery can stop the anti-theft system from reading your key properly, so it's worth ruling out first.",
+   "opts": [
+    {
+     "a": "No, they're dim, flicker or don't come on",
+     "go": "r_low_battery"
+    },
+    {
+     "a": "Yes, they're bright and normal",
+     "go": "q_spare"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_try_basics"
+    }
+   ]
+  },
+  "q_spare": {
+   "q": "Have you tried your spare key or spare key fob?",
+   "opts": [
+    {
+     "a": "Yes, and the spare works",
+     "go": "r_main_key"
+    },
+    {
+     "a": "Yes, and the spare doesn't work either",
+     "go": "q_recent"
+    },
+    {
+     "a": "No, or I don't have a spare",
+     "go": "r_try_basics"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_try_basics"
+    }
+   ]
+  },
+  "q_recent": {
+   "q": "Has any of this happened recently?",
+   "opts": [
+    {
+     "a": "The car battery died, was jump-started, disconnected or replaced",
+     "go": "r_after_battery"
+    },
+    {
+     "a": "A new key or remote was cut or added",
+     "go": "r_unprogrammed_key"
+    },
+    {
+     "a": "The key has been hard to turn, or a remote starter or alarm was installed",
+     "go": "r_ignition_or_aftermarket"
+    },
+    {
+     "a": "None of these",
+     "go": "r_immobilizer_fault"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_immobilizer_fault"
+    }
+   ]
+  },
+  "r_normal_blink": {
+   "result": {
+    "title": "A security light that blinks while the car is parked is normal",
+    "urgency": "diy",
+    "now": "Nothing to fix. The blinking shows the anti-theft system is armed. It should go out a few seconds after you turn the key to ON or press Start.",
+    "if": [
+     "If the light stays on or flashes fast with the engine running, have the anti-theft system checked when convenient.",
+     "If the car later cranks but won't start while the light flashes, start this guide again."
+    ],
+    "why": "Many cars blink the security light when they're off to show the immobilizer is armed and to discourage thieves. The light draws almost no power. It only points to a problem when it stays on or flashes while you're trying to start or drive.",
+    "causes": [
+     {
+      "name": "Normal anti-theft indicator",
+      "clues": "The light blinks slowly with the car off and goes out when you start the engine.",
+      "against": "If the light stays on with the engine running, it's not just the normal indicator."
+     },
+     {
+      "name": "Early sign of a key or immobilizer problem",
+      "clues": "Starting has needed a second try now and then.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the owner's manual section on the security or immobilizer indicator.",
+      "Watch whether the light goes out after the engine starts."
+     ],
+     "shop": [
+      "Immobilizer code scan if the light stays on while running"
+     ]
+    }
+   }
+  },
+  "r_low_battery": {
+   "result": {
+    "title": "A weak car battery is likely confusing the anti-theft system",
+    "urgency": "diy",
+    "now": "Check that the battery clamps are tight and clean, then try a jump start or a battery booster.",
+    "if": [
+     "If it starts with a jump, have the battery and charging system tested soon so it doesn't happen again.",
+     "If it still won't start with good power and the security light keeps flashing, try your spare key next."
+    ],
+    "why": "The immobilizer and the key reader need steady voltage to talk to each other. When the battery is low, the system can fail to read the key and block the start, so the security light flashes even though the key is fine.",
+    "causes": [
+     {
+      "name": "Weak or discharged car battery",
+      "clues": "Dim lights, a slow crank recently, cold weather, or a battery older than 4–5 years.",
+      "against": "If the headlights are bright and steady, the battery is probably not the issue."
+     },
+     {
+      "name": "Loose or corroded battery terminal",
+      "clues": "Crusty white or green buildup, or a clamp you can twist by hand.",
+      "against": ""
+     },
+     {
+      "name": "Key or immobilizer problem",
+      "clues": "The battery tests good but the light still flashes.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check whether the headlights are bright or dim.",
+      "Look at the battery terminals for buildup or loose clamps.",
+      "Try a jump start or booster pack."
+     ],
+     "shop": [
+      "Battery load test",
+      "Charging system test",
+      "Immobilizer code scan if it still won't start"
+     ]
+    }
+   }
+  },
+  "r_try_basics": {
+   "result": {
+    "title": "The car probably isn't reading your key. Try the simple fixes first",
+    "urgency": "diy",
+    "now": "Take other keys and key cards off the ring, then try again. For push-button start, hold the fob right against the Start button, or where your owner's manual shows, while you press Start.",
+    "if": [
+     "If your spare key works, the main key or its fob battery is the problem.",
+     "If nothing works and you're stuck, call roadside assistance. A dealer or automotive locksmith can read the immobilizer and fix key problems."
+    ],
+    "why": "A flashing security light while the engine won't run means the immobilizer is blocking the start because it didn't get a valid signal from the key. Often the cause is simple: a weak fob battery, interference from other keys or cards, or the key not being where the reader expects it.",
+    "causes": [
+     {
+      "name": "Dead or weak key fob battery",
+      "clues": "The lock and unlock buttons only work up close, or the dash shows a \"key not detected\" message.",
+      "against": ""
+     },
+     {
+      "name": "Interference from other keys or cards",
+      "clues": "Another car's key, a building pass or a toll tag sits on the same ring.",
+      "against": ""
+     },
+     {
+      "name": "Damaged key or immobilizer fault",
+      "clues": "The key was dropped or got wet, or the spare doesn't work either.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try the spare key.",
+      "Remove other keys and cards from the key ring.",
+      "Replace the key fob battery (usually a coin battery)."
+     ],
+     "shop": [
+      "Immobilizer code scan",
+      "Key transponder test",
+      "Key reprogramming"
+     ]
+    }
+   }
+  },
+  "r_main_key": {
+   "result": {
+    "title": "Your main key is the problem, most often a weak fob battery",
+    "urgency": "diy",
+    "now": "Use the spare for now and replace the battery in your main key fob.",
+    "if": [
+     "If a fresh fob battery doesn't fix it, the chip inside the key may be damaged. A dealer or automotive locksmith can test it and program a new key.",
+     "If you're down to one working key, get a replacement made soon. Losing your only key costs more and can strand you."
+    ],
+    "why": "If the spare starts the car, the car's anti-theft system is working. The fault is in the main key: either the fob battery is too weak, or the small chip that identifies the key has been damaged.",
+    "causes": [
+     {
+      "name": "Weak key fob battery",
+      "clues": "The remote's range has been getting shorter, or a \"key battery low\" message has appeared.",
+      "against": ""
+     },
+     {
+      "name": "Damaged key chip (transponder)",
+      "clues": "The key was dropped, crushed or went through the wash.",
+      "against": "If a new fob battery fixes it, the chip is fine."
+     },
+     {
+      "name": "Key lost its programming",
+      "clues": "It stopped working suddenly with no damage.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Replace the fob battery and try the main key again.",
+      "Check the key for cracks or water damage."
+     ],
+     "shop": [
+      "Key transponder test",
+      "Key reprogramming or replacement"
+     ]
+    }
+   }
+  },
+  "r_after_battery": {
+   "result": {
+    "title": "The anti-theft system may need to relearn your key after a battery problem",
+    "urgency": "diy",
+    "now": "Check that the battery clamps are tight, then look up the security or immobilizer relearn steps in your owner's manual. Some cars need the key left in ON for several minutes until the security light stops flashing.",
+    "if": [
+     "If the relearn steps work, have the battery and charging system tested soon.",
+     "If the light keeps flashing after the relearn and a good battery, the car will need a dealer or automotive locksmith with a scan tool."
+    ],
+    "why": "A dead battery, a jump start or a battery swap can briefly confuse the car's computers. Some models need a short relearn routine before they accept the key again. A loose clamp after battery work can also leave the system with too little voltage to read the key.",
+    "causes": [
+     {
+      "name": "Immobilizer needs a relearn after power loss",
+      "clues": "It started right after the battery was disconnected, replaced or jumped.",
+      "against": ""
+     },
+     {
+      "name": "Loose battery clamp or low voltage",
+      "clues": "Dim dash lights, or a clamp that moves when you twist it.",
+      "against": ""
+     },
+     {
+      "name": "Immobilizer module fault",
+      "clues": "The relearn steps don't help and both keys fail.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that both battery clamps are tight.",
+      "Follow the relearn steps in your owner's manual, if your car has them."
+     ],
+     "shop": [
+      "Battery and charging test",
+      "Immobilizer code scan",
+      "Key relearn with a scan tool"
+     ]
+    }
+   }
+  },
+  "r_unprogrammed_key": {
+   "result": {
+    "title": "The new key probably wasn't programmed to your car",
+    "urgency": "check",
+    "now": "Start the car with your original key if you have it, and have the new key programmed by a dealer or automotive locksmith.",
+    "if": [
+     "If the original key also stopped working after the new one was added, the programming may have erased the old keys. Bring every key you have to the shop.",
+     "If you have no working key, the car will need a tow or a mobile locksmith."
+    ],
+    "why": "A key can be cut to fit the lock and still not start the car. The chip inside must be registered with the car's immobilizer, which takes special equipment. Until then, the engine cranks or starts and dies while the security light flashes.",
+    "causes": [
+     {
+      "name": "New key not programmed",
+      "clues": "The key was recently cut or bought online.",
+      "against": "If the new key worked for a while first, programming is less likely the issue."
+     },
+     {
+      "name": "Old keys erased during programming",
+      "clues": "Your original key stopped working at the same time.",
+      "against": ""
+     },
+     {
+      "name": "Wrong type of key chip",
+      "clues": "An aftermarket key that turns the lock but never started the car.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try the original key.",
+      "Collect every key for the car before going to the shop."
+     ],
+     "shop": [
+      "Immobilizer code scan",
+      "Key transponder test",
+      "Key programming"
+     ]
+    }
+   }
+  },
+  "r_ignition_or_aftermarket": {
+   "result": {
+    "title": "A worn ignition reader or an add-on alarm is likely blocking the start",
+    "urgency": "check",
+    "now": "Try both keys again while gently wiggling the key in the ignition. If it still won't start, call a mobile mechanic or have it towed to a shop.",
+    "if": [
+     "If an add-on remote starter or alarm was installed recently, have the installer check it first.",
+     "If the key won't turn at all, don't force it. A broken key in the ignition makes the repair harder."
+    ],
+    "why": "The ring around the ignition reads the chip in your key. If the ignition is worn or the reader is loose, it can lose the signal. Add-on remote starters and alarms tap into the same wiring and can block the start if they fail or were installed poorly.",
+    "causes": [
+     {
+      "name": "Faulty add-on remote starter or alarm",
+      "clues": "The problem began after it was installed, or its own light or beeps act strangely.",
+      "against": ""
+     },
+     {
+      "name": "Worn ignition or loose key reader ring",
+      "clues": "The key has been hard to turn, or wiggling it changes things.",
+      "against": ""
+     },
+     {
+      "name": "Worn key",
+      "clues": "The key's edges are badly worn or bent.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try both keys.",
+      "Note whether the problem started after any add-on alarm or remote starter was fitted."
+     ],
+     "shop": [
+      "Immobilizer code scan",
+      "Key reader (antenna ring) check",
+      "Add-on alarm or remote starter wiring inspection"
+     ]
+    }
+   }
+  },
+  "r_immobilizer_fault": {
+   "result": {
+    "title": "The anti-theft system itself likely has a fault",
+    "urgency": "check",
+    "now": "Call a mobile mechanic or automotive locksmith, or have the car towed to a dealer or shop that can read immobilizer codes.",
+    "if": [
+     "If the car starts after sitting for a while, don't count on it. Get it checked before you need it.",
+     "If you smell fuel after repeated tries, stop cranking and keep flames away."
+    ],
+    "why": "When neither key works and the battery is strong, the problem is usually in the immobilizer system: the key reader, the wiring, or the module that approves the key. These need a scan tool to diagnose, so repeated cranking won't help.",
+    "causes": [
+     {
+      "name": "Key reader or antenna fault",
+      "clues": "Both keys fail the same way, and the problem came on suddenly.",
+      "against": ""
+     },
+     {
+      "name": "Immobilizer or engine computer fault",
+      "clues": "Other warning lights also appear, or the problem comes and goes.",
+      "against": ""
+     },
+     {
+      "name": "Wiring or connector problem",
+      "clues": "It's intermittent, or recent work was done under the dash.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note exactly how the security light behaves (fast flash, slow flash or steady). It helps the shop.",
+      "Check for open recalls using your VIN."
+     ],
+     "shop": [
+      "Immobilizer code scan",
+      "Key reader and wiring tests",
+      "Key relearn or module programming"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "car-wont-start",
+  "push-button-start-not-working",
+  "starts-then-dies",
+  "key-wont-turn-in-ignition",
+  "battery-keeps-dying"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Warning Lights",
+   "Starting Problems"
+  ],
+  "words": [
+   "immobilizer",
+   "security",
+   "anti-theft",
+   "theft",
+   "key",
+   "transponder",
+   "fob",
+   "no start"
+  ]
+ },
+ "sources": [
+  "https://www.yourmechanic.com/question/what-is-the-immobilizer-system",
+  "https://www.mazdausa.com/static/manuals/2025/cx-5/contents/04080201.html"
+ ]
+}

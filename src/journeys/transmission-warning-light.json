@@ -1,0 +1,434 @@
+{
+ "id": "transmission-warning-light",
+ "title": "Transmission warning light on",
+ "h1": "Why is my transmission warning light on?",
+ "metaDesc": "Transmission light or transmission temperature warning on? Answer a few questions to see if it's overheating, low fluid or a fault, and how urgent it is.",
+ "group": "light",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "transmission light",
+  "transmission warning light",
+  "transmission temperature light",
+  "trans temp light",
+  "transmission hot warning",
+  "at oil temp light",
+  "check transmission message",
+  "service transmission",
+  "gear light with exclamation mark",
+  "transmission overheating light",
+  "o/d off light flashing",
+  "transmission light came on and car wont shift",
+  "transmission fault message",
+  "transmision light on"
+ ],
+ "intro": "A transmission warning usually means one of two things: the transmission fluid is getting too hot, or the transmission computer has found a fault. Overheating needs you to stop and let it cool. A fault often puts the car into a backup mode with one gear. How the car is driving tells us which one you're dealing with.",
+ "safety": [
+  "If you smell burning or see smoke, pull over, turn off the engine and step away from the car.",
+  "If the car suddenly loses drive in traffic, turn on your hazard lights and coast to the shoulder.",
+  "If the engine temperature warning is on as well, stop and turn the engine off."
+ ],
+ "start": "q_driving",
+ "nodes": {
+  "q_driving": {
+   "q": "How is the car driving right now?",
+   "help": "\"Slipping\" means the engine revs rise but the car doesn't speed up to match, as if it's briefly in neutral.",
+   "opts": [
+    {
+     "a": "It won't move, barely moves, or the engine revs but the car doesn't go",
+     "go": "r_no_drive"
+    },
+    {
+     "a": "There's a burning smell, smoke, or red fluid dripping",
+     "go": "r_burning_leak"
+    },
+    {
+     "a": "It's stuck in one gear: slow to pick up speed and won't shift up",
+     "go": "r_limp_mode"
+    },
+    {
+     "a": "It drives normally. Only the light or message is on",
+     "go": "q_which_light"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_which_light"
+    }
+   ]
+  },
+  "q_which_light": {
+   "q": "Which warning do you see?",
+   "help": "Your owner's manual shows each symbol. A thermometer means temperature. A gear shape with an exclamation mark, or a flashing gear letter, usually means a fault.",
+   "opts": [
+    {
+     "a": "A temperature warning: a thermometer, \"Trans Temp\", \"AT Oil Temp\" or \"Transmission Hot\"",
+     "go": "q_temp_when"
+    },
+    {
+     "a": "A gear symbol with an exclamation mark, \"Service/Check Transmission\", or a flashing gear letter or O/D OFF light",
+     "go": "r_fault_code"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_temp_when": {
+   "q": "What was happening when the temperature warning came on?",
+   "opts": [
+    {
+     "a": "Towing, carrying a heavy load, climbing a long hill, or creeping in hot stop-and-go traffic",
+     "go": "r_temp_load"
+    },
+    {
+     "a": "The engine temperature gauge is high too",
+     "go": "r_engine_hot"
+    },
+    {
+     "a": "Normal driving, with no heavy load",
+     "go": "r_temp_no_load"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_temp_no_load"
+    }
+   ]
+  },
+  "r_no_drive": {
+   "result": {
+    "title": "The transmission has lost drive. Don't try to force it",
+    "urgency": "stop",
+    "now": "Put the car in Park, set the parking brake and turn the engine off. Have it towed to a shop.",
+    "if": [
+     "If you're in traffic, turn on your hazard lights and let the car roll to the shoulder if you can.",
+     "If you find a large puddle of red fluid under the car, tell the tow company and the shop. A leak may be the whole problem."
+    ],
+    "why": "When the engine revs but the car won't move, the transmission isn't connecting the engine to the wheels. Running it like this can turn a smaller problem, like low fluid, into a ruined transmission.",
+    "causes": [
+     {
+      "name": "Very low transmission fluid from a leak",
+      "clues": "Red or brown fluid under the car, or slipping that got worse over a few days.",
+      "against": ""
+     },
+     {
+      "name": "Internal transmission failure",
+      "clues": "Slipping, harsh shifts or a burning smell in the days before.",
+      "against": ""
+     },
+     {
+      "name": "Broken shift cable or linkage",
+      "clues": "The shifter moves freely or feels disconnected, and the gear display doesn't change.",
+      "against": "If the gear display changes and you feel a clunk going into gear, a linkage problem is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look under the car for red or brown fluid.",
+      "Check whether the gear display changes when you move the shifter."
+     ],
+     "shop": [
+      "Transmission fluid level and condition check",
+      "Transmission code scan",
+      "Shift linkage inspection",
+      "Line pressure test"
+     ]
+    }
+   }
+  },
+  "r_burning_leak": {
+   "result": {
+    "title": "Fluid may be leaking onto hot parts, or the transmission is overheating badly",
+    "urgency": "stop",
+    "now": "Pull over where it's safe, turn the engine off and get out of the car if you see smoke. Have it towed.",
+    "if": [
+     "If there are flames or the smoke keeps growing, move well away and call 911."
+    ],
+    "why": "Transmission fluid burns and smokes when it hits the exhaust or gets far too hot. Either way, the transmission is losing fluid or being damaged, and leaking fluid near hot parts is a fire risk.",
+    "causes": [
+     {
+      "name": "Leaking transmission cooler line or seal",
+      "clues": "Red fluid dripping, or wet spots along the lines that run toward the radiator.",
+      "against": ""
+     },
+     {
+      "name": "Severely overheated, slipping transmission",
+      "clues": "Slipping or a flaring engine speed before the smell started.",
+      "against": ""
+     },
+     {
+      "name": "Leaking pan gasket or axle seal",
+      "clues": "Fluid near the bottom of the transmission or at the inner end of a front axle.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Leak inspection",
+      "Transmission fluid level and condition check",
+      "Cooler line inspection",
+      "Transmission code scan"
+     ]
+    }
+   }
+  },
+  "r_limp_mode": {
+   "result": {
+    "title": "The transmission is likely in backup (limp) mode because of a fault",
+    "urgency": "soon",
+    "now": "Get off busy roads and highways. Drive only a short, slow distance to a shop if it's close. If it isn't, have it towed.",
+    "if": [
+     "If it starts slipping, smells burnt or won't move, stop and have it towed.",
+     "If turning the car off and back on makes it shift normally, the fault is still stored. Get it scanned within a few days."
+    ],
+    "why": "When the transmission computer sees a problem, it often locks the transmission in one gear to protect it. That's why the car feels sluggish and won't shift up. The stored code usually points straight to the cause.",
+    "causes": [
+     {
+      "name": "Shift solenoid or speed sensor fault",
+      "clues": "It went into one gear suddenly, with no slipping first.",
+      "against": ""
+     },
+     {
+      "name": "Low or burnt transmission fluid",
+      "clues": "Slipping or harsh shifts in recent weeks, or a leak.",
+      "against": ""
+     },
+     {
+      "name": "Wiring, connector or low battery voltage",
+      "clues": "Other warning lights came on at the same time, or the battery is weak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look under the car for red fluid.",
+      "Note whether other warning lights came on at the same time."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Fluid level and condition check",
+      "Solenoid and sensor tests",
+      "Battery and charging test"
+     ]
+    }
+   }
+  },
+  "r_temp_load": {
+   "result": {
+    "title": "The transmission fluid got too hot from the extra work",
+    "urgency": "soon",
+    "now": "Pull over where it's safe, shift into Park and let the engine idle until the warning goes out. Follow your owner's manual if it says otherwise.",
+    "if": [
+     "If the warning doesn't go out after 15–20 minutes, or comes back soon after, have it towed.",
+     "If it happens again under the same load, have the fluid and cooling checked. You may be near the limit of what the car is built to tow or carry."
+    ],
+    "why": "Towing, heavy loads, long climbs and slow traffic in the heat all make the transmission work harder and heat its fluid. Idling in Park lets the fluid circulate and cool. Very hot fluid wears out quickly, so it's worth having it checked afterward.",
+    "causes": [
+     {
+      "name": "Heavy load or towing beyond what the cooling can handle",
+      "clues": "It only happens when towing or loaded, especially uphill or on hot days.",
+      "against": ""
+     },
+     {
+      "name": "Low or old transmission fluid",
+      "clues": "The fluid hasn't been changed in a long time, or there's a leak.",
+      "against": ""
+     },
+     {
+      "name": "Clutch overheating (dual-clutch transmissions)",
+      "clues": "Creeping in traffic or holding the car on a hill with the gas pedal.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your owner's manual for the towing limit and the right warning procedure.",
+      "Look under the car for leaks once it's parked."
+     ],
+     "shop": [
+      "Transmission fluid level and condition check",
+      "Transmission cooler inspection",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_temp_no_load": {
+   "result": {
+    "title": "The transmission is running hot without a good reason",
+    "urgency": "soon",
+    "now": "Pull over where it's safe, shift into Park and let it idle until the warning goes out. Then get the transmission checked within the next few days.",
+    "if": [
+     "If the warning comes back on a normal drive, have it towed instead of driving it again.",
+     "If the car slips, shifts harshly or smells burnt, stop driving it."
+    ],
+    "why": "Normal driving shouldn't overheat a healthy transmission. When it does, the fluid is usually low or worn out, the cooler is blocked, or the transmission is slipping inside and making extra heat.",
+    "causes": [
+     {
+      "name": "Low transmission fluid",
+      "clues": "Red spots where you park, or slipping when cold.",
+      "against": ""
+     },
+     {
+      "name": "Blocked transmission cooler or damaged cooler lines",
+      "clues": "Debris in front of the radiator, or a recent front-end bump.",
+      "against": ""
+     },
+     {
+      "name": "Slipping inside the transmission",
+      "clues": "Engine revs flaring between shifts.",
+      "against": ""
+     },
+     {
+      "name": "Faulty temperature sensor",
+      "clues": "The warning comes on right after a cold start.",
+      "against": "If the car shifts and drives perfectly, a sensor fault is more likely than real overheating."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for red fluid where you park.",
+      "Check in front of the radiator for leaves, bags or debris."
+     ],
+     "shop": [
+      "Transmission fluid level and condition check",
+      "Transmission temperature reading with a scan tool",
+      "Cooler and line inspection",
+      "Line pressure test"
+     ]
+    }
+   }
+  },
+  "r_engine_hot": {
+   "result": {
+    "title": "The engine is overheating and taking the transmission with it",
+    "urgency": "stop",
+    "now": "Pull over where it's safe and turn the engine off. Don't open the radiator cap while it's hot. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If you see steam or smell sweet coolant, stay away from the hood until it cools."
+    ],
+    "why": "On many cars, the transmission fluid is cooled by the engine's radiator. When the engine overheats, the transmission does too. The engine problem is the one to deal with first.",
+    "causes": [
+     {
+      "name": "Engine cooling problem (low coolant, fan, thermostat, water pump)",
+      "clues": "The engine temperature gauge is high, steam, or a sweet smell.",
+      "against": ""
+     },
+     {
+      "name": "Blocked radiator",
+      "clues": "Debris in front of the radiator, or towing in very hot weather.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once fully cool, check the coolant level in the see-through reservoir.",
+      "Look for coolant puddles under the front of the car."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Cooling fan test",
+      "Transmission fluid condition check"
+     ]
+    }
+   }
+  },
+  "r_fault_code": {
+   "result": {
+    "title": "The transmission computer has found a fault",
+    "urgency": "soon",
+    "now": "Have the transmission codes read within the next few days. Until then, drive gently and avoid towing or heavy loads.",
+    "if": [
+     "If the car starts slipping, shifting harshly or gets stuck in one gear, keep trips short and get it in sooner.",
+     "If the light is flashing and the car won't shift at all, have it towed."
+    ],
+    "why": "This light means the transmission computer has stored a fault, even if you can't feel a problem yet. Faults caught early are often a sensor, solenoid or low fluid. Driving on them can lead to bigger damage.",
+    "causes": [
+     {
+      "name": "Speed sensor or shift solenoid fault",
+      "clues": "Shifts feel slightly late or firm, or the speedometer flickers.",
+      "against": ""
+     },
+     {
+      "name": "Low or worn-out fluid",
+      "clues": "It's been a long time since the fluid was changed, or there's a leak.",
+      "against": ""
+     },
+     {
+      "name": "Wiring or connector problem",
+      "clues": "The light comes and goes, especially over bumps or in wet weather.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for red fluid where you park.",
+      "Note when the light comes on and how the shifts feel."
+     ],
+     "shop": [
+      "Transmission code scan (needs a tool that reads the transmission computer)",
+      "Fluid level and condition check",
+      "Solenoid and sensor tests"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Treat it as a transmission fault and get it scanned",
+    "urgency": "soon",
+    "now": "Look up the light in your owner's manual. If it's a temperature warning, pull over and let it idle in Park until it goes out. Either way, get the codes read within a few days.",
+    "if": [
+     "If the car slips, won't shift or smells burnt, stop driving it and have it towed."
+    ],
+    "why": "Transmission warnings cover overheating and electrical faults, and they're handled differently. Your owner's manual will tell you which one you're seeing, and a scan will show why.",
+    "causes": [
+     {
+      "name": "Transmission fluid overheating",
+      "clues": "A thermometer symbol, towing, hills or heavy traffic.",
+      "against": ""
+     },
+     {
+      "name": "Transmission sensor or solenoid fault",
+      "clues": "A gear symbol or a flashing gear letter.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Take a photo of the warning to show the shop.",
+      "Look for red fluid under the car."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Fluid level and condition check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "transmission-slipping",
+  "transmission-fluid-leak",
+  "harsh-or-hard-shifting",
+  "engine-overheating",
+  "reduced-engine-power-warning"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "transmission",
+   "shift",
+   "torque converter",
+   "solenoid",
+   "valve body",
+   "limp mode",
+   "gear",
+   "clutch"
+  ]
+ },
+ "sources": [
+  "https://ownersmanual.kia.com/full_webhelp/MQ4a/2026/en_US/topics/t00389.html",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

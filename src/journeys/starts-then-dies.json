@@ -1,0 +1,577 @@
+{
+ "id": "starts-then-dies",
+ "title": "Car starts then dies",
+ "h1": "Why does my car start and then die right away?",
+ "metaDesc": "Car starts then dies right away? Answer a few questions to see if it's the key system, fuel, idle control or a sensor, and how urgent it is.",
+ "group": "start",
+ "cat": "Starting Problems",
+ "synonyms": [
+  "starts then dies",
+  "car starts then shuts off",
+  "car starts and dies immediately",
+  "engine starts then stalls",
+  "starts for a second then dies",
+  "car turns on then off",
+  "car won't stay running",
+  "wont stay running",
+  "engine dies after starting",
+  "starts then cuts out",
+  "car starts then dies when I let off the gas",
+  "car dies after a few seconds",
+  "starts and stalls"
+ ],
+ "intro": "A car that fires up and then dies is getting enough battery power and fuel to start, but something is cutting it off or can't keep it running. How long it runs and what you see on the dash narrow it down quickly. Answer the questions below to find the likely cause and the safest next step.",
+ "safety": [
+  "If you smell raw fuel, stop trying to start it and keep sparks and flames away.",
+  "If it also stalls while you're driving, don't drive it. You can lose power steering and brake assist in traffic.",
+  "Don't keep restarting it over and over. Give it a minute between tries."
+ ],
+ "start": "q_how_long",
+ "nodes": {
+  "q_how_long": {
+   "q": "How does it die?",
+   "opts": [
+    {
+     "a": "It also stalls while I'm driving, not just after starting",
+     "go": "r_stalls_driving"
+    },
+    {
+     "a": "It runs for only 1 to 3 seconds, then shuts off cleanly",
+     "go": "q_security"
+    },
+    {
+     "a": "It idles rough or sputters for a while, then dies",
+     "go": "q_idle_clues"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_security"
+    }
+   ]
+  },
+  "q_security": {
+   "q": "Is a key, lock or car-with-a-padlock light flashing on the dash when it dies?",
+   "help": "This is the anti-theft (immobilizer) light. It's often near the speedometer or clock. Some cars show a message like \"Key not recognized\" instead.",
+   "opts": [
+    {
+     "a": "Yes, a key or security light is flashing or on",
+     "go": "r_immobilizer"
+    },
+    {
+     "a": "No security light",
+     "go": "q_fuel_clues"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_fuel_clues"
+    }
+   ]
+  },
+  "q_fuel_clues": {
+   "q": "Which of these fits best?",
+   "opts": [
+    {
+     "a": "I smell raw fuel, or see a wet spot under the car",
+     "go": "r_fuel_leak"
+    },
+    {
+     "a": "The fuel gauge is low, or it started right after filling up",
+     "go": "r_fuel_supply"
+    },
+    {
+     "a": "It keeps running if I hold the gas pedal down a little",
+     "go": "r_idle_air"
+    },
+    {
+     "a": "The battery was just replaced or disconnected",
+     "go": "r_idle_relearn"
+    },
+    {
+     "a": "The check engine light is on",
+     "go": "r_sensor"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_idle_clues": {
+   "q": "What else do you notice?",
+   "opts": [
+    {
+     "a": "It only happens on cold mornings, and it's fine once warm",
+     "go": "r_cold_stall"
+    },
+    {
+     "a": "A hissing sound, or the idle surges up and down",
+     "go": "r_vacuum_leak"
+    },
+    {
+     "a": "It dies when I shift into gear or turn on the A/C",
+     "go": "r_idle_load"
+    },
+    {
+     "a": "It keeps running if I hold the gas pedal down a little",
+     "go": "r_idle_air"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_stalls_driving": {
+   "result": {
+    "title": "Stalling while driving is a safety problem. Don't drive it until it's fixed",
+    "urgency": "stop",
+    "now": "Park it and have it towed to a shop, or have a mobile mechanic come to you.",
+    "if": [
+     "If a warning light came on before it stalled, write down which one. It helps the shop.",
+     "If it restarts after cooling down, still don't rely on it. Parts that fail when hot often get worse."
+    ],
+    "why": "When the engine dies on the road, power steering and brake assist go with it, making the car much harder to steer and stop. The same fault that kills it at startup is now happening at speed.",
+    "causes": [
+     {
+      "name": "Failing fuel pump or fuel pump relay",
+      "clues": "Sputtering or loss of power before it died.",
+      "against": ""
+     },
+     {
+      "name": "Failing crankshaft position sensor",
+      "clues": "It cuts out suddenly, often when hot, and restarts once cool.",
+      "against": ""
+     },
+     {
+      "name": "Dirty throttle body or idle control fault",
+      "clues": "It dies mostly when slowing down or stopping.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note when it stalls: at speed, when slowing, or when hot.",
+      "Note any warning lights."
+     ],
+     "shop": [
+      "Code scan and live data",
+      "Fuel pressure test",
+      "Crank sensor signal test"
+     ]
+    }
+   }
+  },
+  "r_immobilizer": {
+   "result": {
+    "title": "The anti-theft system is likely shutting the engine off",
+    "urgency": "diy",
+    "now": "Try your spare key. For push-button start, hold the key fob right against the Start button, or put it where your owner's manual says, while you press Start.",
+    "if": [
+     "If the spare works, replace the battery in your main key or fob, or have the key checked.",
+     "If neither key works, a dealer or locksmith with the right equipment may need to check or reprogram the key."
+    ],
+    "why": "Many cars let the engine fire for a second or two and then cut fuel if they don't recognize the key. A flashing key or security light right when it dies is the giveaway.",
+    "causes": [
+     {
+      "name": "Weak key fob battery",
+      "clues": "The remote's range has been getting shorter.",
+      "against": ""
+     },
+     {
+      "name": "Damaged or unprogrammed key",
+      "clues": "A new copy, or a key that was dropped or got wet.",
+      "against": "If the spare key does the same thing, the key itself is less likely."
+     },
+     {
+      "name": "Immobilizer system fault",
+      "clues": "Neither key works.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try the spare key.",
+      "Replace the key fob battery."
+     ],
+     "shop": [
+      "Immobilizer code scan",
+      "Key reprogramming or replacement"
+     ]
+    }
+   }
+  },
+  "r_fuel_leak": {
+   "result": {
+    "title": "Possible fuel leak. Stop trying to start it",
+    "urgency": "stop",
+    "now": "Don't try to start it again. Keep sparks and flames away and have the car towed.",
+    "if": [
+     "If fuel is dripping or pooling, move people away from the car and call the fire department."
+    ],
+    "why": "A raw fuel smell or wet spot means fuel is getting somewhere it shouldn't. A leak can also drop fuel pressure, which makes the engine die, and fuel near hot parts is a fire risk.",
+    "causes": [
+     {
+      "name": "Leaking fuel line or fitting",
+      "clues": "A wet spot under the car along the fuel line route.",
+      "against": ""
+     },
+     {
+      "name": "Leaking fuel injector seal or fuel rail",
+      "clues": "The smell is strongest at the engine.",
+      "against": ""
+     },
+     {
+      "name": "Flooded engine from repeated tries",
+      "clues": "Lots of short start attempts, and no visible leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From a distance, look for drips or wet spots under the car.",
+      "Don't smoke or use flames nearby."
+     ],
+     "shop": [
+      "Fuel leak inspection",
+      "Fuel pressure and leak-down test"
+     ]
+    }
+   }
+  },
+  "r_fuel_supply": {
+   "result": {
+    "title": "It may not be getting enough fuel, or the fuel may be bad",
+    "urgency": "check",
+    "now": "If the tank is low, add several gallons and try again. If it started right after a fill-up, note where you bought the fuel and book a check.",
+    "if": [
+     "If it still starts and dies with plenty of fuel, the fuel pump or filter may be weak. Have it checked before driving any distance.",
+     "If it started after filling up and the car has a diesel engine, make sure diesel, not gasoline, went in. If the wrong fuel went in, don't start it again and have it towed."
+    ],
+    "why": "An engine can start on the fuel already in the lines and then die when the supply can't keep up. A nearly empty tank, a weak pump or water or the wrong fuel in the tank can all do this.",
+    "causes": [
+     {
+      "name": "Very low fuel",
+      "clues": "The gauge is near empty, especially on a slope.",
+      "against": ""
+     },
+     {
+      "name": "Weak fuel pump or clogged fuel filter",
+      "clues": "Hesitation or loss of power when accelerating in recent weeks.",
+      "against": ""
+     },
+     {
+      "name": "Water or the wrong fuel in the tank",
+      "clues": "It began right after a fill-up.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Add fuel.",
+      "With the car quiet, turn the key to ON and listen for a 2-second hum from the back."
+     ],
+     "shop": [
+      "Fuel pressure and volume test",
+      "Fuel sample check for water or contamination",
+      "Fuel filter inspection"
+     ]
+    }
+   }
+  },
+  "r_idle_air": {
+   "result": {
+    "title": "The engine isn't getting enough air to idle on its own",
+    "urgency": "check",
+    "now": "Keep a light foot on the gas for a few seconds after starting until it settles, and book a check when convenient.",
+    "if": [
+     "If it starts dying at stops or when slowing down, get it checked sooner. Stalling in traffic is risky.",
+     "If the check engine light comes on, have the codes read."
+    ],
+    "why": "When a little gas pedal keeps it running, the engine needs more air at idle than it's getting. Carbon buildup in the throttle body or a sticking idle control part is the usual reason.",
+    "causes": [
+     {
+      "name": "Dirty throttle body",
+      "clues": "Higher mileage, and the idle has been low or uneven.",
+      "against": ""
+     },
+     {
+      "name": "Faulty idle air control valve (older cars)",
+      "clues": "The idle speed is erratic or too low.",
+      "against": ""
+     },
+     {
+      "name": "Mass airflow sensor reading wrong",
+      "clues": "Poor fuel economy, hesitation, or a check engine light.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether it's worse cold or hot.",
+      "Check that the air filter isn't clogged."
+     ],
+     "shop": [
+      "Code scan and idle data",
+      "Throttle body inspection and cleaning",
+      "Airflow sensor test"
+     ]
+    }
+   }
+  },
+  "r_idle_relearn": {
+   "result": {
+    "title": "The engine computer may need to relearn its idle",
+    "urgency": "diy",
+    "now": "Start the car and let it idle with everything off (A/C, lights, radio) for about 10 minutes. Check your owner's manual for an idle relearn procedure.",
+    "if": [
+     "If it still won't stay running after that, a shop can run the idle relearn with a scan tool.",
+     "If the battery terminals were disturbed, make sure both clamps are tight."
+    ],
+    "why": "On many cars, disconnecting the battery erases the learned idle settings. Until the computer relearns them, the engine may start and then stumble or die.",
+    "causes": [
+     {
+      "name": "Lost idle settings after battery work",
+      "clues": "It started happening right after the battery was replaced or disconnected.",
+      "against": ""
+     },
+     {
+      "name": "Loose battery clamp",
+      "clues": "A clamp you can turn by hand.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that both battery clamps are tight.",
+      "Let it idle with accessories off."
+     ],
+     "shop": [
+      "Idle relearn with a scan tool",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_sensor": {
+   "result": {
+    "title": "A sensor or engine fault is likely. The stored code is the best clue",
+    "urgency": "check",
+    "now": "Have the trouble codes read. Many parts stores do this free, or book a shop check soon.",
+    "if": [
+     "If the check engine light is flashing, don't drive it. That signals a serious misfire that can damage the catalytic converter.",
+     "If it stalls while driving, don't drive it until it's fixed."
+    ],
+    "why": "The engine computer relies on sensors to set fuel and air at startup. If one reads wrong, the engine can fire up and then die, and the computer usually stores a code that points to the problem.",
+    "causes": [
+     {
+      "name": "Mass airflow sensor fault",
+      "clues": "Hesitation or poor fuel economy.",
+      "against": ""
+     },
+     {
+      "name": "Crankshaft or camshaft position sensor",
+      "clues": "Stalling that's worse when the engine is hot.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak",
+      "clues": "A hissing sound or a lean-condition code.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Get the codes read and write them down."
+     ],
+     "shop": [
+      "Code scan and live sensor data",
+      "Airflow sensor test",
+      "Smoke test for vacuum leaks"
+     ]
+    }
+   }
+  },
+  "r_cold_stall": {
+   "result": {
+    "title": "Cold-start stalling often points to idle control or a sensor reading wrong",
+    "urgency": "check",
+    "now": "Let it idle for 30 seconds before driving off on cold mornings, and book a check when convenient.",
+    "if": [
+     "If it starts stalling when warm too, or the check engine light comes on, get it checked sooner."
+    ],
+    "why": "A cold engine needs extra fuel and a higher idle. If the coolant temperature sensor gives the computer the wrong reading, or the idle system is dirty, the engine can die until it warms up.",
+    "causes": [
+     {
+      "name": "Dirty throttle body or idle control fault",
+      "clues": "A low, uneven idle.",
+      "against": ""
+     },
+     {
+      "name": "Faulty coolant temperature sensor",
+      "clues": "The temperature gauge acts oddly, or fuel economy has dropped.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak",
+      "clues": "A hissing sound, or a rough idle that smooths out when warm.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the outside temperature when it happens.",
+      "Listen for hissing from the engine bay."
+     ],
+     "shop": [
+      "Code scan and live sensor data",
+      "Throttle body cleaning",
+      "Smoke test for vacuum leaks"
+     ]
+    }
+   }
+  },
+  "r_vacuum_leak": {
+   "result": {
+    "title": "A vacuum leak is likely letting in extra air",
+    "urgency": "check",
+    "now": "Book a check when convenient. Mention the hissing or surging idle so the shop can test for leaks.",
+    "if": [
+     "If the check engine light starts flashing or the car stalls while driving, stop driving it.",
+     "If a hose has visibly popped off, a shop can often fix it quickly."
+    ],
+    "why": "The engine computer measures the air coming in and adds fuel to match. A cracked hose or leaking gasket lets in air it doesn't know about, so the mixture runs too lean to idle and the engine surges or dies.",
+    "causes": [
+     {
+      "name": "Cracked or disconnected vacuum hose",
+      "clues": "A hissing sound from the engine bay.",
+      "against": ""
+     },
+     {
+      "name": "Leaking intake gasket or air intake boot",
+      "clues": "A rough idle, sometimes with a lean code.",
+      "against": ""
+     },
+     {
+      "name": "Faulty PCV valve or hose",
+      "clues": "A whistle or hiss near the top of the engine.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine running and parked, listen for hissing.",
+      "Look for hoses that are cracked or off."
+     ],
+     "shop": [
+      "Smoke test for vacuum leaks",
+      "Code scan and fuel trim data"
+     ]
+    }
+   }
+  },
+  "r_idle_load": {
+   "result": {
+    "title": "The idle may be too low to handle extra load",
+    "urgency": "check",
+    "now": "Keep your foot lightly on the gas when you shift into gear until it's checked, and book an inspection.",
+    "if": [
+     "If it stalls while driving or in traffic, don't drive it until it's fixed."
+    ],
+    "why": "Shifting into gear or turning on the A/C adds load to the engine. If the idle control can't raise engine speed to match, the engine stumbles and dies.",
+    "causes": [
+     {
+      "name": "Dirty throttle body or idle control fault",
+      "clues": "The idle drops noticeably when the A/C kicks on.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak",
+      "clues": "Hissing, or a rough idle.",
+      "against": ""
+     },
+     {
+      "name": "Torque converter clutch not releasing (automatic)",
+      "clues": "It stalls when coming to a stop, like stalling a manual car.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether the A/C makes the stall more likely."
+     ],
+     "shop": [
+      "Code scan",
+      "Idle control test",
+      "Transmission lockup check"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "It needs a quick shop diagnosis to pin down",
+    "urgency": "check",
+    "now": "Have the trouble codes read, then book a check. Until then, avoid relying on the car for important trips.",
+    "if": [
+     "If it stalls while driving, don't drive it until it's fixed.",
+     "If you smell fuel, stop trying to start it."
+    ],
+    "why": "Starting and then dying means the battery and starter are doing their job, but fuel, air or the security system isn't keeping the engine running. A few quick tests usually separate these.",
+    "causes": [
+     {
+      "name": "Idle control or throttle body problem",
+      "clues": "A low or uneven idle.",
+      "against": ""
+     },
+     {
+      "name": "Fuel delivery problem",
+      "clues": "Hesitation or sputtering when driving.",
+      "against": ""
+     },
+     {
+      "name": "Security system cutting the engine",
+      "clues": "A key or lock light on the dash.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound of it starting and dying.",
+      "Note any dash lights that come on."
+     ],
+     "shop": [
+      "Code scan",
+      "Fuel pressure test",
+      "Idle and throttle body inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "car-wont-start",
+  "engine-stalls-while-driving",
+  "car-dies-when-coming-to-stop",
+  "security-light-flashing-wont-start",
+  "rough-idle-shaking"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Starting Problems"
+  ],
+  "words": [
+   "stall",
+   "idle",
+   "throttle body",
+   "immobilizer",
+   "fuel pump",
+   "vacuum leak",
+   "airflow sensor",
+   "dies"
+  ]
+ },
+ "sources": [
+  "https://www.nhtsa.gov/recalls",
+  "https://www.aa1car.com/library/keyfob_wont_start_car.htm"
+ ]
+}

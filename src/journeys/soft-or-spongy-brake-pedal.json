@@ -1,0 +1,477 @@
+{
+ "id": "soft-or-spongy-brake-pedal",
+ "title": "Soft or spongy brake pedal",
+ "h1": "Why is my brake pedal soft or spongy?",
+ "metaDesc": "Brake pedal soft, spongy or sinking? See if it's air in the lines, a leak, old fluid or the master cylinder, how urgent it is, and what to tell your mechanic.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "spongy brakes",
+  "soft brake pedal",
+  "brake pedal goes to the floor",
+  "brake pedal sinks",
+  "mushy brakes",
+  "brakes feel soft",
+  "brake pedal goes down too far",
+  "have to pump the brakes",
+  "spongy brakes after brake job",
+  "brake pedal sinking at stop light",
+  "brakes feel squishy",
+  "low brake pedal",
+  "brake pedal soft wont stop",
+  "spongey brakes"
+ ],
+ "intro": "A brake pedal should feel firm and stop at the same point every time. If it feels soft, travels further than usual or slowly sinks, the hydraulic system that makes your brakes work has a problem. Some causes are mild, but several mean the car shouldn't be driven, so the first question is about how bad it is.",
+ "safety": [
+  "If the pedal goes to the floor while driving, pump it hard and fast, shift to a lower gear, and apply the parking brake gradually to slow down.",
+  "If the red BRAKE warning light comes on along with a soft pedal, pull over and stop.",
+  "If you see brake fluid leaking near a wheel or under the car, don't drive it."
+ ],
+ "start": "q_severity",
+ "nodes": {
+  "q_severity": {
+   "q": "How does the pedal feel, and how does the car stop?",
+   "help": "Try it parked with the engine running. A healthy pedal feels firm well before it gets near the floor.",
+   "opts": [
+    {
+     "a": "It goes to the floor or nearly, or the car barely slows down",
+     "go": "r_failure"
+    },
+    {
+     "a": "The pedal is soft and the red BRAKE warning light is on",
+     "go": "r_leak"
+    },
+    {
+     "a": "It slowly sinks toward the floor when I hold it down at a stop",
+     "go": "q_sink"
+    },
+    {
+     "a": "It feels soft or spongy, but the car still stops normally",
+     "go": "q_when"
+    },
+    {
+     "a": "It went soft after the brakes got very hot, like on a long downhill or while towing",
+     "go": "r_fade"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_stops"
+    }
+   ]
+  },
+  "q_stops": {
+   "q": "When you brake normally, does the car still stop as quickly as it used to?",
+   "opts": [
+    {
+     "a": "Yes, it stops fine",
+     "go": "q_when"
+    },
+    {
+     "a": "No, it takes longer to stop, or I have to push the pedal much further",
+     "go": "r_failure"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_soft_unsure"
+    }
+   ]
+  },
+  "q_sink": {
+   "q": "With the engine off, check the brake fluid reservoir. What do you see?",
+   "help": "It's a see-through plastic tank near the back of the engine bay on the driver's side, with MIN and MAX marks. Don't open it, just look at the level from outside.",
+   "opts": [
+    {
+     "a": "The level is below MIN, or there's wet fluid around a wheel or under the car",
+     "go": "r_leak"
+    },
+    {
+     "a": "The level is fine and there's no sign of a leak",
+     "go": "r_sinking"
+    },
+    {
+     "a": "I'm not sure / I can't check",
+     "go": "r_sinking"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "Which of these fits best?",
+   "help": "If you can, check the brake fluid reservoir too: a see-through tank near the back of the engine bay with MIN and MAX marks.",
+   "opts": [
+    {
+     "a": "It started right after brake work (new pads, rotors, calipers or fluid)",
+     "go": "r_after_work"
+    },
+    {
+     "a": "The brake fluid is below MIN, or there's wet fluid near a wheel",
+     "go": "r_leak"
+    },
+    {
+     "a": "The brake fluid looks dark brown, or hasn't been changed in years",
+     "go": "r_old_fluid"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_air_or_hose"
+    }
+   ]
+  },
+  "r_failure": {
+   "result": {
+    "title": "Your brakes are losing pressure. Don't drive the car",
+    "urgency": "stop",
+    "now": "Don't drive it. Park somewhere safe, set the parking brake, and have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If this happened while driving, the pedal may come back after a few pumps. Don't trust it.",
+     "If you see fluid under the car or at a wheel, tell the shop. A burst hose or rusted line is a common cause."
+    ],
+    "why": "A pedal that goes to the floor means the hydraulic system can't build pressure, usually because fluid is leaking out or a seal in the master cylinder has failed. Most cars split the brakes into two circuits, so you may still have some braking, but not enough to stop safely.",
+    "causes": [
+     {
+      "name": "Brake fluid leak from a hose, line or caliper",
+      "clues": "Wet fluid near a wheel or under the car, a low reservoir, or the red brake light.",
+      "against": ""
+     },
+     {
+      "name": "Failed master cylinder",
+      "clues": "No visible leak, the fluid level is fine, and the pedal sinks under steady pressure.",
+      "against": ""
+     },
+     {
+      "name": "A lot of air in the system",
+      "clues": "Recent brake work, or the reservoir ran dry.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From outside the car, look for wet fluid underneath and on the inside of each wheel."
+     ],
+     "shop": [
+      "Brake hydraulic inspection",
+      "Master cylinder test",
+      "Pressure check of each brake circuit"
+     ]
+    }
+   }
+  },
+  "r_leak": {
+   "result": {
+    "title": "Brake fluid is likely leaking",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If the level is only near MIN, there are no wet spots and the pedal feels firm, worn brake pads may be what lowered the level. Still have the brakes inspected before driving.",
+     "Don't just top it up and keep using the car. Fluid that leaks once will leak again, and the pedal can fail suddenly."
+    ],
+    "why": "Brakes work by pushing fluid through lines to each wheel. If fluid is escaping, air takes its place and the pedal goes soft, and the red brake light often comes on as the level drops. A leak can get worse without warning, so it needs fixing before the car is driven.",
+    "causes": [
+     {
+      "name": "Leaking brake hose or rusted steel brake line",
+      "clues": "A wet spot along the line under the car, or an older car from a salted-road area.",
+      "against": ""
+     },
+     {
+      "name": "Leaking caliper or wheel cylinder",
+      "clues": "Wet, oily fluid on the inside of a tire or wheel.",
+      "against": ""
+     },
+     {
+      "name": "Leaking master cylinder",
+      "clues": "Fluid at the back of the engine bay, below the reservoir.",
+      "against": ""
+     },
+     {
+      "name": "Worn brake pads",
+      "clues": "The level dropped slowly over months with no wet spots.",
+      "against": "Pad wear lowers the level but doesn't make the pedal soft by itself."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, check the reservoir level.",
+      "Look for wet, oily fluid inside each wheel and under the car."
+     ],
+     "shop": [
+      "Brake hydraulic leak inspection",
+      "Brake line and hose inspection",
+      "Pad and caliper check",
+      "Bleed and refill after repair"
+     ]
+    }
+   }
+  },
+  "r_sinking": {
+   "result": {
+    "title": "A worn seal, most often in the master cylinder, is likely letting fluid slip past",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed or have a mobile mechanic check it.",
+    "if": [
+     "If the pedal only sinks a little and then stays firm, it may be less serious, but a technician still needs to rule out a failing master cylinder before the car is driven.",
+     "If you find a leak or low fluid, tell the shop."
+    ],
+    "why": "When you hold steady pressure and the pedal slowly creeps toward the floor with no outside leak, fluid is usually slipping past worn seals inside the master cylinder. It tends to get worse and can fail when you need to stop hard.",
+    "causes": [
+     {
+      "name": "Worn master cylinder seals",
+      "clues": "No visible leak, and the fluid level stays steady.",
+      "against": ""
+     },
+     {
+      "name": "Slow external leak",
+      "clues": "The fluid level is slowly dropping, or there are damp spots at a wheel or along a line.",
+      "against": ""
+     },
+     {
+      "name": "Leak inside the ABS unit",
+      "clues": "The ABS light is on.",
+      "against": "Much less common than a master cylinder problem."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the reservoir level and look for damp spots under the car and inside the wheels."
+     ],
+     "shop": [
+      "Master cylinder bypass test",
+      "Brake leak inspection",
+      "ABS hydraulic unit check"
+     ]
+    }
+   }
+  },
+  "r_fade": {
+   "result": {
+    "title": "Your brakes probably overheated (brake fade)",
+    "urgency": "soon",
+    "now": "Pull over somewhere safe and let the brakes cool for at least 30 minutes before you go on.",
+    "if": [
+     "If the pedal is still soft once the brakes have cooled, don't drive it. The fluid may have boiled or there's another fault. Have it towed.",
+     "On long downhills, shift to a lower gear so the engine helps slow the car, instead of riding the brakes."
+    ],
+    "why": "Hard, repeated braking makes brakes very hot. Brake fluid absorbs moisture over the years, which lowers its boiling point, and boiling fluid forms bubbles that make the pedal soft. The pedal often comes back once things cool, but the fluid should be tested and likely replaced.",
+    "causes": [
+     {
+      "name": "Boiled brake fluid",
+      "clues": "The pedal went soft after a long downhill or towing, and the fluid is old.",
+      "against": ""
+     },
+     {
+      "name": "Overheated pads",
+      "clues": "The pedal stays firm but the car slows less, with a burning smell.",
+      "against": ""
+     },
+     {
+      "name": "Dragging brake adding heat",
+      "clues": "One wheel is much hotter than the others.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the pedal firms up after the brakes cool.",
+      "Check the fluid color. Dark brown fluid is old."
+     ],
+     "shop": [
+      "Brake fluid boiling point or moisture test",
+      "Brake fluid flush",
+      "Pad and rotor inspection"
+     ]
+    }
+   }
+  },
+  "r_after_work": {
+   "result": {
+    "title": "Air was probably left in the brake lines during the repair",
+    "urgency": "soon",
+    "now": "Call the shop that did the work and take it back within a day or two, keeping trips short and leaving extra stopping distance until then.",
+    "if": [
+     "If the pedal sinks further, goes near the floor, or you have to pump it to stop, don't drive it. Have it towed.",
+     "If a caliper or hose was replaced, ask them to check that every connection is tight and dry."
+    ],
+    "why": "Any time the brake system is opened, air can get trapped in the lines. Air squeezes where fluid doesn't, so the pedal feels spongy. Bleeding the brakes properly pushes the air out.",
+    "causes": [
+     {
+      "name": "Air in the brake lines",
+      "clues": "The pedal was soft right after the work and firms up when pumped.",
+      "against": ""
+     },
+     {
+      "name": "Loose fitting or bleeder screw",
+      "clues": "Wet fluid at a wheel that was worked on.",
+      "against": ""
+     },
+     {
+      "name": "Caliper pistons not pumped back out",
+      "clues": "The pedal went low on the first press after new pads, then firmed up after a few pumps.",
+      "against": "If it stays firm after a few pumps and doesn't go soft again, this was likely the cause and is normal."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for wet fluid at the wheels that were worked on.",
+      "Note whether pumping the pedal makes it firmer."
+     ],
+     "shop": [
+      "Brake bleed",
+      "Fitting and bleeder screw check",
+      "Caliper and pad fit check"
+     ]
+    }
+   }
+  },
+  "r_old_fluid": {
+   "result": {
+    "title": "Old brake fluid that has absorbed moisture can make the pedal feel soft",
+    "urgency": "soon",
+    "now": "Book a brake fluid test and flush in the next few days, and avoid heavy braking like long downhills or towing until then.",
+    "if": [
+     "If the pedal gets softer or starts to sink, stop driving and have it towed.",
+     "If the fluid hasn't been changed in years, have the whole brake system inspected at the same time."
+    ],
+    "why": "Brake fluid slowly absorbs water from the air. That lowers its boiling point, so small vapor bubbles can form when the brakes get hot, which feels soft or spongy. Most manufacturers list a fluid change interval in the maintenance schedule.",
+    "causes": [
+     {
+      "name": "Old fluid holding moisture",
+      "clues": "Dark fluid, or no record of it ever being changed.",
+      "against": ""
+     },
+     {
+      "name": "Small amount of air in the system",
+      "clues": "The pedal firms up when pumped.",
+      "against": ""
+     },
+     {
+      "name": "Aging rubber brake hoses swelling",
+      "clues": "An older car, with the pedal softest under hard braking.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the fluid color in the reservoir.",
+      "Check your service records for the last brake fluid change."
+     ],
+     "shop": [
+      "Brake fluid moisture test",
+      "Brake fluid flush and bleed",
+      "Brake hose inspection"
+     ]
+    }
+   }
+  },
+  "r_air_or_hose": {
+   "result": {
+    "title": "Likely air in the system or a brake part starting to wear",
+    "urgency": "soon",
+    "now": "Have the brakes inspected within a few days. Until then, drive gently and leave extra stopping distance.",
+    "if": [
+     "If the pedal sinks, goes near the floor, or the red brake light comes on, stop driving and have it towed.",
+     "If the pedal gets firmer after pumping it twice, tell the shop. That points to air or a rear brake adjustment problem."
+    ],
+    "why": "A pedal that feels soft but still stops the car usually means something in the hydraulic system is giving a little: air bubbles, swelling hoses, or rear drum brakes that need adjusting. These tend to get worse, so it's worth finding early.",
+    "causes": [
+     {
+      "name": "Air in the brake lines",
+      "clues": "The pedal firms up when pumped.",
+      "against": ""
+     },
+     {
+      "name": "Rear drum brakes out of adjustment",
+      "clues": "An older car or truck with rear drums, and the parking brake needs many clicks.",
+      "against": ""
+     },
+     {
+      "name": "Aging rubber brake hoses",
+      "clues": "An older car, with the pedal softest under hard braking.",
+      "against": ""
+     },
+     {
+      "name": "Master cylinder starting to wear",
+      "clues": "The pedal also creeps down slowly at a stop.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the brake fluid level and color.",
+      "Note whether pumping the pedal makes it firmer."
+     ],
+     "shop": [
+      "Brake system inspection",
+      "Brake bleed",
+      "Hose and master cylinder check",
+      "Rear brake adjustment"
+     ]
+    }
+   }
+  },
+  "r_soft_unsure": {
+   "result": {
+    "title": "A soft pedal needs a brake check before it gets worse",
+    "urgency": "soon",
+    "now": "Have the brakes inspected in the next day or two. If you must drive before then, keep it short, go slowly and leave plenty of room to stop.",
+    "if": [
+     "If the pedal goes near the floor, sinks at a stop, or the red brake light comes on, stop driving and have it towed.",
+     "If the fluid reservoir is below MIN, don't drive it."
+    ],
+    "why": "Without knowing how the car is stopping, the safe assumption is that a soft pedal means a problem in the hydraulic system. Most causes are found in a quick inspection, and catching them early helps prevent a sudden failure.",
+    "causes": [
+     {
+      "name": "Air or moisture in the brake fluid",
+      "clues": "The pedal firms up when pumped, or the fluid is old.",
+      "against": ""
+     },
+     {
+      "name": "Small fluid leak",
+      "clues": "The fluid level is dropping, or there are damp spots at a wheel.",
+      "against": ""
+     },
+     {
+      "name": "Wearing master cylinder",
+      "clues": "The pedal creeps down at a stop.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the brake fluid level.",
+      "Look for wet spots inside the wheels and under the car."
+     ],
+     "shop": [
+      "Brake inspection",
+      "Brake fluid test",
+      "Master cylinder check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "brake-fluid-leak",
+  "brake-warning-light-on",
+  "hard-brake-pedal",
+  "abs-light-on",
+  "grinding-brakes"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Leaks"
+  ],
+  "words": [
+   "brake",
+   "brake pedal",
+   "master cylinder",
+   "brake fluid",
+   "brake line",
+   "brake hose",
+   "caliper",
+   "bleed"
+  ]
+ },
+ "sources": [
+  "https://www.nhtsa.gov/recalls",
+  "https://prnewswire.com/news-releases/car-care-council-are-your-brakes-trying-to-tell-you-something-300309286.html"
+ ]
+}

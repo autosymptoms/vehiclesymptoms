@@ -1,0 +1,468 @@
+{
+ "id": "humming-noise-at-speed",
+ "title": "Humming noise at speed",
+ "h1": "Why does my car hum louder as I speed up?",
+ "metaDesc": "Humming or growling that gets louder with speed? Answer a few questions to tell a wheel bearing from tire noise or a differential, and how urgent it is.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "humming noise while driving",
+  "humming noise that gets louder with speed",
+  "growling noise when driving",
+  "roaring noise at highway speed",
+  "wheel bearing noise",
+  "bad wheel bearing",
+  "droning noise from wheels",
+  "whirring noise when driving",
+  "tire noise at speed",
+  "car hums at 40 mph",
+  "humming goes away when turning",
+  "wub wub noise from tires",
+  "car sounds like an airplane"
+ ],
+ "intro": "A hum or growl that rises with road speed almost always comes from something that turns with the wheels: a wheel bearing, the tires, or the differential. A few simple tests while driving and a look at your tires can usually tell them apart. Answer the questions below to find the most likely cause and how soon to deal with it.",
+ "safety": [
+  "If the hum turns into grinding or a wheel feels loose or wobbly, slow down and pull over as soon as it's safe.",
+  "If you see a bulge or bubble on a tire, or cords showing through the rubber, don't drive on it.",
+  "Only do the steering test on an empty road at a safe speed, with gentle movements."
+ ],
+ "start": "q_danger",
+ "nodes": {
+  "q_danger": {
+   "q": "Along with the hum, do you notice any of these?",
+   "opts": [
+    {
+     "a": "Grinding or scraping, or a wheel feels loose or wobbly",
+     "go": "r_bearing_failing"
+    },
+    {
+     "a": "A vibration in the steering wheel, seat or floor",
+     "go": "q_tires"
+    },
+    {
+     "a": "None of these, just the hum",
+     "go": "q_weave"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_weave"
+    }
+   ]
+  },
+  "q_weave": {
+   "q": "On an empty, straight road at the speed where it hums, gently steer a little left, then a little right. Does the hum change?",
+   "help": "When you steer, the car's weight shifts onto the outside wheels. A worn wheel bearing usually gets louder when it's carrying more weight, and quieter when it's carrying less. Keep the movements small and smooth.",
+   "opts": [
+    {
+     "a": "Yes: louder steering one way, quieter the other",
+     "go": "r_wheel_bearing"
+    },
+    {
+     "a": "No, it stays about the same",
+     "go": "q_surface"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_surface"
+    }
+   ]
+  },
+  "q_surface": {
+   "q": "Which of these best describes the hum?",
+   "opts": [
+    {
+     "a": "It changes a lot when the road surface changes",
+     "go": "q_tires"
+    },
+    {
+     "a": "It changes when I let off the gas or press it (rear-wheel, 4WD or AWD vehicle)",
+     "go": "r_differential"
+    },
+    {
+     "a": "It follows engine speed, not road speed (it changes when the transmission shifts)",
+     "go": "r_engine_speed"
+    },
+    {
+     "a": "It stays the same no matter what I do",
+     "go": "r_bearing_or_tire"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_bearing_or_tire"
+    }
+   ]
+  },
+  "q_tires": {
+   "q": "With the car parked, look at each tire and run your hand across the tread. What do you find?",
+   "help": "Check all four tires, including the inside edges if you can see them. Turning the steering wheel all the way makes the front tires easier to see.",
+   "opts": [
+    {
+     "a": "A bulge or bubble on the side, or cords or wire showing",
+     "go": "r_tire_damage"
+    },
+    {
+     "a": "The tread feels wavy, choppy or like saw teeth in one direction",
+     "go": "r_cupped_tires"
+    },
+    {
+     "a": "The tires are new, or have chunky off-road or winter tread",
+     "go": "r_tread_noise"
+    },
+    {
+     "a": "They look and feel even",
+     "go": "r_bearing_or_tire"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_bearing_or_tire"
+    }
+   ]
+  },
+  "r_bearing_failing": {
+   "result": {
+    "title": "A wheel bearing or wheel may be close to failing",
+    "urgency": "stop",
+    "now": "Pull over as soon as it's safe. Check that the lug nuts are tight if you can, then have the car towed or have a mobile mechanic come to you.",
+    "if": [
+     "If a lug nut is loose or missing, don't drive on it until all the nuts are tightened properly.",
+     "If you smell burning or a wheel is much hotter than the others, the brakes may be dragging or the bearing may be overheating. Don't touch it with bare hands."
+    ],
+    "why": "A hum that turns into grinding, or comes with a loose or wobbly feel, usually means a wheel bearing is badly worn or something holding the wheel on is loose. In the worst case the wheel can separate from the car, so it isn't worth driving further.",
+    "causes": [
+     {
+      "name": "Badly worn wheel bearing",
+      "clues": "The hum has been getting louder for weeks and is now a grind or growl, sometimes with play in the wheel.",
+      "against": ""
+     },
+     {
+      "name": "Loose lug nuts",
+      "clues": "A wheel was recently removed, for tires or brakes, and a clunk or wobble started after that.",
+      "against": ""
+     },
+     {
+      "name": "Brake part dragging or worn to metal",
+      "clues": "Grinding that changes when you brake, or a hot, burning smell.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check whether any lug nuts look loose or missing.",
+      "Don't drive further to test it."
+     ],
+     "shop": [
+      "Wheel bearing play check with the car lifted",
+      "Lug nut torque check",
+      "Brake inspection"
+     ]
+    }
+   }
+  },
+  "r_wheel_bearing": {
+   "result": {
+    "title": "A worn wheel bearing is the most likely cause",
+    "urgency": "soon",
+    "now": "Have the wheel bearings checked within a few days. Until then, keep speeds moderate and avoid long highway trips.",
+    "if": [
+     "If the hum turns into grinding, or the steering feels loose or wobbly, stop driving and have it towed.",
+     "If the ABS light comes on, mention it. Some wheel bearings carry the ABS sensor ring."
+    ],
+    "why": "A hum that gets louder when you steer one way and quieter the other way points strongly to a wheel bearing. Steering shifts weight onto the outside wheels, so a bad bearing gets louder when it's loaded. A noise that's louder when steering left often points to a right-side bearing, and the other way around.",
+    "causes": [
+     {
+      "name": "Worn front wheel bearing",
+      "clues": "The hum changes clearly when you steer and seems to come from the front.",
+      "against": ""
+     },
+     {
+      "name": "Worn rear wheel bearing",
+      "clues": "The noise seems to come from behind you, and changes less when steering.",
+      "against": ""
+     },
+     {
+      "name": "Uneven tire wear",
+      "clues": "Wavy or choppy tread on one tire can also change with steering.",
+      "against": "Tire noise usually changes more with the road surface than with steering."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note which way you steer when it gets louder.",
+      "Look at the tires for uneven wear."
+     ],
+     "shop": [
+      "Road test with a technician",
+      "Wheel bearing play and roughness check with the car lifted",
+      "Chassis microphone test to pinpoint the corner"
+     ]
+    }
+   }
+  },
+  "r_differential": {
+   "result": {
+    "title": "The differential or its fluid may be the source",
+    "urgency": "soon",
+    "now": "Have the differential fluid level and condition checked within a few days, and keep speeds moderate until then.",
+    "if": [
+     "If the noise turns into a clunk, grind or howl, or you see gear oil leaking near the axle, stop driving and have it towed.",
+     "If you tow a trailer or carry heavy loads, stop doing so until it's checked."
+    ],
+    "why": "The differential lets the wheels on each side turn at different speeds. Its gears and bearings sit in thick gear oil. When the oil is low or the parts wear, they hum or whine, and the sound usually changes when you switch between pressing the gas and coasting.",
+    "causes": [
+     {
+      "name": "Low or worn-out differential fluid",
+      "clues": "Oily residue around the differential, or the fluid has never been changed on a high-mileage vehicle.",
+      "against": ""
+     },
+     {
+      "name": "Worn differential bearings",
+      "clues": "A hum or growl that rises with speed and is most noticeable when coasting.",
+      "against": ""
+     },
+     {
+      "name": "Worn or poorly adjusted ring and pinion gears",
+      "clues": "A whine that's loudest when accelerating, or that started after differential work.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for oily wet spots on or below the differential (the round housing between the drive wheels).",
+      "Note whether the noise is louder when pressing the gas or when coasting."
+     ],
+     "shop": [
+      "Differential fluid level and condition check",
+      "Check the drained fluid for metal particles",
+      "Road test and chassis microphone test"
+     ]
+    }
+   }
+  },
+  "r_engine_speed": {
+   "result": {
+    "title": "A hum that follows engine speed is probably not a wheel or tire",
+    "urgency": "check",
+    "now": "Book a check when convenient. Tell the shop the noise follows engine speed and changes when the transmission shifts.",
+    "if": [
+     "If you smell exhaust inside the car, get it checked right away and drive with the windows open.",
+     "If the transmission slips, shifts harshly or a warning light comes on, get it checked within a few days."
+    ],
+    "why": "Wheel bearings, tires and differentials follow road speed. If the hum changes when the transmission shifts, even at the same road speed, it's tied to the engine or transmission, such as exhaust drone, an accessory bearing or the transmission itself.",
+    "causes": [
+     {
+      "name": "Exhaust drone or a small exhaust leak",
+      "clues": "A deep drone at a certain engine speed, often on the highway, or a louder exhaust than usual.",
+      "against": ""
+     },
+     {
+      "name": "Worn accessory bearing (alternator, idler or tensioner pulley)",
+      "clues": "The hum is also there when you rev the engine in Park.",
+      "against": ""
+     },
+     {
+      "name": "Transmission noise",
+      "clues": "The hum changes with each gear, or there are shifting problems.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Rev the engine gently in Park and listen for the same hum.",
+      "Check the transmission fluid if your car has a dipstick for it."
+     ],
+     "shop": [
+      "Road test",
+      "Exhaust system inspection",
+      "Belt and pulley bearing check",
+      "Transmission fluid and code check"
+     ]
+    }
+   }
+  },
+  "r_bearing_or_tire": {
+   "result": {
+    "title": "Most likely a wheel bearing or tire noise. A road test will tell which",
+    "urgency": "check",
+    "now": "Check the tire pressures and look for uneven wear, then book a road test with a shop within the next week or two.",
+    "if": [
+     "If the noise is getting louder week by week, get it checked sooner.",
+     "If it turns into grinding, or a wheel feels loose or wobbly, stop driving and have it towed."
+    ],
+    "why": "Both worn bearings and noisy tires make a hum that rises with speed, and they can sound very similar from the driver's seat. A technician can lift the car, spin each wheel and check for play or roughness in a few minutes.",
+    "causes": [
+     {
+      "name": "Uneven tire wear",
+      "clues": "Overdue tire rotations, worn suspension, or the noise changes on different road surfaces.",
+      "against": ""
+     },
+     {
+      "name": "Worn wheel bearing",
+      "clues": "The noise has slowly grown louder and seems to come from one corner.",
+      "against": ""
+     },
+     {
+      "name": "Low tire pressure",
+      "clues": "The tire pressure light is on, or a tire looks low.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all tire pressures against the sticker on the driver's door frame.",
+      "Feel the tread for waves or uneven edges.",
+      "Note whether the noise changes on different road surfaces."
+     ],
+     "shop": [
+      "Road test",
+      "Wheel bearing play and roughness check",
+      "Tire wear inspection and rotation"
+     ]
+    }
+   }
+  },
+  "r_tire_damage": {
+   "result": {
+    "title": "A damaged tire is likely, and it could fail suddenly",
+    "urgency": "stop",
+    "now": "Don't drive on that tire. Put on the spare or call roadside assistance to have it changed or the car towed.",
+    "if": [
+     "If you're not sure how to change a tire safely, wait for roadside help away from traffic.",
+     "If more than one tire looks damaged, have the suspension and alignment checked when the tires are replaced."
+    ],
+    "why": "A bulge, bubble or exposed cords means the inside of the tire is damaged. That can cause a hum or thump and a vibration as the tire turns, and it can lead to a sudden blowout.",
+    "causes": [
+     {
+      "name": "Internal tire damage from a pothole or curb",
+      "clues": "A bubble on the sidewall, often after a hard impact.",
+      "against": ""
+     },
+     {
+      "name": "Tread separation",
+      "clues": "A lumpy or uneven tread area and a vibration that rises with speed.",
+      "against": ""
+     },
+     {
+      "name": "Tire worn through",
+      "clues": "Cords or wire showing, usually on the inside or outside edge.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the damaged tire from a safe spot, without driving further."
+     ],
+     "shop": [
+      "Tire replacement",
+      "Wheel inspection for bends",
+      "Alignment check"
+     ]
+    }
+   }
+  },
+  "r_cupped_tires": {
+   "result": {
+    "title": "Uneven (cupped) tire wear is making the noise",
+    "urgency": "check",
+    "now": "Book a tire and suspension check. Ask the shop to look at the shocks or struts and the alignment, not just the tires.",
+    "if": [
+     "If the wear has reached the cords, or there's a bulge, don't drive on that tire.",
+     "If you replace the tires without fixing the cause, the new ones will likely wear the same way."
+    ],
+    "why": "Cupped or scalloped tread makes a rhythmic hum or \"wub-wub\" that rises with speed and often changes with the road surface. It's usually caused by worn shocks or struts, poor alignment, or missed tire rotations.",
+    "causes": [
+     {
+      "name": "Worn shocks or struts",
+      "clues": "The car bounces after bumps, or feels floaty.",
+      "against": ""
+     },
+     {
+      "name": "Wheel alignment off",
+      "clues": "The car pulls to one side, or the steering wheel isn't straight.",
+      "against": ""
+     },
+     {
+      "name": "Tires not rotated or out of balance",
+      "clues": "Rotations have been skipped, or a vibration at certain speeds.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Feel the tread on all four tires, especially the rear ones.",
+      "Check the tire pressures."
+     ],
+     "shop": [
+      "Tire wear inspection",
+      "Shock and strut check",
+      "Alignment check",
+      "Wheel balance"
+     ]
+    }
+   }
+  },
+  "r_tread_noise": {
+   "result": {
+    "title": "The tires themselves may simply be noisy",
+    "urgency": "diy",
+    "now": "Check that all four tires are at the pressure on the driver's door sticker, and listen for whether the noise changes on smooth versus rough pavement.",
+    "if": [
+     "If the noise changes when you steer left or right, a wheel bearing is more likely. Have it checked.",
+     "If the noise gets steadily louder over weeks, book a check."
+    ],
+    "why": "Chunky off-road, all-terrain and winter treads move a lot of air and hum noticeably at speed. New tires can sound different from your old ones too. A noise that changes mostly with the road surface and is the same on every tire is usually tread noise.",
+    "causes": [
+     {
+      "name": "Aggressive or winter tread pattern",
+      "clues": "The noise started when the tires were fitted and changes with the road surface.",
+      "against": ""
+     },
+     {
+      "name": "Incorrect tire pressure",
+      "clues": "One or more tires are well above or below the door sticker pressure.",
+      "against": ""
+     },
+     {
+      "name": "Worn wheel bearing",
+      "clues": "The noise changes when steering, or seems to come from one corner.",
+      "against": "Less likely if the noise began exactly when new tires went on."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all tire pressures.",
+      "Drive on different road surfaces and note whether the noise changes."
+     ],
+     "shop": [
+      "Road test",
+      "Wheel bearing check if the noise changes when steering"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "vibration-at-highway-speed",
+  "uneven-tire-wear",
+  "whining-noise-when-accelerating",
+  "steering-wheel-shaking"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises"
+  ],
+  "words": [
+   "wheel bearing",
+   "hub",
+   "hum",
+   "growl",
+   "differential",
+   "tire",
+   "roar",
+   "drone"
+  ]
+ },
+ "sources": [
+  "https://www.mavis.com/learning-center/how-to-tell-if-your-wheel-bearings-are-bad/",
+  "https://gmb.net/?p=5323"
+ ]
+}

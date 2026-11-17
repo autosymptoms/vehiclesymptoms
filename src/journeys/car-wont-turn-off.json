@@ -1,0 +1,524 @@
+{
+ "id": "car-wont-turn-off",
+ "title": "Engine won't shut off",
+ "h1": "Why does my engine keep running after I turn it off?",
+ "metaDesc": "Engine keeps running, coughs or diesels after you turn it off? Answer a few questions to find the likely cause, how urgent it is and what to do.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "car won't turn off",
+  "car wont turn off",
+  "engine won't shut off",
+  "engine wont shut off",
+  "engine runs after key is off",
+  "engine keeps running after turning off",
+  "dieseling",
+  "engine run-on",
+  "car sputters after turning off",
+  "engine shudders when turned off",
+  "push button won't turn car off",
+  "car says shift to park and won't turn off",
+  "fan running after car is off",
+  "car still running with key out"
+ ],
+ "intro": "An engine that won't shut off can be anything from a harmless cooling fan to a shifter that isn't quite in Park to an electrical fault that keeps the engine powered. What you see and hear right after you switch off narrows it down quickly. Answer the questions below for the likely cause and the safest next step.",
+ "safety": [
+  "If the engine won't stop in a garage, open the garage door and get everyone out. Exhaust fumes can build up quickly.",
+  "If the engine revs higher and higher on its own, get people away from the vehicle and call for help.",
+  "If the gas pedal sticks while driving, shift to Neutral, brake firmly, steer to a safe spot, then shut the engine off."
+ ],
+ "start": "q_what_happens",
+ "nodes": {
+  "q_what_happens": {
+   "q": "What happens when you turn the key off or press the Start/Stop button?",
+   "help": "\"Dieseling\" (also called run-on) is when an engine keeps coughing and chugging unevenly for a few seconds after you switch it off.",
+   "opts": [
+    {
+     "a": "The engine keeps running smoothly, even with the key off or removed",
+     "go": "r_ignition_switch"
+    },
+    {
+     "a": "The engine coughs, chugs or shakes for a few seconds, then stops",
+     "go": "q_vehicle_type"
+    },
+    {
+     "a": "Push-button start: pressing the button doesn't turn it off",
+     "go": "q_park"
+    },
+    {
+     "a": "The engine stops, but I hear a fan or whirring under the hood",
+     "go": "r_fan_normal"
+    },
+    {
+     "a": "The engine revs higher and higher by itself (diesel engine)",
+     "go": "r_diesel_runaway"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_after_off"
+    }
+   ]
+  },
+  "q_after_off": {
+   "q": "Right after you switch off, which fits best?",
+   "help": "The tachometer is the gauge that shows engine speed (RPM). If it still shows a reading, the engine is still running.",
+   "opts": [
+    {
+     "a": "The tachometer still shows RPM and exhaust keeps coming out",
+     "go": "r_ignition_switch"
+    },
+    {
+     "a": "The dash goes dark, but a fan or pump keeps running under the hood",
+     "go": "r_fan_normal"
+    },
+    {
+     "a": "The engine shakes or coughs briefly, then stops",
+     "go": "q_vehicle_type"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_park": {
+   "q": "What does the dashboard show when you press the button to turn it off?",
+   "opts": [
+    {
+     "a": "A message like \"Shift to Park\", or the gear display doesn't show P",
+     "go": "r_shift_park"
+    },
+    {
+     "a": "It shows P with no message, but the button doesn't respond",
+     "go": "r_button"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_shift_park"
+    }
+   ]
+  },
+  "q_vehicle_type": {
+   "q": "Does the engine have a carburetor or fuel injection?",
+   "help": "Most cars built since the early 1990s have fuel injection. A carburetor is found mainly on older vehicles, classic cars and some small engines.",
+   "opts": [
+    {
+     "a": "Carburetor (older or classic vehicle)",
+     "go": "q_hot"
+    },
+    {
+     "a": "Fuel injection (most modern cars)",
+     "go": "r_shutdown_shudder"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_hot"
+    }
+   ]
+  },
+  "q_hot": {
+   "q": "Has the engine been running hotter than usual?",
+   "opts": [
+    {
+     "a": "Yes, the temperature gauge is high or in the red",
+     "go": "r_runon_overheat"
+    },
+    {
+     "a": "No, the temperature gauge is normal",
+     "go": "r_dieseling"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_dieseling"
+    }
+   ]
+  },
+  "r_ignition_switch": {
+   "result": {
+    "title": "An electrical fault is likely keeping the engine powered",
+    "urgency": "stop",
+    "now": "Don't drive it. Put it in Park with the parking brake on, turn the key to ON and back to OFF firmly, and if it keeps running, call roadside assistance or a mobile mechanic.",
+    "if": [
+     "If you're comfortable with the fuse box, pulling the fuel pump fuse or relay (shown in the owner's manual) will usually make the engine stall within a few seconds.",
+     "If it's a manual, you can stall it: with the parking brake on and your foot hard on the brake, put it in a high gear and release the clutch.",
+     "If it's in a closed space, open the doors or garage door right away and get everyone out."
+    ],
+    "why": "On a modern car, turning the key off cuts power to the fuel and ignition systems. If the engine keeps running normally, something is still feeding that power, usually a worn ignition switch or a relay stuck closed. Until it's fixed, you can't count on being able to shut the engine off.",
+    "causes": [
+     {
+      "name": "Worn or faulty ignition switch",
+      "clues": "The key feels loose or different, or the dash and radio act oddly when you jiggle the key.",
+      "against": ""
+     },
+     {
+      "name": "Stuck main or ignition relay",
+      "clues": "It happens on push-button cars too, sometimes with a click from the fuse box.",
+      "against": ""
+     },
+     {
+      "name": "Wiring fault after a repair or accessory install",
+      "clues": "It started after a remote starter, alarm or stereo was installed.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the dash lights and radio stay on with the key removed.",
+      "Think back to any recent electrical work or accessories added."
+     ],
+     "shop": [
+      "Ignition switch circuit test",
+      "Relay test",
+      "Wiring inspection for aftermarket accessories"
+     ]
+    }
+   }
+  },
+  "r_dieseling": {
+   "result": {
+    "title": "Classic engine run-on (dieseling)",
+    "urgency": "check",
+    "now": "Make sure the idle isn't set too high, and book a tune-up check when convenient.",
+    "if": [
+     "If it happens mainly after hard driving on hot days, let it idle for 30 seconds before switching off.",
+     "If the engine also pings or knocks under load, get it checked sooner, because the same hot spots can damage the engine."
+    ],
+    "why": "On carbureted engines, fuel can keep getting pulled in after the ignition is off. Hot carbon deposits or a high idle can then ignite it, so the engine chugs on unevenly for a few seconds. It's common on older vehicles and is usually fixed with adjustments and cleaning.",
+    "causes": [
+     {
+      "name": "Idle speed set too high",
+      "clues": "The idle sounds fast, or the engine was recently adjusted.",
+      "against": ""
+     },
+     {
+      "name": "Carbon buildup in the engine",
+      "clues": "Lots of short trips, pinging under load, or high mileage.",
+      "against": ""
+     },
+     {
+      "name": "Failed anti-dieseling (idle stop) solenoid",
+      "clues": "Run-on started suddenly on a carburetor that has one.",
+      "against": "Not every carburetor has one."
+     },
+     {
+      "name": "Fuel octane too low or ignition timing off",
+      "clues": "Pinging or knocking when accelerating.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the owner's manual or engine label for the correct fuel grade.",
+      "Note whether it happens mainly when the engine is very hot."
+     ],
+     "shop": [
+      "Idle speed and timing check",
+      "Anti-dieseling solenoid test",
+      "Carbon cleaning or compression test"
+     ]
+    }
+   }
+  },
+  "r_runon_overheat": {
+   "result": {
+    "title": "The engine is overheating, which is making it run on",
+    "urgency": "stop",
+    "now": "Switch the engine off, let it cool completely, and don't drive it until the overheating is fixed. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If you see steam or coolant leaking, stay away from the radiator cap. It can spray scalding coolant."
+    ],
+    "why": "An overheating engine has hot spots that can ignite fuel even after the ignition is off. The run-on is a symptom; the overheating is the real danger, and it can warp or crack engine parts.",
+    "causes": [
+     {
+      "name": "Low coolant or a cooling system leak",
+      "clues": "Puddles under the car, a sweet smell, or steam.",
+      "against": ""
+     },
+     {
+      "name": "Failed cooling fan, thermostat or water pump",
+      "clues": "It overheats mostly at idle, or the gauge climbs quickly.",
+      "against": ""
+     },
+     {
+      "name": "Ignition timing or mixture problem",
+      "clues": "Pinging, poor power, or recent engine adjustments.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once fully cold, check the coolant level.",
+      "Look for leaks under the car."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Thermostat, fan and water pump check",
+      "Ignition timing check"
+     ]
+    }
+   }
+  },
+  "r_shutdown_shudder": {
+   "result": {
+    "title": "A shake at shutdown on a modern car usually points to engine mounts",
+    "urgency": "check",
+    "now": "Book a check when convenient and mention exactly when the shake happens.",
+    "if": [
+     "If you also feel a clunk when shifting into gear or accelerating, worn engine mounts are even more likely. Get them checked sooner.",
+     "If the engine truly keeps running after the key is off, or you smell fuel, don't drive it and have it checked right away."
+    ],
+    "why": "Fuel-injected engines cut fuel the moment you switch off, so true run-on is rare. What feels like run-on is usually the engine rocking as it stops, which worn mounts let you feel more. Less often, a leaking injector lets fuel in after shutdown.",
+    "causes": [
+     {
+      "name": "Worn engine or transmission mounts",
+      "clues": "A clunk when shifting into gear, or extra vibration at idle.",
+      "against": ""
+     },
+     {
+      "name": "Leaking fuel injector",
+      "clues": "A fuel smell, hard starting when warm, or a rough start.",
+      "against": ""
+     },
+     {
+      "name": "Heavy carbon buildup",
+      "clues": "Pinging under load, or a check engine light.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Have someone watch the engine while you switch off and see if it rocks a lot.",
+      "Notice any clunk when shifting from Park into Drive or Reverse."
+     ],
+     "shop": [
+      "Engine mount inspection",
+      "Code scan",
+      "Fuel injector leak-down test"
+     ]
+    }
+   }
+  },
+  "r_shift_park": {
+   "result": {
+    "title": "The car doesn't think it's in Park",
+    "urgency": "diy",
+    "now": "With your foot on the brake, move the shifter out of Park and firmly back into Park, then press the button again.",
+    "if": [
+     "If it keeps happening, have the shifter's Park switch checked soon. Leaving the car in accessory mode can drain the battery.",
+     "If the car won't stay in Park or rolls, don't leave it. Set the parking brake and have it checked before driving again."
+    ],
+    "why": "Most push-button cars won't fully shut down unless they detect the shifter in Park. A worn switch in the shifter, or something like a coin or spilled drink in the shifter, can stop it from registering Park.",
+    "causes": [
+     {
+      "name": "Worn or faulty Park position switch in the shifter",
+      "clues": "Wiggling the shifter makes the message go away.",
+      "against": ""
+     },
+     {
+      "name": "Debris or a spill in the shifter",
+      "clues": "Something was dropped or spilled near the shifter recently.",
+      "against": ""
+     },
+     {
+      "name": "Shift cable out of adjustment",
+      "clues": "The gear display doesn't match where the shifter sits.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Push the shifter firmly into Park and check the gear display.",
+      "Look around the shifter for debris or signs of a spill."
+     ],
+     "shop": [
+      "Park switch test",
+      "Shift cable adjustment check",
+      "Check for open recalls or service bulletins"
+     ]
+    }
+   }
+  },
+  "r_button": {
+   "result": {
+    "title": "The Start/Stop button or keyless system isn't responding",
+    "urgency": "check",
+    "now": "Press and hold the Start/Stop button for a few seconds. That shuts off most cars even when a quick press doesn't. Book a check when convenient.",
+    "if": [
+     "If holding the button doesn't shut it off, don't leave it running. Call roadside assistance or a mobile mechanic.",
+     "If the key fob battery is weak, replace it. Some cars act oddly when they can't read the fob."
+    ],
+    "why": "Push-button systems use a switch and a computer to decide when to shut down. A sticky button, a weak fob battery or a module fault can stop a short press from working, while a long press often overrides it.",
+    "causes": [
+     {
+      "name": "Worn or sticky Start/Stop button",
+      "clues": "You have to press harder or more than once.",
+      "against": ""
+     },
+     {
+      "name": "Weak key fob battery",
+      "clues": "A \"key not detected\" message, or the remote range has dropped.",
+      "against": ""
+     },
+     {
+      "name": "Keyless ignition module fault",
+      "clues": "Other odd behavior, like the car not locking or warning lights.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try holding the button down for a few seconds.",
+      "Replace the key fob battery.",
+      "Check the owner's manual for the shutdown procedure."
+     ],
+     "shop": [
+      "Code scan of the keyless system",
+      "Start/Stop switch test",
+      "Check for software updates or service bulletins"
+     ]
+    }
+   }
+  },
+  "r_fan_normal": {
+   "result": {
+    "title": "It's probably the cooling fan or pump finishing its job",
+    "urgency": "diy",
+    "now": "Wait up to several minutes. On many cars the radiator fan or an electric coolant pump runs after shutdown to cool the engine, then turns off by itself.",
+    "if": [
+     "If the fan keeps running for a long time or the battery goes flat overnight, have the fan relay checked.",
+     "If you see steam or smell coolant, the engine may be overheating. Have it checked before driving again."
+    ],
+    "why": "Fans and some pumps are controlled separately from the engine and can keep running after a hot drive, especially in warm weather or after towing. This is normal design and doesn't mean the engine is still on.",
+    "causes": [
+     {
+      "name": "Normal after-run cooling",
+      "clues": "It happens after hot days or long drives and stops within several minutes.",
+      "against": ""
+     },
+     {
+      "name": "Stuck fan relay or temperature sensor fault",
+      "clues": "The fan runs for a long time even on a cold engine, or the battery keeps going flat.",
+      "against": ""
+     },
+     {
+      "name": "Engine running hot",
+      "clues": "The temperature gauge has been higher than usual.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Time how long the noise lasts after you switch off.",
+      "Check that the tachometer reads zero and no exhaust comes out."
+     ],
+     "shop": [
+      "Cooling fan relay test",
+      "Coolant temperature sensor check"
+     ]
+    }
+   }
+  },
+  "r_diesel_runaway": {
+   "result": {
+    "title": "This may be a diesel engine runaway, which is an emergency",
+    "urgency": "stop",
+    "now": "Get everyone away from the vehicle. If it's a manual and you can do it safely, hold the brakes hard, put it in the highest gear and release the clutch to stall the engine.",
+    "if": [
+     "If there's fire or heavy smoke, move well away and call 911.",
+     "If the engine stops, don't restart it. Have it towed to a shop."
+    ],
+    "why": "A diesel engine can keep running and speeding up on fuel it isn't supposed to get, most often engine oil. The key can't shut off that fuel supply, and the engine can overspeed until it fails badly.",
+    "causes": [
+     {
+      "name": "Oil leaking into the intake from a failed turbocharger seal",
+      "clues": "Heavy blue or white smoke and a high-pitched whine before it happened.",
+      "against": ""
+     },
+     {
+      "name": "Engine oil overfilled or crankcase vapors pulled into the intake",
+      "clues": "Oil was recently added or changed.",
+      "against": ""
+     },
+     {
+      "name": "Fuel system or governor fault",
+      "clues": "The engine revved up without heavy smoke.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Turbocharger seal inspection",
+      "Oil level and crankcase ventilation check",
+      "Fuel system inspection"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Find out whether the engine is truly still running",
+    "urgency": "check",
+    "now": "After switching off, watch the tachometer and check for exhaust at the tailpipe. Then book a check and tell the shop what you saw.",
+    "if": [
+     "If the engine clearly keeps running with the key off, don't drive it. Call roadside assistance or a mobile mechanic.",
+     "If it's just a fan or whirring noise that stops within several minutes, that's usually normal."
+    ],
+    "why": "A fan running after shutdown, an engine that coughs briefly and an engine that won't stop at all have very different causes and urgency. A quick look at the gauges and the tailpipe tells them apart.",
+    "causes": [
+     {
+      "name": "Normal cooling fan after-run",
+      "clues": "The dash is dark and the noise stops on its own.",
+      "against": ""
+     },
+     {
+      "name": "Engine run-on or shutdown shake",
+      "clues": "A brief cough or shudder, then silence.",
+      "against": ""
+     },
+     {
+      "name": "Electrical fault keeping the engine powered",
+      "clues": "The engine keeps running normally with the key out.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound right after you switch off. It helps the shop a lot."
+     ],
+     "shop": [
+      "Code scan",
+      "Ignition and relay circuit check",
+      "Cooling fan check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "engine-revs-high-at-idle",
+  "engine-overheating",
+  "push-button-start-not-working",
+  "battery-keeps-dying"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Starting Problems"
+  ],
+  "words": [
+   "dieseling",
+   "run-on",
+   "ignition switch",
+   "shut off",
+   "turn off",
+   "relay",
+   "shift to park",
+   "keyless"
+  ]
+ },
+ "sources": [
+  "https://en.wikipedia.org/wiki/Dieseling",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

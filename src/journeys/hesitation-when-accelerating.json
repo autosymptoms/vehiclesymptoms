@@ -1,0 +1,590 @@
+{
+ "id": "hesitation-when-accelerating",
+ "title": "Hesitation when accelerating",
+ "h1": "Why does my car hesitate when I press the gas?",
+ "metaDesc": "Car hesitates or stumbles when you press the gas? Answer a few questions to see if it's ignition, fuel, a sensor or the transmission, and how urgent it is.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "car hesitates when accelerating",
+  "hesitation when pressing gas",
+  "engine stumbles when accelerating",
+  "car bogs down when I step on the gas",
+  "delay when I press the gas pedal",
+  "car hesitates then takes off",
+  "dead spot when accelerating",
+  "car stutters on acceleration",
+  "engine hesitates from a stop",
+  "car hesitates when merging",
+  "sluggish acceleration",
+  "car wont accelerate right away",
+  "hesitation in wet weather"
+ ],
+ "intro": "A short delay or stumble when you press the gas usually means the engine isn't getting the right mix of air, fuel and spark at that moment. When it happens, and what comes with it, narrows things down quickly. Answer a few questions to see the most likely cause and how soon to act.",
+ "safety": [
+  "If the check engine light is flashing, slow down and pull over when it's safe. Driving on can overheat the catalytic converter.",
+  "If you smell raw fuel, pull over, turn the engine off and step away from the car.",
+  "If the car can't keep up with traffic, don't merge onto highways or pull into fast-moving traffic until it's fixed."
+ ],
+ "start": "q_signs",
+ "nodes": {
+  "q_signs": {
+   "q": "Do you notice any of these along with the hesitation?",
+   "help": "The check engine light is the orange engine-shaped light on the dash. Flashing is much more serious than steady.",
+   "opts": [
+    {
+     "a": "The check engine light is flashing, or the engine shakes hard",
+     "go": "r_severe_misfire"
+    },
+    {
+     "a": "A strong smell of raw fuel",
+     "go": "r_fuel_smell"
+    },
+    {
+     "a": "The engine revs climb, but the car doesn't pick up speed to match",
+     "go": "r_transmission"
+    },
+    {
+     "a": "The check engine light is on, but steady (not flashing)",
+     "go": "q_when"
+    },
+    {
+     "a": "None of these",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When does the hesitation happen most?",
+   "opts": [
+    {
+     "a": "Only when the engine is cold, and it goes away once warmed up",
+     "go": "r_cold_hesitation"
+    },
+    {
+     "a": "Right as I start pressing the pedal, like a dead spot, even with light gas",
+     "go": "r_air_sensor"
+    },
+    {
+     "a": "When I press the gas hard, like merging or climbing a hill",
+     "go": "q_heavy_load"
+    },
+    {
+     "a": "In rain or damp weather, or after a car wash",
+     "go": "r_wet_weather"
+    },
+    {
+     "a": "It started right after I filled up with fuel",
+     "go": "r_bad_fuel"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_heavy_load": {
+   "q": "What does it feel like when you press the gas hard?",
+   "help": "\"Bogging\" feels like the engine is starved and can't build power. A \"stumble\" or \"jerk\" feels like the engine cuts out for a split second.",
+   "opts": [
+    {
+     "a": "It bogs down and feels starved, and it gets worse uphill or at highway speed",
+     "go": "r_fuel_delivery"
+    },
+    {
+     "a": "It jerks or stumbles, like the engine is cutting out for a moment",
+     "go": "r_load_misfire"
+    },
+    {
+     "a": "It feels choked and won't rev freely, and there may be a rotten egg smell",
+     "go": "r_exhaust_restriction"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_severe_misfire": {
+   "result": {
+    "title": "The engine is misfiring badly enough to cause damage",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and turn the engine off. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If you're in traffic and can't stop right away, ease off the gas and avoid hard acceleration until you can get off the road.",
+     "If you smell fuel, see smoke, or notice a glow under the car, get everyone out and away from the vehicle."
+    ],
+    "why": "A flashing check engine light means the engine computer has detected a misfire severe enough to harm the catalytic converter. Unburned fuel goes into the exhaust and makes it extremely hot, which can ruin the converter and, in rare cases, start a fire.",
+    "causes": [
+     {
+      "name": "Failed ignition coil or spark plug",
+      "clues": "The shaking feels like one cylinder has dropped out, often worse under load.",
+      "against": ""
+     },
+     {
+      "name": "Fuel injector stuck or not firing",
+      "clues": "A misfire on one cylinder that doesn't move when coils are swapped.",
+      "against": ""
+     },
+     {
+      "name": "Mechanical problem, like low compression in one cylinder",
+      "clues": "A ticking or tapping noise, or a misfire that started after overheating.",
+      "against": "Much less common than ignition problems."
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Code scan and misfire counts by cylinder",
+      "Ignition coil and spark plug inspection",
+      "Injector test",
+      "Compression test if ignition and fuel check out"
+     ]
+    }
+   }
+  },
+  "r_fuel_smell": {
+   "result": {
+    "title": "A fuel leak is possible. Don't drive it until it's checked",
+    "urgency": "stop",
+    "now": "Pull over, turn the engine off and look for dripping fuel without getting close to hot parts. Have the car towed.",
+    "if": [
+     "If you see fuel dripping or pooling, move well away from the car and call for help. Don't let anyone smoke nearby.",
+     "If the smell was brief and only right after refueling, check that the fuel cap is tight. If the smell comes back while driving, have it towed."
+    ],
+    "why": "Hesitation plus a strong raw fuel smell can mean fuel is leaking from a line, injector or fuel rail, so less of it reaches the engine. Fuel near a hot engine or exhaust is a fire risk.",
+    "causes": [
+     {
+      "name": "Leaking fuel line or fuel rail connection",
+      "clues": "Wet spots under the car or on top of the engine, or a smell that's strongest outside the car.",
+      "against": ""
+     },
+     {
+      "name": "Leaking fuel injector seal",
+      "clues": "The smell is strongest at the engine after it's been running.",
+      "against": ""
+     },
+     {
+      "name": "Engine running very rich from a fault",
+      "clues": "Black smoke from the exhaust and a check engine light.",
+      "against": "Usually no visible fuel drips."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look under the car for wet spots from a safe distance.",
+      "Check that the fuel cap is closed and clicked tight."
+     ],
+     "shop": [
+      "Fuel system leak inspection",
+      "Fuel pressure test",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_transmission": {
+   "result": {
+    "title": "This sounds more like the transmission slipping than an engine hesitation",
+    "urgency": "soon",
+    "now": "Drive gently and only short distances, and have the transmission checked within the next few days.",
+    "if": [
+     "If the car stops moving, won't go into gear, or you smell burning, stop driving it and have it towed.",
+     "If you can check the transmission fluid and it's low, topping it up with the correct type may help until it's inspected."
+    ],
+    "why": "When the engine speeds up but the car doesn't, the power isn't getting through the transmission. That's different from an engine hesitation, where the revs themselves stumble. Slipping causes heat and wear, so it tends to get worse quickly.",
+    "causes": [
+     {
+      "name": "Low or worn transmission fluid",
+      "clues": "Red or pink spots under the car, or fluid that looks dark or smells burnt.",
+      "against": ""
+     },
+     {
+      "name": "Worn clutches inside the transmission",
+      "clues": "High mileage, and the slipping happens on certain shifts.",
+      "against": ""
+     },
+     {
+      "name": "Worn clutch (manual transmission)",
+      "clues": "On a stick shift, the revs jump when you accelerate hard in a higher gear.",
+      "against": "Doesn't apply to automatics."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the transmission fluid level if your car has a dipstick (see your owner's manual).",
+      "Look for red or pink spots where you park."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Fluid level and condition check",
+      "Road test with live transmission data"
+     ]
+    }
+   }
+  },
+  "r_cold_hesitation": {
+   "result": {
+    "title": "Cold-only hesitation often points to a sensor or a small air leak",
+    "urgency": "check",
+    "now": "Give the engine 30 seconds or so after starting on cold mornings, and book a check when convenient.",
+    "if": [
+     "If it starts hesitating when warm too, or the check engine light comes on, get it checked sooner.",
+     "If the temperature gauge acts oddly, mention it to the shop. It points toward the coolant temperature sensor."
+    ],
+    "why": "A cold engine needs a richer fuel mix. If a sensor tells the computer the engine is warmer than it is, or extra air is leaking in, the mix is too lean until the engine warms up and the stumble goes away.",
+    "causes": [
+     {
+      "name": "Faulty coolant temperature sensor",
+      "clues": "The temperature gauge reads oddly, or fuel economy has dropped.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak from a cracked hose",
+      "clues": "A hissing sound, or a rough idle when cold that smooths out when warm.",
+      "against": ""
+     },
+     {
+      "name": "Dirty throttle body",
+      "clues": "A low or uneven idle, and higher mileage.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Listen for hissing around the engine when it's cold.",
+      "Note the outside temperature when it happens."
+     ],
+     "shop": [
+      "Code scan and live sensor data",
+      "Smoke test for vacuum leaks",
+      "Throttle body inspection"
+     ]
+    }
+   }
+  },
+  "r_air_sensor": {
+   "result": {
+    "title": "A dead spot off the line usually means an air-measuring sensor or dirty throttle",
+    "urgency": "check",
+    "now": "Book a check when convenient. If the check engine light is on, having the code read first gives the shop a head start.",
+    "if": [
+     "If the dead spot makes it hard to pull out into traffic safely, get it checked within a few days and leave extra room until then.",
+     "If the check engine light starts flashing, pull over and stop driving."
+    ],
+    "why": "The engine computer decides how much fuel to add based on how much air is coming in and how far you've pressed the pedal. If the sensor that measures air is dirty, or the throttle is gummed up, the fuel mix is wrong for a moment and the engine stumbles before catching up.",
+    "causes": [
+     {
+      "name": "Dirty mass airflow sensor",
+      "clues": "Hesitation plus a slight drop in fuel economy. More likely if the air filter is dirty or was recently replaced with an oiled type.",
+      "against": ""
+     },
+     {
+      "name": "Dirty throttle body or faulty throttle position sensor",
+      "clues": "The stumble happens at the same pedal position every time.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak",
+      "clues": "Hissing under the hood, or a rough or high idle.",
+      "against": ""
+     },
+     {
+      "name": "Exhaust gas recirculation (EGR) valve stuck open",
+      "clues": "Rough idle and stumbling from a stop, often with a check engine light.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the engine air filter and replace it if it's dirty.",
+      "Have the check engine code read if the light is on. Many parts stores do this free."
+     ],
+     "shop": [
+      "Code scan and live airflow and throttle data",
+      "Mass airflow sensor inspection",
+      "Throttle body inspection",
+      "EGR valve test"
+     ]
+    }
+   }
+  },
+  "r_wet_weather": {
+   "result": {
+    "title": "Hesitation in damp weather usually means spark is leaking from worn ignition parts",
+    "urgency": "check",
+    "now": "Book a check of the ignition system when convenient, ideally soon after it happens so the shop can see it.",
+    "if": [
+     "If the check engine light starts flashing or the engine shakes hard, pull over and stop driving.",
+     "If it only happened once after a pressure wash under the hood, it may clear up once things dry out. Get it checked if it comes back."
+    ],
+    "why": "Moisture gives electricity an easy path to escape through cracked plug wires, coil boots or a dirty spark plug. The spark then doesn't reach the cylinder with full strength, so the engine stumbles when it needs the most power.",
+    "causes": [
+     {
+      "name": "Cracked spark plug wires or coil boots",
+      "clues": "Older car, and the problem is worse on foggy or rainy days.",
+      "against": ""
+     },
+     {
+      "name": "Worn spark plugs",
+      "clues": "The plugs haven't been changed in a long time, or you don't know when they were.",
+      "against": ""
+     },
+     {
+      "name": "Water getting into the area around the plugs",
+      "clues": "A clogged drain near the base of the windshield, or water pooling on top of the engine.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the weather each time it happens.",
+      "Check your maintenance records for the last spark plug change."
+     ],
+     "shop": [
+      "Code scan and misfire counts",
+      "Ignition coil, boot and wire inspection",
+      "Spark plug inspection"
+     ]
+    }
+   }
+  },
+  "r_bad_fuel": {
+   "result": {
+    "title": "You may have a tank of poor-quality or wrong fuel",
+    "urgency": "diy",
+    "now": "Check your receipt to make sure you got the right fuel grade, then drive gently and top up with fresh fuel from a busy station.",
+    "if": [
+     "If you put diesel in a gas car (or gas in a diesel), stop driving it right away. The tank will need to be drained.",
+     "If the hesitation doesn't improve after a fresh tank, or the check engine light comes on, book a check."
+    ],
+    "why": "Fuel contaminated with water or dirt, or a lower octane than your engine needs, can cause stumbling and pinging under acceleration. When the problem starts right after a fill-up, the fuel is the most likely link.",
+    "causes": [
+     {
+      "name": "Contaminated fuel",
+      "clues": "The problem started right after filling up, especially at a small or rarely busy station.",
+      "against": ""
+     },
+     {
+      "name": "Lower octane than your engine requires",
+      "clues": "Your owner's manual says premium is required, and you used regular. You may hear pinging.",
+      "against": ""
+     },
+     {
+      "name": "Wrong fuel type",
+      "clues": "Rough running, smoke, or the car dying soon after filling up.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the fuel grade on your receipt and compare it with your owner's manual.",
+      "Fill up with fresh fuel once the tank is low."
+     ],
+     "shop": [
+      "Fuel sample check for water or contamination",
+      "Code scan",
+      "Fuel pressure test"
+     ]
+    }
+   }
+  },
+  "r_fuel_delivery": {
+   "result": {
+    "title": "The engine may be starved for fuel under load",
+    "urgency": "soon",
+    "now": "Get it checked within the next few days. Until then, avoid hard acceleration and long highway trips.",
+    "if": [
+     "If the engine cuts out or stalls while driving, stop driving it and have it towed.",
+     "If the check engine light comes on, have the code read. It often points straight to the fuel system."
+    ],
+    "why": "Pressing the gas hard needs much more fuel than cruising. A weak fuel pump or clogged filter can keep up at light throttle, but runs short when you ask for power, so the car bogs down. This usually gets worse over time.",
+    "causes": [
+     {
+      "name": "Weak fuel pump",
+      "clues": "Worse uphill, at highway speed, or when the tank is low. A whine from the rear of the car.",
+      "against": ""
+     },
+     {
+      "name": "Clogged fuel filter",
+      "clues": "Higher mileage and no record of a filter change (some cars have it built into the pump).",
+      "against": ""
+     },
+     {
+      "name": "Clogged or dirty fuel injectors",
+      "clues": "A gradual loss of power and fuel economy over months.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether it's worse when the fuel tank is low.",
+      "Listen for a whine from the back of the car when the engine is running."
+     ],
+     "shop": [
+      "Fuel pressure and volume test under load",
+      "Code scan and fuel trim data",
+      "Fuel filter check",
+      "Injector test"
+     ]
+    }
+   }
+  },
+  "r_load_misfire": {
+   "result": {
+    "title": "Most likely a misfire under load from worn spark plugs or a weak ignition coil",
+    "urgency": "soon",
+    "now": "Have the ignition system checked within the next few days, and avoid hard acceleration until then.",
+    "if": [
+     "If the check engine light starts flashing, pull over and stop driving.",
+     "If the plugs are overdue for replacement, changing them is often the fix."
+    ],
+    "why": "Under heavy throttle, the cylinders are packed with more air and fuel, and it takes a stronger spark to light them. Worn plugs or a weakening coil can manage at light throttle but miss under load, which feels like a jerk or stumble. Driving on a misfire can damage the catalytic converter.",
+    "causes": [
+     {
+      "name": "Worn spark plugs",
+      "clues": "The plugs haven't been changed in a long time, or you don't know when they were.",
+      "against": ""
+     },
+     {
+      "name": "Failing ignition coil",
+      "clues": "A steady check engine light, and the stumble feels like one cylinder cutting out.",
+      "against": ""
+     },
+     {
+      "name": "Clogged fuel injector on one cylinder",
+      "clues": "A misfire that stays on the same cylinder after the coil is swapped.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your maintenance records for the last spark plug change.",
+      "Have the check engine code read if the light is on."
+     ],
+     "shop": [
+      "Code scan and misfire counts by cylinder",
+      "Spark plug inspection",
+      "Ignition coil test",
+      "Injector test"
+     ]
+    }
+   }
+  },
+  "r_exhaust_restriction": {
+   "result": {
+    "title": "The exhaust may be partly blocked, often by a clogged catalytic converter",
+    "urgency": "soon",
+    "now": "Get it checked within the next few days, and keep trips short and gentle until then.",
+    "if": [
+     "If you see a red glow under the car or smell burning, pull over, turn the engine off and step away.",
+     "If the power loss gets steadily worse, stop driving it and have it towed."
+    ],
+    "why": "An engine has to breathe out as well as in. If the catalytic converter is clogged, exhaust can't escape fast enough and the engine feels choked when you ask for power. A rotten egg smell or a rattle from the converter are common clues.",
+    "causes": [
+     {
+      "name": "Clogged catalytic converter",
+      "clues": "A rotten egg smell, a rattle under the car, or a history of misfires.",
+      "against": ""
+     },
+     {
+      "name": "Collapsed or damaged exhaust pipe or muffler",
+      "clues": "The car scraped something, or you can see a crushed pipe.",
+      "against": ""
+     },
+     {
+      "name": "Engine misfire that damaged the converter",
+      "clues": "A check engine light or rough running before the power loss started.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look under the car for crushed or dented exhaust pipes, with the engine cold.",
+      "Note any rotten egg smell."
+     ],
+     "shop": [
+      "Exhaust back-pressure test",
+      "Code scan",
+      "Catalytic converter temperature check"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "Get the codes read, then have the engine checked",
+    "urgency": "check",
+    "now": "Have the check engine codes read (many parts stores do this free), then book a check and describe exactly when the hesitation happens.",
+    "if": [
+     "If the check engine light starts flashing or the engine shakes hard, pull over and stop driving.",
+     "If the hesitation makes it hard to merge or pull out safely, get it checked within a few days."
+    ],
+    "why": "Hesitation can come from ignition, fuel, air sensors or the exhaust. Stored codes and a note of when it happens (cold or warm, light or heavy throttle, after fueling) narrow it down much faster than parts swapping.",
+    "causes": [
+     {
+      "name": "Ignition problem (plugs, coils, wires)",
+      "clues": "A jerk or stumble, worse under load or in wet weather.",
+      "against": ""
+     },
+     {
+      "name": "Air or throttle sensor problem",
+      "clues": "A dead spot right as you press the pedal.",
+      "against": ""
+     },
+     {
+      "name": "Fuel delivery problem",
+      "clues": "Bogging down uphill or at highway speed.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Keep a short note of when it happens: cold or warm, light or hard throttle, weather, fuel level.",
+      "Check the engine air filter."
+     ],
+     "shop": [
+      "Code scan and live data",
+      "Ignition system check",
+      "Fuel pressure test",
+      "Road test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "loss-of-power-when-accelerating",
+  "engine-sputtering-misfire",
+  "car-jerks-when-accelerating",
+  "check-engine-light-flashing",
+  "transmission-slipping"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Warning Lights"
+  ],
+  "words": [
+   "hesitation",
+   "hesitate",
+   "stumble",
+   "misfire",
+   "throttle",
+   "mass air flow",
+   "fuel pump",
+   "spark plug",
+   "ignition coil",
+   "acceleration"
+  ]
+ },
+ "sources": [
+  "https://www.edmunds.com/car-care/what-your-check-engine-light-is-telling-you.html",
+  "https://www.aaa.com/tripcanvas/article/check-engine-light-CM852",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

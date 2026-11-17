@@ -1,0 +1,530 @@
+{
+ "id": "squealing-brakes",
+ "title": "Brakes squeal",
+ "h1": "Why do my brakes squeal?",
+ "metaDesc": "Brakes squealing or squeaking? Answer a few quick questions to see if it's worn pads, rust or vibration, how urgent it is, and what to tell your mechanic.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "squeaky brakes",
+  "brakes squeaking",
+  "brakes squealing",
+  "brakes squeaking when stopping",
+  "squeal when braking",
+  "high pitched noise when braking",
+  "brakes squeak in the morning",
+  "brakes squeal after rain",
+  "squeaking noise when I brake",
+  "brakes squeal when backing up",
+  "new brakes squeaking",
+  "brake wear indicator noise",
+  "screeching brakes",
+  "my brakes are squeeking"
+ ],
+ "intro": "Most brake squeal is a warning, not an emergency. The trick is telling a harmless morning squeak from worn-out pads or a brake that's sticking. Answer the questions below and we'll point you to the most likely cause and how soon to act.",
+ "safety": [
+  "If the brake pedal feels soft, sinks toward the floor, or the car takes longer to stop, stop driving and get help.",
+  "If the red brake warning light is on, don't drive until the brakes are checked.",
+  "If you smell burning or see smoke from a wheel, pull over safely and let it cool. Don't keep driving."
+ ],
+ "start": "q_other_signs",
+ "nodes": {
+  "q_other_signs": {
+   "q": "Along with the squeal, is any of this happening?",
+   "help": "These signs tell us whether this is more than a noise. Pick the most serious one that fits.",
+   "opts": [
+    {
+     "a": "The pedal feels soft or sinks, the car takes longer to stop, or the red brake light is on",
+     "go": "r_brake_failure"
+    },
+    {
+     "a": "A burning smell, smoke, or one wheel is much hotter than the others after driving",
+     "go": "r_dragging"
+    },
+    {
+     "a": "There's also a grinding or metal-scraping sound",
+     "go": "r_metal_contact"
+    },
+    {
+     "a": "The car pulls to one side when I brake",
+     "go": "r_pull"
+    },
+    {
+     "a": "No, it's just the squeal",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When do you hear the squeal?",
+   "opts": [
+    {
+     "a": "Only on the first few stops in the morning, or after rain or a car wash, then it goes away",
+     "go": "r_surface_rust"
+    },
+    {
+     "a": "Almost every time I brake, and it's been getting more frequent",
+     "go": "q_pad_age"
+    },
+    {
+     "a": "A steady squeal or chirp while driving, even when I'm not braking",
+     "go": "r_wear_indicator"
+    },
+    {
+     "a": "Only when I brake lightly; firm stops are quiet",
+     "go": "r_vibration_squeal"
+    },
+    {
+     "a": "Mostly when backing up or creeping along at very low speed",
+     "go": "r_low_speed"
+    },
+    {
+     "a": "It started right after new brakes were put on",
+     "go": "r_new_brakes"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general_squeal"
+    }
+   ]
+  },
+  "q_pad_age": {
+   "q": "When were the brake pads last replaced?",
+   "help": "Check your service records or the last shop invoice. Pads usually last a few years, but city driving and heavy loads wear them faster.",
+   "opts": [
+    {
+     "a": "Recently, within the last year or so",
+     "go": "r_vibration_squeal"
+    },
+    {
+     "a": "It's been a while, or not since I've owned the car",
+     "go": "r_wear_indicator"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_wear_indicator"
+    }
+   ]
+  },
+  "r_brake_failure": {
+   "result": {
+    "title": "The brakes may not be stopping the car properly",
+    "urgency": "stop",
+    "now": "Don't drive it. Park it somewhere safe and have it towed, or have a mobile mechanic come to you.",
+    "if": [
+     "If you're on the road now, slow down gently, use a lower gear if you can, and pull over somewhere safe.",
+     "If the brake fluid reservoir under the hood is low or there's a wet spot near a wheel, mention that to the shop. It points to a leak."
+    ],
+    "why": "A squeal by itself is usually a wear warning. A soft or sinking pedal, longer stops or the red brake light mean the braking system itself has a problem, such as low fluid, a leak or badly worn parts. That's a safety risk, not just a noise.",
+    "causes": [
+     {
+      "name": "Brake fluid leak or low fluid",
+      "clues": "A soft or sinking pedal, the red brake light, or a damp spot near a wheel or on the ground.",
+      "against": ""
+     },
+     {
+      "name": "Pads worn down to metal",
+      "clues": "The squeal has been there a while, and now stopping takes more effort.",
+      "against": ""
+     },
+     {
+      "name": "Air in the brake lines or a failing master cylinder",
+      "clues": "A spongy pedal that slowly sinks while you hold it at a stop.",
+      "against": "Less likely if the pedal feels firm and the only change is noise."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look at the brake fluid reservoir level. Don't open it if the engine is hot.",
+      "Look for wet spots on the inside of the wheels or under the car."
+     ],
+     "shop": [
+      "Brake system inspection, including pad thickness and rotors",
+      "Brake fluid leak check",
+      "Master cylinder and brake line test"
+     ]
+    }
+   }
+  },
+  "r_dragging": {
+   "result": {
+    "title": "A brake is likely sticking and dragging on one wheel",
+    "urgency": "stop",
+    "now": "Pull over safely and let the wheel cool down. Don't touch it. Have the car towed or have a mobile mechanic check it before using it again.",
+    "if": [
+     "If you see smoke or flames, get everyone out and away from the car and call for help.",
+     "If the parking brake was left partly on, release it fully. If the smell and heat go away and never come back, book a check when convenient."
+    ],
+    "why": "A brake that stays partly applied keeps rubbing, which creates heat, noise and a burning smell. The heat can damage the brake and wheel bearing and make the brakes fade when you need them.",
+    "causes": [
+     {
+      "name": "Sticking caliper or caliper slide pins",
+      "clues": "One wheel is much hotter or dustier than the others, and the car may pull to that side.",
+      "against": ""
+     },
+     {
+      "name": "Parking brake not fully releasing",
+      "clues": "The heat is at a rear wheel, or the parking brake lever or button feels odd.",
+      "against": ""
+     },
+     {
+      "name": "Collapsed brake hose",
+      "clues": "The brake releases slowly, and the problem comes and goes.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure the parking brake is fully released.",
+      "Notice which wheel smells or feels hotter from a distance. Don't touch it."
+     ],
+     "shop": [
+      "Caliper and slide pin inspection",
+      "Wheel temperature comparison after a test drive",
+      "Brake hose and parking brake check"
+     ]
+    }
+   }
+  },
+  "r_metal_contact": {
+   "result": {
+    "title": "The pads may be worn down to metal",
+    "urgency": "soon",
+    "now": "Have the brakes inspected within the next day or two. Until then, drive only short distances, leave extra stopping room, and avoid highways.",
+    "if": [
+     "If the grinding happens on every stop or the car takes longer to stop, don't drive it. Have it towed or call a mobile mechanic.",
+     "If the noise only happened on the first stops after rain and then went away, it may just be rust. Our grinding-brakes guide covers that."
+    ],
+    "why": "Squealing that turns into grinding usually means the pad material is nearly or fully gone and metal is touching the rotor. That reduces braking and quickly damages the rotor, turning a pad job into a bigger repair.",
+    "causes": [
+     {
+      "name": "Brake pads worn through",
+      "clues": "The squeal came first, then grinding started. It happens on most stops.",
+      "against": "Less likely if the pads were replaced recently."
+     },
+     {
+      "name": "Stone or debris caught in the brake",
+      "clues": "A sudden scraping sound after driving on gravel.",
+      "against": ""
+     },
+     {
+      "name": "Rusted or damaged rotor",
+      "clues": "The car sat for a long time, or you feel a pulse in the pedal.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look through the wheel spokes at the brake pads. If you see very little pad left against the rotor, they're worn out.",
+      "Notice whether the noise happens on every stop or only some."
+     ],
+     "shop": [
+      "Pad thickness measurement",
+      "Rotor inspection and thickness check",
+      "Caliper inspection"
+     ]
+    }
+   }
+  },
+  "r_pull": {
+   "result": {
+    "title": "One side is braking harder than the other",
+    "urgency": "soon",
+    "now": "Get the brakes checked within a few days. Drive gently and leave extra stopping room until then.",
+    "if": [
+     "If the pull is strong, gets worse, or comes with a burning smell, stop driving and have it towed.",
+     "If the pull only happens when you're not braking, it's more likely tire pressure or alignment."
+    ],
+    "why": "A squeal plus a pull to one side usually means one brake isn't working the same as the other. A sticking caliper or contaminated pads on one side can do this, and it can make the car harder to control in a hard stop.",
+    "causes": [
+     {
+      "name": "Sticking caliper or slide pins",
+      "clues": "One wheel gets hotter or dustier than the other.",
+      "against": ""
+     },
+     {
+      "name": "Uneven pad wear or contaminated pads",
+      "clues": "Oil or brake fluid near one wheel, or one side was serviced and the other wasn't.",
+      "against": ""
+     },
+     {
+      "name": "Tire or alignment problem",
+      "clues": "The car also drifts when you're not braking, or one tire looks low.",
+      "against": "Less likely if it only pulls while braking."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the tire pressures on both sides.",
+      "Notice whether it pulls only when braking or all the time."
+     ],
+     "shop": [
+      "Caliper and slide pin inspection",
+      "Pad and rotor wear comparison side to side",
+      "Brake hose check"
+     ]
+    }
+   }
+  },
+  "r_surface_rust": {
+   "result": {
+    "title": "Probably a thin layer of surface rust on the rotors",
+    "urgency": "diy",
+    "now": "Nothing to fix yet. Drive normally and brake gently a few times. The noise should fade within the first few stops.",
+    "if": [
+     "If the squeal stays after the first few miles, or starts happening on every stop, have the brakes checked.",
+     "If you hear grinding, not just squealing, have the brakes inspected soon."
+    ],
+    "why": "Brake rotors are bare iron, so moisture leaves a light film of rust overnight or after rain. The first few stops scrape it off, which can squeal or squeak briefly. It's normal when it clears up quickly.",
+    "causes": [
+     {
+      "name": "Light surface rust from moisture",
+      "clues": "Happens after the car sits overnight, after rain or a wash, and goes away quickly.",
+      "against": "If it lasts all day, something else is going on."
+     },
+     {
+      "name": "Moisture on the pads",
+      "clues": "Worse in humid or damp weather.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether the squeal is gone after the first few stops.",
+      "If the car sits for weeks at a time, drive it more often or have the rotors looked at for heavy rust."
+     ],
+     "shop": [
+      "Rotor inspection if the noise doesn't clear"
+     ]
+    }
+   }
+  },
+  "r_wear_indicator": {
+   "result": {
+    "title": "The brake pad wear indicator is likely telling you the pads are low",
+    "urgency": "soon",
+    "now": "Book a brake inspection within the next week. Plan on new pads, and ask the shop to measure the rotors too.",
+    "if": [
+     "If the squeal turns into grinding, get it checked right away. That means metal is touching metal.",
+     "If the pedal feels different or stops take longer, stop driving and have it towed."
+    ],
+    "why": "Many brake pads have a small metal tab that scrapes the rotor when the pad gets thin, making a high-pitched squeal on purpose. It's a built-in reminder. Acting now usually means just pads; waiting can mean rotors too.",
+    "causes": [
+     {
+      "name": "Pad wear indicator touching the rotor",
+      "clues": "A high-pitched squeal that's become steady, and the pads haven't been changed in a while.",
+      "against": "Less likely if the pads are nearly new."
+     },
+     {
+      "name": "Worn or glazed pads",
+      "clues": "The brakes feel a little less grabby than before.",
+      "against": ""
+     },
+     {
+      "name": "Stone or bent dust shield rubbing",
+      "clues": "A scraping squeal that started suddenly, even when you're not braking.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look through the wheel spokes at the pad thickness on the brake caliper.",
+      "Check your records for when the pads were last replaced."
+     ],
+     "shop": [
+      "Pad thickness measurement on all wheels",
+      "Rotor thickness and condition check",
+      "Dust shield and hardware inspection"
+     ]
+    }
+   }
+  },
+  "r_vibration_squeal": {
+   "result": {
+    "title": "Likely pad vibration, often from missing shims, lube or glazed pads",
+    "urgency": "check",
+    "now": "Book a brake check when convenient. Ask the shop to look at the pad shims, clips and lubrication, not just pad thickness.",
+    "if": [
+     "If the squeal gets louder, becomes constant, or turns into grinding, get it checked soon.",
+     "If the pads were just replaced, take it back to the shop that did the work first."
+    ],
+    "why": "Brake squeal is often a high-frequency vibration between the pad and rotor. Light braking is where it shows up most. Worn shims, dry contact points, glazed pads or certain pad materials can cause it even when there's plenty of pad left.",
+    "causes": [
+     {
+      "name": "Missing, worn or dry shims and contact points",
+      "clues": "Squeals on light stops, quiet on firm ones, and the pads aren't worn.",
+      "against": ""
+     },
+     {
+      "name": "Glazed pads or rotors",
+      "clues": "Hard braking down hills or a stuck brake in the past. The rotor may look shiny.",
+      "against": ""
+     },
+     {
+      "name": "Pad material",
+      "clues": "Some harder pads are naturally noisier, especially when cold.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether light or firm braking makes the noise.",
+      "Check whether one wheel seems to be the source by listening with a window down at low speed."
+     ],
+     "shop": [
+      "Pad, shim and clip inspection",
+      "Rotor surface check for glazing",
+      "Caliper slide pin lubrication"
+     ]
+    }
+   }
+  },
+  "r_low_speed": {
+   "result": {
+    "title": "Low-speed squeak is often normal pad noise",
+    "urgency": "diy",
+    "now": "Look through the wheels to make sure the pads aren't thin, and keep an ear on it. If it doesn't change, mention it at your next service.",
+    "if": [
+     "If the noise starts happening at normal speeds or gets louder, book a brake check.",
+     "If you also hear grinding, have the brakes inspected soon."
+    ],
+    "why": "Many pads squeak a little when you're barely moving, especially when reversing or creeping in traffic. The pads can shift slightly when you change direction, and some pad materials are just noisier at low speed.",
+    "causes": [
+     {
+      "name": "Normal pad noise at low speed",
+      "clues": "Only when backing up or creeping, and braking feels normal.",
+      "against": ""
+     },
+     {
+      "name": "Pads shifting when the car changes direction",
+      "clues": "A single click or squeak right after you switch from Reverse to Drive.",
+      "against": ""
+     },
+     {
+      "name": "Early pad wear",
+      "clues": "The pads haven't been replaced in a long time.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at pad thickness through the wheel spokes.",
+      "Notice if it only happens in Reverse."
+     ],
+     "shop": [
+      "Brake inspection at your next service"
+     ]
+    }
+   }
+  },
+  "r_new_brakes": {
+   "result": {
+    "title": "New brakes may need breaking in, or a part wasn't fitted right",
+    "urgency": "check",
+    "now": "Give the new brakes a few days of normal driving to bed in. If the squeal is still there, take it back to the shop that did the work.",
+    "if": [
+     "If the car pulls, the pedal feels different, or you hear grinding, go back to the shop right away.",
+     "If the noise started after the shop reused old shims or clips, ask them to check those."
+    ],
+    "why": "New pads need some normal stops to bed into the rotor and can squeak at first. If the noise continues, common reasons are missing shims or lube, pads that don't suit the rotors, or old rotors that weren't replaced or resurfaced.",
+    "causes": [
+     {
+      "name": "Pads still bedding in",
+      "clues": "The brakes are only a few days old and the noise is fading.",
+      "against": ""
+     },
+     {
+      "name": "Missing shims, clips or lubricant",
+      "clues": "The noise is constant and isn't fading.",
+      "against": ""
+     },
+     {
+      "name": "Old rotors not replaced or resurfaced",
+      "clues": "Only the pads were changed.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the invoice to see whether rotors and hardware were replaced.",
+      "Notice whether the noise is getting better or worse."
+     ],
+     "shop": [
+      "Recheck of pad fit, shims and clips",
+      "Rotor surface check",
+      "Caliper slide lubrication"
+     ]
+    }
+   }
+  },
+  "r_general_squeal": {
+   "result": {
+    "title": "Have the brakes inspected to find the source",
+    "urgency": "check",
+    "now": "Book a brake inspection when convenient. Note when the squeal happens so you can tell the shop.",
+    "if": [
+     "If the pedal feels soft, the car takes longer to stop, or you hear grinding, stop driving and have it towed.",
+     "If it gets louder or more frequent, move the appointment up."
+    ],
+    "why": "Brake squeal has several common causes, from harmless moisture to worn pads. When it's hard to say when it happens, a quick look at the pads and rotors usually answers it.",
+    "causes": [
+     {
+      "name": "Pad wear indicator",
+      "clues": "The pads haven't been replaced in a while.",
+      "against": ""
+     },
+     {
+      "name": "Pad vibration or glazing",
+      "clues": "Squeals on some stops but not others.",
+      "against": ""
+     },
+     {
+      "name": "Surface rust",
+      "clues": "Mostly in the morning or after rain.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound when it happens. It helps the shop.",
+      "Look at pad thickness through the wheel spokes."
+     ],
+     "shop": [
+      "Pad and rotor inspection",
+      "Caliper and hardware check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "grinding-brakes",
+  "car-shakes-when-braking",
+  "car-pulls-when-braking",
+  "brakes-dragging",
+  "soft-or-spongy-brake-pedal"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises",
+   "Driving"
+  ],
+  "words": [
+   "brake",
+   "pad",
+   "rotor",
+   "squeal",
+   "squeak",
+   "caliper",
+   "wear indicator"
+  ]
+ },
+ "sources": [
+  "https://www.acg.aaa.com/connect/blogs/5c/auto/how-to-know-if-your-brakes-are-going-bad",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

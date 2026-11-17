@@ -1,0 +1,433 @@
+{
+ "id": "tire-pressure-light-on",
+ "title": "Tire pressure light on",
+ "h1": "Why is my tire pressure light on?",
+ "metaDesc": "Tire pressure (TPMS) light on or flashing? Find out in a few questions if it's a low tire, cold weather or a sensor fault, how urgent it is, and what to do next.",
+ "group": "light",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "tire pressure light",
+  "tire pressure light on",
+  "tpms light",
+  "tpms light on",
+  "tpms light flashing",
+  "tire light on dash",
+  "low tire pressure light",
+  "tire pressure light flashing",
+  "tire pressure light on but tires are fine",
+  "tire pressure light came on when cold",
+  "tire pressure light wont go off",
+  "tyre pressure warning light",
+  "horseshoe light with exclamation mark",
+  "tire pressure sensor fault"
+ ],
+ "intro": "The tire pressure light (a horseshoe shape with an exclamation mark) means at least one tire is well below its proper pressure, or that the monitoring system itself has a fault. A steady light usually means low pressure. A light that flashes for about a minute at startup and then stays on usually means a system fault.",
+ "safety": [
+  "If a tire is flat or the car starts pulling, wobbling or thumping, slow down and pull over somewhere safe. Driving on a flat can ruin the tire and wheel and make the car hard to control.",
+  "If you're changing a tire at the roadside, get well away from traffic first. If that's not possible, call roadside assistance."
+ ],
+ "start": "q_tires",
+ "nodes": {
+  "q_tires": {
+   "q": "Look at all four tires, and think about how the car feels. Which fits best?",
+   "opts": [
+    {
+     "a": "A tire is flat or looks much lower than the others, or the car is pulling, wobbling, or making a flapping or thumping noise",
+     "go": "r_flat"
+    },
+    {
+     "a": "The tires look okay and the car drives normally",
+     "go": "q_flash"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_flash"
+    }
+   ]
+  },
+  "q_flash": {
+   "q": "When you start the car, what does the light do?",
+   "help": "Watch the light for about a minute and a half after starting. Some cars also show a TPMS or tire pressure message on the screen.",
+   "opts": [
+    {
+     "a": "It's on steadily right from the start",
+     "go": "q_gauge"
+    },
+    {
+     "a": "It flashes for about a minute, then stays on",
+     "go": "q_tire_work"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_gauge"
+    }
+   ]
+  },
+  "q_tire_work": {
+   "q": "Did the light start after any tire work?",
+   "opts": [
+    {
+     "a": "Yes, after new tires, new wheels, a swap to winter or summer tires, or a tire repair",
+     "go": "r_after_tire_work"
+    },
+    {
+     "a": "I'm driving on the spare tire",
+     "go": "r_spare"
+    },
+    {
+     "a": "No, nothing like that",
+     "go": "r_tpms_fault"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_tpms_fault"
+    }
+   ]
+  },
+  "q_gauge": {
+   "q": "Check all four tires with a tire gauge before driving far. How do they compare with the pressure on the sticker inside the driver's door?",
+   "help": "Use the pressure on the door sticker (or owner's manual), not the maximum number on the tire's sidewall. Check when the tires are cold: parked for a few hours or driven only a mile or so.",
+   "opts": [
+    {
+     "a": "One tire is noticeably lower than the others",
+     "go": "r_slow_leak"
+    },
+    {
+     "a": "All of them are a bit low, especially after a cold night",
+     "go": "r_cold_weather"
+    },
+    {
+     "a": "All are at the right pressure, but the light stays on",
+     "go": "r_reset"
+    },
+    {
+     "a": "I don't have a gauge, or I'm not sure",
+     "go": "r_check_pressure"
+    }
+   ]
+  },
+  "r_flat": {
+   "result": {
+    "title": "A tire is flat or losing air fast",
+    "urgency": "stop",
+    "now": "Pull over somewhere safe and don't drive further on it. Put on the spare if you can do it safely, or call roadside assistance.",
+    "if": [
+     "If your car has no spare but has a tire sealant kit, follow the kit's instructions and then get the tire checked right away.",
+     "If the tire is shredded or the wheel is bent, don't try a sealant kit. Use the spare or get a tow."
+    ],
+    "why": "A tire that's flat or very low can overheat and come apart, damage the wheel, and make the car pull or sway. The light did its job: the tire needs attention before any more driving.",
+    "causes": [
+     {
+      "name": "Puncture from a nail, screw or road debris",
+      "clues": "Air loss over minutes or hours, sometimes with an object visible in the tread.",
+      "against": ""
+     },
+     {
+      "name": "Damaged tire or wheel from a pothole or curb",
+      "clues": "A bulge in the sidewall, or a dent in the rim edge.",
+      "against": ""
+     },
+     {
+      "name": "Leaking valve stem",
+      "clues": "Hissing near the valve, or the cap was missing.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From a safe spot, look for nails, cuts or bulges.",
+      "Check the spare's pressure before you rely on it."
+     ],
+     "shop": [
+      "Tire inspection and puncture repair if it's in the tread",
+      "Wheel and valve stem check",
+      "Tire replacement if the sidewall is damaged"
+     ]
+    }
+   }
+  },
+  "r_slow_leak": {
+   "result": {
+    "title": "One tire is losing air, most likely from a slow leak",
+    "urgency": "soon",
+    "now": "Inflate it to the door-sticker pressure, then have it checked for a leak within a few days. Check its pressure every day until then.",
+    "if": [
+     "If it drops a lot overnight or won't hold air at all, use the spare and don't drive on that tire.",
+     "If you see a bulge or a cut in the sidewall, don't drive on it. Use the spare."
+    ],
+    "why": "When one tire is clearly lower than the rest, it's losing air on its own, usually through a small puncture, the valve stem, or the seal between the tire and the wheel. Small leaks are often repairable if caught early.",
+    "causes": [
+     {
+      "name": "Nail or screw in the tread",
+      "clues": "A metal head visible in the tread, or bubbles when you spray soapy water on it.",
+      "against": ""
+     },
+     {
+      "name": "Leaking valve stem or TPMS sensor seal",
+      "clues": "Bubbles at the valve when you spray soapy water.",
+      "against": ""
+     },
+     {
+      "name": "Leak where the tire meets the wheel",
+      "clues": "Corroded or curb-scraped wheel edge, often worse in winter.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look over the tread for nails or screws.",
+      "Spray soapy water on the tread, valve and rim edge and look for bubbles."
+     ],
+     "shop": [
+      "Tire leak test in a water tank",
+      "Puncture repair or valve stem replacement",
+      "Wheel bead cleaning and reseal"
+     ]
+    }
+   }
+  },
+  "r_cold_weather": {
+   "result": {
+    "title": "Cold weather has likely lowered the pressure in all four tires",
+    "urgency": "diy",
+    "now": "Fill all four tires to the door-sticker pressure. The light should go out after a few minutes of driving.",
+    "if": [
+     "If the light comes back within a few days and one tire is lower than the others, that tire probably has a slow leak.",
+     "If the light doesn't go out after inflating and driving, your car may need a TPMS reset. See the owner's manual."
+    ],
+    "why": "Air pressure drops when it gets colder, roughly 1 psi for every 10°F. A cold snap can push all four tires low enough to turn on the light, especially if they were already a little under.",
+    "causes": [
+     {
+      "name": "Temperature drop",
+      "clues": "The light came on on a cold morning, and all tires read low by a similar amount.",
+      "against": "If one tire is much lower than the others, look for a leak."
+     },
+     {
+      "name": "Normal slow air loss over time",
+      "clues": "The tires haven't been checked in a month or more.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all four tires when cold and fill them to the door-sticker pressure.",
+      "Check them again in a week."
+     ],
+     "shop": [
+      "Tire pressure check and TPMS reset if needed"
+     ]
+    }
+   }
+  },
+  "r_reset": {
+   "result": {
+    "title": "The system may need a reset, or a sensor is reading wrong",
+    "urgency": "diy",
+    "now": "Look up the TPMS reset in your owner's manual. Some cars have a reset button or a menu option, then need 10 to 20 minutes of driving to relearn.",
+    "if": [
+     "If the light is still on after a reset and a few drives, have the TPMS sensors checked when convenient.",
+     "If you checked the pressures while the tires were warm, recheck them cold. Warm tires read higher."
+    ],
+    "why": "Some cars don't measure pressure directly. They compare how fast each wheel spins, and they need a reset after you inflate the tires or rotate them. Cars with a sensor in each wheel can also show a light if one sensor sends a wrong reading.",
+    "causes": [
+     {
+      "name": "TPMS needs a reset or relearn",
+      "clues": "The tires were just inflated, rotated or replaced.",
+      "against": ""
+     },
+     {
+      "name": "Spare tire low (on cars that monitor it)",
+      "clues": "Your owner's manual says the spare is monitored.",
+      "against": ""
+     },
+     {
+      "name": "Faulty TPMS sensor",
+      "clues": "The reset doesn't help, or one tire's reading on the dash doesn't match your gauge.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Recheck all four tires cold, plus the spare if your car monitors it.",
+      "Follow the owner's manual reset steps."
+     ],
+     "shop": [
+      "TPMS sensor scan for each wheel",
+      "TPMS relearn procedure"
+     ]
+    }
+   }
+  },
+  "r_check_pressure": {
+   "result": {
+    "title": "Treat it as a low tire until you've checked the pressures",
+    "urgency": "diy",
+    "now": "Drive gently to the nearest gas station or tire shop and check all four tires against the pressure on the driver's door sticker.",
+    "if": [
+     "If a tire looks low or the car pulls, wobbles or thumps on the way, pull over safely and use the spare or call roadside assistance.",
+     "If all four tires are fine, follow the TPMS reset steps in your owner's manual."
+    ],
+    "why": "A steady tire pressure light most often means at least one tire is truly low. Low tires wear out faster, hurt braking and handling, and can overheat. The only way to know is to measure.",
+    "causes": [
+     {
+      "name": "Low tire from a slow leak",
+      "clues": "One tire looks a bit flatter than the others.",
+      "against": ""
+     },
+     {
+      "name": "Cold weather",
+      "clues": "The light came on on a cold morning.",
+      "against": ""
+     },
+     {
+      "name": "System needs a reset, or a sensor fault",
+      "clues": "All tires turn out to be at the right pressure.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all four tires with a gauge.",
+      "Look for nails, cuts or bulges."
+     ],
+     "shop": [
+      "Tire pressure and leak check",
+      "TPMS sensor scan"
+     ]
+    }
+   }
+  },
+  "r_after_tire_work": {
+   "result": {
+    "title": "The tire sensors probably weren't installed or programmed after the tire work",
+    "urgency": "check",
+    "now": "Go back to the shop that did the tire work and ask them to check and program the TPMS sensors. Check your tire pressures with a gauge in the meantime.",
+    "if": [
+     "If a tire also looks low, inflate it and check it for a leak first. The system can't warn you while it's faulty."
+    ],
+    "why": "A light that flashes and then stays on means the monitoring system can't read one or more sensors. After new wheels or a tire swap, the sensors may be missing, damaged during mounting, or not yet matched to the car.",
+    "causes": [
+     {
+      "name": "Sensors not programmed to the car",
+      "clues": "New sensors or a seasonal wheel set were just installed.",
+      "against": ""
+     },
+     {
+      "name": "Wheels without sensors",
+      "clues": "Aftermarket or winter wheels were installed.",
+      "against": ""
+     },
+     {
+      "name": "Sensor damaged during tire mounting",
+      "clues": "Only one tire was replaced or repaired.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all four tires with a gauge until the system is fixed."
+     ],
+     "shop": [
+      "TPMS sensor scan for each wheel",
+      "Sensor programming or relearn",
+      "Sensor replacement if one is damaged"
+     ]
+    }
+   }
+  },
+  "r_spare": {
+   "result": {
+    "title": "The spare tire doesn't have a pressure sensor, so the system flags a fault",
+    "urgency": "soon",
+    "now": "Get the original tire repaired or replaced and put back on. Check the spare's pressure with a gauge, and follow any speed and distance limits printed on a compact spare.",
+    "if": [
+     "If the light keeps flashing after the original wheel is back on, have the TPMS sensors checked."
+    ],
+    "why": "Most spare tires don't have a TPMS sensor. When the car can't find the sensor it expects, it flashes the light and then leaves it on to show the system isn't working.",
+    "causes": [
+     {
+      "name": "Spare tire without a sensor",
+      "clues": "The light started flashing once the spare went on.",
+      "against": ""
+     },
+     {
+      "name": "Original wheel sensor out of range in the trunk",
+      "clues": "The removed wheel is in the car.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the spare's pressure; compact spares often need much higher pressure than regular tires.",
+      "Read the speed and distance limits on the spare's sidewall."
+     ],
+     "shop": [
+      "Tire repair or replacement",
+      "TPMS sensor check after the original wheel is reinstalled"
+     ]
+    }
+   }
+  },
+  "r_tpms_fault": {
+   "result": {
+    "title": "The tire pressure monitoring system has a fault, often a dead sensor battery",
+    "urgency": "check",
+    "now": "Book a TPMS check when convenient. Until it's fixed, check your tire pressures with a gauge about once a month and before long trips.",
+    "if": [
+     "If any tire looks low or the car feels different, check the pressures right away. The light can't warn you while the system is faulty."
+    ],
+    "why": "A light that flashes at startup and then stays on means the system can't read one or more sensors. The tires themselves may be fine. Sensor batteries are sealed inside and wear out with age, so older cars often lose a sensor.",
+    "causes": [
+     {
+      "name": "Sensor battery worn out",
+      "clues": "The car or its wheels are several years old, and no tire work was done recently.",
+      "against": ""
+     },
+     {
+      "name": "Damaged sensor",
+      "clues": "A recent hard pothole or curb hit.",
+      "against": ""
+     },
+     {
+      "name": "TPMS receiver or module fault",
+      "clues": "All sensors test fine with a scan tool.",
+      "against": "Less common than a sensor."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all four tires with a gauge so you know they're safe."
+     ],
+     "shop": [
+      "TPMS sensor scan for each wheel",
+      "Sensor replacement and relearn",
+      "TPMS module code scan"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "tire-keeps-losing-air",
+  "uneven-tire-wear",
+  "car-pulls-to-one-side",
+  "vibration-at-highway-speed"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "tpms",
+   "tire pressure",
+   "tyre pressure",
+   "valve stem",
+   "flat tire",
+   "tire leak",
+   "losing air"
+  ]
+ },
+ "sources": [
+  "https://www.mazdausa.com/static/manuals/2019/mazda3/contents/08070334.html",
+  "https://continentaltire.com/learn/tpms-warning-light-what-it-means-and-what-do",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

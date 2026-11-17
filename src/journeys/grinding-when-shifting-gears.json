@@ -1,0 +1,444 @@
+{
+ "id": "grinding-when-shifting-gears",
+ "title": "Grinding when shifting gears",
+ "h1": "Why does my manual transmission grind when I shift gears?",
+ "metaDesc": "Manual transmission grinding when you shift? Answer a few quick questions to see if it's the clutch, worn synchros or gear oil, how urgent it is, and what to do.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "grinding when shifting",
+  "gears grinding",
+  "grinding gears manual",
+  "manual transmission grinding",
+  "grinds going into second gear",
+  "grinding into third gear",
+  "grinding when shifting into reverse",
+  "grinds going into first",
+  "clutch grinding",
+  "car grinds when I change gears",
+  "stick shift grinding",
+  "hard to shift and grinding",
+  "transmission grinds when shifting",
+  "grinding noise when changing gear"
+ ],
+ "intro": "In a manual transmission, a grind when you shift means the gears are trying to mesh before they're spinning at the same speed. The two usual reasons are a clutch that isn't fully letting go, or worn synchronizers inside the gearbox. Which gears grind, and when, tells you a lot.",
+ "safety": [
+  "If the clutch pedal goes to the floor and stays there, or you can't get out of gear, pull over and turn the engine off.",
+  "If the brake pedal also feels soft or sinks, don't drive the car. On many cars the clutch and brakes share a fluid reservoir.",
+  "If the car jumps out of gear on its own, don't rely on it on hills or in traffic."
+ ],
+ "start": "q_pedal",
+ "nodes": {
+  "q_pedal": {
+   "q": "How does the clutch pedal feel, and can you get into gear?",
+   "help": "The clutch pedal should feel firm and spring back up on its own every time.",
+   "opts": [
+    {
+     "a": "The pedal is soft, sinks to the floor, or stays down",
+     "go": "r_clutch_hydraulics"
+    },
+    {
+     "a": "It's hard to get into any gear, and it grinds into most gears, even from a stop",
+     "go": "r_clutch_drag"
+    },
+    {
+     "a": "The pedal feels normal and it shifts, but it grinds sometimes",
+     "go": "q_which_gear"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_which_gear"
+    }
+   ]
+  },
+  "q_which_gear": {
+   "q": "Which gears grind?",
+   "opts": [
+    {
+     "a": "Only reverse",
+     "go": "r_reverse"
+    },
+    {
+     "a": "Mainly one or two forward gears (often 2nd or 3rd)",
+     "go": "q_how"
+    },
+    {
+     "a": "Most gears, including first from a stop",
+     "go": "r_clutch_drag"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_how": {
+   "q": "When does it grind into that gear?",
+   "help": "Synchronizers (synchros) are small rings inside the gearbox that match gear speeds so they slide together quietly. Each forward gear has one.",
+   "opts": [
+    {
+     "a": "Only when I shift quickly or at high revs. A slow, deliberate shift is fine",
+     "go": "r_synchro_wear"
+    },
+    {
+     "a": "Even when I shift slowly and press the clutch all the way down",
+     "go": "r_synchro_advanced"
+    },
+    {
+     "a": "Mostly when the car is cold, and it gets better as it warms up",
+     "go": "r_gear_oil"
+    },
+    {
+     "a": "It also pops out of gear on its own",
+     "go": "r_pops_out"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_synchro_wear"
+    }
+   ]
+  },
+  "r_clutch_hydraulics": {
+   "result": {
+    "title": "The clutch hydraulic system has likely lost pressure",
+    "urgency": "stop",
+    "now": "Pull over safely and turn the engine off. Don't drive it, because you may not be able to shift or stop the car from creeping. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If the brake pedal also feels soft, the shared fluid reservoir may be low. Don't move the car at all.",
+     "If pumping the clutch pedal a few times brings it back, that confirms a leak or air in the system. It still needs fixing before you drive."
+    ],
+    "why": "Most manual cars use fluid to push the clutch apart when you press the pedal. If fluid leaks out or a seal fails, the pedal sinks and the clutch stays partly engaged, so the gears grind and the car may not stop pulling in gear.",
+    "causes": [
+     {
+      "name": "Failing clutch master cylinder",
+      "clues": "The pedal sinks slowly, and there may be fluid on the carpet under the pedal.",
+      "against": ""
+     },
+     {
+      "name": "Leaking clutch slave cylinder",
+      "clues": "Fluid dripping near the bell housing, where the engine and gearbox meet.",
+      "against": ""
+     },
+     {
+      "name": "Broken clutch cable or linkage",
+      "clues": "On cable-operated clutches, the pedal suddenly goes limp with no resistance.",
+      "against": "Doesn't apply to hydraulic clutches."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, check the clutch fluid reservoir (on many cars it's shared with the brake fluid reservoir).",
+      "Look for wet spots under the dash near the pedal."
+     ],
+     "shop": [
+      "Clutch hydraulic inspection",
+      "Master and slave cylinder check",
+      "Clutch system bleed"
+     ]
+    }
+   }
+  },
+  "r_clutch_drag": {
+   "result": {
+    "title": "The clutch probably isn't fully releasing",
+    "urgency": "soon",
+    "now": "Check that the floor mat isn't stopping the clutch pedal from reaching the floor, then get the clutch checked within the next few days.",
+    "if": [
+     "If the pedal starts feeling soft or sinking, or you can't get into gear at all, don't drive it. Have it towed.",
+     "If it only happened after a recent clutch repair, the adjustment or bleeding may need to be redone."
+    ],
+    "why": "When you press the pedal, the clutch should fully disconnect the engine from the gearbox. If it doesn't release all the way, the gears are still being turned while you try to shift, so they grind in every gear, even from a stop.",
+    "causes": [
+     {
+      "name": "Air or low fluid in the clutch hydraulics",
+      "clues": "The pedal feels slightly softer or lower than it used to.",
+      "against": ""
+     },
+     {
+      "name": "Clutch cable out of adjustment or stretched",
+      "clues": "An older car with a cable clutch, and the pedal engages near the floor.",
+      "against": ""
+     },
+     {
+      "name": "Warped clutch disc or worn pilot bearing",
+      "clues": "Grinding plus shuddering when pulling away, or noise that changes when you press the pedal.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure the floor mat isn't under the pedal.",
+      "Check the clutch fluid reservoir level, if your car has one."
+     ],
+     "shop": [
+      "Clutch release and pedal travel check",
+      "Hydraulic system bleed and inspection",
+      "Clutch inspection if the hydraulics are fine"
+     ]
+    }
+   }
+  },
+  "r_reverse": {
+   "result": {
+    "title": "Grinding into reverse is often a timing issue, not a fault",
+    "urgency": "diy",
+    "now": "Come to a complete stop, press the clutch fully, and wait two or three seconds before shifting into reverse.",
+    "if": [
+     "If it still grinds after a full stop and a pause, the clutch may not be fully releasing. Book a check.",
+     "If the grinding is getting worse, or it's hard to get into other gears too, get it checked within a few days."
+    ],
+    "why": "In many manual gearboxes, reverse doesn't have a synchronizer to match gear speeds. If the gears are still spinning when you shift, they clash. Waiting a moment after pressing the clutch lets them stop.",
+    "causes": [
+     {
+      "name": "Gears still spinning when shifting",
+      "clues": "It grinds only if you shift quickly, and waiting fixes it.",
+      "against": ""
+     },
+     {
+      "name": "Clutch not fully releasing",
+      "clues": "It grinds even after waiting, or other gears are getting notchy.",
+      "against": ""
+     },
+     {
+      "name": "Worn reverse gear teeth",
+      "clues": "A long history of reverse grinding.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try stopping fully and waiting a few seconds with the clutch down before selecting reverse.",
+      "Try shifting briefly into a forward gear first, then into reverse."
+     ],
+     "shop": [
+      "Clutch release check",
+      "Transmission inspection if it persists"
+     ]
+    }
+   }
+  },
+  "r_synchro_wear": {
+   "result": {
+    "title": "A worn synchronizer for that gear is the most likely cause",
+    "urgency": "check",
+    "now": "Shift more slowly into that gear and pause briefly in neutral. Book a transmission check when convenient, and ask for the gear oil to be checked.",
+    "if": [
+     "If it starts grinding even on slow shifts, or more gears start grinding, get it checked within a few days.",
+     "If the car pops out of gear, don't rely on it on hills or in traffic and get it checked soon."
+    ],
+    "why": "Each forward gear has a synchronizer that matches speeds before the gear engages. When one wears, it can't keep up with quick shifts, so that gear grinds while the others are fine. It gets worse with time, but slowing your shifts reduces further wear.",
+    "causes": [
+     {
+      "name": "Worn synchronizer ring",
+      "clues": "One gear grinds on quick shifts, often 2nd or 3rd, and is fine when you go slowly.",
+      "against": ""
+     },
+     {
+      "name": "Low or incorrect gear oil",
+      "clues": "Several gears feel notchy, especially when cold.",
+      "against": ""
+     },
+     {
+      "name": "Clutch not fully releasing",
+      "clues": "Other gears grind a little too.",
+      "against": "If only one gear grinds, the clutch is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try a slower shift with a short pause in neutral and see if the grind goes away.",
+      "Note which gear grinds and whether it's going up or down through the gears."
+     ],
+     "shop": [
+      "Gear oil level and condition check",
+      "Clutch release check",
+      "Transmission inspection"
+     ]
+    }
+   }
+  },
+  "r_synchro_advanced": {
+   "result": {
+    "title": "The synchronizer or gear is likely badly worn",
+    "urgency": "soon",
+    "now": "Avoid that gear where you can, and get the transmission checked within the next few days.",
+    "if": [
+     "If more gears start grinding, or there's a whine or metallic noise while driving, stop driving it and have it towed.",
+     "If the gear oil is low or has metal flakes in it, the transmission may need major repair."
+    ],
+    "why": "Grinding even when you shift slowly with the clutch fully down means the gearbox can no longer match speeds for that gear. Continued grinding chips the gear teeth and can spread damage through the transmission.",
+    "causes": [
+     {
+      "name": "Badly worn synchronizer",
+      "clues": "One gear grinds every time, no matter how you shift.",
+      "against": ""
+     },
+     {
+      "name": "Damaged gear teeth or shift sleeve",
+      "clues": "A crunch plus a notchy, rough feel going into that gear.",
+      "against": ""
+     },
+     {
+      "name": "Clutch not fully releasing",
+      "clues": "Other gears also grind a little.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note exactly which gear grinds and whether it's when shifting up or down."
+     ],
+     "shop": [
+      "Gear oil level and condition check (look for metal particles)",
+      "Clutch release check",
+      "Transmission teardown inspection if needed"
+     ]
+    }
+   }
+  },
+  "r_gear_oil": {
+   "result": {
+    "title": "The gear oil may be low, old or the wrong type",
+    "urgency": "check",
+    "now": "Book a check when convenient, and ask for the gear oil level and type to be checked against your owner's manual.",
+    "if": [
+     "If you see a leak under the gearbox, get it checked within a few days. Low oil wears the gearbox quickly.",
+     "If it keeps grinding after it's fully warm, a worn synchronizer is more likely."
+    ],
+    "why": "Synchronizers rely on the right gear oil to grip and match speeds. Oil that's low, old or too thick makes shifting stiff and grindy when cold, and it usually improves as the oil warms and thins.",
+    "causes": [
+     {
+      "name": "Low gear oil from a leak",
+      "clues": "Oily drips under the gearbox or around the axle seals.",
+      "against": ""
+     },
+     {
+      "name": "Old or wrong type of gear oil",
+      "clues": "It hasn't been changed in a long time, or a different fluid was used.",
+      "against": ""
+     },
+     {
+      "name": "Early synchronizer wear",
+      "clues": "One gear grinds more than the others.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look under the gearbox for oily drips.",
+      "Check your service records for when the gear oil was last changed."
+     ],
+     "shop": [
+      "Gear oil level and condition check",
+      "Leak inspection",
+      "Gear oil change with the specified fluid"
+     ]
+    }
+   }
+  },
+  "r_pops_out": {
+   "result": {
+    "title": "Worn parts inside the gearbox or a loose mount are letting it slip out of gear",
+    "urgency": "soon",
+    "now": "Get the transmission checked within the next few days. Until then, avoid using that gear on hills or in heavy traffic where you can.",
+    "if": [
+     "If it pops out of gear often, or you can't keep it in gear, don't drive it. Have it towed.",
+     "If you also hear a clunk when accelerating or letting off, worn engine or transmission mounts may be part of the problem."
+    ],
+    "why": "A gear that grinds going in and then jumps out on its own usually has worn engagement parts. Losing drive unexpectedly is a safety problem in traffic or on a slope, and the wear tends to get worse.",
+    "causes": [
+     {
+      "name": "Worn shift sleeve, gear teeth or synchronizer",
+      "clues": "It pops out of the same gear, often under load or when letting off the gas.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine or transmission mounts",
+      "clues": "A clunk or rocking when accelerating, and the shifter moves when the engine rocks.",
+      "against": ""
+     },
+     {
+      "name": "Worn shift linkage or detent spring",
+      "clues": "The shifter feels loose or sloppy.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note which gear it pops out of and whether it's when accelerating or slowing down."
+     ],
+     "shop": [
+      "Engine and transmission mount inspection",
+      "Shift linkage inspection",
+      "Gear oil check and transmission inspection"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "Have the clutch and gearbox checked",
+    "urgency": "check",
+    "now": "Book a check when convenient. Note which gears grind and when, and shift gently until it's looked at.",
+    "if": [
+     "If the clutch pedal goes soft or sinks, or you can't get into gear, don't drive it. Have it towed.",
+     "If the car pops out of gear, get it checked within a few days."
+    ],
+    "why": "Grinding when shifting comes from either the clutch not fully releasing or wear inside the gearbox. A technician can tell them apart quickly by checking the clutch release and the gear oil.",
+    "causes": [
+     {
+      "name": "Clutch not fully releasing",
+      "clues": "Grinding in most gears, especially from a stop.",
+      "against": ""
+     },
+     {
+      "name": "Worn synchronizer",
+      "clues": "Grinding in one gear, mainly on quick shifts.",
+      "against": ""
+     },
+     {
+      "name": "Low or wrong gear oil",
+      "clues": "Worse when cold.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure the floor mat isn't blocking the clutch pedal.",
+      "Note which gears grind and whether it's worse when cold."
+     ],
+     "shop": [
+      "Clutch release check",
+      "Gear oil level and condition check",
+      "Transmission inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "clutch-slipping",
+  "car-wont-go-into-gear",
+  "burning-smell"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises",
+   "Driving"
+  ],
+  "words": [
+   "manual transmission",
+   "clutch",
+   "synchronizer",
+   "grind",
+   "gear",
+   "shift",
+   "slave cylinder",
+   "master cylinder"
+  ]
+ },
+ "sources": [
+  "https://jalopnik.com/2213891/signs-synchronizers-failing-manual-transmission/",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

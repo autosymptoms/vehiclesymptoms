@@ -21,9 +21,9 @@
       <span>Vehicle<b>Symptoms</b></span>
     </a>
     <nav class="links" id="links">
-      <a href="/#categories">Symptoms</a>
-      <a href="/#categories" data-cat="Warning Lights">Warning Lights</a>
-      <a href="/#tools">VIN Lookup</a>
+      <a href="/symptoms/">Symptom guides</a>
+      <a href="/#vehicle">Your vehicle</a>
+      <a href="/#vehicle">VIN lookup</a>
       <a href="/#about">About</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Menu">Menu</button>
@@ -33,79 +33,53 @@
 <main id="top">
 <div id="homeView"{{HOMEHIDE}}>
   <div class="hero">
-    <svg class="gauge" viewBox="0 0 200 200" fill="none" stroke="#0A84FF" stroke-width="3"><circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="70" stroke-dasharray="4 10"/><path d="M100 100 L150 60" stroke-width="6" stroke-linecap="round"/></svg>
     <div class="wrap" style="position:relative">
-      <div class="eyebrow">Free · No sign-up · Plain English</div>
-      <h1>What's your vehicle <em>trying to tell you?</em></h1>
-      <p class="sub">Search a warning light, noise, smell, leak, smoke or driving problem. See the likely causes, how serious it is, and what to do next.</p>
+      <h1>What is your car <em>doing?</em></h1>
+      <p class="sub">Describe it in your own words. We'll ask a few quick questions, tell you how urgent it is, and give you a summary to take to your mechanic. Free, no sign-up.</p>
       <div class="search">
-        <form id="searchForm" autocomplete="off">
-          <input id="searchInput" type="search" placeholder="Search symptoms, causes, or fixes..." aria-label="Search symptoms">
-          <button class="btn" id="searchButton" type="submit">Search</button>
+        <form id="helpForm" autocomplete="off">
+          <input id="helpInput" type="search" placeholder="Example: shakes when I brake" aria-label="What is your car doing?">
+          <button class="btn" type="submit">Help me understand it</button>
         </form>
-        <div class="chips" id="chips"></div>
-        <div class="results" id="results"></div>
+        <div class="results" id="helpResults"></div>
+        <div class="shortcuts">
+          <a class="sc" href="/symptoms/car-wont-start/">Won't start</a>
+          <a class="sc" href="/symptoms/#light">Warning light</a>
+          <a class="sc" href="/symptoms/#noise">Noise</a>
+          <a class="sc" href="/symptoms/#shake">Shaking</a>
+          <a class="sc" href="/symptoms/#leaksmell">Leak or smell</a>
+          <a class="sc" href="/symptoms/engine-overheating/">Running hot</a>
+        </div>
+        <p class="cred">{{CRED}}</p>
       </div>
     </div>
   </div>
 
-  <section id="vehicles" style="padding-top:8px">
-    <div class="wrap">
+  <section id="vehicle">
+    <div class="wrap split">
       <div class="card">
-        <h3>Find problems for your vehicle</h3>
-        <p class="d">Pick your vehicle to see the problems owners report most for that exact year.</p>
+        <h3>Known problems for your vehicle</h3>
+        <p class="d">Pick your vehicle to see documented problems for that exact year, plus safety recalls.</p>
         <form class="picker" id="pickForm">
           <select id="pickModel" aria-label="Make and model"></select>
           <select id="pickYear" aria-label="Year"></select>
-          <button class="btn" type="submit">Show problems</button>
+          <button class="btn" type="submit">Show</button>
         </form>
-        <div class="mgrid" id="mgrid" style="margin-top:16px"></div>
+        <details class="allm"><summary>Browse all 100 models</summary><div id="mgrid"></div></details>
       </div>
-    </div>
-  </section>
-
-  <section id="categories">
-    <div class="wrap">
-      <h2>Browse by symptom</h2>
-      <p class="lead">Start with what you're seeing, hearing or smelling.</p>
-      <div class="cats" id="cats"></div>
-    </div>
-  </section>
-
-  <section id="tools">
-    <div class="wrap split">
       <div class="card vin">
         <h3>Decode your VIN</h3>
-        <p class="d">Enter your 17-character VIN to see results for your exact year, make and model.</p>
+        <p class="d">Your 17-character VIN is on the driver's door sticker, the dash by the windshield, or your registration.</p>
         <form id="vinForm"><input id="vinInput" maxlength="17" placeholder="1HGCM82633A004352" aria-label="VIN"><button class="btn" type="submit">Decode</button></form>
         <div class="vin-out" id="vinOut"></div>
-        <p class="note">Decoded with the free U.S. government (NHTSA) vehicle database. Your VIN isn't stored.</p>
-      </div>
-      <div class="card">
-        <h3>Describe your problem</h3>
-        <p class="d">Say it in your own words, like you'd tell a mechanic. Include your vehicle if you know it.</p>
-        <form class="vin" id="describeForm" autocomplete="off"><textarea id="describeInput" rows="3" placeholder="Example: my 2015 Accord smells sweet and the temp gauge is creeping up" aria-label="Describe your problem" style="width:100%;background:var(--bg);border:1.5px solid var(--line);border-radius:10px;color:var(--text);font:inherit;font-size:15px;padding:12px;resize:vertical"></textarea>
-        <button class="btn" type="submit" style="margin-top:10px;padding:12px 20px">Help me understand it</button></form>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>How it works</h2>
-      <p class="lead">From "something's wrong" to a clear next step in about a minute.</p>
-      <div class="steps">
-        <div class="step"><h4>Describe it</h4><p>Search the symptom or pick a category.</p></div>
-        <div class="step"><h4>Add your vehicle</h4><p>Decode your VIN for year, make and model results.</p></div>
-        <div class="step"><h4>See the causes</h4><p>Most likely causes, severity and typical repairs.</p></div>
-        <div class="step"><h4>Know what to do</h4><p>Safe to drive, check it yourself, or see a shop.</p></div>
+        <p class="note">Decoded with the free U.S. government (NHTSA) database. Your VIN isn't stored.</p>
       </div>
     </div>
   </section>
 
   <section id="about">
     <div class="wrap">
-      <div class="trust"><b>Built by people who fix cars.</b> VehicleSymptoms.com is a free guide to help you understand what may be going on before you talk to a mechanic. It doesn't replace an in-person diagnosis. If a warning light is flashing red, you smell burning, or the brakes or steering feel wrong, pull over safely and get help.</div>
+      <div class="trust"><b>A guide, not a diagnosis.</b> VehicleSymptoms.com helps you understand what may be going on and how urgent it is before you talk to a mechanic. If a red warning light is flashing, you smell burning or fuel, or the brakes or steering feel wrong, pull over safely and get help.</div>
     </div>
   </section>
 </div>
@@ -119,7 +93,9 @@
   </div>
 </footer>
 
-<script src="/vehicles.js"></script>
+{{PAGEDATA}}<script src="/vehicles.js"></script>
+<script src="/guide-index.js"></script>
+<script src="/guide.js"></script>
 <script src="/app.js"></script>
 </body>
 </html>

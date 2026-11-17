@@ -1,0 +1,440 @@
+{
+ "id": "squeaking-over-bumps",
+ "title": "Squeaking over bumps",
+ "h1": "Why does my car squeak when going over bumps?",
+ "metaDesc": "Car squeaks over bumps? Answer a few quick questions to see if it's bushings, shocks, ball joints or trim, how urgent it is, and what to tell your mechanic.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "squeaking over bumps",
+  "car squeaks over bumps",
+  "suspension squeak",
+  "squeaky suspension",
+  "squeak when going over speed bumps",
+  "creaking over bumps",
+  "car squeaks when driving slow",
+  "squeaking noise front end",
+  "squeak when car bounces",
+  "rubber squeak suspension",
+  "squeaking when turning and going over bumps",
+  "suspention squeak",
+  "car squeeks over bumps"
+ ],
+ "intro": "Most squeaks over bumps come from dry or worn rubber bushings, which are annoying but rarely urgent. A few come from steering and suspension joints that do matter for safety. Answer the questions below to see which it most likely is and how soon to get it checked.",
+ "safety": [
+  "If the steering suddenly feels loose or a wheel looks tilted in or out, stop driving and get help.",
+  "If a loud clunk is followed by the car pulling hard or the steering feeling different, pull over safely and call for help."
+ ],
+ "start": "q_when",
+ "nodes": {
+  "q_when": {
+   "q": "Which of these fits the squeak best?",
+   "help": "Bushings are rubber cushions where suspension parts bolt to the car. A ball joint is a pivot joint that lets the wheel steer and move up and down.",
+   "opts": [
+    {
+     "a": "It squeaks over bumps and the steering feels loose, wanders, or there's a clunk too",
+     "go": "r_ball_joint"
+    },
+    {
+     "a": "It squeaks over bumps and also when I turn the steering wheel",
+     "go": "q_steering"
+    },
+    {
+     "a": "Mostly in cold weather, and it fades once the car warms up",
+     "go": "r_cold_bushings"
+    },
+    {
+     "a": "It sounds like it's inside the car, from the dash, seats or trim",
+     "go": "r_interior"
+    },
+    {
+     "a": "Just a squeak or creak over bumps and speed bumps",
+     "go": "q_push"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_push"
+    }
+   ]
+  },
+  "q_push": {
+   "q": "With the car parked, push down hard on each corner a few times. What happens?",
+   "help": "Push on the fender right above each wheel and let go. A helper can listen near the wheel while you push.",
+   "opts": [
+    {
+     "a": "It squeaks when I push on one corner",
+     "go": "r_bushings"
+    },
+    {
+     "a": "It keeps bouncing more than once or twice after I let go",
+     "go": "r_shocks"
+    },
+    {
+     "a": "No squeak when parked, only when driving over bumps or uneven driveways",
+     "go": "r_sway_bar"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_steering": {
+   "q": "When you turn the steering wheel, what do you notice?",
+   "opts": [
+    {
+     "a": "A creak or groan mainly when turning slowly, like when parking",
+     "go": "r_strut_mount"
+    },
+    {
+     "a": "The steering feels loose, the car wanders, or there's a knock",
+     "go": "r_ball_joint"
+    },
+    {
+     "a": "Nothing besides the squeak",
+     "go": "r_strut_mount"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_ball_joint"
+    }
+   ]
+  },
+  "r_ball_joint": {
+   "result": {
+    "title": "A worn ball joint or steering joint is possible and should be checked soon",
+    "urgency": "soon",
+    "now": "Get the front suspension and steering inspected within the next few days. Until then, drive gently and avoid potholes, highways and hard turns.",
+    "if": [
+     "If the steering suddenly gets much looser, a wheel looks tilted, or the clunking gets louder, don't drive it. Have it towed.",
+     "If the shop finds only worn bushings or links, it becomes a lower-priority repair."
+    ],
+    "why": "A squeak that comes with loose steering, wandering or clunks points to a joint in the suspension or steering that's worn. A ball joint that wears too far can separate, which lets the wheel collapse and causes loss of control.",
+    "causes": [
+     {
+      "name": "Worn ball joint",
+      "clues": "Squeaking or creaking over bumps and in turns, clunks, and uneven tire wear.",
+      "against": ""
+     },
+     {
+      "name": "Worn tie rod end",
+      "clues": "Loose or vague steering, or the car wanders on the highway.",
+      "against": ""
+     },
+     {
+      "name": "Worn control arm bushing",
+      "clues": "A clunk when braking or going over bumps, with the steering feeling a bit off.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the front tires for uneven wear on the inner or outer edge.",
+      "Note whether the noise is louder on one side."
+     ],
+     "shop": [
+      "Ball joint and tie rod play check with the wheels off the ground",
+      "Control arm bushing inspection",
+      "Alignment check after any repair"
+     ]
+    }
+   }
+  },
+  "r_strut_mount": {
+   "result": {
+    "title": "Likely a worn strut mount or a dry joint in the front suspension",
+    "urgency": "check",
+    "now": "Book a suspension check when convenient. Tell the shop it squeaks over bumps and when turning.",
+    "if": [
+     "If the steering starts to feel loose, notchy or sticky, or you hear clunks, get it checked within a few days.",
+     "If the noise started right after suspension work, go back to that shop. A part may not be tightened or seated correctly."
+    ],
+    "why": "The top of each front strut sits in a mount with a bearing that turns when you steer. When that bearing or its rubber wears, it can creak over bumps and while turning. A dry ball joint or sway bar bushing can make a similar sound.",
+    "causes": [
+     {
+      "name": "Worn strut mount or mount bearing",
+      "clues": "Creaking or groaning when turning at low speed, and over bumps, from the top of the wheel area.",
+      "against": ""
+     },
+     {
+      "name": "Dry or worn sway bar bushing",
+      "clues": "Squeaks over bumps and while turning, worse in cold weather.",
+      "against": ""
+     },
+     {
+      "name": "Ball joint starting to wear",
+      "clues": "The squeak comes from low on the wheel, or the tires are wearing unevenly.",
+      "against": "Less likely if the steering feels tight and normal."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the car stopped, turn the steering wheel lock to lock and listen near the top of each front wheel."
+     ],
+     "shop": [
+      "Strut mount inspection",
+      "Ball joint and tie rod check",
+      "Sway bar bushing and link inspection"
+     ]
+    }
+   }
+  },
+  "r_cold_bushings": {
+   "result": {
+    "title": "Cold, stiff rubber bushings are the most likely cause",
+    "urgency": "diy",
+    "now": "Note whether the squeak goes away after the car has been driven for a while. If it does, mention it at your next service so the bushings can be inspected.",
+    "if": [
+     "If the squeak starts happening when warm too, or you hear clunks, book a suspension check.",
+     "If the steering feels loose or the car wanders, get it checked within a few days."
+    ],
+    "why": "Rubber bushings get stiff in the cold and can squeak against metal until they warm up and flex more easily. This is common and usually not a safety problem, but bushings that have dried out or cracked will eventually need replacing.",
+    "causes": [
+     {
+      "name": "Dry or hardened sway bar bushings",
+      "clues": "A squeak over bumps and while turning, worst on cold mornings.",
+      "against": ""
+     },
+     {
+      "name": "Aging control arm bushings",
+      "clues": "An older car, or bushings with visible cracks.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Compare the noise on a cold morning with after a 20-minute drive.",
+      "Look behind the front wheels for cracked or split rubber where the bar meets the frame."
+     ],
+     "shop": [
+      "Sway bar and control arm bushing inspection",
+      "Bushing lubrication or replacement"
+     ]
+    }
+   }
+  },
+  "r_bushings": {
+   "result": {
+    "title": "Probably a dry or worn bushing at that corner",
+    "urgency": "check",
+    "now": "Book a suspension inspection when convenient and tell the shop which corner squeaks.",
+    "if": [
+     "If you also hear clunks or the car feels loose, get it checked within a few days.",
+     "If a tire on that corner shows uneven wear, ask for an alignment check too."
+    ],
+    "why": "A squeak you can make by pushing on one corner comes from a part that moves as the suspension compresses. Rubber bushings are the most common source, since they dry out, crack and start rubbing with age.",
+    "causes": [
+     {
+      "name": "Dry or worn control arm or sway bar bushing",
+      "clues": "A rubbery squeak or creak, worse in cold or dry weather.",
+      "against": ""
+     },
+     {
+      "name": "Worn shock or strut",
+      "clues": "The car bounces more than usual, or there's oily residue on the shock.",
+      "against": ""
+     },
+     {
+      "name": "Dry ball joint",
+      "clues": "The squeak comes from low on the wheel, near the bottom of the knuckle.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Have a helper push on the corner while you listen closely near the wheel to pinpoint the spot.",
+      "Look for cracked or torn rubber around the suspension arms."
+     ],
+     "shop": [
+      "Suspension inspection on a lift",
+      "Bushing and ball joint check",
+      "Shock and strut inspection"
+     ]
+    }
+   }
+  },
+  "r_shocks": {
+   "result": {
+    "title": "The shocks or struts are likely worn out",
+    "urgency": "check",
+    "now": "Book a shock and strut inspection. Worn shocks make the car bounce more and can lengthen stopping distance.",
+    "if": [
+     "If you see oil running down a shock, or the car dips hard when braking or sways a lot in turns, get it checked within a few days.",
+     "If one corner sits lower than the others, a spring may be broken. Have it checked soon."
+    ],
+    "why": "Shocks and struts keep the car from bouncing after a bump. When they wear out, the car keeps moving up and down, and their mounts and bushings often start to squeak. Worn shocks also make it harder to keep the tires on the road during a sudden stop or swerve.",
+    "causes": [
+     {
+      "name": "Worn shocks or struts",
+      "clues": "More than one or two bounces after pushing down, a floaty ride, or nose-diving when braking.",
+      "against": ""
+     },
+     {
+      "name": "Worn shock or strut mounts",
+      "clues": "Squeaks or clunks from the top of the shock over bumps.",
+      "against": ""
+     },
+     {
+      "name": "Broken or sagging spring",
+      "clues": "One corner sits lower, or there's a clunk over bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for oily residue on the shocks behind each wheel.",
+      "Park on level ground and check whether one corner sits lower than the others."
+     ],
+     "shop": [
+      "Shock and strut inspection for leaks and damping",
+      "Mount and spring inspection",
+      "Tire wear check for cupping"
+     ]
+    }
+   }
+  },
+  "r_sway_bar": {
+   "result": {
+    "title": "A sway bar link or bushing is the most common cause",
+    "urgency": "check",
+    "now": "Book a suspension check when convenient. Mention it squeaks over uneven bumps, like angled driveways.",
+    "if": [
+     "If the squeak turns into a clunk or rattle over bumps, get it checked within a few days. A link may be loose or broken.",
+     "If the car leans much more than usual in turns, have it checked soon."
+    ],
+    "why": "The sway bar connects the left and right sides of the suspension to reduce body lean. Its rubber bushings and small end links work hardest when one wheel moves more than the other, which is why they often squeak over uneven bumps but not when you push straight down.",
+    "causes": [
+     {
+      "name": "Dry or worn sway bar bushings",
+      "clues": "A squeak over uneven bumps, worse in cold weather.",
+      "against": ""
+     },
+     {
+      "name": "Worn sway bar end links",
+      "clues": "A squeak that becomes a clunk or rattle over rough roads.",
+      "against": ""
+     },
+     {
+      "name": "Control arm bushing",
+      "clues": "A squeak or creak over all bumps, not just uneven ones.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Drive slowly over an angled driveway or speed bump and note which side the noise comes from."
+     ],
+     "shop": [
+      "Sway bar bushing and end link inspection",
+      "Control arm bushing check"
+     ]
+    }
+   }
+  },
+  "r_interior": {
+   "result": {
+    "title": "It may be a trim, seat or dash squeak, not the suspension",
+    "urgency": "diy",
+    "now": "Have a passenger listen while you drive over bumps to pinpoint where it comes from. Press on the suspected panel or seat to see if the noise stops.",
+    "if": [
+     "If the noise seems to come from under the car or near a wheel, book a suspension check.",
+     "If it's a seat or seat belt part that's loose, have it checked soon. Seats and belts need to stay firmly mounted."
+    ],
+    "why": "Bumps flex the car's body slightly, and plastic panels, seat frames and loose items can squeak against each other. These noises often sound like they come from the suspension but are inside the cabin.",
+    "causes": [
+     {
+      "name": "Dash or door trim rubbing",
+      "clues": "The noise stops when you press on a panel, or changes with temperature.",
+      "against": ""
+     },
+     {
+      "name": "Seat frame or seat track",
+      "clues": "The noise changes when someone sits in or shifts in the seat.",
+      "against": ""
+     },
+     {
+      "name": "Loose items or the trunk area",
+      "clues": "The noise goes away after emptying the trunk or glovebox.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Empty the trunk, door pockets and glovebox, then retest.",
+      "Press on panels and seats while driving over bumps (with a passenger doing it, not the driver)."
+     ],
+     "shop": [
+      "Road test with a technician to locate the noise",
+      "Seat mounting bolt check"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Most likely a worn suspension bushing, but a quick inspection will confirm it",
+    "urgency": "check",
+    "now": "Book a suspension inspection when convenient and describe when the squeak happens.",
+    "if": [
+     "If the steering feels loose, the car wanders, or you hear clunks, get it checked within a few days.",
+     "If a wheel looks tilted or the steering suddenly changes, don't drive it."
+    ],
+    "why": "Squeaks over bumps usually come from rubber bushings or joints that have dried out or worn. Most aren't urgent, but a technician can quickly rule out the joints that affect steering.",
+    "causes": [
+     {
+      "name": "Dry or worn bushings",
+      "clues": "A rubbery squeak, worse in cold weather.",
+      "against": ""
+     },
+     {
+      "name": "Worn shocks or mounts",
+      "clues": "A bouncy ride or squeaks from the top of the wheel area.",
+      "against": ""
+     },
+     {
+      "name": "Worn ball joint",
+      "clues": "Squeaks along with clunks or uneven tire wear.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound while a helper pushes down on each corner."
+     ],
+     "shop": [
+      "Suspension and steering inspection on a lift",
+      "Road test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "clunk-over-bumps",
+  "bouncy-ride",
+  "creaking-when-turning-steering",
+  "loose-or-wandering-steering",
+  "uneven-tire-wear"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises",
+   "Driving"
+  ],
+  "words": [
+   "suspension",
+   "squeak",
+   "bushing",
+   "ball joint",
+   "strut",
+   "shock",
+   "sway bar",
+   "control arm"
+  ]
+ },
+ "sources": [
+  "https://www.kbb.com/car-advice/car-shocks-struts-signs-worn-out",
+  "https://www.cars.com/articles/common-suspension-problems-1420680310518",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

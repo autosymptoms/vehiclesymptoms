@@ -1,0 +1,579 @@
+{
+ "id": "loss-of-power-when-accelerating",
+ "title": "Car has no power when accelerating",
+ "h1": "Why does my car have no power when I accelerate?",
+ "metaDesc": "Car feels weak or slow to accelerate? Answer a few quick questions to see if it's limp mode, fuel, ignition, the transmission or brakes, and how urgent it is.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "car has no power",
+  "loss of power when accelerating",
+  "car slow to accelerate",
+  "car wont accelerate",
+  "car won't accelerate",
+  "sluggish acceleration",
+  "engine feels weak",
+  "car losing power going uphill",
+  "no power when pressing gas",
+  "car struggles to accelerate",
+  "car bogs down when accelerating",
+  "lack of power",
+  "car feels heavy and slow",
+  "limp mode"
+ ],
+ "intro": "When a car feels weak, the cause can be the engine, the transmission, or even a brake that won't let go. Warning lights, sounds and how the engine revs give strong clues. Answer the questions below to see the most likely cause and whether it's safe to keep using the car.",
+ "safety": [
+  "If the check engine light is flashing and the engine shakes, pull over and turn off the engine.",
+  "If the temperature gauge is in the red, pull over and turn off the engine.",
+  "If you see smoke from a wheel or under the hood, or smell burning, pull over and step away from the car.",
+  "If the car can't keep up with traffic, don't merge onto highways. Turn on your hazard lights and get off the road safely."
+ ],
+ "start": "q_signs",
+ "nodes": {
+  "q_signs": {
+   "q": "Which of these best describes what's happening?",
+   "help": "\"Revs\" is the engine speed shown on the tachometer (the RPM gauge). If you don't have one, listen for whether the engine gets louder without the car speeding up.",
+   "opts": [
+    {
+     "a": "The check engine light is flashing, and the engine shakes or stumbles",
+     "go": "r_misfire_flashing"
+    },
+    {
+     "a": "The temperature gauge is high or a temperature warning is on",
+     "go": "r_overheat"
+    },
+    {
+     "a": "It feels held back, with a burning smell or one very hot wheel",
+     "go": "r_dragging_brakes"
+    },
+    {
+     "a": "A \"reduced engine power\" or similar message, or it won't go above a low speed",
+     "go": "r_limp_mode"
+    },
+    {
+     "a": "The engine revs up but the car doesn't speed up to match",
+     "go": "r_slipping"
+    },
+    {
+     "a": "The engine just feels weak, especially uphill or when passing",
+     "go": "q_clues"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_clues"
+    }
+   ]
+  },
+  "q_clues": {
+   "q": "Which of these also applies?",
+   "opts": [
+    {
+     "a": "The check engine light is on and stays on (not flashing)",
+     "go": "r_cel_steady"
+    },
+    {
+     "a": "It sputters, jerks or hesitates when I press the gas",
+     "go": "r_fuel_ignition"
+    },
+    {
+     "a": "Power gets worse the faster I go, sometimes with a rotten egg smell",
+     "go": "r_clogged_cat"
+    },
+    {
+     "a": "It's turbocharged, and I hear a whoosh, hiss or whistle",
+     "go": "r_turbo_boost"
+    },
+    {
+     "a": "Nothing else. It has slowly gotten more sluggish",
+     "go": "r_gradual"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "r_misfire_flashing": {
+   "result": {
+    "title": "A severe misfire is likely robbing the engine of power",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and turn off the engine. Don't drive it further. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If you smell something very hot or see smoke under the car, step away. An overheated catalytic converter can set dry grass on fire.",
+     "If the light stops flashing after a restart, the fault is still there. Have it checked before driving."
+    ],
+    "why": "A flashing check engine light means one or more cylinders isn't firing properly. The engine loses power, and unburned fuel goes into the exhaust, where it can overheat and destroy the catalytic converter.",
+    "causes": [
+     {
+      "name": "Failed ignition coil or spark plug",
+      "clues": "Steady shaking that gets worse under load.",
+      "against": ""
+     },
+     {
+      "name": "Fuel injector problem",
+      "clues": "A fuel smell, or misfiring from a cold start.",
+      "against": ""
+     },
+     {
+      "name": "Internal engine problem",
+      "clues": "Ticking or knocking along with the misfire.",
+      "against": "Less common than an ignition fault."
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Misfire code scan",
+      "Ignition coil and spark plug test",
+      "Injector test",
+      "Compression test"
+     ]
+    }
+   }
+  },
+  "r_overheat": {
+   "result": {
+    "title": "The engine may be overheating and protecting itself",
+    "urgency": "stop",
+    "now": "Pull over as soon as it's safe and turn off the engine. Don't drive it further. Have it towed.",
+    "if": [
+     "If you see steam or smoke from under the hood, step away and don't open the hood until it cools.",
+     "Never open the radiator or coolant cap on a hot engine."
+    ],
+    "why": "Many cars cut power when the engine gets too hot to protect it. An overheating engine can warp or crack major parts quickly, so it's not worth risking even a short drive.",
+    "causes": [
+     {
+      "name": "Low coolant from a leak",
+      "clues": "Coolant puddles, a sweet smell, or steam.",
+      "against": ""
+     },
+     {
+      "name": "Failed cooling fan, thermostat or water pump",
+      "clues": "Overheating mostly in traffic, or the heater blowing cold.",
+      "against": ""
+     },
+     {
+      "name": "Head gasket failure",
+      "clues": "White smoke from the exhaust and coolant loss with no visible leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Cooling system pressure test",
+      "Cooling fan and thermostat check",
+      "Combustion gas (block) test"
+     ]
+    }
+   }
+  },
+  "r_dragging_brakes": {
+   "result": {
+    "title": "A brake is likely stuck on and holding the car back",
+    "urgency": "stop",
+    "now": "Pull over somewhere safe, turn off the engine and let the brakes cool. Don't drive it further. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If the parking brake was partly on, release it fully and let the wheels cool. If the car then rolls freely and the smell is gone, have the brakes checked within a few days.",
+     "If there's smoke or flames, get everyone away from the car and call 911."
+    ],
+    "why": "A brake that won't release fights the engine every time you accelerate, which feels like a loss of power. It also builds up heat fast, which can boil the brake fluid and leave you with weak brakes.",
+    "causes": [
+     {
+      "name": "Stuck brake caliper",
+      "clues": "One wheel is much hotter, smells burnt, or the car pulls to one side.",
+      "against": ""
+     },
+     {
+      "name": "Parking brake on or sticking",
+      "clues": "The parking brake light is on, or the drag comes from the rear.",
+      "against": ""
+     },
+     {
+      "name": "Collapsed brake hose",
+      "clues": "One brake stays on after heavy braking.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that the parking brake is fully released.",
+      "Without touching, look for smoke near each wheel."
+     ],
+     "shop": [
+      "Brake inspection with the wheels off",
+      "Caliper and hose check",
+      "Parking brake check"
+     ]
+    }
+   }
+  },
+  "r_limp_mode": {
+   "result": {
+    "title": "The car has gone into limp mode to protect itself",
+    "urgency": "soon",
+    "now": "Get off busy roads safely and have the codes read within a day. If you must move the car, keep it to short, low-speed trips.",
+    "if": [
+     "If the check engine light is flashing, the temperature is high, or the transmission won't shift, stop driving and have it towed.",
+     "If you can't keep up with traffic, don't drive it on highways. Call roadside assistance instead."
+    ],
+    "why": "When the engine or transmission computer sees a serious fault, it limits power or locks the transmission in one gear. This protects parts from damage, but it also makes the car slow and unsafe in fast traffic. The stored codes point to the cause.",
+    "causes": [
+     {
+      "name": "Electronic throttle or accelerator pedal sensor fault",
+      "clues": "A \"reduced engine power\" message and a pedal that seems to do little.",
+      "against": ""
+     },
+     {
+      "name": "Transmission fault",
+      "clues": "Stuck in one gear, harsh shifts, or a transmission warning.",
+      "against": ""
+     },
+     {
+      "name": "Turbo, sensor or wiring fault",
+      "clues": "A turbo engine, or a recent repair near the engine wiring.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note any messages on the dash before turning the car off.",
+      "Have the codes read at a shop or auto parts store."
+     ],
+     "shop": [
+      "Code scan of engine and transmission modules",
+      "Throttle body and pedal sensor test",
+      "Wiring and connector inspection"
+     ]
+    }
+   }
+  },
+  "r_slipping": {
+   "result": {
+    "title": "The transmission or clutch is likely slipping",
+    "urgency": "soon",
+    "now": "Have it checked within a few days. Until then, accelerate gently, avoid highways and heavy loads, and check the transmission fluid if your car has a dipstick.",
+    "if": [
+     "If the car won't move in gear, or you smell burning fluid, stop driving it and have it towed.",
+     "If the slipping gets worse quickly, don't wait. It can leave you stuck in traffic."
+    ],
+    "why": "When the engine revs climb but the car doesn't speed up, power isn't getting through to the wheels. In an automatic that usually points to low or worn fluid or worn internal parts. In a manual, the clutch is the usual cause.",
+    "causes": [
+     {
+      "name": "Low or worn transmission fluid",
+      "clues": "Red fluid under the car, or slipping that's worse when warm.",
+      "against": ""
+     },
+     {
+      "name": "Worn transmission clutches or bands (automatic)",
+      "clues": "Harsh or delayed shifts, and high mileage.",
+      "against": ""
+     },
+     {
+      "name": "Worn clutch (manual)",
+      "clues": "Slipping in higher gears, a burning smell, or the clutch engages high in the pedal travel.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the transmission fluid level and color if your car has a dipstick (follow the owner's manual).",
+      "Look for red or brown fluid where you park."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Fluid level and condition check",
+      "Road test",
+      "Clutch slip test (manual)"
+     ]
+    }
+   }
+  },
+  "r_cel_steady": {
+   "result": {
+    "title": "An engine sensor or fuel problem is likely cutting power",
+    "urgency": "soon",
+    "now": "Have the codes read within a few days. Many auto parts stores do this free, which gives the shop a head start.",
+    "if": [
+     "If the light starts flashing or the engine shakes, pull over and turn off the engine.",
+     "If you can't keep up with traffic safely, stay off highways until it's fixed."
+    ],
+    "why": "A steady check engine light with low power means the engine computer has spotted a fault that affects how much air or fuel the engine gets. The stored code narrows it down quickly.",
+    "causes": [
+     {
+      "name": "Faulty mass airflow (MAF) or oxygen sensor",
+      "clues": "Hesitation, poor mileage, or a rough idle.",
+      "against": ""
+     },
+     {
+      "name": "Weak fuel pump or clogged fuel filter",
+      "clues": "Power fades going uphill or at highway speed.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum or intake leak",
+      "clues": "A hissing sound, or a high or uneven idle.",
+      "against": ""
+     },
+     {
+      "name": "EGR valve problem",
+      "clues": "Rough idle and stumbling at low speeds.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Have the codes read and write them down.",
+      "Check the engine air filter."
+     ],
+     "shop": [
+      "Code scan with live data",
+      "Fuel pressure test",
+      "Smoke test for vacuum leaks",
+      "Sensor tests"
+     ]
+    }
+   }
+  },
+  "r_fuel_ignition": {
+   "result": {
+    "title": "A fuel delivery or ignition problem is likely",
+    "urgency": "soon",
+    "now": "Have it checked within a few days. Drive gently, and keep the tank above a quarter full until then.",
+    "if": [
+     "If the check engine light starts flashing, pull over and turn off the engine.",
+     "If it stalls or cuts out while driving, don't drive it. Have it towed."
+    ],
+    "why": "Sputtering or jerking when you press the gas means the engine isn't getting a steady supply of fuel or spark when it needs more. Worn spark plugs, weak coils and fuel supply problems are the usual causes.",
+    "causes": [
+     {
+      "name": "Worn spark plugs or failing ignition coil",
+      "clues": "Jerking under load, rough idle, plugs overdue for replacement.",
+      "against": ""
+     },
+     {
+      "name": "Weak fuel pump or clogged fuel filter",
+      "clues": "Worse uphill, at highway speed, or when the tank is low.",
+      "against": ""
+     },
+     {
+      "name": "Dirty fuel injectors",
+      "clues": "Hesitation and poor mileage that came on gradually.",
+      "against": ""
+     },
+     {
+      "name": "Dirty mass airflow sensor",
+      "clues": "Hesitation right after pressing the gas.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your service records for when the spark plugs were last changed.",
+      "Notice whether it's worse when the fuel tank is low."
+     ],
+     "shop": [
+      "Code scan",
+      "Fuel pressure and volume test",
+      "Spark plug and coil inspection",
+      "Injector test"
+     ]
+    }
+   }
+  },
+  "r_clogged_cat": {
+   "result": {
+    "title": "A clogged catalytic converter or exhaust could be choking the engine",
+    "urgency": "soon",
+    "now": "Have the exhaust checked within a few days. Avoid long highway drives and steep climbs until then.",
+    "if": [
+     "If you see a red glow under the car or smell something very hot, pull over and turn off the engine away from dry grass.",
+     "If the check engine light is flashing, stop driving. A misfire is likely damaging the converter."
+    ],
+    "why": "The engine has to push its exhaust out. If the catalytic converter is clogged or melted inside, the exhaust backs up and the engine loses power, most noticeably at higher speeds and uphill. A converter usually fails because of another problem, like a misfire or burning oil.",
+    "causes": [
+     {
+      "name": "Clogged or melted catalytic converter",
+      "clues": "Power fades at higher speeds, rotten egg smell, extra heat under the car.",
+      "against": ""
+     },
+     {
+      "name": "Collapsed or blocked exhaust pipe or muffler",
+      "clues": "Recent damage underneath, or a rattle.",
+      "against": ""
+     },
+     {
+      "name": "Misfire or oil burning that damaged the converter",
+      "clues": "A history of check engine lights, misfires or blue smoke.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether power is fine at low speed but fades on the highway.",
+      "Notice any rotten egg smell after driving."
+     ],
+     "shop": [
+      "Exhaust back-pressure test",
+      "Code scan",
+      "Converter temperature check",
+      "Check for the root cause (misfire, oil burning)"
+     ]
+    }
+   }
+  },
+  "r_turbo_boost": {
+   "result": {
+    "title": "A boost leak or turbocharger problem is likely",
+    "urgency": "soon",
+    "now": "Have the turbo and intake hoses checked within a few days. Drive gently and avoid hard acceleration until then.",
+    "if": [
+     "If you hear a loud whine or siren-like noise, or see blue smoke, pull over and turn off the engine. Have it towed.",
+     "If the oil level is dropping, don't keep driving it until it's checked."
+    ],
+    "why": "A turbocharger pushes extra air into the engine. If a hose has split or come loose, or the turbo itself is worn, that air escapes with a hiss or whoosh and the engine loses much of its power.",
+    "causes": [
+     {
+      "name": "Split or loose intake or intercooler hose",
+      "clues": "A hiss or whoosh under acceleration, and oily residue on a hose.",
+      "against": ""
+     },
+     {
+      "name": "Turbo wastegate or boost control problem",
+      "clues": "A check engine light for underboost, or power that comes and goes.",
+      "against": ""
+     },
+     {
+      "name": "Worn turbocharger",
+      "clues": "Whining noise, blue smoke, and rising oil use.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off and cool, look for loose clamps or split hoses between the turbo and the engine.",
+      "Check the oil level."
+     ],
+     "shop": [
+      "Boost leak (pressure) test",
+      "Code scan",
+      "Turbocharger inspection",
+      "Wastegate and boost control check"
+     ]
+    }
+   }
+  },
+  "r_gradual": {
+   "result": {
+    "title": "Overdue maintenance is the most likely cause of slow, gradual power loss",
+    "urgency": "check",
+    "now": "Check the engine air filter and when the spark plugs were last changed, then book a check when convenient.",
+    "if": [
+     "If a check engine light comes on, have the codes read.",
+     "If it suddenly gets worse, sputters, or struggles to keep up with traffic, get it checked within a few days."
+    ],
+    "why": "Power that slips away over months usually comes from wear rather than a sudden failure. A dirty air filter, worn plugs, dirty injectors or a clogged fuel filter each take a little off, and together they add up.",
+    "causes": [
+     {
+      "name": "Dirty engine air filter",
+      "clues": "Long time since the last change, or dusty driving.",
+      "against": ""
+     },
+     {
+      "name": "Worn spark plugs",
+      "clues": "Plugs overdue per the maintenance schedule, or slightly rough idle.",
+      "against": ""
+     },
+     {
+      "name": "Dirty throttle body or fuel injectors",
+      "clues": "Uneven idle and slightly worse fuel mileage.",
+      "against": ""
+     },
+     {
+      "name": "Restricted exhaust or fuel filter",
+      "clues": "Power fades more at higher speeds or uphill.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the engine air filter.",
+      "Compare your maintenance records with the schedule in the owner's manual."
+     ],
+     "shop": [
+      "Code scan with live data",
+      "Spark plug inspection",
+      "Fuel pressure test",
+      "Throttle body inspection"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Have the codes read and the car road-tested to find the cause",
+    "urgency": "check",
+    "now": "Have the codes read, even if no light is on, and book a check. Note when the power loss happens so you can tell the shop.",
+    "if": [
+     "If a warning light comes on, the engine shakes, or you smell burning, pull over and stop.",
+     "If the car can't keep up with traffic, don't drive it on highways until it's checked."
+    ],
+    "why": "Loss of power can come from the engine, the transmission, the exhaust or the brakes. A scan and a short road test with a technician usually narrow it down quickly.",
+    "causes": [
+     {
+      "name": "Fuel or ignition problem",
+      "clues": "Sputtering or hesitation.",
+      "against": ""
+     },
+     {
+      "name": "Transmission slipping",
+      "clues": "Revs rise without the car speeding up.",
+      "against": ""
+     },
+     {
+      "name": "Restricted exhaust or dragging brake",
+      "clues": "The car feels held back, especially at higher speeds.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Write down when it happens: cold or warm, uphill, at highway speed, or with a low tank."
+     ],
+     "shop": [
+      "Code scan",
+      "Road test",
+      "Fuel pressure test",
+      "Brake drag check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "reduced-engine-power-warning",
+  "hesitation-when-accelerating",
+  "engine-sputtering-misfire",
+  "transmission-slipping",
+  "check-engine-light-flashing"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "loss of power",
+   "power loss",
+   "reduced power",
+   "reduced engine power",
+   "limp mode",
+   "hesitat",
+   "slipping",
+   "catalytic converter",
+   "throttle body",
+   "fuel pump"
+  ]
+ },
+ "sources": [
+  "https://www.jdpower.com/cars/shopping-guides/why-does-my-car-stop-accelerating-when-driving",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

@@ -1,0 +1,480 @@
+{
+ "id": "battery-keeps-dying",
+ "title": "Battery keeps dying",
+ "h1": "Why does my car battery keep dying?",
+ "metaDesc": "Car battery keeps going dead? Answer a few quick questions to tell an old battery from an alternator or a hidden drain, and see what to check first.",
+ "group": "start",
+ "cat": "Starting Problems",
+ "synonyms": [
+  "battery keeps dying",
+  "car battery keeps dying",
+  "battery dead every morning",
+  "car dead after sitting",
+  "battery drains overnight",
+  "battery keeps going dead",
+  "battery won't hold a charge",
+  "battery wont hold charge",
+  "need a jump every day",
+  "parasitic drain",
+  "something draining my battery",
+  "new battery keeps dying",
+  "battery dies when car sits"
+ ],
+ "intro": "A battery that keeps going flat is either worn out, not getting recharged while you drive, or being drained while the car is parked. When it dies is the biggest clue. Answer the questions below to narrow it down before you buy a new battery you might not need.",
+ "safety": [
+  "If the battery is swollen, cracked, leaking or smells like rotten eggs, don't jump or charge it. Keep sparks and flames away.",
+  "If the battery light comes on and the lights or gauges start to dim while driving, find a safe place to pull over. The car may shut off soon."
+ ],
+ "start": "q_when",
+ "nodes": {
+  "q_when": {
+   "q": "When does the battery go dead?",
+   "help": "The battery warning light is usually red and shaped like a small battery.",
+   "opts": [
+    {
+     "a": "While driving or soon after, or the battery light came on while driving",
+     "go": "r_alternator"
+    },
+    {
+     "a": "After sitting overnight or for a day or two",
+     "go": "q_age"
+    },
+    {
+     "a": "Only after sitting for a week or more",
+     "go": "r_long_sit"
+    },
+    {
+     "a": "Mostly on cold mornings",
+     "go": "q_age"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_age"
+    }
+   ]
+  },
+  "q_age": {
+   "q": "How old is the battery?",
+   "help": "Look for a date sticker or stamped code on top or on the side of the battery. Most car batteries last about 3 to 5 years, less in hot climates.",
+   "opts": [
+    {
+     "a": "Older than about 4 years",
+     "go": "r_old_battery"
+    },
+    {
+     "a": "Newer than that",
+     "go": "q_drain_clues"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_test_first"
+    }
+   ]
+  },
+  "q_drain_clues": {
+   "q": "Do any of these fit?",
+   "opts": [
+    {
+     "a": "A light stays on after I lock the car (trunk, glove box, dome or under the hood)",
+     "go": "r_light_left_on"
+    },
+    {
+     "a": "Something was added recently: a dash cam, remote starter, stereo, alarm or tracker",
+     "go": "r_aftermarket"
+    },
+    {
+     "a": "I mostly drive short trips, under about 15 minutes",
+     "go": "r_short_trips"
+    },
+    {
+     "a": "There's crusty buildup on the battery terminals, or a cable is loose",
+     "go": "r_terminals"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_parasitic"
+    }
+   ]
+  },
+  "r_alternator": {
+   "result": {
+    "title": "The alternator probably isn't recharging the battery",
+    "urgency": "soon",
+    "now": "Get the charging system tested within the next day or two. Most auto parts stores can test it in the parking lot. Avoid long trips and night driving until then.",
+    "if": [
+     "If the battery light is on and the headlights, wipers or gauges start acting up, don't keep driving. The car is running on what's left in the battery and may shut off. Pull over somewhere safe and call for a tow.",
+     "If you smell burning or hear a loud squeal from the engine, the drive belt may have slipped or broken. Stop and have it towed."
+    ],
+    "why": "While the engine runs, the alternator powers the car and recharges the battery. If it stops charging, the car slowly drains the battery until it dies, often while you're driving. A new battery won't fix it and will go flat too.",
+    "causes": [
+     {
+      "name": "Failing alternator",
+      "clues": "The battery light flickers or stays on, the headlights dim at idle, or there's a whining noise.",
+      "against": ""
+     },
+     {
+      "name": "Worn or broken drive belt",
+      "clues": "Squealing, a burning rubber smell, or the steering suddenly feels heavy.",
+      "against": "If the belt is visibly in place and quiet, it's less likely."
+     },
+     {
+      "name": "Loose or corroded charging cable",
+      "clues": "The problem comes and goes, or buildup on the battery terminals.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Watch whether the battery light comes on while driving.",
+      "Look for the drive belt at the front of the engine with the engine off."
+     ],
+     "shop": [
+      "Alternator output test",
+      "Drive belt and tensioner inspection",
+      "Voltage-drop test on the charging cables",
+      "Battery load test"
+     ]
+    }
+   }
+  },
+  "r_long_sit": {
+   "result": {
+    "title": "Batteries slowly drain when a car sits for weeks",
+    "urgency": "diy",
+    "now": "Jump or charge the battery, then drive at least 30 minutes. If the car often sits for a week or more, use a battery maintainer (a small plug-in charger) while it's parked.",
+    "if": [
+     "If it dies after only a few days, something may be draining it. Have a parasitic draw test done.",
+     "If the battery is more than 4 years old, have it tested. An older battery can't sit as long."
+    ],
+    "why": "Modern cars use a small amount of power even when off, to keep memory, alarms and keyless entry ready. Over a few weeks, that can flatten a healthy battery, especially an older one or in cold weather.",
+    "causes": [
+     {
+      "name": "Normal standby drain",
+      "clues": "It only happens after long periods parked.",
+      "against": "If it dies after a night or two, the drain is too high to be normal."
+     },
+     {
+      "name": "Aging battery",
+      "clues": "The battery is more than 4 years old, or the car has been cranking slowly.",
+      "against": ""
+     },
+     {
+      "name": "Short trips not recharging it",
+      "clues": "The car is only driven a few minutes at a time when it is used.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the age of the battery.",
+      "Use a battery maintainer during long stretches parked."
+     ],
+     "shop": [
+      "Battery load test",
+      "Parasitic draw test"
+     ]
+    }
+   }
+  },
+  "r_old_battery": {
+   "result": {
+    "title": "The battery is likely worn out and can't hold a charge",
+    "urgency": "diy",
+    "now": "Have the battery and charging system tested. Most auto parts stores do this free. If the battery fails, replace it with one that matches your car's specs.",
+    "if": [
+     "If the battery tests good, ask for a charging test and a parasitic draw test so you're not left guessing.",
+     "If a new battery also goes flat within weeks, the problem is the charging system or a drain, not the battery."
+    ],
+    "why": "As batteries age, they lose the ability to store power. One that's several years old may start the car fine in warm weather, then die after a cold night or a day of sitting.",
+    "causes": [
+     {
+      "name": "Worn-out battery",
+      "clues": "It's more than 4 years old, it's worse on cold mornings, and the crank has been slow.",
+      "against": ""
+     },
+     {
+      "name": "Alternator not fully charging",
+      "clues": "The battery light flickers, or the lights dim at idle.",
+      "against": ""
+     },
+     {
+      "name": "Something draining it while parked",
+      "clues": "It goes flat after a single night.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the date on the battery.",
+      "Notice whether it cranks slowly before it dies completely."
+     ],
+     "shop": [
+      "Battery load or conductance test",
+      "Alternator output test"
+     ]
+    }
+   }
+  },
+  "r_test_first": {
+   "result": {
+    "title": "Start with a battery and charging test",
+    "urgency": "diy",
+    "now": "Have the battery and charging system tested. Most auto parts stores do this free, and it tells you whether the battery, the alternator or something else is to blame.",
+    "if": [
+     "If the battery fails the test, replace it.",
+     "If both test good but it keeps dying, ask a shop for a parasitic draw test."
+    ],
+    "why": "The three usual suspects are an old battery, an alternator that isn't charging and a drain while parked. A quick test rules the first two in or out, so you don't replace parts on a guess.",
+    "causes": [
+     {
+      "name": "Worn-out battery",
+      "clues": "It's more than 4 years old, or the car cranks slowly.",
+      "against": ""
+     },
+     {
+      "name": "Alternator not charging",
+      "clues": "The battery light has come on while driving.",
+      "against": ""
+     },
+     {
+      "name": "Something draining it while parked",
+      "clues": "It dies after a night or two of sitting.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for a date on the battery.",
+      "Note how long the car sat before it went dead."
+     ],
+     "shop": [
+      "Battery load test",
+      "Alternator output test",
+      "Parasitic draw test"
+     ]
+    }
+   }
+  },
+  "r_light_left_on": {
+   "result": {
+    "title": "A light that stays on is draining the battery",
+    "urgency": "diy",
+    "now": "Find the light that stays on and make sure its door, lid or switch is closing it off. Then charge the battery or drive for at least 30 minutes.",
+    "if": [
+     "If the light won't turn off even when the door or lid is closed, the switch is faulty. Pull its bulb or have the switch replaced.",
+     "If you can't find anything left on, have a shop do a parasitic draw test."
+    ],
+    "why": "A small bulb left on can flatten a battery overnight. Trunk, glove box and under-hood lights are easy to miss because you can't see them with everything closed.",
+    "causes": [
+     {
+      "name": "Trunk, glove box or hood light staying on",
+      "clues": "A faint glow at night, or the light stays on when you press its switch by hand.",
+      "against": ""
+     },
+     {
+      "name": "Door switch not reading closed",
+      "clues": "A door-open warning, or the dome light doesn't turn off.",
+      "against": ""
+     },
+     {
+      "name": "Interior light switch left on",
+      "clues": "Someone used the map or dome light recently.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the car in the dark for any glow from the trunk, glove box or cabin.",
+      "Press each light's switch by hand and see if the light goes out."
+     ],
+     "shop": [
+      "Parasitic draw test",
+      "Door, trunk and hood switch check"
+     ]
+    }
+   }
+  },
+  "r_aftermarket": {
+   "result": {
+    "title": "An added accessory may be draining the battery",
+    "urgency": "check",
+    "now": "Unplug or switch off the new accessory for a few nights. If the battery stops dying, have it rewired properly.",
+    "if": [
+     "If it still dies with the accessory unplugged, have a parasitic draw test done.",
+     "If you notice a hot wire or a burning smell near the accessory, disconnect it and have it checked before using the car."
+    ],
+    "why": "Dash cams with parking mode, remote starters, alarms and stereos are common causes of drain when they're wired to stay on all the time. The timing of the problem is a strong clue.",
+    "causes": [
+     {
+      "name": "Accessory wired to constant power",
+      "clues": "The problem started soon after it was installed.",
+      "against": ""
+     },
+     {
+      "name": "Faulty installation",
+      "clues": "Spliced wires, loose connections, or the accessory acts up.",
+      "against": ""
+     },
+     {
+      "name": "Unrelated drain or an aging battery",
+      "clues": "Unplugging the accessory changes nothing.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Unplug the accessory and see if the battery still dies.",
+      "Check its settings for a parking or standby mode."
+     ],
+     "shop": [
+      "Parasitic draw test",
+      "Wiring inspection of the accessory"
+     ]
+    }
+   }
+  },
+  "r_short_trips": {
+   "result": {
+    "title": "Short trips may not give the battery time to recharge",
+    "urgency": "diy",
+    "now": "Take a 30-minute drive at least once a week, or use a battery maintainer when the car is parked at home.",
+    "if": [
+     "If it still dies with longer drives, have the battery and alternator tested.",
+     "If the battery is more than 4 years old, test it now. Short trips are hard on older batteries."
+    ],
+    "why": "Starting the engine uses a big burst of power, and the alternator needs time to put it back. A string of short trips, especially with lights, heat and wipers on, can slowly leave the battery too low to start the car.",
+    "causes": [
+     {
+      "name": "Not enough driving to recharge",
+      "clues": "Mostly short trips, cold weather, and lots of electrical use.",
+      "against": ""
+     },
+     {
+      "name": "Aging battery",
+      "clues": "It's several years old.",
+      "against": ""
+     },
+     {
+      "name": "Weak alternator",
+      "clues": "The lights dim at idle.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Track whether longer drives stop the problem.",
+      "Check the age of the battery."
+     ],
+     "shop": [
+      "Battery load test",
+      "Alternator output test"
+     ]
+    }
+   }
+  },
+  "r_terminals": {
+   "result": {
+    "title": "A poor battery connection may be stopping it from charging",
+    "urgency": "diy",
+    "now": "With the engine off, clean the battery terminals with a battery terminal brush and a baking soda and water mix, then tighten the clamps so they don't move by hand.",
+    "if": [
+     "If the buildup keeps coming back quickly, have the battery checked for a leak.",
+     "If it still dies after cleaning, have the battery and alternator tested."
+    ],
+    "why": "Corrosion and loose clamps add resistance. The battery may not charge fully while driving and may not deliver full power when you start the car, so it looks like a dead battery.",
+    "causes": [
+     {
+      "name": "Corroded terminals",
+      "clues": "White, green or blue crusty buildup on the posts or clamps.",
+      "against": ""
+     },
+     {
+      "name": "Loose clamp",
+      "clues": "A clamp you can twist by hand.",
+      "against": ""
+     },
+     {
+      "name": "Damaged cable",
+      "clues": "Swelling or corrosion under the cable's insulation near the clamp.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Wear gloves and eye protection when cleaning terminals.",
+      "Check that each clamp is tight."
+     ],
+     "shop": [
+      "Voltage-drop test on the battery cables",
+      "Battery load test"
+     ]
+    }
+   }
+  },
+  "r_parasitic": {
+   "result": {
+    "title": "Something is likely draining the battery while the car is off",
+    "urgency": "check",
+    "now": "Have the battery tested first. If it's healthy, book a parasitic draw test so a shop can find what's staying on.",
+    "if": [
+     "If the battery fails the test, replace it, then watch whether the problem comes back.",
+     "If you smell burning or a wire feels hot, disconnect the battery and have it checked before using the car."
+    ],
+    "why": "When a fairly new battery dies after a night or two, something is usually staying powered after the car shuts down. A shop measures the drain with the car off and pulls fuses one at a time to find the circuit.",
+    "causes": [
+     {
+      "name": "A module or relay not shutting off",
+      "clues": "Odd behavior like a fan, radio or light running after the car is off.",
+      "against": ""
+     },
+     {
+      "name": "Hidden light staying on",
+      "clues": "Trunk, glove box or hood light.",
+      "against": ""
+     },
+     {
+      "name": "Weak battery or charging system",
+      "clues": "Slow cranking, or the battery light on while driving.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Listen for anything still running a few minutes after you lock the car.",
+      "Check for lights that stay on."
+     ],
+     "shop": [
+      "Parasitic draw test",
+      "Battery load test",
+      "Alternator output test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "car-cranks-slowly",
+  "battery-light-on",
+  "car-wont-start",
+  "headlights-dim-or-flickering"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Starting Problems"
+  ],
+  "words": [
+   "battery",
+   "alternator",
+   "drain",
+   "parasitic",
+   "charging",
+   "dead battery",
+   "terminal"
+  ]
+ },
+ "sources": [
+  "https://www.acg.aaa.com/connect/blogs/4c/auto/6-unexpected-reasons-your-car-battery-is-dead",
+  "https://southjersey.aaa.com/automotive/dont-fall-these-7-silent-battery-drains",
+  "https://knowhow.napaonline.com/parasitic-draw-why-does-my-battery-keep-dying/"
+ ]
+}

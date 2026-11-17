@@ -1,0 +1,431 @@
+{
+ "id": "black-smoke-from-exhaust",
+ "title": "Black smoke from exhaust",
+ "h1": "Why is black smoke coming from my exhaust?",
+ "metaDesc": "Black exhaust smoke means the engine is burning too much fuel. Answer a few quick questions to find the likely cause, how urgent it is, and what to tell your mechanic.",
+ "group": "leaksmell",
+ "cat": "Smoke",
+ "synonyms": [
+  "black smoke from exhaust",
+  "black smoke from tailpipe",
+  "car blowing black smoke",
+  "black smoke when accelerating",
+  "diesel black smoke",
+  "running rich",
+  "engine running rich",
+  "dark smoke from exhaust",
+  "sooty exhaust",
+  "black soot on tailpipe",
+  "black smoke and gas smell",
+  "black smoke and bad gas mileage"
+ ],
+ "intro": "Black smoke means the engine is getting more fuel than it can burn, often called running rich. On a gas engine that's never normal. On a diesel, a small puff under hard acceleration can be normal, but steady smoke isn't. These questions help narrow down why and how soon to act.",
+ "safety": [
+  "If the check engine light is flashing and the engine shakes, slow down and pull over. Unburned fuel can overheat the catalytic converter.",
+  "If you smell raw fuel strongly or see fuel dripping, turn off the engine, keep sparks and flames away, and don't drive it."
+ ],
+ "start": "q_signs",
+ "nodes": {
+  "q_signs": {
+   "q": "Which of these fits best?",
+   "help": "A flashing check engine light is different from one that stays on steady. Flashing means a misfire that's bad enough to damage parts.",
+   "opts": [
+    {
+     "a": "The check engine light is flashing, or the engine shakes or stumbles badly",
+     "go": "r_flashing"
+    },
+    {
+     "a": "I smell raw fuel strongly, or see fuel dripping",
+     "go": "r_fuel_leak"
+    },
+    {
+     "a": "It's a diesel, and there's just a puff when I accelerate hard",
+     "go": "r_diesel_puff"
+    },
+    {
+     "a": "Steady black smoke, often with worse fuel mileage",
+     "go": "q_details"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_details"
+    }
+   ]
+  },
+  "q_details": {
+   "q": "Which of these also applies?",
+   "opts": [
+    {
+     "a": "The check engine light is on and stays on (not flashing)",
+     "go": "r_sensor"
+    },
+    {
+     "a": "The engine runs rough, sputters or hesitates",
+     "go": "r_ignition_injectors"
+    },
+    {
+     "a": "It's a diesel, and it's down on power",
+     "go": "r_diesel_heavy"
+    },
+    {
+     "a": "The engine air filter hasn't been changed in a long time",
+     "go": "r_air_filter"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_rich_general"
+    }
+   ]
+  },
+  "r_flashing": {
+   "result": {
+    "title": "A serious misfire is sending unburned fuel into the exhaust",
+    "urgency": "stop",
+    "now": "Slow down, pull over when it's safe and turn off the engine. Don't drive it further. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If you smell something very hot or see a glow under the car, step away from the car. An overheated catalytic converter can start a fire on dry grass.",
+     "If the light stops flashing after a restart, the problem is still there. Have it checked before driving."
+    ],
+    "why": "A flashing check engine light means one or more cylinders isn't firing. The fuel sent to that cylinder goes straight into the exhaust, which makes black smoke and can overheat and ruin the catalytic converter.",
+    "causes": [
+     {
+      "name": "Failed ignition coil or spark plug",
+      "clues": "The shaking is steady, and it got worse in rain or under load.",
+      "against": ""
+     },
+     {
+      "name": "Fuel injector stuck open",
+      "clues": "A strong fuel smell, and hard starting when warm.",
+      "against": ""
+     },
+     {
+      "name": "Internal engine problem",
+      "clues": "Ticking or knocking along with the misfire.",
+      "against": "Less common than an ignition fault."
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Code scan for misfire codes",
+      "Ignition coil and spark plug test",
+      "Injector test",
+      "Compression test on the misfiring cylinder"
+     ]
+    }
+   }
+  },
+  "r_fuel_leak": {
+   "result": {
+    "title": "Fuel may be leaking, which is a fire risk",
+    "urgency": "stop",
+    "now": "Turn off the engine and step away from the car. Don't drive or restart it. Have it towed.",
+    "if": [
+     "If you see flames, get everyone away from the car and call 911.",
+     "If there's no visible leak but the fuel smell is strong, it still needs to be checked before you drive it."
+    ],
+    "why": "A strong raw fuel smell with black smoke can mean an injector or fuel line is leaking, either into the engine or onto hot parts. Fuel near a hot engine or exhaust can catch fire.",
+    "causes": [
+     {
+      "name": "Leaking fuel injector or fuel line",
+      "clues": "Wet spots on the engine or under the car, or a smell strongest near the engine.",
+      "against": ""
+     },
+     {
+      "name": "Fuel pressure regulator leaking",
+      "clues": "Fuel smell from the engine, black smoke, and poor mileage.",
+      "against": ""
+     },
+     {
+      "name": "Injector stuck open",
+      "clues": "Rough running and hard starts after the car sits.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From a safe distance, look for dripping fuel under the car."
+     ],
+     "shop": [
+      "Fuel system leak inspection",
+      "Fuel pressure and leak-down test",
+      "Injector test"
+     ]
+    }
+   }
+  },
+  "r_diesel_puff": {
+   "result": {
+    "title": "A brief puff on a diesel under hard throttle can be normal",
+    "urgency": "diy",
+    "now": "Check that the engine air filter is clean. If the puffs are small and the engine runs well, just keep an eye on it.",
+    "if": [
+     "If the smoke is heavy, lasts more than a moment, or comes with less power, have it checked.",
+     "If the engine has been modified or tuned, extra smoke may come from the tune itself. It can still wear parts faster."
+    ],
+    "why": "Diesels can briefly add more fuel than the air can match when you accelerate hard, which makes a short puff of dark smoke. Modern diesels with particulate filters usually show little or none, so heavy or lasting smoke deserves a look.",
+    "causes": [
+     {
+      "name": "Normal short burst under hard acceleration",
+      "clues": "Only a quick puff, with normal power and fuel economy.",
+      "against": "If it's heavy or lasting, look for a fault."
+     },
+     {
+      "name": "Dirty air filter",
+      "clues": "Long time since the last filter change, or dusty driving conditions.",
+      "against": ""
+     },
+     {
+      "name": "Boost or injector problem starting",
+      "clues": "Power is a little lower, or fuel economy has dropped.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the engine air filter.",
+      "Notice whether the puff is bigger than it used to be."
+     ],
+     "shop": [
+      "Code scan",
+      "Boost pressure check",
+      "Injector balance test"
+     ]
+    }
+   }
+  },
+  "r_sensor": {
+   "result": {
+    "title": "A sensor or fuel control problem is likely making it run rich",
+    "urgency": "soon",
+    "now": "Have the codes read within a few days. Many auto parts stores will scan them for free, which gives the shop a head start.",
+    "if": [
+     "If the light starts flashing or the engine shakes, pull over and turn off the engine.",
+     "If you smell raw fuel, stop driving it."
+    ],
+    "why": "The engine computer decides how much fuel to add based on its sensors. If one reports the wrong airflow, temperature or oxygen level, the computer can add too much fuel. That shows up as black smoke, a fuel smell and poor mileage, and can damage the catalytic converter over time.",
+    "causes": [
+     {
+      "name": "Faulty mass airflow (MAF) sensor",
+      "clues": "Hesitation, rough idle, or a dirty or recently disturbed air filter box.",
+      "against": ""
+     },
+     {
+      "name": "Faulty oxygen sensor",
+      "clues": "Poor mileage and a sulfur or fuel smell.",
+      "against": ""
+     },
+     {
+      "name": "Faulty coolant temperature sensor",
+      "clues": "Black smoke mostly when warm, or the temperature gauge acts oddly.",
+      "against": ""
+     },
+     {
+      "name": "High fuel pressure or leaking injector",
+      "clues": "Fuel smell and hard starts after the car sits.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Have the codes read and write them down.",
+      "Check the engine air filter."
+     ],
+     "shop": [
+      "Code scan with live sensor data",
+      "Fuel trim analysis",
+      "MAF and oxygen sensor tests",
+      "Fuel pressure test"
+     ]
+    }
+   }
+  },
+  "r_ignition_injectors": {
+   "result": {
+    "title": "Weak spark or leaky injectors are likely leaving fuel unburned",
+    "urgency": "soon",
+    "now": "Have it checked within a few days. Drive gently and avoid long trips until then.",
+    "if": [
+     "If the check engine light starts flashing, pull over and turn off the engine.",
+     "If you smell raw fuel, stop driving it and have it towed."
+    ],
+    "why": "When a cylinder doesn't burn its fuel completely, the leftover fuel comes out as black smoke. Worn spark plugs, weak coils or injectors that drip instead of spraying are common reasons. Left alone, it can damage the catalytic converter.",
+    "causes": [
+     {
+      "name": "Worn spark plugs or failing ignition coil",
+      "clues": "Rough idle, stumbling under load, and plugs that are overdue.",
+      "against": ""
+     },
+     {
+      "name": "Leaking or dirty fuel injectors",
+      "clues": "Fuel smell, hard starts after sitting, or a rough idle.",
+      "against": ""
+     },
+     {
+      "name": "Low compression in a cylinder",
+      "clues": "A steady misfire in one cylinder that doesn't clear with new plugs.",
+      "against": "Less common."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your maintenance records for when the spark plugs were last replaced.",
+      "Have the codes read."
+     ],
+     "shop": [
+      "Misfire code scan",
+      "Spark plug and coil inspection",
+      "Injector balance or leak test",
+      "Compression test"
+     ]
+    }
+   }
+  },
+  "r_diesel_heavy": {
+   "result": {
+    "title": "A diesel with heavy black smoke and low power likely has an air, boost or injector problem",
+    "urgency": "soon",
+    "now": "Check the engine air filter and have the engine checked within a few days. Avoid towing or heavy loads until then.",
+    "if": [
+     "If a warning light about the particulate filter or reduced power comes on, have it checked promptly.",
+     "If power drops suddenly with a loud whine, pull over and turn off the engine. The turbocharger may be failing."
+    ],
+    "why": "A diesel needs plenty of air to burn its fuel cleanly. If the turbo isn't building boost, the air filter is clogged, or an injector is spraying too much, there's extra fuel with nothing to burn it, which makes black smoke and cuts power.",
+    "causes": [
+     {
+      "name": "Clogged air filter or intake restriction",
+      "clues": "Overdue air filter, or dusty or off-road driving.",
+      "against": ""
+     },
+     {
+      "name": "Boost leak or turbocharger problem",
+      "clues": "Hissing or whistling, low power, especially going uphill.",
+      "against": ""
+     },
+     {
+      "name": "Worn or leaking fuel injectors",
+      "clues": "Rough idle, knocking, or smoke at idle.",
+      "against": ""
+     },
+     {
+      "name": "EGR valve stuck open",
+      "clues": "Smoke and low power, often with a check engine light.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the engine air filter.",
+      "Look for loose or oily intake hoses between the turbo and the engine."
+     ],
+     "shop": [
+      "Code scan",
+      "Boost leak test",
+      "Injector balance or return test",
+      "EGR valve check"
+     ]
+    }
+   }
+  },
+  "r_air_filter": {
+   "result": {
+    "title": "A clogged air filter may be choking the engine",
+    "urgency": "diy",
+    "now": "Check the engine air filter. If it's dark and clogged with dirt or debris, replace it.",
+    "if": [
+     "If a new filter doesn't clear up the smoke, have the codes read and the engine checked.",
+     "If the check engine light comes on or the engine runs rough, get it checked within a few days."
+    ],
+    "why": "An engine needs the right mix of air and fuel. A badly clogged air filter can restrict airflow, which is most noticeable on older engines and diesels. It's an easy, inexpensive thing to rule out first.",
+    "causes": [
+     {
+      "name": "Clogged engine air filter",
+      "clues": "Overdue filter, dusty roads, or debris like leaves or a nest in the air box.",
+      "against": "On most modern gas engines, a dirty filter alone rarely causes heavy black smoke."
+     },
+     {
+      "name": "Faulty sensor making it run rich",
+      "clues": "A check engine light, or poor mileage that doesn't improve with a new filter.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Open the air filter box and look at the filter against a light.",
+      "Check the air box and intake for leaves or debris."
+     ],
+     "shop": [
+      "Code scan",
+      "Fuel trim and MAF sensor check"
+     ]
+    }
+   }
+  },
+  "r_rich_general": {
+   "result": {
+    "title": "The engine is running rich. A shop can pinpoint why with a scan",
+    "urgency": "check",
+    "now": "Check the engine air filter, then book a check and ask for a code scan and fuel trim test.",
+    "if": [
+     "If the check engine light comes on or starts flashing, get it checked sooner.",
+     "If you notice a raw fuel smell, stop driving it."
+    ],
+    "why": "Black smoke always means too much fuel for the amount of air. Even without warning lights, it hurts fuel economy and can foul spark plugs and damage the catalytic converter over time.",
+    "causes": [
+     {
+      "name": "Faulty sensor (MAF, oxygen or coolant temperature)",
+      "clues": "Poor mileage and a fuel smell.",
+      "against": ""
+     },
+     {
+      "name": "Leaking or dirty injectors",
+      "clues": "Rough idle or hard starts after sitting.",
+      "against": ""
+     },
+     {
+      "name": "Restricted air intake",
+      "clues": "Dirty air filter or debris in the air box.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the engine air filter.",
+      "Track your fuel mileage over a couple of tanks."
+     ],
+     "shop": [
+      "Code scan with live data",
+      "Fuel trim analysis",
+      "Fuel pressure test",
+      "Injector test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "check-engine-light-flashing",
+  "poor-gas-mileage",
+  "gas-smell",
+  "engine-sputtering-misfire",
+  "blue-smoke-from-exhaust"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "black smoke",
+   "running rich",
+   "fuel injector",
+   "leaking injector",
+   "mass airflow",
+   "maf",
+   "oxygen sensor",
+   "misfire",
+   "particulate filter"
+  ]
+ },
+ "sources": [
+  "https://firestonecompleteautocare.com/blog/maintenance/what-is-my-exhaust-color-telling-me",
+  "https://www.slashgear.com/1550878/white-black-blue-car-exhaust-smoke-explained"
+ ]
+}

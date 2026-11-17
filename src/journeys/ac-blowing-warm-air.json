@@ -1,0 +1,526 @@
+{
+ "id": "ac-blowing-warm-air",
+ "title": "A/C blows warm air",
+ "h1": "Why is my car A/C blowing warm air?",
+ "metaDesc": "Car A/C blowing warm or hot air? See if it's low refrigerant, the compressor, a cooling fan or a blend door, how urgent it is, and what to tell your mechanic.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "ac blowing warm air",
+  "ac blowing hot air",
+  "car ac not cold",
+  "car air conditioner not working",
+  "ac not cooling",
+  "ac only cold when driving",
+  "ac cold then warm",
+  "ac blows hot at idle",
+  "ac compressor not turning on",
+  "air conditioning stopped working",
+  "car ac wont get cold",
+  "one side ac cold other side warm",
+  "ac needs recharge"
+ ],
+ "intro": "Your car's A/C cools by pumping refrigerant through a compressor and a radiator-like condenser at the front of the car. Warm air usually means low refrigerant, a compressor that isn't running, poor airflow over the condenser, or a door inside the dash stuck on heat. A few questions will narrow it down.",
+ "safety": [
+  "If the temperature gauge climbs toward the red, turn off the A/C, pull over safely and turn off the engine.",
+  "If you smell burning or hear grinding from the engine when the A/C is on, turn the A/C off and leave it off until it's checked.",
+  "Don't open or loosen any A/C fittings yourself. The system is under high pressure and refrigerant can cause frostbite and eye injuries."
+ ],
+ "start": "q_warning_signs",
+ "nodes": {
+  "q_warning_signs": {
+   "q": "Are you noticing any of these along with the warm air?",
+   "opts": [
+    {
+     "a": "The engine temperature gauge is climbing or in the red",
+     "go": "r_overheat"
+    },
+    {
+     "a": "A burning smell, squeal or grinding noise when the A/C is on",
+     "go": "r_compressor_noise"
+    },
+    {
+     "a": "None of these",
+     "go": "q_pattern"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_pattern"
+    }
+   ]
+  },
+  "q_pattern": {
+   "q": "Which best describes what the A/C is doing?",
+   "help": "First make sure the A/C button is on (its light is lit), the temperature is set to the coldest setting, and the fan is on.",
+   "opts": [
+    {
+     "a": "Air blows normally but never gets cold",
+     "go": "q_compressor"
+    },
+    {
+     "a": "Cold while driving, but warm when stopped or in traffic",
+     "go": "r_fan_condenser"
+    },
+    {
+     "a": "Starts cold, then turns warm after a while",
+     "go": "r_cold_then_warm"
+    },
+    {
+     "a": "Cold on one side of the car, warm on the other",
+     "go": "r_blend_door"
+    },
+    {
+     "a": "Very little air comes out, even on high",
+     "go": "r_airflow"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_compressor": {
+   "q": "With the engine running, turn the A/C on and off a few times while someone watches the front of the A/C compressor. What happens?",
+   "help": "The compressor is driven by the engine belt. On most cars, the center of its pulley (the clutch) clicks and starts spinning when the A/C turns on. Some newer cars have a compressor with no clutch, so you won't see this.",
+   "opts": [
+    {
+     "a": "It clicks on and the center spins, but the air is still warm",
+     "go": "r_engaged_no_cold"
+    },
+    {
+     "a": "No click, and the center of the pulley doesn't spin",
+     "go": "r_not_engaging"
+    },
+    {
+     "a": "It clicks on and off every few seconds",
+     "go": "r_low_refrigerant"
+    },
+    {
+     "a": "I can't see it / I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_overheat": {
+   "result": {
+    "title": "The engine is overheating. Cooling the engine comes before the A/C",
+    "urgency": "stop",
+    "now": "Turn off the A/C, pull over safely and switch off the engine. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If you see steam or coolant on the ground, don't open the radiator cap. Hot coolant can burn you.",
+     "If the gauge was only slightly above normal and dropped when you turned off the A/C, it's still a cooling problem. Don't use the car until it's checked."
+    ],
+    "why": "The A/C condenser and the engine radiator sit together and share the same cooling fans. When the fans or cooling system fail, the A/C turns warm and the engine overheats. Driving an overheating engine can cause serious engine damage.",
+    "causes": [
+     {
+      "name": "Cooling fan not working",
+      "clues": "It's worst at idle or in traffic, and you don't hear the fan running.",
+      "against": ""
+     },
+     {
+      "name": "Low coolant from a leak",
+      "clues": "A sweet smell, or green, orange or pink fluid under the car.",
+      "against": ""
+     },
+     {
+      "name": "Broken or slipping belt",
+      "clues": "A squeal, or the battery light came on too.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once the engine is fully cool, check the coolant level in the overflow tank."
+     ],
+     "shop": [
+      "Cooling fan and fan relay test",
+      "Cooling system pressure test",
+      "Belt inspection"
+     ]
+    }
+   }
+  },
+  "r_compressor_noise": {
+   "result": {
+    "title": "The A/C compressor or its clutch may be failing",
+    "urgency": "soon",
+    "now": "Turn the A/C off and leave it off. Have the system checked within a few days.",
+    "if": [
+     "If the noise or burning smell continues with the A/C off, or the battery light comes on, don't drive it. The belt may be about to fail. Have it towed.",
+     "If the noise stops completely with the A/C off, the compressor or its clutch is the likely source."
+    ],
+    "why": "A compressor that's seizing drags on the belt, which can make it squeal, smell hot, or even break. On many cars that same belt runs the alternator, power steering and water pump, so a seized compressor can become a bigger problem.",
+    "causes": [
+     {
+      "name": "Failing compressor",
+      "clues": "Grinding or rumbling that starts the moment the A/C turns on.",
+      "against": ""
+     },
+     {
+      "name": "Worn compressor clutch or bearing",
+      "clues": "Noise from the compressor pulley even with the A/C off.",
+      "against": ""
+     },
+     {
+      "name": "Worn or slipping belt",
+      "clues": "A squeal when the A/C kicks on, and a glazed or cracked belt.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the noise stops when you switch the A/C off."
+     ],
+     "shop": [
+      "Compressor and clutch inspection",
+      "Belt and tensioner inspection",
+      "A/C pressure test"
+     ]
+    }
+   }
+  },
+  "r_fan_condenser": {
+   "result": {
+    "title": "Not enough air is flowing over the condenser when you're stopped",
+    "urgency": "check",
+    "now": "Watch the engine temperature gauge and book an A/C and cooling fan check when convenient.",
+    "if": [
+     "If the temperature gauge rises in traffic too, the cooling fan likely isn't working. Get it checked within a day or two and avoid long idling.",
+     "If the condenser in front of the radiator is packed with leaves or bugs, gently rinsing it with a garden hose may help."
+    ],
+    "why": "At speed, air rushes through the condenser and removes heat from the refrigerant. When you stop, the electric cooling fan has to do that job. If the fan is weak or the condenser is blocked, the A/C warms up at idle and cools again once you're moving.",
+    "causes": [
+     {
+      "name": "Cooling fan not running or weak",
+      "clues": "You don't hear the fan running at idle with the A/C on.",
+      "against": ""
+     },
+     {
+      "name": "Blocked or damaged condenser",
+      "clues": "Debris, bent fins or damage on the grille area at the front of the car.",
+      "against": ""
+     },
+     {
+      "name": "Refrigerant level slightly off",
+      "clues": "The A/C has been getting weaker over time.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine idling and the A/C on, check whether the fan behind the grille is spinning.",
+      "Look through the grille for leaves or debris on the condenser."
+     ],
+     "shop": [
+      "Cooling fan and relay test",
+      "A/C pressure test at idle",
+      "Condenser inspection"
+     ]
+    }
+   }
+  },
+  "r_cold_then_warm": {
+   "result": {
+    "title": "Ice forming inside the system or a compressor shutting off are likely",
+    "urgency": "check",
+    "now": "Turn the A/C off with the fan on high for a few minutes when it goes warm. If it then cools again, mention that to the shop. Book a check when convenient.",
+    "if": [
+     "If you see water or ice dripping from under the dash, the evaporator drain may be blocked. Get it checked soon to avoid a wet carpet.",
+     "If the temperature gauge rises when it turns warm, get it checked within a day or two."
+    ],
+    "why": "When the A/C starts cold and then fades, the part inside the dash that chills the air (the evaporator) may be icing over and blocking airflow, or the compressor may be shutting off as it gets hot. Both are common and fixable.",
+    "causes": [
+     {
+      "name": "Evaporator icing up",
+      "clues": "Airflow from the vents gets weaker as the air gets warmer.",
+      "against": ""
+     },
+     {
+      "name": "Compressor clutch gap too wide or overheating",
+      "clues": "It works fine on short trips but fades on long, hot drives.",
+      "against": ""
+     },
+     {
+      "name": "Low or incorrect refrigerant charge",
+      "clues": "Cooling has been getting weaker over months.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note how long it takes to turn warm, and whether airflow drops too."
+     ],
+     "shop": [
+      "A/C pressure test",
+      "Compressor clutch inspection",
+      "Evaporator temperature sensor check"
+     ]
+    }
+   }
+  },
+  "r_blend_door": {
+   "result": {
+    "title": "A blend door inside the dash is probably stuck",
+    "urgency": "check",
+    "now": "Try changing the temperature from full hot to full cold on each side and listen for clicking behind the dash. Book a check when convenient.",
+    "if": [
+     "If the temperature resets itself or the climate controls act strangely, the control module may need to be checked.",
+     "If both sides are slightly cool but neither is cold, low refrigerant is more likely."
+    ],
+    "why": "Cars with separate driver and passenger temperatures use small doors in the dash to mix hot and cold air. If one door's motor fails, that side stays stuck on warm while the other side cools normally.",
+    "causes": [
+     {
+      "name": "Failed blend door motor (actuator)",
+      "clues": "Repeated clicking or tapping behind the dash.",
+      "against": ""
+     },
+     {
+      "name": "Climate control needs recalibrating",
+      "clues": "It started after a battery was disconnected or replaced.",
+      "against": ""
+     },
+     {
+      "name": "Low refrigerant",
+      "clues": "On some cars, low refrigerant makes one side warm first.",
+      "against": "If one side is very cold, refrigerant is probably fine."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Listen for clicking behind the dash when you change the temperature.",
+      "Check your owner's manual for a climate control reset procedure."
+     ],
+     "shop": [
+      "Blend door actuator test",
+      "Climate control scan",
+      "A/C pressure test"
+     ]
+    }
+   }
+  },
+  "r_airflow": {
+   "result": {
+    "title": "A clogged cabin air filter or a blower problem is likely",
+    "urgency": "diy",
+    "now": "Check the cabin air filter, usually behind the glove box, and replace it if it's dirty.",
+    "if": [
+     "If the fan only works on high, the blower resistor or control module has likely failed. Book a repair.",
+     "If no air comes out at all on any speed, check the fuse for the blower, then book a check."
+    ],
+    "why": "The A/C may be cooling fine, but if little air comes out, the car still feels warm. A dirty cabin filter is the most common cause and is easy to change on most cars.",
+    "causes": [
+     {
+      "name": "Clogged cabin air filter",
+      "clues": "Airflow has slowly gotten weaker, or there's a musty smell.",
+      "against": ""
+     },
+     {
+      "name": "Failing blower motor or resistor",
+      "clues": "Some fan speeds don't work, or the fan makes noise.",
+      "against": ""
+     },
+     {
+      "name": "Iced evaporator",
+      "clues": "Airflow gets weaker after the A/C has been on a while.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Inspect the cabin air filter.",
+      "Try every fan speed."
+     ],
+     "shop": [
+      "Blower motor and resistor test",
+      "Blower fuse and relay check",
+      "Evaporator inspection"
+     ]
+    }
+   }
+  },
+  "r_engaged_no_cold": {
+   "result": {
+    "title": "The compressor runs, but the system isn't cooling. Likely low refrigerant or a stuck blend door",
+    "urgency": "check",
+    "now": "Set the temperature to full cold and recirculate, then book an A/C check that includes a pressure test and leak check.",
+    "if": [
+     "If the air is actually hot, like the heater, a blend door stuck on heat is more likely than a refrigerant problem.",
+     "If you hear grinding when it runs, turn off the A/C and get it checked within a few days."
+    ],
+    "why": "A running compressor means the electrical side is working. Warm air then usually means there isn't enough refrigerant to carry heat away, or something inside the dash is mixing in hot air.",
+    "causes": [
+     {
+      "name": "Low refrigerant from a slow leak",
+      "clues": "The A/C has been getting weaker for weeks or months.",
+      "against": ""
+     },
+     {
+      "name": "Blend door stuck on heat",
+      "clues": "The air feels hot, not just cool-ish, and the temperature knob changes nothing.",
+      "against": ""
+     },
+     {
+      "name": "Worn compressor or failed expansion valve",
+      "clues": "Refrigerant level checks out but it still doesn't cool.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Turn the temperature from cold to hot and feel whether the air changes."
+     ],
+     "shop": [
+      "A/C pressure test",
+      "Leak detection with dye or an electronic detector",
+      "Blend door check"
+     ]
+    }
+   }
+  },
+  "r_not_engaging": {
+   "result": {
+    "title": "The compressor isn't turning on. Low refrigerant, a fuse or the clutch are likely",
+    "urgency": "check",
+    "now": "Check the A/C fuse and relay in the fuse box (your owner's manual shows which), then book an A/C check.",
+    "if": [
+     "If the fuse is blown, replace it once with the same rating. If it blows again, stop and have the wiring checked.",
+     "If the engine temperature gauge is also high, the car may be switching the A/C off to protect the engine. Treat that as an overheating problem."
+    ],
+    "why": "The A/C has a safety switch that won't let the compressor run if refrigerant pressure is too low. A blown fuse, failed relay or worn compressor clutch can also stop it. Without the compressor running, there's no cooling at all.",
+    "causes": [
+     {
+      "name": "Refrigerant too low for the compressor to run",
+      "clues": "The A/C got weaker over time before it stopped completely.",
+      "against": ""
+     },
+     {
+      "name": "Blown A/C fuse or failed relay",
+      "clues": "It stopped suddenly with no warning.",
+      "against": ""
+     },
+     {
+      "name": "Worn compressor clutch or pressure switch",
+      "clues": "Tapping the compressor or cycling the A/C sometimes makes it work.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the A/C fuse and relay in the fuse box."
+     ],
+     "shop": [
+      "A/C pressure test",
+      "Compressor clutch power and gap check",
+      "Pressure switch test",
+      "Leak check"
+     ]
+    }
+   }
+  },
+  "r_low_refrigerant": {
+   "result": {
+    "title": "Low refrigerant from a leak is the most likely cause",
+    "urgency": "check",
+    "now": "Book an A/C check that includes finding the leak, not just a refill.",
+    "if": [
+     "If you add refrigerant from a can yourself, it may cool for a while, but overfilling can make cooling worse and damage the compressor. Fixing the leak is the real repair.",
+     "If you hear grinding when the compressor runs, turn the A/C off and get it checked within a few days."
+    ],
+    "why": "When the compressor clicks on and off every few seconds, the system is usually sensing pressure that's too low. Refrigerant doesn't get used up, so if it's low, it has leaked out somewhere.",
+    "causes": [
+     {
+      "name": "Slow leak at a hose, seal or fitting",
+      "clues": "Cooling has faded over weeks or months, or oily residue on A/C lines.",
+      "against": ""
+     },
+     {
+      "name": "Leaking condenser",
+      "clues": "Damage from road debris on the front of the car.",
+      "against": ""
+     },
+     {
+      "name": "Faulty pressure switch",
+      "clues": "Pressures test normal but the compressor still cycles quickly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for oily residue on the A/C lines and at the front of the condenser."
+     ],
+     "shop": [
+      "A/C pressure test",
+      "Leak detection with dye or an electronic detector",
+      "Evacuate and recharge to the correct amount after repair"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "An A/C check will find the cause quickly",
+    "urgency": "check",
+    "now": "Make sure the A/C button is on and the temperature is set to full cold, then book an A/C check when convenient.",
+    "if": [
+     "If the temperature gauge rises, turn off the A/C and get the cooling system checked within a day or two.",
+     "If you hear grinding or smell burning with the A/C on, turn it off and get it checked within a few days."
+    ],
+    "why": "Warm air from the A/C is rarely a safety problem on its own. Most cases come down to low refrigerant, a compressor that isn't running, a fan problem or a stuck door in the dash, and a technician can test for all of them.",
+    "causes": [
+     {
+      "name": "Low refrigerant",
+      "clues": "Cooling faded over time.",
+      "against": ""
+     },
+     {
+      "name": "Compressor not running",
+      "clues": "It stopped suddenly.",
+      "against": ""
+     },
+     {
+      "name": "Cooling fan or blend door problem",
+      "clues": "It's warm only at idle, or only on one side.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether it's warm all the time or only at idle.",
+      "Check the cabin air filter."
+     ],
+     "shop": [
+      "A/C pressure test",
+      "Compressor and fan check",
+      "Leak check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "engine-overheating",
+  "overheats-only-in-traffic",
+  "water-dripping-under-car",
+  "musty-smell-from-vents",
+  "windows-fogging-up"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "a/c",
+   "air conditioning",
+   "compressor",
+   "refrigerant",
+   "condenser",
+   "blend door",
+   "evaporator",
+   "cooling fan"
+  ]
+ },
+ "sources": [
+  "https://www.acg.aaa.com/connect/blogs/4c/auto/how-to-know-your-cars-ac-needs-repair",
+  "https://www.kbb.com/car-advice/why-air-conditioning-blows-hot-air/"
+ ]
+}

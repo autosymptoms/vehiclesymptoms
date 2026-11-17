@@ -1,0 +1,505 @@
+{
+ "id": "squeal-on-startup",
+ "title": "Engine squeals on startup",
+ "h1": "Why does my car squeal when I start it or turn the wheel?",
+ "metaDesc": "Engine squealing on startup or when turning the wheel? Find out if it's a slipping belt, tensioner, pulley or power steering, how urgent it is, and what to do.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "squealing on startup",
+  "car squeals when started",
+  "squeal when I start my car",
+  "belt squeal",
+  "serpentine belt squealing",
+  "squeal when turning the steering wheel",
+  "squealing when turning",
+  "squeal when AC turns on",
+  "chirping noise from engine",
+  "squeaking engine in the morning",
+  "belt squeaking when cold",
+  "high pitched squeal from engine",
+  "fan belt squeal",
+  "car squeels when I turn the wheel"
+ ],
+ "intro": "A squeal from under the hood at startup, or when you turn the wheel or switch on the A/C, is usually a drive belt slipping on its pulleys. Often it's a simple fix, but the same belt can run the charging system, power steering and water pump. Answer the questions below to see how urgent it is.",
+ "safety": [
+  "If the temperature gauge climbs toward red or you see steam, pull over and turn the engine off.",
+  "If the steering suddenly gets very heavy while driving, slow down and pull over safely.",
+  "Never reach near the belt or pulleys while the engine is running."
+ ],
+ "start": "q_other_signs",
+ "nodes": {
+  "q_other_signs": {
+   "q": "Along with the squeal, is any of this happening?",
+   "help": "The drive belt (often called the serpentine belt) is the long ribbed rubber belt on the front or side of the engine. On many cars it turns the alternator, power steering pump and water pump.",
+   "opts": [
+    {
+     "a": "The temperature gauge is climbing, or the steering suddenly got heavy",
+     "go": "r_belt_broken"
+    },
+    {
+     "a": "The battery warning light is on, or the lights are dimming",
+     "go": "r_belt_charging"
+    },
+    {
+     "a": "A slapping or flapping sound, or the belt looks frayed or has pieces missing",
+     "go": "r_belt_damaged"
+    },
+    {
+     "a": "No, it's just the squeal",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When does the squeal happen?",
+   "opts": [
+    {
+     "a": "For a few seconds on a cold start, then it goes quiet",
+     "go": "r_cold_squeal"
+    },
+    {
+     "a": "When I turn the steering wheel, especially at full lock or while parking",
+     "go": "r_power_steering"
+    },
+    {
+     "a": "When the A/C or defroster turns on",
+     "go": "r_ac_load"
+    },
+    {
+     "a": "When I rev the engine or accelerate hard",
+     "go": "r_belt_slip"
+    },
+    {
+     "a": "All the time: a steady squeal, chirp or squeak while the engine runs",
+     "go": "r_pulley_bearing"
+    },
+    {
+     "a": "Only in wet weather or after driving through puddles",
+     "go": "r_wet_belt"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general_belt"
+    }
+   ]
+  },
+  "r_belt_broken": {
+   "result": {
+    "title": "The drive belt may have broken or come off",
+    "urgency": "stop",
+    "now": "Pull over safely and turn the engine off. Have the car towed, or have a mobile mechanic come to you.",
+    "if": [
+     "If you see steam or the gauge is in the red, don't open the radiator cap. Hot coolant can burn you.",
+     "If the belt is still in place but the engine overheated, tell the shop. The water pump or cooling system may also need checking."
+    ],
+    "why": "On many engines the same belt drives the water pump and power steering. If it slips badly or comes off, the engine can overheat within minutes and steering gets very heavy. Driving on can cause serious engine damage.",
+    "causes": [
+     {
+      "name": "Broken or thrown drive belt",
+      "clues": "The squeal stopped suddenly, then the gauge rose or steering got heavy.",
+      "against": ""
+     },
+     {
+      "name": "Failed tensioner or pulley",
+      "clues": "A rattle or grinding came before the belt failed.",
+      "against": ""
+     },
+     {
+      "name": "Seized water pump or accessory",
+      "clues": "A loud squeal that never let up before the belt failed.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off and cooled down, look at whether the belt is still on its pulleys."
+     ],
+     "shop": [
+      "Belt, tensioner and pulley inspection",
+      "Accessory bearing check (water pump, alternator, power steering pump)",
+      "Cooling system pressure test if it overheated"
+     ]
+    }
+   }
+  },
+  "r_belt_charging": {
+   "result": {
+    "title": "The belt is likely slipping on the alternator, so the battery isn't charging",
+    "urgency": "soon",
+    "now": "Get it checked within a day. Turn off accessories like the heated seats and radio, and make only short, necessary trips.",
+    "if": [
+     "If the temperature gauge rises or the steering gets heavy, pull over and stop. The belt may have come off.",
+     "If the lights keep dimming or the dash flickers, the car could die on the road. Don't drive it; have it towed."
+    ],
+    "why": "The alternator recharges the battery, and it's turned by the drive belt. A squeal plus the battery light means the belt is slipping or the alternator is struggling. The car is running on battery power, which won't last long.",
+    "causes": [
+     {
+      "name": "Worn or loose drive belt",
+      "clues": "A squeal that's been getting worse, and a shiny or cracked belt.",
+      "against": ""
+     },
+     {
+      "name": "Weak belt tensioner",
+      "clues": "The tensioner arm bounces or shakes while the engine idles.",
+      "against": ""
+     },
+     {
+      "name": "Failing alternator",
+      "clues": "A whining or grinding from the alternator, or the battery light comes and goes.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look for cracks, shiny glazing or fraying on the belt.",
+      "Have the battery and alternator tested. Many parts stores do this free."
+     ],
+     "shop": [
+      "Charging system output test",
+      "Belt and tensioner inspection",
+      "Alternator bearing check"
+     ]
+    }
+   }
+  },
+  "r_belt_damaged": {
+   "result": {
+    "title": "The belt is coming apart or a pulley is failing",
+    "urgency": "stop",
+    "now": "Turn the engine off. Have the car towed, or have a mobile mechanic replace the belt where it's parked.",
+    "if": [
+     "If a piece of belt is missing, ask the shop to check that it didn't get caught behind a pulley or cover."
+    ],
+    "why": "A frayed or slapping belt can come off at any moment, taking out charging, power steering and often cooling at once. A loose strand can also wrap around other parts and damage them.",
+    "causes": [
+     {
+      "name": "Worn-out belt",
+      "clues": "Cracks across the ribs, missing chunks or loose threads.",
+      "against": ""
+     },
+     {
+      "name": "Misaligned or wobbling pulley",
+      "clues": "The belt edge is chewed up on one side.",
+      "against": ""
+     },
+     {
+      "name": "Failing tensioner",
+      "clues": "The tensioner arm jumps around, letting the belt flap.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look at the belt from above for missing pieces or fraying."
+     ],
+     "shop": [
+      "Belt replacement",
+      "Pulley alignment check",
+      "Tensioner and idler pulley inspection"
+     ]
+    }
+   }
+  },
+  "r_cold_squeal": {
+   "result": {
+    "title": "The belt is likely worn or a bit loose, and slips until it warms up",
+    "urgency": "check",
+    "now": "Book a belt and tensioner check when convenient. Mention that it only happens on cold starts.",
+    "if": [
+     "If the squeal lasts longer, gets louder, or the battery light flickers, get it checked soon.",
+     "If you see cracks or missing pieces on the belt, have it replaced before your next long trip."
+    ],
+    "why": "A cold, stiff belt grips less, and the alternator works hardest right after startup to recharge the battery. If the belt is worn or the tensioner is weak, it slips for a few seconds and squeals. It usually gets worse over time.",
+    "causes": [
+     {
+      "name": "Worn or glazed drive belt",
+      "clues": "The belt is several years old, looks shiny on the ribs, or has cracks.",
+      "against": ""
+     },
+     {
+      "name": "Weak automatic tensioner",
+      "clues": "A new belt still squeals, or the tensioner arm wobbles.",
+      "against": ""
+     },
+     {
+      "name": "Battery that needs a lot of recharging",
+      "clues": "The car cranks slowly in the morning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look at the belt for cracks, shine or fraying.",
+      "Notice whether the squeal is worse on colder or damp mornings."
+     ],
+     "shop": [
+      "Belt wear check",
+      "Tensioner and pulley inspection",
+      "Water spray test to tell slipping from pulley misalignment"
+     ]
+    }
+   }
+  },
+  "r_power_steering": {
+   "result": {
+    "title": "The power steering is likely loading up a slipping belt, or the fluid is low",
+    "urgency": "check",
+    "now": "With the engine off, check the power steering fluid level if your car has a reservoir, and book a check when convenient.",
+    "if": [
+     "If the fluid is low, top it up with the type in your owner's manual and look for a leak. Have the leak checked soon.",
+     "If the steering gets heavy or the squeal turns into a constant whine or groan, get it checked soon.",
+     "If your car has electric power steering (no fluid reservoir), the noise likely isn't the steering pump. Have the belt and suspension checked."
+    ],
+    "why": "A hydraulic power steering pump is usually turned by the drive belt. Turning the wheel, especially all the way to one side, makes the pump work hardest. A worn belt or low fluid makes it squeal at that moment.",
+    "causes": [
+     {
+      "name": "Worn or loose drive belt",
+      "clues": "The squeal happens mostly at full lock, and the belt is old.",
+      "against": ""
+     },
+     {
+      "name": "Low power steering fluid",
+      "clues": "The reservoir is below the mark, or there's reddish or amber fluid under the front of the car.",
+      "against": ""
+     },
+     {
+      "name": "Failing power steering pump",
+      "clues": "A whine or groan along with the squeal, even with full fluid.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the power steering fluid level with the engine off.",
+      "Avoid holding the wheel all the way to one side for more than a few seconds."
+     ],
+     "shop": [
+      "Belt and tensioner inspection",
+      "Power steering fluid and leak check",
+      "Power steering pump pressure test"
+     ]
+    }
+   }
+  },
+  "r_ac_load": {
+   "result": {
+    "title": "The belt likely slips when the A/C compressor kicks on",
+    "urgency": "check",
+    "now": "Book a belt and A/C check when convenient. Mention that the squeal starts when the A/C or defroster turns on.",
+    "if": [
+     "If the squeal becomes a grinding or rattling noise with the A/C on, stop using the A/C and get it checked soon.",
+     "If you smell burning rubber with the A/C on, turn the A/C off and get it checked soon."
+    ],
+    "why": "When the A/C compressor engages, it adds a sudden load to the belt. A worn belt or weak tensioner can slip for a moment and squeal. The defroster often runs the A/C too, which is why it can happen in winter.",
+    "causes": [
+     {
+      "name": "Worn belt or weak tensioner",
+      "clues": "A short squeal right as the A/C clicks on.",
+      "against": ""
+     },
+     {
+      "name": "A/C compressor clutch or bearing problem",
+      "clues": "A grinding or constant noise from the compressor with the A/C on.",
+      "against": ""
+     },
+     {
+      "name": "A/C compressor starting to seize",
+      "clues": "The squeal is long and loud every time, and the A/C isn't cooling well.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Turn the A/C on and off while parked and listen for the squeal to start and stop.",
+      "With the engine off, look at the belt for wear."
+     ],
+     "shop": [
+      "Belt and tensioner inspection",
+      "A/C compressor clutch and bearing check",
+      "A/C pressure check"
+     ]
+    }
+   }
+  },
+  "r_belt_slip": {
+   "result": {
+    "title": "The belt is likely slipping under load",
+    "urgency": "check",
+    "now": "Book a belt and tensioner check within the next couple of weeks.",
+    "if": [
+     "If the battery light comes on or the temperature gauge rises, get it checked right away.",
+     "If you see cracks or missing pieces, replace the belt before any long trip."
+    ],
+    "why": "Revving the engine makes the belt speed up quickly, and accessories resist that change. A belt that's worn, stretched or not held tight enough slips briefly and squeals.",
+    "causes": [
+     {
+      "name": "Worn or stretched belt",
+      "clues": "The belt is old, shiny or cracked.",
+      "against": ""
+     },
+     {
+      "name": "Weak tensioner",
+      "clues": "The tensioner arm jumps when you rev the engine.",
+      "against": ""
+     },
+     {
+      "name": "Oil or coolant on the belt",
+      "clues": "Wet spots or residue near the belt, or a leak at the front of the engine.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look for cracks, shine or oily residue on the belt."
+     ],
+     "shop": [
+      "Belt inspection",
+      "Tensioner test",
+      "Leak check near the belt"
+     ]
+    }
+   }
+  },
+  "r_pulley_bearing": {
+   "result": {
+    "title": "A pulley, tensioner or accessory bearing may be wearing out",
+    "urgency": "soon",
+    "now": "Get it checked within a few days. Keep trips short until then.",
+    "if": [
+     "If the noise turns into a grinding or rattling, or the battery light or temperature gauge changes, stop driving and have it towed.",
+     "If the noise is a regular chirp rather than a squeal, a misaligned pulley is likely. Still get it checked soon."
+    ],
+    "why": "A squeal or chirp that never stops usually isn't just a cold belt. A pulley or bearing that's starting to drag, or a pulley that's out of line, makes the belt squeal constantly. If that bearing seizes, the belt can come off.",
+    "causes": [
+     {
+      "name": "Worn idler or tensioner pulley bearing",
+      "clues": "A squeal or growl that's steady at idle.",
+      "against": ""
+     },
+     {
+      "name": "Misaligned pulley",
+      "clues": "A regular chirp, and one edge of the belt is worn.",
+      "against": ""
+     },
+     {
+      "name": "Failing accessory bearing (alternator, water pump, A/C)",
+      "clues": "The noise is loudest near one part of the engine.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look for uneven wear on one edge of the belt.",
+      "Look under the car for coolant drips near the front of the engine."
+     ],
+     "shop": [
+      "Engine-running stethoscope check of each pulley",
+      "Pulley alignment check",
+      "Tensioner and idler bearing inspection"
+     ]
+    }
+   }
+  },
+  "r_wet_belt": {
+   "result": {
+    "title": "Water on the belt is making it slip for a moment",
+    "urgency": "diy",
+    "now": "Nothing to fix if it clears up within a few minutes once the belt dries. Keep an ear on it.",
+    "if": [
+     "If it squeals for more than a few minutes, or also on dry days, book a belt check.",
+     "If the battery light comes on, get it checked soon."
+    ],
+    "why": "Water reduces the grip between the belt and pulleys, so it can slip and squeal briefly after rain or puddles. A belt in good shape usually goes quiet once it dries. A worn belt gets noisier in wet weather first.",
+    "causes": [
+     {
+      "name": "Water splashed on the belt",
+      "clues": "Only after puddles or heavy rain, and it stops once dry.",
+      "against": ""
+     },
+     {
+      "name": "Worn belt that slips easily",
+      "clues": "The belt is old, and the squeal is getting longer each time.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice how long the squeal lasts.",
+      "With the engine off, check the belt for cracks or shine."
+     ],
+     "shop": [
+      "Belt and tensioner inspection if it continues"
+     ]
+    }
+   }
+  },
+  "r_general_belt": {
+   "result": {
+    "title": "Most likely a drive belt that needs a check",
+    "urgency": "check",
+    "now": "Book a belt and tensioner check when convenient. Note when the squeal happens so you can tell the shop.",
+    "if": [
+     "If the battery light comes on, the temperature gauge climbs, or the steering gets heavy, stop driving and have it checked right away."
+    ],
+    "why": "Most squeals from under the hood come from the drive belt slipping or a pulley wearing out. A quick inspection usually finds it.",
+    "causes": [
+     {
+      "name": "Worn or loose drive belt",
+      "clues": "The belt is old or looks shiny or cracked.",
+      "against": ""
+     },
+     {
+      "name": "Weak tensioner or worn pulley",
+      "clues": "The squeal is steady, or a new belt didn't fix it.",
+      "against": ""
+     },
+     {
+      "name": "Power steering or A/C load",
+      "clues": "It happens when turning or with the A/C on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound when it happens. It helps the shop."
+     ],
+     "shop": [
+      "Belt, tensioner and pulley inspection",
+      "Charging system check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "battery-light-on",
+  "engine-overheating",
+  "whining-when-turning-steering",
+  "power-steering-fluid-leak",
+  "burning-rubber-smell"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises"
+  ],
+  "words": [
+   "belt",
+   "serpentine",
+   "tensioner",
+   "pulley",
+   "squeal",
+   "alternator",
+   "power steering pump",
+   "idler"
+  ]
+ },
+ "sources": [
+  "https://www.gatestechzone.com/en/problem-diagnosis/accessory-drive-system/micro-v-belt-wear-symptoms",
+  "https://na.daycoaftermarket.com/wp-content/uploads/WBTEST-TB-0619-The-Water-Bottle-Test-Tech-Bulletin.pdf"
+ ]
+}

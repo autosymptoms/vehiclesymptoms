@@ -1,0 +1,528 @@
+{
+ "id": "transmission-fluid-leak",
+ "title": "Transmission fluid leak",
+ "h1": "Why is my car leaking red or pink fluid?",
+ "metaDesc": "Red or pink fluid under your car? Find out if it's the transmission pan, a cooler line or a seal, whether it's safe to drive, and what to tell your mechanic.",
+ "group": "leaksmell",
+ "cat": "Leaks",
+ "synonyms": [
+  "transmission fluid leak",
+  "transmission leaking",
+  "red fluid under car",
+  "pink fluid under car",
+  "red fluid leaking from car",
+  "atf leak",
+  "transmission fluid leaking when parked",
+  "transmission pan leak",
+  "transmission cooler line leak",
+  "leaking transmission fluid and slipping",
+  "red oil under car",
+  "transmision fluid leak",
+  "car leaking red fluid in the middle"
+ ],
+ "intro": "Most automatic transmission fluid is red or pink when new and turns brown as it ages. It feels oily, not watery. How the transmission is behaving tells you more about urgency than the size of the spot, so we'll start there.",
+ "safety": [
+  "If the engine revs but the car doesn't speed up, get to a safe spot and stop driving.",
+  "If a transmission temperature or warning light comes on, pull over when safe and turn the engine off.",
+  "If you see smoke from under the car, pull over, turn the engine off and move away from the car."
+ ],
+ "start": "q_behavior",
+ "nodes": {
+  "q_behavior": {
+   "q": "How is the transmission behaving?",
+   "help": "\"Slipping\" means the engine revs climb but the car doesn't speed up to match, as if it briefly slipped out of gear.",
+   "opts": [
+    {
+     "a": "It slips, or it's slow or refuses to go into Drive or Reverse",
+     "go": "r_slipping"
+    },
+    {
+     "a": "A transmission warning or temperature light is on, or there's a burning smell",
+     "go": "r_overheat"
+    },
+    {
+     "a": "It shifts harder or later than it used to",
+     "go": "r_harsh"
+    },
+    {
+     "a": "It drives normally",
+     "go": "q_amount"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_amount"
+    }
+   ]
+  },
+  "q_amount": {
+   "q": "How much fluid is there after the car sits overnight?",
+   "help": "Slide a piece of white cardboard under the car before you park for the night. It shows both the size and the color.",
+   "opts": [
+    {
+     "a": "A few drops, or a spot about the size of a coin",
+     "go": "q_where"
+    },
+    {
+     "a": "A spot about the size of your hand",
+     "go": "r_active"
+    },
+    {
+     "a": "A puddle bigger than a dinner plate, or it's dripping steadily",
+     "go": "r_major"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_where"
+    }
+   ]
+  },
+  "q_where": {
+   "q": "Where is the drip coming from?",
+   "help": "With the engine off, look from the side and front with a flashlight. The transmission sits behind the engine, usually under the middle or front of the car.",
+   "opts": [
+    {
+     "a": "Under the middle of the car, from the flat metal pan at the bottom of the transmission",
+     "go": "r_pan"
+    },
+    {
+     "a": "Toward the front, near the radiator or along metal lines running forward",
+     "go": "r_cooler_lines"
+    },
+    {
+     "a": "Right where the engine and transmission bolt together",
+     "go": "r_front_seal"
+    },
+    {
+     "a": "Where a drive axle or the driveshaft comes out of the transmission",
+     "go": "r_axle_seal"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_slipping": {
+   "result": {
+    "title": "The fluid is likely low, and the transmission is already slipping",
+    "urgency": "stop",
+    "now": "Stop driving it. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If a technician finds the fluid very low, topping it up may bring back normal shifting, but the leak still has to be fixed before the car is used.",
+     "If it starts slipping on the road, get to a safe spot and stop rather than trying to make it home."
+    ],
+    "why": "An automatic transmission uses fluid pressure to engage its internal clutches. When the level gets too low, they slip, overheat and wear fast. Driving on a slipping transmission can turn a leak repair into a transmission replacement.",
+    "causes": [
+     {
+      "name": "Low fluid from the leak",
+      "clues": "Red drips where you park, and slipping that started recently.",
+      "against": ""
+     },
+     {
+      "name": "Worn internal clutches",
+      "clues": "High mileage, and fluid that's dark and smells burnt.",
+      "against": ""
+     },
+     {
+      "name": "Failing pump or clogged filter",
+      "clues": "A whine that rises with engine speed, along with the slipping.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the color and smell of the fluid on the ground. Dark and burnt-smelling means it has overheated."
+     ],
+     "shop": [
+      "Fluid level and condition check",
+      "Transmission code scan",
+      "Leak inspection on a lift",
+      "Line pressure test if needed"
+     ]
+    }
+   }
+  },
+  "r_overheat": {
+   "result": {
+    "title": "The transmission may be overheating from low fluid",
+    "urgency": "stop",
+    "now": "Pull over when safe, put it in Park and turn the engine off. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the light goes out after it cools, don't count on it. Have the fluid level and leak checked before using the car.",
+     "If you see smoke from under the car, move away from it and call for help."
+    ],
+    "why": "Transmission fluid also carries heat away. When it runs low, the transmission runs hot, which breaks down the fluid and damages internal parts. A burning smell often means fluid is dripping onto the hot exhaust, or the fluid itself is cooking.",
+    "causes": [
+     {
+      "name": "Low fluid from the leak",
+      "clues": "Red drips where you park, and the light came on after driving a while.",
+      "against": ""
+     },
+     {
+      "name": "Fluid leaking onto the exhaust",
+      "clues": "A sharp burning smell, or light smoke from under the car.",
+      "against": ""
+     },
+     {
+      "name": "Blocked or leaking transmission cooler",
+      "clues": "It overheats when towing, climbing or in hot weather.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note which warning light came on and what you were doing at the time."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Fluid level and condition check",
+      "Cooler and cooler line inspection"
+     ]
+    }
+   }
+  },
+  "r_harsh": {
+   "result": {
+    "title": "Harsh shifting plus a leak suggests the fluid is getting low",
+    "urgency": "soon",
+    "now": "Book a check within the next few days. Until then, drive gently and avoid towing or heavy loads.",
+    "if": [
+     "If it starts slipping, is slow to go into gear, or a warning light comes on, stop driving and have it towed.",
+     "If your car has a transmission dipstick, check the level as your owner's manual describes. Only add the exact fluid it lists. The wrong type can cause damage."
+    ],
+    "why": "Shift quality depends on having the right amount of healthy fluid. As the level drops, shifts often get firmer or later before slipping starts. Fixing the leak at this stage usually protects the transmission.",
+    "causes": [
+     {
+      "name": "Low fluid from the leak",
+      "clues": "Harsh shifts began around the same time you noticed drips.",
+      "against": ""
+     },
+     {
+      "name": "Old or burnt fluid",
+      "clues": "The fluid is dark brown and smells burnt.",
+      "against": ""
+     },
+     {
+      "name": "Shift solenoid or control problem",
+      "clues": "A check engine or transmission warning light, or shifts that are fine one day and harsh the next.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the fluid level and color if your car has a transmission dipstick.",
+      "Note which shifts feel harsh, such as first to second, or into Drive."
+     ],
+     "shop": [
+      "Fluid level and condition check",
+      "Transmission code scan",
+      "Leak inspection",
+      "Road test"
+     ]
+    }
+   }
+  },
+  "r_major": {
+   "result": {
+    "title": "A large transmission leak can run it dry quickly",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed or ask a mobile mechanic to come to you.",
+    "if": [
+     "If the transmission was just serviced, call the shop that did it. A loose pan, drain plug or line fitting is a common cause.",
+     "If fluid is dripping onto the exhaust, keep away from the car until it cools."
+    ],
+    "why": "An automatic transmission holds a limited amount of fluid. A steady leak can drop the level enough to cause slipping and overheating within a short drive, and that damage is far more serious than the leak itself.",
+    "causes": [
+     {
+      "name": "Failed cooler line or fitting",
+      "clues": "Fluid toward the front of the car, dripping or spraying steadily.",
+      "against": ""
+     },
+     {
+      "name": "Loose or damaged transmission pan or drain plug",
+      "clues": "A recent transmission service, or you hit debris on the road.",
+      "against": ""
+     },
+     {
+      "name": "Failed axle or front seal",
+      "clues": "Fluid running from where an axle enters the transmission, or from between the engine and transmission.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Take a photo of the puddle and note where it sits under the car."
+     ],
+     "shop": [
+      "Leak inspection on a lift",
+      "Cooler line, pan and seal inspection",
+      "Refill and leak check before the car is driven"
+     ]
+    }
+   }
+  },
+  "r_active": {
+   "result": {
+    "title": "A steady transmission leak that needs attention soon",
+    "urgency": "soon",
+    "now": "Book a check within the next few days. Keep trips short, and look under the car before each drive.",
+    "if": [
+     "If shifting changes, it slips, or a warning light comes on, stop driving it and have it towed.",
+     "If the spot gets bigger day to day, have it towed rather than risk running low."
+    ],
+    "why": "A hand-sized spot overnight means the transmission is losing a real amount of fluid. It may shift fine now, but once the level drops past a certain point, slipping and overheating can start quickly.",
+    "causes": [
+     {
+      "name": "Leaking pan gasket",
+      "clues": "Drips from the flat pan under the middle of the car.",
+      "against": ""
+     },
+     {
+      "name": "Leaking cooler line or fitting",
+      "clues": "Drips toward the front, near the radiator.",
+      "against": ""
+     },
+     {
+      "name": "Leaking axle or front seal",
+      "clues": "Drips near where an axle goes in, or where the engine and transmission meet.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the fluid level if your car has a transmission dipstick.",
+      "Note where the spot is under the car."
+     ],
+     "shop": [
+      "Leak inspection on a lift",
+      "Fluid level and condition check",
+      "Leak dye test if the source isn't clear"
+     ]
+    }
+   }
+  },
+  "r_pan": {
+   "result": {
+    "title": "Likely the transmission pan gasket",
+    "urgency": "check",
+    "now": "Book a check when convenient, and watch whether the spot gets bigger.",
+    "if": [
+     "If the spot grows or shifting changes, get it checked within a few days.",
+     "If the transmission was recently serviced, ask that shop to check the pan bolts and drain plug first."
+    ],
+    "why": "The pan is the metal tray at the bottom of an automatic transmission, sealed with a gasket. Gaskets harden with heat and age, and bolts can loosen. It's one of the most common transmission leaks and usually one of the simplest to fix.",
+    "causes": [
+     {
+      "name": "Hardened pan gasket",
+      "clues": "Fluid along the seam all around the pan.",
+      "against": ""
+     },
+     {
+      "name": "Loose pan bolts or drain plug",
+      "clues": "A recent fluid service, or drips from one spot on the pan.",
+      "against": ""
+     },
+     {
+      "name": "Dented or cracked pan",
+      "clues": "Visible damage from road debris or a curb.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Slide cardboard under the car overnight to track the size of the spot."
+     ],
+     "shop": [
+      "Pan gasket and bolt inspection",
+      "Fluid level check",
+      "Clean and recheck"
+     ]
+    }
+   }
+  },
+  "r_cooler_lines": {
+   "result": {
+    "title": "Likely a transmission cooler line or fitting",
+    "urgency": "soon",
+    "now": "Book a check within the next few days, and look under the car before each drive.",
+    "if": [
+     "If the drip becomes a steady stream or a spray, don't drive it. Have it towed.",
+     "If the steering whines or feels heavier, it may be power steering fluid instead. Mention it to the shop."
+    ],
+    "why": "Many automatics send fluid through lines to a cooler at the front of the car, often in or next to the radiator. Those lines and fittings can rust, crack or loosen. They carry fluid under pressure while the engine runs, so a small leak can become a fast one.",
+    "causes": [
+     {
+      "name": "Rusted or cracked cooler line",
+      "clues": "Wet, rusty metal lines running from the transmission toward the radiator.",
+      "against": ""
+     },
+     {
+      "name": "Loose fitting or worn rubber section of the line",
+      "clues": "Wetness right at a connection or hose clamp.",
+      "against": ""
+     },
+     {
+      "name": "Power steering fluid leak",
+      "clues": "Red fluid near the front, with a whine when turning the wheel.",
+      "against": "Many newer cars use electric power steering with no fluid."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look along the lines from the transmission toward the radiator for wet spots."
+     ],
+     "shop": [
+      "Cooler line and fitting inspection",
+      "Leak check with the engine running",
+      "Power steering leak check"
+     ]
+    }
+   }
+  },
+  "r_front_seal": {
+   "result": {
+    "title": "Likely the transmission front seal, or an engine oil leak",
+    "urgency": "check",
+    "now": "Wipe a drop on a white paper towel: red or pink means transmission fluid, brown or black usually means engine oil. Book a check when convenient.",
+    "if": [
+     "If the leak grows or shifting changes, get it checked within a few days."
+    ],
+    "why": "The transmission's front seal sits where the engine and transmission bolt together. The engine's rear main seal is right next to it, so both leaks drip from the same place. A shop needs to trace which one it is.",
+    "causes": [
+     {
+      "name": "Transmission front seal",
+      "clues": "Red or pink fluid at the joint between engine and transmission.",
+      "against": ""
+     },
+     {
+      "name": "Engine rear main seal",
+      "clues": "The fluid is brown or black and the engine oil level is dropping.",
+      "against": ""
+     },
+     {
+      "name": "Fluid running back from a leak further forward",
+      "clues": "Wet streaks leading back from a cooler line or the pan.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the color of the fluid on a white paper towel.",
+      "Check the engine oil level."
+     ],
+     "shop": [
+      "Lift inspection with leak dye",
+      "Inspection of the area between engine and transmission"
+     ]
+    }
+   }
+  },
+  "r_axle_seal": {
+   "result": {
+    "title": "Likely a worn axle or driveshaft seal",
+    "urgency": "check",
+    "now": "Book a check when convenient, and watch whether the spot gets bigger.",
+    "if": [
+     "If the leak gets bigger or shifting changes, get it checked within a few days.",
+     "If you also hear clicking when turning, ask the shop to check the axle joints too."
+    ],
+    "why": "On front-wheel-drive cars the drive axles plug into the sides of the transmission. On rear-wheel-drive cars the driveshaft comes out the back. Each has a seal that wears over time, faster if the axle or joint is worn and wobbles.",
+    "causes": [
+     {
+      "name": "Worn axle seal",
+      "clues": "Fluid where an axle enters the side of the transmission.",
+      "against": ""
+     },
+     {
+      "name": "Worn rear output (tail) seal",
+      "clues": "Fluid at the back of the transmission where the driveshaft connects.",
+      "against": ""
+     },
+     {
+      "name": "Torn CV axle boot",
+      "clues": "Thick black grease flung around, not runny red fluid.",
+      "against": "Boot grease is thick and dark, not red and runny."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look where each axle enters the transmission for wet, red fluid.",
+      "Check the rubber boots on the axles for tears or grease."
+     ],
+     "shop": [
+      "Axle and output seal inspection",
+      "Axle joint and boot check",
+      "Fluid level check"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "A transmission leak that needs its source found",
+    "urgency": "check",
+    "now": "Book a check when convenient. Slide white cardboard under the car overnight so you can show the shop the color and location.",
+    "if": [
+     "If shifting changes, it slips, or a warning light comes on, stop driving and have it towed.",
+     "If the spot gets bigger, get it checked within a few days."
+    ],
+    "why": "Fluid spreads and runs along parts before it drips, so the spot on the ground isn't always under the actual leak. A lift inspection, sometimes with a dye, finds the source.",
+    "causes": [
+     {
+      "name": "Pan gasket",
+      "clues": "Drips under the middle of the car.",
+      "against": ""
+     },
+     {
+      "name": "Cooler line or fitting",
+      "clues": "Drips toward the front.",
+      "against": ""
+     },
+     {
+      "name": "Axle or front seal",
+      "clues": "Drips near an axle or where the engine and transmission meet.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Photograph the spots on the cardboard.",
+      "Check the fluid level if your car has a transmission dipstick."
+     ],
+     "shop": [
+      "Lift inspection",
+      "Leak dye test",
+      "Fluid level and condition check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "transmission-slipping",
+  "transmission-warning-light",
+  "harsh-or-hard-shifting",
+  "fluid-leak-under-car",
+  "power-steering-fluid-leak"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Leaks",
+   "Driving"
+  ],
+  "words": [
+   "transmission",
+   "transmission fluid",
+   "atf",
+   "pan gasket",
+   "cooler line",
+   "axle seal",
+   "front seal",
+   "output seal"
+  ]
+ },
+ "sources": [
+  "https://cluballiance.aaa.com/the-extra-mile/articles/prepare/car/identify-leaks-like-a-pro",
+  "https://www.acg.aaa.com/connect/blogs/4c/auto/guide-to-automotive-leaks"
+ ]
+}

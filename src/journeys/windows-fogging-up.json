@@ -1,0 +1,595 @@
+{
+ "id": "windows-fogging-up",
+ "title": "Windows fog up and won't clear",
+ "h1": "Why do my car windows keep fogging up?",
+ "metaDesc": "Car windows fog up and won't clear? Answer a few quick questions to see if it's the A/C, a leak, the heater core or the fan, and what to do next.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "windows fogging up",
+  "windshield fogging up",
+  "windshield won't defog",
+  "windshield wont defog",
+  "defroster not working",
+  "foggy windows inside car",
+  "car windows steam up",
+  "windows fog up when it rains",
+  "greasy film on inside of windshield",
+  "defogger not clearing windshield",
+  "windshield fogs up on the outside",
+  "condensation inside car windows",
+  "can't see out of windshield fog"
+ ],
+ "intro": "Fog on the glass is moisture from the air condensing on a cold surface. Most of the time the fix is simply using the right settings, but fog that won't clear can also point to a wet interior, a weak A/C, a fan problem or a leaking heater core. Answer the questions below to find the likely cause and the safest next step.",
+ "safety": [
+  "Don't drive if you can't see clearly through the windshield. Pull over somewhere safe and clear it first.",
+  "If the fog is greasy and smells sweet and the temperature gauge climbs, pull over and shut the engine off. Coolant may be leaking into the cabin.",
+  "If breathing the cabin air makes your eyes sting or gives you a headache, open the windows and stop driving."
+ ],
+ "start": "q_fog_type",
+ "nodes": {
+  "q_fog_type": {
+   "q": "Which best describes the fog?",
+   "help": "Fog on the inside clears when you wipe the inside of the glass. Fog on the outside clears with the wipers.",
+   "opts": [
+    {
+     "a": "A greasy film on the inside that smears when wiped, often with a sweet, syrup-like smell",
+     "go": "q_coolant"
+    },
+    {
+     "a": "Normal fog on the inside that comes back quickly or takes ages to clear",
+     "go": "q_ac"
+    },
+    {
+     "a": "Fog on the inside that won't clear at all, even with the defroster on",
+     "go": "q_airflow"
+    },
+    {
+     "a": "Fog on the outside of the glass, usually in hot, humid weather",
+     "go": "r_outside_fog"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_wipe"
+    }
+   ]
+  },
+  "q_wipe": {
+   "q": "Wipe a small patch on the inside of the windshield with a clean, dry cloth. What happens?",
+   "opts": [
+    {
+     "a": "It clears, but fogs up again within a few minutes",
+     "go": "q_ac"
+    },
+    {
+     "a": "It smears and leaves an oily or greasy film",
+     "go": "q_coolant"
+    },
+    {
+     "a": "Nothing changes, because the fog is on the outside",
+     "go": "r_outside_fog"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_coolant": {
+   "q": "Look at the temperature gauge and the coolant reservoir under the hood. Which fits?",
+   "help": "The coolant reservoir is a see-through plastic tank with MIN and MAX marks. Only check it with the engine cold, and never open a hot radiator cap.",
+   "opts": [
+    {
+     "a": "The temperature gauge is high or in the red, or a temperature warning is on",
+     "go": "r_heater_core_overheat"
+    },
+    {
+     "a": "The gauge is normal, but the coolant is low or keeps dropping",
+     "go": "r_heater_core"
+    },
+    {
+     "a": "The gauge is normal and the coolant looks full",
+     "go": "r_heater_core"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_heater_core"
+    }
+   ]
+  },
+  "q_ac": {
+   "q": "When you turn on the A/C, does it blow cold air?",
+   "help": "The A/C dries the air as well as cooling it, which is why most cars turn it on automatically in defrost mode.",
+   "opts": [
+    {
+     "a": "Yes, the A/C works",
+     "go": "q_wet"
+    },
+    {
+     "a": "No, the A/C blows warm or doesn't seem to work",
+     "go": "r_ac_not_working"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_settings"
+    }
+   ]
+  },
+  "q_wet": {
+   "q": "Is there any dampness inside the car?",
+   "opts": [
+    {
+     "a": "Yes: wet carpet, water on the floor, or a damp, musty smell",
+     "go": "r_water_leak"
+    },
+    {
+     "a": "No, it seems dry inside",
+     "go": "r_settings"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_settings"
+    }
+   ]
+  },
+  "q_airflow": {
+   "q": "With the defroster on and the fan on high, what comes out of the vents at the base of the windshield?",
+   "opts": [
+    {
+     "a": "No air, or only a weak trickle",
+     "go": "r_blower"
+    },
+    {
+     "a": "Air comes out of the floor or dash vents instead, even on defrost",
+     "go": "r_blend_door"
+    },
+    {
+     "a": "Plenty of air, but it stays cold even after the engine warms up",
+     "go": "r_no_heat"
+    },
+    {
+     "a": "Plenty of warm air, but the fog still won't clear",
+     "go": "q_ac"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_heater_core_overheat": {
+   "result": {
+    "title": "Coolant is likely leaking into the cabin, and the engine is overheating",
+    "urgency": "stop",
+    "now": "Pull over, shut the engine off and let it cool. Don't drive it any further. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If you see steam or smell strong coolant inside the car, get out and open the doors to air it out.",
+     "If the floor on the passenger side is wet and sticky, that confirms coolant is getting inside."
+    ],
+    "why": "A greasy film with a sweet smell usually means hot coolant is escaping from the heater core behind the dashboard and condensing on the glass. With the temperature gauge high, the engine has lost enough coolant to overheat, and driving on can cause serious engine damage.",
+    "causes": [
+     {
+      "name": "Leaking heater core",
+      "clues": "A sweet smell inside, greasy fog, and a damp passenger-side floor.",
+      "against": "If the cabin smells normal and the floor is dry, a heater core leak is less likely."
+     },
+     {
+      "name": "Leaking heater hose or hose connection",
+      "clues": "A sweet smell under the hood as well as inside, or drips near the firewall.",
+      "against": ""
+     },
+     {
+      "name": "Wider cooling system failure",
+      "clues": "Coolant puddles under the car, or the gauge climbs even with the heater off.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once the engine is fully cold, look at the coolant reservoir level.",
+      "Feel the passenger-side carpet for dampness."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Heater core and hose inspection",
+      "Check for overheating damage, such as a head gasket leak"
+     ]
+    }
+   }
+  },
+  "r_heater_core": {
+   "result": {
+    "title": "The heater core may be leaking coolant into the cabin",
+    "urgency": "soon",
+    "now": "Have the cooling system checked within the next few days. Until then, watch the temperature gauge closely and keep trips short.",
+    "if": [
+     "If the temperature gauge rises or a temperature warning comes on, pull over and shut the engine off. Don't keep driving.",
+     "If the greasy film keeps building up, clean the glass with a glass cleaner. Wiping alone just smears it."
+    ],
+    "why": "Fog that leaves a greasy film is usually a fine mist of coolant, not plain water. That most often comes from a leaking heater core, which sits behind the dashboard. Breathing coolant fumes isn't healthy, and losing coolant can lead to overheating.",
+    "causes": [
+     {
+      "name": "Leaking heater core",
+      "clues": "A sweet smell inside, a damp or sticky passenger-side floor, and coolant that slowly drops.",
+      "against": "If the coolant level never changes and there's no smell, it's less likely."
+     },
+     {
+      "name": "Leaking heater hose or connection",
+      "clues": "A sweet smell near the firewall under the hood.",
+      "against": ""
+     },
+     {
+      "name": "Residue from interior cleaners or vinyl off-gassing",
+      "clues": "A hazy film that builds up slowly with no smell and no coolant loss.",
+      "against": "This usually doesn't come with a sweet smell or fog that appears when the heater runs."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the coolant reservoir level with the engine cold, and recheck it after a few days.",
+      "Feel the passenger-side carpet for dampness.",
+      "Notice whether the smell and fog get worse when the heater is on."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Heater core inspection",
+      "Check the coolant for signs of a head gasket leak"
+     ]
+    }
+   }
+  },
+  "r_ac_not_working": {
+   "result": {
+    "title": "The A/C isn't drying the air, so the fog can't clear",
+    "urgency": "check",
+    "now": "Use the defroster on hot with the fan on high and fresh air (recirculation off), and crack a window. Book an A/C check when convenient.",
+    "if": [
+     "If the fog is bad enough that you can't see, wait for the glass to clear before driving.",
+     "If it's below freezing, many A/C systems won't run at all. That's normal, and heat plus fresh air is the main way to clear the glass."
+    ],
+    "why": "The A/C pulls moisture out of the air before it reaches the glass. Without it, the defroster blows warm but damp air, so fog clears slowly and comes back, especially in rain or with several people in the car.",
+    "causes": [
+     {
+      "name": "Low refrigerant from a slow leak",
+      "clues": "The A/C has been getting weaker over time.",
+      "against": ""
+     },
+     {
+      "name": "A/C compressor not turning on",
+      "clues": "No click from under the hood when you press the A/C button, and no change in engine sound.",
+      "against": ""
+     },
+     {
+      "name": "Blown fuse or relay for the A/C",
+      "clues": "The A/C stopped working suddenly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Press the A/C button and listen for a click from under the hood.",
+      "Check the A/C fuse in the fuse box using the owner's manual diagram."
+     ],
+     "shop": [
+      "A/C pressure test",
+      "Refrigerant leak test",
+      "Compressor clutch and circuit check"
+     ]
+    }
+   }
+  },
+  "r_settings": {
+   "result": {
+    "title": "It's most likely just humid air and the climate settings",
+    "urgency": "diy",
+    "now": "Turn on the defroster with the A/C on, set the heat high, switch recirculation off so fresh air comes in, and crack a window for a minute.",
+    "if": [
+     "If it still fogs up quickly with those settings, replace the cabin air filter and look for hidden dampness inside.",
+     "If the glass also has a greasy film or the cabin smells sweet, have the cooling system checked."
+    ],
+    "why": "Recirculating air keeps the moisture from your breath and wet clothes trapped inside. Fresh air plus the A/C swaps in drier air, and heat helps the glass hold less condensation. A dirty windshield gives fog more to cling to.",
+    "causes": [
+     {
+      "name": "Recirculation left on",
+      "clues": "The recirculation light (a car with a curved arrow) is on.",
+      "against": ""
+     },
+     {
+      "name": "Clogged cabin air filter",
+      "clues": "Weak airflow even on high, or a musty smell.",
+      "against": ""
+     },
+     {
+      "name": "Moisture brought into the car",
+      "clues": "Wet umbrellas, coats, snowy boots or floor mats.",
+      "against": ""
+     },
+     {
+      "name": "Dirty inside of the windshield",
+      "clues": "A haze you can see when the sun hits the glass.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure recirculation is off in defrost mode.",
+      "Replace or inspect the cabin air filter (often behind the glove box).",
+      "Clean the inside of the glass with a glass cleaner.",
+      "Remove wet items and dry out wet floor mats."
+     ],
+     "shop": [
+      "Cabin air filter replacement",
+      "Climate control function check"
+     ]
+    }
+   }
+  },
+  "r_water_leak": {
+   "result": {
+    "title": "Water is getting inside the car and keeping the air damp",
+    "urgency": "check",
+    "now": "Find and dry the wet area, then book a check for the leak when convenient. Use the defroster with the A/C and fresh air in the meantime.",
+    "if": [
+     "If the water feels slick or smells sweet, it may be coolant from the heater core. Have it checked within a few days.",
+     "If the carpet stays wet, mold can grow and electrical parts under the carpet can be damaged. Get it fixed sooner."
+    ],
+    "why": "A wet carpet keeps adding moisture to the cabin air, so the glass fogs no matter what the settings are. The water usually comes from a blocked drain or a worn seal, not from the climate system itself.",
+    "causes": [
+     {
+      "name": "Blocked A/C drain",
+      "clues": "Water on the passenger-side floor, especially after using the A/C.",
+      "against": ""
+     },
+     {
+      "name": "Clogged sunroof or cowl drains",
+      "clues": "Water appears after rain or a car wash, sometimes dripping near the pillars.",
+      "against": ""
+     },
+     {
+      "name": "Worn door or windshield seal",
+      "clues": "Wet spots near one door or under the windshield after rain.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Press on the carpet in each footwell to find the wet area.",
+      "Check that leaves aren't blocking the area at the base of the windshield.",
+      "After using the A/C on a warm day, look for a drip under the car near the firewall. That drip is normal; no drip may mean a blocked drain."
+     ],
+     "shop": [
+      "Water leak test",
+      "A/C drain and sunroof drain clearing",
+      "Seal inspection"
+     ]
+    }
+   }
+  },
+  "r_blower": {
+   "result": {
+    "title": "The fan isn't pushing enough air to the windshield",
+    "urgency": "soon",
+    "now": "Check the blower fuse, and get the fan fixed within the next few days. Only drive when the glass is fully clear.",
+    "if": [
+     "If the fan works only on the highest setting, the blower resistor or speed control has most likely failed.",
+     "If it's cold, rainy or snowy, don't drive until it's fixed. Without airflow the windshield can fog or ice over quickly."
+    ],
+    "why": "The defroster depends on the blower fan to push dry, warm air across the glass. With little or no airflow, there's nothing to clear the fog, which makes this a visibility problem.",
+    "causes": [
+     {
+      "name": "Failed blower resistor or speed control",
+      "clues": "The fan works on high but not on lower speeds.",
+      "against": ""
+     },
+     {
+      "name": "Failed blower motor",
+      "clues": "No fan on any speed, or the fan squeals, rattles or works only after a tap on the dash.",
+      "against": ""
+     },
+     {
+      "name": "Blown fuse or relay",
+      "clues": "The fan stopped suddenly on all speeds.",
+      "against": ""
+     },
+     {
+      "name": "Badly clogged cabin air filter",
+      "clues": "You hear the fan running, but very little air comes out.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try every fan speed and note which ones work.",
+      "Check the blower fuse using the owner's manual diagram.",
+      "Inspect the cabin air filter."
+     ],
+     "shop": [
+      "Blower motor power and ground test",
+      "Blower resistor or control module test",
+      "Cabin air filter replacement"
+     ]
+    }
+   }
+  },
+  "r_blend_door": {
+   "result": {
+    "title": "A door inside the dash isn't sending air to the windshield",
+    "urgency": "soon",
+    "now": "Have the climate controls checked within the next few days. Only drive when you can see clearly.",
+    "if": [
+     "If you hear clicking or tapping behind the dashboard when you change settings, a mode door motor is the likely cause.",
+     "If the weather is cold or wet, don't drive until it's fixed, because the windshield may not stay clear."
+    ],
+    "why": "Small flaps inside the dashboard direct air to the floor, the dash vents or the windshield. If the flap that controls defrost is stuck, the air goes elsewhere and the glass never gets the airflow it needs.",
+    "causes": [
+     {
+      "name": "Failed mode door motor (actuator)",
+      "clues": "Clicking or tapping behind the dash, or settings that don't change where the air comes out.",
+      "against": ""
+     },
+     {
+      "name": "Climate control panel fault",
+      "clues": "Buttons or knobs that don't respond, or lights on the panel that don't come on.",
+      "against": ""
+     },
+     {
+      "name": "Broken door or linkage",
+      "clues": "A snapping sound when you change settings, then air stuck in one place.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Cycle through each vent setting and note where the air comes out.",
+      "Listen for clicking behind the dash when you change settings."
+     ],
+     "shop": [
+      "Climate control code scan",
+      "Mode door motor test",
+      "Climate control panel check"
+     ]
+    }
+   }
+  },
+  "r_no_heat": {
+   "result": {
+    "title": "The heater isn't warming the air, so the glass stays fogged",
+    "urgency": "soon",
+    "now": "Check the coolant level with the engine cold, and have the heating checked within the next few days. Use the A/C with fresh air to help in the meantime.",
+    "if": [
+     "If the temperature gauge rises above normal, pull over and shut the engine off. Low coolant can cause overheating.",
+     "If the temperature gauge stays low after a long drive, the thermostat is likely stuck open."
+    ],
+    "why": "Warm air holds more moisture and warms the glass, which is what lets the defroster clear fog. If the air stays cold, the engine may be low on coolant, the thermostat may not be letting it warm up, or the heater's controls may not be working.",
+    "causes": [
+     {
+      "name": "Low coolant",
+      "clues": "The reservoir is below MIN, or there's a sweet smell or puddles.",
+      "against": ""
+     },
+     {
+      "name": "Thermostat stuck open",
+      "clues": "The temperature gauge takes a long time to rise, or stays below normal.",
+      "against": ""
+     },
+     {
+      "name": "Blend door or heater control fault",
+      "clues": "Clicking behind the dash, or heat on one side only.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the coolant reservoir level with the engine cold.",
+      "Watch where the temperature gauge settles after a 15-minute drive."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Thermostat and engine temperature check",
+      "Blend door and heater control test"
+     ]
+    }
+   }
+  },
+  "r_outside_fog": {
+   "result": {
+    "title": "The glass is colder than the humid air outside",
+    "urgency": "diy",
+    "now": "Use the wipers, and turn the temperature up a little or point less cold air at the windshield.",
+    "if": [
+     "If fog forms on the outside in cold weather, use the defroster on hot to warm the glass.",
+     "If your wipers smear instead of clearing, replace the wiper blades."
+    ],
+    "why": "On hot, humid days, cold A/C air chills the windshield so much that moisture outside condenses on it. This is normal and harmless, and a slightly warmer setting on the glass usually stops it.",
+    "causes": [
+     {
+      "name": "Cold A/C air hitting the windshield",
+      "clues": "Happens on humid days with the A/C set very cold or aimed at the glass.",
+      "against": ""
+     },
+     {
+      "name": "Worn wiper blades",
+      "clues": "Streaks or smears left behind after wiping.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Raise the temperature slightly and see if the outside fog stops.",
+      "Check the wiper blades for cracks or stiff rubber."
+     ],
+     "shop": [
+      "Wiper blade replacement if needed"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "Start with the settings that clear fog fastest",
+    "urgency": "diy",
+    "now": "Turn on the defroster with the heat high, the fan high, the A/C on and recirculation off. Crack a window for a minute and wait until the glass is clear before driving.",
+    "if": [
+     "If it doesn't clear within a few minutes, note whether air is coming out of the windshield vents and whether it's warm. That tells a shop where to look.",
+     "If the glass gets a greasy film or the cabin smells sweet, have the cooling system checked soon."
+    ],
+    "why": "Most fogging is caused by damp air and settings that recirculate it. These settings bring in drier air, warm the glass and dry the air with the A/C. If they don't work, the problem is usually the A/C, the fan, or water getting inside.",
+    "causes": [
+     {
+      "name": "Humid air and climate settings",
+      "clues": "The most common cause, especially in rain or with passengers.",
+      "against": ""
+     },
+     {
+      "name": "A/C not working",
+      "clues": "The air never feels cold or dry.",
+      "against": ""
+     },
+     {
+      "name": "Fan or vent problem",
+      "clues": "Little or no air comes out of the windshield vents.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try the settings above and time how long the glass takes to clear.",
+      "Check for wet carpets or a musty smell."
+     ],
+     "shop": [
+      "Climate control function check",
+      "A/C performance test",
+      "Water leak inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "ac-blowing-warm-air",
+  "heater-blowing-cold-air",
+  "sweet-smell-from-car",
+  "water-leak-inside-car",
+  "musty-smell-from-vents"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "fog",
+   "defrost",
+   "defog",
+   "heater core",
+   "blower",
+   "blend door",
+   "a/c",
+   "condensation",
+   "cabin filter"
+  ]
+ },
+ "sources": [
+  "https://cluballiance.aaa.com/the-extra-mile/advice/car/defog-your-vehicles-windows",
+  "https://www.chevrolet.com/support/vehicle/climate-seats-and-controls/climate-control/how-to-quickly-defog-the-windshield"
+ ]
+}

@@ -1,0 +1,445 @@
+{
+ "id": "check-hybrid-system-warning",
+ "title": "Check hybrid system warning",
+ "h1": "What does the check hybrid system warning mean?",
+ "metaDesc": "Check hybrid system warning on? Answer a few questions to see if it's the 12-volt battery, battery cooling, the hybrid battery or inverter, and how urgent it is.",
+ "group": "light",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "check hybrid system",
+  "check hybrid system warning",
+  "hybrid system warning light",
+  "hybrid warning light",
+  "hybrid system malfunction",
+  "service hybrid system",
+  "prius check hybrid system",
+  "hybrid car wont go into ready",
+  "red triangle hybrid warning",
+  "hybrid battery warning",
+  "check hybrid system and car wont start",
+  "hybrid system fault message",
+  "check hybrid system light came on while driving"
+ ],
+ "intro": "This message means the hybrid system's computer has found a problem somewhere in the high-voltage battery, the electric motors, the inverter or the systems that support them. It can be something simple, like a weak 12-volt battery or a blocked cooling vent, or something that needs a hybrid specialist. How the car is behaving decides how urgent it is.",
+ "safety": [
+  "Never touch the orange high-voltage cables or try to open the hybrid battery.",
+  "If you see smoke, smell burning plastic, or hear popping or hissing from the battery area, get everyone out and call 911.",
+  "If the car loses drive power, turn on your hazard lights and steer to a safe spot.",
+  "After a crash or a flood, don't try to start the car. Tell the tow company it's a hybrid."
+ ],
+ "start": "q_behavior",
+ "nodes": {
+  "q_behavior": {
+   "q": "What is the car doing?",
+   "help": "\"READY\" is the light or word on the dash that tells you a hybrid is switched on and able to drive, even when the gas engine is off.",
+   "opts": [
+    {
+     "a": "There's smoke, a burning smell, or it's been in a crash or flood",
+     "go": "r_danger"
+    },
+    {
+     "a": "It shut down or lost drive power while I was driving",
+     "go": "r_shutdown"
+    },
+    {
+     "a": "It won't start or won't show READY",
+     "go": "q_no_ready"
+    },
+    {
+     "a": "It drives, but feels weaker or the gas engine runs much more than usual",
+     "go": "q_clues"
+    },
+    {
+     "a": "It drives normally. Only the warning is on",
+     "go": "q_clues"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_scan"
+    }
+   ]
+  },
+  "q_no_ready": {
+   "q": "When you press the power button with your foot on the brake, what happens?",
+   "opts": [
+    {
+     "a": "The dash is dim, flickers, or nothing lights up",
+     "go": "r_12v"
+    },
+    {
+     "a": "The dash lights up normally, but READY never comes on",
+     "go": "r_no_ready"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_12v"
+    }
+   ]
+  },
+  "q_clues": {
+   "q": "Which of these fits best?",
+   "help": "The hybrid battery has its own cooling fan. Its air intake is usually a small vent near the rear seat or in the trunk area.",
+   "opts": [
+    {
+     "a": "The battery charge display swings quickly between full and low",
+     "go": "r_hybrid_battery"
+    },
+    {
+     "a": "A fan is loud near the rear seat, or something is covering the vent there",
+     "go": "r_battery_cooling"
+    },
+    {
+     "a": "The engine temperature is high, or it came on after a long drive in the heat",
+     "go": "r_inverter_cooling"
+    },
+    {
+     "a": "The 12-volt battery is old, or the car has been slow to wake up lately",
+     "go": "r_12v"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_scan"
+    }
+   ]
+  },
+  "r_danger": {
+   "result": {
+    "title": "A high-voltage problem is possible. Get away from the car",
+    "urgency": "stop",
+    "now": "Get everyone out and move away from the car. If there's smoke or fire, call 911 and tell them it's a hybrid.",
+    "if": [
+     "If there's no smoke, still don't try to start it. Have it towed and tell the tow company it's a hybrid.",
+     "If it was in a flood, keep it parked outside and away from buildings until it's inspected."
+    ],
+    "why": "A damaged or water-soaked high-voltage battery can short out, overheat or catch fire, sometimes hours later. This isn't something to test yourself.",
+    "causes": [
+     {
+      "name": "Damaged high-voltage battery or cables",
+      "clues": "A recent crash, or damage under the car.",
+      "against": ""
+     },
+     {
+      "name": "Water inside the battery or electronics",
+      "clues": "Flooding, deep water, or a leak into the cabin or trunk.",
+      "against": ""
+     },
+     {
+      "name": "Overheating inverter or battery",
+      "clues": "A burning smell from the rear seat area or under the hood.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "High-voltage system safety inspection",
+      "Insulation (isolation) test",
+      "Hybrid system code scan"
+     ]
+    }
+   }
+  },
+  "r_shutdown": {
+   "result": {
+    "title": "The hybrid system shut itself down to protect itself",
+    "urgency": "stop",
+    "now": "Get to a safe spot, put it in Park and turn it off. Have the car towed to a shop that works on hybrids.",
+    "if": [
+     "If it restarts and seems fine, don't count on it. The fault that shut it down is stored and can happen again.",
+     "If the engine temperature warning is on too, don't restart it."
+    ],
+    "why": "When the hybrid computer sees a serious fault in the battery, inverter or motors, it can cut drive power entirely. Losing power on the road is dangerous, so it needs to be diagnosed before you drive again.",
+    "causes": [
+     {
+      "name": "Inverter fault or overheating",
+      "clues": "It shut down after a long drive or in hot weather, or the engine temperature was high.",
+      "against": ""
+     },
+     {
+      "name": "Failing hybrid battery",
+      "clues": "The battery display had been swinging quickly, or fuel economy had dropped.",
+      "against": ""
+     },
+     {
+      "name": "Electrical fault, including a weak 12-volt battery",
+      "clues": "Several warning lights came on together.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Take a photo of the dash with all the warnings showing."
+     ],
+     "shop": [
+      "Hybrid system code scan",
+      "Inverter cooling system check",
+      "Hybrid battery block voltage test",
+      "12-volt battery test"
+     ]
+    }
+   }
+  },
+  "r_no_ready": {
+   "result": {
+    "title": "The hybrid system is blocking the car from starting",
+    "urgency": "stop",
+    "now": "Try once more with your foot firmly on the brake. If READY still doesn't come on, have the car towed to a shop that works on hybrids.",
+    "if": [
+     "If a jump to the 12-volt battery brings READY back, still get the hybrid codes read before relying on the car."
+    ],
+    "why": "If the dash powers up normally but READY never appears, the hybrid computer has found a fault it won't let you drive with. That can be a battery, inverter or isolation problem, and it needs a proper scan.",
+    "causes": [
+     {
+      "name": "Hybrid battery or inverter fault",
+      "clues": "Warnings had appeared before, or fuel economy had dropped.",
+      "against": ""
+     },
+     {
+      "name": "High-voltage insulation fault",
+      "clues": "Water exposure or a recent leak into the car.",
+      "against": ""
+     },
+     {
+      "name": "Weak 12-volt battery",
+      "clues": "The battery is old, or the car sat unused for weeks.",
+      "against": "If the dash lights are bright and steady, the 12-volt battery is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the owner's manual for where the 12-volt battery or jump points are."
+     ],
+     "shop": [
+      "Hybrid system code scan",
+      "12-volt battery load test",
+      "High-voltage insulation test"
+     ]
+    }
+   }
+  },
+  "r_12v": {
+   "result": {
+    "title": "The small 12-volt battery is likely weak",
+    "urgency": "diy",
+    "now": "Jump-start the 12-volt battery using the points shown in your owner's manual, or use a booster pack. Then get the 12-volt battery tested.",
+    "if": [
+     "If READY comes on after a jump, have the 12-volt battery tested within a few days. Hybrid 12-volt batteries often fail with little warning.",
+     "If the dash lights up normally but READY still won't come on, the hybrid system has a fault. Have it towed to a shop."
+    ],
+    "why": "A hybrid still uses a regular 12-volt battery to wake up its computers. When it's weak, the dash can go dim and the hybrid system may throw warnings or refuse to start, even though the big hybrid battery is fine.",
+    "causes": [
+     {
+      "name": "Aging or drained 12-volt battery",
+      "clues": "The car sat for a while, the battery is over 4–5 years old, or the dash is dim.",
+      "against": ""
+     },
+     {
+      "name": "Loose or corroded 12-volt battery connection",
+      "clues": "Buildup on the terminals or a loose clamp.",
+      "against": ""
+     },
+     {
+      "name": "Charging problem from the hybrid system",
+      "clues": "The 12-volt battery keeps going flat even after replacement.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Find the 12-volt battery or jump points in your owner's manual.",
+      "Check the battery clamps for corrosion."
+     ],
+     "shop": [
+      "12-volt battery load test",
+      "DC-DC converter output test",
+      "Hybrid system code scan"
+     ]
+    }
+   }
+  },
+  "r_hybrid_battery": {
+   "result": {
+    "title": "The hybrid battery is likely getting weak",
+    "urgency": "soon",
+    "now": "Have the hybrid system scanned within the next few days, ideally at a shop that works on hybrids. Drive gently until then.",
+    "if": [
+     "If the car loses power sharply or a red warning appears, pull over and have it towed.",
+     "If the battery cooling vent is blocked, clear it first. Heat makes a weak battery worse."
+    ],
+    "why": "A hybrid battery is made of many sections. As some wear out, the battery can't hold a steady charge, so the gauge jumps around and the gas engine has to work more. The computer flags it before it fails completely.",
+    "causes": [
+     {
+      "name": "Worn hybrid battery sections",
+      "clues": "Higher mileage or an older car, worse fuel economy, and a fast-swinging charge display.",
+      "against": ""
+     },
+     {
+      "name": "Battery overheating from poor cooling",
+      "clues": "A blocked or dusty vent near the rear seat, or hot weather.",
+      "against": ""
+     },
+     {
+      "name": "Battery sensor or wiring fault",
+      "clues": "The car drives normally with no change in fuel economy.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that the battery cooling vent isn't blocked.",
+      "Compare your recent fuel economy with what you usually get."
+     ],
+     "shop": [
+      "Hybrid system code scan",
+      "Battery section voltage comparison",
+      "Battery cooling fan and filter check"
+     ]
+    }
+   }
+  },
+  "r_battery_cooling": {
+   "result": {
+    "title": "The hybrid battery may be running hot because its cooling vent is blocked",
+    "urgency": "diy",
+    "now": "Find the battery cooling vent (usually near the rear seat). Move anything covering it and vacuum dust or pet hair from the grille.",
+    "if": [
+     "If the warning stays on after a few drives, have the battery cooling fan and filter checked.",
+     "If the car feels weaker or the gas engine runs much more than usual, get the hybrid system scanned soon."
+    ],
+    "why": "The hybrid battery is cooled by cabin air pulled through a small vent. A bag, jacket or layer of dust can block it, and a hot battery triggers warnings and wears out faster.",
+    "causes": [
+     {
+      "name": "Blocked cooling vent",
+      "clues": "Something was sitting on or against the rear seat, or the vent looks dusty.",
+      "against": ""
+     },
+     {
+      "name": "Clogged cooling fan or filter",
+      "clues": "The fan is loud or runs a lot, especially with pets in the car.",
+      "against": ""
+     },
+     {
+      "name": "Failing cooling fan",
+      "clues": "No fan sound at all, or a rattle from the rear.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Clear and vacuum the vent.",
+      "Listen for the battery fan running after a drive."
+     ],
+     "shop": [
+      "Hybrid system code scan",
+      "Battery temperature readings",
+      "Cooling fan and filter cleaning or replacement"
+     ]
+    }
+   }
+  },
+  "r_inverter_cooling": {
+   "result": {
+    "title": "The inverter or engine cooling may be failing",
+    "urgency": "soon",
+    "now": "Pull over and let it cool, then check both coolant reservoirs. Many hybrids have a separate one for the inverter. Get it checked within the next few days.",
+    "if": [
+     "If the engine temperature is in the red or there's steam, turn it off and have it towed.",
+     "If either reservoir is low or empty, don't drive it until it's checked. Have it towed."
+    ],
+    "why": "The inverter turns battery power into motor power and gets very hot. Most hybrids cool it with its own coolant and electric pump. If that pump fails or the coolant is low, the inverter overheats and the system flags a fault.",
+    "causes": [
+     {
+      "name": "Failed inverter coolant pump",
+      "clues": "The warning comes on after a few minutes of driving, especially in warm weather.",
+      "against": ""
+     },
+     {
+      "name": "Low inverter or engine coolant",
+      "clues": "A low reservoir, or pink or green drips under the front.",
+      "against": ""
+     },
+     {
+      "name": "Cooling fan problem",
+      "clues": "It's worst in slow traffic.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With everything cool, check the coolant level in each reservoir.",
+      "Look for coolant drips under the front of the car."
+     ],
+     "shop": [
+      "Hybrid system code scan",
+      "Inverter coolant pump test",
+      "Cooling system pressure test"
+     ]
+    }
+   }
+  },
+  "r_scan": {
+   "result": {
+    "title": "The hybrid system has a stored fault that needs a scan",
+    "urgency": "soon",
+    "now": "Have the hybrid system scanned within the next few days, ideally at a shop that works on hybrids. Don't clear the code first. The shop needs it.",
+    "if": [
+     "If the car loses power, shows a red warning or the temperature climbs, pull over and have it towed.",
+     "If the check engine or ABS light is on too, mention it. Faults elsewhere can set off the hybrid warning."
+    ],
+    "why": "The hybrid warning covers many systems, and some faults outside the hybrid parts can trigger it too. Without other clues, the stored code is the fastest way to the real cause.",
+    "causes": [
+     {
+      "name": "Hybrid battery or inverter fault",
+      "clues": "Worse fuel economy or a weaker feel.",
+      "against": ""
+     },
+     {
+      "name": "Fault in another system triggering the warning",
+      "clues": "The check engine or ABS light is on too.",
+      "against": ""
+     },
+     {
+      "name": "Weak 12-volt battery",
+      "clues": "Slow or odd start-ups lately.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that the battery cooling vent isn't blocked.",
+      "Take a photo of all the warnings on the dash."
+     ],
+     "shop": [
+      "Hybrid system code scan",
+      "12-volt battery test",
+      "Inverter cooling check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "battery-keeps-dying",
+  "check-engine-light-on",
+  "dashboard-lights-all-on",
+  "engine-overheating",
+  "poor-gas-mileage"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "hybrid",
+   "inverter",
+   "high-voltage",
+   "high voltage",
+   "battery cooling",
+   "dc-dc",
+   "converter pump",
+   "traction battery"
+  ]
+ },
+ "sources": [
+  "https://artsautomotive.com/services/the-dreaded-check-hybrid-system-message/",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

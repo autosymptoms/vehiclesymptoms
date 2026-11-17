@@ -1,0 +1,424 @@
+{
+ "id": "popping-or-backfiring",
+ "title": "Popping or backfiring",
+ "h1": "Why is my car popping or backfiring?",
+ "metaDesc": "Car popping or backfiring? Answer a few quick questions to see if it's a misfire, exhaust leak or fuel problem, how urgent it is, and what to tell your mechanic.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "car backfiring",
+  "engine backfire",
+  "popping from exhaust",
+  "exhaust popping when decelerating",
+  "popping noise when letting off gas",
+  "car pops when accelerating",
+  "crackling exhaust",
+  "bang from tailpipe",
+  "popping sound from engine",
+  "backfire through intake",
+  "afterfire",
+  "car sputtering and popping",
+  "backfireing",
+  "car makes gunshot sound"
+ ],
+ "intro": "A pop or bang from the engine or tailpipe usually means fuel is burning somewhere it shouldn't, either in the intake or in the exhaust. When it happens and what comes with it tells you whether it's a harmless crackle, a leak, or a misfire that can damage expensive parts. Answer the questions below to find the most likely cause and how soon to act.",
+ "safety": [
+  "If the check engine light is flashing, pull over safely and turn off the engine. A severe misfire can overheat the catalytic converter.",
+  "If you see smoke or flames from under the car or the tailpipe, pull over, turn off the engine and get away from the car.",
+  "If you smell exhaust inside the car, open the windows and stop driving it until it's checked. Exhaust contains carbon monoxide.",
+  "If you smell raw fuel, stop the engine and keep sparks and flames away."
+ ],
+ "start": "q_when",
+ "nodes": {
+  "q_when": {
+   "q": "When do you hear the popping or backfiring?",
+   "help": "A pop from the tailpipe is usually unburned fuel igniting in the exhaust. A pop from under the hood, sometimes with a puff from the air filter area, is a backfire into the intake.",
+   "opts": [
+    {
+     "a": "Mostly when I let off the gas or coast, a crackle or pop from the tailpipe",
+     "go": "q_decel"
+    },
+    {
+     "a": "When I press the gas or accelerate",
+     "go": "q_light"
+    },
+    {
+     "a": "At idle or all the time, and the engine feels rough",
+     "go": "q_light"
+    },
+    {
+     "a": "A pop or cough from under the hood, near the air filter",
+     "go": "r_intake_backfire"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_light"
+    }
+   ]
+  },
+  "q_light": {
+   "q": "Is the check engine light on, and how is the engine running?",
+   "help": "The check engine light is the amber engine-shaped symbol on the dash. Flashing is much more serious than steady.",
+   "opts": [
+    {
+     "a": "The check engine light is flashing",
+     "go": "r_misfire_flashing"
+    },
+    {
+     "a": "The light is on steady, or the engine shakes, stumbles or feels weak",
+     "go": "r_misfire"
+    },
+    {
+     "a": "There's a strong fuel smell or black smoke from the tailpipe",
+     "go": "r_rich"
+    },
+    {
+     "a": "No light and it runs fine, but the exhaust is louder or puffing",
+     "go": "r_exhaust_leak"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_decel": {
+   "q": "Which of these fits your car best?",
+   "opts": [
+    {
+     "a": "It has an aftermarket exhaust or engine tune, or it's a sporty model that crackles on purpose",
+     "go": "r_tuned"
+    },
+    {
+     "a": "The exhaust got louder, puffs or ticks, or I smell exhaust",
+     "go": "r_exhaust_leak"
+    },
+    {
+     "a": "The check engine light is on, or the engine runs rough",
+     "go": "q_light"
+    },
+    {
+     "a": "I smell raw fuel or see black smoke",
+     "go": "r_rich"
+    },
+    {
+     "a": "None of these, it's a stock car that just started doing it",
+     "go": "r_exhaust_leak"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_exhaust_leak"
+    }
+   ]
+  },
+  "r_misfire_flashing": {
+   "result": {
+    "title": "A severe misfire is likely, and it can damage the catalytic converter",
+    "urgency": "stop",
+    "now": "Pull over safely and turn off the engine. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the light stops flashing after a restart, don't count on it. The misfire is still there and needs to be checked before you drive any distance.",
+     "If you see smoke or smell burning from under the car, get away from the car and call for help."
+    ],
+    "why": "A flashing check engine light means one or more cylinders aren't firing. Unburned fuel goes into the exhaust, where it pops and burns inside the catalytic converter. That can overheat and ruin the converter quickly and, in rare cases, start a fire.",
+    "causes": [
+     {
+      "name": "Failed ignition coil or spark plug",
+      "clues": "The engine shakes, especially at idle or when accelerating, and the problem came on fairly suddenly.",
+      "against": ""
+     },
+     {
+      "name": "Fuel injector stuck or not spraying",
+      "clues": "A fuel smell, or the misfire stays on one cylinder after the coil and plug are checked.",
+      "against": ""
+     },
+     {
+      "name": "Mechanical engine problem",
+      "clues": "A ticking or knocking sound, or a car that has overheated recently.",
+      "against": "Much less common than an ignition problem."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the engine was shaking and when the light started flashing."
+     ],
+     "shop": [
+      "Code scan for misfire codes and the cylinder involved",
+      "Spark plug and ignition coil inspection",
+      "Fuel injector test",
+      "Compression test if ignition and fuel check out"
+     ]
+    }
+   }
+  },
+  "r_misfire": {
+   "result": {
+    "title": "Most likely a misfire from a worn ignition part",
+    "urgency": "soon",
+    "now": "Have the engine scanned for codes within the next few days. Until then, keep trips short and avoid hard acceleration.",
+    "if": [
+     "If the check engine light starts flashing or the engine shakes hard, pull over and turn it off. Don't keep driving it.",
+     "If the spark plugs are past their service interval, mention it. They're a common cause and part of normal maintenance."
+    ],
+    "why": "When a cylinder doesn't fire properly, its unburned fuel can ignite later in the exhaust and make a pop. A rough-running engine or a steady check engine light along with popping almost always points to a misfire.",
+    "causes": [
+     {
+      "name": "Worn spark plugs",
+      "clues": "The plugs haven't been changed in a long time, or the misfire is worse when accelerating.",
+      "against": ""
+     },
+     {
+      "name": "Weak ignition coil or plug wire",
+      "clues": "The misfire is worse in damp weather or under load, or it's on one cylinder.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak or dirty fuel injector",
+      "clues": "A rough idle, a hissing sound, or the misfire is spread across several cylinders.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your maintenance records for the last spark plug change.",
+      "Many auto parts stores will read the codes for you."
+     ],
+     "shop": [
+      "Code scan and misfire counts",
+      "Spark plug and coil inspection",
+      "Smoke test for vacuum leaks",
+      "Fuel injector test"
+     ]
+    }
+   }
+  },
+  "r_intake_backfire": {
+   "result": {
+    "title": "A backfire into the intake usually means the engine is running too lean",
+    "urgency": "soon",
+    "now": "Have it checked within the next few days. Avoid hard acceleration until then, since that's when intake backfires happen most.",
+    "if": [
+     "If there's a loud bang and the engine then won't start or runs very badly, don't keep cranking it. The timing belt or chain may have slipped. Have it towed.",
+     "If the check engine light starts flashing, pull over and turn off the engine."
+    ],
+    "why": "A pop from under the hood means the air-fuel mixture is igniting in the intake instead of the cylinder. That usually happens when there's too much air and not enough fuel, or when the spark is firing at the wrong moment.",
+    "causes": [
+     {
+      "name": "Vacuum leak",
+      "clues": "A hissing sound, a rough or high idle, or a cracked hose you can see.",
+      "against": ""
+     },
+     {
+      "name": "Faulty airflow sensor or weak fuel delivery",
+      "clues": "Hesitation or loss of power when you press the gas, sometimes with a check engine light.",
+      "against": ""
+     },
+     {
+      "name": "Ignition timing problem or slipped timing belt",
+      "clues": "An older engine, a recent timing belt job, or the backfire came with a sudden drop in power.",
+      "against": "Less common on modern engines than a lean mixture."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine running, listen for hissing around the hoses on top of the engine.",
+      "Note whether the check engine light is on."
+     ],
+     "shop": [
+      "Code scan and fuel trim data",
+      "Smoke test for vacuum leaks",
+      "Airflow sensor and fuel pressure tests",
+      "Ignition timing check"
+     ]
+    }
+   }
+  },
+  "r_exhaust_leak": {
+   "result": {
+    "title": "Probably an exhaust leak letting air in and causing pops",
+    "urgency": "check",
+    "now": "Book an exhaust inspection. Mention that it pops when you let off the gas.",
+    "if": [
+     "If you smell exhaust inside the car, or feel drowsy or get a headache while driving, stop driving it until it's fixed.",
+     "If the check engine light comes on or the engine starts running rough, get it checked within a few days."
+    ],
+    "why": "When you let off the gas, a small amount of unburned fuel goes into the exhaust. If a leak lets fresh air in, that fuel can ignite and pop. A leak usually also makes the exhaust louder or adds a ticking or puffing sound.",
+    "causes": [
+     {
+      "name": "Leaking exhaust gasket or joint",
+      "clues": "A ticking or puffing sound, loudest on a cold start, that may quiet down as the engine warms.",
+      "against": ""
+     },
+     {
+      "name": "Rusted or cracked exhaust pipe or muffler",
+      "clues": "The exhaust is louder than it used to be, or there's visible rust or a hole.",
+      "against": ""
+     },
+     {
+      "name": "Engine running slightly rich",
+      "clues": "Fuel economy has dropped, or there's a fuel smell at the tailpipe.",
+      "against": "Less likely if the engine runs smoothly and mileage is normal."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine cold and off, look under the car for black soot marks or rust holes along the exhaust.",
+      "Listen at the back of the car on a cold start for puffing or ticking."
+     ],
+     "shop": [
+      "Exhaust system inspection on a lift",
+      "Smoke test of the exhaust for leaks",
+      "Code scan and fuel trim check"
+     ]
+    }
+   }
+  },
+  "r_rich": {
+   "result": {
+    "title": "The engine is likely getting too much fuel",
+    "urgency": "soon",
+    "now": "Get it checked within the next few days. Keep trips short until then, and don't let it idle for long periods.",
+    "if": [
+     "If the fuel smell is strong or you see fuel dripping, don't drive it. Have it towed.",
+     "If the check engine light starts flashing, pull over and turn off the engine."
+    ],
+    "why": "Extra fuel that doesn't burn in the engine can ignite in the hot exhaust and pop. It also wastes fuel and can overheat and damage the catalytic converter over time.",
+    "causes": [
+     {
+      "name": "Leaking or stuck-open fuel injector",
+      "clues": "A strong fuel smell, a rough idle, or hard starting when warm.",
+      "against": ""
+     },
+     {
+      "name": "Faulty sensor giving the computer wrong readings",
+      "clues": "A check engine light, poor fuel economy, or black smoke on acceleration.",
+      "against": ""
+     },
+     {
+      "name": "Misfire leaving fuel unburned",
+      "clues": "The engine shakes or stumbles along with the popping.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look and smell for fuel around the engine and under the car.",
+      "Note any change in fuel economy."
+     ],
+     "shop": [
+      "Code scan and fuel trim data",
+      "Oxygen and coolant temperature sensor checks",
+      "Fuel pressure and injector leak tests"
+     ]
+    }
+   }
+  },
+  "r_tuned": {
+   "result": {
+    "title": "Crackling on deceleration is normal for some sporty exhausts and tunes",
+    "urgency": "diy",
+    "now": "Check whether your model or its tune is known to crackle when you let off the gas. If it's always done this and nothing else has changed, it's likely by design.",
+    "if": [
+     "If the popping is new, getting louder, or comes with a check engine light or rough running, have it checked.",
+     "If you smell exhaust inside the car, stop driving it until the exhaust is inspected."
+    ],
+    "why": "Some performance cars and aftermarket tunes add a little fuel when you lift off the gas so it burns in the exhaust and crackles. Aftermarket exhausts with less muffling also make normal small pops easier to hear.",
+    "causes": [
+     {
+      "name": "Factory or aftermarket sport tuning",
+      "clues": "It has always done it, mainly in a sport mode or after a tune.",
+      "against": "Less likely if the popping started suddenly on a car that never did it."
+     },
+     {
+      "name": "Less restrictive aftermarket exhaust",
+      "clues": "It started after an exhaust change.",
+      "against": ""
+     },
+     {
+      "name": "Exhaust leak",
+      "clues": "A ticking or puffing sound, or a louder exhaust than before.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check whether it only happens in a sport driving mode.",
+      "Ask the shop or seller that installed the exhaust or tune whether it's expected."
+     ],
+     "shop": [
+      "Exhaust leak inspection",
+      "Code scan to rule out a misfire"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Get the engine scanned for codes to narrow it down",
+    "urgency": "soon",
+    "now": "Have the engine scanned within the next few days, and note when the popping happens so you can tell the shop.",
+    "if": [
+     "If the check engine light starts flashing or the engine shakes hard, pull over and turn it off.",
+     "If you smell fuel or exhaust inside the car, stop driving it until it's checked."
+    ],
+    "why": "Popping can come from a misfire, an exhaust leak or a fuel mixture problem. A code scan and a quick look at the exhaust usually tell them apart in minutes, and catching a misfire early protects the catalytic converter.",
+    "causes": [
+     {
+      "name": "Misfire",
+      "clues": "Rough running, shaking, or a check engine light.",
+      "against": ""
+     },
+     {
+      "name": "Exhaust leak",
+      "clues": "Pops mostly when you let off the gas, with a louder or ticking exhaust.",
+      "against": ""
+     },
+     {
+      "name": "Fuel mixture too rich or too lean",
+      "clues": "A fuel smell, black smoke, or hesitation when accelerating.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound of the popping. It helps the shop a lot."
+     ],
+     "shop": [
+      "Code scan",
+      "Exhaust inspection",
+      "Fuel trim and misfire data review"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "engine-sputtering-misfire",
+  "check-engine-light-flashing",
+  "loud-exhaust-roaring",
+  "black-smoke-from-exhaust",
+  "hesitation-when-accelerating"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises",
+   "Driving"
+  ],
+  "words": [
+   "backfire",
+   "popping",
+   "misfire",
+   "exhaust",
+   "spark plug",
+   "ignition coil",
+   "catalytic",
+   "vacuum leak",
+   "injector"
+  ]
+ },
+ "sources": [
+  "https://www.firestonecompleteautocare.com/blog/maintenance/why-do-cars-backfire/",
+  "https://en.wikipedia.org/wiki/Back-fire",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

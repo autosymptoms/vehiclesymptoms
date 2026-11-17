@@ -1,0 +1,496 @@
+{
+ "id": "dashboard-lights-all-on",
+ "title": "Many dashboard lights on at once",
+ "h1": "Why are all my dashboard warning lights on?",
+ "metaDesc": "Lots of dash warning lights on at once, or flickering? Answer a few questions to see if it's the battery, alternator, a sensor or wiring, and how urgent it is.",
+ "group": "light",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "all dashboard lights on",
+  "all warning lights on",
+  "multiple warning lights on",
+  "dashboard lit up like a christmas tree",
+  "christmas tree dash",
+  "dash lights flickering",
+  "dashboard lights flickering while driving",
+  "abs traction and check engine light all on",
+  "every light on my dash came on",
+  "warning lights came on all at once",
+  "gauges going crazy",
+  "dash lights going on and off",
+  "lots of lights on dashboard",
+  "all lights on dash wont go off"
+ ],
+ "intro": "When lots of warning lights come on together, there's usually one root cause, not many separate failures. Most often it's low voltage from the battery or alternator, or one sensor that several systems share. Answer a few questions to see which one fits and how quickly you need to act.",
+ "safety": [
+  "If a red oil pressure, temperature or brake light is among them, pull over and turn the engine off.",
+  "If the lights flicker and the steering gets heavy or the engine stumbles, get off the road while the car still runs.",
+  "If you smell burning plastic or see smoke from the dash or under the hood, pull over, turn the car off and get out."
+ ],
+ "start": "q_what",
+ "nodes": {
+  "q_what": {
+   "q": "What are you seeing?",
+   "opts": [
+    {
+     "a": "Lots of lights come on for a few seconds when I start the car, then go out",
+     "go": "r_bulb_check"
+    },
+    {
+     "a": "The lights flicker, or the gauges, dash or radio cut in and out",
+     "go": "q_flicker"
+    },
+    {
+     "a": "Several lights came on together and stay on",
+     "go": "q_which"
+    },
+    {
+     "a": "It started right after a jump start, a battery change, or the battery died",
+     "go": "r_after_battery"
+    },
+    {
+     "a": "The steering got heavy, the engine stumbled, or the car is losing power",
+     "go": "r_charging_failing"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_voltage_soon"
+    }
+   ]
+  },
+  "q_flicker": {
+   "q": "Is the battery light one of them, or are the headlights dimming too?",
+   "help": "The battery light usually looks like a small car battery with + and – marks.",
+   "opts": [
+    {
+     "a": "Yes, the battery light is on, or the headlights dim and brighten",
+     "go": "r_charging_failing"
+    },
+    {
+     "a": "No, but it happens over bumps or when I touch the key",
+     "go": "r_voltage_soon"
+    },
+    {
+     "a": "Only the gauge cluster glitches. Everything else works normally",
+     "go": "r_cluster"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_voltage_soon"
+    }
+   ]
+  },
+  "q_which": {
+   "q": "Which lights are on?",
+   "help": "Red lights are the most serious. Yellow or amber ones mean something needs checking.",
+   "opts": [
+    {
+     "a": "A red light like oil pressure, engine temperature, or the red brake light",
+     "go": "r_red_light"
+    },
+    {
+     "a": "ABS and traction or stability control (maybe the yellow brake light too)",
+     "go": "r_abs_group"
+    },
+    {
+     "a": "Check engine, plus traction control or other driving aids",
+     "go": "r_engine_group"
+    },
+    {
+     "a": "A mix of unrelated lights, like airbag, ABS, steering and transmission",
+     "go": "r_network"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_voltage_soon"
+    }
+   ]
+  },
+  "r_bulb_check": {
+   "result": {
+    "title": "This is the normal startup self-check",
+    "urgency": "diy",
+    "now": "Nothing to fix. Just watch that every light goes out within a few seconds of the engine starting.",
+    "if": [
+     "If any light stays on after the engine is running, look it up in your owner's manual and follow that light's advice.",
+     "If a light that normally comes on at startup doesn't come on at all, have the bulb or system checked. It may not warn you when it should."
+    ],
+    "why": "When you switch the car on, it lights up most of its warning lights for a moment to show that the bulbs and systems work. They should all go out once the engine is running.",
+    "causes": [
+     {
+      "name": "Normal bulb and system check",
+      "clues": "All lights go out within a few seconds of starting.",
+      "against": "If any light stays on after starting, it's a real warning."
+     },
+     {
+      "name": "Slow-to-clear warning after a weak start",
+      "clues": "Some lights take longer to go out on cold mornings or after slow cranking.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Watch the dash for 10 seconds after the engine starts."
+     ],
+     "shop": [
+      "Code scan if any light stays on"
+     ]
+    }
+   }
+  },
+  "r_after_battery": {
+   "result": {
+    "title": "Lights after battery trouble are often leftover low-voltage warnings",
+    "urgency": "diy",
+    "now": "Check that the battery clamps are tight and clean, then drive a short distance. Many of these lights clear on their own once the systems see steady voltage.",
+    "if": [
+     "If the battery light stays on, have the alternator and battery tested soon.",
+     "If the lights are still on after a few drives, have the codes read. Some systems, like steering or windows, need a reset after battery work."
+    ],
+    "why": "When voltage drops low, many computers in the car store faults at once and turn on their lights. After a jump or a new battery, some lights clear by themselves, and others need a short drive or a reset to go out.",
+    "causes": [
+     {
+      "name": "Faults stored during low voltage",
+      "clues": "The battery went flat or was disconnected just before.",
+      "against": ""
+     },
+     {
+      "name": "Loose battery clamp after the work",
+      "clues": "A clamp that moves when you twist it.",
+      "against": ""
+     },
+     {
+      "name": "Battery still low or failing",
+      "clues": "Slow cranking, or the battery is more than 4–5 years old.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the battery clamps.",
+      "Note which lights clear after a short drive and which stay on."
+     ],
+     "shop": [
+      "Battery load test",
+      "Alternator output test",
+      "Code scan of all modules"
+     ]
+    }
+   }
+  },
+  "r_charging_failing": {
+   "result": {
+    "title": "The charging system is likely failing, and the car is running low on power",
+    "urgency": "stop",
+    "now": "Get off the road somewhere safe while the car still runs, then turn it off. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If the engine temperature is rising too, a broken drive belt is likely. Don't restart the engine.",
+     "If you're stuck somewhere unsafe, turn on your hazard lights and call roadside assistance."
+    ],
+    "why": "When the alternator stops charging, the car runs on battery alone. As voltage drops, the computers turn on warnings, lights flicker, steering assist can cut out, and eventually the engine stops. That often happens in traffic.",
+    "causes": [
+     {
+      "name": "Alternator failure",
+      "clues": "The battery light is on, the headlights dim, and there may be a whine or burning smell.",
+      "against": ""
+     },
+     {
+      "name": "Broken or slipping drive belt",
+      "clues": "A squeal before it happened, or the temperature gauge rising.",
+      "against": ""
+     },
+     {
+      "name": "Loose or corroded battery cable or ground",
+      "clues": "Crusty terminals, or the problem changes over bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look for a missing or loose drive belt.",
+      "Check the battery clamps."
+     ],
+     "shop": [
+      "Alternator output test",
+      "Battery load test",
+      "Drive belt inspection",
+      "Voltage-drop test on battery and ground cables"
+     ]
+    }
+   }
+  },
+  "r_voltage_soon": {
+   "result": {
+    "title": "Most likely a voltage problem from the battery, a cable or the alternator",
+    "urgency": "soon",
+    "now": "Check that the battery clamps are tight and clean, then get the battery and charging system tested within the next few days.",
+    "if": [
+     "If the battery light comes on or the headlights dim, get off the road and have it towed.",
+     "If a red warning light comes on, pull over and turn the engine off."
+    ],
+    "why": "Every computer in the car needs steady voltage. A weak battery, a loose cable or a tired alternator can make many warnings appear at once or flicker. It's the most common reason for a dash full of lights.",
+    "causes": [
+     {
+      "name": "Loose or corroded battery terminal or ground strap",
+      "clues": "The lights change over bumps, or there's buildup on the terminals.",
+      "against": ""
+     },
+     {
+      "name": "Weak battery",
+      "clues": "Slow cranking, or a battery older than 4–5 years.",
+      "against": ""
+     },
+     {
+      "name": "Alternator starting to fail",
+      "clues": "Lights dim at idle and brighten with revs.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the battery clamps and the ground strap from the engine to the body.",
+      "Watch whether the lights change when you rev the engine slightly in Park."
+     ],
+     "shop": [
+      "Battery load test",
+      "Alternator output test",
+      "Voltage-drop test on battery and ground cables",
+      "Code scan of all modules"
+     ]
+    }
+   }
+  },
+  "r_cluster": {
+   "result": {
+    "title": "The gauge cluster itself may be failing",
+    "urgency": "check",
+    "now": "Book a check when convenient. Make sure the battery clamps are tight first, since low voltage can look the same.",
+    "if": [
+     "If the speedometer or fuel gauge becomes unreliable, get it fixed sooner. You need to know your speed and fuel.",
+     "If the battery light comes on or other systems act up, treat it as a voltage problem and get it checked within a few days."
+    ],
+    "why": "If only the gauges glitch while the engine, lights and radio work normally, the problem is usually inside the cluster or its connector, not the rest of the car.",
+    "causes": [
+     {
+      "name": "Failing instrument cluster",
+      "clues": "Gauges drop to zero or reset, but everything else runs fine.",
+      "against": ""
+     },
+     {
+      "name": "Loose cluster connector or ground",
+      "clues": "It happens over bumps or after dash work.",
+      "against": ""
+     },
+     {
+      "name": "Low voltage",
+      "clues": "Dim lights or slow cranking too.",
+      "against": "If the battery tests fine and nothing else flickers, low voltage is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the battery clamps.",
+      "Record a short video of the glitch for the shop."
+     ],
+     "shop": [
+      "Cluster and module code scan",
+      "Cluster connector and ground check",
+      "Battery and charging test"
+     ]
+    }
+   }
+  },
+  "r_red_light": {
+   "result": {
+    "title": "A red warning means stop, whatever else is on",
+    "urgency": "stop",
+    "now": "Pull over where it's safe and turn the engine off. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the red brake light is on and the pedal feels soft or sinks, don't drive it at all.",
+     "If the red light was oil pressure, check the oil level once the engine is off, but don't restart it even if it looks full."
+    ],
+    "why": "Red warnings for oil pressure, engine temperature and brakes mean a risk of engine damage or a safety failure. Even if other lights came on at the same time, the red one decides what you do.",
+    "causes": [
+     {
+      "name": "Low oil pressure",
+      "clues": "A red oil can symbol, ticking or knocking.",
+      "against": ""
+     },
+     {
+      "name": "Engine overheating",
+      "clues": "The temperature gauge is high, or there's steam.",
+      "against": ""
+     },
+     {
+      "name": "Brake fluid low or brake system fault",
+      "clues": "The red brake light with a soft or low pedal.",
+      "against": ""
+     },
+     {
+      "name": "Charging failure setting off several warnings",
+      "clues": "The battery light is on too, and lights flicker.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, check the oil level and the coolant reservoir once cool.",
+      "Check the brake fluid reservoir level."
+     ],
+     "shop": [
+      "Code scan of all modules",
+      "Oil pressure test",
+      "Cooling system pressure test",
+      "Brake system inspection"
+     ]
+    }
+   }
+  },
+  "r_abs_group": {
+   "result": {
+    "title": "One ABS problem usually turns on all of these lights together",
+    "urgency": "soon",
+    "now": "Drive gently and leave extra stopping distance. Have the ABS codes read within the next few days.",
+    "if": [
+     "If the red brake light comes on or the pedal feels soft or low, stop driving it.",
+     "If the speedometer also acts up, a wheel speed sensor is even more likely."
+    ],
+    "why": "Traction and stability control rely on the ABS system's wheel speed sensors. When ABS has a fault, the others switch off too, so several lights appear at once. Normal braking still works, but without the anti-skid help in an emergency or on slippery roads.",
+    "causes": [
+     {
+      "name": "Faulty wheel speed sensor or its wiring",
+      "clues": "The lights came on after rain, a pothole or recent brake or suspension work.",
+      "against": ""
+     },
+     {
+      "name": "Low brake fluid",
+      "clues": "The brake fluid reservoir is near or below MIN.",
+      "against": ""
+     },
+     {
+      "name": "ABS module fault",
+      "clues": "Lights that come and go with no other pattern.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the brake fluid reservoir level.",
+      "Note whether the lights came on after rain or a bump."
+     ],
+     "shop": [
+      "ABS code scan",
+      "Wheel speed sensor tests",
+      "Brake fluid and brake inspection"
+     ]
+    }
+   }
+  },
+  "r_engine_group": {
+   "result": {
+    "title": "An engine fault often switches off traction control and other aids too",
+    "urgency": "soon",
+    "now": "Have the codes read within the next few days. Many auto parts stores can read the check engine code for you.",
+    "if": [
+     "If the check engine light starts flashing or the engine shakes, pull over and stop driving it.",
+     "If power drops or a reduced power message appears, keep trips short and get it in sooner."
+    ],
+    "why": "On many cars, a check engine fault makes the computer turn off traction control, stability control or cruise control as a precaution. Fix the engine fault and the other lights usually go out with it.",
+    "causes": [
+     {
+      "name": "Engine sensor or misfire fault",
+      "clues": "A steady check engine light, rough idle or less power.",
+      "against": ""
+     },
+     {
+      "name": "Loose gas cap or small emissions leak",
+      "clues": "The light came on soon after refueling and the car runs normally.",
+      "against": ""
+     },
+     {
+      "name": "Throttle or pedal sensor fault",
+      "clues": "Sluggish acceleration or a reduced power message.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure the gas cap is tight.",
+      "Get the code read at a parts store or with your own code reader."
+     ],
+     "shop": [
+      "Code scan of all modules",
+      "Live data and sensor tests",
+      "Misfire and ignition tests if needed"
+     ]
+    }
+   }
+  },
+  "r_network": {
+   "result": {
+    "title": "The car's computers may not be talking to each other properly",
+    "urgency": "soon",
+    "now": "Check that the battery clamps are tight, then have a shop scan all the computers within the next few days.",
+    "if": [
+     "If the steering gets heavy, the brakes feel different or the car loses power, stop driving it.",
+     "If it started after a leak, a car wash or heavy rain, mention it. Water in a connector is a common cause."
+    ],
+    "why": "Modern cars connect their computers on a shared network. A low-voltage problem, a bad ground or one failing module can disrupt it, so systems that have nothing in common all report faults at once.",
+    "causes": [
+     {
+      "name": "Low voltage or a bad ground connection",
+      "clues": "A weak battery, slow cranking, or lights that change with engine speed.",
+      "against": ""
+     },
+     {
+      "name": "Water in a wiring connector or module",
+      "clues": "Wet carpets, a leak, or it started after heavy rain.",
+      "against": ""
+     },
+     {
+      "name": "Failing module or damaged wiring",
+      "clues": "Recent accident or electrical work, or chewed wires.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the battery clamps.",
+      "Feel for damp carpets in the footwells and trunk."
+     ],
+     "shop": [
+      "Code scan of all modules",
+      "Network communication tests",
+      "Battery, charging and ground tests"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "battery-light-on",
+  "abs-light-on",
+  "headlights-dim-or-flickering",
+  "battery-keeps-dying",
+  "traction-control-light-on"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "warning lights",
+   "multiple warning",
+   "flicker",
+   "alternator",
+   "instrument cluster",
+   "gauge cluster",
+   "voltage",
+   "ground strap",
+   "wiring harness",
+   "wheel speed sensor"
+  ]
+ },
+ "sources": [
+  "https://www.jdpower.com/cars/shopping-guides/why-did-all-my-dashboard-lights-turn-on-while-driving",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

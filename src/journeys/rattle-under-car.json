@@ -1,0 +1,484 @@
+{
+ "id": "rattle-under-car",
+ "title": "Rattling under the car",
+ "h1": "What's that rattling noise under my car?",
+ "metaDesc": "Rattling from under the car? Answer a few questions to see if it's a heat shield, exhaust hanger, catalytic converter or suspension part, and how urgent it is.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "rattling under car",
+  "rattle under car",
+  "rattling noise under car when idling",
+  "metal rattle under car",
+  "heat shield rattle",
+  "exhaust rattle",
+  "catalytic converter rattle",
+  "tinny rattle when accelerating",
+  "rattling noise when driving over bumps",
+  "buzzing noise under car",
+  "rattle at certain rpm",
+  "sounds like rocks in a can under my car",
+  "rattle under car at startup",
+  "something loose under car"
+ ],
+ "intro": "Most rattles from under a car come from the exhaust system: a loose heat shield, a broken hanger, or loose material inside the catalytic converter. Others come from the suspension or brakes. When it rattles, and what you find with a quick tap test, usually narrows it down. Answer the questions below to find the most likely cause and how soon to act.",
+ "safety": [
+  "If you smell exhaust inside the car, or anyone gets a headache, feels dizzy or sick, get to fresh air right away. Exhaust contains carbon monoxide.",
+  "If something is dragging on the road or hanging down, pull over as soon as it's safe.",
+  "Exhaust parts get hot enough to burn you. Let the car cool for at least an hour before touching anything underneath, and never get under a car held up only by a jack."
+ ],
+ "start": "q_danger",
+ "nodes": {
+  "q_danger": {
+   "q": "Along with the rattle, do you notice any of these?",
+   "opts": [
+    {
+     "a": "Exhaust smell inside the car, or someone feels dizzy or gets a headache",
+     "go": "r_exhaust_in_cabin"
+    },
+    {
+     "a": "Something is scraping on the road or hanging down under the car",
+     "go": "r_dragging"
+    },
+    {
+     "a": "The check engine light is flashing, or the engine has lost a lot of power",
+     "go": "r_cat_failing"
+    },
+    {
+     "a": "None of these, just the rattle",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When does the rattle happen?",
+   "opts": [
+    {
+     "a": "At a certain engine speed, even when parked (a tinny, buzzing metal rattle)",
+     "go": "q_tap"
+    },
+    {
+     "a": "Mostly at startup or idle, and it fades or changes as the engine warms",
+     "go": "q_tap"
+    },
+    {
+     "a": "Only over bumps or rough roads",
+     "go": "r_bump_rattle"
+    },
+    {
+     "a": "Only when braking, or it stops when I press the brake",
+     "go": "r_brake_hardware"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_tap"
+    }
+   ]
+  },
+  "q_tap": {
+   "q": "With the engine OFF and the exhaust completely cool, tap along the exhaust pipe and its thin metal covers with your hand or a rubber mallet. What happens?",
+   "help": "The exhaust runs from the engine to the tailpipe under the car. Heat shields are thin metal covers above or around the pipe and the catalytic converter (a wider section near the front). Wait at least an hour after driving, and only reach in from the side unless the car is safely on ramps or stands.",
+   "opts": [
+    {
+     "a": "A thin metal cover buzzes or rattles when I tap it",
+     "go": "r_heat_shield"
+    },
+    {
+     "a": "It sounds like loose gravel or rocks inside a wider section of the exhaust",
+     "go": "r_cat_internal"
+    },
+    {
+     "a": "The pipe swings or knocks against the car, or a rubber hanger is broken",
+     "go": "r_exhaust_hanger"
+    },
+    {
+     "a": "Nothing rattles, or I can't safely reach under the car",
+     "go": "r_shop_find"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_shop_find"
+    }
+   ]
+  },
+  "r_exhaust_in_cabin": {
+   "result": {
+    "title": "Exhaust may be leaking into the car. Don't drive it",
+    "urgency": "stop",
+    "now": "Get out and get to fresh air. Don't drive the car again until it's repaired. Have it towed or have a mobile mechanic inspect it.",
+    "if": [
+     "If anyone has a headache, dizziness, nausea or confusion, get them into fresh air and call 911 or seek medical care.",
+     "If the car is parked in a garage, don't run the engine there to listen for the rattle."
+    ],
+    "why": "A rattle can come from a broken or loose exhaust part, and the same damage can let exhaust leak out under the car. Exhaust contains carbon monoxide, which has no smell of its own and can cause drowsiness and worse. Any exhaust smell in the cabin is a reason to stop.",
+    "causes": [
+     {
+      "name": "Cracked or broken exhaust pipe or joint",
+      "clues": "The exhaust is louder than usual, and the rattle is near the front or middle of the car.",
+      "against": ""
+     },
+     {
+      "name": "Leaking exhaust manifold or gasket",
+      "clues": "A ticking or puffing from the engine and a smell when idling.",
+      "against": ""
+     },
+     {
+      "name": "Rusted-through muffler or pipe",
+      "clues": "Visible holes or heavy rust, and a deeper exhaust sound.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Exhaust leak inspection on a lift",
+      "Smoke test for exhaust leaks",
+      "Check body seals and floor for holes"
+     ]
+    }
+   }
+  },
+  "r_dragging": {
+   "result": {
+    "title": "A part has come loose and may be dragging",
+    "urgency": "stop",
+    "now": "Pull over as soon as it's safe and look from the side of the car. Don't drive on with something dragging. Call roadside assistance or have it towed.",
+    "if": [
+     "If it's a plastic splash shield or panel and you can safely remove or tie it up, that may be enough until it's fixed properly.",
+     "If it's the exhaust, don't touch it until it has cooled for at least an hour."
+    ],
+    "why": "A part dragging on the road can catch on something, damage other parts, throw sparks or come off and hit other vehicles. The usual culprits are the exhaust after a hanger breaks, or a plastic underbody panel that has torn loose.",
+    "causes": [
+     {
+      "name": "Broken exhaust hanger or clamp",
+      "clues": "A metal scraping sound and a louder exhaust.",
+      "against": ""
+     },
+     {
+      "name": "Loose underbody splash shield or panel",
+      "clues": "A plastic flapping or scraping sound, often after hitting a curb, snow or debris.",
+      "against": ""
+     },
+     {
+      "name": "Loose heat shield",
+      "clues": "A thin metal sheet hanging down near the exhaust.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From the side of the car, look underneath for anything hanging down."
+     ],
+     "shop": [
+      "Underbody inspection on a lift",
+      "Exhaust hanger and clamp check"
+     ]
+    }
+   }
+  },
+  "r_cat_failing": {
+   "result": {
+    "title": "The catalytic converter may be breaking up or blocked",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and turn off the engine. Have it towed or call a mobile mechanic rather than driving on.",
+    "if": [
+     "If you smell burning, see smoke, or notice a strong rotten egg smell, turn the engine off and step away from the car.",
+     "If the light stops flashing, still get it checked before driving any distance."
+    ],
+    "why": "A flashing check engine light means a serious misfire, which sends unburned fuel into the catalytic converter and can overheat it. The inside of the converter can then crack apart and rattle, and loose pieces can block the exhaust, which causes a big loss of power.",
+    "causes": [
+     {
+      "name": "Engine misfire overheating the converter",
+      "clues": "A flashing check engine light, shaking, or a fuel or rotten egg smell.",
+      "against": ""
+     },
+     {
+      "name": "Broken-up converter blocking the exhaust",
+      "clues": "Power has dropped steadily, and the engine struggles to rev.",
+      "against": ""
+     },
+     {
+      "name": "Collapsed muffler inside",
+      "clues": "A rattle further back, with power loss.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "If you have a code reader, read and save the codes."
+     ],
+     "shop": [
+      "Code scan and misfire data",
+      "Exhaust back-pressure test",
+      "Catalytic converter inspection"
+     ]
+    }
+   }
+  },
+  "r_bump_rattle": {
+   "result": {
+    "title": "A loose suspension link, exhaust hanger or underbody panel is likely",
+    "urgency": "check",
+    "now": "Book an inspection when convenient. Tell the shop the rattle only happens over bumps and rough roads.",
+    "if": [
+     "If it becomes a heavier clunk, or the steering feels loose, get it checked within a few days.",
+     "If something starts scraping on the road, pull over and look."
+    ],
+    "why": "A rattle that only shows up on rough roads means something is loose enough to move when the car bounces. The usual suspects are a worn sway bar link, a sagging exhaust that taps the body, or a loose plastic panel.",
+    "causes": [
+     {
+      "name": "Worn sway bar link",
+      "clues": "A light knock or rattle near a wheel on small bumps.",
+      "against": ""
+     },
+     {
+      "name": "Exhaust hitting the body or a loose hanger",
+      "clues": "A metallic bang under the middle or back of the car, sometimes when shifting into gear too.",
+      "against": ""
+     },
+     {
+      "name": "Loose underbody panel or splash shield",
+      "clues": "A plastic rattle, often after hitting debris or deep snow.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the car cool and parked, push gently on the tailpipe and see if the exhaust knocks against anything.",
+      "Look from the side for loose plastic panels."
+     ],
+     "shop": [
+      "Suspension inspection on a lift",
+      "Exhaust hanger and clearance check",
+      "Underbody panel check"
+     ]
+    }
+   }
+  },
+  "r_brake_hardware": {
+   "result": {
+    "title": "A brake part may be loose or worn",
+    "urgency": "soon",
+    "now": "Have the brakes inspected within a few days. Leave extra stopping distance until then.",
+    "if": [
+     "If you hear grinding, the pedal feels soft, or the car pulls when braking, stop driving and have it towed.",
+     "If the rattle started right after brake work, have the shop that did the work check it before driving any distance."
+    ],
+    "why": "If the rattle changes or stops when you press the brake, the brakes are the likely source. Pads can rattle when the anti-rattle clips are missing or worn, and a loose caliper bolt is more serious.",
+    "causes": [
+     {
+      "name": "Missing or worn anti-rattle clips or pad hardware",
+      "clues": "A light rattle over bumps that stops when you touch the brake.",
+      "against": ""
+     },
+     {
+      "name": "Loose caliper or bracket bolt",
+      "clues": "A clunk when you start braking or switch between forward and reverse.",
+      "against": ""
+     },
+     {
+      "name": "Badly worn brake pads",
+      "clues": "Squealing or grinding when braking.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the rattle stops when you lightly press the brake pedal."
+     ],
+     "shop": [
+      "Brake inspection",
+      "Caliper bolt torque check",
+      "Pad and hardware check"
+     ]
+    }
+   }
+  },
+  "r_heat_shield": {
+   "result": {
+    "title": "A loose heat shield is the most likely cause",
+    "urgency": "diy",
+    "now": "Look at where the shield is attached. Often a bracket has rusted away and the shield can be secured with a large stainless hose clamp around the pipe. If you're not comfortable doing it, any exhaust shop can secure it quickly.",
+    "if": [
+     "If the shield is badly rusted or hanging down, have it repaired or replaced rather than removing it.",
+     "If the rattle continues after securing the shield, have the exhaust checked."
+    ],
+    "why": "Heat shields are thin metal covers that keep exhaust heat away from the floor, fuel lines and dry grass under the car. Their fasteners rust over time, and the loose shield buzzes at certain engine speeds. It's the most common rattle under a car.",
+    "causes": [
+     {
+      "name": "Rusted heat shield fastener or bracket",
+      "clues": "A tinny buzz at a certain engine speed, even when parked.",
+      "against": ""
+     },
+     {
+      "name": "Loose exhaust clamp",
+      "clues": "The rattle is at a pipe joint rather than a thin cover.",
+      "against": ""
+     },
+     {
+      "name": "Catalytic converter internal rattle",
+      "clues": "Tapping the converter itself makes a gravel-like sound.",
+      "against": "Less likely if the rattle stops when you hold the shield."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the exhaust cool, press on each shield and see whether the rattle stops.",
+      "Look for rusted-out fasteners or brackets."
+     ],
+     "shop": [
+      "Exhaust and heat shield inspection on a lift",
+      "Heat shield repair or replacement"
+     ]
+    }
+   }
+  },
+  "r_cat_internal": {
+   "result": {
+    "title": "The inside of the catalytic converter or muffler may be breaking up",
+    "urgency": "soon",
+    "now": "Get the exhaust checked within a few days, and avoid long trips and hard acceleration until then.",
+    "if": [
+     "If the engine loses power, struggles to rev, or the check engine light flashes, stop driving and have it towed.",
+     "If the check engine light is on steady, ask the shop to check for a misfire too. Misfires are a common reason converters fail."
+    ],
+    "why": "A catalytic converter has a honeycomb core inside. Heat, age, a hard impact or an engine problem can crack it, and the pieces rattle like gravel in a can, often worst at startup. Over time the broken pieces can block the exhaust and choke the engine.",
+    "causes": [
+     {
+      "name": "Broken catalytic converter core",
+      "clues": "A gravel or rock rattle when you tap the converter, often worse at startup or idle.",
+      "against": ""
+     },
+     {
+      "name": "Broken baffle inside the muffler",
+      "clues": "The gravel sound is from the muffler near the back.",
+      "against": ""
+     },
+     {
+      "name": "Loose heat shield on the converter",
+      "clues": "The rattle stops when you press on the outer cover.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the engine has lost any power.",
+      "Check whether the check engine light is on."
+     ],
+     "shop": [
+      "Exhaust back-pressure test",
+      "Code scan",
+      "Catalytic converter and muffler inspection"
+     ]
+    }
+   }
+  },
+  "r_exhaust_hanger": {
+   "result": {
+    "title": "A broken exhaust hanger or mount is letting the exhaust move",
+    "urgency": "check",
+    "now": "Book an exhaust repair within the next week or two. Hangers are a quick fix, and catching it early protects the rest of the exhaust.",
+    "if": [
+     "If the exhaust starts hanging low or dragging, pull over and have it towed.",
+     "If the exhaust gets louder or you smell fumes inside the car, get it checked right away."
+    ],
+    "why": "Rubber hangers hold the exhaust in place while letting it move a little. When one breaks, the pipe swings and knocks against the car, especially when starting off or going over bumps. The extra movement can also crack pipes and joints.",
+    "causes": [
+     {
+      "name": "Broken or stretched rubber hanger",
+      "clues": "The pipe swings freely, or a hanger is torn or missing.",
+      "against": ""
+     },
+     {
+      "name": "Rusted-off hanger bracket",
+      "clues": "The rubber is fine, but the metal rod or bracket has broken.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine or transmission mount",
+      "clues": "The exhaust knocks mostly when shifting into gear or taking off.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the exhaust cool, push the tailpipe side to side and listen for knocking.",
+      "Look along the pipe for broken rubber hangers."
+     ],
+     "shop": [
+      "Exhaust hanger and bracket inspection",
+      "Engine and transmission mount check"
+     ]
+    }
+   }
+  },
+  "r_shop_find": {
+   "result": {
+    "title": "A shop should put it on a lift to find the rattle",
+    "urgency": "check",
+    "now": "Book an inspection when convenient. Tell the shop when the rattle happens: at a certain engine speed, at startup, over bumps or when braking.",
+    "if": [
+     "If you smell exhaust inside the car, get it checked right away.",
+     "If the rattle becomes a clunk, a grind or a scrape, get it checked within a few days."
+    ],
+    "why": "Under-car rattles are much easier to find with the car lifted, the engine running, and a technician listening and tapping parts. Most are minor, like a heat shield, but it's worth ruling out exhaust leaks and loose brake or suspension parts.",
+    "causes": [
+     {
+      "name": "Loose heat shield",
+      "clues": "A tinny buzz at certain engine speeds.",
+      "against": ""
+     },
+     {
+      "name": "Exhaust hanger or clamp",
+      "clues": "A knock when starting off or over bumps.",
+      "against": ""
+     },
+     {
+      "name": "Suspension or brake hardware",
+      "clues": "The rattle happens over bumps or when braking.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound of the rattle, and note the engine speed or road conditions when it happens."
+     ],
+     "shop": [
+      "Underbody inspection on a lift",
+      "Exhaust system check",
+      "Suspension and brake hardware check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "exhaust-smell-in-cabin",
+  "loud-exhaust-roaring",
+  "clunk-over-bumps",
+  "rotten-egg-smell",
+  "check-engine-light-flashing"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises"
+  ],
+  "words": [
+   "rattle",
+   "heat shield",
+   "exhaust",
+   "catalytic converter",
+   "muffler",
+   "hanger",
+   "clamp"
+  ]
+ },
+ "sources": [
+  "https://www.autobarn.net/symptoms/catalytic-converter-rattle",
+  "https://www.autobarn.net/symptoms/rattling-exhaust"
+ ]
+}

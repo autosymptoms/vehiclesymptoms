@@ -1,0 +1,402 @@
+{
+ "id": "vibration-at-highway-speed",
+ "title": "Vibration at highway speed",
+ "h1": "Why does my car vibrate at highway speeds?",
+ "metaDesc": "Car vibrates at highway speed? Answer a few quick questions to see if it's tire balance, tire damage, axles or bearings, how urgent it is, and what to tell your mechanic.",
+ "group": "shake",
+ "cat": "Driving",
+ "synonyms": [
+  "car vibrates at highway speed",
+  "vibration at 60 mph",
+  "steering wheel shakes at 70 mph",
+  "car shakes at high speed",
+  "shaking on the highway",
+  "vibration above 50 mph",
+  "tires out of balance",
+  "car shimmies at highway speed",
+  "seat vibrates at high speed",
+  "car shakes after new tires",
+  "wobble at highway speeds",
+  "highway vibration",
+  "car vibrates when going fast",
+  "car shakes at 65"
+ ],
+ "intro": "A vibration that shows up at highway speeds usually comes from the tires and wheels, and most often it's simply a tire out of balance. But a sudden vibration can also mean a damaged tire, which needs attention right away. Answer the questions below to sort out which one you're dealing with.",
+ "safety": [
+  "If the vibration starts suddenly and is strong, slow down, pull over safely and look at the tires.",
+  "If you see a bulge, bubble or exposed cords on a tire, don't drive on it. Use the spare or call for help.",
+  "If you hear clicking or clunking from a wheel, or the car wobbles, pull over. A wheel may be loose."
+ ],
+ "start": "q_start",
+ "nodes": {
+  "q_start": {
+   "q": "How did the vibration start?",
+   "help": "Suddenly means it was fine one day and shaking the next. Gradually means it crept in over weeks or months.",
+   "opts": [
+    {
+     "a": "Suddenly, after hitting a pothole or curb, or I see a bulge on a tire",
+     "go": "r_tire_damage"
+    },
+    {
+     "a": "Right after new tires, a tire rotation or a flat repair",
+     "go": "r_after_service"
+    },
+    {
+     "a": "It comes with a humming or growling noise, or clunks, or the car wanders",
+     "go": "r_bearing_suspension"
+    },
+    {
+     "a": "It crept in gradually, with no other symptoms",
+     "go": "q_where"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_where"
+    }
+   ]
+  },
+  "q_where": {
+   "q": "Where do you feel the vibration most?",
+   "help": "The front tires usually shake the steering wheel. The rear tires and the drive parts are felt more in the seat and floor.",
+   "opts": [
+    {
+     "a": "Mostly in the steering wheel",
+     "go": "r_front_balance"
+    },
+    {
+     "a": "Mostly in the seat or floor",
+     "go": "q_throttle"
+    },
+    {
+     "a": "It's only there, or much worse, when I brake",
+     "go": "r_brakes"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_throttle"
+    }
+   ]
+  },
+  "q_throttle": {
+   "q": "At the speed where it vibrates, does it change when you ease off the gas and coast?",
+   "help": "Only test this on a quiet, safe stretch of road. Tire and wheel vibrations stay the same at a given speed whether you're on the gas or not. Vibrations that change with the gas pedal point to the axles, driveshaft or engine mounts.",
+   "opts": [
+    {
+     "a": "No, it feels the same at that speed either way",
+     "go": "r_rear_balance"
+    },
+    {
+     "a": "It's worse when accelerating and fades when I coast",
+     "go": "r_driveline"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_rear_balance"
+    }
+   ]
+  },
+  "r_tire_damage": {
+   "result": {
+    "title": "A tire or wheel may be damaged",
+    "urgency": "stop",
+    "now": "Pull over safely and look at the tires. If you see a bulge, bubble, cut or bent wheel, put the spare on or call for roadside help.",
+    "if": [
+     "If the tires look fine, don't assume they are. Internal tire damage isn't always visible, so have them checked by roadside service or a mobile tire service before relying on them.",
+     "If a wheel looks bent or a lug nut is missing, don't drive on that wheel at all."
+    ],
+    "why": "A sudden vibration after a pothole or curb strike often means a bent wheel or a tire with internal damage, such as a separated belt. A damaged tire can fail suddenly at speed, so it needs to be checked before you rely on it.",
+    "causes": [
+     {
+      "name": "Damaged tire, bulge or separated belt",
+      "clues": "A visible bump or bubble on the sidewall or tread, or a thumping that gets faster with speed.",
+      "against": ""
+     },
+     {
+      "name": "Bent wheel",
+      "clues": "A hard pothole or curb hit, or a visible dent on the rim edge.",
+      "against": ""
+     },
+     {
+      "name": "Lost balance weight",
+      "clues": "A clean spot on the rim where a weight used to be.",
+      "against": "Less likely if the vibration is strong or came with a loud impact."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the car parked safely, look over each tire for bulges, cuts and uneven wear.",
+      "Check the rims for dents or cracks."
+     ],
+     "shop": [
+      "Tire inspection on and off the wheel",
+      "Wheel runout check on a balancer",
+      "Alignment check after a hard impact"
+     ]
+    }
+   }
+  },
+  "r_after_service": {
+   "result": {
+    "title": "Most likely a balance problem from the recent tire work",
+    "urgency": "soon",
+    "now": "Go back to the tire shop within a day or two and ask them to recheck the balance and lug nut torque.",
+    "if": [
+     "If you hear clicking or clunking from a wheel, or feel a wobble, pull over and stop driving. A wheel may be loose.",
+     "If rebalancing doesn't fix it, ask for a road-force balance or a check for a bent wheel or a defective tire."
+    ],
+    "why": "A new vibration right after tire work usually means a wheel wasn't balanced correctly, a weight fell off, or a wheel wasn't seated evenly on the hub. These are quick to fix, but loose lug nuts are a safety issue, so it's worth checking promptly.",
+    "causes": [
+     {
+      "name": "Wheel out of balance",
+      "clues": "A steady vibration that starts at a certain speed and may ease off at higher speeds.",
+      "against": ""
+     },
+     {
+      "name": "Lug nuts not tightened evenly, or a wheel not seated flat",
+      "clues": "The vibration started right away, or there's a wobble at low speeds too.",
+      "against": ""
+     },
+     {
+      "name": "Defective or out-of-round new tire",
+      "clues": "Balancing doesn't help, and the vibration follows the tire if it's moved.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that no lug nuts look loose or missing.",
+      "Note the speed where the vibration starts and stops."
+     ],
+     "shop": [
+      "Rebalance the wheels",
+      "Lug nut torque check",
+      "Road-force balance or tire uniformity check"
+     ]
+    }
+   }
+  },
+  "r_bearing_suspension": {
+   "result": {
+    "title": "A worn wheel bearing or suspension part may be causing it",
+    "urgency": "soon",
+    "now": "Get the wheel bearings, steering and suspension inspected within the next few days. Avoid highway driving until then.",
+    "if": [
+     "If the noise gets much louder, a wheel feels like it's wobbling, or the steering feels loose, stop driving and have it towed.",
+     "If the growl changes when you gently weave left and right, the wheel bearing is the likely culprit."
+    ],
+    "why": "A vibration that comes with a hum, growl or clunk points to a worn part rather than simple balance. A wheel bearing that wears too far can overheat and fail, and worn steering joints can lead to loss of control.",
+    "causes": [
+     {
+      "name": "Worn wheel bearing",
+      "clues": "A hum or growl that rises with speed and changes when you turn left or right.",
+      "against": ""
+     },
+     {
+      "name": "Worn tie rod end or ball joint",
+      "clues": "Loose or wandering steering, clunks over bumps, or uneven tire wear.",
+      "against": ""
+     },
+     {
+      "name": "Unevenly worn or cupped tires",
+      "clues": "A rhythmic humming and a scalloped feel when you run a hand over the tread.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Run your hand over the tread (car parked) and feel for uneven, wavy wear."
+     ],
+     "shop": [
+      "Wheel bearing play and noise check",
+      "Steering and suspension inspection",
+      "Tire wear inspection and alignment check"
+     ]
+    }
+   }
+  },
+  "r_front_balance": {
+   "result": {
+    "title": "A front tire is most likely out of balance",
+    "urgency": "check",
+    "now": "Book a tire balance and inspection soon. Mention the speed where the steering wheel starts to shake.",
+    "if": [
+     "If the vibration gets stronger quickly, or you notice a bulge, stop driving on that tire.",
+     "If balancing doesn't fix it, ask the shop to check for a bent wheel, a tire defect or worn steering parts."
+    ],
+    "why": "A steering wheel shake that starts around highway speed and often fades a bit at higher speeds is the classic sign of a front wheel out of balance. Small weights on the rim keep each wheel balanced, and they can fall off or the tire can wear unevenly over time.",
+    "causes": [
+     {
+      "name": "Front wheel out of balance",
+      "clues": "A shake that starts at a certain speed and may smooth out above it.",
+      "against": ""
+     },
+     {
+      "name": "Unevenly worn tire",
+      "clues": "Tires that haven't been rotated in a long time, or visible uneven wear.",
+      "against": ""
+     },
+     {
+      "name": "Bent wheel or worn steering part",
+      "clues": "A past pothole hit, or the shake doesn't go away after balancing.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for a clean spot on the rim where a balance weight may have fallen off.",
+      "Check tire pressures with a gauge."
+     ],
+     "shop": [
+      "Wheel balance",
+      "Tire and wheel runout check",
+      "Steering and suspension inspection"
+     ]
+    }
+   }
+  },
+  "r_rear_balance": {
+   "result": {
+    "title": "Probably a rear tire out of balance or unevenly worn",
+    "urgency": "check",
+    "now": "Book a tire balance and inspection. Mention that you feel it in the seat at highway speed.",
+    "if": [
+     "If the vibration gets stronger quickly, or you see a bulge on a tire, stop driving on it.",
+     "If balancing doesn't help, ask the shop to check the driveshaft or axles."
+    ],
+    "why": "A vibration that stays the same at a given speed, whether you're on the gas or coasting, comes from something turning with the wheels. Felt mostly in the seat, it usually points to a rear tire out of balance or with uneven wear.",
+    "causes": [
+     {
+      "name": "Rear wheel out of balance",
+      "clues": "A steady shake in the seat that starts at a certain speed.",
+      "against": ""
+     },
+     {
+      "name": "Uneven tire wear or a tire defect",
+      "clues": "Tires that haven't been rotated recently, or uneven tread you can see or feel.",
+      "against": ""
+     },
+     {
+      "name": "Bent wheel",
+      "clues": "A past pothole or curb hit.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check tire pressures with a gauge.",
+      "Look over the rear tires for uneven wear or bulges."
+     ],
+     "shop": [
+      "Wheel balance",
+      "Tire and wheel runout check",
+      "Driveshaft inspection if balancing doesn't help"
+     ]
+    }
+   }
+  },
+  "r_driveline": {
+   "result": {
+    "title": "An axle, driveshaft or engine mount may be worn",
+    "urgency": "soon",
+    "now": "Have it inspected within the next few days. Until then, accelerate gently and avoid long highway trips.",
+    "if": [
+     "If you hear clunking when shifting or accelerating, or the vibration gets suddenly worse, stop driving and have it towed.",
+     "If you hear clicking when turning sharply, mention it. That points to a worn CV joint on a front-wheel-drive car."
+    ],
+    "why": "A vibration that's worse when you accelerate and fades when you coast is tied to the parts that send power to the wheels. These include the axle shafts (CV joints), the driveshaft and its joints, and the engine and transmission mounts. Worn drive parts can fail and leave you stranded.",
+    "causes": [
+     {
+      "name": "Worn inner CV joint (front-wheel drive)",
+      "clues": "A shudder when accelerating, sometimes with a torn rubber boot and grease on the inside of the wheel.",
+      "against": ""
+     },
+     {
+      "name": "Worn driveshaft U-joint (rear-wheel or all-wheel drive)",
+      "clues": "A clunk when shifting into gear, or a vibration felt in the floor.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine or transmission mount",
+      "clues": "A clunk when accelerating or shifting, or extra shaking at idle in gear.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look behind the front wheels for a torn rubber boot or grease splatter."
+     ],
+     "shop": [
+      "CV axle and boot inspection",
+      "Driveshaft and U-joint check",
+      "Engine and transmission mount inspection"
+     ]
+    }
+   }
+  },
+  "r_brakes": {
+   "result": {
+    "title": "Uneven brake rotors are the most likely cause",
+    "urgency": "soon",
+    "now": "Have the brakes inspected within the next few days. Allow extra stopping distance and avoid hard braking from high speed until then.",
+    "if": [
+     "If the brake pedal feels soft or sinks, or you hear grinding, stop driving and have it towed.",
+     "If there's a burning smell from a wheel, pull over and let the brakes cool."
+    ],
+    "why": "A vibration that appears only when you brake points to the brakes, not the tires. Uneven brake rotors make the pads grab and release as the wheel turns, which you feel as a pulse or shake, worst when slowing from highway speed.",
+    "causes": [
+     {
+      "name": "Uneven front rotors",
+      "clues": "A pulsing pedal and a shaking steering wheel when braking.",
+      "against": ""
+     },
+     {
+      "name": "Sticking caliper",
+      "clues": "One wheel runs hotter, or there's a burning smell.",
+      "against": ""
+     },
+     {
+      "name": "Uneven rear rotors or drums",
+      "clues": "The shake is felt in the seat rather than the steering wheel.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the shake is in the pedal, the steering wheel, or the seat."
+     ],
+     "shop": [
+      "Rotor runout and thickness measurement",
+      "Brake pad and caliper inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "steering-wheel-shaking",
+  "car-shakes-when-braking",
+  "car-shakes-when-accelerating",
+  "humming-noise-at-speed",
+  "uneven-tire-wear"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "vibration",
+   "shake",
+   "tire",
+   "wheel",
+   "balance",
+   "wheel bearing",
+   "cv axle",
+   "driveshaft"
+  ]
+ },
+ "sources": [
+  "https://www.michelin.ca/en/auto/learn/tire-damage/handling-problems/symptom-vibration",
+  "https://www.aa1car.com/library/tvibes.htm",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

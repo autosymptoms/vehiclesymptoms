@@ -1,0 +1,593 @@
+{
+ "id": "engine-knocking",
+ "title": "Engine knocking or pinging",
+ "h1": "Why is my engine knocking?",
+ "metaDesc": "Engine knocking or pinging? Answer a few quick questions to see if it's fuel, carbon buildup, low oil or internal wear, how urgent it is, and what to do next.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "engine knocking",
+  "engine knock",
+  "engine pinging",
+  "pinging when accelerating",
+  "knocking noise when accelerating",
+  "engine rattling when accelerating",
+  "spark knock",
+  "detonation",
+  "rod knock",
+  "knocking sound from engine",
+  "engine knocking at idle",
+  "engine knocking when cold",
+  "knocking after getting gas",
+  "engine knocking going uphill",
+  "my engine is nocking"
+ ],
+ "intro": "Engine knocking covers two very different sounds. A light pinging when you accelerate is often a fuel or carbon issue you can manage. A deep, heavy knock that follows engine speed can mean serious internal damage. Answer the questions below to tell which you have and what to do.",
+ "safety": [
+  "If the oil pressure light comes on, pull over safely and turn the engine off right away.",
+  "If the check engine light is flashing and the engine is shaking, slow down, pull over and stop.",
+  "If the temperature gauge is in the red or you see steam, pull over and turn the engine off.",
+  "Never open the radiator cap on a hot engine."
+ ],
+ "start": "q_warnings",
+ "nodes": {
+  "q_warnings": {
+   "q": "Is any of this happening along with the knock?",
+   "help": "Warning lights on the dash change the answer a lot. Pick the most serious one that fits.",
+   "opts": [
+    {
+     "a": "The red oil pressure light (oil can) is on or flickering",
+     "go": "r_oil_starved"
+    },
+    {
+     "a": "The check engine light is flashing, or the engine is shaking or running rough",
+     "go": "r_misfire"
+    },
+    {
+     "a": "The temperature gauge is high or in the red, or there's steam",
+     "go": "r_overheat_knock"
+    },
+    {
+     "a": "No warning lights, and the engine runs normally",
+     "go": "q_oil_level"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_oil_level"
+    }
+   ]
+  },
+  "q_oil_level": {
+   "q": "What does the oil dipstick show?",
+   "help": "Park on level ground, turn the engine off and wait a few minutes. Pull the dipstick, wipe it, push it back in fully, then pull it out again and look where the oil reaches. Some newer cars show the oil level on the dash instead.",
+   "opts": [
+    {
+     "a": "Between the two marks",
+     "go": "q_sound"
+    },
+    {
+     "a": "Below the low mark, or barely on the stick",
+     "go": "r_oil_starved"
+    },
+    {
+     "a": "I'm not sure, or I can't check it",
+     "go": "q_sound"
+    }
+   ]
+  },
+  "q_sound": {
+   "q": "What does the knock sound like, and when do you hear it?",
+   "opts": [
+    {
+     "a": "A light rattling or pinging, like marbles in a can, when accelerating or climbing hills",
+     "go": "q_fuel"
+    },
+    {
+     "a": "A deep, heavy knock that gets faster as the engine revs, and it's there even at idle",
+     "go": "r_rod_knock"
+    },
+    {
+     "a": "A knock that's loudest right after a cold start and fades as the engine warms up",
+     "go": "r_cold_knock"
+    },
+    {
+     "a": "A light tapping or ticking, quieter than a knock",
+     "go": "r_ticking"
+    },
+    {
+     "a": "It seems to come from under the car, or changes over bumps rather than with engine speed",
+     "go": "r_not_engine"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure_knock"
+    }
+   ]
+  },
+  "q_fuel": {
+   "q": "Which fits best?",
+   "help": "Your owner's manual and the inside of the fuel door say which fuel your engine needs: regular, premium recommended, or premium required.",
+   "opts": [
+    {
+     "a": "My car needs premium and I've been using regular, or it started right after a fill-up",
+     "go": "r_octane"
+    },
+    {
+     "a": "I use the right fuel, and the pinging has been building over months",
+     "go": "r_carbon_knock"
+    },
+    {
+     "a": "The check engine light is on (steady) along with the pinging",
+     "go": "r_knock_sensor"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_octane"
+    }
+   ]
+  },
+  "r_oil_starved": {
+   "result": {
+    "title": "The engine may not be getting enough oil",
+    "urgency": "stop",
+    "now": "Turn the engine off and don't restart it. Have it towed, or have a mobile mechanic check it where it's parked.",
+    "if": [
+     "If the oil is low, adding the right oil is a good first step, but don't run the engine until a mechanic has listened to it. Damage may have already started.",
+     "If the oil light was on while driving, tell the shop roughly how long the engine ran that way."
+    ],
+    "why": "Oil keeps the engine's moving metal parts from touching. A knock with low oil or an oil pressure light means parts may already be hitting each other. Running it this way, even for a few minutes, can destroy the engine.",
+    "causes": [
+     {
+      "name": "Low oil level",
+      "clues": "The dipstick reads low, the car is overdue for an oil change, or it burns or leaks oil.",
+      "against": ""
+     },
+     {
+      "name": "Oil pump or pickup problem",
+      "clues": "The oil level is fine but the pressure light still comes on.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine bearings",
+      "clues": "A deep knock that follows engine speed.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level with the engine off on level ground.",
+      "Look under the car for fresh oil drips."
+     ],
+     "shop": [
+      "Oil pressure test with a gauge",
+      "Engine noise diagnosis with a stethoscope",
+      "Oil filter and drain inspection for metal particles"
+     ]
+    }
+   }
+  },
+  "r_misfire": {
+   "result": {
+    "title": "The engine is likely misfiring badly",
+    "urgency": "stop",
+    "now": "Pull over safely and turn the engine off. Have the car towed or have a mobile mechanic come to you.",
+    "if": [
+     "If you smell something like rotten eggs or burning, keep away from the exhaust. The catalytic converter may be overheating."
+    ],
+    "why": "A flashing check engine light means the engine is misfiring badly enough to cause damage. Unburned fuel can overheat and ruin the catalytic converter, and a rough-running engine can knock and shake. Driving on makes the damage worse.",
+    "causes": [
+     {
+      "name": "Failed ignition coil or spark plug",
+      "clues": "Shaking at idle and when accelerating, and the engine lost power.",
+      "against": ""
+     },
+     {
+      "name": "Fuel injector problem",
+      "clues": "A misfire on one cylinder that won't go away.",
+      "against": ""
+     },
+     {
+      "name": "Internal engine damage",
+      "clues": "A heavy knock along with the shaking.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the light flashes all the time or only under load."
+     ],
+     "shop": [
+      "Code scan and misfire data",
+      "Ignition coil and spark plug check",
+      "Compression test"
+     ]
+    }
+   }
+  },
+  "r_overheat_knock": {
+   "result": {
+    "title": "The engine is overheating, which can cause knocking and damage",
+    "urgency": "stop",
+    "now": "Pull over safely and turn the engine off. Let it cool and have it towed or checked by a mobile mechanic.",
+    "if": [
+     "If you see steam, don't open the hood until it stops, and never open the radiator cap while hot.",
+     "If the coolant is low once cool, there's likely a leak. Topping it up doesn't fix the reason it overheated."
+    ],
+    "why": "An overheating engine is far more likely to knock because the fuel ignites too early in the hot cylinders. Running it hot can warp the cylinder head or blow the head gasket.",
+    "causes": [
+     {
+      "name": "Low coolant or a coolant leak",
+      "clues": "A sweet smell, drips under the car, or a low reservoir.",
+      "against": ""
+     },
+     {
+      "name": "Failed fan, thermostat or water pump",
+      "clues": "It overheats in traffic or the gauge climbs quickly.",
+      "against": ""
+     },
+     {
+      "name": "Head gasket problem",
+      "clues": "White exhaust smoke or coolant that keeps disappearing.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once fully cool, check the coolant reservoir level.",
+      "Look for drips under the front of the car."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Fan and thermostat test",
+      "Combustion gas (head gasket) test"
+     ]
+    }
+   }
+  },
+  "r_rod_knock": {
+   "result": {
+    "title": "This sounds like serious internal wear, such as a rod bearing",
+    "urgency": "stop",
+    "now": "Stop driving and turn the engine off. Have it towed to a shop for diagnosis.",
+    "if": [
+     "If the oil is low, adding oil won't undo the wear. Still don't drive it.",
+     "If the knock turns out to be a loose part outside the engine, like a torque converter bolt or flywheel, it can be a smaller repair. The shop can tell."
+    ],
+    "why": "A deep knock that speeds up with the engine and is there at idle usually comes from inside the engine, often a worn connecting rod bearing. Each turn of the engine hammers the worn part, and it can fail suddenly and badly damage the engine.",
+    "causes": [
+     {
+      "name": "Worn connecting rod bearing",
+      "clues": "A deep, rhythmic knock that gets louder when you rev or let off the gas.",
+      "against": ""
+     },
+     {
+      "name": "Low oil or oil pressure",
+      "clues": "The oil was low, overdue for a change, or the oil light has flickered.",
+      "against": ""
+     },
+     {
+      "name": "Cracked flexplate or loose torque converter bolts (automatic)",
+      "clues": "The knock is at the back of the engine and changes when you shift into gear.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, check the oil level.",
+      "Record a short video with sound at idle. It helps the shop."
+     ],
+     "shop": [
+      "Engine stethoscope diagnosis",
+      "Oil pressure test",
+      "Oil analysis or filter inspection for metal"
+     ]
+    }
+   }
+  },
+  "r_cold_knock": {
+   "result": {
+    "title": "A knock only when cold is often piston slap or a lifter that pumps up as oil warms",
+    "urgency": "check",
+    "now": "Make sure the oil level is correct and the oil change is up to date, then book a check when convenient.",
+    "if": [
+     "If the knock lasts after the engine is warm, or gets louder over time, get it checked soon.",
+     "If the oil pressure light flickers on startup, don't drive it. Have it checked first."
+    ],
+    "why": "Pistons are slightly loose in their cylinders until they warm up and expand, which can cause a light knock for a minute or two. A lifter that loses oil overnight can also tap until oil pressure builds. Some engines do this mildly their whole life.",
+    "causes": [
+     {
+      "name": "Piston slap",
+      "clues": "A hollow knock for the first minute or two after a cold start, then quiet.",
+      "against": ""
+     },
+     {
+      "name": "Lifter bleeding down overnight",
+      "clues": "A tapping or clicking that fades within seconds of starting.",
+      "against": ""
+     },
+     {
+      "name": "Wrong oil thickness or overdue oil change",
+      "clues": "The noise started after an oil change, or it's past due.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level and when the oil was last changed.",
+      "Note how long the knock lasts after starting."
+     ],
+     "shop": [
+      "Cold-start noise diagnosis",
+      "Oil pressure test",
+      "Check for known issues on your engine"
+     ]
+    }
+   }
+  },
+  "r_ticking": {
+   "result": {
+    "title": "A light tap or tick usually comes from the valve train, injectors or an exhaust leak",
+    "urgency": "check",
+    "now": "Check the oil level, and book a check when convenient.",
+    "if": [
+     "If the oil is low, top it up with the right oil and have the car checked for leaks or oil burning.",
+     "If the ticking turns into a heavier knock, get it checked soon.",
+     "See our engine-ticking guide for more detail."
+    ],
+    "why": "Many engines tick lightly. Fuel injectors click as they open, and valves and lifters tap if oil is low or parts are worn. A small exhaust leak near the engine can also tick, especially when cold.",
+    "causes": [
+     {
+      "name": "Lifter or valve noise",
+      "clues": "A tap that matches engine speed, worse with low oil.",
+      "against": ""
+     },
+     {
+      "name": "Exhaust manifold leak",
+      "clues": "Louder when cold, and quieter as the engine warms.",
+      "against": ""
+     },
+     {
+      "name": "Normal fuel injector noise",
+      "clues": "A light, even ticking that's always been there, especially on direct-injection engines.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level.",
+      "Note whether it's louder when cold."
+     ],
+     "shop": [
+      "Engine stethoscope check",
+      "Exhaust manifold leak check",
+      "Valve adjustment check if applicable"
+     ]
+    }
+   }
+  },
+  "r_not_engine": {
+   "result": {
+    "title": "The noise may not be from the engine at all",
+    "urgency": "check",
+    "now": "Book an inspection when convenient. Tell the shop the noise follows bumps or road speed, not engine speed.",
+    "if": [
+     "If you hear clunks over bumps and the steering feels loose, get it checked soon.",
+     "If something is dragging under the car, pull over safely and look, or have it checked before driving further."
+    ],
+    "why": "A loose heat shield, exhaust hanger or suspension part can rattle or knock and sound like it's coming from the engine. If the noise changes with bumps or road speed rather than revving, the engine is probably not the source.",
+    "causes": [
+     {
+      "name": "Loose exhaust heat shield",
+      "clues": "A tinny rattle at certain engine speeds or over bumps.",
+      "against": ""
+     },
+     {
+      "name": "Broken exhaust hanger or loose exhaust part",
+      "clues": "A knock when going over bumps or when starting and stopping the engine.",
+      "against": ""
+     },
+     {
+      "name": "Worn suspension part",
+      "clues": "A clunk over bumps or when turning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off and the exhaust cool, look under the car for a loose or hanging heat shield or pipe.",
+      "Rev the engine gently while parked. If the noise doesn't appear, the engine is less likely."
+     ],
+     "shop": [
+      "Exhaust system and heat shield inspection",
+      "Suspension inspection"
+     ]
+    }
+   }
+  },
+  "r_unsure_knock": {
+   "result": {
+    "title": "Have the knock diagnosed soon, before it gets worse",
+    "urgency": "soon",
+    "now": "Check the oil level, limit driving to short, gentle trips, and have it checked within a few days.",
+    "if": [
+     "If the oil pressure light comes on, the check engine light flashes, or the knock gets louder, pull over and turn the engine off.",
+     "If the knock only happens when accelerating, try a tank of the fuel your owner's manual recommends."
+    ],
+    "why": "Knocking ranges from harmless pinging to serious internal wear. Without knowing what it sounds like, it's safest to check the oil and have a technician listen soon.",
+    "causes": [
+     {
+      "name": "Fuel-related pinging",
+      "clues": "Only when accelerating or climbing hills.",
+      "against": ""
+     },
+     {
+      "name": "Low oil or valve train noise",
+      "clues": "The oil level is low, or the noise is a lighter tap.",
+      "against": ""
+     },
+     {
+      "name": "Internal wear (bearings)",
+      "clues": "A deep knock at idle that follows engine speed.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level.",
+      "Record a short video with sound at idle and while revving gently. It helps the shop a lot."
+     ],
+     "shop": [
+      "Engine stethoscope diagnosis",
+      "Code scan including knock sensor data",
+      "Oil pressure test"
+     ]
+    }
+   }
+  },
+  "r_octane": {
+   "result": {
+    "title": "The fuel's octane is likely too low for your engine",
+    "urgency": "diy",
+    "now": "Check your owner's manual for the right fuel, and fill up with that grade at your next stop. Accelerate gently until then.",
+    "if": [
+     "If the pinging is still there after a full tank of the right fuel, book a check.",
+     "If the check engine light comes on or the engine loses power, get it checked soon."
+    ],
+    "why": "Pinging happens when fuel ignites too early in the cylinder. Engines built for higher-octane fuel are more prone to it on regular. Modern engines can adjust to reduce it, but heavy, sustained pinging can still damage pistons over time.",
+    "causes": [
+     {
+      "name": "Fuel octane lower than the engine needs",
+      "clues": "Your car needs or recommends premium, and you've been using regular.",
+      "against": "Less likely if your car is designed for regular and you've always used it."
+     },
+     {
+      "name": "A tank of poor-quality fuel",
+      "clues": "It started right after a fill-up at an unfamiliar station.",
+      "against": ""
+     },
+     {
+      "name": "Heavy load or heat",
+      "clues": "Worse when towing, carrying a heavy load or in hot weather.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the fuel recommendation in your owner's manual or on the fuel door.",
+      "Run a full tank of the correct fuel and see if the pinging stops."
+     ],
+     "shop": [
+      "Code scan and knock sensor data",
+      "Ignition timing check"
+     ]
+    }
+   }
+  },
+  "r_carbon_knock": {
+   "result": {
+    "title": "Carbon buildup or a lean-running engine is the likely cause",
+    "urgency": "check",
+    "now": "Book a check in the next couple of weeks. Until then, use the fuel your manual recommends and avoid flooring it up hills.",
+    "if": [
+     "If the check engine light comes on or the pinging gets louder, get it checked soon.",
+     "If the engine also runs hot, have the cooling system checked too."
+    ],
+    "why": "Over time carbon builds up in the cylinders, raising compression and creating hot spots that make fuel ignite early. A vacuum leak, a clogged fuel injector or a faulty EGR valve can also make the engine run lean and hot, which leads to pinging.",
+    "causes": [
+     {
+      "name": "Carbon deposits in the cylinders",
+      "clues": "A high-mileage engine, lots of short trips, and pinging that built up slowly.",
+      "against": ""
+     },
+     {
+      "name": "Engine running lean (vacuum leak, fuel delivery)",
+      "clues": "A hissing sound, rough idle, or hesitation.",
+      "against": ""
+     },
+     {
+      "name": "EGR system problem",
+      "clues": "Pinging mostly at steady cruising or light acceleration.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try a tank of the fuel grade your manual recommends.",
+      "Listen for hissing from the engine bay with the engine running."
+     ],
+     "shop": [
+      "Code scan and fuel trim data",
+      "Smoke test for vacuum leaks",
+      "EGR system test",
+      "Carbon inspection with a borescope"
+     ]
+    }
+   }
+  },
+  "r_knock_sensor": {
+   "result": {
+    "title": "The engine computer has likely detected knock, or the knock sensor is faulty",
+    "urgency": "soon",
+    "now": "Have the codes read within a few days. Use the fuel your manual recommends and accelerate gently until then.",
+    "if": [
+     "If the light starts flashing or the engine shakes, pull over and stop.",
+     "If the engine also feels weak or slow, the computer may be protecting it. Get it checked sooner."
+    ],
+    "why": "The knock sensor listens for pinging so the engine computer can adjust the timing and protect the engine. A steady check engine light with pinging can mean real knock it can't control, or a sensor that isn't doing its job.",
+    "causes": [
+     {
+      "name": "Faulty knock sensor or wiring",
+      "clues": "A knock sensor code, and power feels down.",
+      "against": ""
+     },
+     {
+      "name": "Engine running lean",
+      "clues": "Lean or fuel trim codes, rough idle or hesitation.",
+      "against": ""
+     },
+     {
+      "name": "Carbon buildup",
+      "clues": "High mileage and pinging that built up over time.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Have the codes read. Many parts stores do this free."
+     ],
+     "shop": [
+      "Code scan and freeze-frame data",
+      "Knock sensor and wiring test",
+      "Fuel trim and vacuum leak check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "engine-ticking",
+  "check-engine-light-flashing",
+  "oil-pressure-light-on",
+  "burning-oil-low-oil-level",
+  "engine-overheating"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises"
+  ],
+  "words": [
+   "knock",
+   "ping",
+   "detonation",
+   "rod bearing",
+   "knock sensor",
+   "octane",
+   "carbon",
+   "piston"
+  ]
+ },
+ "sources": [
+  "https://webarchive.library.unt.edu/web/20130214154816/http://www.consumer.ftc.gov/articles/0210-paying-premium-high-octane-gasoline",
+  "https://www.oregon.gov/ODA/shared/Documents/Publications/InternalServices/GasolineOctaneKnowtheFactsbrochure.pdf"
+ ]
+}

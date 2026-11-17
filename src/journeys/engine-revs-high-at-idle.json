@@ -1,0 +1,379 @@
+{
+ "id": "engine-revs-high-at-idle",
+ "title": "Engine idles high",
+ "h1": "Why is my engine idling high or revving on its own?",
+ "metaDesc": "Engine idling high or revving by itself? Answer a few quick questions to see if it's normal, a vacuum leak, a sensor or a sticking throttle, and how urgent it is.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "high idle",
+  "engine idling high",
+  "idle too high",
+  "car revving on its own",
+  "engine revs by itself",
+  "rpm high at idle",
+  "idle goes up and down",
+  "surging idle",
+  "idle hunting",
+  "car revs when stopped",
+  "high rpm when parked",
+  "gas pedal stuck",
+  "car accelerating on its own",
+  "idle wont come down"
+ ],
+ "intro": "A higher idle for a minute or two after a cold start is normal. An idle that stays high when warm, rises and falls on its own, or a car that pushes forward when you lift off the gas is not. Answer a few questions to find the likely cause and how soon to deal with it.",
+ "safety": [
+  "If the car keeps speeding up on its own, shift to Neutral, brake firmly and steer to a safe place before turning the engine off.",
+  "If the gas pedal sticks or a floor mat is catching it, don't drive until it's fixed.",
+  "If the check engine light is flashing and the engine shakes, pull over safely and turn it off."
+ ],
+ "start": "q_what_happens",
+ "nodes": {
+  "q_what_happens": {
+   "q": "Which best describes what the engine is doing?",
+   "help": "Idle speed is shown on the tachometer (the RPM gauge). A warm engine usually idles somewhere under 1,000 RPM, but it varies by car.",
+   "opts": [
+    {
+     "a": "The car keeps speeding up when I lift off the gas, or the gas pedal sticks or comes up slowly",
+     "go": "r_stuck_throttle"
+    },
+    {
+     "a": "It idles high only for the first minute or two after a cold start, then settles down",
+     "go": "r_normal_cold_idle"
+    },
+    {
+     "a": "It stays high even after the engine is fully warmed up",
+     "go": "q_warm_clues"
+    },
+    {
+     "a": "The RPM needle rises and falls by itself while stopped (hunting or surging)",
+     "go": "r_idle_control"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_warm_clues"
+    }
+   ]
+  },
+  "q_warm_clues": {
+   "q": "Which of these fits best?",
+   "help": "These clues separate a leak, a sensor problem and a car that simply needs to relearn its idle.",
+   "opts": [
+    {
+     "a": "It started right after the battery was disconnected or replaced, or the throttle was cleaned",
+     "go": "r_idle_relearn"
+    },
+    {
+     "a": "I hear a hiss or whistle from under the hood, or the check engine light is on",
+     "go": "r_vacuum_leak"
+    },
+    {
+     "a": "The temperature gauge stays low or the heater is weak",
+     "go": "r_cold_signal"
+    },
+    {
+     "a": "The idle also goes up and down by itself",
+     "go": "r_idle_control"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "r_stuck_throttle": {
+   "result": {
+    "title": "The throttle or gas pedal may be sticking open",
+    "urgency": "stop",
+    "now": "Don't drive it. With the engine off, check that the floor mat isn't pushing on or catching the gas pedal. If the mat isn't the cause, have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the car speeds up on its own while you're driving, shift to Neutral, brake firmly and steer to a safe place, then turn the engine off.",
+     "If a loose or extra floor mat was trapping the pedal, remove it, secure the correct mat with its clips, and check that the pedal now springs back fully before using the car."
+    ],
+    "why": "An engine that keeps revving when you lift your foot means the throttle isn't closing. That can make the car hard to slow down or stop, so it's a safety problem, not just an annoyance.",
+    "causes": [
+     {
+      "name": "Floor mat pushing on or trapping the gas pedal",
+      "clues": "An extra mat stacked on top of another, a mat that slides forward, or a pedal that frees up when you move the mat.",
+      "against": "If the pedal sticks with the mat removed, look elsewhere."
+     },
+     {
+      "name": "Sticking gas pedal or throttle body",
+      "clues": "The pedal feels gritty or slow to return, or the problem is worse in cold or damp weather.",
+      "against": ""
+     },
+     {
+      "name": "Electronic throttle or pedal sensor fault",
+      "clues": "A check engine light or a reduced power message along with the revving.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, press the gas pedal and let go. It should snap back smoothly.",
+      "Make sure there's only one floor mat on the driver's side and it's held by its clips.",
+      "Check for open recalls on your vehicle using your VIN."
+     ],
+     "shop": [
+      "Throttle body and pedal inspection",
+      "Code scan and live pedal and throttle position data",
+      "Recall check"
+     ]
+    }
+   }
+  },
+  "r_normal_cold_idle": {
+   "result": {
+    "title": "This is most likely the normal fast idle of a cold engine",
+    "urgency": "diy",
+    "now": "No repair needed if the idle drops back to normal within a few minutes. Just keep an eye on it.",
+    "if": [
+     "If the idle stays high after the temperature gauge reaches its normal spot, have it checked.",
+     "If the idle is only a little higher with the A/C or defroster on, that's normal too. The engine raises it to carry the extra load."
+    ],
+    "why": "A cold engine runs a higher idle on purpose. It helps the engine run smoothly and warms up the parts that clean the exhaust faster. Once warm, the computer brings the idle back down.",
+    "causes": [
+     {
+      "name": "Normal cold-start fast idle",
+      "clues": "Higher RPM for a minute or two after starting, especially on cold mornings, then it settles.",
+      "against": "If it never settles, something else is going on."
+     },
+     {
+      "name": "Normal idle boost from A/C or electrical load",
+      "clues": "The idle rises slightly when you turn on the A/C, defroster or headlights.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Watch the tachometer as the engine warms up and note how long the high idle lasts.",
+      "Compare idle with the A/C on and off."
+     ],
+     "shop": [
+      "Code scan and idle speed check if it doesn't settle"
+     ]
+    }
+   }
+  },
+  "r_idle_relearn": {
+   "result": {
+    "title": "The engine computer probably needs to relearn its idle",
+    "urgency": "diy",
+    "now": "Let the engine idle in Park until it's fully warm with everything switched off, then drive normally for a few days. Many cars relearn the idle on their own.",
+    "if": [
+     "If the idle is still high after a few days of normal driving, a shop can run the idle relearn procedure for your vehicle.",
+     "If the high idle comes with a check engine light, get the code read."
+    ],
+    "why": "Disconnecting the battery or cleaning the throttle can erase what the engine computer learned about holding a steady idle. Until it relearns, the idle can sit high or wander.",
+    "causes": [
+     {
+      "name": "Lost idle settings after a battery disconnect",
+      "clues": "The problem started right after a battery change, jump start or disconnect.",
+      "against": ""
+     },
+     {
+      "name": "Throttle cleaned without a relearn",
+      "clues": "It started right after the throttle body was cleaned.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your owner's manual for an idle relearn step after battery disconnection.",
+      "Note whether the idle improves over a few drives."
+     ],
+     "shop": [
+      "Idle relearn procedure with a scan tool",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_vacuum_leak": {
+   "result": {
+    "title": "A vacuum leak is the most likely cause",
+    "urgency": "check",
+    "now": "Have the check engine code read, then book a vacuum leak test when convenient.",
+    "if": [
+     "If the check engine light starts flashing or the engine runs very rough, stop driving and have it checked.",
+     "If you find a hose that has popped off, a shop can usually fix it quickly."
+    ],
+    "why": "The engine sets idle by controlling how much air gets in. A cracked hose or leaking gasket lets in extra air the computer can't control, so the idle rises. A hiss is often the leak itself.",
+    "causes": [
+     {
+      "name": "Cracked, split or disconnected vacuum hose",
+      "clues": "A hiss or whistle at idle, or an older car with brittle rubber hoses.",
+      "against": ""
+     },
+     {
+      "name": "Leaking intake gasket or air intake boot",
+      "clues": "A lean-mixture check engine code, or a rough idle along with the high idle.",
+      "against": ""
+     },
+     {
+      "name": "Leaking brake booster hose or PCV valve",
+      "clues": "The idle changes when you press the brake pedal.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine idling, listen around the top of the engine for a hiss. Keep hands away from belts and the fan.",
+      "Have the check engine code read. Many auto parts stores do this free."
+     ],
+     "shop": [
+      "Smoke test for vacuum leaks",
+      "Code scan and fuel trim data",
+      "PCV valve and hose inspection"
+     ]
+    }
+   }
+  },
+  "r_cold_signal": {
+   "result": {
+    "title": "The engine may think it's still cold",
+    "urgency": "check",
+    "now": "Book a check when convenient. Mention that the temperature gauge stays low or the heater is weak.",
+    "if": [
+     "If the temperature gauge ever climbs into the red, pull over and turn the engine off.",
+     "If the check engine light is on, get the code read. It often points right to the sensor."
+    ],
+    "why": "The computer keeps a fast idle until it sees the engine is warm. A thermostat stuck open keeps the engine from warming up, and a faulty temperature sensor can report cold when it isn't. Either way the idle stays high.",
+    "causes": [
+     {
+      "name": "Thermostat stuck open",
+      "clues": "The temperature gauge stays low on the highway, and the heater is lukewarm.",
+      "against": "If the gauge reads normal and the heater is hot, the thermostat is probably fine."
+     },
+     {
+      "name": "Faulty coolant temperature sensor",
+      "clues": "A check engine light, worse fuel economy, or a gauge that reads oddly.",
+      "against": ""
+     },
+     {
+      "name": "Low coolant",
+      "clues": "The coolant reservoir is below the MIN line.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine cold, check the coolant reservoir level.",
+      "Note where the temperature gauge sits after 15 minutes of driving."
+     ],
+     "shop": [
+      "Code scan and live coolant temperature data",
+      "Thermostat test",
+      "Cooling system pressure test"
+     ]
+    }
+   }
+  },
+  "r_idle_control": {
+   "result": {
+    "title": "The idle control system is likely dirty or faulty",
+    "urgency": "check",
+    "now": "Book a check when convenient. Note whether the surging happens warm or cold, and with the A/C on or off.",
+    "if": [
+     "If the engine stalls when you come to a stop, get it checked sooner. Stalling in traffic is dangerous.",
+     "If you also hear a hiss, a vacuum leak is the more likely cause."
+    ],
+    "why": "The engine uses a throttle valve or a small idle air valve to hold a steady idle. When carbon builds up or a part starts failing, the computer keeps overcorrecting and the RPM hunts up and down.",
+    "causes": [
+     {
+      "name": "Dirty throttle body",
+      "clues": "Black buildup around the throttle plate, and an idle that has slowly gotten worse.",
+      "against": ""
+     },
+     {
+      "name": "Faulty idle air control valve (older cars)",
+      "clues": "The surging comes and goes, and may be worse when cold.",
+      "against": "Many newer cars have no separate idle valve."
+     },
+     {
+      "name": "Small vacuum leak",
+      "clues": "A faint hiss, or a check engine code for a lean mixture.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Watch the tachometer at idle and note how far it swings.",
+      "Have the check engine code read if the light is on."
+     ],
+     "shop": [
+      "Code scan and idle data",
+      "Throttle body inspection and cleaning",
+      "Smoke test for vacuum leaks"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "A high idle that won't settle needs a quick check",
+    "urgency": "check",
+    "now": "Have the check engine code read if the light is on, and book an inspection when convenient.",
+    "if": [
+     "If the car pushes forward when you lift off the gas, or the pedal sticks, stop driving it and have it towed.",
+     "If the temperature gauge stays low, mention it. It points to a thermostat or sensor."
+    ],
+    "why": "A high idle usually comes from extra air getting in, a sensor telling the computer the engine is cold, or an idle control part that isn't working. A technician can tell which with a scan tool and a smoke test.",
+    "causes": [
+     {
+      "name": "Vacuum leak",
+      "clues": "A hiss under the hood.",
+      "against": ""
+     },
+     {
+      "name": "Temperature sensor or thermostat",
+      "clues": "A low temperature gauge or weak heat.",
+      "against": ""
+     },
+     {
+      "name": "Dirty or faulty throttle body",
+      "clues": "The idle goes up and down.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the RPM at idle once warm, with the A/C off.",
+      "Record a short video of the tachometer at idle for the shop."
+     ],
+     "shop": [
+      "Code scan and live data",
+      "Smoke test",
+      "Throttle body inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "rough-idle-shaking",
+  "check-engine-light-on",
+  "hissing-under-hood",
+  "car-dies-when-coming-to-stop",
+  "engine-stalls-while-driving"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "idle",
+   "high idle",
+   "rpm",
+   "surge",
+   "throttle",
+   "vacuum leak",
+   "idle air control",
+   "accelerator pedal"
+  ]
+ },
+ "sources": [
+  "https://www.edmunds.com/car-safety/how-to-stop-a-runaway-vehicle.html",
+  "https://www.transportation.gov/briefing-room/us-department-transportation-releases-results-nhtsa-nasa-study-unintended-acceleration"
+ ]
+}

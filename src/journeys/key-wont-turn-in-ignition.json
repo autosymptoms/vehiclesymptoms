@@ -1,0 +1,414 @@
+{
+ "id": "key-wont-turn-in-ignition",
+ "title": "Key won't turn in the ignition",
+ "h1": "Why won't my key turn in the ignition?",
+ "metaDesc": "Key won't turn and the steering wheel is locked? Answer a few quick questions to free it safely, spot a worn key or lock, and know when to call a locksmith.",
+ "group": "start",
+ "cat": "Starting Problems",
+ "synonyms": [
+  "key won't turn",
+  "key wont turn",
+  "key won't turn in ignition",
+  "ignition key stuck",
+  "steering wheel locked",
+  "steering wheel locked and key won't turn",
+  "steering lock won't release",
+  "ignition locked",
+  "key stuck in ignition",
+  "key won't come out of ignition",
+  "key won't go in ignition",
+  "ignition cylinder stuck",
+  "cant turn key in car"
+ ],
+ "intro": "A key that won't turn is usually the steering lock holding the ignition, not a broken car. Most of the time you can free it in seconds with the right technique. If that doesn't work, the clues below separate a worn key from a worn lock so you know who to call.",
+ "safety": [
+  "Never turn the key to Lock or pull it out while the car is moving. The steering can lock.",
+  "If the engine has ever shut off when the key was bumped or the key ring swung while driving, don't drive it until the ignition switch is checked."
+ ],
+ "start": "q_wheel",
+ "nodes": {
+  "q_wheel": {
+   "q": "Which of these fits best?",
+   "help": "Most cars lock the steering wheel when the key is out. If the wheel was turned when you parked, the lock pushes on the ignition and stops the key from turning.",
+   "opts": [
+    {
+     "a": "The steering wheel is locked and only moves a tiny bit either way",
+     "go": "q_wiggle"
+    },
+    {
+     "a": "The steering wheel turns freely, but the key won't",
+     "go": "q_spare"
+    },
+    {
+     "a": "The key won't go into the slot all the way",
+     "go": "r_key_insert"
+    },
+    {
+     "a": "The key won't turn back to Off, or it won't come out",
+     "go": "r_not_in_park"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_wiggle"
+    }
+   ]
+  },
+  "q_wiggle": {
+   "q": "Gently rock the steering wheel left and right while you turn the key. What happens?",
+   "help": "Use light, steady pressure on the key, and push the wheel toward the side that has a little give. Don't force the key or use tools on it.",
+   "opts": [
+    {
+     "a": "The key turned and the wheel unlocked",
+     "go": "r_steering_lock_freed"
+    },
+    {
+     "a": "It still won't turn, no matter which way I rock the wheel",
+     "go": "q_spare"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_spare"
+    }
+   ]
+  },
+  "q_spare": {
+   "q": "Have you tried a spare key?",
+   "help": "A spare that has hardly been used is the fastest way to tell a worn key from a worn lock.",
+   "opts": [
+    {
+     "a": "Yes, and the spare turns normally",
+     "go": "r_worn_key"
+    },
+    {
+     "a": "Yes, and the spare won't turn either",
+     "go": "q_history"
+    },
+    {
+     "a": "I don't have one, or haven't tried it",
+     "go": "q_history"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_history"
+    }
+   ]
+  },
+  "q_history": {
+   "q": "How did this start?",
+   "opts": [
+    {
+     "a": "The key has felt sticky or needed jiggling for weeks",
+     "go": "r_cylinder_wearing"
+    },
+    {
+     "a": "My key is visibly worn, bent, or a new copy",
+     "go": "r_worn_key"
+    },
+    {
+     "a": "It worked fine, then suddenly wouldn't turn at all",
+     "go": "r_cylinder_jammed"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "r_steering_lock_freed": {
+   "result": {
+    "title": "It was the steering lock holding the key",
+    "urgency": "diy",
+    "now": "Nothing needs fixing. Next time, straighten the wheels before you shut the car off and avoid leaning on the wheel as you get out.",
+    "if": [
+     "If you need to rock the wheel almost every time, or it's getting harder, have the ignition lock checked before it jams for good.",
+     "If the car then won't crank or start, see our guide for when the car won't start."
+    ],
+    "why": "The steering lock is a pin that drops into the steering column when the key is out. If the wheel is turned against it, the pin is pinched so tightly that the key can't turn. Rocking the wheel takes the pressure off and lets the key turn.",
+    "causes": [
+     {
+      "name": "Steering lock under tension",
+      "clues": "The wheel was turned when you parked, you parked against a curb, or the wheel got bumped after the key came out.",
+      "against": ""
+     },
+     {
+      "name": "Early wear in the ignition lock",
+      "clues": "It takes more force than it used to, even with the wheel straight.",
+      "against": "If it only happens after parking with the wheels turned, wear is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Park with the wheels straight and see if the problem goes away.",
+      "Notice whether the key turns easily when there's no pressure on the wheel."
+     ],
+     "shop": [
+      "Ignition lock cylinder inspection",
+      "Steering column lock check"
+     ]
+    }
+   }
+  },
+  "r_worn_key": {
+   "result": {
+    "title": "Your key is probably worn down or cut slightly wrong",
+    "urgency": "diy",
+    "now": "Use the spare key if you have one, and have a new key made from the original factory code or the spare, not copied from the worn key.",
+    "if": [
+     "If no key will turn, the lock itself is the more likely problem. Call a locksmith or the dealer.",
+     "If your car has a chip in the key, the new key will also need to be programmed to the car, or it may turn but not start."
+    ],
+    "why": "The small cuts on a key wear down over years of use. Once they're rounded off, the pins inside the lock don't line up and the key won't turn. A copy made from a worn key copies the wear too.",
+    "causes": [
+     {
+      "name": "Worn key",
+      "clues": "The edges look smooth and rounded, the key is years old, or it works better when you wiggle it.",
+      "against": "If the spare won't turn either, the key isn't the main problem."
+     },
+     {
+      "name": "Poorly cut copy",
+      "clues": "The problem started with a newly made key.",
+      "against": ""
+     },
+     {
+      "name": "Bent key",
+      "clues": "The key isn't straight when you sight down it, or a heavy key ring hangs from it.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Compare the main key and the spare side by side for rounded cuts.",
+      "Lighten a heavy key ring. The weight wears the lock and the key over time."
+     ],
+     "shop": [
+      "Key cut by code",
+      "Key programming if the key has a chip"
+     ]
+    }
+   }
+  },
+  "r_cylinder_wearing": {
+   "result": {
+    "title": "The ignition lock is wearing out",
+    "urgency": "check",
+    "now": "Book a locksmith or shop to look at the ignition lock soon, before it leaves you stuck somewhere. Until then, turn the key gently and don't force it.",
+    "if": [
+     "If it gets to the point where only lots of jiggling works, treat it as urgent. It can jam completely at any time.",
+     "If the engine ever shuts off when the key is bumped while driving, don't drive it until it's repaired."
+    ],
+    "why": "The ignition lock has small spring-loaded pins that wear along with the key. When it gradually gets harder to turn over weeks, the lock is usually on its way out. It rarely fixes itself.",
+    "causes": [
+     {
+      "name": "Worn ignition lock cylinder",
+      "clues": "It's gotten slowly worse, and the spare key is no better.",
+      "against": ""
+     },
+     {
+      "name": "Dirt or a dried-up lock",
+      "clues": "It's worse in cold or dusty conditions.",
+      "against": ""
+     },
+     {
+      "name": "Worn key",
+      "clues": "A spare key turns more easily.",
+      "against": "If the spare is just as stiff, the lock is the more likely culprit."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try the spare key and compare how it feels.",
+      "Note whether a heavy key ring hangs from the key while driving."
+     ],
+     "shop": [
+      "Ignition lock cylinder inspection",
+      "Lock cylinder replacement and keying to your existing key",
+      "Ignition switch check"
+     ]
+    }
+   }
+  },
+  "r_cylinder_jammed": {
+   "result": {
+    "title": "The ignition lock has likely jammed",
+    "urgency": "check",
+    "now": "Stop trying to force it. Call a locksmith who works on cars, or have the car towed to a shop or dealer.",
+    "if": [
+     "If the lock looks scratched, pried or damaged, someone may have tried to steal the car. Take photos and consider reporting it.",
+     "If the key snaps off in the lock, leave the broken piece and call a locksmith."
+    ],
+    "why": "When a key that worked fine suddenly won't turn, even with the wheel loose, something inside the lock has usually broken or seized. Forcing it risks snapping the key or damaging the steering column.",
+    "causes": [
+     {
+      "name": "Failed ignition lock cylinder",
+      "clues": "A sudden change with no warning, and no key works.",
+      "against": ""
+     },
+     {
+      "name": "Damage from a theft attempt",
+      "clues": "Scratches or pry marks around the lock, or a loose trim cover.",
+      "against": ""
+     },
+     {
+      "name": "Steering lock stuck",
+      "clues": "The wheel is also locked solid and doesn't move at all.",
+      "against": "If the wheel turns freely, the steering lock isn't the problem."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure you're using the right key for this car.",
+      "Look around the lock for scratches or pry marks."
+     ],
+     "shop": [
+      "Ignition lock cylinder removal and replacement",
+      "Steering column lock inspection",
+      "Ignition switch check"
+     ]
+    }
+   }
+  },
+  "r_key_insert": {
+   "result": {
+    "title": "Something is blocking the key, or the key is damaged",
+    "urgency": "diy",
+    "now": "Check that you have the right key and that it's clean and straight, then look into the slot with a flashlight for dirt or a foreign object.",
+    "if": [
+     "If the spare key goes in fine, replace the damaged key.",
+     "If no key will go in, or the lock looks damaged, call a locksmith rather than forcing it."
+    ],
+    "why": "If the key won't slide in all the way, the pins in the lock can't line up, so it will never turn. That's usually something on the key or in the slot, not a problem deeper in the car.",
+    "causes": [
+     {
+      "name": "Dirty, bent or damaged key",
+      "clues": "Gunk on the key, a visible bend, or a chipped edge.",
+      "against": ""
+     },
+     {
+      "name": "Debris or a foreign object in the lock",
+      "clues": "You can see something in the slot, or a child may have pushed something in.",
+      "against": ""
+     },
+     {
+      "name": "Damaged lock",
+      "clues": "Scratches, pry marks or a loose face on the lock.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try the spare key.",
+      "Wipe the key clean and check that it's straight.",
+      "Shine a light into the slot."
+     ],
+     "shop": [
+      "Lock cylinder inspection and cleaning",
+      "Lock cylinder replacement if damaged"
+     ]
+    }
+   }
+  },
+  "r_not_in_park": {
+   "result": {
+    "title": "The car probably doesn't think it's in Park",
+    "urgency": "diy",
+    "now": "With your foot on the brake, move the shifter firmly all the way into Park, then try turning the key back to Off.",
+    "if": [
+     "If it still won't release and the dash lights are dim or dark, a weak battery may be the cause, since many cars need power to release the key.",
+     "If it happens often, have the shifter linkage and the key release checked."
+    ],
+    "why": "Automatic cars won't let the key turn to Lock or come out unless the transmission is fully in Park. If the shifter is a hair short of Park, or the part that senses Park is out of adjustment, the key stays trapped.",
+    "causes": [
+     {
+      "name": "Shifter not fully in Park",
+      "clues": "Moving the shifter or rocking the car slightly lets the key out.",
+      "against": ""
+     },
+     {
+      "name": "Weak or dead battery",
+      "clues": "Dim dash lights, or the car was slow to start.",
+      "against": ""
+     },
+     {
+      "name": "Faulty key release or shifter linkage",
+      "clues": "It keeps happening even when the shifter is firmly in Park.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Push the shifter firmly into Park with your foot on the brake.",
+      "Check whether the dash lights come on brightly."
+     ],
+     "shop": [
+      "Shifter linkage adjustment check",
+      "Key release (interlock) test",
+      "Battery test"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Try the simple fixes first, then call a locksmith",
+    "urgency": "diy",
+    "now": "Make sure the car is in Park, then turn the key gently while rocking the steering wheel left and right. Try the spare key if you have one.",
+    "if": [
+     "If nothing works, call a locksmith who works on cars, or roadside assistance.",
+     "If you see damage around the lock, don't force it, and consider whether someone tried to steal the car."
+    ],
+    "why": "Most stuck keys come down to the steering lock, a worn key or a worn lock. The two quick checks above rule out the most common causes before you pay for help.",
+    "causes": [
+     {
+      "name": "Steering lock under tension",
+      "clues": "The wheel feels locked.",
+      "against": ""
+     },
+     {
+      "name": "Worn key",
+      "clues": "A spare key works better.",
+      "against": ""
+     },
+     {
+      "name": "Worn or jammed ignition lock",
+      "clues": "No key works, even with the wheel loose.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Rock the wheel while turning the key.",
+      "Try the spare key."
+     ],
+     "shop": [
+      "Ignition lock cylinder inspection",
+      "Key cut by code"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "car-wont-start",
+  "push-button-start-not-working",
+  "stuck-in-park",
+  "security-light-flashing-wont-start"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Starting Problems"
+  ],
+  "words": [
+   "ignition",
+   "key",
+   "lock cylinder",
+   "steering lock",
+   "ignition switch",
+   "steering column",
+   "interlock"
+  ]
+ },
+ "sources": [
+  "https://knowhow.napaonline.com/your-ignition-key-wont-turn-what-could-be-happening/",
+  "https://www.kbb.com/car-advice/how-to-unlock-steering-wheel"
+ ]
+}

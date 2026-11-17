@@ -1,0 +1,469 @@
+{
+ "id": "oil-pressure-light-on",
+ "title": "Oil pressure light on",
+ "h1": "Why is my oil pressure light on?",
+ "metaDesc": "Red oil light on or flickering? Answer a few quick questions to see if it's low oil, a sensor or something serious, and whether you can drive the car.",
+ "group": "light",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "oil light on",
+  "oil pressure light on",
+  "red oil light on dash",
+  "oil can light on",
+  "oil light flickering at idle",
+  "oil light comes on when stopped",
+  "oil light on after oil change",
+  "low oil pressure warning",
+  "oil light came on while driving",
+  "oil light flickers when turning",
+  "genie lamp light on dash",
+  "oil pressure low stop engine",
+  "oil presure light on",
+  "oil light on but oil is full"
+ ],
+ "intro": "The red oil can light means the engine isn't getting enough oil pressure. Without pressure, metal parts grind together, and serious damage can happen in minutes. It's different from a yellow low-oil-level light or an oil-change reminder. Answer a few questions to find out how serious it is and what to do.",
+ "safety": [
+  "If the red oil light stays on while driving, pull over as soon as it's safe and turn the engine off.",
+  "If the engine starts knocking, tapping loudly or grinding, turn it off right away and don't restart it.",
+  "If you see smoke or oil spraying under the hood, turn the engine off and step away from the car."
+ ],
+ "start": "q_when",
+ "nodes": {
+  "q_when": {
+   "q": "Which of these best describes the oil light?",
+   "help": "The oil pressure light usually looks like an old-fashioned oil can with a drip. It's normal for it to light up briefly when you first turn the key, then go out once the engine starts.",
+   "opts": [
+    {
+     "a": "It's red and stays on while I'm driving or idling",
+     "go": "q_noise"
+    },
+    {
+     "a": "It flickers at idle or at stops, and goes out when I press the gas",
+     "go": "q_idle_level"
+    },
+    {
+     "a": "It flickers on sharp turns, hard braking or steep hills",
+     "go": "r_low_oil"
+    },
+    {
+     "a": "It came on soon after an oil change",
+     "go": "r_after_oil_change"
+    },
+    {
+     "a": "It's yellow or orange, or a message says oil level low or oil change due",
+     "go": "r_level_or_service"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_stop_check"
+    }
+   ]
+  },
+  "q_noise": {
+   "q": "Is the engine making a new noise, like loud ticking, tapping or knocking?",
+   "opts": [
+    {
+     "a": "Yes, knocking, loud tapping or grinding",
+     "go": "r_engine_damage"
+    },
+    {
+     "a": "No, it sounds normal",
+     "go": "q_level"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_level"
+    }
+   ]
+  },
+  "q_level": {
+   "q": "With the engine off for a few minutes on level ground, what does the oil dipstick show?",
+   "help": "Pull the dipstick, wipe it, push it all the way back in, then pull it out again. The oil should sit between the two marks near the tip. Some cars have no dipstick and show the oil level on the dash instead.",
+   "opts": [
+    {
+     "a": "Below the low mark, or no oil on the stick at all",
+     "go": "r_low_oil"
+    },
+    {
+     "a": "Between the low and full marks",
+     "go": "r_pressure_fault"
+    },
+    {
+     "a": "The oil looks milky or foamy, or smells strongly of fuel",
+     "go": "r_contaminated_oil"
+    },
+    {
+     "a": "I can't check it / I'm not sure",
+     "go": "r_stop_check"
+    }
+   ]
+  },
+  "q_idle_level": {
+   "q": "With the engine off for a few minutes on level ground, what does the oil dipstick show?",
+   "help": "Pull the dipstick, wipe it, push it all the way back in, then pull it out again. The oil should sit between the two marks near the tip.",
+   "opts": [
+    {
+     "a": "Below the low mark, or no oil on the stick at all",
+     "go": "r_low_oil"
+    },
+    {
+     "a": "Between the low and full marks",
+     "go": "r_idle_flicker"
+    },
+    {
+     "a": "The oil looks milky or foamy, or smells strongly of fuel",
+     "go": "r_contaminated_oil"
+    },
+    {
+     "a": "I can't check it / I'm not sure",
+     "go": "r_stop_check"
+    }
+   ]
+  },
+  "r_engine_damage": {
+   "result": {
+    "title": "The engine may already be running without enough oil. Shut it off now",
+    "urgency": "stop",
+    "now": "Pull over as soon as it's safe, turn off the engine, and don't restart it. Have the car towed.",
+    "if": [
+     "If the oil level is very low, adding oil won't undo damage that's already happened. Still have it towed and let a shop check it.",
+     "If you see oil spraying or smoke, step away from the car."
+    ],
+    "why": "Low oil pressure plus knocking or loud tapping means metal parts inside the engine are rubbing without a protective oil film. Every extra second of running can turn a repairable problem into an engine replacement.",
+    "causes": [
+     {
+      "name": "Very low oil level from a leak or burning oil",
+      "clues": "Oil spots where you park, blue smoke, or a long time since the last oil change.",
+      "against": ""
+     },
+     {
+      "name": "Failed oil pump or clogged oil pickup",
+      "clues": "The oil level is fine but the light and noise came on together.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine bearings",
+      "clues": "A deep knock that gets faster with engine speed, often on a high-mileage engine.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once the engine is off, check the oil level and look under the car for a fresh puddle."
+     ],
+     "shop": [
+      "Oil pressure test with a mechanical gauge",
+      "Oil pan and pickup inspection",
+      "Engine noise and bearing inspection"
+     ]
+    }
+   }
+  },
+  "r_low_oil": {
+   "result": {
+    "title": "The oil level is low. Add oil before the engine runs again",
+    "urgency": "stop",
+    "now": "Don't drive it until you've added oil. With the engine off, add the type of oil your owner's manual lists, a little at a time, until it reaches the full mark.",
+    "if": [
+     "If the light stays off after adding oil and the engine sounds normal, have the leak or oil use checked within a few days and check the level every time you fill up.",
+     "If the light stays on after adding oil, or you hear ticking or knocking, don't drive it. Have it towed."
+    ],
+    "why": "When the oil level drops too low, the pump can suck in air, especially when oil sloshes during turns, braking or hills. That makes the pressure drop and the light come on. Running low on oil wears the engine quickly, and the oil went somewhere: a leak or the engine burning it.",
+    "causes": [
+     {
+      "name": "Oil leak",
+      "clues": "Dark brown or black spots where you park, or oil on the underside of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Engine burning oil",
+      "clues": "Blue or gray exhaust smoke, or oil needing top-ups between changes with no puddles.",
+      "against": ""
+     },
+     {
+      "name": "Overdue oil change",
+      "clues": "It's been well past the recommended interval.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the dipstick on level ground with the engine off.",
+      "Look for oil spots where you park.",
+      "Note how long since the last oil change."
+     ],
+     "shop": [
+      "Oil leak inspection",
+      "Oil consumption check",
+      "Oil pressure test"
+     ]
+    }
+   }
+  },
+  "r_pressure_fault": {
+   "result": {
+    "title": "The oil level is fine, so the pump, a blockage or the sensor is suspect",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed or call a mobile mechanic to test the oil pressure.",
+    "if": [
+     "If a mechanic confirms the oil pressure is normal with a gauge, the sensor (oil pressure switch) is likely faulty. Replacing it is usually a quick repair.",
+     "If you hear any ticking or knocking, don't start the engine again."
+    ],
+    "why": "A full dipstick with a steady red light means either the oil isn't being pumped at enough pressure, or the sensor is giving a false warning. A faulty sensor is common, but there's no safe way to tell the two apart without a pressure gauge, and guessing wrong can ruin the engine.",
+    "causes": [
+     {
+      "name": "Faulty oil pressure switch or wiring",
+      "clues": "The engine sounds completely normal, and the switch is leaking oil or its plug looks damaged.",
+      "against": "Any engine noise makes a real pressure problem more likely."
+     },
+     {
+      "name": "Clogged oil pickup or filter",
+      "clues": "Oil changes have been skipped, or the oil looks thick and sludgy.",
+      "against": ""
+     },
+     {
+      "name": "Worn or failed oil pump",
+      "clues": "A high-mileage engine, or pressure that's been low for a while.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil's color and thickness on the dipstick.",
+      "Note how long since the last oil change."
+     ],
+     "shop": [
+      "Oil pressure test with a mechanical gauge",
+      "Oil pressure switch and wiring check",
+      "Oil pickup and pump inspection"
+     ]
+    }
+   }
+  },
+  "r_contaminated_oil": {
+   "result": {
+    "title": "Coolant or fuel may be getting into the oil",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed to a shop for testing.",
+    "if": [
+     "If the oil looks milky and the coolant level is low, a head gasket problem is likely. Don't run the engine.",
+     "If the oil smells of fuel, also mention any rough running or check engine light to the shop."
+    ],
+    "why": "Oil only protects the engine when it's clean. Milky or foamy oil usually means coolant is leaking in, and a strong fuel smell means fuel is thinning it out. Either one can drop the oil pressure and wear the engine fast.",
+    "causes": [
+     {
+      "name": "Coolant leaking into the oil",
+      "clues": "Milky, light-brown oil, coolant level dropping, or white sweet-smelling exhaust smoke.",
+      "against": ""
+     },
+     {
+      "name": "Fuel thinning the oil",
+      "clues": "A strong fuel smell on the dipstick, rough running, or lots of short trips.",
+      "against": ""
+     },
+     {
+      "name": "Condensation from short trips in cold weather",
+      "clues": "A little milky residue only on the oil filler cap.",
+      "against": "Milky oil on the dipstick itself points to a coolant leak, not condensation."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the coolant level once the engine is cool.",
+      "Look at the underside of the oil filler cap."
+     ],
+     "shop": [
+      "Oil analysis",
+      "Cooling system pressure test",
+      "Combustion gas (block) test",
+      "Fuel injector leak test"
+     ]
+    }
+   }
+  },
+  "r_after_oil_change": {
+   "result": {
+    "title": "Something may be wrong with the oil change: a leak, low fill or wrong filter",
+    "urgency": "stop",
+    "now": "Pull over, turn off the engine, and look under the car for fresh oil. Check the dipstick. Don't drive it until the cause is found.",
+    "if": [
+     "If oil is dripping from the filter or drain plug, or the level is low, call the shop that did the change. Ask them to send someone or arrange a tow.",
+     "If the level is full and there's no leak, still don't drive it. Have the oil pressure tested."
+    ],
+    "why": "When the oil light comes on right after an oil change, the cause is often in the work itself: a loose drain plug or filter, a doubled-up filter gasket, too little oil, or the wrong filter. These can drain oil fast or starve the engine.",
+    "causes": [
+     {
+      "name": "Loose drain plug or oil filter",
+      "clues": "Fresh oil dripping under the engine.",
+      "against": ""
+     },
+     {
+      "name": "Not enough oil added",
+      "clues": "The dipstick reads low with no puddle.",
+      "against": ""
+     },
+     {
+      "name": "Wrong or faulty oil filter",
+      "clues": "The level is fine but the light came on right after the change.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look under the car for fresh oil.",
+      "Check the dipstick."
+     ],
+     "shop": [
+      "Drain plug and filter inspection",
+      "Oil level correction",
+      "Oil pressure test"
+     ]
+    }
+   }
+  },
+  "r_idle_flicker": {
+   "result": {
+    "title": "Oil pressure is dropping too low at idle",
+    "urgency": "soon",
+    "now": "Have the oil pressure tested within a few days. Until then, keep trips short, avoid long idling, and check the oil level often.",
+    "if": [
+     "If the light starts staying on while driving, pull over and turn the engine off.",
+     "If you hear new ticking or knocking, stop driving it and have it towed."
+    ],
+    "why": "Oil pressure is lowest at idle when the engine is hot. If the light flickers there but goes out with a little gas, pressure is right at the warning point. That can come from oil that's too thin or overdue, a worn engine, or a weak sensor.",
+    "causes": [
+     {
+      "name": "Old or wrong-thickness oil",
+      "clues": "The oil is overdue, or a different oil grade than the manual lists was used.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine or oil pump",
+      "clues": "A high-mileage engine, or the flicker has been getting worse.",
+      "against": ""
+     },
+     {
+      "name": "Faulty oil pressure switch",
+      "clues": "The engine sounds normal and a mechanic's gauge shows good pressure.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level and when it was last changed.",
+      "Check the owner's manual for the right oil grade."
+     ],
+     "shop": [
+      "Oil pressure test with a mechanical gauge, hot and at idle",
+      "Oil pressure switch check",
+      "Oil change with the correct grade"
+     ]
+    }
+   }
+  },
+  "r_level_or_service": {
+   "result": {
+    "title": "Probably a low oil level warning or an oil change reminder",
+    "urgency": "diy",
+    "now": "Check the oil level on the dipstick, or in the dash menu if your car has no dipstick, and top it up if it's low. If it's a maintenance message, book an oil change.",
+    "if": [
+     "If the light turns red, or the oil can light comes on with a warning to stop, pull over and turn the engine off.",
+     "If you keep needing to add oil, have it checked for a leak or oil burning."
+    ],
+    "why": "Many cars have a yellow or orange low oil level warning and a separate service reminder, which are less urgent than the red oil pressure light. They're telling you to add oil or schedule a change before it becomes a pressure problem.",
+    "causes": [
+     {
+      "name": "Oil level getting low",
+      "clues": "A yellow oil light or a \"low oil level\" message.",
+      "against": ""
+     },
+     {
+      "name": "Oil change due",
+      "clues": "A wrench symbol or \"oil change due\" message, and the mileage is near the interval.",
+      "against": ""
+     },
+     {
+      "name": "Oil level sensor fault",
+      "clues": "The level is correct, but the warning keeps coming back.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level.",
+      "Look up the light or message in the owner's manual."
+     ],
+     "shop": [
+      "Oil change and maintenance reminder reset",
+      "Oil level sensor check if the warning persists"
+     ]
+    }
+   }
+  },
+  "r_stop_check": {
+   "result": {
+    "title": "Treat a red oil light as serious until you know otherwise",
+    "urgency": "stop",
+    "now": "Pull over where it's safe, turn off the engine, and wait a few minutes. Then check the oil level if you can, or call roadside assistance.",
+    "if": [
+     "If the oil is low, add the right oil up to the full mark before starting the engine again.",
+     "If the level is fine, or you can't check it, have the car towed rather than risk the engine."
+    ],
+    "why": "A red oil light can mean anything from low oil to a failed pump, and the damage from running without oil pressure happens quickly. Checking the level takes two minutes and is the best first step.",
+    "causes": [
+     {
+      "name": "Low oil level",
+      "clues": "Oil spots where you park, or a long time since the last change.",
+      "against": ""
+     },
+     {
+      "name": "Faulty oil pressure sensor",
+      "clues": "The level is fine and the engine sounds normal.",
+      "against": ""
+     },
+     {
+      "name": "Oil pump or pickup problem",
+      "clues": "The light came on suddenly with a full dipstick.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level with the engine off.",
+      "Look under the car for leaks."
+     ],
+     "shop": [
+      "Oil pressure test with a mechanical gauge",
+      "Oil leak inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "burning-oil-low-oil-level",
+  "oil-leak",
+  "engine-knocking",
+  "engine-ticking"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Warning Lights",
+   "Leaks"
+  ],
+  "words": [
+   "oil pressure",
+   "oil pump",
+   "oil light",
+   "oil leak",
+   "oil pressure sensor",
+   "oil pressure switch",
+   "oil consumption",
+   "bearing"
+  ]
+ },
+ "sources": [
+  "https://mwg.aaa.com/via/car/oil-pressure-light",
+  "https://mwg.aaa.com/automotive/articles/low-engine-oil-pressure-causes-symptoms-how-to-fix"
+ ]
+}

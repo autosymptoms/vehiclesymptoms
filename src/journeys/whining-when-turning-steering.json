@@ -1,0 +1,542 @@
+{
+ "id": "whining-when-turning-steering",
+ "title": "Whining when turning the wheel",
+ "h1": "Why does my car whine when I turn the steering wheel?",
+ "metaDesc": "Whining when you turn the steering wheel? Answer a few quick questions to see if it's low power steering fluid, a worn pump or the belt, and how urgent it is.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "whining when turning",
+  "whining noise when turning steering wheel",
+  "power steering whine",
+  "power steering noise",
+  "power steering pump whining",
+  "car whines when I turn",
+  "steering wheel makes noise when turning",
+  "whining when turning at low speed",
+  "whine when parking",
+  "power steering making noise when cold",
+  "steering whine at full lock",
+  "low power steering fluid noise",
+  "whinning when turning"
+ ],
+ "intro": "A whine that rises when you turn the wheel almost always comes from the power steering system. Often it's simply low fluid from a slow leak, which is easy to check. But if the steering is also getting heavy, you could lose power assist. These questions help you sort out which it is.",
+ "safety": [
+  "If the steering suddenly becomes very hard to turn, slow down and pull over carefully. You can still steer, but it takes much more effort.",
+  "If the battery or temperature light comes on along with the whine, the engine belt may have broken. Pull over and turn the engine off.",
+  "If you see smoke or smell burning fluid under the hood, turn the engine off and step away."
+ ],
+ "start": "q_steering_feel",
+ "nodes": {
+  "q_steering_feel": {
+   "q": "Is the steering harder to turn than usual, or is a warning light on?",
+   "help": "A steering warning light usually shows a steering wheel symbol, often with an exclamation mark.",
+   "opts": [
+    {
+     "a": "Yes, it suddenly became very hard to turn",
+     "go": "r_steering_heavy"
+    },
+    {
+     "a": "A steering warning light is on",
+     "go": "r_eps_warning"
+    },
+    {
+     "a": "Steering feels normal, or only slightly heavier",
+     "go": "q_type"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_type"
+    }
+   ]
+  },
+  "q_type": {
+   "q": "Does your car have a power steering fluid reservoir under the hood?",
+   "help": "It's usually a small plastic tank with a cap marked with a steering wheel symbol or \"power steering\". Many newer cars use electric power steering, which has no fluid at all. Your owner's manual will say which you have.",
+   "opts": [
+    {
+     "a": "Yes, it has a reservoir",
+     "go": "q_fluid"
+    },
+    {
+     "a": "No, it has electric power steering",
+     "go": "r_eps_noise"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_fluid": {
+   "q": "With the engine off, check the fluid level on the reservoir or its dipstick. What do you find?",
+   "help": "Many reservoirs have separate HOT and COLD marks. Use the COLD mark if the engine hasn't been run for a while.",
+   "opts": [
+    {
+     "a": "The level is low or empty",
+     "go": "r_low_fluid"
+    },
+    {
+     "a": "The level is fine, but the fluid looks foamy or bubbly, or very dark and smells burnt",
+     "go": "r_air_or_old_fluid"
+    },
+    {
+     "a": "The level is fine and the fluid looks normal",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure, or I can't check it",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When is the whine loudest?",
+   "opts": [
+    {
+     "a": "Only when I hold the wheel turned all the way to one side",
+     "go": "r_full_lock"
+    },
+    {
+     "a": "On cold mornings, and it fades as the car warms up",
+     "go": "r_cold"
+    },
+    {
+     "a": "Every time I turn, and it's been getting louder",
+     "go": "r_pump_wear"
+    },
+    {
+     "a": "It's more of a high squeal, especially right after starting",
+     "go": "r_belt"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_steering_heavy": {
+   "result": {
+    "title": "The power steering has likely lost its assist",
+    "urgency": "stop",
+    "now": "Pull over safely and turn the engine off. With the engine off, look for a broken or missing belt and for fluid leaks, then have it towed or call a mobile mechanic.",
+    "if": [
+     "If the battery or temperature light also came on, the main engine belt has probably broken. Don't restart the engine.",
+     "If the fluid reservoir is empty, don't just refill it and carry on. A pump run dry can fail completely, and the leak needs to be found."
+    ],
+    "why": "A whine that turns into suddenly heavy steering means the system has stopped helping you steer. The car can still be steered, but it takes a lot of effort, which is risky in an emergency. On many cars the same belt also drives the alternator and water pump.",
+    "causes": [
+     {
+      "name": "Power steering fluid has leaked out",
+      "clues": "An empty or very low reservoir, and fluid under the front of the car.",
+      "against": "Doesn't apply to electric power steering."
+     },
+     {
+      "name": "Broken or slipping drive belt",
+      "clues": "A loud squeal or slap before it happened, or battery and temperature lights on.",
+      "against": ""
+     },
+     {
+      "name": "Failed power steering pump or electric steering motor",
+      "clues": "Fluid and belt are fine, but there's no assist.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, check whether the belt is still in place.",
+      "Check the power steering fluid level, if your car has a reservoir."
+     ],
+     "shop": [
+      "Power steering leak inspection",
+      "Belt and tensioner inspection",
+      "Power steering pump pressure test",
+      "Code scan for electric steering faults"
+     ]
+    }
+   }
+  },
+  "r_eps_warning": {
+   "result": {
+    "title": "The electric power steering has detected a fault",
+    "urgency": "soon",
+    "now": "Once parked safely, turn the car off for a minute and restart it. If the light stays on, get it checked within the next few days and avoid highway driving until then.",
+    "if": [
+     "If the steering becomes very heavy, don't drive it. Have it towed.",
+     "If the battery light is also on or the car has been slow to start, the battery or charging system may be the root cause. Electric steering needs steady voltage."
+    ],
+    "why": "Electric steering uses a motor to help you turn the wheel. When the computer finds a problem, it turns on the warning light and may reduce or switch off the assist. A whine can come from the motor working harder than it should.",
+    "causes": [
+     {
+      "name": "Low battery voltage or charging problem",
+      "clues": "The battery light, slow starting, or dim lights.",
+      "against": ""
+     },
+     {
+      "name": "Steering sensor or motor fault",
+      "clues": "The light stays on after a restart, and assist varies.",
+      "against": ""
+     },
+     {
+      "name": "Hydraulic system low on fluid",
+      "clues": "Only on cars that have a power steering fluid reservoir.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Restart the car and see whether the light goes out.",
+      "Note whether the battery light has come on recently."
+     ],
+     "shop": [
+      "Code scan for the steering system",
+      "Battery and charging system test",
+      "Steering angle sensor check"
+     ]
+    }
+   }
+  },
+  "r_low_fluid": {
+   "result": {
+    "title": "Low power steering fluid, probably from a leak",
+    "urgency": "soon",
+    "now": "Top up the reservoir to the correct mark using the fluid type listed in your owner's manual or on the cap. Then get the leak found within the next few days.",
+    "if": [
+     "If the whine goes away after topping up, keep checking the level every few days. If it drops again, the leak needs fixing soon.",
+     "If the steering gets heavy or the reservoir empties quickly, don't drive it. Have it towed."
+    ],
+    "why": "Power steering fluid works in a closed loop, so a low level means it's leaking somewhere. When the pump runs short of fluid it pulls in air and whines, and running it low for long can wear out the pump.",
+    "causes": [
+     {
+      "name": "Leaking hose or fitting",
+      "clues": "Wet, oily spots on the hoses running from the pump.",
+      "against": ""
+     },
+     {
+      "name": "Leaking steering rack",
+      "clues": "Fluid inside the rubber boots at the ends of the rack, or drips near the front wheels.",
+      "against": ""
+     },
+     {
+      "name": "Leaking pump seal",
+      "clues": "Wetness on or under the pump at the front of the engine.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Top up the fluid and recheck the level after a few days.",
+      "Put a piece of cardboard under the front of the car overnight to look for drips."
+     ],
+     "shop": [
+      "Power steering leak inspection",
+      "UV dye leak test",
+      "Steering rack boot and hose inspection"
+     ]
+    }
+   }
+  },
+  "r_air_or_old_fluid": {
+   "result": {
+    "title": "Air in the system or worn-out fluid is likely",
+    "urgency": "check",
+    "now": "Book a power steering check when convenient. Ask for the system to be inspected and the fluid flushed or bled if needed.",
+    "if": [
+     "If the fluid level starts dropping, look for a leak and get it checked within a few days.",
+     "If the steering feels heavy or jerky, get it checked soon."
+    ],
+    "why": "Foamy fluid means air is getting into the system, often through a loose hose clamp or a seal on the pump's supply side. Very dark, burnt-smelling fluid has broken down and doesn't protect the pump well. Both can cause a whine.",
+    "causes": [
+     {
+      "name": "Air in the system",
+      "clues": "Foamy or bubbly fluid, often after a repair or with a loose return hose.",
+      "against": ""
+     },
+     {
+      "name": "Old or wrong type of fluid",
+      "clues": "Dark, burnt-smelling fluid, or fluid recently topped up with a different type.",
+      "against": ""
+     },
+     {
+      "name": "Clogged reservoir screen",
+      "clues": "The whine continues even with the right amount of fresh fluid.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note when the fluid was last changed or topped up, and with what.",
+      "Look for loose clamps on the hoses at the reservoir."
+     ],
+     "shop": [
+      "Power steering fluid inspection",
+      "System bleed or flush",
+      "Pump inlet hose inspection"
+     ]
+    }
+   }
+  },
+  "r_eps_noise": {
+   "result": {
+    "title": "Electric steering can make a faint whir, but a loud whine needs a check",
+    "urgency": "check",
+    "now": "Book a check when convenient, and mention whether the noise happens when parked, at low speed, or only at full lock.",
+    "if": [
+     "If the steering becomes heavier or a steering warning light comes on, get it checked within a few days.",
+     "If the battery light comes on or the car has been slow to start, have the battery and charging system tested. Low voltage can affect electric steering."
+    ],
+    "why": "Electric power steering uses a motor instead of a fluid pump. A light whir when turning slowly or while parked can be normal. A whine that's loud or getting louder can mean a worn motor, gear or a nearby part like the alternator.",
+    "causes": [
+     {
+      "name": "Normal electric steering motor sound",
+      "clues": "A faint whir only when turning while stopped or at walking speed.",
+      "against": ""
+     },
+     {
+      "name": "Worn steering motor or gear",
+      "clues": "The noise is getting louder over time, or the steering feels notchy.",
+      "against": ""
+     },
+     {
+      "name": "Whining alternator or other belt-driven part",
+      "clues": "The whine rises with engine speed even when you're not turning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the car parked, turn the wheel slowly and listen for where the sound comes from.",
+      "Rev the engine gently in Park without turning, and note whether the whine still happens."
+     ],
+     "shop": [
+      "Code scan for the steering system",
+      "Steering column and rack inspection",
+      "Charging system test"
+     ]
+    }
+   }
+  },
+  "r_full_lock": {
+   "result": {
+    "title": "A whine at full lock is usually normal pressure relief",
+    "urgency": "diy",
+    "now": "Avoid holding the wheel turned all the way to one side for more than a few seconds. Back it off slightly once you reach the stop.",
+    "if": [
+     "If the whine is loud even when you're not at full lock, or the steering gets heavier, check the fluid level and book a check.",
+     "If your car has a reservoir, make sure the fluid is at the right level, because low fluid makes this whine louder."
+    ],
+    "why": "When the wheel is turned all the way, a hydraulic system hits its maximum pressure and a relief valve opens, which makes a whine. That's normal for a moment, but holding it there heats the fluid and wears the pump.",
+    "causes": [
+     {
+      "name": "Normal relief valve noise",
+      "clues": "The whine happens only at the very end of the wheel's travel.",
+      "against": ""
+     },
+     {
+      "name": "Slightly low fluid",
+      "clues": "The whine has become louder than it used to be.",
+      "against": ""
+     },
+     {
+      "name": "Early pump wear",
+      "clues": "The whine is starting to appear in normal turns too.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the power steering fluid level, if your car has a reservoir.",
+      "Notice whether the whine stops as soon as you ease off full lock."
+     ],
+     "shop": [
+      "Power steering pump pressure test",
+      "Fluid condition check"
+     ]
+    }
+   }
+  },
+  "r_cold": {
+   "result": {
+    "title": "Thick cold fluid or an aging pump is the likely cause",
+    "urgency": "check",
+    "now": "Let the engine idle for a minute on cold mornings before turning the wheel hard, and book a check when convenient.",
+    "if": [
+     "If the whine starts lasting after the car is warm, get it checked within a few days.",
+     "If the steering is heavy when cold, check the fluid level and type."
+    ],
+    "why": "Power steering fluid gets thicker in the cold, so the pump works harder until it warms up. Old fluid or a pump that's starting to wear makes this worse, and the whine is often an early sign.",
+    "causes": [
+     {
+      "name": "Old or thickened fluid",
+      "clues": "The fluid is dark or hasn't been changed in years.",
+      "against": ""
+     },
+     {
+      "name": "Early pump wear",
+      "clues": "The cold whine is getting louder or lasting longer each winter.",
+      "against": ""
+     },
+     {
+      "name": "Slightly low fluid level",
+      "clues": "The level sits just below the COLD mark.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the fluid level with the engine cold.",
+      "Note the outside temperature and how long the whine lasts."
+     ],
+     "shop": [
+      "Fluid condition check",
+      "Power steering pump pressure test"
+     ]
+    }
+   }
+  },
+  "r_pump_wear": {
+   "result": {
+    "title": "The power steering pump is likely wearing out",
+    "urgency": "soon",
+    "now": "Check the fluid level if your car has a reservoir, then get the steering checked within the next few days.",
+    "if": [
+     "If the steering becomes heavy or jerky, don't drive it. Have it towed.",
+     "If the fluid is low, top it up and look for a leak. The pump may be fine and simply running short of fluid."
+    ],
+    "why": "A whine that gets louder month by month usually means the pump's internal parts or bearing are wearing. Pumps often give plenty of warning, but when they fail the steering suddenly gets heavy.",
+    "causes": [
+     {
+      "name": "Worn power steering pump",
+      "clues": "A steady whine that rises with engine speed and gets louder when you turn.",
+      "against": ""
+     },
+     {
+      "name": "Low fluid from a slow leak",
+      "clues": "The level drops over time.",
+      "against": "If the level hasn't changed, a leak is less likely."
+     },
+     {
+      "name": "Worn steering rack",
+      "clues": "The steering feels uneven, heavier in one direction, or has a slight knock.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the fluid level and condition.",
+      "Record a short video with sound while turning the wheel in a parking lot."
+     ],
+     "shop": [
+      "Power steering pump pressure and flow test",
+      "Leak inspection",
+      "Steering rack inspection"
+     ]
+    }
+   }
+  },
+  "r_belt": {
+   "result": {
+    "title": "The engine drive belt is probably slipping",
+    "urgency": "check",
+    "now": "Book a belt check when convenient. With the engine off, you can look at the belt for cracks, glazing or fraying.",
+    "if": [
+     "If the battery or temperature light comes on, or the squeal suddenly stops along with heavy steering, pull over. The belt may have broken.",
+     "If the belt looks badly cracked or frayed, get it replaced within a few days."
+    ],
+    "why": "Turning the wheel puts extra load on the power steering pump, and a worn or loose belt can slip and squeal under that load. The same belt often runs the alternator and water pump, so it's worth replacing before it breaks.",
+    "causes": [
+     {
+      "name": "Worn or glazed drive belt",
+      "clues": "A shiny or cracked belt, and a squeal that's worse in damp weather.",
+      "against": ""
+     },
+     {
+      "name": "Weak belt tensioner",
+      "clues": "The tensioner arm bounces or the belt flutters with the engine running.",
+      "against": ""
+     },
+     {
+      "name": "Fluid on the belt",
+      "clues": "An oily or wet belt from a nearby leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look at the belt for cracks, shine or fraying."
+     ],
+     "shop": [
+      "Belt and tensioner inspection",
+      "Pulley alignment check",
+      "Leak inspection near the belt"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "The power steering system needs a quick check",
+    "urgency": "check",
+    "now": "Book a check when convenient. If your car has a power steering reservoir, check the fluid level in the meantime.",
+    "if": [
+     "If the steering gets heavier or a steering warning light comes on, get it checked within a few days.",
+     "If the steering suddenly becomes very hard to turn, pull over and have it towed."
+    ],
+    "why": "A whine when steering nearly always comes from the power steering system or the belt that drives it. A technician can check the fluid, pump and belt quickly.",
+    "causes": [
+     {
+      "name": "Low power steering fluid",
+      "clues": "The reservoir is below the mark.",
+      "against": ""
+     },
+     {
+      "name": "Worn power steering pump",
+      "clues": "The whine is getting louder over time.",
+      "against": ""
+     },
+     {
+      "name": "Slipping drive belt",
+      "clues": "More of a squeal, especially at startup.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the power steering fluid level, if your car has a reservoir.",
+      "Record a short video with sound of the whine."
+     ],
+     "shop": [
+      "Power steering fluid and leak inspection",
+      "Pump pressure test",
+      "Belt inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "steering-hard-to-turn",
+  "power-steering-fluid-leak",
+  "power-steering-warning-light",
+  "squeal-on-startup",
+  "creaking-when-turning-steering"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises"
+  ],
+  "words": [
+   "power steering",
+   "steering pump",
+   "steering rack",
+   "whine",
+   "steering",
+   "belt",
+   "eps"
+  ]
+ },
+ "sources": [
+  "https://cluballiance.aaa.com/the-extra-mile/articles/prepare/car/warning-signs-of-a-power-steering-leak",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

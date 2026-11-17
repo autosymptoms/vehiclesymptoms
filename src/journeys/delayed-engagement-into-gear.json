@@ -1,0 +1,545 @@
+{
+ "id": "delayed-engagement-into-gear",
+ "title": "Delay engaging Drive or Reverse",
+ "h1": "Why is there a delay when I shift into Drive or Reverse?",
+ "metaDesc": "Car pauses before moving when you shift into Drive or Reverse? Answer a few questions to see if it's fluid, worn seals or a control problem, and how urgent it is.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "delayed engagement",
+  "delay when shifting into drive",
+  "delay when shifting into reverse",
+  "car takes a few seconds to go into gear",
+  "transmission slow to engage",
+  "car wont move right away in drive",
+  "delayed reverse engagement",
+  "pause before car moves",
+  "transmission delay in the morning",
+  "takes a while to go into drive",
+  "car hesitates to go into reverse",
+  "slow to engage when cold",
+  "transmision delay"
+ ],
+ "intro": "Normally an automatic catches within a moment of shifting into Drive or Reverse. A pause of a second or more before the car moves means the transmission is slow to build the fluid pressure it needs. Answer a few questions to see the likely cause and how soon to act.",
+ "safety": [
+  "Keep your foot firmly on the brake until the gear fully engages. Don't rev the engine to make it catch, because the car can lurch suddenly.",
+  "If the car won't engage at all, or you smell burning, don't keep trying. Have it towed.",
+  "Be extra careful backing out of parking spots or driveways while the delay is happening."
+ ],
+ "start": "q_what",
+ "nodes": {
+  "q_what": {
+   "q": "What happens after you shift into Drive or Reverse?",
+   "opts": [
+    {
+     "a": "It doesn't engage at all, or only moves if I rev the engine",
+     "go": "r_no_engage"
+    },
+    {
+     "a": "There's also a burning smell, or red or pink fluid under the car",
+     "go": "r_leak"
+    },
+    {
+     "a": "A pause only on the first drive of the day, then it's fine",
+     "go": "r_morning"
+    },
+    {
+     "a": "A pause of a second or more every time, then it catches (maybe with a thud)",
+     "go": "q_which"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_which"
+    }
+   ]
+  },
+  "q_which": {
+   "q": "Is it slow to engage in Drive, Reverse, or both?",
+   "opts": [
+    {
+     "a": "Reverse only",
+     "go": "r_reverse"
+    },
+    {
+     "a": "Drive only",
+     "go": "q_fluid"
+    },
+    {
+     "a": "Both",
+     "go": "q_fluid"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_fluid"
+    }
+   ]
+  },
+  "q_fluid": {
+   "q": "Have you been able to check the transmission fluid?",
+   "help": "Many cars have a transmission dipstick, often with a yellow or red handle; others have none and must be checked by a shop. Your owner's manual explains how. Healthy fluid is usually red or pink and doesn't smell burnt.",
+   "opts": [
+    {
+     "a": "Yes, it's low",
+     "go": "r_low_fluid"
+    },
+    {
+     "a": "The level is OK, but it's dark brown or smells burnt",
+     "go": "r_worn_fluid"
+    },
+    {
+     "a": "The level and color look normal",
+     "go": "q_temp"
+    },
+    {
+     "a": "My car has no dipstick / I'm not sure",
+     "go": "q_temp"
+    }
+   ]
+  },
+  "q_temp": {
+   "q": "When is the delay worst?",
+   "opts": [
+    {
+     "a": "When the engine is hot, after driving a while",
+     "go": "r_hot_delay"
+    },
+    {
+     "a": "About the same whether hot or cold",
+     "go": "r_internal"
+    },
+    {
+     "a": "It started right after a fluid change or battery work",
+     "go": "r_after_service"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_no_engage": {
+   "result": {
+    "title": "The transmission isn't building enough pressure to drive the car",
+    "urgency": "stop",
+    "now": "Put it in Park, turn the engine off and have the car towed. Don't rev the engine to force it into gear.",
+    "if": [
+     "If there's red or pink fluid under the car, a major leak is the likely cause. Mention it when you call.",
+     "If the shifter moves but the gear display doesn't change, the shift cable or linkage may be broken. That's often a simpler repair."
+    ],
+    "why": "When an automatic won't engage, or only catches after revving, it isn't getting enough fluid pressure to apply the clutches. Revving it can make the car lurch without warning and adds heat and wear to parts that are already slipping.",
+    "causes": [
+     {
+      "name": "Very low fluid from a leak",
+      "clues": "Red or pink fluid under the car, or a recent bump underneath.",
+      "against": ""
+     },
+     {
+      "name": "Failing transmission pump or badly worn internal parts",
+      "clues": "A whine that changes with engine speed, and a delay that got worse over weeks.",
+      "against": ""
+     },
+     {
+      "name": "Broken shift cable or linkage",
+      "clues": "The shifter feels loose, or the gear shown on the dash doesn't match the shifter.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From outside the car, look for red or pink fluid underneath.",
+      "Check whether the gear indicator on the dash matches the shifter position."
+     ],
+     "shop": [
+      "Fluid level and condition check",
+      "Line pressure test",
+      "Shift cable and linkage inspection",
+      "Transmission code scan"
+     ]
+    }
+   }
+  },
+  "r_leak": {
+   "result": {
+    "title": "A transmission leak or overheating is likely behind the delay",
+    "urgency": "stop",
+    "now": "Don't use the car for now. Turn the engine off and have it towed.",
+    "if": [
+     "If you see smoke, step away from the car. Fluid dripping on the exhaust can catch fire.",
+     "If it's only a few drops and there's no burning smell, check the fluid level once the car is cool, but still have it inspected before using it."
+    ],
+    "why": "The transmission needs a full supply of fluid to build pressure quickly when you select a gear. A leak lets the level drop, which causes the delay, and a burning smell means fluid or parts are overheating.",
+    "causes": [
+     {
+      "name": "Leaking pan gasket, cooler line or seal",
+      "clues": "Red or pink fluid under the middle or front of the car.",
+      "against": ""
+     },
+     {
+      "name": "Overheating from internal slipping",
+      "clues": "A sharp burnt smell after driving.",
+      "against": ""
+     },
+     {
+      "name": "Fluid dripping onto the exhaust",
+      "clues": "Smoke from under the car along with the leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the color of any fluid under the car."
+     ],
+     "shop": [
+      "Leak inspection",
+      "Fluid level and condition check",
+      "Transmission code scan"
+     ]
+    }
+   }
+  },
+  "r_morning": {
+   "result": {
+    "title": "A first-start delay often means fluid is draining back overnight",
+    "urgency": "check",
+    "now": "After starting, wait a few seconds with your foot on the brake before shifting, and book a transmission check when convenient.",
+    "if": [
+     "If the delay gets longer or starts happening after short stops too, get it checked within a few days.",
+     "If you find the fluid low, top it up with the correct type and look for a leak."
+    ],
+    "why": "When a car sits overnight, some fluid can drain out of the torque converter and passages, especially past worn seals. The transmission then needs a moment to refill and build pressure before the gear catches. It's an early warning sign worth catching before it gets worse.",
+    "causes": [
+     {
+      "name": "Fluid draining out of the torque converter or passages",
+      "clues": "Only after sitting for hours, and fine for the rest of the day.",
+      "against": ""
+     },
+     {
+      "name": "Hardened or worn internal seals",
+      "clues": "Older or high-mileage car, and worse in cold weather.",
+      "against": ""
+     },
+     {
+      "name": "Slightly low fluid",
+      "clues": "A small leak, or a level at the low mark.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Time the delay on a few mornings so you can tell if it's getting worse.",
+      "Look for red or pink drips where you park."
+     ],
+     "shop": [
+      "Fluid level and condition check",
+      "Line pressure test",
+      "Transmission code scan"
+     ]
+    }
+   }
+  },
+  "r_reverse": {
+   "result": {
+    "title": "A delay only in Reverse points to the reverse clutch or band wearing",
+    "urgency": "soon",
+    "now": "Have the transmission checked within the next few days. Until then, hold the brake firmly until Reverse fully engages before backing up.",
+    "if": [
+     "If Reverse stops engaging at all, don't keep trying. Have it checked before using the car.",
+     "If the fluid is low, top it up with the correct type. Low fluid often shows up in Reverse first."
+    ],
+    "why": "Reverse uses its own clutch or band inside the transmission, and it often needs more pressure than Drive. When that part or its seals start to wear, or the fluid is a little low, Reverse is usually the first gear to show a delay.",
+    "causes": [
+     {
+      "name": "Worn reverse clutch, band or seals",
+      "clues": "High mileage, and the delay in Reverse is slowly getting longer.",
+      "against": ""
+     },
+     {
+      "name": "Low fluid",
+      "clues": "Red or pink drips, or a level below the mark.",
+      "against": ""
+     },
+     {
+      "name": "Sticking valve or solenoid",
+      "clues": "The delay comes and goes, sometimes with a check engine light.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the fluid level if your car has a dipstick.",
+      "Time the delay so you can tell if it's getting worse."
+     ],
+     "shop": [
+      "Fluid level and condition check",
+      "Line pressure test in Reverse",
+      "Transmission code scan"
+     ]
+    }
+   }
+  },
+  "r_low_fluid": {
+   "result": {
+    "title": "Low transmission fluid is the likely cause, and there's probably a leak",
+    "urgency": "soon",
+    "now": "Top up with the exact fluid type listed in your owner's manual, then have the leak found within the next few days.",
+    "if": [
+     "If the delay continues after topping up, keep trips short and get it checked sooner.",
+     "If the level drops again quickly, stop using the car until the leak is fixed."
+    ],
+    "why": "With low fluid, the transmission pump has to work harder to build pressure, so there's a pause before the gear catches. Fluid doesn't get used up in normal driving, so a low level almost always means a leak.",
+    "causes": [
+     {
+      "name": "Leaking pan gasket or seal",
+      "clues": "Red or pink drips under the middle of the car.",
+      "against": ""
+     },
+     {
+      "name": "Leaking cooler line",
+      "clues": "Drips near the front of the car, under the radiator.",
+      "against": ""
+     },
+     {
+      "name": "Level set too low at a recent service",
+      "clues": "The delay started soon after a fluid change.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Recheck the level after a few days.",
+      "Put cardboard under the car overnight to spot drips."
+     ],
+     "shop": [
+      "Leak inspection",
+      "Correct fluid level check to factory procedure",
+      "Transmission code scan"
+     ]
+    }
+   }
+  },
+  "r_worn_fluid": {
+   "result": {
+    "title": "Worn or overheated fluid, possibly with internal wear",
+    "urgency": "soon",
+    "now": "Have the transmission inspected within the next few days and ask whether a fluid service is right for its condition.",
+    "if": [
+     "If the shop finds metal debris in the pan, expect a deeper repair rather than just new fluid.",
+     "If the delay gets much longer or it starts slipping, stop driving it and have it towed."
+    ],
+    "why": "Dark, burnt-smelling fluid has been overheated and no longer protects or seals as well. That can slow how quickly gears engage, and it often means parts inside have been working harder than they should.",
+    "causes": [
+     {
+      "name": "Overdue fluid service",
+      "clues": "No record of a fluid change, especially with towing or heavy use.",
+      "against": ""
+     },
+     {
+      "name": "Worn internal seals or clutches",
+      "clues": "High mileage, and the delay is slowly getting longer.",
+      "against": ""
+     },
+     {
+      "name": "Past overheating",
+      "clues": "A history of towing, mountain driving or a transmission temperature warning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Find your records of the last transmission fluid service."
+     ],
+     "shop": [
+      "Fluid and pan debris inspection",
+      "Line pressure test",
+      "Transmission code scan"
+     ]
+    }
+   }
+  },
+  "r_hot_delay": {
+   "result": {
+    "title": "A delay that's worse when hot points to internal wear leaking pressure",
+    "urgency": "soon",
+    "now": "Have the transmission checked within the next few days, and avoid towing or long hot drives until then.",
+    "if": [
+     "If a transmission temperature warning comes on or you smell burning, stop driving it and have it towed.",
+     "If it starts slipping while driving, get it checked right away."
+    ],
+    "why": "Hot fluid is thinner, so it escapes more easily past worn seals and a worn pump. That lowers pressure when you select a gear, causing a pause. The problem usually grows as the wear continues.",
+    "causes": [
+     {
+      "name": "Worn transmission pump",
+      "clues": "A whine that rises with engine speed.",
+      "against": ""
+     },
+     {
+      "name": "Worn internal seals",
+      "clues": "High mileage, and fine when cold.",
+      "against": ""
+     },
+     {
+      "name": "Worn or overheated fluid",
+      "clues": "Dark fluid or a burnt smell.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note how long you'd been driving when the delay was worst."
+     ],
+     "shop": [
+      "Line pressure test hot and cold",
+      "Fluid condition check",
+      "Transmission code scan"
+     ]
+    }
+   }
+  },
+  "r_internal": {
+   "result": {
+    "title": "A steady delay with normal fluid points to a pressure control or internal problem",
+    "urgency": "soon",
+    "now": "Have the codes read and the transmission checked within the next few days.",
+    "if": [
+     "If the delay gets longer or it starts slipping, stop driving it and have it towed.",
+     "If a code points to a solenoid or sensor, the repair may be smaller than a rebuild."
+    ],
+    "why": "If the fluid is full and clean but the delay happens every time, the problem is likely in how pressure is controlled or held. That can be an electronic solenoid, a sticking valve, or wear to seals and clutches.",
+    "causes": [
+     {
+      "name": "Faulty pressure control solenoid",
+      "clues": "A check engine light, or harsh shifts as well.",
+      "against": ""
+     },
+     {
+      "name": "Sticking valve in the valve body",
+      "clues": "The delay varies from one day to the next.",
+      "against": ""
+     },
+     {
+      "name": "Worn seals or clutches",
+      "clues": "High mileage and a delay that's slowly getting longer.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Time the delay in Drive and Reverse."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Line pressure test",
+      "Solenoid tests"
+     ]
+    }
+   }
+  },
+  "r_after_service": {
+   "result": {
+    "title": "A delay that started after service may be a fluid level, fluid type or relearn issue",
+    "urgency": "check",
+    "now": "Check the service invoice for the fluid type used, and ask the shop that did the work to recheck the level.",
+    "if": [
+     "If the wrong fluid was used, have it corrected soon. The wrong type can cause delays and harsh shifts.",
+     "If it started after battery work and is improving day by day, the transmission may be relearning. Book a check if it hasn't settled after about a week."
+    ],
+    "why": "Transmission fluid levels must be set using a specific procedure, often with the engine warm. An incorrect level, the wrong fluid, or learned settings wiped by a battery disconnect can all cause a delay into gear.",
+    "causes": [
+     {
+      "name": "Fluid level set wrong",
+      "clues": "The delay started right after a fluid change.",
+      "against": ""
+     },
+     {
+      "name": "Wrong fluid type",
+      "clues": "The invoice lists a fluid not named in your owner's manual.",
+      "against": ""
+     },
+     {
+      "name": "Shift adaptations reset after battery work",
+      "clues": "It started after battery work and is slowly improving.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Compare the fluid on the invoice with your owner's manual."
+     ],
+     "shop": [
+      "Fluid level check to factory procedure",
+      "Fluid type check",
+      "Transmission adaptation relearn with a scan tool"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "Have the transmission checked before the delay gets longer",
+    "urgency": "check",
+    "now": "Book a transmission check within the next week or two. Time the delay in Drive and Reverse so you can tell the shop.",
+    "if": [
+     "If the delay grows quickly, it starts slipping, or you smell burning, stop driving it and have it towed.",
+     "If you can check the fluid and it's low, top it up with the correct type and look for a leak."
+    ],
+    "why": "Delayed engagement means the transmission is slow to build pressure. It's often an early sign of low fluid or wear that's cheaper to deal with now than later.",
+    "causes": [
+     {
+      "name": "Low or worn fluid",
+      "clues": "Drips under the car or no record of a fluid service.",
+      "against": ""
+     },
+     {
+      "name": "Worn internal seals",
+      "clues": "Worse on cold mornings or when hot.",
+      "against": ""
+     },
+     {
+      "name": "Pressure control fault",
+      "clues": "A warning light or harsh shifts too.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Time the delay in Drive and Reverse.",
+      "Look for red or pink drips where you park."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Fluid level and condition check",
+      "Line pressure test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "transmission-slipping",
+  "harsh-or-hard-shifting",
+  "car-wont-go-into-gear",
+  "transmission-fluid-leak"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Leaks"
+  ],
+  "words": [
+   "transmission",
+   "engagement",
+   "delay",
+   "reverse",
+   "drive",
+   "torque converter",
+   "pump",
+   "solenoid",
+   "fluid"
+  ]
+ },
+ "sources": [
+  "https://www.acg.aaa.com/connect/blogs/5c/auto/how-to-check-and-maintain-your-transmission-fluid",
+  "https://cars.com/articles/here-are-7-common-signs-of-transmission-failure-521043/",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

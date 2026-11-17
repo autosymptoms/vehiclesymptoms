@@ -1,0 +1,357 @@
+{
+ "id": "musty-smell-from-vents",
+ "title": "Musty smell from vents",
+ "h1": "Why does my car AC smell musty or moldy?",
+ "metaDesc": "Musty or moldy smell from your car vents? Answer a few questions to see if it's the cabin filter, mold in the A/C, a clogged drain or a water leak.",
+ "group": "leaksmell",
+ "cat": "Smells",
+ "synonyms": [
+  "car ac smells musty",
+  "moldy smell from car vents",
+  "car smells like mildew",
+  "car ac smells like wet socks",
+  "musty smell when ac turns on",
+  "car vents smell bad",
+  "car smells damp",
+  "mold smell in car",
+  "car ac smells like old gym clothes",
+  "car heater smells musty",
+  "car smells sour from vents",
+  "ac smells like vinegar in car",
+  "musty smell in car after rain"
+ ],
+ "intro": "A musty smell from the vents is usually mold or mildew growing where moisture collects, most often in the A/C system or a dirty cabin air filter. It's rarely urgent, but water getting into the cabin needs fixing before it causes rust, electrical problems or mold in the carpet. Answer the questions below to find the source.",
+ "safety": [
+  "If the windows fog up and won't clear, pull over until you can see properly.",
+  "If the car has been in a flood with water above the floor, don't start it. Have it inspected first.",
+  "If anyone gets a headache, dizziness or drowsiness in the car, the smell may be exhaust, not mold. Open the windows and get into fresh air."
+ ],
+ "start": "q_when",
+ "nodes": {
+  "q_when": {
+   "q": "When is the smell strongest?",
+   "opts": [
+    {
+     "a": "For the first minute or so after turning on the A/C or fan, then it fades",
+     "go": "q_ac_drip"
+    },
+    {
+     "a": "All the time, even with the fan off",
+     "go": "q_wet"
+    },
+    {
+     "a": "After rain or a car wash",
+     "go": "q_wet"
+    },
+    {
+     "a": "It smells like something died, or like urine",
+     "go": "r_rodent"
+    },
+    {
+     "a": "It smells more sweet, like syrup, than musty",
+     "go": "r_maybe_coolant"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_filter_debris"
+    }
+   ]
+  },
+  "q_ac_drip": {
+   "q": "After using the A/C on a warm day, does clear water drip under the front of the car?",
+   "help": "A small puddle of clear, plain water under the front passenger side after using the A/C is normal. It's condensation draining from the A/C.",
+   "opts": [
+    {
+     "a": "Yes, a normal clear drip",
+     "go": "r_evaporator_mold"
+    },
+    {
+     "a": "No drip, even on hot, humid days",
+     "go": "r_ac_drain"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_evaporator_mold"
+    }
+   ]
+  },
+  "q_wet": {
+   "q": "Press your hand into the carpet in both front footwells, the back and the trunk. Is any of it damp?",
+   "help": "Lift the floor mats. Water often hides under them or in the padding below the carpet.",
+   "opts": [
+    {
+     "a": "Yes, the front passenger-side floor is wet",
+     "go": "r_ac_drain"
+    },
+    {
+     "a": "Yes, somewhere else (driver side, back seat area or trunk)",
+     "go": "r_water_leak"
+    },
+    {
+     "a": "No, it's all dry",
+     "go": "r_filter_debris"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_filter_debris"
+    }
+   ]
+  },
+  "r_evaporator_mold": {
+   "result": {
+    "title": "Mold or mildew is likely growing on the A/C evaporator",
+    "urgency": "diy",
+    "now": "Replace the cabin air filter, then get in the habit of turning off the A/C button and running just the fan for the last few minutes of each drive to dry the system out.",
+    "if": [
+     "If the smell is still there after a few weeks, have a shop clean and disinfect the evaporator and air ducts.",
+     "If anyone in the car has asthma or allergies that flare up, have it cleaned sooner."
+    ],
+    "why": "The A/C evaporator, behind the dashboard, gets cold and wet as it pulls moisture from the air. Mold and bacteria grow on it when the car sits, and the first blast of air carries the smell out. The drain is working, so the fix is cleaning and drying.",
+    "causes": [
+     {
+      "name": "Mold or bacteria on the A/C evaporator",
+      "clues": "The smell is worst in the first minute after the A/C or fan comes on, especially in humid weather.",
+      "against": ""
+     },
+     {
+      "name": "Dirty or damp cabin air filter",
+      "clues": "The filter hasn't been changed in a long time or looks dark and clogged.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the cabin air filter (often behind the glove box) and replace it if it's dirty.",
+      "Run the fan with the A/C off for a few minutes before parking."
+     ],
+     "shop": [
+      "Evaporator and duct cleaning treatment",
+      "Cabin air filter replacement",
+      "A/C drain check"
+     ]
+    }
+   }
+  },
+  "r_ac_drain": {
+   "result": {
+    "title": "The A/C drain is probably clogged and water is building up inside",
+    "urgency": "soon",
+    "now": "Feel the front passenger-side carpet for dampness and have the A/C drain cleared within a few days.",
+    "if": [
+     "If the wet carpet smells sweet or feels slimy, it's likely coolant from the heater core, not A/C water. Get it checked soon.",
+     "If water is soaking the carpet, dry it out right away to stop mold and protect wiring under the floor."
+    ],
+    "why": "The A/C makes water as it cools the air, and that water should drain out through a small tube under the car. If the tube is blocked by debris or insects, water pools inside the A/C housing and can overflow onto the passenger-side floor, feeding mold.",
+    "causes": [
+     {
+      "name": "Clogged A/C drain tube",
+      "clues": "No drip under the car after using the A/C, and a sloshing sound behind the dash when turning or braking.",
+      "against": ""
+     },
+     {
+      "name": "Leaking heater core",
+      "clues": "The wet spot smells sweet, the liquid is colored, or the windshield fogs with a greasy film.",
+      "against": "Plain, clear water with no sweet smell points to the A/C drain."
+     },
+     {
+      "name": "Leaking windshield or cowl drain",
+      "clues": "The floor gets wet after rain even without using the A/C.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Lift the passenger-side mat and press on the carpet.",
+      "After running the A/C on a warm day, look for a drip under the front passenger side."
+     ],
+     "shop": [
+      "A/C drain tube inspection and clearing",
+      "Evaporator cleaning",
+      "Heater core leak check if the water smells sweet"
+     ]
+    }
+   }
+  },
+  "r_water_leak": {
+   "result": {
+    "title": "Rain water is probably leaking into the car",
+    "urgency": "soon",
+    "now": "Dry out the wet carpet as soon as you can, and have the leak found and sealed within a few days.",
+    "if": [
+     "If water reaches the seats or wiring and electrical items start acting up, have it checked right away.",
+     "If the car was driven through deep water or a flood, have it inspected before relying on it."
+    ],
+    "why": "When water gets past a seal, it soaks into the carpet padding, which stays damp for a long time and grows mold. That smell then spreads through the cabin and the ventilation. Finding the leak matters more than treating the smell.",
+    "causes": [
+     {
+      "name": "Clogged sunroof drains",
+      "clues": "Wet headliner, damp front or rear footwells, and the car has a sunroof.",
+      "against": ""
+     },
+     {
+      "name": "Worn door, window or trunk seals",
+      "clues": "Water in one footwell or the trunk after rain or a car wash.",
+      "against": ""
+     },
+     {
+      "name": "Leaking windshield seal or blocked cowl drains",
+      "clues": "Water in the front footwells after rain, and leaves or debris at the base of the windshield.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the spare tire well in the trunk for water.",
+      "Clear leaves from the base of the windshield.",
+      "Have someone run a hose over the car while you look inside for drips."
+     ],
+     "shop": [
+      "Water leak test",
+      "Sunroof and body drain clearing",
+      "Seal inspection and repair"
+     ]
+    }
+   }
+  },
+  "r_filter_debris": {
+   "result": {
+    "title": "A dirty cabin air filter or debris in the air intake is the most likely cause",
+    "urgency": "diy",
+    "now": "Replace the cabin air filter, usually behind the glove box, and clear any leaves or debris from the air intake at the base of the windshield.",
+    "if": [
+     "If the smell continues with a new filter, have a shop check the A/C drain and look for water inside the car.",
+     "If you find a wet carpet, get the leak found within a few days."
+    ],
+    "why": "The cabin air filter catches dust, pollen and leaves before they reach the vents. Once it's clogged and damp, it grows mildew and every breath of air passes through it. Leaves rotting in the air intake can do the same.",
+    "causes": [
+     {
+      "name": "Old or damp cabin air filter",
+      "clues": "The filter hasn't been changed in a year or two, or looks dark and full of debris.",
+      "against": ""
+     },
+     {
+      "name": "Leaves or debris in the fresh air intake",
+      "clues": "The car is parked under trees, and you can see debris at the base of the windshield.",
+      "against": ""
+     },
+     {
+      "name": "Mold on the A/C evaporator",
+      "clues": "The smell is strongest when the A/C first comes on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check and replace the cabin air filter. Your owner's manual shows where it is.",
+      "Clear leaves from the cowl area at the base of the windshield."
+     ],
+     "shop": [
+      "Cabin air filter replacement",
+      "Evaporator and duct cleaning",
+      "A/C drain and water leak check"
+     ]
+    }
+   }
+  },
+  "r_rodent": {
+   "result": {
+    "title": "A rodent may have nested in the air intake or ducts",
+    "urgency": "check",
+    "now": "Check the cabin air filter and the air intake at the base of the windshield for nesting material or droppings, and book a check when convenient.",
+    "if": [
+     "If you find droppings or a dead animal, wear gloves and a mask while cleaning, or have a shop do it.",
+     "If warning lights come on or electrical items stop working, have it checked soon. Rodents often chew wiring."
+    ],
+    "why": "Mice and other small animals like the sheltered space in the air intake and ducts, especially in cooler months. Their nests, droppings or a dead animal create a strong, sour smell that the fan pushes into the cabin.",
+    "causes": [
+     {
+      "name": "Nest or droppings in the cabin air filter housing",
+      "clues": "Shredded material, seeds or droppings on the filter.",
+      "against": ""
+     },
+     {
+      "name": "Dead animal in the ducts or blower",
+      "clues": "A strong, rotten smell that's worse with the fan on.",
+      "against": ""
+     },
+     {
+      "name": "Chewed wiring under the hood",
+      "clues": "Warning lights or electrical problems along with the smell.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Remove and inspect the cabin air filter.",
+      "Look under the hood for nesting material or droppings."
+     ],
+     "shop": [
+      "Blower motor and duct inspection",
+      "Cleaning and disinfecting the air intake and ducts",
+      "Wiring inspection for chew damage"
+     ]
+    }
+   }
+  },
+  "r_maybe_coolant": {
+   "result": {
+    "title": "A sweet smell from the vents usually means a coolant leak, not mold",
+    "urgency": "soon",
+    "now": "Check the coolant level when the engine is cold and top it up if needed, then have the car checked within a few days.",
+    "if": [
+     "If the temperature gauge rises, pull over and turn off the engine.",
+     "If the inside of the windshield fogs with a greasy film you can't clear, pull over until you can see."
+    ],
+    "why": "Engine coolant smells sweet. If you smell it through the vents, the heater core behind the dashboard may be leaking, or coolant from the engine bay may be getting pulled into the air intake. Losing coolant can lead to overheating.",
+    "causes": [
+     {
+      "name": "Leaking heater core",
+      "clues": "A greasy film on the windshield or wet passenger-side carpet.",
+      "against": ""
+     },
+     {
+      "name": "Coolant leak in the engine bay",
+      "clues": "Colored drips under the front of the car.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the coolant level with the engine cold.",
+      "Feel the passenger-side carpet for dampness."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Heater core inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "water-leak-inside-car",
+  "windows-fogging-up",
+  "sweet-smell-from-car",
+  "water-dripping-under-car",
+  "ac-blowing-warm-air"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Smells"
+  ],
+  "words": [
+   "cabin air filter",
+   "evaporator",
+   "a/c drain",
+   "mold",
+   "musty",
+   "odor",
+   "water leak",
+   "sunroof drain"
+  ]
+ },
+ "sources": [
+  "https://cluballiance.aaa.com/the-extra-mile/series/the-extra-mile-magazine/why-does-my-car-smell",
+  "https://www.autocare.org/docs/default-source/communities-files/fmc/bulletins/13-2-the-importance-of-servicing-cabin-air-filters"
+ ]
+}

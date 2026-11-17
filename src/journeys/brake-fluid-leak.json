@@ -1,0 +1,531 @@
+{
+ "id": "brake-fluid-leak",
+ "title": "Brake fluid leak",
+ "h1": "Is my car leaking brake fluid?",
+ "metaDesc": "Think your car is leaking brake fluid? Check the pedal, the warning light and where the fluid is to see how serious it is and what your mechanic should check.",
+ "group": "leaksmell",
+ "cat": "Leaks",
+ "synonyms": [
+  "brake fluid leak",
+  "leaking brake fluid",
+  "brake fluid leaking from wheel",
+  "brake fluid low",
+  "brake fluid reservoir low",
+  "wet inside of tire",
+  "brake line leak",
+  "brake line rusted and leaking",
+  "brake caliper leaking",
+  "master cylinder leak",
+  "clear fluid near wheel",
+  "brake pedal soft and leaking fluid",
+  "is it safe to drive with a brake fluid leak",
+  "brake fluid leek"
+ ],
+ "intro": "Brake fluid is clear to yellowish when new and turns amber or brown with age. It feels slick, like light oil, and has little smell. Because your brakes depend on it, a real brake fluid leak means the car shouldn't be driven, so we'll start with how the brakes feel.",
+ "safety": [
+  "If the brake pedal sinks toward the floor, don't drive the car.",
+  "If the pedal sinks while you're driving, pump it, apply the parking brake gradually and steer to a safe stop.",
+  "If the red BRAKE light stays on with the parking brake released, don't drive the car."
+ ],
+ "start": "q_pedal",
+ "nodes": {
+  "q_pedal": {
+   "q": "How does the brake pedal feel?",
+   "help": "Press it firmly with the engine running and the car in Park. A healthy pedal stops high and feels firm.",
+   "opts": [
+    {
+     "a": "Soft or spongy, or it slowly sinks toward the floor",
+     "go": "r_pedal"
+    },
+    {
+     "a": "The red BRAKE warning light is on",
+     "go": "r_light"
+    },
+    {
+     "a": "Firm and normal, and no brake warning light",
+     "go": "q_where"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_light"
+    }
+   ]
+  },
+  "q_light": {
+   "q": "With the engine running and the parking brake fully released, is the red BRAKE light on?",
+   "help": "It may say BRAKE or show a circle with an exclamation mark. It also comes on when the parking brake is set, so release that first.",
+   "opts": [
+    {
+     "a": "Yes, it's on",
+     "go": "r_light"
+    },
+    {
+     "a": "No, it's off",
+     "go": "q_where"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_cautious"
+    }
+   ]
+  },
+  "q_where": {
+   "q": "Where did you find the fluid?",
+   "opts": [
+    {
+     "a": "On the inside of a wheel or tire",
+     "go": "r_wheel"
+    },
+    {
+     "a": "Along a metal line or rubber hose under the car",
+     "go": "r_line"
+    },
+    {
+     "a": "Under the hood, around the brake fluid reservoir near the windshield",
+     "go": "r_master"
+    },
+    {
+     "a": "On the floor inside the car, under the pedals",
+     "go": "r_inside"
+    },
+    {
+     "a": "I haven't seen a leak, but the fluid level looks low",
+     "go": "q_level"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_level"
+    }
+   ]
+  },
+  "q_level": {
+   "q": "Look at the brake fluid reservoir under the hood. Where is the level?",
+   "help": "It's a see-through plastic tank, usually on the driver's side near the windshield, marked MIN and MAX. You can read it without opening the cap. Brake fluid damages paint, so wipe up any drips right away.",
+   "opts": [
+    {
+     "a": "At or near MAX, and I see no wet spots anywhere",
+     "go": "r_not_brake"
+    },
+    {
+     "a": "Between the lines but closer to MIN, and I see no wet spots",
+     "go": "r_pad_wear"
+    },
+    {
+     "a": "At or below MIN, or empty",
+     "go": "r_low"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_cautious"
+    }
+   ]
+  },
+  "r_pedal": {
+   "result": {
+    "title": "The brakes are losing pressure. Don't drive the car",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the pedal sinks while you're driving, pump it, apply the parking brake gradually and steer to a safe stop.",
+     "If you can't find any outside leak, a master cylinder leaking internally can cause the same sinking pedal. It still needs a tow."
+    ],
+    "why": "A soft or sinking pedal means the brake system can't hold pressure, because fluid is escaping or air has gotten in. Together with a leak, this means braking could fail. The car isn't safe to use until it's repaired.",
+    "causes": [
+     {
+      "name": "Leak at a caliper, wheel cylinder, line or hose",
+      "clues": "Wet fluid near a wheel or along the underside of the car.",
+      "against": ""
+     },
+     {
+      "name": "Failing master cylinder",
+      "clues": "The pedal slowly sinks while you hold steady pressure, with or without a visible leak.",
+      "against": ""
+     },
+     {
+      "name": "Air in the brake lines",
+      "clues": "Recent brake work, or the reservoir ran very low.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Brake system leak inspection",
+      "Master cylinder test",
+      "Brake line, hose and caliper inspection",
+      "Brake bleed and pedal test after repair"
+     ]
+    }
+   }
+  },
+  "r_light": {
+   "result": {
+    "title": "The red brake light with a leak points to low brake fluid",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the parking brake was partly on, release it fully and look again. Even if the light goes out, have the suspected leak checked before using the car.",
+     "If the ABS light is also on, mention it. Some brake faults turn on both."
+    ],
+    "why": "The red brake light comes on when the parking brake is set or when the fluid in the reservoir drops too low. With a leak, low fluid is the likely reason, and the next stage can be a pedal that sinks to the floor.",
+    "causes": [
+     {
+      "name": "Low fluid from a leak",
+      "clues": "Wet spots near a wheel or under the car, or a reservoir at or below MIN.",
+      "against": ""
+     },
+     {
+      "name": "Very worn brake pads",
+      "clues": "Squealing or grinding, and a long time since the last brake job.",
+      "against": "Pad wear alone rarely drops the level fast enough to explain fresh drips."
+     },
+     {
+      "name": "Faulty fluid level sensor or parking brake switch",
+      "clues": "The reservoir is full and there's no sign of a leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure the parking brake is fully released.",
+      "Look at the brake fluid reservoir level without opening it."
+     ],
+     "shop": [
+      "Brake fluid level and leak inspection",
+      "Brake pad thickness check",
+      "Warning light circuit check"
+     ]
+    }
+   }
+  },
+  "r_wheel": {
+   "result": {
+    "title": "A brake caliper or wheel cylinder is likely leaking",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If fluid has soaked the brake pads or shoes, they'll need replacing too. Contaminated pads don't grip properly.",
+     "If it turns out to be thick black grease instead of slick fluid, it may be a torn axle boot. Still have it checked before using the car."
+    ],
+    "why": "Each wheel has a caliper, or a wheel cylinder on drum brakes, that uses brake fluid to press the pads or shoes. A leak there drains fluid and can coat the pads, so that wheel brakes poorly. The pedal can go soft with little warning.",
+    "causes": [
+     {
+      "name": "Leaking caliper piston seal",
+      "clues": "Wet, slick fluid on the inside of a front wheel.",
+      "against": ""
+     },
+     {
+      "name": "Leaking wheel cylinder (drum brakes)",
+      "clues": "Wetness on the inside of a rear tire, on a car with rear drum brakes.",
+      "against": ""
+     },
+     {
+      "name": "Loose bleeder screw or brake hose fitting",
+      "clues": "The leak started after recent brake work.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Without driving the car, look at the inside of each tire for a wet, oily film."
+     ],
+     "shop": [
+      "Caliper and wheel cylinder inspection",
+      "Brake hose and fitting check",
+      "Pad or shoe contamination check",
+      "Brake bleed after repair"
+     ]
+    }
+   }
+  },
+  "r_line": {
+   "result": {
+    "title": "A brake line or hose is likely leaking",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the lines look heavily rusted, ask the shop to inspect all of them, not just the leaking section."
+    ],
+    "why": "Brake lines carry fluid under high pressure to each wheel. Steel lines rust from road salt, and rubber hoses crack with age. A leaking line can burst when you brake hard, causing a sudden loss of braking.",
+    "causes": [
+     {
+      "name": "Rusted steel brake line",
+      "clues": "An older car driven in snowy, salted areas, with flaky rust along the lines.",
+      "against": ""
+     },
+     {
+      "name": "Cracked or worn rubber brake hose",
+      "clues": "Wetness at the flexible hose near a wheel, or visible cracks.",
+      "against": ""
+     },
+     {
+      "name": "Loose fitting",
+      "clues": "Fluid at a connection, especially after recent brake work.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Full brake line and hose inspection on a lift",
+      "Line replacement and brake bleed",
+      "Pedal test after repair"
+     ]
+    }
+   }
+  },
+  "r_master": {
+   "result": {
+    "title": "The master cylinder or its reservoir may be leaking",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If it's only old, dried residue from a past top-up and the level holds steady, a technician can confirm that and clear the car to use.",
+     "If your car is a manual, the clutch often shares this fluid. Mention it if the clutch pedal also feels different."
+    ],
+    "why": "The master cylinder turns your foot pressure into brake fluid pressure. If it leaks outside or its seals fail inside, the pedal can sink and braking power drops. Brake fluid also eats paint, so bubbled or peeling paint below it is a clue.",
+    "causes": [
+     {
+      "name": "Leaking master cylinder seal or line fitting",
+      "clues": "Fresh wetness below the master cylinder, or peeling paint underneath.",
+      "against": ""
+     },
+     {
+      "name": "Cracked reservoir or loose cap",
+      "clues": "Wetness around the reservoir itself.",
+      "against": ""
+     },
+     {
+      "name": "Spill from an earlier top-up",
+      "clues": "Dry residue, and the level stays the same over several days.",
+      "against": "Fresh wetness that returns after the area is cleaned points to a real leak."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the area looks freshly wet or just has old residue.",
+      "Look at the reservoir level without opening it."
+     ],
+     "shop": [
+      "Master cylinder and reservoir inspection",
+      "Pedal hold test",
+      "Brake line fitting check"
+     ]
+    }
+   }
+  },
+  "r_inside": {
+   "result": {
+    "title": "Fluid under the pedals could be from the brake or clutch system",
+    "urgency": "stop",
+    "now": "Don't drive it until it's checked. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If it's plain water or smells sweet, it's more likely an A/C drain or heater core leak, not the brakes. Have it checked within a few days.",
+     "If the car is a manual and the clutch pedal feels soft or sticks, the clutch system is the likely source."
+    ],
+    "why": "The brake master cylinder, and on manual cars the clutch master cylinder, sit just in front of the pedals. A leak there can run back toward the pedal area. Both use brake fluid, and many cars share one reservoir, so either leak can lead to low brake fluid.",
+    "causes": [
+     {
+      "name": "Leaking clutch master cylinder (manual cars)",
+      "clues": "A soft, sticking or sinking clutch pedal.",
+      "against": "Not possible on an automatic."
+     },
+     {
+      "name": "Leaking brake master cylinder or pushrod seal",
+      "clues": "A soft or sinking brake pedal, and the brake fluid level dropping.",
+      "against": ""
+     },
+     {
+      "name": "Water or coolant",
+      "clues": "Plain water, or a sweet smell and foggy windows.",
+      "against": "Brake fluid is slick and has little smell."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Touch a drop: slick and nearly odorless suggests brake or clutch fluid, watery or sweet suggests water or coolant.",
+      "Look at the brake fluid reservoir level without opening it."
+     ],
+     "shop": [
+      "Brake and clutch master cylinder inspection",
+      "Fluid identification",
+      "Pedal hold test"
+     ]
+    }
+   }
+  },
+  "r_low": {
+   "result": {
+    "title": "Low brake fluid with no obvious cause should be treated as a leak",
+    "urgency": "stop",
+    "now": "Don't drive it until a technician has checked the brakes. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If the brakes were worked on recently, ask that shop to check for a loose fitting or bleeder screw first.",
+     "If the brake pads turn out to be worn almost through, that can explain part of the drop, but the pads need replacing right away."
+    ],
+    "why": "The brake system is sealed, and the fluid level only drops slightly as pads wear. At or below MIN means very worn pads or fluid escaping somewhere you can't see, and braking can fail if it keeps dropping.",
+    "causes": [
+     {
+      "name": "Hidden leak at a caliper, line or hose",
+      "clues": "Damp areas on the inside of a wheel or along the underside.",
+      "against": ""
+     },
+     {
+      "name": "Very worn brake pads",
+      "clues": "Squealing or grinding, and a long time since the last brake job.",
+      "against": ""
+     },
+     {
+      "name": "Master cylinder leaking into the brake booster",
+      "clues": "No outside leak, but the level keeps dropping and the pedal feels different.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Without driving the car, look at the inside of each tire for a wet film."
+     ],
+     "shop": [
+      "Brake system leak inspection",
+      "Brake pad thickness check",
+      "Master cylinder and booster check"
+     ]
+    }
+   }
+  },
+  "r_not_brake": {
+   "result": {
+    "title": "The fluid you found probably isn't brake fluid",
+    "urgency": "check",
+    "now": "Check the reservoir again in a few days to make sure it holds steady, and book a check when convenient to identify the fluid.",
+    "if": [
+     "If the brake fluid level drops when you check again, treat it as a leak and don't drive the car until it's checked.",
+     "If the brake pedal ever feels soft or the red brake light comes on, don't drive it."
+    ],
+    "why": "A full reservoir and a firm pedal mean the brake system is very likely holding its fluid. Other fluids near the wheels, like shock absorber oil or axle grease, can look similar.",
+    "causes": [
+     {
+      "name": "Leaking shock absorber or strut",
+      "clues": "An oily film on the shock body behind the wheel, and a bouncier ride.",
+      "against": ""
+     },
+     {
+      "name": "Torn CV axle boot",
+      "clues": "Thick black grease sprayed around the inside of a front wheel.",
+      "against": ""
+     },
+     {
+      "name": "Power steering or other fluid",
+      "clues": "Reddish or amber fluid toward the front of the car.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Recheck the brake fluid level in a few days.",
+      "Look at the shocks behind each wheel for an oily film."
+     ],
+     "shop": [
+      "Fluid identification and leak inspection",
+      "Shock, strut and axle boot inspection",
+      "Brake inspection to rule out a leak"
+     ]
+    }
+   }
+  },
+  "r_pad_wear": {
+   "result": {
+    "title": "The level may just be dropping as the brake pads wear",
+    "urgency": "check",
+    "now": "Book a brake inspection when convenient. When new pads go in, the fluid level usually rises back up on its own.",
+    "if": [
+     "If the level keeps dropping between checks, or you spot any wet areas near the wheels, treat it as a leak and don't drive the car until it's checked.",
+     "If the level reaches MIN or the red brake light comes on, don't drive it."
+    ],
+    "why": "As brake pads wear thinner, the brake pistons sit further out and hold more fluid, so the reservoir level drops slowly over many months. That's normal. A sudden drop, or any dampness near the wheels, is not.",
+    "causes": [
+     {
+      "name": "Normal brake pad wear",
+      "clues": "A slow drop over months, and the pads are getting old.",
+      "against": ""
+     },
+     {
+      "name": "Slow leak not yet visible",
+      "clues": "The level drops noticeably within weeks.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the level and check it again in a couple of weeks.",
+      "Listen for squealing from the brakes, a common pad wear warning."
+     ],
+     "shop": [
+      "Brake pad thickness check",
+      "Brake leak inspection",
+      "Brake fluid condition test"
+     ]
+    }
+   }
+  },
+  "r_cautious": {
+   "result": {
+    "title": "Treat it as a brake leak until someone checks",
+    "urgency": "stop",
+    "now": "Don't drive it until a technician has checked the brakes. A mobile mechanic can come to you, or have it towed.",
+    "if": [
+     "If the technician finds the reservoir full, the pedal firm and no leak, the fluid was probably something else."
+    ],
+    "why": "Without knowing whether the brake fluid is low or the warning light is on, it isn't possible to rule out a brake leak. Because brakes can fail suddenly when fluid runs low, it's safer to have them checked before using the car.",
+    "causes": [
+     {
+      "name": "Brake fluid leak",
+      "clues": "Slick, clear to brown fluid near a wheel or under the car.",
+      "against": ""
+     },
+     {
+      "name": "Another fluid near the wheels",
+      "clues": "Shock oil, axle grease or power steering fluid.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Take a photo of the fluid and where you found it to show the technician."
+     ],
+     "shop": [
+      "Brake fluid level and leak inspection",
+      "Pedal test",
+      "Fluid identification"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "soft-or-spongy-brake-pedal",
+  "brake-warning-light-on",
+  "fluid-leak-under-car",
+  "grinding-brakes"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Leaks",
+   "Driving"
+  ],
+  "words": [
+   "brake fluid",
+   "brake line",
+   "brake hose",
+   "master cylinder",
+   "caliper",
+   "wheel cylinder",
+   "brake leak",
+   "brake pedal"
+  ]
+ },
+ "sources": [
+  "https://cluballiance.aaa.com/the-extra-mile/articles/prepare/car/identify-leaks-like-a-pro",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

@@ -1,0 +1,452 @@
+{
+ "id": "loose-or-wandering-steering",
+ "title": "Loose steering / car wanders",
+ "h1": "Why does my steering feel loose and my car wander?",
+ "metaDesc": "Steering feels loose or the car wanders in its lane? Answer a few quick questions to see if it's tires, alignment or worn steering parts, and how urgent it is.",
+ "group": "shake",
+ "cat": "Driving",
+ "synonyms": [
+  "loose steering",
+  "steering feels loose",
+  "car wanders",
+  "car wanders on highway",
+  "play in steering wheel",
+  "steering has play",
+  "sloppy steering",
+  "vague steering",
+  "car drifts in lane",
+  "have to keep correcting steering",
+  "steering wheel loose",
+  "car floats on the highway",
+  "car follows grooves in the road",
+  "wandering steering"
+ ],
+ "intro": "Loose steering means the car doesn't respond right away when you turn the wheel, so you're constantly making small corrections to stay in your lane. It usually comes from worn steering parts, tires or alignment. Because steering is a safety system, how suddenly it changed matters most. Answer the questions below to find the likely cause.",
+ "safety": [
+  "If the steering suddenly gets much looser, or the car doesn't respond properly when you turn the wheel, slow down, pull over and don't drive it further.",
+  "If you hear a loud clunk from the front and the car starts darting or wandering, pull over safely.",
+  "If the car wanders badly while towing or carrying a heavy load, slow down and pull over to check the load."
+ ],
+ "start": "q_how_sudden",
+ "nodes": {
+  "q_how_sudden": {
+   "q": "Which of these fits best?",
+   "opts": [
+    {
+     "a": "It changed suddenly: the steering is very loose, clunks, or the car doesn't go where I steer",
+     "go": "r_steering_failure"
+    },
+    {
+     "a": "It's gotten looser gradually, and I keep making small corrections",
+     "go": "q_play_test"
+    },
+    {
+     "a": "It mostly wanders on the highway, in crosswinds or along grooves in the road",
+     "go": "q_highway"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_play_test"
+    }
+   ]
+  },
+  "q_play_test": {
+   "q": "With the engine running and the car parked with the wheels straight, gently rock the steering wheel left and right. What do you notice?",
+   "help": "A little free movement is normal. You're feeling for the wheel moving an inch or more at the rim before you feel resistance or see the front tires start to move. A helper outside the car can watch the tires.",
+   "opts": [
+    {
+     "a": "The wheel moves a lot before the tires respond, or I feel or hear a clunk",
+     "go": "r_tie_rods_rack"
+    },
+    {
+     "a": "It feels tight when parked, but loose over bumps or while driving",
+     "go": "q_driving_clues"
+    },
+    {
+     "a": "I'm not sure / I can't check",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_driving_clues": {
+   "q": "Which of these do you also notice?",
+   "opts": [
+    {
+     "a": "Clunking or knocking over bumps or when turning",
+     "go": "r_ball_joints_bushings"
+    },
+    {
+     "a": "The car keeps bouncing after bumps, or floats and sways",
+     "go": "r_shocks"
+    },
+    {
+     "a": "The tires are wearing on the inner or outer edges",
+     "go": "r_alignment"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_highway": {
+   "q": "Do any of these apply?",
+   "opts": [
+    {
+     "a": "The tires are low, worn, or a mix of different brands or sizes",
+     "go": "r_tires"
+    },
+    {
+     "a": "It's worst when the vehicle is heavily loaded or towing",
+     "go": "r_load"
+    },
+    {
+     "a": "The steering wheel is off-center, or the tires wear unevenly",
+     "go": "r_alignment"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_alignment"
+    }
+   ]
+  },
+  "r_steering_failure": {
+   "result": {
+    "title": "A steering or suspension part may be failing",
+    "urgency": "stop",
+    "now": "Slow down, pull over somewhere safe and stop. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If a front wheel looks tilted or turned differently from the other, don't move the car at all.",
+     "If the power steering warning light is on as well, mention it to the tow or repair shop."
+    ],
+    "why": "Steering that goes loose suddenly, especially with a clunk, can mean a tie rod end, ball joint or steering linkage is close to separating. If one of these lets go, you can lose control of that front wheel.",
+    "causes": [
+     {
+      "name": "Failing tie rod end",
+      "clues": "A clunk when turning, and the steering wheel has a lot of free movement.",
+      "against": ""
+     },
+     {
+      "name": "Failing ball joint",
+      "clues": "Loud clunks over bumps, and a front wheel that may look tilted.",
+      "against": ""
+     },
+     {
+      "name": "Loose steering gear or rack mounting",
+      "clues": "A clunk from the front when you turn the wheel back and forth while parked.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From a safe spot, look at whether both front wheels sit at the same angle."
+     ],
+     "shop": [
+      "Steering linkage inspection on a lift",
+      "Ball joint and tie rod play check",
+      "Steering rack or gearbox mounting check"
+     ]
+    }
+   }
+  },
+  "r_tie_rods_rack": {
+   "result": {
+    "title": "Worn tie rods or a worn steering rack is likely",
+    "urgency": "soon",
+    "now": "Have the steering inspected within the next few days. Drive gently and avoid high speeds until then.",
+    "if": [
+     "If the play gets worse quickly or you hear new clunks, stop driving and have it towed.",
+     "If parts are replaced, have an alignment done afterward."
+    ],
+    "why": "Free movement in the steering wheel before the tires respond means something between the wheel and the tires has worn. Tie rod ends and the inner parts of the steering rack or gearbox are the most common places for this wear.",
+    "causes": [
+     {
+      "name": "Worn tie rod ends (inner or outer)",
+      "clues": "A clunk or knock when rocking the wheel, and wear on the edges of the front tires.",
+      "against": ""
+     },
+     {
+      "name": "Worn steering rack or steering gearbox",
+      "clues": "The tie rods check out but there's still play, or a fluid leak near the rack.",
+      "against": ""
+     },
+     {
+      "name": "Worn steering shaft joint",
+      "clues": "A clunk you feel in the steering column itself.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Have a helper watch a front tire while you rock the steering wheel slightly."
+     ],
+     "shop": [
+      "Tie rod play check",
+      "Steering rack or gearbox inspection",
+      "Steering shaft joint check",
+      "Alignment after repairs"
+     ]
+    }
+   }
+  },
+  "r_ball_joints_bushings": {
+   "result": {
+    "title": "Worn ball joints or suspension bushings are likely",
+    "urgency": "soon",
+    "now": "Have the front suspension inspected within the next few days. Drive gently until then.",
+    "if": [
+     "If the clunking gets louder or the car starts darting over bumps, stop driving and have it towed.",
+     "If the tires are wearing unevenly, have an alignment done after the parts are replaced."
+    ],
+    "why": "Ball joints and bushings hold the wheels in position while the suspension moves. When they wear, the wheel shifts over bumps and in turns, so the steering feels loose and the car wanders even though it feels fine when parked.",
+    "causes": [
+     {
+      "name": "Worn ball joints",
+      "clues": "Clunking or creaking over bumps and when turning.",
+      "against": ""
+     },
+     {
+      "name": "Worn control arm bushings",
+      "clues": "A clunk when braking or accelerating, and a pull that comes and goes.",
+      "against": ""
+     },
+     {
+      "name": "Worn sway bar links",
+      "clues": "A rattle or knock over small bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Listen for clunks over speed bumps with the windows down."
+     ],
+     "shop": [
+      "Ball joint play check on a lift",
+      "Bushing inspection",
+      "Sway bar link check"
+     ]
+    }
+   }
+  },
+  "r_shocks": {
+   "result": {
+    "title": "Worn shocks or struts may be letting the car float and wander",
+    "urgency": "check",
+    "now": "Book a suspension inspection and ask them to check the shocks or struts.",
+    "if": [
+     "If a shock is leaking fluid or the car is hard to control on bumpy curves, get it checked within a few days.",
+     "If you also hear clunks, ask them to check the ball joints and bushings."
+    ],
+    "why": "Shocks and struts keep the tires pressed firmly on the road. When they wear out, the car floats and sways, the tires lose grip over bumps, and the steering feels vague.",
+    "causes": [
+     {
+      "name": "Worn shocks or struts",
+      "clues": "Bouncing after bumps, nose diving when braking, swaying in turns.",
+      "against": ""
+     },
+     {
+      "name": "Worn strut mounts",
+      "clues": "A clunk or creak from the top of the front suspension when turning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Push down hard on each corner and let go. More than one or two bounces suggests worn shocks.",
+      "Look for oily residue on the shocks or struts."
+     ],
+     "shop": [
+      "Shock and strut inspection",
+      "Strut mount check",
+      "Tire wear check for cupping"
+     ]
+    }
+   }
+  },
+  "r_alignment": {
+   "result": {
+    "title": "Alignment that's out of spec is a likely cause of wandering",
+    "urgency": "check",
+    "now": "Check the tire pressures, then book an alignment check and ask them to inspect the steering parts at the same time.",
+    "if": [
+     "If the tires are wearing badly on one edge, get it done soon to save them.",
+     "If the shop finds worn steering parts, those must be replaced before an alignment will hold."
+    ],
+    "why": "The angles of the front wheels help the car track straight and the steering return to center. When those angles drift out, the car may wander, follow grooves in the road, and wear the tires unevenly.",
+    "causes": [
+     {
+      "name": "Alignment out of spec",
+      "clues": "Uneven tire wear, or an off-center steering wheel.",
+      "against": ""
+     },
+     {
+      "name": "Worn steering or suspension parts",
+      "clues": "Clunks, or the alignment won't stay set.",
+      "against": ""
+     },
+     {
+      "name": "Tire problem",
+      "clues": "Low pressure, worn tread or mismatched tires.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all four tire pressures.",
+      "Look for wear on the inner or outer edges of the tires."
+     ],
+     "shop": [
+      "Alignment check with printed readings",
+      "Steering and suspension inspection"
+     ]
+    }
+   }
+  },
+  "r_tires": {
+   "result": {
+    "title": "The tires are a likely cause of the wandering",
+    "urgency": "diy",
+    "now": "Set all four tires to the pressure on the driver's door jamb sticker and check the tread depth.",
+    "if": [
+     "If the wandering continues with correct pressures, book an alignment and steering check.",
+     "If the tread is worn down or the tires are mismatched, replace them in matching pairs at least, ideally a full set."
+    ],
+    "why": "Low pressure makes tires soft and slow to respond. Worn tread and mismatched tires grip differently side to side and tend to follow grooves in the road. These are the easiest causes to check.",
+    "causes": [
+     {
+      "name": "Low tire pressure",
+      "clues": "One or more tires below the door jamb number, or the TPMS light is on.",
+      "against": ""
+     },
+     {
+      "name": "Worn or unevenly worn tires",
+      "clues": "Shallow tread, or wear on one edge.",
+      "against": ""
+     },
+     {
+      "name": "Mismatched tires",
+      "clues": "Different brands, models or sizes on the same axle.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check pressures when the tires are cold.",
+      "Check tread depth with a gauge or the wear bars molded into the tread."
+     ],
+     "shop": [
+      "Tire inspection",
+      "Alignment check"
+     ]
+    }
+   }
+  },
+  "r_load": {
+   "result": {
+    "title": "Too much weight at the back may be lifting the front and lightening the steering",
+    "urgency": "check",
+    "now": "Check the load against the weight limits in your owner's manual and the door jamb sticker, and spread the weight more evenly.",
+    "if": [
+     "If you're towing and the trailer sways, slow down gradually, don't brake hard, and pull over to rebalance the load.",
+     "If it wanders even when the vehicle is empty, have the steering and suspension inspected."
+    ],
+    "why": "Heavy cargo behind the rear axle, or too much trailer tongue weight, presses the rear down and lifts the front. With less weight on the front tires, the steering feels light and the vehicle wanders. Worn rear shocks or springs make it worse.",
+    "causes": [
+     {
+      "name": "Overloaded or unevenly loaded vehicle",
+      "clues": "The rear sits noticeably low when loaded.",
+      "against": ""
+     },
+     {
+      "name": "Trailer hitch setup or tongue weight",
+      "clues": "Wandering or sway mainly when towing.",
+      "against": ""
+     },
+     {
+      "name": "Worn rear springs or shocks",
+      "clues": "The rear sags or bounces even with a normal load.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Compare the load with the weight limit on the door jamb sticker.",
+      "Check the tire pressures. Some vehicles list a higher pressure for heavy loads."
+     ],
+     "shop": [
+      "Rear spring and shock inspection",
+      "Hitch setup and tongue weight check",
+      "Steering and suspension inspection"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Have the steering and front suspension inspected",
+    "urgency": "check",
+    "now": "Check the tire pressures, then book a steering and suspension inspection. Tell the shop when the car wanders and whether it's getting worse.",
+    "if": [
+     "If the steering gets noticeably looser or you hear new clunks, get it checked within a day or two.",
+     "If the car doesn't respond properly when you turn the wheel, stop driving and have it towed."
+    ],
+    "why": "Loose or wandering steering can come from the tires, the alignment, or wear in the steering and suspension parts. A technician can check for play in each part quickly with the car on a lift.",
+    "causes": [
+     {
+      "name": "Worn tie rods or steering rack",
+      "clues": "Free play in the steering wheel.",
+      "against": ""
+     },
+     {
+      "name": "Worn ball joints or bushings",
+      "clues": "Clunks over bumps.",
+      "against": ""
+     },
+     {
+      "name": "Tires or alignment",
+      "clues": "Uneven tire wear or low pressures.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the tire pressures.",
+      "Note when the wandering is worst."
+     ],
+     "shop": [
+      "Steering and suspension play check on a lift",
+      "Alignment check",
+      "Tire inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "car-pulls-to-one-side",
+  "steering-wheel-shaking",
+  "clunk-over-bumps",
+  "uneven-tire-wear",
+  "bouncy-ride"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "steering",
+   "tie rod",
+   "steering rack",
+   "ball joint",
+   "bushing",
+   "alignment",
+   "wander",
+   "play",
+   "suspension"
+  ]
+ },
+ "sources": [
+  "https://www.nhtsa.gov/vehicle-safety/tires",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

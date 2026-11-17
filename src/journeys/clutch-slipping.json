@@ -1,0 +1,503 @@
+{
+ "id": "clutch-slipping",
+ "title": "Clutch slipping",
+ "h1": "Why is my clutch slipping?",
+ "metaDesc": "Engine revs climb but the car doesn't speed up? Answer a few questions to see if your clutch is worn, contaminated or out of adjustment, and how urgent it is.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "clutch slipping",
+  "clutch slips",
+  "slipping clutch",
+  "clutch going out",
+  "revs go up but car doesn't accelerate",
+  "rpm goes up but car doesnt speed up",
+  "clutch slipping in high gear",
+  "clutch slips going uphill",
+  "clutch burning smell",
+  "clutch engages at the top",
+  "clutch catches high",
+  "manual transmission slipping",
+  "clucth slipping"
+ ],
+ "intro": "When a clutch slips, the engine speeds up but the car doesn't keep pace, because the clutch can't grip hard enough to pass all the power through. It usually starts in high gears or on hills and gets worse over time. Answer the questions below to see the likely cause, how urgent it is, and what to tell your mechanic.",
+ "safety": [
+  "If the car can no longer get moving or keep up with traffic, pull over somewhere safe and don't drive on.",
+  "If you see smoke from under the car or the burning smell is very strong, stop and let the clutch cool before going anywhere.",
+  "If the clutch pedal goes to the floor and stays there, you may not be able to shift or stop smoothly. Pull over safely."
+ ],
+ "start": "q_how_bad",
+ "nodes": {
+  "q_how_bad": {
+   "q": "How bad is the slipping right now?",
+   "help": "\"Slipping\" means the engine revs (RPM) jump up when you press the gas, but the car speeds up much less than it should.",
+   "opts": [
+    {
+     "a": "The engine revs, but the car barely moves or won't move at all",
+     "go": "r_clutch_gone"
+    },
+    {
+     "a": "It slips when accelerating hard, going uphill, or in higher gears",
+     "go": "q_pedal"
+    },
+    {
+     "a": "It slipped with a strong burning smell after heavy use (towing, hill starts, hard launches)",
+     "go": "r_overheated"
+    },
+    {
+     "a": "I'm not sure it's slipping",
+     "go": "q_test"
+    }
+   ]
+  },
+  "q_test": {
+   "q": "On a safe, open road in 4th or 5th gear, press the gas firmly. What happens?",
+   "help": "Only do this where it's safe and legal. Watch the tachometer (the RPM gauge) and the speedometer together.",
+   "opts": [
+    {
+     "a": "The RPM jumps quickly, but the speed barely changes",
+     "go": "q_pedal"
+    },
+    {
+     "a": "RPM and speed rise together, but the car just feels weak",
+     "go": "r_not_clutch"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_pedal": {
+   "q": "How does the clutch pedal feel?",
+   "help": "The engagement point is where the clutch starts to grab as you let the pedal up.",
+   "opts": [
+    {
+     "a": "It feels normal, but the clutch grabs very near the top of the pedal",
+     "go": "r_worn_disc"
+    },
+    {
+     "a": "It feels soft or spongy, sticks down, or comes back up slowly",
+     "go": "r_hydraulic"
+    },
+    {
+     "a": "It has no slack at the top, or the clutch cable feels tight",
+     "go": "r_adjustment"
+    },
+    {
+     "a": "It feels normal",
+     "go": "q_history"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_history"
+    }
+   ]
+  },
+  "q_history": {
+   "q": "Which of these fits best?",
+   "opts": [
+    {
+     "a": "The clutch is original or has a lot of miles on it",
+     "go": "r_worn_disc"
+    },
+    {
+     "a": "There's oil dripping from where the engine and transmission meet",
+     "go": "r_oil_contaminated"
+    },
+    {
+     "a": "The clutch was replaced recently",
+     "go": "r_new_clutch"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_worn_disc"
+    }
+   ]
+  },
+  "r_clutch_gone": {
+   "result": {
+    "title": "The clutch has worn out or failed and can't move the car",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed to a shop or call a mobile mechanic.",
+    "if": [
+     "If the clutch pedal also feels soft or goes to the floor, check the clutch fluid reservoir. A hydraulic leak can cause the same symptom.",
+     "If you're in traffic, turn on your hazard lights and get to the shoulder if you can roll there safely."
+    ],
+    "why": "When the car barely moves even though the engine revs, the clutch can no longer grip. Trying to drive like this overheats what's left of the clutch and can damage the flywheel, and the car may not be able to keep up with traffic.",
+    "causes": [
+     {
+      "name": "Clutch disc worn down to the end of its life",
+      "clues": "Slipping got gradually worse over weeks or months.",
+      "against": ""
+     },
+     {
+      "name": "Clutch hydraulic fault keeping the clutch partly released",
+      "clues": "A soft or sinking pedal, or low fluid in the clutch reservoir.",
+      "against": ""
+     },
+     {
+      "name": "Broken pressure plate or clutch disc",
+      "clues": "It happened suddenly, sometimes with a bang or rattling.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the clutch fluid reservoir level (on many cars it shares the brake fluid reservoir)."
+     ],
+     "shop": [
+      "Clutch hydraulic system inspection",
+      "Clutch slip test",
+      "Clutch, pressure plate and flywheel inspection"
+     ]
+    }
+   }
+  },
+  "r_worn_disc": {
+   "result": {
+    "title": "The clutch disc is most likely worn out",
+    "urgency": "soon",
+    "now": "Get the clutch checked within the next few days. Until then, drive gently, avoid hard acceleration and hills, and keep your foot off the clutch pedal except when shifting.",
+    "if": [
+     "If the car starts to struggle to move or you smell burning often, stop driving it and have it towed.",
+     "If you tow a trailer, don't until the clutch is fixed."
+    ],
+    "why": "The clutch disc has friction material that wears down with use, just like brake pads. As it thins, the clutch grips with less force, so it slips first under heavy load and later all the time. A worn disc doesn't recover, and slipping heats and damages the flywheel.",
+    "causes": [
+     {
+      "name": "Normal wear of the clutch disc",
+      "clues": "High mileage, lots of city or hill driving, and a gradual onset.",
+      "against": "If the clutch is fairly new, look at adjustment or oil contamination instead."
+     },
+     {
+      "name": "Weak pressure plate springs",
+      "clues": "Slipping despite a disc that isn't very old, sometimes after overheating.",
+      "against": ""
+     },
+     {
+      "name": "Riding the clutch",
+      "clues": "Resting a foot on the pedal or slipping the clutch to hold the car on hills.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note which gears slip and whether hills or hard acceleration make it worse.",
+      "Notice whether the clutch grabs higher in the pedal travel than it used to."
+     ],
+     "shop": [
+      "Clutch slip test",
+      "Clutch pedal free-play and hydraulic check",
+      "Clutch disc, pressure plate and flywheel inspection when removed"
+     ]
+    }
+   }
+  },
+  "r_overheated": {
+   "result": {
+    "title": "The clutch probably overheated from heavy use",
+    "urgency": "check",
+    "now": "Let the clutch cool for at least 30 minutes, then drive gently and see whether the slipping has stopped. Book a check when convenient.",
+    "if": [
+     "If it keeps slipping after it has cooled down, the clutch is likely damaged. Get it checked within a few days.",
+     "If you see smoke from under the car, stop and let it cool before going any further."
+    ],
+    "why": "Towing, repeated hill starts and hard launches make the clutch slip on purpose, which creates a lot of heat. A hot clutch grips less and gives off a sharp burning smell. One episode may do little harm, but repeated overheating wears it out fast.",
+    "causes": [
+     {
+      "name": "Clutch overheated from heavy use",
+      "clues": "It happened right after towing, traffic on a hill or a hard launch.",
+      "against": ""
+     },
+     {
+      "name": "Already-worn clutch made worse by heat",
+      "clues": "It had been slipping a little before.",
+      "against": ""
+     },
+     {
+      "name": "Glazed clutch disc or flywheel",
+      "clues": "A slight slip or shudder that remains after cooling.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "After it cools, check whether it still slips in a high gear.",
+      "Use the parking brake on hill starts instead of slipping the clutch."
+     ],
+     "shop": [
+      "Clutch slip test",
+      "Clutch and flywheel inspection if slipping continues"
+     ]
+    }
+   }
+  },
+  "r_hydraulic": {
+   "result": {
+    "title": "A clutch hydraulic problem may be keeping the clutch from fully engaging",
+    "urgency": "soon",
+    "now": "Check the clutch fluid reservoir and look for leaks near the pedal and transmission. Have the system checked within the next few days.",
+    "if": [
+     "If the pedal goes to the floor and stays there, don't drive it. You may not be able to shift. Have it towed.",
+     "If the clutch fluid shares the brake reservoir and it's low, have the brakes checked too."
+    ],
+    "why": "Most clutches are worked by fluid pressure, like brakes. If the master or slave cylinder is sticking, or the fluid is low or contaminated, the clutch can stay partly released, so it slips even though the disc itself may be fine.",
+    "causes": [
+     {
+      "name": "Sticking or leaking slave cylinder",
+      "clues": "Fluid near the bell housing (where the engine meets the transmission), or a pedal that returns slowly.",
+      "against": ""
+     },
+     {
+      "name": "Faulty clutch master cylinder",
+      "clues": "Fluid under the dash near the pedal, or a pedal that sinks.",
+      "against": ""
+     },
+     {
+      "name": "Low, old or contaminated fluid",
+      "clues": "The reservoir is low or the fluid looks dark.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the clutch fluid reservoir level and color.",
+      "Look for wet spots under the dash near the pedal and under the car near the bell housing."
+     ],
+     "shop": [
+      "Clutch master and slave cylinder inspection",
+      "Hydraulic bleeding and fluid replacement",
+      "Pedal travel and return check"
+     ]
+    }
+   }
+  },
+  "r_adjustment": {
+   "result": {
+    "title": "The clutch may be out of adjustment",
+    "urgency": "check",
+    "now": "Have the clutch adjustment checked when convenient. Until then, avoid hard acceleration and keep your foot off the pedal while driving.",
+    "if": [
+     "If the slipping gets worse or you smell burning, get it checked within a few days.",
+     "If your car has a hydraulic clutch with no adjuster, a sticking hydraulic part is more likely."
+    ],
+    "why": "The clutch needs a little slack at the top of the pedal so it can clamp fully when released. If a clutch cable is too tight, or the pedal doesn't come all the way up, the clutch stays partly released and slips under load.",
+    "causes": [
+     {
+      "name": "Clutch cable too tight or self-adjuster stuck",
+      "clues": "No slack at the top of the pedal on a cable-operated clutch.",
+      "against": ""
+     },
+     {
+      "name": "Pedal not returning fully",
+      "clues": "A floor mat or worn pedal stop keeps the pedal from coming all the way up.",
+      "against": ""
+     },
+     {
+      "name": "Worn clutch disc",
+      "clues": "On some designs, a worn disc also removes pedal slack.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure the floor mat isn't catching the clutch pedal.",
+      "Gently press the pedal by hand to feel for slack before it gets firm."
+     ],
+     "shop": [
+      "Clutch pedal free-play check and adjustment",
+      "Clutch cable or self-adjuster inspection",
+      "Clutch slip test"
+     ]
+    }
+   }
+  },
+  "r_oil_contaminated": {
+   "result": {
+    "title": "Oil may be leaking onto the clutch and making it slip",
+    "urgency": "soon",
+    "now": "Check the engine oil level and top it up if needed, then have the leak and clutch checked within the next few days.",
+    "if": [
+     "If the oil level is well below the low mark or the oil pressure light comes on, don't drive it.",
+     "If the leak is heavy, keep trips short and check the oil level each time."
+    ],
+    "why": "The clutch sits right next to the rear engine seal and the transmission input seal. If either leaks, oil can soak the clutch disc, which then slips and often chatters. Cleaning rarely fixes an oil-soaked disc, so the leak and the clutch are usually repaired together.",
+    "causes": [
+     {
+      "name": "Leaking rear main engine seal",
+      "clues": "Engine oil dripping from where the engine and transmission meet.",
+      "against": ""
+     },
+     {
+      "name": "Leaking transmission input shaft seal",
+      "clues": "Gear oil, which smells strong and sulfur-like, in the same area.",
+      "against": ""
+     },
+     {
+      "name": "Clutch fluid leaking from the slave cylinder",
+      "clues": "Low clutch fluid and a soft pedal.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the engine oil level on the dipstick.",
+      "Place cardboard under the car overnight and note where the drips land."
+     ],
+     "shop": [
+      "Leak inspection with the bell housing cover removed",
+      "Clutch and flywheel inspection",
+      "Rear main seal and input shaft seal check"
+     ]
+    }
+   }
+  },
+  "r_new_clutch": {
+   "result": {
+    "title": "A recently replaced clutch may need adjusting or have an installation problem",
+    "urgency": "soon",
+    "now": "Contact the shop that did the work and have them check it within the next few days. Drive gently until then.",
+    "if": [
+     "If the slipping is slight and the clutch is only a few hundred miles old, the shop may advise a short break-in period of easy driving.",
+     "If the slipping is getting worse, stop driving it hard and get it checked right away to avoid ruining the new parts."
+    ],
+    "why": "New clutches need correct adjustment and clean, oil-free parts. A pedal or hydraulic system that isn't set up right, oil on the new disc, or a flywheel that wasn't resurfaced or replaced can all cause slipping soon after a repair.",
+    "causes": [
+     {
+      "name": "Incorrect adjustment or air in the hydraulics",
+      "clues": "The pedal feels different from before, or the clutch grabs very high.",
+      "against": ""
+     },
+     {
+      "name": "Oil or grease on the new disc",
+      "clues": "Slipping with chatter, or an oil leak that wasn't fixed during the repair.",
+      "against": ""
+     },
+     {
+      "name": "Wrong or faulty part",
+      "clues": "Slipping from day one, even when driven gently.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Keep the repair paperwork handy and note when the slipping started.",
+      "Look for oil drips where the engine meets the transmission."
+     ],
+     "shop": [
+      "Clutch pedal and hydraulic check",
+      "Clutch slip test",
+      "Inspection for oil contamination"
+     ]
+    }
+   }
+  },
+  "r_not_clutch": {
+   "result": {
+    "title": "If RPM and speed rise together, the clutch probably isn't slipping",
+    "urgency": "check",
+    "now": "Book a check for low engine power when convenient, and mention any warning lights or other symptoms.",
+    "if": [
+     "If the check engine light is flashing or the engine shakes, don't drive it. Have it checked right away.",
+     "If a wheel feels hot or smells of burning after a drive, a brake may be dragging. Get it checked soon."
+    ],
+    "why": "A slipping clutch shows up as revs rising faster than speed. If they rise together and the car still feels sluggish, the engine isn't making full power or something is holding the car back.",
+    "causes": [
+     {
+      "name": "Engine power problem (air, fuel or ignition)",
+      "clues": "A check engine light, rough running or hesitation.",
+      "against": ""
+     },
+     {
+      "name": "Dragging brake",
+      "clues": "One wheel is much hotter than the others, or there's a burning smell near a wheel.",
+      "against": ""
+     },
+     {
+      "name": "Clogged air filter or exhaust restriction",
+      "clues": "Gradual loss of power over time.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check for warning lights.",
+      "After a drive, carefully hold your hand near each wheel (without touching) to compare heat."
+     ],
+     "shop": [
+      "Code scan",
+      "Brake inspection",
+      "Engine performance tests"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Have a technician confirm whether the clutch is slipping",
+    "urgency": "check",
+    "now": "Book a clutch check when convenient and describe when the problem happens: which gear, uphill or flat, and how the pedal feels.",
+    "if": [
+     "If the car struggles to get moving or you smell burning, stop driving and get it checked right away.",
+     "If the pedal feels soft or sinks, check the clutch fluid reservoir."
+    ],
+    "why": "Clutch slip, low engine power and dragging brakes can all feel like the car isn't pulling. A technician can do a quick slip test and road test to tell them apart.",
+    "causes": [
+     {
+      "name": "Worn clutch",
+      "clues": "Revs jump in high gears or on hills.",
+      "against": ""
+     },
+     {
+      "name": "Clutch hydraulic or adjustment problem",
+      "clues": "The pedal feel has changed.",
+      "against": ""
+     },
+     {
+      "name": "Engine power problem",
+      "clues": "A check engine light or rough running.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note which gears and situations feel wrong.",
+      "Check the clutch fluid reservoir level."
+     ],
+     "shop": [
+      "Clutch slip test",
+      "Road test",
+      "Code scan"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "grinding-when-shifting-gears",
+  "burning-smell",
+  "car-wont-go-into-gear",
+  "loss-of-power-when-accelerating",
+  "transmission-slipping"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "clutch",
+   "slip",
+   "pressure plate",
+   "flywheel",
+   "slave cylinder",
+   "master cylinder",
+   "rear main seal",
+   "manual transmission"
+  ]
+ },
+ "sources": [
+  "https://aftermarket.zf.com/us/aftermarket-portal/for-workshops/useful-tips/clutches/clutch-slipping",
+  "https://www.aa1car.com/library/2002/ic100237.htm"
+ ]
+}

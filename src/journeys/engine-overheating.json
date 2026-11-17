@@ -1,0 +1,584 @@
+{
+ "id": "engine-overheating",
+ "title": "Engine overheating",
+ "h1": "Why is my engine overheating?",
+ "metaDesc": "Temperature gauge high or temp warning light on? Answer a few quick questions to see the likely cause, whether to stop driving, and what to tell your mechanic.",
+ "group": "hot",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "engine overheating",
+  "car overheating",
+  "car running hot",
+  "temperature gauge high",
+  "temp gauge in the red",
+  "temperature warning light",
+  "engine temperature light on",
+  "coolant temperature warning",
+  "engine hot warning",
+  "car overheated and shut off",
+  "overheating engine steam",
+  "my car is overheating what do i do",
+  "car over heating"
+ ],
+ "intro": "An overheating engine is one of the few problems where minutes matter. Driving while it's in the red can warp or crack expensive engine parts. Answer the questions below to see how urgent it is, the most likely cause, and what to check once the engine has cooled.",
+ "safety": [
+  "If the gauge is in the red, a red temperature light is on, or steam is coming from under the hood, pull over safely and turn the engine off.",
+  "Never open the radiator cap or coolant tank cap on a hot engine. Hot coolant under pressure can spray out and cause serious burns.",
+  "If the oil pressure light comes on too, or the engine starts knocking, shut it off right away.",
+  "If you see flames or smoke with a burning smell, get everyone out and away from the car and call for help."
+ ],
+ "start": "q_how_hot",
+ "nodes": {
+  "q_how_hot": {
+   "q": "How hot is it running right now (or the last time it happened)?",
+   "help": "On most cars the needle sits near the middle once the engine is warm. Some cars have only a light: red usually means hot, blue means still cold.",
+   "opts": [
+    {
+     "a": "The gauge is in the red, a red temperature light or message is on, or there's steam from under the hood",
+     "go": "r_pull_over_now"
+    },
+    {
+     "a": "Higher than normal, but not in the red",
+     "go": "q_coolant_level"
+    },
+    {
+     "a": "It ran hot earlier but is back to normal now",
+     "go": "q_coolant_level"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_signs"
+    }
+   ]
+  },
+  "q_signs": {
+   "q": "Do you notice any of these?",
+   "opts": [
+    {
+     "a": "Steam, or a sweet, syrupy smell from under the hood",
+     "go": "r_pull_over_now"
+    },
+    {
+     "a": "A temperature warning light or message on the dash",
+     "go": "r_pull_over_now"
+    },
+    {
+     "a": "None of these. The gauge just looks higher than usual",
+     "go": "q_coolant_level"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_coolant_level": {
+   "q": "Once the engine has cooled for at least 30 minutes, where is the coolant level in the see-through overflow tank?",
+   "help": "The overflow tank is a plastic bottle near the radiator with MIN and MAX (or COLD and FULL) marks. Only check it when the engine is cold, and don't open the radiator cap itself.",
+   "opts": [
+    {
+     "a": "Below the MIN mark, or the tank is empty",
+     "go": "q_leak_signs"
+    },
+    {
+     "a": "Between MIN and MAX",
+     "go": "q_when"
+    },
+    {
+     "a": "I haven't checked / I'm not sure",
+     "go": "r_check_coolant_first"
+    }
+   ]
+  },
+  "q_leak_signs": {
+   "q": "Do you see any clues about where the coolant is going?",
+   "help": "Coolant is usually green, orange, pink, blue or yellow, feels slightly slimy, and smells sweet.",
+   "opts": [
+    {
+     "a": "Drips or a puddle under the front of the car, or wet, crusty spots on hoses or the radiator",
+     "go": "r_coolant_leak"
+    },
+    {
+     "a": "Thick white exhaust smoke that smells sweet, milky oil on the dipstick, or bubbles in the coolant tank",
+     "go": "r_head_gasket"
+    },
+    {
+     "a": "No leak I can see anywhere",
+     "go": "r_hidden_loss"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_coolant_leak"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "The coolant is full. When does it run hot?",
+   "opts": [
+    {
+     "a": "Only when idling or in slow traffic. It cools down once I'm moving",
+     "go": "r_fan"
+    },
+    {
+     "a": "Mostly at highway speed, climbing hills or towing",
+     "go": "r_flow"
+    },
+    {
+     "a": "It climbs within a few minutes of starting, or the heater blows cold while the gauge is high",
+     "go": "r_no_circulation"
+    },
+    {
+     "a": "The needle jumps around, but the heater stays hot and there's no steam or smell",
+     "go": "r_sensor"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "r_pull_over_now": {
+   "result": {
+    "title": "The engine is overheating. Stop as soon as it's safe",
+    "urgency": "stop",
+    "now": "Pull over somewhere safe, turn the engine off and let it cool for at least 30 minutes. Then call for a tow or a mobile mechanic rather than restarting it.",
+    "if": [
+     "If you're stuck in traffic and can't pull over yet, turn the A/C off and the heater on full hot with the fan on high. This pulls some heat away from the engine until you can stop.",
+     "If the oil pressure light comes on or the engine knocks, shut it off immediately, even before you reach the roadside.",
+     "If coolant is pouring out or you see flames or heavy smoke, get everyone away from the car."
+    ],
+    "why": "A gauge in the red or steam from the engine means it has already lost the ability to shed heat. Every extra minute of running can warp the cylinder head or blow the head gasket, turning a simple hose or fan repair into a major engine repair.",
+    "causes": [
+     {
+      "name": "Low coolant from a leak",
+      "clues": "Steam, a sweet smell, a puddle under the front of the car, or an empty overflow tank once cool.",
+      "against": ""
+     },
+     {
+      "name": "Cooling fan not working",
+      "clues": "It got hot while idling or in traffic, not at highway speed.",
+      "against": "If it overheated at steady highway speed, the fan matters much less."
+     },
+     {
+      "name": "Water pump, thermostat or burst hose",
+      "clues": "It got hot quickly, the heater blew cold, or there was a sudden cloud of steam.",
+      "against": ""
+     },
+     {
+      "name": "Head gasket failure",
+      "clues": "White, sweet-smelling exhaust smoke, or bubbles in the coolant tank.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once fully cool, look at the overflow tank level and under the car for drips.",
+      "Note what you saw: steam, smells, smoke and how fast the gauge rose. It helps the shop."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Cooling fan and fan relay test",
+      "Combustion gas (block) test for a head gasket leak",
+      "Thermostat and water pump inspection"
+     ]
+    }
+   }
+  },
+  "r_check_coolant_first": {
+   "result": {
+    "title": "Check the coolant level first. It's the most common cause",
+    "urgency": "diy",
+    "now": "With the engine fully cold, look at the overflow tank. If it's below MIN, top it up to the MAX line with the coolant type listed in your owner's manual.",
+    "if": [
+     "If the tank was empty or very low, find out where it went. A leak will usually make it overheat again.",
+     "If the gauge climbs toward the red again after topping up, stop and have it towed rather than driving on.",
+     "If you see a puddle, milky oil or sweet-smelling white exhaust smoke, get it checked before driving it further."
+    ],
+    "why": "Low coolant is the single most common reason an engine runs hot, and it's easy to check safely once the engine is cold. The level tells you whether you're dealing with a leak or a problem with the fan, thermostat or pump.",
+    "causes": [
+     {
+      "name": "Low coolant",
+      "clues": "The tank is below MIN, or you've had to top it up before.",
+      "against": "A full tank makes this less likely, though air in the system can still cause trouble."
+     },
+     {
+      "name": "Cooling fan problem",
+      "clues": "It runs hot in traffic and cools down when moving.",
+      "against": ""
+     },
+     {
+      "name": "Thermostat or water pump",
+      "clues": "The coolant is full but it still heats up quickly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the overflow tank level with the engine cold.",
+      "Look under the front of the car for drips after it's been parked.",
+      "Watch whether the radiator fan runs once the engine is warm and idling."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Cooling fan test",
+      "Code scan for temperature sensor and fan codes"
+     ]
+    }
+   }
+  },
+  "r_coolant_leak": {
+   "result": {
+    "title": "Coolant is leaking out, so the engine can't stay cool",
+    "urgency": "soon",
+    "now": "Once the engine is cold, top up the overflow tank to MAX with the right coolant and have the leak found and fixed within the next few days.",
+    "if": [
+     "If the leak is fast enough that the tank empties after a short drive, don't drive it. Have it towed.",
+     "If the gauge rises above its normal spot at any point, pull over and turn the engine off.",
+     "Until it's fixed, keep trips short, watch the gauge, and check the level each time the engine is cold."
+    ],
+    "why": "The cooling system is sealed, so coolant only goes down when it's escaping somewhere. Once enough is lost, the engine can't move heat to the radiator and the temperature climbs. Fixing the leak early usually means a hose, clamp or radiator rather than engine damage.",
+    "causes": [
+     {
+      "name": "Leaking radiator hose or clamp",
+      "clues": "Wet or crusty spots at hose ends, or a hose that feels soft and swollen.",
+      "against": ""
+     },
+     {
+      "name": "Leaking radiator",
+      "clues": "Drips from the very front of the car, or crusty colored deposits on the radiator.",
+      "against": ""
+     },
+     {
+      "name": "Leaking water pump",
+      "clues": "Drips or a crusty trail near the engine-belt end of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Worn radiator or tank cap",
+      "clues": "Coolant residue around the cap, or the tank overflows when hot.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Put a piece of cardboard under the engine overnight to see where it drips.",
+      "Look for wet or crusty colored deposits on hoses, the radiator and around the engine."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Radiator cap pressure test",
+      "UV dye leak check"
+     ]
+    }
+   }
+  },
+  "r_head_gasket": {
+   "result": {
+    "title": "Possible head gasket leak: coolant may be getting into the engine",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed or have a mobile mechanic test it.",
+    "if": [
+     "If a test rules out a head gasket, a leaking intake gasket or EGR or oil cooler (on some engines) can cause similar signs, and those are usually less serious.",
+     "If the oil looks milky, don't start the engine at all. Coolant mixed into oil can quickly damage the bearings."
+    ],
+    "why": "Sweet-smelling white exhaust smoke, milky oil, or bubbles in the coolant tank all suggest coolant and combustion gases are mixing inside the engine. Driving on it can spread the damage, but catching it early often keeps the repair smaller.",
+    "causes": [
+     {
+      "name": "Blown head gasket",
+      "clues": "Bubbles in the coolant tank while running, white sweet-smelling exhaust, or coolant loss with no leak.",
+      "against": ""
+     },
+     {
+      "name": "Warped or cracked cylinder head",
+      "clues": "The engine was badly overheated recently.",
+      "against": ""
+     },
+     {
+      "name": "Leaking oil cooler or intake gasket",
+      "clues": "Milky oil without white exhaust smoke, on engines that have these parts.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off and cool, check the dipstick and under the oil filler cap for a milky, light-brown sludge."
+     ],
+     "shop": [
+      "Combustion gas (block) test on the coolant",
+      "Cooling system pressure test",
+      "Cylinder leak-down test",
+      "Oil analysis for coolant"
+     ]
+    }
+   }
+  },
+  "r_hidden_loss": {
+   "result": {
+    "title": "Coolant is escaping somewhere you can't see",
+    "urgency": "soon",
+    "now": "Top up the tank when the engine is cold and have a shop pressure-test the cooling system within the next few days.",
+    "if": [
+     "If the gauge climbs above normal, pull over and turn the engine off.",
+     "If you notice white sweet-smelling exhaust smoke or milky oil, stop driving it. That points to an internal leak.",
+     "If the windows fog up or the passenger floor is damp, the heater core is a likely source."
+    ],
+    "why": "Some leaks only happen when the system is hot and under pressure, and the coolant evaporates before it can drip. Others leak inside the car or inside the engine. A pressure test usually shows exactly where it's going.",
+    "causes": [
+     {
+      "name": "Small leak that evaporates when hot",
+      "clues": "A sweet smell after driving, or crusty colored deposits on hoses or the water pump.",
+      "against": ""
+     },
+     {
+      "name": "Leaking heater core",
+      "clues": "A sweet smell inside, foggy windows, or a damp passenger floor.",
+      "against": ""
+     },
+     {
+      "name": "Internal leak (head gasket)",
+      "clues": "White exhaust smoke, milky oil, or bubbles in the coolant tank.",
+      "against": "If the oil and exhaust look normal, this is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Mark the coolant level and check how fast it drops.",
+      "Feel the passenger-side carpet for dampness.",
+      "Check the oil for a milky look."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "UV dye leak check",
+      "Combustion gas (block) test"
+     ]
+    }
+   }
+  },
+  "r_fan": {
+   "result": {
+    "title": "The radiator fan probably isn't doing its job",
+    "urgency": "soon",
+    "now": "Avoid long idling and stop-and-go traffic, and get the cooling fan checked within the next few days.",
+    "if": [
+     "If the gauge rises in traffic, turn the A/C off and the heater on full hot, and pull over and switch off if it nears the red.",
+     "If the fan never spins at all with the engine hot, get it checked before driving in any traffic."
+    ],
+    "why": "At speed, air rushes through the radiator by itself. When you're stopped, the fan has to pull that air through. Running hot only in traffic and cooling off once moving is the classic sign that the fan isn't working properly.",
+    "causes": [
+     {
+      "name": "Failed electric fan motor",
+      "clues": "The fan doesn't spin even with the engine hot or the A/C on.",
+      "against": ""
+     },
+     {
+      "name": "Fan relay, fuse or wiring fault",
+      "clues": "The fan works sometimes, or a check engine light is on.",
+      "against": ""
+     },
+     {
+      "name": "Worn fan clutch (belt-driven fans)",
+      "clues": "Common on trucks and older rear-wheel-drive cars. The fan spins freely by hand with the engine off and cold.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine warm and idling and the A/C on, see whether the radiator fan is spinning. Keep hands and clothing clear, because electric fans can start on their own."
+     ],
+     "shop": [
+      "Cooling fan motor and relay test",
+      "Code scan for fan circuit codes",
+      "Fan clutch inspection"
+     ]
+    }
+   }
+  },
+  "r_flow": {
+   "result": {
+    "title": "The radiator or coolant flow can't keep up under load",
+    "urgency": "soon",
+    "now": "Avoid towing, long climbs and high speeds, and get the cooling system checked within the next few days.",
+    "if": [
+     "If the gauge reaches the red, pull over and turn the engine off.",
+     "If the front of the radiator is packed with leaves, bugs or dirt, gently rinsing it with a garden hose at low pressure (not a pressure washer) may help."
+    ],
+    "why": "Under heavy load the engine makes the most heat, so a cooling system that's only partly working shows up first on hills, on the highway, or when towing. The usual culprits restrict how much coolant flows or how much heat the radiator can release.",
+    "causes": [
+     {
+      "name": "Partly clogged radiator",
+      "clues": "An older radiator, coolant that hasn't been changed in years, or debris blocking the front.",
+      "against": ""
+     },
+     {
+      "name": "Thermostat not opening fully",
+      "clues": "The gauge rises slowly under load but drops when you ease off.",
+      "against": ""
+     },
+     {
+      "name": "Weak water pump",
+      "clues": "A whine or grinding noise near the belt, or a coolant trail from the pump.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the front of the radiator through the grille for debris.",
+      "Note when the gauge rises: hills, speed or towing."
+     ],
+     "shop": [
+      "Radiator flow and temperature check",
+      "Thermostat test",
+      "Water pump inspection"
+     ]
+    }
+   }
+  },
+  "r_no_circulation": {
+   "result": {
+    "title": "Coolant likely isn't circulating: thermostat, water pump or trapped air",
+    "urgency": "stop",
+    "now": "Don't drive it until it's checked. Have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If coolant was recently changed or added, trapped air may be the cause. A shop can bleed the air out.",
+     "If you hear grinding or see coolant dripping near the engine belt, the water pump has likely failed."
+    ],
+    "why": "If the engine heats up within minutes, or the heater blows cold while the gauge is high, hot coolant isn't moving through the engine and heater the way it should. That will overheat the engine again on almost any drive.",
+    "causes": [
+     {
+      "name": "Thermostat stuck closed",
+      "clues": "The gauge rises quickly and the upper radiator hose stays cool while the engine is hot.",
+      "against": ""
+     },
+     {
+      "name": "Failed water pump",
+      "clues": "A grinding or whining noise, or coolant leaking from near the belt.",
+      "against": ""
+     },
+     {
+      "name": "Air trapped in the cooling system",
+      "clues": "It started after coolant work, or you hear gurgling behind the dash.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the problem started right after any coolant service or repair."
+     ],
+     "shop": [
+      "Thermostat test",
+      "Water pump inspection",
+      "Cooling system bleed",
+      "Hose temperature comparison with an infrared thermometer"
+     ]
+    }
+   }
+  },
+  "r_sensor": {
+   "result": {
+    "title": "It may be a faulty temperature sensor or gauge, not real overheating",
+    "urgency": "soon",
+    "now": "Get the temperature sensor and gauge checked within the next few days. Until then, watch for real overheating signs.",
+    "if": [
+     "If a temperature warning light comes on, you see steam, or the heater suddenly blows cold, treat it as real overheating. Pull over and turn the engine off.",
+     "If the check engine light is on, a code scan can quickly point to the sensor."
+    ],
+    "why": "A real overheating engine usually shows other signs, like steam, a sweet smell or a heater that turns cold. A needle that jumps around while everything else seems normal often means the sensor or its wiring is sending a bad signal. A shop can compare it with the real temperature.",
+    "causes": [
+     {
+      "name": "Faulty coolant temperature sensor",
+      "clues": "The needle jumps suddenly, or a check engine light is on.",
+      "against": ""
+     },
+     {
+      "name": "Loose or corroded sensor wiring",
+      "clues": "It changes over bumps or in wet weather.",
+      "against": ""
+     },
+     {
+      "name": "Low coolant around the sensor",
+      "clues": "The overflow tank is low, which can leave the sensor in an air pocket.",
+      "against": "If the coolant is full, this is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the coolant level with the engine cold.",
+      "Note whether the heater stays hot when the needle reads high."
+     ],
+     "shop": [
+      "Code scan and live temperature data",
+      "Infrared temperature check of the engine",
+      "Sensor and wiring test"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Treat it as possible overheating until it's checked",
+    "urgency": "soon",
+    "now": "Once the engine is cold, check the coolant level, then have the cooling system checked within the next few days.",
+    "if": [
+     "If the gauge reaches the red, a temperature light comes on, or you see steam, pull over and turn the engine off.",
+     "If the coolant tank is low, top it up with the right coolant and look for a leak."
+    ],
+    "why": "Without clear signs it's hard to say whether the engine is truly overheating. Checking the coolant and getting a quick cooling system test is the safest way to avoid serious engine damage.",
+    "causes": [
+     {
+      "name": "Low coolant",
+      "clues": "The most common cause of running hot.",
+      "against": ""
+     },
+     {
+      "name": "Cooling fan problem",
+      "clues": "It runs hotter in traffic.",
+      "against": ""
+     },
+     {
+      "name": "Thermostat or sensor fault",
+      "clues": "The gauge moves oddly or rises quickly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the coolant level when cold.",
+      "Take a photo of the gauge when it reads high, so the shop knows what you saw."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Code scan and live temperature data",
+      "Cooling fan test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "overheats-only-in-traffic",
+  "temperature-gauge-fluctuating",
+  "losing-coolant-no-visible-leak",
+  "steam-from-under-hood",
+  "sweet-smell-from-car"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Warning Lights",
+   "Leaks"
+  ],
+  "words": [
+   "overheat",
+   "coolant",
+   "radiator",
+   "thermostat",
+   "water pump",
+   "cooling fan",
+   "head gasket",
+   "temperature"
+  ]
+ },
+ "sources": [
+  "https://www.aaa.com/autorepair/articles/car-overheating-8-causes-and-solutions",
+  "https://cluballiance.aaa.com/the-extra-mile/advice/car/signs-your-engine-is-overheating"
+ ]
+}

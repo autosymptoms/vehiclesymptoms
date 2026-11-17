@@ -1,0 +1,445 @@
+{
+ "id": "car-dies-when-coming-to-stop",
+ "title": "Engine dies when stopping",
+ "h1": "Why does my car die when I come to a stop?",
+ "metaDesc": "Engine stalls when you slow down or stop? Answer a few quick questions to narrow down idle, vacuum, brake booster or transmission causes, and how urgent it is.",
+ "group": "start",
+ "cat": "Starting Problems",
+ "synonyms": [
+  "car dies when stopping",
+  "car stalls at stop",
+  "engine dies at red light",
+  "car stalls when braking",
+  "car dies when slowing down",
+  "stalls at idle",
+  "engine dies when I stop",
+  "car shuts off at stop sign",
+  "car stalls when coming to a stop",
+  "idle drops and stalls",
+  "car dies when i brake",
+  "rpm drops and car dies",
+  "car stalls at stop light"
+ ],
+ "intro": "An engine that dies as you slow down usually can't hold a steady idle once your foot is off the gas. Most causes are idle, air or sensor problems, but an automatic transmission or brake booster fault can do it too. Answer the questions below to see which fits and how soon to act.",
+ "safety": [
+  "If the engine dies, the brakes still work but need a much harder push, and steering gets heavy. Keep firm pressure on the pedal.",
+  "If the brake pedal feels hard or the car is harder to stop than usual, don't drive it.",
+  "If you smell raw fuel or the check engine light is flashing with shaking, stop driving and have it towed."
+ ],
+ "start": "q_how",
+ "nodes": {
+  "q_how": {
+   "q": "What happens as the engine dies?",
+   "help": "If your car has a tachometer (RPM gauge), watch it as you slow down. A normal warm idle usually sits somewhere under 1,000 RPM and stays steady.",
+   "opts": [
+    {
+     "a": "It jolts or shudders to a stop, like stalling a stick-shift car without the clutch",
+     "go": "r_torque_converter"
+    },
+    {
+     "a": "The RPMs dip low or the idle gets rough, then it fades out",
+     "go": "q_when"
+    },
+    {
+     "a": "It cuts out instantly with no dip, like it was switched off",
+     "go": "r_sudden_cutout"
+    },
+    {
+     "a": "It's a manual and it dies as I stop",
+     "go": "q_manual"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When is it most likely to die?",
+   "opts": [
+    {
+     "a": "When I press the brake, and the pedal feels hard or I hear a hiss",
+     "go": "r_brake_booster"
+    },
+    {
+     "a": "When the engine is cold, then it's better once warm",
+     "go": "r_cold_idle"
+    },
+    {
+     "a": "When the A/C, headlights or rear defroster are on, or as I turn the wheel",
+     "go": "r_idle_load"
+    },
+    {
+     "a": "Mostly once the engine is fully warm",
+     "go": "r_warm_idle"
+    },
+    {
+     "a": "No clear pattern / I'm not sure",
+     "go": "r_idle_general"
+    }
+   ]
+  },
+  "q_manual": {
+   "q": "Are you pressing the clutch in before the engine speed drops too low?",
+   "opts": [
+    {
+     "a": "Yes, the clutch is in and it still dies",
+     "go": "q_when"
+    },
+    {
+     "a": "Not always. It happens when I brake without the clutch",
+     "go": "r_manual_technique"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_manual_technique"
+    }
+   ]
+  },
+  "r_torque_converter": {
+   "result": {
+    "title": "The transmission may not be disengaging from the engine as you stop",
+    "urgency": "stop",
+    "now": "Don't drive it until it's checked. It will likely stall at every stop. Have it towed or call a mobile mechanic to scan the transmission.",
+    "if": [
+     "If a check engine or transmission light is on, the stored codes will point the shop in the right direction.",
+     "If it only happened once and you can't repeat it, still have it scanned before relying on the car in traffic."
+    ],
+    "why": "An automatic has a lock-up clutch inside the torque converter that links the engine directly to the transmission at cruising speed. It's supposed to release as you slow down. If it stays locked, the car drags the engine down like stalling a manual car.",
+    "causes": [
+     {
+      "name": "Torque converter clutch solenoid stuck",
+      "clues": "A jolt right as you stop, often with a transmission code.",
+      "against": "If the RPMs fade slowly instead of a jolt, an idle problem is more likely."
+     },
+     {
+      "name": "Low or worn transmission fluid",
+      "clues": "Harsh shifts, slipping, or a reddish leak.",
+      "against": ""
+     },
+     {
+      "name": "Faulty torque converter",
+      "clues": "Shudder at steady speeds as well.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note any transmission or check engine light.",
+      "Look for red or brown fluid under the car."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Torque converter clutch solenoid test",
+      "Transmission fluid level and condition check"
+     ]
+    }
+   }
+  },
+  "r_sudden_cutout": {
+   "result": {
+    "title": "A sensor or electrical fault is likely cutting the engine",
+    "urgency": "stop",
+    "now": "Don't drive it until it's diagnosed. Have it towed or have a mobile mechanic scan for codes.",
+    "if": [
+     "If it also shuts off while driving at speed, see our guide on stalling while driving. It's the same family of problems.",
+     "If the dash lights flicker or go out as it dies, mention it. That points to wiring or the ignition switch."
+    ],
+    "why": "A smooth idle that suddenly stops, with no dip or roughness, usually means the engine lost spark or fuel all at once. That's typical of a failing sensor or a loose electrical connection, not an idle problem.",
+    "causes": [
+     {
+      "name": "Failing crankshaft position sensor",
+      "clues": "It happens when warm and restarts after cooling.",
+      "against": ""
+     },
+     {
+      "name": "Loose wiring, ground or relay",
+      "clues": "It happens over bumps or comes and goes.",
+      "against": ""
+     },
+     {
+      "name": "Worn ignition switch",
+      "clues": "The dash lights blink off as it dies.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the dash lights go out as it dies.",
+      "Check your VIN for open recalls."
+     ],
+     "shop": [
+      "Code scan",
+      "Crank sensor signal test",
+      "Wiring and ignition switch check"
+     ]
+    }
+   }
+  },
+  "r_brake_booster": {
+   "result": {
+    "title": "A leak in the brake booster may be stalling the engine",
+    "urgency": "stop",
+    "now": "Don't drive it. Brake assist may be reduced. Have it towed or have a mobile mechanic inspect the booster and vacuum hose.",
+    "if": [
+     "If the pedal also sinks toward the floor, there may be a brake fluid problem too. Don't drive it under any circumstances."
+    ],
+    "why": "The brake booster uses engine vacuum to make braking easier. If the booster or its hose leaks, pressing the brake lets a big rush of air into the engine. The idle drops or stalls, and the pedal gets harder to push.",
+    "causes": [
+     {
+      "name": "Leaking brake booster",
+      "clues": "A hiss when you press the brake, and the idle dips each time.",
+      "against": ""
+     },
+     {
+      "name": "Cracked or loose booster vacuum hose",
+      "clues": "A hiss from the engine bay near the brake pedal side.",
+      "against": ""
+     },
+     {
+      "name": "Faulty booster check valve",
+      "clues": "The pedal is hard on the first press after starting.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine idling and the car in Park, press the brake and listen for a hiss."
+     ],
+     "shop": [
+      "Brake booster vacuum test",
+      "Vacuum hose and check valve inspection",
+      "Brake system inspection"
+     ]
+    }
+   }
+  },
+  "r_cold_idle": {
+   "result": {
+    "title": "The idle control or a temperature sensor may be off when the engine is cold",
+    "urgency": "soon",
+    "now": "Get it checked within the next few days. Until then, let the engine warm up for a minute before you drive, and leave extra room at stops.",
+    "if": [
+     "If it starts dying when warm too, or it stalls in traffic more than once, stop driving it and have it towed.",
+     "If the check engine light comes on, a code scan will help the shop."
+    ],
+    "why": "A cold engine needs extra fuel and a slightly higher idle. If a temperature sensor reads wrong or the idle system is dirty, the engine can stumble and die at stops until it warms up.",
+    "causes": [
+     {
+      "name": "Dirty throttle body or idle control valve",
+      "clues": "A low or uneven idle.",
+      "against": ""
+     },
+     {
+      "name": "Faulty coolant temperature sensor",
+      "clues": "The temperature gauge acts oddly, or fuel economy has dropped.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak",
+      "clues": "A hissing sound or a rough idle that smooths out when warm.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the outside temperature and how long the car had run.",
+      "Listen for hissing under the hood."
+     ],
+     "shop": [
+      "Code scan and live sensor data",
+      "Throttle body inspection and cleaning",
+      "Smoke test for vacuum leaks"
+     ]
+    }
+   }
+  },
+  "r_idle_load": {
+   "result": {
+    "title": "The idle may be too low to handle extra load",
+    "urgency": "soon",
+    "now": "Get it checked within the next few days. Until then, turn off the A/C and extra electrical loads in stop-and-go driving.",
+    "if": [
+     "If it stalls in traffic more than once, stop driving it and have it towed.",
+     "If the headlights dim noticeably at idle or the battery light comes on, have the alternator tested too."
+    ],
+    "why": "The A/C compressor, power steering and a weak charging system all add load to the engine at idle. If the idle control can't raise engine speed to match, the engine sags and dies.",
+    "causes": [
+     {
+      "name": "Dirty throttle body or idle control fault",
+      "clues": "The idle drops sharply when the A/C kicks on.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak",
+      "clues": "Hissing, or a rough idle.",
+      "against": ""
+     },
+     {
+      "name": "Weak alternator or battery",
+      "clues": "Dimming lights at idle, or the battery light.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Watch the RPM gauge as you switch the A/C on at idle."
+     ],
+     "shop": [
+      "Code scan",
+      "Idle control test",
+      "Charging system test"
+     ]
+    }
+   }
+  },
+  "r_warm_idle": {
+   "result": {
+    "title": "Likely a vacuum leak, a sticking valve or a dirty airflow sensor",
+    "urgency": "soon",
+    "now": "Get it checked within the next few days, and have the codes read even if the check engine light is off.",
+    "if": [
+     "If it stalls in traffic more than once, stop driving it and have it towed.",
+     "If the temperature gauge is reading high, see our overheating guide and don't drive it."
+    ],
+    "why": "Once warm, the engine runs on a lean, tightly controlled idle. Extra air from a leak, exhaust gas from a stuck-open EGR valve, or a dirty sensor that misreads the airflow can tip it over into stalling.",
+    "causes": [
+     {
+      "name": "Vacuum leak",
+      "clues": "Hissing, a rough idle, or a check engine light for a lean condition.",
+      "against": ""
+     },
+     {
+      "name": "EGR valve stuck open",
+      "clues": "Rough idle when warm that's fine at speed.",
+      "against": ""
+     },
+     {
+      "name": "Dirty mass airflow sensor or throttle body",
+      "clues": "Hesitation when pulling away, or poor fuel economy.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Listen for hissing under the hood with the engine idling.",
+      "Note any check engine light."
+     ],
+     "shop": [
+      "Code scan and live data",
+      "Smoke test for vacuum leaks",
+      "EGR valve test",
+      "Airflow sensor and throttle body inspection"
+     ]
+    }
+   }
+  },
+  "r_idle_general": {
+   "result": {
+    "title": "The engine likely can't hold a steady idle",
+    "urgency": "soon",
+    "now": "Get it checked within the next few days. Have the codes read and the idle system inspected.",
+    "if": [
+     "If it stalls in traffic more than once, stop driving it and have it towed.",
+     "If the brake pedal feels hard when it stalls, don't drive it."
+    ],
+    "why": "At idle, the engine has very little power in reserve. Anything that upsets the air, fuel or spark balance, like a dirty throttle body, a vacuum leak or a weak fuel supply, can make it fade out as you stop.",
+    "causes": [
+     {
+      "name": "Dirty throttle body or idle control fault",
+      "clues": "A low, uneven idle.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak",
+      "clues": "Hissing, or a check engine light for a lean condition.",
+      "against": ""
+     },
+     {
+      "name": "Weak fuel pump or clogged filter",
+      "clues": "Hesitation when accelerating as well.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Watch the RPM gauge as you slow down.",
+      "Note whether A/C, temperature or braking makes it worse."
+     ],
+     "shop": [
+      "Code scan",
+      "Throttle body inspection",
+      "Smoke test for vacuum leaks",
+      "Fuel pressure test"
+     ]
+    }
+   }
+  },
+  "r_manual_technique": {
+   "result": {
+    "title": "On a manual, the engine dies if the clutch isn't in before you stop",
+    "urgency": "diy",
+    "now": "Press the clutch in as the engine speed drops close to idle, before the car comes to a stop, and see if the stalling stops.",
+    "if": [
+     "If it still dies with the clutch fully in, the idle system is the more likely problem. Get it checked soon.",
+     "If the clutch pedal feels different, like higher, softer or sticking, have the clutch system checked."
+    ],
+    "why": "With a manual, the engine is connected to the wheels until you press the clutch. If you slow down in gear without pressing it, the wheels drag the engine below idle and it stalls. That's normal behavior, not a fault.",
+    "causes": [
+     {
+      "name": "Clutch pressed too late",
+      "clues": "It only happens when braking in gear.",
+      "against": "If it dies with the clutch fully in, this isn't the cause."
+     },
+     {
+      "name": "Low or unstable idle",
+      "clues": "The RPMs wander or dip at stops.",
+      "against": ""
+     },
+     {
+      "name": "Clutch not fully releasing",
+      "clues": "Grinding when shifting, or the car creeps with the clutch in.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try pressing the clutch earlier as you slow down.",
+      "Watch whether the idle is steady with the clutch in."
+     ],
+     "shop": [
+      "Idle system check",
+      "Clutch hydraulic and release check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "engine-stalls-while-driving",
+  "rough-idle-shaking",
+  "starts-then-dies",
+  "hard-brake-pedal",
+  "check-engine-light-on"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Starting Problems",
+   "Driving"
+  ],
+  "words": [
+   "stall",
+   "idle",
+   "throttle body",
+   "vacuum leak",
+   "torque converter",
+   "brake booster",
+   "egr",
+   "idle air control"
+  ]
+ },
+ "sources": [
+  "https://www.jegs.com/tech-articles/why-your-car-stalls-when-coming-to-a-stop/",
+  "https://jdpower.com/cars/shopping-guides/what-does-it-mean-when-your-car-stalls"
+ ]
+}

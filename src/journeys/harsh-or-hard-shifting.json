@@ -1,0 +1,642 @@
+{
+ "id": "harsh-or-hard-shifting",
+ "title": "Harsh or late shifting",
+ "h1": "Why is my automatic transmission shifting hard?",
+ "metaDesc": "Automatic shifting hard, late or with a clunk? Answer a few questions to see if it's fluid, a solenoid, mounts or a relearn issue, and how urgent it is.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "hard shifting",
+  "harsh shifting automatic",
+  "transmission shifts hard",
+  "transmission slams into gear",
+  "car jerks when shifting gears",
+  "late shifting",
+  "transmission shifting late",
+  "delayed upshift",
+  "clunk when shifting into drive",
+  "hard downshift when slowing down",
+  "rough shifting transmission",
+  "transmission bangs into gear",
+  "car stuck in second gear",
+  "shifts hard when cold",
+  "transmision shifting hard"
+ ],
+ "intro": "A healthy automatic shifts so smoothly you barely notice. Shifts that slam, jerk or wait too long usually come from fluid, a control part like a solenoid, or worn mounts that let the engine rock. Answer a few questions to see the most likely cause and how soon to act.",
+ "safety": [
+  "If you smell burning or see smoke, pull over, turn the engine off and step away from the car.",
+  "If the car suddenly won't move or loses drive, get to the side of the road and have it towed.",
+  "If a transmission temperature warning comes on, pull over when it's safe and let it cool."
+ ],
+ "start": "q_signs",
+ "nodes": {
+  "q_signs": {
+   "q": "Along with the hard shifts, do you notice any of these?",
+   "opts": [
+    {
+     "a": "It seems stuck in one gear, won't shift up, or feels very sluggish",
+     "go": "r_limp_mode"
+    },
+    {
+     "a": "A burning smell, or red or pink fluid under the car",
+     "go": "r_burning_leak"
+    },
+    {
+     "a": "A transmission temperature or transmission warning light",
+     "go": "r_overheat"
+    },
+    {
+     "a": "A loud clunk or bang, and the car jolts",
+     "go": "q_clunk"
+    },
+    {
+     "a": "None of these",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_clunk": {
+   "q": "When does the clunk happen?",
+   "opts": [
+    {
+     "a": "When I shift from Park into Drive or Reverse",
+     "go": "r_mounts_driveline"
+    },
+    {
+     "a": "When I press the gas or let off it suddenly",
+     "go": "r_mounts_driveline"
+    },
+    {
+     "a": "When the transmission changes gears while I'm driving",
+     "go": "r_solenoid"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When are the shifts harsh or late?",
+   "help": "A \"late\" shift means the engine revs higher than usual before the transmission moves to the next gear.",
+   "opts": [
+    {
+     "a": "Only when the engine is cold, and it smooths out once warm",
+     "go": "r_cold"
+    },
+    {
+     "a": "Shifts are late: it revs high before shifting up",
+     "go": "r_late_shifts"
+    },
+    {
+     "a": "One particular shift, every time (for example 1st to 2nd)",
+     "go": "r_solenoid"
+    },
+    {
+     "a": "Hard downshifts when slowing down or coming to a stop",
+     "go": "r_coast_downshift"
+    },
+    {
+     "a": "It started after the battery was disconnected or replaced, or after a fluid change",
+     "go": "r_relearn"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_fluid"
+    }
+   ]
+  },
+  "q_fluid": {
+   "q": "Have you been able to check the transmission fluid?",
+   "help": "Many cars have a transmission dipstick, often with a yellow or red handle; others have none and must be checked by a shop. Your owner's manual explains how. Healthy fluid is usually red or pink and doesn't smell burnt.",
+   "opts": [
+    {
+     "a": "Yes, it's low",
+     "go": "r_low_fluid"
+    },
+    {
+     "a": "The level is OK, but it's dark brown or smells burnt",
+     "go": "r_old_fluid"
+    },
+    {
+     "a": "The level and color look normal",
+     "go": "r_general"
+    },
+    {
+     "a": "My car has no dipstick / I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_limp_mode": {
+   "result": {
+    "title": "The transmission has likely gone into a protective \"limp\" mode",
+    "urgency": "soon",
+    "now": "Avoid highways and keep speeds low. Get the codes read and the transmission checked within a day or two.",
+    "if": [
+     "If you also smell burning, see a temperature warning or the car loses drive, stop driving it and have it towed.",
+     "If turning the car off and restarting clears it for a while, don't count on that. The fault that caused it is still there."
+    ],
+    "why": "When the transmission computer detects a problem, it often locks the transmission in one gear and shifts harshly to prevent further damage. That keeps the car movable at low speed, but it isn't meant for normal driving.",
+    "causes": [
+     {
+      "name": "Shift solenoid or pressure control fault",
+      "clues": "A check engine or transmission light, and harsh shifts before it got stuck.",
+      "against": ""
+     },
+     {
+      "name": "Faulty speed sensor or wiring",
+      "clues": "The speedometer jumps or drops out.",
+      "against": ""
+     },
+     {
+      "name": "Low fluid or internal slipping",
+      "clues": "Red or pink drips, or the revs flaring before it went into limp mode.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note any warning lights or messages on the dash.",
+      "Look for red or pink fluid where you park."
+     ],
+     "shop": [
+      "Full transmission code scan",
+      "Solenoid and sensor tests",
+      "Fluid level and condition check"
+     ]
+    }
+   }
+  },
+  "r_burning_leak": {
+   "result": {
+    "title": "The transmission may be leaking fluid or overheating",
+    "urgency": "stop",
+    "now": "Pull over when it's safe, turn the engine off and have the car towed.",
+    "if": [
+     "If you see smoke, step away from the car. Fluid dripping on the exhaust can catch fire.",
+     "If it's only a few drops and there's no burning smell, check the level once the car is parked and cool, but still have it inspected before using the car."
+    ],
+    "why": "Transmission fluid gives the transmission the pressure it needs to shift smoothly and keeps it cool. A leak lowers that pressure, which causes harsh shifts and slipping, and a burning smell means fluid or parts are overheating.",
+    "causes": [
+     {
+      "name": "Leaking pan gasket, cooler line or seal",
+      "clues": "Red or pink fluid under the middle or front of the car.",
+      "against": ""
+     },
+     {
+      "name": "Overheating from internal slipping",
+      "clues": "A sharp burnt smell after driving, with no visible leak.",
+      "against": ""
+     },
+     {
+      "name": "Fluid dripping onto the hot exhaust",
+      "clues": "Smoke from under the car along with the leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the color of any fluid under the car."
+     ],
+     "shop": [
+      "Leak inspection",
+      "Fluid level and condition check",
+      "Transmission code scan"
+     ]
+    }
+   }
+  },
+  "r_overheat": {
+   "result": {
+    "title": "The transmission is overheating or has flagged a fault",
+    "urgency": "stop",
+    "now": "Pull over when it's safe, put it in Park and let it cool. Then have it towed or call a mobile mechanic.",
+    "if": [
+     "If the light goes off after cooling, it still needs checking before you rely on the car.",
+     "If you smell burning or see smoke, turn the engine off and step away from the car."
+    ],
+    "why": "Overheated transmission fluid breaks down and stops protecting the parts inside, which leads to harsh shifts, slipping and lasting damage. A warning light plus harsh shifting means the problem is already active.",
+    "causes": [
+     {
+      "name": "Low fluid",
+      "clues": "A leak, or a level below the mark on the dipstick.",
+      "against": ""
+     },
+     {
+      "name": "Heavy load: towing, hills or hot weather",
+      "clues": "It happened while towing or climbing a long grade.",
+      "against": ""
+     },
+     {
+      "name": "Blocked or damaged transmission cooler",
+      "clues": "It keeps happening in traffic or warm weather.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once it's cool, look for leaks under the car."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Fluid level and condition check",
+      "Transmission cooler inspection"
+     ]
+    }
+   }
+  },
+  "r_mounts_driveline": {
+   "result": {
+    "title": "A clunk when shifting into gear often means worn engine or transmission mounts",
+    "urgency": "check",
+    "now": "Book an inspection when convenient. Ask the shop to check the engine and transmission mounts and the driveline.",
+    "if": [
+     "If the engine visibly lifts or rocks a lot when someone shifts into gear with the hood open (foot firmly on the brake), a broken mount is likely. Get it checked within a few days.",
+     "If the clunk gets louder or you feel new vibration while driving, have it checked sooner."
+    ],
+    "why": "Mounts are rubber blocks that hold the engine and transmission in place. When they wear out, the engine twists more as gear engages or power changes, and you feel it as a clunk or jolt even though the transmission itself is fine.",
+    "causes": [
+     {
+      "name": "Worn or broken engine or transmission mount",
+      "clues": "A clunk shifting into Drive or Reverse, and more vibration at idle.",
+      "against": ""
+     },
+     {
+      "name": "Engine idling too high",
+      "clues": "The idle is higher than usual, so the car lurches when it goes into gear.",
+      "against": ""
+     },
+     {
+      "name": "Worn driveshaft joints or axle parts",
+      "clues": "A clunk when you press or let off the gas, especially on rear-wheel or all-wheel-drive vehicles.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the hood open and someone holding the brake firmly, watch the engine as they shift into Drive and Reverse. Stand to the side, never in front of the car."
+     ],
+     "shop": [
+      "Engine and transmission mount inspection",
+      "Driveshaft and axle joint inspection",
+      "Idle speed check"
+     ]
+    }
+   }
+  },
+  "r_solenoid": {
+   "result": {
+    "title": "Hard shifts on a particular gear change point to a solenoid or valve body problem",
+    "urgency": "check",
+    "now": "Have the codes read and book a transmission check within the next week or two. Note which shift is harsh.",
+    "if": [
+     "If the shifts get noticeably worse, or the transmission starts slipping, get it checked within a few days.",
+     "If the car gets stuck in one gear, keep speeds low and have it checked right away."
+    ],
+    "why": "An automatic uses electric solenoids and a maze of passages called the valve body to control how firmly each gear engages. If a solenoid sticks or wears, that shift comes in too hard or at the wrong time. Codes often point right to it.",
+    "causes": [
+     {
+      "name": "Sticking or worn shift or pressure control solenoid",
+      "clues": "A check engine light, or harsh shifts that come and go.",
+      "against": ""
+     },
+     {
+      "name": "Valve body wear",
+      "clues": "Harsh shifts that are worse when the transmission is warm.",
+      "against": ""
+     },
+     {
+      "name": "Worn clutch pack for that gear",
+      "clues": "A flare in revs right before the hard shift.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Write down which shift is harsh and at what speed.",
+      "Have the codes read if a warning light is on."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Solenoid tests",
+      "Road test with live transmission data",
+      "Line pressure test"
+     ]
+    }
+   }
+  },
+  "r_cold": {
+   "result": {
+    "title": "Firm shifts only when cold can be normal warm-up behavior, or a sign of early wear",
+    "urgency": "check",
+    "now": "Let the car warm up for a minute or two and drive gently at first. Bring it up at your next service, or book a check if it gets worse.",
+    "if": [
+     "If the shifts stay harsh after the car is warm, get it checked sooner.",
+     "If the fluid hasn't been changed in a long time, ask whether a fluid service is due for your car."
+    ],
+    "why": "Cold fluid is thicker, so shifts can feel firmer for the first few minutes, and many transmissions also change shift timing while warming up. If it's getting more noticeable, aging fluid or worn internal seals are the usual reasons.",
+    "causes": [
+     {
+      "name": "Thick cold fluid and normal warm-up shift strategy",
+      "clues": "Mildly firm shifts that disappear within a few minutes.",
+      "against": "If it's getting worse over time, there's likely more to it."
+     },
+     {
+      "name": "Old or degraded fluid",
+      "clues": "No record of a fluid service, or dark fluid.",
+      "against": ""
+     },
+     {
+      "name": "Hardened internal seals",
+      "clues": "An older or high-mileage car, and the problem has grown over months.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the outside temperature and how long it lasts."
+     ],
+     "shop": [
+      "Fluid level and condition check",
+      "Transmission code scan",
+      "Road test cold and warm"
+     ]
+    }
+   }
+  },
+  "r_late_shifts": {
+   "result": {
+    "title": "Late upshifts usually come from a sensor, a solenoid or low fluid",
+    "urgency": "check",
+    "now": "Have the codes read and book a transmission check when convenient.",
+    "if": [
+     "If the revs flare up without the car speeding up, that's slipping. Get it checked within a few days.",
+     "If it only shifts late in a sport or tow mode, check that mode isn't switched on. That's normal behavior for those modes."
+    ],
+    "why": "The transmission decides when to shift using vehicle speed and how far you're pressing the gas. If a sensor sends the wrong reading, a solenoid is slow, or fluid is low, shifts come late and often land harder.",
+    "causes": [
+     {
+      "name": "Faulty throttle position or vehicle speed sensor",
+      "clues": "The speedometer acts strangely, or a check engine light is on.",
+      "against": ""
+     },
+     {
+      "name": "Sticking shift solenoid",
+      "clues": "Late shifts that come and go, sometimes with a code.",
+      "against": ""
+     },
+     {
+      "name": "Low or worn fluid",
+      "clues": "Red or pink drips, or dark fluid.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that sport, tow/haul or manual shift mode isn't switched on.",
+      "Look for red or pink drips where you park."
+     ],
+     "shop": [
+      "Code scan",
+      "Sensor data check on a road test",
+      "Solenoid tests",
+      "Fluid level and condition check"
+     ]
+    }
+   }
+  },
+  "r_coast_downshift": {
+   "result": {
+    "title": "Hard downshifts when slowing usually point to worn mounts or a control problem",
+    "urgency": "check",
+    "now": "Book a check when convenient and describe the speed where you feel the bump.",
+    "if": [
+     "If the car feels like it's braking itself or nearly stalls when coming to a stop, get it checked within a few days.",
+     "If the check engine light is on, have the code read first."
+    ],
+    "why": "As you slow down, the transmission steps down through the gears. A worn mount makes each of those shifts feel like a bump, while a sticking solenoid or a sensor problem can make the transmission downshift too firmly or at the wrong time.",
+    "causes": [
+     {
+      "name": "Worn engine or transmission mount",
+      "clues": "A clunk when shifting into Drive or Reverse too.",
+      "against": ""
+     },
+     {
+      "name": "Shift solenoid or valve body problem",
+      "clues": "Other shifts also feel harsh or erratic.",
+      "against": ""
+     },
+     {
+      "name": "Torque converter lockup not releasing smoothly",
+      "clues": "A shudder or near-stall as you come to a stop.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the speed where the bump happens."
+     ],
+     "shop": [
+      "Mount inspection",
+      "Transmission code scan",
+      "Road test with live transmission data"
+     ]
+    }
+   }
+  },
+  "r_relearn": {
+   "result": {
+    "title": "The transmission may just need to relearn your driving, or the wrong fluid was used",
+    "urgency": "diy",
+    "now": "Drive normally for several days of mixed city and highway driving. Many transmissions relearn smooth shifts on their own.",
+    "if": [
+     "If it started after a fluid change, confirm the exact fluid used matches your owner's manual. The wrong type can cause harsh shifts.",
+     "If it's no better after about a week, or it starts slipping, book a check. Some cars need a shop scan tool to reset or relearn shift settings."
+    ],
+    "why": "Many automatics store learned settings that fine-tune each shift as parts wear. Disconnecting the battery can wipe those settings, so shifts feel firm until it relearns. After a fluid change, the wrong fluid or an incorrect level can also change how it shifts.",
+    "causes": [
+     {
+      "name": "Shift adaptations reset by a battery disconnect",
+      "clues": "Harsh shifts started right after battery work and are slowly improving.",
+      "against": ""
+     },
+     {
+      "name": "Wrong fluid type after a service",
+      "clues": "Harsh shifts started right after a fluid change.",
+      "against": ""
+     },
+     {
+      "name": "Fluid level set wrong after a service",
+      "clues": "Slipping or harsh shifts soon after a fluid change.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the service invoice for the fluid type used.",
+      "Note whether the shifts improve day by day."
+     ],
+     "shop": [
+      "Fluid type and level check",
+      "Transmission adaptation reset and relearn with a scan tool",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_low_fluid": {
+   "result": {
+    "title": "Low transmission fluid is the likely cause, and there's probably a leak",
+    "urgency": "soon",
+    "now": "Top up with the exact fluid type listed in your owner's manual, then have the leak found within the next few days.",
+    "if": [
+     "If harsh shifting or slipping continues after topping up, keep trips short and get it checked sooner.",
+     "If the level drops again quickly, stop using the car until the leak is fixed."
+    ],
+    "why": "Low fluid means low pressure inside the transmission, which can make gears engage late and then slam in. Fluid doesn't get used up in normal driving, so a low level almost always means a leak somewhere.",
+    "causes": [
+     {
+      "name": "Leaking pan gasket or seal",
+      "clues": "Red or pink drips under the middle of the car.",
+      "against": ""
+     },
+     {
+      "name": "Leaking cooler line",
+      "clues": "Drips near the front of the car, under the radiator.",
+      "against": ""
+     },
+     {
+      "name": "Level set too low at a recent service",
+      "clues": "The problem started soon after a fluid change.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Recheck the level after a few days.",
+      "Put cardboard under the car overnight to spot drips."
+     ],
+     "shop": [
+      "Leak inspection",
+      "Correct fluid level check to factory procedure",
+      "Transmission code scan"
+     ]
+    }
+   }
+  },
+  "r_old_fluid": {
+   "result": {
+    "title": "Worn or overheated fluid may be causing harsh shifts",
+    "urgency": "soon",
+    "now": "Have the transmission inspected within the next few days and ask whether a fluid service is right for its condition.",
+    "if": [
+     "If the fluid smells strongly burnt or the shop finds metal debris, expect a deeper inspection rather than just new fluid.",
+     "If slipping or a warning light appears, stop driving it and have it towed."
+    ],
+    "why": "Transmission fluid wears out with heat and miles. Old fluid loses the properties that let clutches engage smoothly, so shifts get harsh. Dark, burnt-smelling fluid also suggests the transmission has been running hot.",
+    "causes": [
+     {
+      "name": "Overdue fluid service",
+      "clues": "No record of a fluid change, especially with towing or heavy use.",
+      "against": ""
+     },
+     {
+      "name": "Overheating from towing, hills or heavy traffic",
+      "clues": "A burnt smell from the fluid.",
+      "against": ""
+     },
+     {
+      "name": "Internal wear",
+      "clues": "Debris in the fluid, or slipping as well as harsh shifts.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Find your records of the last transmission fluid service."
+     ],
+     "shop": [
+      "Fluid and pan debris inspection",
+      "Transmission code scan",
+      "Line pressure test"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "Get the codes read, then have the transmission checked",
+    "urgency": "check",
+    "now": "Have the transmission codes read and book a check within the next week or two. Note when the harsh shifts happen.",
+    "if": [
+     "If it starts slipping, you smell burning or a warning light comes on, stop driving it and have it towed.",
+     "If you can check the fluid and it's low, top it up with the correct type and look for a leak."
+    ],
+    "why": "Harsh shifting can come from fluid, electronic controls, internal wear or worn mounts. Codes and a clear description of when it happens (cold or warm, which shift, up or down) let a shop narrow it down without guessing.",
+    "causes": [
+     {
+      "name": "Solenoid or sensor problem",
+      "clues": "A warning light or shifts that come and go.",
+      "against": ""
+     },
+     {
+      "name": "Low or worn fluid",
+      "clues": "Drips under the car or no record of a fluid service.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine or transmission mounts",
+      "clues": "A clunk shifting into gear or when pressing the gas.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Keep a note of when it happens: cold or warm, which shift, up or down.",
+      "Look for red or pink drips where you park."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Fluid level and condition check",
+      "Road test with live data",
+      "Mount inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "transmission-slipping",
+  "delayed-engagement-into-gear",
+  "transmission-warning-light",
+  "transmission-fluid-leak",
+  "car-jerks-when-accelerating"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Warning Lights"
+  ],
+  "words": [
+   "transmission",
+   "shift",
+   "shifting",
+   "solenoid",
+   "valve body",
+   "mount",
+   "harsh",
+   "downshift",
+   "limp mode"
+  ]
+ },
+ "sources": [
+  "https://www.acg.aaa.com/connect/blogs/5c/auto/how-to-check-and-maintain-your-transmission-fluid",
+  "https://cars.com/articles/here-are-7-common-signs-of-transmission-failure-521043/",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

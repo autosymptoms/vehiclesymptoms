@@ -1,0 +1,435 @@
+{
+ "id": "reduced-engine-power-warning",
+ "title": "Reduced engine power / limp mode",
+ "h1": "Why does my car say reduced engine power?",
+ "metaDesc": "Reduced engine power or limp mode message? Answer a few questions to see if it's the throttle, overheating, transmission or turbo, and how urgent it is.",
+ "group": "light",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "reduced engine power",
+  "engine power reduced",
+  "engine power is reduced",
+  "limp mode",
+  "car in limp mode",
+  "limp home mode",
+  "car wont accelerate past 30",
+  "car has no power and warning message",
+  "reduced power warning light",
+  "engine power limited",
+  "car stuck in limp mode",
+  "accelerator not responding warning",
+  "reduced engine power then goes away",
+  "wont go over 20 mph"
+ ],
+ "intro": "\"Reduced engine power\" and \"limp mode\" mean the car's computer has deliberately cut power to protect the engine or transmission, or because it can't trust a sensor. The message itself doesn't say why, so the other signs matter. Answer a few questions to see how serious it is and what's most likely behind it.",
+ "safety": [
+  "If power drops while you're in traffic, turn on your hazard lights and steer to the shoulder or a side street.",
+  "If the check engine light is flashing and the engine shakes, pull over and turn the engine off.",
+  "If the temperature gauge is in the red or there's steam from under the hood, stop and turn the engine off.",
+  "If you smell burning or see smoke, stop and step away from the car."
+ ],
+ "start": "q_power",
+ "nodes": {
+  "q_power": {
+   "q": "How much power do you have right now?",
+   "opts": [
+    {
+     "a": "Almost none: it crawls, can't keep up with traffic, or stalls",
+     "go": "r_severe"
+    },
+    {
+     "a": "Noticeably less, but I can still move with slower traffic",
+     "go": "q_signs"
+    },
+    {
+     "a": "It went back to normal after I turned the car off and on",
+     "go": "r_intermittent"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_signs"
+    }
+   ]
+  },
+  "q_signs": {
+   "q": "Do you notice any of these as well?",
+   "help": "A DPF is the diesel particulate filter, a soot filter in the exhaust of most modern diesels.",
+   "opts": [
+    {
+     "a": "The engine temperature gauge is high, or there's steam",
+     "go": "r_overheat"
+    },
+    {
+     "a": "The check engine light is flashing, or the engine shakes or stumbles",
+     "go": "r_misfire"
+    },
+    {
+     "a": "It's stuck in one gear, shifts oddly, or a transmission light is on",
+     "go": "r_trans_limp"
+    },
+    {
+     "a": "It has a turbo, and I hear a loud whoosh or hiss when accelerating",
+     "go": "r_boost"
+    },
+    {
+     "a": "It's a diesel and a DPF or exhaust filter light is on",
+     "go": "r_dpf"
+    },
+    {
+     "a": "None of these. Just the message, maybe with a steady check engine light",
+     "go": "r_throttle"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_throttle"
+    }
+   ]
+  },
+  "r_severe": {
+   "result": {
+    "title": "The engine has cut power too far to drive safely",
+    "urgency": "stop",
+    "now": "Turn on your hazard lights, get out of traffic and park. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the temperature gauge is high, steam appears or the check engine light is flashing, turn the engine off right away."
+    ],
+    "why": "When a car can barely move, it's a hazard on any road with traffic. The computer has cut power hard because of a serious fault, and pushing on can damage the engine or transmission.",
+    "causes": [
+     {
+      "name": "Electronic throttle or accelerator pedal sensor failure",
+      "clues": "The gas pedal does almost nothing, and the engine idles fine.",
+      "against": ""
+     },
+     {
+      "name": "Engine overheating protection",
+      "clues": "A high temperature gauge or steam.",
+      "against": ""
+     },
+     {
+      "name": "Severe transmission fault",
+      "clues": "The engine revs but the car barely moves.",
+      "against": ""
+     },
+     {
+      "name": "Badly clogged exhaust or catalytic converter",
+      "clues": "Power faded over weeks, with a rotten-egg smell or a red-hot glow under the car.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note any other warning lights and take a photo of the dash for the shop."
+     ],
+     "shop": [
+      "Engine and transmission code scan",
+      "Throttle and pedal sensor tests",
+      "Cooling system check",
+      "Exhaust back-pressure test"
+     ]
+    }
+   }
+  },
+  "r_overheat": {
+   "result": {
+    "title": "The engine is overheating and has cut power to protect itself",
+    "urgency": "stop",
+    "now": "Pull over where it's safe and turn the engine off. Don't open the radiator cap while it's hot. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If you see steam, keep the hood closed until it stops and everything has cooled."
+    ],
+    "why": "Some engines reduce power when they get too hot to slow down the damage. Driving an overheating engine can warp or crack major parts in minutes.",
+    "causes": [
+     {
+      "name": "Low coolant from a leak",
+      "clues": "A sweet smell, steam, or puddles under the front of the car.",
+      "against": ""
+     },
+     {
+      "name": "Cooling fan or water pump failure",
+      "clues": "It overheats mostly in traffic (fan) or at any speed (pump).",
+      "against": ""
+     },
+     {
+      "name": "Stuck thermostat",
+      "clues": "The gauge climbed quickly with no leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once fully cool, check the coolant level in the see-through reservoir.",
+      "Look for coolant puddles."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Cooling fan and water pump tests",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_misfire": {
+   "result": {
+    "title": "A severe misfire is likely, and it can damage the exhaust",
+    "urgency": "stop",
+    "now": "Pull over where it's safe and turn the engine off. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If you smell something hot or see a glow under the car, move away from it. The catalytic converter may be overheating."
+    ],
+    "why": "A flashing check engine light means unburned fuel is going into the exhaust. That can overheat and ruin the catalytic converter, and the car may cut power because of it.",
+    "causes": [
+     {
+      "name": "Failed ignition coil or spark plug",
+      "clues": "The shaking is worse when you accelerate.",
+      "against": ""
+     },
+     {
+      "name": "Fuel injector fault",
+      "clues": "A fuel smell or rough idle.",
+      "against": ""
+     },
+     {
+      "name": "Engine mechanical problem",
+      "clues": "Ticking or knocking, or low oil.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level once the engine is off and cool."
+     ],
+     "shop": [
+      "Code scan and misfire counts",
+      "Ignition coil and spark plug tests",
+      "Compression test if needed"
+     ]
+    }
+   }
+  },
+  "r_trans_limp": {
+   "result": {
+    "title": "The transmission has a fault and has put the car in limp mode",
+    "urgency": "soon",
+    "now": "Get off highways and busy roads. Drive only a short, slow distance to a shop if it's close. If it isn't, have it towed.",
+    "if": [
+     "If the transmission slips, smells burnt, or the car won't move, stop and have it towed.",
+     "If a restart clears it, still get the codes read within a few days."
+    ],
+    "why": "When the transmission computer sees a problem, it often holds the transmission in one gear and limits power. The car can still move slowly, but it isn't built to be driven this way for long.",
+    "causes": [
+     {
+      "name": "Shift solenoid or speed sensor fault",
+      "clues": "It went into one gear suddenly.",
+      "against": ""
+     },
+     {
+      "name": "Low or overheated transmission fluid",
+      "clues": "Slipping, a leak, or towing before it happened.",
+      "against": ""
+     },
+     {
+      "name": "Wiring or low battery voltage",
+      "clues": "Several warning lights came on at once.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look under the car for red fluid."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Fluid level and condition check",
+      "Solenoid and sensor tests"
+     ]
+    }
+   }
+  },
+  "r_boost": {
+   "result": {
+    "title": "The turbo is probably losing boost through a leak or fault",
+    "urgency": "soon",
+    "now": "Drive gently, avoid hard acceleration and highways, and get it checked within the next few days.",
+    "if": [
+     "If you see blue or heavy smoke from the exhaust, or oil around the turbo, stop driving it. A failing turbo can damage the engine.",
+     "If you hear a new loud whine or grinding from the turbo, stop driving it."
+    ],
+    "why": "A whoosh or hiss under acceleration usually means pressurized air is escaping before it reaches the engine. The computer sees too little boost and cuts power. A split hose or loose clamp is the most common cause.",
+    "causes": [
+     {
+      "name": "Split or loose boost hose or clamp",
+      "clues": "The hiss is loudest under acceleration, and you may see an oily hose.",
+      "against": ""
+     },
+     {
+      "name": "Wastegate or boost control fault",
+      "clues": "Power comes and goes with no hiss.",
+      "against": ""
+     },
+     {
+      "name": "Failing turbocharger",
+      "clues": "Whining, blue smoke, or oil in the intake hoses.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off and cool, look for loose clamps or split hoses between the turbo and the engine."
+     ],
+     "shop": [
+      "Code scan and live boost readings",
+      "Boost leak (smoke or pressure) test",
+      "Turbo inspection"
+     ]
+    }
+   }
+  },
+  "r_dpf": {
+   "result": {
+    "title": "The diesel exhaust filter is likely clogged with soot",
+    "urgency": "soon",
+    "now": "Have a shop check it within the next few days. They can run a forced cleaning cycle. Avoid more short trips until then.",
+    "if": [
+     "If only the filter light is on and power is normal, your owner's manual may say a steady highway drive will let it clean itself.",
+     "If the engine temperature rises or you smell burning, pull over and turn the engine off."
+    ],
+    "why": "Diesel soot filters clean themselves by burning off soot during longer drives. Lots of short trips stop that from happening, and once the filter is too full, the engine cuts power to protect itself.",
+    "causes": [
+     {
+      "name": "Too many short trips",
+      "clues": "Mostly town driving, few highway runs.",
+      "against": ""
+     },
+     {
+      "name": "Faulty pressure sensor or hose on the filter",
+      "clues": "The light returns soon after a cleaning.",
+      "against": ""
+     },
+     {
+      "name": "An engine fault making extra soot",
+      "clues": "Black smoke, or other engine codes.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your owner's manual for what it says about the filter light."
+     ],
+     "shop": [
+      "Code scan and soot level reading",
+      "Forced filter cleaning (regeneration)",
+      "Filter pressure sensor test"
+     ]
+    }
+   }
+  },
+  "r_throttle": {
+   "result": {
+    "title": "Most likely the electronic throttle or gas pedal sensor",
+    "urgency": "soon",
+    "now": "Find a safe place to stop, turn the car off for a minute and restart it. Then have the codes read within the next few days, and avoid highways until it's fixed.",
+    "if": [
+     "If power drops so low you can't keep up with traffic, stop driving and have it towed.",
+     "If several other warning lights come on too, have the battery and charging system tested first."
+    ],
+    "why": "On modern cars, the gas pedal is a sensor, and a motor opens the throttle. If the computer gets readings it can't trust from either one, it limits power so the car can't speed up on its own. A dirty throttle, a sensor or a wiring connection is the usual cause.",
+    "causes": [
+     {
+      "name": "Dirty or failing electronic throttle body",
+      "clues": "A rough or uneven idle, or it happens more often in cold or damp weather.",
+      "against": ""
+     },
+     {
+      "name": "Accelerator pedal sensor fault",
+      "clues": "The pedal feels normal but the engine doesn't respond in step with it.",
+      "against": ""
+     },
+     {
+      "name": "Wiring or connector problem",
+      "clues": "It comes and goes, especially over bumps.",
+      "against": ""
+     },
+     {
+      "name": "Low battery voltage",
+      "clues": "A weak battery or other warning lights coming on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the check engine light is on, and take a photo of the dash."
+     ],
+     "shop": [
+      "Code scan",
+      "Throttle body inspection and cleaning",
+      "Pedal and throttle sensor tests",
+      "Wiring and connector check"
+     ]
+    }
+   }
+  },
+  "r_intermittent": {
+   "result": {
+    "title": "A fault that clears with a restart is still a fault",
+    "urgency": "soon",
+    "now": "Get the stored codes read within the next few days, before it happens again in traffic.",
+    "if": [
+     "If it keeps coming back, avoid highways and busy merges until it's fixed.",
+     "If it happens with a flashing check engine light or high temperature, stop driving it."
+    ],
+    "why": "Restarting resets the computer, so power comes back, but the code that caused it is usually still stored. Problems like this tend to return, often at a bad moment.",
+    "causes": [
+     {
+      "name": "Electronic throttle or pedal sensor glitch",
+      "clues": "It happened suddenly, with nothing else wrong.",
+      "against": ""
+     },
+     {
+      "name": "Loose or corroded wiring connector",
+      "clues": "It happens over bumps or in wet weather.",
+      "against": ""
+     },
+     {
+      "name": "Weak battery or charging problem",
+      "clues": "Slow cranking, dim lights, or other lights coming on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the speed, weather and what you were doing when it happened."
+     ],
+     "shop": [
+      "Code scan, including stored and history codes",
+      "Battery and charging test",
+      "Throttle and pedal sensor tests"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "check-engine-light-flashing",
+  "check-engine-light-on",
+  "loss-of-power-when-accelerating",
+  "transmission-warning-light",
+  "engine-overheating"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "reduced engine power",
+   "reduced power",
+   "power is reduced",
+   "limp",
+   "throttle body",
+   "accelerator pedal",
+   "boost",
+   "particulate"
+  ]
+ },
+ "sources": [
+  "https://www.motor.com/magazine/pdfs/082011_02.pdf",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

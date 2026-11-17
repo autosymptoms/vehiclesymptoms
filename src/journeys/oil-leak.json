@@ -1,0 +1,533 @@
+{
+ "id": "oil-leak",
+ "title": "Engine oil leak",
+ "h1": "Why is my car leaking oil?",
+ "metaDesc": "Oil spots where you park? Find out if it's the valve cover, oil pan, drain plug or a seal, how urgent it is, and what to tell your mechanic.",
+ "group": "leaksmell",
+ "cat": "Leaks",
+ "synonyms": [
+  "oil leak",
+  "car leaking oil",
+  "engine leaking oil",
+  "oil spots under car",
+  "oil dripping from engine",
+  "black fluid under car",
+  "brown fluid leaking from car",
+  "oil leak after oil change",
+  "valve cover gasket leak",
+  "oil pan leak",
+  "rear main seal leak",
+  "car leaking oil when parked",
+  "oil on engine",
+  "oil leaking onto exhaust"
+ ],
+ "intro": "Engine oil is light brown when fresh and dark brown or black when used, and it feels slippery. Most oil leaks are slow seeps from aging gaskets, but a fast leak or low oil can ruin an engine. A few questions will tell you how urgent yours is and where it's probably coming from.",
+ "safety": [
+  "If the oil pressure light comes on while driving, pull over and turn the engine off right away.",
+  "If you see smoke or flames from under the hood, pull over, turn the engine off, get everyone out and call for help.",
+  "Never get under a car held up only by a jack."
+ ],
+ "start": "q_urgent",
+ "nodes": {
+  "q_urgent": {
+   "q": "First, are any of these happening?",
+   "opts": [
+    {
+     "a": "The oil pressure light (an oil can symbol) is on or flickering",
+     "go": "r_low_pressure"
+    },
+    {
+     "a": "Oil is dripping steadily, or there's a fresh puddle bigger than a dinner plate",
+     "go": "r_major"
+    },
+    {
+     "a": "Smoke or a burning-oil smell from under the hood",
+     "go": "r_hot_parts"
+    },
+    {
+     "a": "None of these",
+     "go": "q_level"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_level"
+    }
+   ]
+  },
+  "q_level": {
+   "q": "With the engine off for a few minutes and the car on level ground, where is the oil on the dipstick?",
+   "help": "Pull the dipstick out, wipe it clean, push it fully back in, then pull it out again and read it. Some newer cars have no dipstick and show the oil level on the dashboard screen instead.",
+   "opts": [
+    {
+     "a": "Between the low and full marks",
+     "go": "q_where"
+    },
+    {
+     "a": "Below the low mark",
+     "go": "r_low_oil"
+    },
+    {
+     "a": "No oil shows on the dipstick at all",
+     "go": "r_major"
+    },
+    {
+     "a": "My car has no dipstick / I'm not sure",
+     "go": "q_where"
+    }
+   ]
+  },
+  "q_where": {
+   "q": "Where does the oil seem to be coming from?",
+   "help": "With the engine off and cool, use a flashlight from above and from the front. Look for the area that's wet and shiny, not just dusty and grimy.",
+   "opts": [
+    {
+     "a": "Top of the engine, along the edge of the top cover or around the spark plugs",
+     "go": "r_valve_cover"
+    },
+    {
+     "a": "Around the drain plug or oil filter, and the oil was changed recently",
+     "go": "r_oil_change"
+    },
+    {
+     "a": "Along the bottom of the engine, around the oil pan",
+     "go": "r_pan"
+    },
+    {
+     "a": "Where the engine and transmission meet",
+     "go": "r_rear_seal"
+    },
+    {
+     "a": "Front of the engine, behind the belts and pulleys",
+     "go": "r_front_seal"
+    },
+    {
+     "a": "I can't tell / I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_low_pressure": {
+   "result": {
+    "title": "The engine isn't getting enough oil pressure",
+    "urgency": "stop",
+    "now": "Turn the engine off and leave it off. After a few minutes, check the dipstick. If it's low, add the oil type listed in your owner's manual. If you can't, have it towed.",
+    "if": [
+     "If the light stays on after the level is correct, or you hear ticking or knocking, don't run the engine. Have it towed.",
+     "If oil is pouring out, don't refill and restart. Have it towed."
+    ],
+    "why": "The oil pressure light means oil isn't reaching the engine's moving parts with enough pressure to protect them. Running the engine like that, even briefly, can cause major damage. With a known leak, a very low oil level is the most likely reason.",
+    "causes": [
+     {
+      "name": "Oil level too low from the leak",
+      "clues": "The dipstick shows low or no oil.",
+      "against": ""
+     },
+     {
+      "name": "Failing oil pump or blocked oil pickup",
+      "clues": "The light stays on even with a full oil level, often with ticking or knocking.",
+      "against": ""
+     },
+     {
+      "name": "Faulty oil pressure sensor",
+      "clues": "The level is full, the engine sounds normal, and the light flickers randomly.",
+      "against": "Don't assume it's the sensor until a technician has measured the actual pressure."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level with the engine off and the car on level ground."
+     ],
+     "shop": [
+      "Mechanical oil pressure test",
+      "Oil level and leak inspection",
+      "Oil pressure sensor check"
+     ]
+    }
+   }
+  },
+  "r_major": {
+   "result": {
+    "title": "A large oil leak can drain the engine quickly",
+    "urgency": "stop",
+    "now": "Don't start the engine. Have the car towed or ask a mobile mechanic to come to you.",
+    "if": [
+     "If the oil was changed in the last few days, call the shop that did it. A loose drain plug or filter is a common cause, and they should check it.",
+     "If oil is dripping onto the exhaust or you see smoke, keep away from the car and call for help."
+    ],
+    "why": "Engines hold only a few quarts of oil. A steady drip or a pour can drop the level dangerously low in a short trip, and running without enough oil can destroy an engine quickly.",
+    "causes": [
+     {
+      "name": "Loose or missing drain plug, or a loose oil filter",
+      "clues": "The oil was changed recently, and the oil is coming from the bottom center of the engine or the filter.",
+      "against": ""
+     },
+     {
+      "name": "Damaged oil pan",
+      "clues": "You recently hit debris, a curb or a pothole, or there's a fresh dent or scrape underneath.",
+      "against": ""
+     },
+     {
+      "name": "Failed oil cooler line or filter housing",
+      "clues": "Oil spraying around the filter area or along a line, often on trucks and some larger engines.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Without getting under the car, look from the front for where the oil is coming from.",
+      "Take a photo of the puddle to show the shop."
+     ],
+     "shop": [
+      "Lift inspection of the drain plug, filter and oil pan",
+      "Oil cooler line inspection",
+      "Refill and leak check before the car is driven"
+     ]
+    }
+   }
+  },
+  "r_hot_parts": {
+   "result": {
+    "title": "Oil is likely dripping onto hot engine or exhaust parts",
+    "urgency": "soon",
+    "now": "Check the oil level and top up if it's low. Book a check within the next few days.",
+    "if": [
+     "If you see heavy smoke or any flames, pull over, turn the engine off, get everyone out and call for help.",
+     "If the smell gets stronger with each drive, get it checked sooner."
+    ],
+    "why": "A small oil leak that lands on the exhaust burns off with a sharp smell and wisps of smoke. A leaking valve cover gasket is the usual source. It needs fixing because leaks grow, and oil on very hot parts is a fire risk.",
+    "causes": [
+     {
+      "name": "Leaking valve cover gasket",
+      "clues": "Smoke rises from the top or side of the engine after driving.",
+      "against": ""
+     },
+     {
+      "name": "Leaking oil filter housing or oil cooler seal",
+      "clues": "Wet oil around the oil filter area.",
+      "against": ""
+     },
+     {
+      "name": "Oil spilled during a recent top-up or oil change",
+      "clues": "The smell started right after oil was added, and it fades after a few drives.",
+      "against": "If it lasts more than a few days, look for a real leak."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "After the engine cools, look for wet oil on top of the engine and above the exhaust.",
+      "Check the oil level."
+     ],
+     "shop": [
+      "Oil leak inspection",
+      "Valve cover gasket inspection",
+      "Engine clean and recheck with leak dye if needed"
+     ]
+    }
+   }
+  },
+  "r_low_oil": {
+   "result": {
+    "title": "The engine is low on oil, so this leak matters",
+    "urgency": "soon",
+    "now": "Before driving, top up to between the marks with the oil type in your owner's manual. Get the leak checked within the next few days, and recheck the level every time you get fuel.",
+    "if": [
+     "If the oil pressure light comes on, turn the engine off right away.",
+     "If you need to add oil again within a few days, the leak is significant. Get it checked right away."
+    ],
+    "why": "Running low on oil makes the engine wear faster and can lead to serious damage. If the level is low and you're seeing drips, the leak is big enough to matter. Some engines also burn oil, which adds to the loss.",
+    "causes": [
+     {
+      "name": "Oil pan gasket or drain plug leak",
+      "clues": "Drips under the center of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Valve cover gasket leak",
+      "clues": "Oil on top of the engine and a burning smell after driving.",
+      "against": ""
+     },
+     {
+      "name": "Engine burning oil",
+      "clues": "Blue-gray exhaust smoke, or more oil loss than the drips explain.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Recheck the oil level a few days after topping up.",
+      "Slide cardboard under the engine overnight to see how much drips."
+     ],
+     "shop": [
+      "Oil leak inspection",
+      "Oil consumption check if no big leak is found"
+     ]
+    }
+   }
+  },
+  "r_valve_cover": {
+   "result": {
+    "title": "Most likely a leaking valve cover gasket",
+    "urgency": "check",
+    "now": "Make sure the oil fill cap is tight, then book a check when convenient. Keep an eye on the oil level until it's fixed.",
+    "if": [
+     "If you smell burning oil or see smoke after driving, get it fixed within a few days.",
+     "If the engine starts misfiring or the check engine light comes on, oil may be getting into the spark plug wells. Get it checked soon."
+    ],
+    "why": "The valve cover sits on top of the engine and seals with a rubber gasket that hardens with heat and age. It's one of the most common oil leaks. It's usually slow, but the oil can run down onto the hot exhaust.",
+    "causes": [
+     {
+      "name": "Hardened valve cover gasket",
+      "clues": "Wet oil along the edge of the top cover.",
+      "against": ""
+     },
+     {
+      "name": "Leaking spark plug tube seals",
+      "clues": "Oil found in the spark plug wells, sometimes with a misfire.",
+      "against": ""
+     },
+     {
+      "name": "Loose or worn oil fill cap",
+      "clues": "Oil only around the cap.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that the oil fill cap is on tight and its seal isn't cracked.",
+      "With the engine off and cool, look for wet oil along the edge of the top cover."
+     ],
+     "shop": [
+      "Valve cover gasket inspection",
+      "Spark plug well inspection",
+      "Crankcase ventilation (PCV) system check"
+     ]
+    }
+   }
+  },
+  "r_oil_change": {
+   "result": {
+    "title": "The drain plug or oil filter may not be sealing after the oil change",
+    "urgency": "soon",
+    "now": "Check the oil level, then call the shop that did the oil change and ask them to check it within the next day or two.",
+    "if": [
+     "If it's dripping steadily, or the oil is below the low mark, don't drive it. Ask the shop to come to you or have it towed.",
+     "If the oil pressure light comes on, turn the engine off right away."
+    ],
+    "why": "Leaks that start right after an oil change usually come from the drain plug, its washer or the filter. These can loosen or seal poorly, and they can lose oil faster than an old gasket. It's normally a quick fix.",
+    "causes": [
+     {
+      "name": "Loose drain plug or worn drain plug washer",
+      "clues": "Drips land directly under the drain plug.",
+      "against": ""
+     },
+     {
+      "name": "Loose oil filter, or the old filter's seal left in place",
+      "clues": "Oil runs down from the filter, sometimes quickly.",
+      "against": ""
+     },
+     {
+      "name": "Oil spilled during the service",
+      "clues": "The drips slow down and stop after a day or two.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level.",
+      "Without getting under the car, look for fresh, wet oil near the drain plug and filter."
+     ],
+     "shop": [
+      "Drain plug and washer check",
+      "Oil filter seal check",
+      "Clean and recheck for leaks"
+     ]
+    }
+   }
+  },
+  "r_pan": {
+   "result": {
+    "title": "Likely a leaking oil pan gasket",
+    "urgency": "check",
+    "now": "Book a check when convenient, and check the oil level weekly until it's fixed.",
+    "if": [
+     "If the spot grows bigger than your hand overnight, get it checked within a few days.",
+     "If you recently hit something on the road, have the pan checked soon for damage."
+    ],
+    "why": "The oil pan is the reservoir at the bottom of the engine. Its gasket can harden with age, and the pan itself can get dented or rusted. These leaks are usually slow but steady.",
+    "causes": [
+     {
+      "name": "Hardened oil pan gasket",
+      "clues": "Oil along the seam where the pan meets the engine.",
+      "against": ""
+     },
+     {
+      "name": "Damaged or rusted oil pan",
+      "clues": "A dent, scrape or rust on the pan.",
+      "against": ""
+     },
+     {
+      "name": "Leaking drain plug washer",
+      "clues": "Drips land right under the drain plug.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Slide cardboard under the engine overnight to see how fast it drips.",
+      "Check the oil level weekly."
+     ],
+     "shop": [
+      "Lift inspection of the oil pan and drain plug",
+      "Leak dye test if the source isn't clear"
+     ]
+    }
+   }
+  },
+  "r_rear_seal": {
+   "result": {
+    "title": "Oil where the engine meets the transmission often means the rear main seal",
+    "urgency": "check",
+    "now": "Book a check when convenient and keep an eye on the oil level. A shop needs to see it on a lift to find the exact source.",
+    "if": [
+     "If the fluid is red or pink, it's more likely transmission fluid. Get it checked within a few days.",
+     "If it's a manual and the clutch starts slipping or chattering, oil may be reaching the clutch. Get it checked soon."
+    ],
+    "why": "The rear main seal keeps oil in where the crankshaft comes out the back of the engine. When it leaks, oil drips where the engine and transmission meet. Oil running down from higher up can end up in the same spot, so the source has to be traced.",
+    "causes": [
+     {
+      "name": "Leaking rear main seal",
+      "clues": "Drips right at the joint between engine and transmission, often on higher-mileage engines.",
+      "against": ""
+     },
+     {
+      "name": "Oil running down from a leak higher up",
+      "clues": "Oil streaks down the back of the engine from the valve cover area.",
+      "against": ""
+     },
+     {
+      "name": "Transmission front seal",
+      "clues": "The fluid is red or pink rather than brown or black.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Wipe a drop on a white paper towel to check whether it's brown or black, or red.",
+      "Check the oil level."
+     ],
+     "shop": [
+      "Lift inspection with leak dye",
+      "Clean and recheck to trace the source",
+      "Check the oil pan gasket's rear corner"
+     ]
+    }
+   }
+  },
+  "r_front_seal": {
+   "result": {
+    "title": "Likely a front engine seal or timing cover leak",
+    "urgency": "check",
+    "now": "Book a check when convenient and keep an eye on the oil level.",
+    "if": [
+     "If oil is soaking the drive belt, or the belt squeals or slips, get it checked within a few days. Oil damages belts.",
+     "If your engine has a timing belt, ask the shop to check it. Oil can ruin a timing belt, and if it breaks the engine stops."
+    ],
+    "why": "Seals at the front of the engine keep oil in where shafts come out to drive the belts. As they age, oil seeps out and can be flung onto the belts and pulleys as they spin.",
+    "causes": [
+     {
+      "name": "Front crankshaft seal",
+      "clues": "Oil behind the large bottom pulley.",
+      "against": ""
+     },
+     {
+      "name": "Timing cover gasket",
+      "clues": "Oil along the edge of the cover at the front of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Camshaft seal",
+      "clues": "Oil near the top of the timing area.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look for oil on the belts and pulleys.",
+      "Check the oil level."
+     ],
+     "shop": [
+      "Front seal and timing cover inspection",
+      "Drive belt condition check",
+      "Timing belt inspection where fitted"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "A slow oil leak that still needs its source found",
+    "urgency": "check",
+    "now": "Check the oil level every week or two and book a check when convenient. A shop can trace the leak on a lift.",
+    "if": [
+     "If the level drops below the low mark between checks, get it checked within a few days.",
+     "If you see smoke or smell burning oil, get it checked soon.",
+     "If the oil pressure light comes on, turn the engine off right away."
+    ],
+    "why": "Oil runs downhill and gets blown back by airflow, so the wet spot is often below or behind the real leak. Cleaning the engine and adding a dye lets a shop find the true source.",
+    "causes": [
+     {
+      "name": "Valve cover gasket",
+      "clues": "Oil on top of the engine, or a burning smell.",
+      "against": ""
+     },
+     {
+      "name": "Oil pan gasket or drain plug",
+      "clues": "Drips under the center of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Front or rear crankshaft seal",
+      "clues": "Oil at the front behind the belts, or where the engine meets the transmission.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Slide cardboard under the engine overnight and photograph the spots.",
+      "Check the oil level regularly."
+     ],
+     "shop": [
+      "Lift inspection",
+      "Leak dye test",
+      "Clean and recheck"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "burning-oil-smell",
+  "oil-pressure-light-on",
+  "burning-oil-low-oil-level",
+  "fluid-leak-under-car"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Leaks"
+  ],
+  "words": [
+   "oil leak",
+   "oil pan",
+   "valve cover",
+   "gasket",
+   "rear main seal",
+   "drain plug",
+   "oil filter",
+   "crankshaft seal"
+  ]
+ },
+ "sources": [
+  "https://cluballiance.aaa.com/the-extra-mile/articles/prepare/car/identify-leaks-like-a-pro",
+  "https://www.acg.aaa.com/connect/blogs/4c/auto/guide-to-automotive-leaks"
+ ]
+}

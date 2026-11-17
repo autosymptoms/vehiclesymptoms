@@ -1,0 +1,390 @@
+{
+ "id": "exhaust-smell-in-cabin",
+ "title": "Exhaust smell in cabin",
+ "h1": "Why do I smell exhaust fumes inside my car?",
+ "metaDesc": "Smell exhaust fumes inside your car? It can mean carbon monoxide. Answer a few questions to see how urgent it is and where the fumes are coming from.",
+ "group": "leaksmell",
+ "cat": "Smells",
+ "synonyms": [
+  "exhaust smell in car",
+  "smell exhaust inside car",
+  "exhaust fumes in cabin",
+  "car smells like exhaust",
+  "exhaust smell when heater is on",
+  "exhaust smell when stopped",
+  "exhaust smell with windows down",
+  "carbon monoxide in car",
+  "fumes coming into car",
+  "exhaust smell from vents",
+  "exhaust leak smell inside car",
+  "car smells like exhaust when idling",
+  "headache from car fumes"
+ ],
+ "intro": "Exhaust fumes inside the car always deserve attention, because exhaust carries carbon monoxide, a gas you can't smell or see that can make you sick or worse. Sometimes the fumes are just from traffic around you, but often your own exhaust is leaking or being drawn in. Answer the questions below to see how urgent it is and what to do.",
+ "safety": [
+  "If anyone has a headache, dizziness, nausea, weakness, confusion or sleepiness, get everyone out into fresh air right away and call 911 if they don't quickly improve.",
+  "Never run the engine in a closed garage, even with the door partly open.",
+  "If you're parked with the engine running in snow, make sure the tailpipe is clear of snow first.",
+  "If the exhaust suddenly gets much louder and the fumes inside get stronger, pull over, turn off the engine and get out."
+ ],
+ "start": "q_symptoms",
+ "nodes": {
+  "q_symptoms": {
+   "q": "Does anyone in the car have a headache, dizziness, nausea, unusual sleepiness or confusion?",
+   "help": "These are early signs of carbon monoxide exposure. Carbon monoxide has no smell, so you can be affected even when the exhaust smell seems mild.",
+   "opts": [
+    {
+     "a": "Yes",
+     "go": "r_co_symptoms"
+    },
+    {
+     "a": "No",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_co_symptoms"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When do you notice the fumes most?",
+   "opts": [
+    {
+     "a": "In heavy traffic or behind other vehicles, and it clears on an open road",
+     "go": "r_outside_air"
+    },
+    {
+     "a": "When the rear hatch, tailgate, trunk or back windows are open",
+     "go": "r_rear_seal"
+    },
+    {
+     "a": "When parked with the engine running, especially in snow or a garage",
+     "go": "r_blocked_tailpipe"
+    },
+    {
+     "a": "Most of the time, whatever the traffic",
+     "go": "q_noise"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_noise"
+    }
+   ]
+  },
+  "q_noise": {
+   "q": "Have you noticed any new sound from the exhaust or engine?",
+   "opts": [
+    {
+     "a": "The exhaust is louder, rumbling, roaring or rattling underneath",
+     "go": "r_exhaust_leak"
+    },
+    {
+     "a": "A ticking or puffing sound from the engine, loudest when cold",
+     "go": "r_manifold_leak"
+    },
+    {
+     "a": "No new sounds",
+     "go": "r_source_unclear"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_source_unclear"
+    }
+   ]
+  },
+  "r_co_symptoms": {
+   "result": {
+    "title": "Treat this as possible carbon monoxide exposure",
+    "urgency": "stop",
+    "now": "Turn off the engine and get everyone out into fresh air right away. Call 911 if anyone has a severe headache, confusion, vomiting, chest pain or trouble staying awake.",
+    "if": [
+     "If symptoms improve in fresh air, still get medical advice. Carbon monoxide effects can linger, especially for children, pregnant people and anyone with heart or lung problems.",
+     "Don't use the car again until a shop has found and fixed the source. Have it towed or call a mobile mechanic."
+    ],
+    "why": "Exhaust contains carbon monoxide, which you can't see or smell. It replaces oxygen in your blood and can cause headaches, dizziness and confusion before you realize anything is wrong. Symptoms in the car mean enough is getting in to be dangerous.",
+    "causes": [
+     {
+      "name": "Exhaust leak under the car or at the engine",
+      "clues": "A louder exhaust, a rattle, or a smell that's there whatever the traffic.",
+      "against": ""
+     },
+     {
+      "name": "Blocked tailpipe or running in an enclosed space",
+      "clues": "The car was idling in snow, a garage or another tight space.",
+      "against": ""
+     },
+     {
+      "name": "Fumes drawn in through an open hatch or bad seal",
+      "clues": "The rear hatch or windows were open, or the rear seals are damaged.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Exhaust system leak inspection on a lift",
+      "Cabin carbon monoxide test",
+      "Body seal and rear hatch seal inspection"
+     ]
+    }
+   }
+  },
+  "r_outside_air": {
+   "result": {
+    "title": "You're probably smelling other vehicles' exhaust",
+    "urgency": "diy",
+    "now": "Switch the climate control to recirculate in heavy traffic and when following trucks or older vehicles, then switch back to fresh air on open roads.",
+    "if": [
+     "If the smell continues on open roads with no traffic around, your own car may be leaking. Have the exhaust checked within a few days.",
+     "If anyone feels headachy, dizzy or sleepy, open the windows, pull over and get fresh air."
+    ],
+    "why": "In fresh-air mode the car pulls in air from just in front of the windshield, so fumes from the vehicle ahead come straight in. Recirculate mode keeps reusing the cabin air. If the smell only comes and goes with traffic, the source is outside your car.",
+    "causes": [
+     {
+      "name": "Fumes from nearby vehicles",
+      "clues": "Worse in stop-and-go traffic, tunnels or behind diesel trucks.",
+      "against": "If you smell it on empty roads, this is less likely."
+     },
+     {
+      "name": "Small leak in your own exhaust",
+      "clues": "The smell is there even with no other cars around.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether the smell disappears on open roads.",
+      "Try recirculate mode in traffic and see if the smell stops."
+     ],
+     "shop": [
+      "Exhaust system leak inspection"
+     ]
+    }
+   }
+  },
+  "r_rear_seal": {
+   "result": {
+    "title": "Exhaust is being pulled in through the back of the car",
+    "urgency": "soon",
+    "now": "Keep the rear hatch, trunk and back windows closed while driving, and have the rear seals and exhaust checked within a few days.",
+    "if": [
+     "If you must drive with the hatch open to carry something long, open the front windows and set the fan to fresh air on high, and keep the trip short.",
+     "If the smell is there even with everything closed, don't drive it until the exhaust and seals are checked."
+    ],
+    "why": "As a car moves, low air pressure forms behind it and can pull exhaust toward the back. With a hatch or window open, or a worn seal, those fumes get sucked into the cabin. Wagons, SUVs and hatchbacks are most prone to this.",
+    "causes": [
+     {
+      "name": "Driving with the rear hatch or windows open",
+      "clues": "The smell only appears when something at the back is open.",
+      "against": ""
+     },
+     {
+      "name": "Worn or damaged hatch or trunk seal",
+      "clues": "Torn or flattened rubber, or water also getting into the trunk.",
+      "against": ""
+     },
+     {
+      "name": "Exhaust leak near the rear or a damaged tailpipe",
+      "clues": "A louder exhaust, or the tailpipe is bent or points up toward the bumper.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the rubber seals around the hatch or trunk for tears.",
+      "Look at the tailpipe for damage or holes."
+     ],
+     "shop": [
+      "Rear body seal inspection",
+      "Exhaust system leak inspection",
+      "Smoke test of the rear body openings"
+     ]
+    }
+   }
+  },
+  "r_blocked_tailpipe": {
+   "result": {
+    "title": "Exhaust is building up around the car because it can't escape",
+    "urgency": "stop",
+    "now": "Turn off the engine and get into fresh air. Before running the engine again, clear snow from the tailpipe and around the car, or move it out of any enclosed space with the engine off.",
+    "if": [
+     "If the smell continues outdoors with a clear tailpipe, don't use the car. There's likely an exhaust leak, so have it towed or call a mobile mechanic.",
+     "If anyone has a headache, dizziness or sleepiness, get them into fresh air and call 911 if they don't quickly improve."
+    ],
+    "why": "When the tailpipe is buried in snow or the car is in a garage or tight space, exhaust gathers around the car and seeps in through vents and seals. Carbon monoxide can reach dangerous levels quickly, even when the smell seems faint.",
+    "causes": [
+     {
+      "name": "Tailpipe blocked by snow",
+      "clues": "The car was parked in or near a snowbank, or snow built up while idling.",
+      "against": ""
+     },
+     {
+      "name": "Idling in an enclosed space",
+      "clues": "The car was running in a garage, parking structure or other tight space.",
+      "against": ""
+     },
+     {
+      "name": "Exhaust leak made worse while idling",
+      "clues": "The smell is there outdoors with a clear tailpipe.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, clear snow from the tailpipe and the area around the car.",
+      "Never warm the car up in a closed garage."
+     ],
+     "shop": [
+      "Exhaust system leak inspection",
+      "Cabin carbon monoxide test"
+     ]
+    }
+   }
+  },
+  "r_exhaust_leak": {
+   "result": {
+    "title": "The exhaust system is likely leaking under the car",
+    "urgency": "stop",
+    "now": "Don't use the car until it's repaired. Have it towed or call a mobile mechanic to inspect the exhaust.",
+    "if": [
+     "If anyone has a headache, dizziness or sleepiness, get them into fresh air and seek medical help.",
+     "If part of the exhaust is hanging or dragging, don't move the car at all until it's secured or towed."
+    ],
+    "why": "A louder exhaust plus fumes inside means exhaust is escaping before it reaches the tailpipe, often under the cabin floor. It can seep in through gaps in the floor and seals, carrying carbon monoxide you can't smell.",
+    "causes": [
+     {
+      "name": "Rusted or cracked exhaust pipe or muffler",
+      "clues": "A deep rumble or roar, worse when accelerating, especially on an older car or in salted-road areas.",
+      "against": ""
+     },
+     {
+      "name": "Failed exhaust joint, gasket or flex pipe",
+      "clues": "A puffing or rasping sound under the middle of the car.",
+      "against": ""
+     },
+     {
+      "name": "Broken hanger or damage from road debris",
+      "clues": "A rattle or clunk underneath, or the exhaust hangs lower than before.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off and cool, look under the car for hanging pipes or obvious holes."
+     ],
+     "shop": [
+      "Exhaust system leak inspection on a lift",
+      "Exhaust smoke test",
+      "Cabin carbon monoxide test"
+     ]
+    }
+   }
+  },
+  "r_manifold_leak": {
+   "result": {
+    "title": "The exhaust manifold or a gasket near the engine is likely leaking",
+    "urgency": "stop",
+    "now": "Don't use the car until the leak is fixed, because the fumes can be pulled in through the vents. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If anyone has a headache, dizziness or sleepiness, get them into fresh air and seek medical help.",
+     "If you also smell burning oil or see smoke under the hood, keep away from the engine and call for help."
+    ],
+    "why": "The exhaust manifold collects exhaust right at the engine, close to where the ventilation system draws in outside air. A crack or a failed gasket there makes a ticking or puffing sound and can send fumes straight through the vents, especially with the heat or fan on.",
+    "causes": [
+     {
+      "name": "Failed exhaust manifold gasket",
+      "clues": "Ticking that's loudest on a cold start and quiets as the engine warms up.",
+      "against": ""
+     },
+     {
+      "name": "Cracked exhaust manifold",
+      "clues": "A ticking that gets louder over time, sometimes with black soot marks near the engine.",
+      "against": ""
+     },
+     {
+      "name": "Broken or loose manifold bolts or studs",
+      "clues": "Common on older engines, often with soot around one corner of the manifold.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Exhaust manifold and gasket inspection",
+      "Exhaust smoke test",
+      "Cabin carbon monoxide test"
+     ]
+    }
+   }
+  },
+  "r_source_unclear": {
+   "result": {
+    "title": "Exhaust is probably leaking somewhere and needs to be found",
+    "urgency": "soon",
+    "now": "Keep windows open and avoid using the car except for short essential trips, and have the exhaust checked within the next day or two.",
+    "if": [
+     "If anyone feels headachy, dizzy or sleepy, pull over, get out into fresh air and don't use the car until it's fixed.",
+     "If the exhaust gets louder or you hear a new rattle underneath, stop using the car and have it towed."
+    ],
+    "why": "Fumes inside with no obvious noise usually come from a small leak, a damaged seal, or a hole where exhaust can seep into the body. Even small leaks can let in carbon monoxide, so it's worth finding quickly instead of waiting.",
+    "causes": [
+     {
+      "name": "Small exhaust leak",
+      "clues": "Black soot marks around an exhaust joint, or a faint puff you can hear at idle.",
+      "against": ""
+     },
+     {
+      "name": "Damaged body seal, floor plug or rust hole",
+      "clues": "Missing rubber plugs in the floor, rust holes, or water also getting in.",
+      "against": ""
+     },
+     {
+      "name": "Engine running poorly",
+      "clues": "A check engine light, rough running or a strong fuel smell in the exhaust.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the smell is worse when stopped, when accelerating or with the heat on.",
+      "Check for warning lights."
+     ],
+     "shop": [
+      "Exhaust system leak inspection on a lift",
+      "Body and floor seal inspection",
+      "Cabin carbon monoxide test",
+      "Code scan if a warning light is on"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "loud-exhaust-roaring",
+  "rattle-under-car",
+  "gas-smell",
+  "rotten-egg-smell",
+  "burning-oil-smell"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Smells",
+   "Smoke"
+  ],
+  "words": [
+   "exhaust",
+   "exhaust leak",
+   "manifold",
+   "muffler",
+   "carbon monoxide",
+   "flex pipe",
+   "gasket",
+   "tailpipe"
+  ]
+ },
+ "sources": [
+  "https://www.cdc.gov/carbon-monoxide/about/index.html",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

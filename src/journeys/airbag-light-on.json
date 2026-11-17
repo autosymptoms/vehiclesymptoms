@@ -1,0 +1,415 @@
+{
+ "id": "airbag-light-on",
+ "title": "Airbag (SRS) light on",
+ "h1": "Why is my airbag light on?",
+ "metaDesc": "Airbag or SRS light on? Answer a few questions to see if it's the steering wheel clockspring, a seat connector or a sensor, how urgent it is, and what to tell your shop.",
+ "group": "light",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "airbag light on",
+  "air bag light on",
+  "srs light on",
+  "srs light",
+  "airbag warning light",
+  "service airbag message",
+  "airbag light flashing",
+  "airbag light stays on",
+  "airbag light came on after moving seat",
+  "airbag light and horn not working",
+  "airbag light after battery change",
+  "passenger airbag off light",
+  "is it safe to drive with airbag light on",
+  "supplemental restraint system light"
+ ],
+ "intro": "The airbag light (often marked SRS or showing a seated person with a ball in front) should come on for a few seconds at startup and then go out. If it stays on or flashes, the system has found a fault and the airbags may not work in a crash. The car still drives normally, so the main question is how soon to fix it.",
+ "safety": [
+  "Don't unplug, probe or remove airbag parts or the yellow connectors under the seats yourself. An airbag can deploy and cause serious injury.",
+  "Until it's fixed, seat children in the back seat in the right car seat or booster, as you always should.",
+  "If an airbag has deployed, don't drive the car. Deployed airbags can't protect you again, and there's likely other damage."
+ ],
+ "start": "q_what",
+ "nodes": {
+  "q_what": {
+   "q": "What exactly are you seeing?",
+   "help": "SRS stands for Supplemental Restraint System, which means the airbags and seat belt tensioners. The separate PASSENGER AIRBAG OFF light, usually near the center of the dash or by the mirror, is a different indicator.",
+   "opts": [
+    {
+     "a": "The airbag or SRS light stays on or flashes after the car starts",
+     "go": "q_trigger"
+    },
+    {
+     "a": "A PASSENGER AIRBAG OFF (or ON/OFF) indicator is lit",
+     "go": "r_passenger_off"
+    },
+    {
+     "a": "An airbag went off in a crash",
+     "go": "r_deployed"
+    },
+    {
+     "a": "It came on after a minor bump or collision, and no airbags went off",
+     "go": "r_after_collision"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_trigger"
+    }
+   ]
+  },
+  "q_trigger": {
+   "q": "Did anything happen around the time the light came on?",
+   "opts": [
+    {
+     "a": "The horn, steering wheel buttons or cruise control stopped working too",
+     "go": "r_clockspring"
+    },
+    {
+     "a": "A front seat was moved, removed or cleaned, or something got pushed under a seat",
+     "go": "r_seat_connector"
+    },
+    {
+     "a": "The battery died, was jumped, or was replaced",
+     "go": "r_low_voltage"
+    },
+    {
+     "a": "A seat belt buckle feels loose, or the seat belt reminder acts oddly",
+     "go": "r_seatbelt"
+    },
+    {
+     "a": "Nothing obvious, or I'm not sure",
+     "go": "r_srs_general"
+    }
+   ]
+  },
+  "r_passenger_off": {
+   "result": {
+    "title": "The passenger airbag indicator is often normal. Check who's in the seat",
+    "urgency": "diy",
+    "now": "Check whether the light matches who's sitting there. It should show OFF when the seat is empty or holds a small child or child seat, and ON (or go out) when an adult sits normally.",
+    "if": [
+     "If an adult is sitting upright and it still says OFF, have the passenger seat sensor checked within a few days. The airbag won't deploy for them until it's fixed.",
+     "If the main airbag or SRS light is also on, have the airbag system checked soon."
+    ],
+    "why": "Many cars have a weight or occupant sensor in the passenger seat that turns that airbag off for an empty seat or a small passenger. The OFF light is telling you what it decided, not that something is broken.",
+    "causes": [
+     {
+      "name": "Normal operation",
+      "clues": "The seat is empty, holds a bag, or has a child or child seat.",
+      "against": "If an adult sits there and it shows OFF, it's not normal."
+     },
+     {
+      "name": "Passenger sitting out of position",
+      "clues": "The passenger is leaning, slouching, or has feet on the dash.",
+      "against": ""
+     },
+     {
+      "name": "Faulty passenger seat sensor",
+      "clues": "It says OFF for an adult sitting normally, or it changes over bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Remove any items from the passenger seat and seat back pocket, then have an adult sit upright and watch the indicator.",
+      "Check the owner's manual for how the indicator should behave in your car."
+     ],
+     "shop": [
+      "Airbag system code scan",
+      "Occupant sensor test and recalibration"
+     ]
+    }
+   }
+  },
+  "r_deployed": {
+   "result": {
+    "title": "After an airbag deploys, the system must be repaired before driving",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed to a collision repair shop or dealer.",
+    "if": [
+     "If anyone was hurt, get medical care first. Airbag injuries and crash injuries aren't always obvious right away."
+    ],
+    "why": "A deployed airbag can't protect you again, and the crash sensors and control module usually need replacing too. The crash itself may also have damaged steering, suspension, or lights.",
+    "causes": [
+     {
+      "name": "Deployed airbags and seat belt tensioners",
+      "clues": "Visible airbags, or seat belts that locked and won't retract.",
+      "against": ""
+     },
+     {
+      "name": "Crash data stored in the airbag module",
+      "clues": "The light stays on even after the airbags are replaced.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Photograph the damage and the dashboard for your insurer."
+     ],
+     "shop": [
+      "Airbag system code scan",
+      "Replacement of deployed airbags, tensioners and crash sensors",
+      "Airbag module replacement or reset",
+      "Collision damage inspection"
+     ]
+    }
+   }
+  },
+  "r_after_collision": {
+   "result": {
+    "title": "A crash sensor or wiring was likely damaged in the bump",
+    "urgency": "soon",
+    "now": "Have the airbag system scanned within the next few days, ideally by the shop repairing the collision damage.",
+    "if": [
+     "If the steering, lights or brakes don't work right after the bump, don't drive it. Have it towed.",
+     "If you're filing an insurance claim, ask for the airbag scan to be part of the repair estimate."
+    ],
+    "why": "Crash sensors sit near the front bumper and in the doors or pillars. Even a minor impact can damage a sensor or its wiring, and the system then switches itself off and turns the light on.",
+    "causes": [
+     {
+      "name": "Damaged front or side crash sensor",
+      "clues": "The bump was near the front corner or a door.",
+      "against": ""
+     },
+     {
+      "name": "Damaged or disconnected wiring",
+      "clues": "Bodywork or bumper parts were pushed in or removed.",
+      "against": ""
+     },
+     {
+      "name": "Stored crash event in the airbag module",
+      "clues": "The impact was hard enough to register, even without deployment.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note exactly where the car was hit."
+     ],
+     "shop": [
+      "Airbag system code scan",
+      "Crash sensor and wiring inspection",
+      "Airbag module check"
+     ]
+    }
+   }
+  },
+  "r_clockspring": {
+   "result": {
+    "title": "The steering wheel clockspring has most likely failed",
+    "urgency": "soon",
+    "now": "Have the airbag system checked within the next few days. Until then, your driver's airbag may not work, and the horn may not either.",
+    "if": [
+     "If the horn doesn't work, get it fixed sooner. You can't warn other drivers.",
+     "If cruise control or other wheel buttons stop working, avoid relying on them until it's repaired."
+    ],
+    "why": "The clockspring is a coiled ribbon cable behind the steering wheel. It keeps the driver's airbag, horn and wheel buttons connected while you turn the wheel. When it wears or breaks, all of these can stop working at once.",
+    "causes": [
+     {
+      "name": "Worn or broken clockspring",
+      "clues": "The horn or wheel buttons stopped working at the same time, or work only in some steering positions.",
+      "against": ""
+     },
+     {
+      "name": "Clockspring damaged during steering work",
+      "clues": "The steering wheel, column or an alignment was worked on recently.",
+      "against": ""
+     },
+     {
+      "name": "Driver airbag connector fault",
+      "clues": "Only the airbag light is on, and the horn and buttons work.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Test the horn and steering wheel buttons with the wheel straight and turned each way."
+     ],
+     "shop": [
+      "Airbag system code scan",
+      "Clockspring resistance test",
+      "Steering wheel circuit check"
+     ]
+    }
+   }
+  },
+  "r_seat_connector": {
+   "result": {
+    "title": "A connector under a front seat was likely disturbed",
+    "urgency": "soon",
+    "now": "Remove any loose items from under the front seats, then have the airbag codes read and the connector checked within a few days. Don't unplug or reseat the connector yourself.",
+    "if": [
+     "If the light came on right after someone removed or reinstalled the seats, go back to them. The connector may not be fully plugged in.",
+     "If the light comes and goes when you slide the seat, mention that to the shop. It points to a worn wire."
+    ],
+    "why": "Side airbags and seat belt tensioners are wired through connectors under the front seats. Sliding the seat, items jammed underneath, or seat removal can loosen a connector or strain a wire, and the system turns the light on.",
+    "causes": [
+     {
+      "name": "Loose seat airbag or tensioner connector",
+      "clues": "The light came on after seat movement, cleaning or removal.",
+      "against": ""
+     },
+     {
+      "name": "Worn wiring under the seat",
+      "clues": "The light flickers when the seat moves.",
+      "against": ""
+     },
+     {
+      "name": "Faulty seat sensor",
+      "clues": "Only the passenger side is affected.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look under the front seats for objects pressing on wires. Don't touch the connectors.",
+      "Check for open airbag recalls with your VIN."
+     ],
+     "shop": [
+      "Airbag system code scan",
+      "Under-seat connector and wiring inspection",
+      "Fault code clearing after repair"
+     ]
+    }
+   }
+  },
+  "r_low_voltage": {
+   "result": {
+    "title": "Low battery voltage can leave a stored airbag fault",
+    "urgency": "diy",
+    "now": "Turn the car off for a minute, then restart it and watch whether the light goes out after a few seconds.",
+    "if": [
+     "If the light stays on after a few restarts, have the airbag codes read and cleared. Many cars keep the fault stored until a scan tool clears it.",
+     "If the battery keeps going low, have the battery and charging system tested."
+    ],
+    "why": "The airbag system checks itself at every start. A weak battery or a jump start can make that check fail and log a fault. On some cars it clears itself, on others it stays until a technician clears it.",
+    "causes": [
+     {
+      "name": "Fault logged during a low-voltage start",
+      "clues": "The light came on the same day the battery died or was jumped.",
+      "against": ""
+     },
+     {
+      "name": "Loose battery connection",
+      "clues": "Other warning lights flicker too.",
+      "against": ""
+     },
+     {
+      "name": "A separate airbag fault that showed up at the same time",
+      "clues": "The light stays on after the code is cleared.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that the battery clamps are tight.",
+      "Restart the car a few times and watch the light."
+     ],
+     "shop": [
+      "Airbag system code scan and clear",
+      "Battery and charging system test"
+     ]
+    }
+   }
+  },
+  "r_seatbelt": {
+   "result": {
+    "title": "A seat belt buckle or tensioner fault is likely",
+    "urgency": "soon",
+    "now": "Have the airbag and seat belt system checked within a few days. Keep wearing the belt and make sure it latches firmly every time.",
+    "if": [
+     "If a belt won't latch or won't hold when you tug it, don't use that seat until it's repaired.",
+     "If a coin, crumb or other object is stuck in the buckle, mention it to the shop rather than prying it out with metal tools."
+    ],
+    "why": "Seat belt buckles have switches that tell the airbag system whether you're belted, and the belts have tensioners that tighten in a crash. A faulty buckle switch or tensioner circuit turns the airbag light on.",
+    "causes": [
+     {
+      "name": "Faulty buckle switch",
+      "clues": "The seat belt reminder chimes even when buckled, or doesn't chime when unbuckled.",
+      "against": ""
+     },
+     {
+      "name": "Tensioner circuit fault",
+      "clues": "The light came on after the seat or trim was removed.",
+      "against": ""
+     },
+     {
+      "name": "Debris in the buckle",
+      "clues": "The buckle feels gritty or sticks.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Buckle and unbuckle each front belt and watch the seat belt reminder light."
+     ],
+     "shop": [
+      "Airbag system code scan",
+      "Buckle switch test",
+      "Seat belt tensioner circuit check"
+     ]
+    }
+   }
+  },
+  "r_srs_general": {
+   "result": {
+    "title": "The airbag system has a fault and may not deploy in a crash",
+    "urgency": "soon",
+    "now": "Have the airbag system scanned within the next few days. Also check for open airbag recalls using your VIN.",
+    "if": [
+     "If there's an open airbag recall on your car, contact a dealer right away and follow the recall instructions.",
+     "If the horn or steering wheel buttons stop working too, mention it. It points to the clockspring."
+    ],
+    "why": "When the airbag light stays on, the system has disabled some or all airbags because it can't confirm they'll work properly. The car drives the same, but you've lost crash protection. Only an airbag scan tool can read which part is at fault.",
+    "causes": [
+     {
+      "name": "Steering wheel clockspring",
+      "clues": "Horn or wheel buttons acting up.",
+      "against": ""
+     },
+     {
+      "name": "Seat connector, buckle or occupant sensor",
+      "clues": "Seats were moved recently, or the seat belt reminder acts oddly.",
+      "against": ""
+     },
+     {
+      "name": "Crash sensor or airbag module fault",
+      "clues": "A past collision, or water got into the car.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check for open recalls on the NHTSA recall site using your VIN.",
+      "Note whether the horn and steering wheel buttons work."
+     ],
+     "shop": [
+      "Airbag (SRS) code scan (a basic engine code reader can't read these)",
+      "Clockspring and seat connector checks",
+      "Crash sensor and module check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "dashboard-lights-all-on",
+  "battery-keeps-dying",
+  "electrical-accessories-not-working"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "airbag",
+   "air bag",
+   "srs",
+   "clockspring",
+   "clock spring",
+   "occupant",
+   "seat belt",
+   "takata"
+  ]
+ },
+ "sources": [
+  "https://ownersmanual.kia.com/full_webhelp/BDm/2024/en_US/topics/t00075.html",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

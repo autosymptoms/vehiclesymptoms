@@ -1,0 +1,542 @@
+{
+ "id": "clunk-over-bumps",
+ "title": "Clunk over bumps",
+ "h1": "Why does my car clunk when I go over bumps?",
+ "metaDesc": "Clunk or knock over bumps? Answer a few questions to see if it's a sway bar link, strut, ball joint or bushing, how urgent it is, and what to tell your mechanic.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "clunk over bumps",
+  "clunking noise over bumps",
+  "knocking noise over bumps",
+  "thud when going over bumps",
+  "clunk in front end",
+  "front end clunk",
+  "suspension clunk",
+  "clunking noise when driving",
+  "knock in suspension over potholes",
+  "clunk when going over speed bumps",
+  "bad sway bar link",
+  "bad ball joint noise",
+  "clunk from rear over bumps",
+  "car makes a banging noise on rough roads"
+ ],
+ "intro": "A clunk over bumps nearly always comes from something worn or loose in the suspension or steering. Most causes are minor, like a sway bar link, but a few, like a worn ball joint, can affect control of the car. Answer the questions below and we'll help you tell which is which and how soon to act.",
+ "safety": [
+  "If the steering suddenly feels loose, the car wanders, or a wheel looks tilted, slow down and pull over as soon as it's safe.",
+  "If a clunk started right after a wheel or tire was removed, check that the lug nuts are tight before driving any further.",
+  "If one corner of the car suddenly sits lower than the others, don't drive it."
+ ],
+ "start": "q_danger",
+ "nodes": {
+  "q_danger": {
+   "q": "Along with the clunk, do you notice any of these?",
+   "opts": [
+    {
+     "a": "The steering feels loose, the car wanders, or it pulls suddenly",
+     "go": "r_steering_failure"
+    },
+    {
+     "a": "A wheel looks tilted, or one corner of the car sits lower than the rest",
+     "go": "r_broken_part"
+    },
+    {
+     "a": "It started right after a tire change or brake job, or a wheel feels wobbly",
+     "go": "r_loose_wheel"
+    },
+    {
+     "a": "None of these, just the clunk",
+     "go": "q_where"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_where"
+    }
+   ]
+  },
+  "q_where": {
+   "q": "Where does the clunk seem to come from?",
+   "help": "It can be hard to tell from inside the car. Having a passenger sit in the back, or driving slowly over a speed bump with the windows down, can help.",
+   "opts": [
+    {
+     "a": "The front of the car",
+     "go": "q_front"
+    },
+    {
+     "a": "The back of the car",
+     "go": "q_rear"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_front"
+    }
+   ]
+  },
+  "q_front": {
+   "q": "Which description fits the clunk best?",
+   "opts": [
+    {
+     "a": "A light knock or rattle on small bumps and rough roads at low speed",
+     "go": "r_sway_link"
+    },
+    {
+     "a": "A heavier thud on big bumps or dips, and the car bounces more than it used to",
+     "go": "r_struts"
+    },
+    {
+     "a": "Worst when turning, like pulling into a driveway or over a curb",
+     "go": "r_ball_joint_tie_rod"
+    },
+    {
+     "a": "It also clunks when I brake hard or start moving",
+     "go": "r_control_arm_bushings"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general_suspension"
+    }
+   ]
+  },
+  "q_rear": {
+   "q": "Which description fits the clunk best?",
+   "opts": [
+    {
+     "a": "It might be something loose in the trunk, cargo area or spare tire well",
+     "go": "r_loose_cargo"
+    },
+    {
+     "a": "A heavy thud on big bumps, and the rear bounces or bottoms out",
+     "go": "r_struts"
+    },
+    {
+     "a": "It also clunks when I shift into gear or take off from a stop",
+     "go": "r_driveline_clunk"
+    },
+    {
+     "a": "A light knock on small bumps and rough roads",
+     "go": "r_sway_link"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general_suspension"
+    }
+   ]
+  },
+  "r_steering_failure": {
+   "result": {
+    "title": "A worn ball joint or tie rod may be affecting your steering",
+    "urgency": "stop",
+    "now": "Slow down and pull over as soon as it's safe. Have the car towed or have a mobile mechanic inspect it where it is.",
+    "if": [
+     "If a wheel is visibly tilted in or out at the top, don't move the car at all.",
+     "If you're stuck somewhere unsafe, turn on your hazard lights and call roadside assistance."
+    ],
+    "why": "A clunk together with loose or wandering steering usually means a joint that connects the wheel to the steering or suspension is badly worn. If one of these parts separates, you can lose control of that wheel.",
+    "causes": [
+     {
+      "name": "Worn ball joint",
+      "clues": "A clunk over bumps and when turning, with the car wandering or tires wearing on one edge.",
+      "against": ""
+     },
+     {
+      "name": "Worn inner or outer tie rod end",
+      "clues": "Play in the steering wheel, and the car needs constant small corrections to go straight.",
+      "against": ""
+     },
+     {
+      "name": "Loose or damaged steering rack mounting",
+      "clues": "A clunk you can feel through the steering wheel when turning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Ball joint and tie rod play check with the car lifted",
+      "Steering rack mount inspection",
+      "Alignment check after repair"
+     ]
+    }
+   }
+  },
+  "r_broken_part": {
+   "result": {
+    "title": "A suspension part may have broken",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed, and keep it on flat ground until then.",
+    "if": [
+     "If a tire is rubbing on the body or a part is touching the tire, the tire can be damaged quickly. Don't move the car.",
+     "If you're on the side of a road, turn on your hazard lights and wait for help away from traffic."
+    ],
+    "why": "A corner that suddenly sits low, or a wheel that's tilted, means something that holds the wheel in place has broken or come apart. A clunk is often the moment it happened, or the broken part moving over each bump.",
+    "causes": [
+     {
+      "name": "Broken coil spring",
+      "clues": "One corner sits lower, and you may hear a clunk or scrape over bumps. Common on cars driven in road salt.",
+      "against": ""
+     },
+     {
+      "name": "Separated ball joint or broken control arm",
+      "clues": "A wheel is tilted, or the car steers very oddly.",
+      "against": ""
+     },
+     {
+      "name": "Failed strut mount",
+      "clues": "A loud clunk from the top of the suspension, and the corner sits wrong.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From a safe spot, compare the height of each corner of the car.",
+      "Look for a broken spring coil behind the wheel, without getting under the car."
+     ],
+     "shop": [
+      "Full suspension inspection on a lift",
+      "Spring, control arm and strut mount check"
+     ]
+    }
+   }
+  },
+  "r_loose_wheel": {
+   "result": {
+    "title": "A loose wheel is possible. Check the lug nuts before going any further",
+    "urgency": "stop",
+    "now": "Pull over as soon as it's safe and don't drive further until the lug nuts are checked. If you have a lug wrench, tighten each nut firmly in a star pattern. Otherwise call roadside assistance or the shop that did the work.",
+    "if": [
+     "If any nuts were loose, have a shop tighten them to the correct torque and check for damaged studs.",
+     "If the nuts are tight and the clunk continues, a brake part may not have been reinstalled correctly. Have the shop that did the work check it before you drive on."
+    ],
+    "why": "A clunk or wobble that starts right after a wheel was off often means the lug nuts weren't fully tightened, or a brake caliper or bracket bolt is loose. Lug nuts can loosen over the first few dozen miles, and a wheel can come off.",
+    "causes": [
+     {
+      "name": "Loose lug nuts",
+      "clues": "A clunk or rhythmic knock that started soon after tire work, sometimes with a wobble.",
+      "against": ""
+     },
+     {
+      "name": "Loose brake caliper or bracket",
+      "clues": "The clunk happens when braking or changes direction, and started after brake work.",
+      "against": ""
+     },
+     {
+      "name": "Damaged wheel studs",
+      "clues": "A nut won't tighten fully, or a stud is missing or broken.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check each lug nut with a lug wrench.",
+      "Look for missing nuts or broken studs."
+     ],
+     "shop": [
+      "Lug nut torque check",
+      "Wheel stud inspection",
+      "Brake caliper bolt check"
+     ]
+    }
+   }
+  },
+  "r_sway_link": {
+   "result": {
+    "title": "Most likely a worn sway bar link or bushing",
+    "urgency": "check",
+    "now": "Book a suspension check when convenient. Mention that the knock is on small bumps and rough roads at low speed.",
+    "if": [
+     "If the steering starts to feel loose or the clunk gets much louder, get it checked within a few days.",
+     "If the car starts to lean more in turns, the sway bar may have disconnected. Take turns gently and get it checked soon."
+    ],
+    "why": "Sway bar links connect the anti-roll bar to the suspension. Their small joints and rubber bushings wear out and let the bar knock on uneven pavement. It's one of the most common causes of a light clunk, and it isn't usually an immediate safety risk.",
+    "causes": [
+     {
+      "name": "Worn sway bar end link",
+      "clues": "A light knock or rattle on rough roads, especially when one wheel hits a bump at a time.",
+      "against": ""
+     },
+     {
+      "name": "Worn sway bar bushings",
+      "clues": "A thud or squeak over bumps, sometimes worse in cold weather.",
+      "against": ""
+     },
+     {
+      "name": "Loose exhaust or heat shield",
+      "clues": "A tinny rattle that also happens when you rev the engine in Park.",
+      "against": "A heavier knock is less likely to be the exhaust."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Drive slowly over a bump with one side of the car and listen for the side the knock comes from."
+     ],
+     "shop": [
+      "Sway bar link and bushing inspection",
+      "Suspension inspection on a lift"
+     ]
+    }
+   }
+  },
+  "r_struts": {
+   "result": {
+    "title": "Worn shocks, struts or their mounts are likely",
+    "urgency": "check",
+    "now": "Book a suspension check within the next week or two, and slow down for big bumps and potholes until then.",
+    "if": [
+     "If the car bottoms out hard, nosedives when braking, or a corner sits lower, get it checked within a few days.",
+     "If you see oil running down a shock or strut, mention it. That usually means it has failed."
+    ],
+    "why": "Shocks and struts control how the car moves after a bump. When they wear, the suspension can hit its stops and thud, and the car bounces more. Worn strut mounts or bump stops can also clunk. Worn shocks make stopping distances longer and the car less stable.",
+    "causes": [
+     {
+      "name": "Worn shocks or struts",
+      "clues": "The car keeps bouncing after bumps, or the tires show cupped wear.",
+      "against": ""
+     },
+     {
+      "name": "Worn strut mount or bearing",
+      "clues": "A clunk from the top of the suspension, sometimes when turning the steering wheel too.",
+      "against": ""
+     },
+     {
+      "name": "Missing or broken bump stop",
+      "clues": "A hard thud only on big dips or with a heavy load.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Push down hard on each corner of the car and let go. It should settle after about one bounce.",
+      "Look for oily wetness on the shocks or struts."
+     ],
+     "shop": [
+      "Shock and strut inspection",
+      "Strut mount and bump stop check",
+      "Road test"
+     ]
+    }
+   }
+  },
+  "r_ball_joint_tie_rod": {
+   "result": {
+    "title": "A worn ball joint or tie rod end is likely",
+    "urgency": "soon",
+    "now": "Get the front suspension and steering checked within a few days. Drive gently, avoid potholes and keep to short trips until then.",
+    "if": [
+     "If the steering feels loose, the car wanders or a wheel looks tilted, stop driving and have it towed.",
+     "If the clunk gets louder quickly, don't wait. Get it checked right away."
+    ],
+    "why": "Ball joints and tie rod ends are the pivots that let the front wheels steer and move up and down. When they wear, they clunk over bumps and especially when turning. Unlike a sway bar link, a badly worn ball joint can separate and cause a loss of control.",
+    "causes": [
+     {
+      "name": "Worn lower or upper ball joint",
+      "clues": "Clunking when turning into driveways or over curbs, and uneven tire wear.",
+      "against": ""
+     },
+     {
+      "name": "Worn tie rod end",
+      "clues": "Some play or looseness in the steering wheel.",
+      "against": ""
+     },
+     {
+      "name": "Worn strut mount",
+      "clues": "A clunk or pop when turning the steering wheel while parked.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the front tires for wear on the inside or outside edge.",
+      "Note whether there's any play in the steering wheel."
+     ],
+     "shop": [
+      "Ball joint play check with the car lifted",
+      "Tie rod end inspection",
+      "Alignment check after repair"
+     ]
+    }
+   }
+  },
+  "r_control_arm_bushings": {
+   "result": {
+    "title": "Worn control arm bushings are likely",
+    "urgency": "check",
+    "now": "Book a suspension check within the next week or two.",
+    "if": [
+     "If the car pulls when braking or the steering feels vague, get it checked within a few days.",
+     "If you also feel a clunk when shifting into gear, mention it. Worn engine or transmission mounts can feel similar."
+    ],
+    "why": "Control arms hold each wheel in position, and they mount to the car through rubber bushings. When the rubber cracks or tears, the arm shifts back and forth as you brake, accelerate and hit bumps, causing a clunk.",
+    "causes": [
+     {
+      "name": "Worn control arm bushings",
+      "clues": "Clunks when braking, starting off and over bumps, sometimes with a pull when braking.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine or transmission mount",
+      "clues": "A clunk when shifting into Drive or Reverse, or when you press the gas hard.",
+      "against": ""
+     },
+     {
+      "name": "Worn ball joint",
+      "clues": "The clunk is worse when turning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the clunk happens when braking, accelerating, or both."
+     ],
+     "shop": [
+      "Control arm bushing inspection with a pry bar",
+      "Engine and transmission mount check",
+      "Alignment check after repair"
+     ]
+    }
+   }
+  },
+  "r_loose_cargo": {
+   "result": {
+    "title": "It may just be something loose in the back",
+    "urgency": "diy",
+    "now": "Empty the trunk or cargo area, check that the spare tire and jack are clamped down tightly, then drive the same route again.",
+    "if": [
+     "If the clunk is gone, it was the cargo or spare. Secure it.",
+     "If the clunk is still there, book a suspension check."
+    ],
+    "why": "A loose spare tire, jack, toolkit or items rolling around in the back can make a surprisingly suspension-like clunk over bumps. It takes a few minutes to rule out before paying for an inspection.",
+    "causes": [
+     {
+      "name": "Loose spare tire or jack",
+      "clues": "The clunk is in the very back and sounds hollow.",
+      "against": ""
+     },
+     {
+      "name": "Items in the trunk or a loose seat latch",
+      "clues": "It changes with what you carry.",
+      "against": ""
+     },
+     {
+      "name": "Worn rear shock or link",
+      "clues": "The clunk stays after emptying the back.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Empty the trunk and tighten the spare tire hold-down.",
+      "Check that the rear seats latch firmly."
+     ],
+     "shop": [
+      "Rear suspension inspection if the noise continues"
+     ]
+    }
+   }
+  },
+  "r_driveline_clunk": {
+   "result": {
+    "title": "A worn driveline part or mount may be clunking",
+    "urgency": "check",
+    "now": "Book a check within the next week or two and mention that it also clunks when shifting into gear or taking off.",
+    "if": [
+     "If you feel a vibration that gets worse with speed, get it checked within a few days. A worn U-joint can fail.",
+     "If there's a loud bang and the car stops moving under power, don't drive it. Have it towed."
+    ],
+    "why": "A clunk that happens both over bumps and when the drivetrain takes up power points to something with play in it, like a universal joint on the driveshaft, a mount, or the rear axle bushings.",
+    "causes": [
+     {
+      "name": "Worn universal (U) joint",
+      "clues": "A clunk when shifting into gear on rear-wheel or 4WD vehicles, sometimes with a squeak or vibration.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine, transmission or differential mount",
+      "clues": "The clunk is loudest when starting off or letting off the gas suddenly.",
+      "against": ""
+     },
+     {
+      "name": "Worn rear axle or trailing arm bushings",
+      "clues": "Clunks over bumps and when braking from the rear.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the clunk happens when shifting between Drive and Reverse while stopped."
+     ],
+     "shop": [
+      "U-joint and driveshaft inspection",
+      "Engine and transmission mount check",
+      "Rear suspension bushing inspection"
+     ]
+    }
+   }
+  },
+  "r_general_suspension": {
+   "result": {
+    "title": "Something in the suspension is worn. A lift inspection will find it",
+    "urgency": "check",
+    "now": "Book a suspension and steering inspection within the next week or two, and slow down for bumps until then.",
+    "if": [
+     "If the steering feels loose, the car wanders, or the clunk gets suddenly louder, get it checked right away.",
+     "If it only happens in the back and could be cargo, empty the trunk first and see if it stops."
+    ],
+    "why": "Many suspension parts can clunk, and they're much easier to tell apart with the car lifted and the parts pried on. Most causes are wear items, but some, like ball joints, affect steering control, so it's worth not putting it off for long.",
+    "causes": [
+     {
+      "name": "Worn sway bar link",
+      "clues": "A light knock on rough roads.",
+      "against": ""
+     },
+     {
+      "name": "Worn shock, strut or mount",
+      "clues": "A heavier thud and more bouncing.",
+      "against": ""
+     },
+     {
+      "name": "Worn ball joint or tie rod",
+      "clues": "Clunking that's worse when turning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound while driving over a speed bump.",
+      "Note when it happens: small bumps, big bumps, turning or braking."
+     ],
+     "shop": [
+      "Suspension and steering inspection on a lift",
+      "Road test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "squeaking-over-bumps",
+  "bouncy-ride",
+  "loose-or-wandering-steering",
+  "rattle-under-car",
+  "clicking-when-turning"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises"
+  ],
+  "words": [
+   "clunk",
+   "sway bar",
+   "stabilizer",
+   "ball joint",
+   "strut",
+   "control arm",
+   "bushing",
+   "tie rod",
+   "suspension"
+  ]
+ },
+ "sources": [
+  "https://www.ifixit.com/Wiki/Diagnosing_Suspension_Knocks",
+  "https://www.carwhere.com/symptoms/bad-ball-joint"
+ ]
+}

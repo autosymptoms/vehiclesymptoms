@@ -1,0 +1,592 @@
+{
+ "id": "car-pulls-when-braking",
+ "title": "Car pulls when braking",
+ "h1": "Why does my car pull to one side when I brake?",
+ "metaDesc": "Car pulls left or right when you brake? See if it's a sticking caliper, tires or suspension, how urgent it is, and what to tell your mechanic.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "car pulls when braking",
+  "car pulls to the right when braking",
+  "car pulls to the left when braking",
+  "brakes pull to one side",
+  "car veers when I brake",
+  "steering wheel jerks when braking",
+  "car swerves when braking",
+  "brake pull",
+  "pulls to one side when stopping",
+  "car darts to one side under braking",
+  "sticking brake caliper",
+  "one brake not working",
+  "car pulling when i hit the brakes"
+ ],
+ "intro": "A car should stop in a straight line. If it tugs left or right when you brake, one side is braking harder than the other, or something in the steering or suspension is shifting. Answer the questions below and we'll point you to the most likely cause and how soon it needs attention.",
+ "safety": [
+  "If the brake pedal sinks toward the floor or feels soft, stop driving and have the car towed.",
+  "If the red brake warning light comes on while driving, pull over safely and don't continue.",
+  "If you see smoke or smell strong burning from a wheel, pull over and let it cool. Don't touch the wheel."
+ ],
+ "start": "q_warning_signs",
+ "nodes": {
+  "q_warning_signs": {
+   "q": "Along with the pull, do you notice any of these?",
+   "help": "These signs tell us whether the brakes themselves are failing, which changes how urgent this is.",
+   "opts": [
+    {
+     "a": "The brake pedal feels soft, sinks, or the red brake warning light is on",
+     "go": "r_hydraulic"
+    },
+    {
+     "a": "A grinding or metal-on-metal scraping noise when I brake",
+     "go": "r_metal_to_metal"
+    },
+    {
+     "a": "A burning smell, or one wheel is much hotter than the others after a drive",
+     "go": "r_sticking_caliper"
+    },
+    {
+     "a": "The steering wheel shakes or the pedal pulses when I brake",
+     "go": "r_rotors"
+    },
+    {
+     "a": "None of these, it just pulls",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "Does the car also drift to one side when you're NOT braking?",
+   "help": "On a straight, flat road, loosen your grip slightly for a second or two. A small drift toward the edge of the road is normal on crowned roads. A steady tug to one side is not.",
+   "opts": [
+    {
+     "a": "Yes, it drifts a little even when cruising",
+     "go": "q_tires"
+    },
+    {
+     "a": "No, it only pulls when I brake",
+     "go": "q_brake_pattern"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_tires": {
+   "q": "Check the tire pressures with a gauge when the tires are cold. What did you find?",
+   "help": "The correct pressures are on a sticker inside the driver's door jamb, not the number on the tire sidewall.",
+   "opts": [
+    {
+     "a": "One tire is noticeably lower than the rest",
+     "go": "r_tire_pressure"
+    },
+    {
+     "a": "All pressures are correct",
+     "go": "r_alignment_and_brakes"
+    },
+    {
+     "a": "I haven't checked / I'm not sure",
+     "go": "r_tire_pressure"
+    }
+   ]
+  },
+  "q_brake_pattern": {
+   "q": "Which of these fits best?",
+   "opts": [
+    {
+     "a": "It started right after brake work or new tires",
+     "go": "r_recent_work"
+    },
+    {
+     "a": "It always pulls the same way, and harder the harder I brake",
+     "go": "r_one_side_brake"
+    },
+    {
+     "a": "I feel a clunk or shift when I first press the brake, then the pull",
+     "go": "r_suspension"
+    },
+    {
+     "a": "There's a wet, oily spot on the inside of one wheel or tire",
+     "go": "r_fluid_on_brakes"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_one_side_brake"
+    }
+   ]
+  },
+  "r_hydraulic": {
+   "result": {
+    "title": "The brake system may be losing pressure. Don't drive it",
+    "urgency": "stop",
+    "now": "Park the car and have it towed, or have a mobile mechanic come to you.",
+    "if": [
+     "If the brake fluid reservoir is low or you see fluid near a wheel, mention that to the shop. It points to a leak.",
+     "If the pedal still goes to the floor after pumping it, the brakes may not stop the car at all. Don't move it."
+    ],
+    "why": "A soft or sinking pedal, or the red brake light, means the hydraulic system that pushes the brake pads isn't holding pressure. When one side loses pressure, the car pulls toward the side that's still braking, and full brake failure can follow.",
+    "causes": [
+     {
+      "name": "Brake fluid leak",
+      "clues": "Low fluid in the reservoir, or a wet spot near a wheel or under the car.",
+      "against": "A full reservoir and dry wheels make a leak less likely."
+     },
+     {
+      "name": "Damaged brake hose or line",
+      "clues": "Rust on the metal lines, or a cracked or bulging rubber hose near one wheel.",
+      "against": ""
+     },
+     {
+      "name": "Failing master cylinder",
+      "clues": "The pedal slowly sinks while you hold it down at a stop, with no visible leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the brake fluid level in the reservoir under the hood.",
+      "Look behind each wheel for wet, oily spots."
+     ],
+     "shop": [
+      "Brake system leak inspection",
+      "Brake hose and line inspection",
+      "Master cylinder test"
+     ]
+    }
+   }
+  },
+  "r_metal_to_metal": {
+   "result": {
+    "title": "The brake pads on one side are likely worn down to metal",
+    "urgency": "stop",
+    "now": "Stop using the car and have it towed or call a mobile mechanic. Each stop is making the damage worse.",
+    "if": [
+     "If the grinding only happens for the first few stops after rain or a car wash, it may be light surface rust. Have the brakes inspected anyway, since you also have a pull.",
+     "If the pedal also feels soft or sinks, treat it as a brake failure risk and don't move the car."
+    ],
+    "why": "Grinding plus a pull usually means one side's pads are gone and metal is scraping on the rotor. That side brakes poorly and unevenly, so the car tugs and stopping distances get longer.",
+    "causes": [
+     {
+      "name": "Brake pads worn to the backing plate",
+      "clues": "A squeal for weeks that turned into grinding, or it's been a long time since the last brake job.",
+      "against": ""
+     },
+     {
+      "name": "Sticking caliper that wore one side's pads early",
+      "clues": "One wheel is dirtier with brake dust or hotter than the others.",
+      "against": ""
+     },
+     {
+      "name": "A stone or debris caught in the brake",
+      "clues": "The noise started suddenly, often after a gravel road.",
+      "against": "Debris usually makes a constant scraping, not just when braking."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look through the wheel spokes at the pads. Very thin pads or shiny grooves in the rotor are bad signs."
+     ],
+     "shop": [
+      "Brake pad and rotor measurement",
+      "Caliper and slide pin inspection",
+      "Rotor surface inspection"
+     ]
+    }
+   }
+  },
+  "r_sticking_caliper": {
+   "result": {
+    "title": "A brake caliper is likely sticking and dragging on one wheel",
+    "urgency": "soon",
+    "now": "Get it to a shop within a day or two. Keep trips short and avoid highways until it's fixed.",
+    "if": [
+     "If you see smoke from a wheel or the smell is strong, pull over, let it cool, and have it towed.",
+     "If the car pulls even when you're not braking and feels like it's held back, the brake may be stuck on. Don't drive it."
+    ],
+    "why": "A caliper squeezes the pads against the rotor. If its piston or slide pins stick, that brake drags or grabs unevenly, so the car pulls and the wheel gets very hot. Overheated brakes can fade and stop working well.",
+    "causes": [
+     {
+      "name": "Sticking caliper piston",
+      "clues": "One wheel is much hotter than the others, and that side has more brake dust.",
+      "against": ""
+     },
+     {
+      "name": "Seized caliper slide pins",
+      "clues": "Uneven wear between the inner and outer pad on the same wheel.",
+      "against": ""
+     },
+     {
+      "name": "Collapsed brake hose holding pressure",
+      "clues": "The drag gets worse after several stops and eases after the car sits.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "After a short drive, hold your hand near (not on) each wheel. One much hotter than the others is a strong clue.",
+      "Compare brake dust on the front wheels."
+     ],
+     "shop": [
+      "Caliper piston and slide pin inspection",
+      "Wheel spin test with the car raised",
+      "Brake hose inspection",
+      "Pad wear comparison side to side"
+     ]
+    }
+   }
+  },
+  "r_rotors": {
+   "result": {
+    "title": "Uneven brake rotors are likely causing both the shake and the pull",
+    "urgency": "check",
+    "now": "Book a brake inspection in the next week or two. Leave extra following distance until then.",
+    "if": [
+     "If the shaking is getting worse quickly or you also hear grinding, get it checked within a day or two.",
+     "If one wheel is also hotter than the others, a sticking caliper may have damaged the rotor. Get it checked sooner."
+    ],
+    "why": "When a rotor's surface wears unevenly, the pads grab harder in some spots than others. You feel that as a pulsing pedal or shaking wheel, and if one side is worse the car can tug toward it.",
+    "causes": [
+     {
+      "name": "Uneven rotor thickness or deposits",
+      "clues": "The shake is strongest when braking from highway speed.",
+      "against": ""
+     },
+     {
+      "name": "Sticking caliper overheating one rotor",
+      "clues": "One wheel runs hotter, or has more brake dust.",
+      "against": ""
+     },
+     {
+      "name": "Worn suspension or steering parts",
+      "clues": "Clunks over bumps, or the steering feels loose.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether the shake is in the steering wheel (usually front brakes) or the seat and pedal (often rear brakes)."
+     ],
+     "shop": [
+      "Rotor thickness and runout measurement",
+      "Caliper inspection",
+      "Suspension and steering inspection"
+     ]
+    }
+   }
+  },
+  "r_tire_pressure": {
+   "result": {
+    "title": "Uneven tire pressure is a common, easy-to-fix cause of a pull",
+    "urgency": "diy",
+    "now": "Check all four tires with a gauge when cold and set them to the pressures on the driver's door jamb sticker.",
+    "if": [
+     "If the same tire is low again within a few days, it has a slow leak. Get it repaired soon.",
+     "If the pull is still there with correct pressures, have the alignment and brakes checked."
+    ],
+    "why": "A low tire has more drag and a different grip than the others, so the car drifts toward it, and braking makes that pull stronger. It's the quickest thing to rule out.",
+    "causes": [
+     {
+      "name": "Low pressure in one tire",
+      "clues": "One tire looks lower, or the tire pressure light has been on.",
+      "against": ""
+     },
+     {
+      "name": "Mismatched or unevenly worn tires",
+      "clues": "Different tire brands or tread depths on the same axle.",
+      "against": ""
+     },
+     {
+      "name": "Wheel alignment out of spec",
+      "clues": "The steering wheel sits off-center when driving straight.",
+      "against": "If correcting the pressure fixes it, alignment is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check and set all tire pressures.",
+      "Compare tread depth and tire type left to right."
+     ],
+     "shop": [
+      "Tire leak inspection",
+      "Wheel alignment check",
+      "Brake inspection"
+     ]
+    }
+   }
+  },
+  "r_alignment_and_brakes": {
+   "result": {
+    "title": "Likely alignment or a tire issue, possibly with a dragging brake",
+    "urgency": "check",
+    "now": "Book an alignment and brake inspection when convenient, ideally within a couple of weeks.",
+    "if": [
+     "If one wheel feels much hotter than the others after a drive, a brake may be dragging. Get it checked within a day or two.",
+     "If the steering also feels loose or clunks over bumps, get it checked sooner."
+    ],
+    "why": "A car that drifts while cruising and pulls harder when braking usually has a steady cause, like alignment or a tire problem, that braking makes more noticeable. A brake that's slightly dragging can do the same thing.",
+    "causes": [
+     {
+      "name": "Wheel alignment out of spec",
+      "clues": "A recent pothole or curb hit, or the steering wheel sits off-center.",
+      "against": ""
+     },
+     {
+      "name": "Tire problem (uneven wear or internal damage)",
+      "clues": "The pull changes if the front tires are swapped side to side.",
+      "against": ""
+     },
+     {
+      "name": "Dragging brake",
+      "clues": "One wheel is hotter or dustier than the other.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "After a drive, compare how warm each wheel feels by holding your hand near it.",
+      "Look at the front tires for wear on just one edge."
+     ],
+     "shop": [
+      "Wheel alignment check",
+      "Tire inspection",
+      "Brake drag check"
+     ]
+    }
+   }
+  },
+  "r_recent_work": {
+   "result": {
+    "title": "Something from the recent work may need adjusting",
+    "urgency": "check",
+    "now": "Take it back to the shop that did the work within the next few days and tell them exactly when it pulls.",
+    "if": [
+     "If the pedal feels soft or the pull is strong or sudden, don't drive it. Have the shop come to you or have it towed.",
+     "If new pads were installed, a slight pull for the first few dozen stops can happen while they bed in. If it doesn't fade, have it checked."
+    ],
+    "why": "A pull that shows up right after brake or tire work usually comes from that work. Mismatched pads, a caliper not moving freely, air in the brake lines, or tires that differ side to side can all cause one side to brake differently.",
+    "causes": [
+     {
+      "name": "Caliper or pads not installed or lubricated correctly",
+      "clues": "The pull started right after a brake job.",
+      "against": ""
+     },
+     {
+      "name": "Mismatched or new tires on one side",
+      "clues": "Only one or two tires were replaced, or tires were rotated.",
+      "against": ""
+     },
+     {
+      "name": "Air in the brake lines",
+      "clues": "The pedal feels softer than before the work.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note which way it pulls and how hard you're braking when it happens.",
+      "Check the tire pressures."
+     ],
+     "shop": [
+      "Recheck of brake installation",
+      "Brake bleed if the pedal is soft",
+      "Tire match and pressure check"
+     ]
+    }
+   }
+  },
+  "r_one_side_brake": {
+   "result": {
+    "title": "One side is likely braking harder than the other",
+    "urgency": "soon",
+    "now": "Get the brakes inspected within the next few days. Until then, brake early and gently, and leave extra following distance.",
+    "if": [
+     "If the pull suddenly gets stronger, the pedal changes, or you hear grinding, stop driving it and have it towed.",
+     "If one wheel is much hotter than the others after driving, a caliper is likely sticking. Get it checked within a day or two."
+    ],
+    "why": "A consistent pull that grows with harder braking means the brakes on the left and right aren't gripping equally. The car pulls toward the side that's working better, so the other side may barely be braking.",
+    "causes": [
+     {
+      "name": "Sticking caliper or seized slide pins",
+      "clues": "Uneven brake dust or uneven pad wear between sides.",
+      "against": ""
+     },
+     {
+      "name": "Contaminated brake pads",
+      "clues": "A leak near one wheel, or recent work that may have left grease on the pads.",
+      "against": ""
+     },
+     {
+      "name": "Collapsed or blocked brake hose",
+      "clues": "The pull is worse after several stops in a row.",
+      "against": ""
+     },
+     {
+      "name": "Uneven tire pressure",
+      "clues": "One tire looks lower than the others.",
+      "against": "If the car doesn't drift at all when not braking, this is less likely."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check tire pressures.",
+      "Compare the brake dust and wheel warmth on each side after a short drive."
+     ],
+     "shop": [
+      "Brake inspection with pad and rotor measurement",
+      "Caliper and slide pin check",
+      "Brake hose inspection"
+     ]
+    }
+   }
+  },
+  "r_suspension": {
+   "result": {
+    "title": "Worn suspension or steering parts may be shifting when you brake",
+    "urgency": "soon",
+    "now": "Have the suspension and steering inspected within the next few days. Avoid hard braking until then.",
+    "if": [
+     "If the steering suddenly feels very loose, wanders a lot, or you hear a loud clunk followed by a change in steering, stop driving it and have it towed."
+    ],
+    "why": "Braking shifts a lot of weight forward. If a control arm bushing, ball joint or tie rod is worn, the wheel can move out of position under that load. The clunk is the part shifting, and the pull follows.",
+    "causes": [
+     {
+      "name": "Worn control arm bushings",
+      "clues": "A clunk when you start braking, and the pull eases once the car settles.",
+      "against": ""
+     },
+     {
+      "name": "Worn ball joint or tie rod end",
+      "clues": "Clunks over bumps, loose-feeling steering, or uneven tire wear.",
+      "against": ""
+     },
+     {
+      "name": "Loose brake caliper mounting",
+      "clues": "A clunk at the moment you press or release the brake, at one wheel.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether you hear clunks over bumps too.",
+      "Look at the front tires for wear on just one edge."
+     ],
+     "shop": [
+      "Suspension and steering inspection with the wheels off the ground",
+      "Ball joint and tie rod play check",
+      "Caliper mounting check"
+     ]
+    }
+   }
+  },
+  "r_fluid_on_brakes": {
+   "result": {
+    "title": "Fluid may be leaking onto the brakes at one wheel",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed or have a mobile mechanic check that wheel.",
+    "if": [
+     "If the brake fluid reservoir is low, the leak is probably brake fluid. Brake failure is a real risk.",
+     "If the reservoir is full, the fluid may be gear oil or grease from an axle seal, which can still soak the pads and reduce braking on that side."
+    ],
+    "why": "Pads soaked with fluid lose much of their grip, so that wheel barely brakes and the car pulls toward the other side. If the fluid is brake fluid, the whole system can also lose pressure.",
+    "causes": [
+     {
+      "name": "Leaking brake caliper or wheel cylinder",
+      "clues": "Low brake fluid, a wet caliper or wet inside surface of the tire.",
+      "against": ""
+     },
+     {
+      "name": "Leaking brake hose or line",
+      "clues": "Fluid along a hose or line near the wheel.",
+      "against": ""
+     },
+     {
+      "name": "Axle seal or grease leak",
+      "clues": "Thick, dark, smelly oil on a rear wheel, with full brake fluid.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the brake fluid level under the hood.",
+      "Note which wheel is wet."
+     ],
+     "shop": [
+      "Brake leak inspection",
+      "Pad and shoe replacement if contaminated",
+      "Axle seal inspection"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "A brake pull needs a proper inspection to find the cause",
+    "urgency": "soon",
+    "now": "Check your tire pressures, then get the brakes and steering inspected within the next few days.",
+    "if": [
+     "If the pedal goes soft, the red brake light comes on, or you hear grinding, stop driving and have it towed.",
+     "If the pull is getting stronger, get it checked within a day or two."
+    ],
+    "why": "A car that pulls when braking has an imbalance between the left and right side, in the brakes, tires or suspension. Most causes are straightforward to fix, but some get worse quickly, so it shouldn't wait long.",
+    "causes": [
+     {
+      "name": "Sticking caliper or uneven brakes",
+      "clues": "One wheel hotter or dustier than the others.",
+      "against": ""
+     },
+     {
+      "name": "Tire pressure or tire problem",
+      "clues": "One tire low or worn differently.",
+      "against": ""
+     },
+     {
+      "name": "Worn suspension or alignment",
+      "clues": "Clunks over bumps or an off-center steering wheel.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check tire pressures.",
+      "Note which way it pulls and whether it happens on every stop."
+     ],
+     "shop": [
+      "Brake inspection",
+      "Suspension and steering inspection",
+      "Wheel alignment check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "car-pulls-to-one-side",
+  "car-shakes-when-braking",
+  "grinding-brakes",
+  "brakes-dragging",
+  "soft-or-spongy-brake-pedal"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "brake",
+   "caliper",
+   "pull",
+   "pad",
+   "rotor",
+   "brake hose",
+   "alignment",
+   "ball joint"
+  ]
+ },
+ "sources": [
+  "https://www.nhtsa.gov/recalls",
+  "https://www.kwik-fit.com/blog/how-to-tell-if-your-brake-caliper-is-stuck"
+ ]
+}

@@ -1,0 +1,581 @@
+{
+ "id": "rough-idle-shaking",
+ "title": "Rough idle or shaking when stopped",
+ "h1": "Why does my car shake or idle rough when stopped?",
+ "metaDesc": "Rough idle or shaking at a stop? Answer a few quick questions to see if it's a misfire, vacuum leak or engine mounts, how urgent it is, and what to tell your mechanic.",
+ "group": "shake",
+ "cat": "Driving",
+ "synonyms": [
+  "rough idle",
+  "car shakes when stopped",
+  "engine shaking at idle",
+  "car vibrates at red light",
+  "car shakes in drive when stopped",
+  "idle is rough and shaky",
+  "engine shudders at idle",
+  "car shakes when idling",
+  "rough idle check engine light",
+  "rpm fluctuating at idle",
+  "bad motor mounts shaking",
+  "car shakes with ac on",
+  "ruff idle",
+  "engine idles rough when cold"
+ ],
+ "intro": "An engine that shakes at a stop is either running unevenly or passing normal vibration into the car through worn mounts. Warning lights and the way the shake changes with gear, A/C and temperature tell these apart quickly. Answer the questions below to find the most likely cause and how soon to act.",
+ "safety": [
+  "If the check engine light is flashing, pull over safely and turn off the engine.",
+  "If the temperature gauge is in the red or you see steam, pull over and turn off the engine.",
+  "If the oil pressure light comes on, stop the engine as soon as it's safe.",
+  "If you smell raw fuel, turn off the engine and keep sparks and flames away."
+ ],
+ "start": "q_warning",
+ "nodes": {
+  "q_warning": {
+   "q": "Do you see any of these warning signs on the dash?",
+   "help": "The check engine light is the amber engine-shaped symbol. The oil pressure light looks like a red oil can.",
+   "opts": [
+    {
+     "a": "The check engine light is flashing",
+     "go": "r_flashing"
+    },
+    {
+     "a": "The temperature gauge is high or in the red, or there's steam",
+     "go": "r_overheat"
+    },
+    {
+     "a": "The red oil pressure light is on",
+     "go": "r_oil_pressure"
+    },
+    {
+     "a": "The check engine light is on steady",
+     "go": "q_light_on"
+    },
+    {
+     "a": "No warning lights",
+     "go": "q_no_light"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_light_on"
+    }
+   ]
+  },
+  "q_light_on": {
+   "q": "What else do you notice?",
+   "opts": [
+    {
+     "a": "It also stumbles, jerks or feels weak when I accelerate",
+     "go": "r_misfire"
+    },
+    {
+     "a": "A hissing sound from the engine, or the idle speed goes up and down",
+     "go": "r_vacuum_leak"
+    },
+    {
+     "a": "It only shakes at idle and drives fine",
+     "go": "r_vacuum_leak"
+    },
+    {
+     "a": "I smell raw fuel",
+     "go": "r_fuel_smell"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_scan"
+    }
+   ]
+  },
+  "q_no_light": {
+   "q": "How does the shaking behave?",
+   "help": "Engine mounts are rubber blocks that hold the engine in place and soak up its vibration.",
+   "opts": [
+    {
+     "a": "Worse in Drive or Reverse at a stop, smoother in Park or Neutral",
+     "go": "r_mounts"
+    },
+    {
+     "a": "There's a clunk or jolt when I shift or accelerate",
+     "go": "r_mounts"
+    },
+    {
+     "a": "Worse when the A/C is on",
+     "go": "r_idle_load"
+    },
+    {
+     "a": "Rough only when cold, and smooths out when warm",
+     "go": "r_cold_idle"
+    },
+    {
+     "a": "Rough and uneven all the time, even in Park",
+     "go": "r_idle_air"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_scan"
+    }
+   ]
+  },
+  "r_flashing": {
+   "result": {
+    "title": "A severe misfire is likely, and it can damage the catalytic converter",
+    "urgency": "stop",
+    "now": "Pull over safely and turn off the engine. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the light stops flashing after a restart, the problem is still there. Get it checked before driving any distance.",
+     "If you see smoke or smell burning from under the car, get away from the car and call for help."
+    ],
+    "why": "A flashing check engine light means the engine is misfiring badly enough to send unburned fuel into the exhaust. That fuel can overheat the catalytic converter within minutes and ruin it, and the shaking itself means a cylinder isn't doing its share.",
+    "causes": [
+     {
+      "name": "Failed ignition coil or spark plug",
+      "clues": "A sudden, rhythmic shake at idle and when accelerating.",
+      "against": ""
+     },
+     {
+      "name": "Fuel injector not working",
+      "clues": "The misfire stays on one cylinder after the ignition parts check out.",
+      "against": ""
+     },
+     {
+      "name": "Mechanical engine problem",
+      "clues": "A ticking or knocking noise, or a recent overheat.",
+      "against": "Much less common than an ignition problem."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note when the flashing started and whether the shaking was sudden."
+     ],
+     "shop": [
+      "Code scan for misfire codes",
+      "Spark plug and coil inspection",
+      "Fuel injector test",
+      "Compression test"
+     ]
+    }
+   }
+  },
+  "r_overheat": {
+   "result": {
+    "title": "The engine may be overheating. Stop before it causes damage",
+    "urgency": "stop",
+    "now": "Pull over safely and turn off the engine. Don't open the radiator cap while it's hot. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If you see steam or coolant leaking, stay clear of the engine until it cools completely.",
+     "If the coolant was low and you top it up, still have the cooling system checked before driving. Running hot again can warp the cylinder head."
+    ],
+    "why": "An engine that runs too hot can start to misfire and shake, and continued driving can damage the head gasket or the engine itself. A rough idle with high temperature is a sign to stop right away.",
+    "causes": [
+     {
+      "name": "Low coolant from a leak",
+      "clues": "A sweet smell, steam, or a puddle of green, orange or pink fluid.",
+      "against": ""
+     },
+     {
+      "name": "Cooling fan not working",
+      "clues": "It overheats mostly at idle or in traffic, and cools down on the highway.",
+      "against": ""
+     },
+     {
+      "name": "Head gasket failure",
+      "clues": "White exhaust smoke with a sweet smell, or coolant keeps disappearing.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once the engine is completely cool, check the coolant level in the see-through reservoir.",
+      "Look for puddles under the front of the car."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Cooling fan operation check",
+      "Combustion gas test for a head gasket leak"
+     ]
+    }
+   }
+  },
+  "r_oil_pressure": {
+   "result": {
+    "title": "The engine may be low on oil or losing oil pressure",
+    "urgency": "stop",
+    "now": "Turn off the engine as soon as it's safe. Check the oil level once it's parked on level ground. Don't run the engine again until the cause is found.",
+    "if": [
+     "If the oil is very low, adding oil may turn the light off, but have it checked before driving. Find out where the oil went.",
+     "If the oil level is full and the light is still on, have it towed. The oil pump or a sensor may have failed."
+    ],
+    "why": "Low oil pressure means the engine's moving parts aren't getting enough lubrication. Running it this way can destroy the engine within minutes, and a rough idle with this light can mean damage is already starting.",
+    "causes": [
+     {
+      "name": "Low oil level",
+      "clues": "An oil leak, burning oil, or a long time since the last oil change.",
+      "against": ""
+     },
+     {
+      "name": "Failing oil pump or clogged pickup",
+      "clues": "The oil level is fine but the light stays on, maybe with a ticking or knocking sound.",
+      "against": ""
+     },
+     {
+      "name": "Faulty oil pressure sensor",
+      "clues": "The light flickers, and the engine sounds normal.",
+      "against": "Don't assume it's the sensor until pressure is tested."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off and the car level, check the oil dipstick."
+     ],
+     "shop": [
+      "Mechanical oil pressure test",
+      "Oil leak inspection",
+      "Oil pressure sensor check"
+     ]
+    }
+   }
+  },
+  "r_misfire": {
+   "result": {
+    "title": "Most likely a misfire from a worn ignition part",
+    "urgency": "soon",
+    "now": "Have the engine scanned for codes within the next few days. Until then, keep trips short and avoid hard acceleration.",
+    "if": [
+     "If the check engine light starts flashing, pull over and turn off the engine.",
+     "If the spark plugs are due by your maintenance schedule, mention it. They're a common cause."
+    ],
+    "why": "When one cylinder doesn't fire properly, the engine loses its smooth rhythm and shakes, especially at idle and when accelerating. A steady check engine light along with stumbling points strongly to a misfire, and leaving it can damage the catalytic converter over time.",
+    "causes": [
+     {
+      "name": "Worn spark plugs",
+      "clues": "The plugs haven't been changed in a long time, or it's worse when accelerating.",
+      "against": ""
+     },
+     {
+      "name": "Failing ignition coil or plug wire",
+      "clues": "A misfire on one cylinder, or worse in damp weather.",
+      "against": ""
+     },
+     {
+      "name": "Clogged or failing fuel injector",
+      "clues": "The misfire stays on one cylinder after the ignition parts are checked.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your records for the last spark plug change.",
+      "Many auto parts stores will read the codes for you."
+     ],
+     "shop": [
+      "Code scan and misfire counts",
+      "Spark plug and coil inspection",
+      "Fuel injector test"
+     ]
+    }
+   }
+  },
+  "r_vacuum_leak": {
+   "result": {
+    "title": "A vacuum leak or dirty throttle body is the likely cause",
+    "urgency": "check",
+    "now": "Book a check and ask for a code scan and a vacuum leak test. Mention that it's worst at idle.",
+    "if": [
+     "If the engine starts stalling at stops, get it checked within a few days. Stalling in traffic is a safety risk.",
+     "If the check engine light starts flashing, pull over and turn off the engine."
+    ],
+    "why": "At idle, the engine runs on a small, carefully measured amount of air. A cracked hose or leaking gasket lets in extra air the computer doesn't know about, which makes the idle shaky or hunt up and down. A dirty throttle body can cause a similar rough idle.",
+    "causes": [
+     {
+      "name": "Cracked vacuum hose or leaking intake gasket",
+      "clues": "A hissing sound with the engine running, or a lean code on a scan.",
+      "against": ""
+     },
+     {
+      "name": "Dirty throttle body or idle control fault",
+      "clues": "A low or uneven idle that may improve slightly when you touch the gas.",
+      "against": ""
+     },
+     {
+      "name": "Faulty PCV valve or hose",
+      "clues": "A whistle or hiss, or oil residue around the hose.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine idling, listen carefully around the top of the engine for hissing.",
+      "Look for cracked or disconnected rubber hoses (keep hands clear of belts and fans)."
+     ],
+     "shop": [
+      "Code scan and fuel trim data",
+      "Smoke test for vacuum leaks",
+      "Throttle body inspection and cleaning"
+     ]
+    }
+   }
+  },
+  "r_fuel_smell": {
+   "result": {
+    "title": "A fuel leak or a leaking injector is possible",
+    "urgency": "stop",
+    "now": "Turn off the engine and look for wet spots or dripping fuel under the car and around the engine. If you find any or the smell is strong, have it towed.",
+    "if": [
+     "If you see fuel dripping, keep everyone away from the car and call for help.",
+     "If you can't find a leak and the smell is faint, still have it checked before driving. Fuel leaks are a fire risk."
+    ],
+    "why": "A rough idle with a raw fuel smell can mean an injector is leaking or stuck open, flooding a cylinder, or that fuel is leaking outside the engine. Either way, fuel near a hot engine is a fire risk.",
+    "causes": [
+     {
+      "name": "Leaking or stuck-open fuel injector",
+      "clues": "A misfire on one cylinder, black smoke, or hard starting when warm.",
+      "against": ""
+     },
+     {
+      "name": "Leaking fuel line or fuel rail",
+      "clues": "A wet spot or drips under the car or on the engine.",
+      "against": ""
+     },
+     {
+      "name": "Engine running very rich",
+      "clues": "Black smoke and a fuel smell at the tailpipe, with poor fuel economy.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for wet spots or drips under the car. Don't smoke or use flames nearby."
+     ],
+     "shop": [
+      "Fuel leak inspection",
+      "Fuel injector leak test",
+      "Code scan and fuel trim data"
+     ]
+    }
+   }
+  },
+  "r_mounts": {
+   "result": {
+    "title": "Worn engine or transmission mounts are the likely cause",
+    "urgency": "check",
+    "now": "Book an inspection of the engine and transmission mounts. Mention that it shakes more in Drive than in Park.",
+    "if": [
+     "If you hear loud clunks when shifting or accelerating, or the engine visibly lurches, get it checked within a few days.",
+     "If the shake is the same in Park and Drive, the engine itself may be running rough instead."
+    ],
+    "why": "Mounts are rubber blocks that hold the engine and soak up its normal vibration. When they crack or collapse, you feel the engine through the car, mostly in gear at a stop where the engine is pulling against the brakes. A badly broken mount can let the engine move enough to strain hoses and wiring.",
+    "causes": [
+     {
+      "name": "Worn or collapsed engine mount",
+      "clues": "More shaking in Drive or Reverse than in Park, and a clunk when shifting.",
+      "against": ""
+     },
+     {
+      "name": "Worn transmission mount",
+      "clues": "A clunk or jolt when accelerating from a stop.",
+      "against": ""
+     },
+     {
+      "name": "Engine idling slightly rough",
+      "clues": "The shake is there in Park too, or the idle speed wanders.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Compare the shake in Park, Neutral and Drive with your foot firmly on the brake."
+     ],
+     "shop": [
+      "Engine and transmission mount inspection",
+      "Watch for engine movement while shifting with the brakes held",
+      "Code scan to rule out a misfire"
+     ]
+    }
+   }
+  },
+  "r_idle_load": {
+   "result": {
+    "title": "The idle may be too low to handle the A/C load",
+    "urgency": "check",
+    "now": "Book a check when convenient and mention that the shake gets worse with the A/C on.",
+    "if": [
+     "If the engine stalls when the A/C kicks on, get it checked within a few days.",
+     "If it also shakes more in Drive than in Park, worn engine mounts may be adding to it."
+    ],
+    "why": "The A/C compressor adds load to the engine. The engine computer should raise the idle slightly to make up for it. If the idle control is dirty or a mount is worn, you feel the engine labor and shake.",
+    "causes": [
+     {
+      "name": "Dirty throttle body or idle control fault",
+      "clues": "The idle drops noticeably when the A/C turns on.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine mounts",
+      "clues": "The shake is also worse in Drive than in Park.",
+      "against": ""
+     },
+     {
+      "name": "A/C compressor problem",
+      "clues": "A grinding or rattling noise when the A/C turns on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "At a stop, switch the A/C on and off and watch whether the engine speed dips."
+     ],
+     "shop": [
+      "Idle control and throttle body check",
+      "Engine mount inspection",
+      "A/C compressor inspection"
+     ]
+    }
+   }
+  },
+  "r_cold_idle": {
+   "result": {
+    "title": "A cold-start rough idle often points to a sensor or carbon buildup",
+    "urgency": "check",
+    "now": "Book a check when convenient. Note the outside temperature and how long it takes to smooth out.",
+    "if": [
+     "If the check engine light comes on or it starts running rough when warm too, get it checked within a few days.",
+     "If it stalls when cold, mention it. That makes it more urgent."
+    ],
+    "why": "A cold engine needs extra fuel and a slightly higher idle. If a temperature sensor gives the computer a wrong reading, or carbon has built up on the valves or injectors, the engine can run rough until it warms up.",
+    "causes": [
+     {
+      "name": "Faulty coolant temperature sensor",
+      "clues": "The temperature gauge acts oddly, or fuel economy has dropped.",
+      "against": ""
+     },
+     {
+      "name": "Carbon buildup or dirty injectors",
+      "clues": "A higher-mileage engine, especially a direct-injection one.",
+      "against": ""
+     },
+     {
+      "name": "Small vacuum leak",
+      "clues": "A hiss that's louder when cold, as rubber and gaskets shrink.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note how long after a cold start the shake goes away."
+     ],
+     "shop": [
+      "Code scan and live sensor data",
+      "Smoke test for vacuum leaks",
+      "Injector and intake valve inspection"
+     ]
+    }
+   }
+  },
+  "r_idle_air": {
+   "result": {
+    "title": "The engine is running unevenly at idle. A misfire or air leak is likely",
+    "urgency": "check",
+    "now": "Book a check and ask for a code scan, even with no warning light. Problems at idle often show up as stored data before the light comes on.",
+    "if": [
+     "If the check engine light comes on or the car stumbles when accelerating, get it checked within a few days.",
+     "If the check engine light starts flashing, pull over and turn off the engine."
+    ],
+    "why": "A rough idle that's the same in Park and in gear comes from the engine itself, not the mounts. Early ignition wear, a small vacuum leak or a dirty throttle body are the usual causes, and they're easiest to fix before they cause a misfire.",
+    "causes": [
+     {
+      "name": "Worn spark plugs or weak ignition coil",
+      "clues": "A rhythmic shake or stumble, and plugs that are due for a change.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak",
+      "clues": "A hissing sound, or an idle speed that hunts up and down.",
+      "against": ""
+     },
+     {
+      "name": "Dirty throttle body",
+      "clues": "A low idle that improves slightly when you touch the gas.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your records for the last spark plug change.",
+      "Listen for hissing around the top of the engine while it idles."
+     ],
+     "shop": [
+      "Code scan, misfire counts and fuel trim data",
+      "Spark plug and coil inspection",
+      "Smoke test for vacuum leaks"
+     ]
+    }
+   }
+  },
+  "r_scan": {
+   "result": {
+    "title": "Get a code scan to narrow it down",
+    "urgency": "check",
+    "now": "Book a check and ask for a code scan. Note whether the shake changes in Park versus Drive and with the A/C on or off.",
+    "if": [
+     "If the check engine light starts flashing or the temperature gauge rises, pull over and turn off the engine.",
+     "If it starts stalling at stops, get it checked within a few days."
+    ],
+    "why": "A rough idle can come from the engine running unevenly or from worn mounts letting normal vibration through. A code scan and a quick test in different gears usually separate these in minutes.",
+    "causes": [
+     {
+      "name": "Misfire from worn ignition parts",
+      "clues": "A rhythmic shake, or stumbling when accelerating.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak or dirty throttle body",
+      "clues": "A hissing sound or a hunting idle speed.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine mounts",
+      "clues": "Worse in Drive than in Park, or a clunk when shifting.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video at idle showing the engine speed on the tachometer, with sound."
+     ],
+     "shop": [
+      "Code scan",
+      "Engine mount inspection",
+      "Smoke test for vacuum leaks"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "engine-sputtering-misfire",
+  "check-engine-light-on",
+  "check-engine-light-flashing",
+  "car-dies-when-coming-to-stop",
+  "engine-revs-high-at-idle"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Warning Lights"
+  ],
+  "words": [
+   "idle",
+   "rough",
+   "misfire",
+   "shake",
+   "vacuum leak",
+   "motor mount",
+   "spark plug",
+   "ignition coil",
+   "throttle body"
+  ]
+ },
+ "sources": [
+  "https://www.aa1car.com/library/vacleak.htm",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

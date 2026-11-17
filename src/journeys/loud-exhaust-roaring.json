@@ -1,0 +1,437 @@
+{
+ "id": "loud-exhaust-roaring",
+ "title": "Exhaust suddenly loud",
+ "h1": "Why is my exhaust suddenly so loud?",
+ "metaDesc": "Exhaust suddenly loud or roaring? Answer a few quick questions to see if it's a leak, a broken pipe or a stolen converter, how urgent it is, and what to do next.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "loud exhaust",
+  "exhaust suddenly loud",
+  "car sounds like a race car",
+  "car roaring when accelerating",
+  "loud rumbling from under car",
+  "exhaust leak",
+  "muffler loud",
+  "hole in muffler",
+  "car got really loud",
+  "catalytic converter stolen",
+  "exhaust ticking on cold start",
+  "car sounds like a motorcycle",
+  "loud car when I press the gas",
+  "exhaust pipe dragging"
+ ],
+ "intro": "When a car suddenly gets loud, exhaust gas is escaping before it reaches the muffler. Usually that's a rusted or broken part, but it can also mean exhaust fumes are getting into the cabin, which is dangerous. These questions help you tell the difference and decide what to do.",
+ "safety": [
+  "If you smell exhaust inside the car or feel headachy, dizzy or drowsy, stop driving, get out and get fresh air.",
+  "If part of the exhaust is dragging on the ground, pull over. It can come loose or start a fire in dry grass.",
+  "Never idle the car in a closed garage, and don't sit in a parked, running car with an exhaust leak.",
+  "Don't touch the exhaust after driving. It stays hot enough to burn for a long time."
+ ],
+ "start": "q_danger",
+ "nodes": {
+  "q_danger": {
+   "q": "Do you notice either of these?",
+   "help": "Exhaust fumes contain carbon monoxide, which you can't see or smell. A fume smell inside the car means it may be getting in too.",
+   "opts": [
+    {
+     "a": "An exhaust smell inside the car, or headache, dizziness or drowsiness while driving",
+     "go": "r_fumes"
+    },
+    {
+     "a": "Something hanging down or scraping the road under the car",
+     "go": "r_dragging"
+    },
+    {
+     "a": "Neither of these",
+     "go": "q_how"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_how"
+    }
+   ]
+  },
+  "q_how": {
+   "q": "How did the noise start?",
+   "opts": [
+    {
+     "a": "Suddenly and very loud the first time I started the car after it was parked",
+     "go": "r_cat_theft"
+    },
+    {
+     "a": "Suddenly, right after hitting a pothole, curb, speed bump or something in the road",
+     "go": "r_impact"
+    },
+    {
+     "a": "It has been getting louder gradually",
+     "go": "q_where"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_where"
+    }
+   ]
+  },
+  "q_where": {
+   "q": "Where does the noise seem to come from, and what does it sound like?",
+   "help": "Listen from outside the car while someone else starts it and gently revs it in Park.",
+   "opts": [
+    {
+     "a": "Near the engine: a ticking or puffing sound, loudest on a cold start",
+     "go": "r_manifold"
+    },
+    {
+     "a": "Under the middle of the car: a deep roar or rumble when accelerating",
+     "go": "r_mid_pipe"
+    },
+    {
+     "a": "From the back, near the muffler or tailpipe",
+     "go": "r_muffler"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_fumes": {
+   "result": {
+    "title": "Exhaust fumes may be getting into the cabin",
+    "urgency": "stop",
+    "now": "Pull over, turn the engine off and get everyone out into fresh air. Don't drive it again until the leak is fixed. Have it towed.",
+    "if": [
+     "If anyone has a headache, nausea, confusion or drowsiness that doesn't clear quickly in fresh air, call 911 or get medical help right away.",
+     "If the smell only appears with the windows down at low speed and nobody feels unwell, it still needs to be fixed before the car is driven again."
+    ],
+    "why": "Exhaust contains carbon monoxide, a gas you can't see that can make you sick or cause you to pass out without warning. A loud exhaust means there's a leak, and a fume smell inside means the gas may be reaching you.",
+    "causes": [
+     {
+      "name": "Exhaust leak under the cabin",
+      "clues": "The noise is loudest under the middle of the car, and the smell is worse when stopped.",
+      "against": ""
+     },
+     {
+      "name": "Leak near the engine reaching the vents",
+      "clues": "The smell comes through the vents, especially with the fan on.",
+      "against": ""
+     },
+     {
+      "name": "Rusted pipe with holes in several places",
+      "clues": "An older car with heavy rust underneath.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Exhaust system inspection on a lift",
+      "Exhaust leak test",
+      "Body seal and trunk seal check for fume entry"
+     ]
+    }
+   }
+  },
+  "r_dragging": {
+   "result": {
+    "title": "Part of the exhaust has broken loose",
+    "urgency": "stop",
+    "now": "Pull over somewhere safe and away from dry grass. Don't drive it with the pipe dragging. Call roadside assistance or a tow.",
+    "if": [
+     "If you see smoke or flames under the car, get everyone away and call 911.",
+     "A roadside technician may be able to secure the pipe temporarily once it's cool, but it still needs a proper repair soon."
+    ],
+    "why": "Exhaust pipes hang from rubber hangers and metal brackets. When one breaks or a rusted pipe snaps, the pipe can drag, catch on the road, damage other parts or come loose in traffic. The hot metal can also set dry grass or debris on fire.",
+    "causes": [
+     {
+      "name": "Broken rubber hanger or bracket",
+      "clues": "The pipe hangs low but is still in one piece.",
+      "against": ""
+     },
+     {
+      "name": "Rusted pipe that snapped",
+      "clues": "An older car, and the noise got very loud at the same time.",
+      "against": ""
+     },
+     {
+      "name": "Impact damage",
+      "clues": "It started after hitting something on the road.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From a safe spot, look under the car to see what's hanging. Don't touch the exhaust until it has cooled."
+     ],
+     "shop": [
+      "Exhaust system inspection on a lift",
+      "Hanger and bracket replacement",
+      "Check for damage to fuel and brake lines nearby"
+     ]
+    }
+   }
+  },
+  "r_cat_theft": {
+   "result": {
+    "title": "The catalytic converter may have been stolen",
+    "urgency": "soon",
+    "now": "Look under the car, between the engine and the muffler, for a section that's missing or pipes with clean, freshly cut ends. If it's gone, report it to the police and your insurer, and arrange the repair within the next few days.",
+    "if": [
+     "If you smell exhaust inside the car, don't drive it. Have it towed.",
+     "If nothing is missing, the noise is likely a broken pipe or gasket. Have the exhaust inspected within a few days."
+    ],
+    "why": "A car that's suddenly very loud the first time you start it after it was parked, with no warning before, is a classic sign of catalytic converter theft. Thieves cut it out in minutes. Without it, the car is loud, the check engine light will come on, and exhaust exits under the middle of the car.",
+    "causes": [
+     {
+      "name": "Stolen catalytic converter",
+      "clues": "Freshly cut pipe ends, and the car was parked overnight or in a public lot.",
+      "against": "If all the exhaust parts are still there, theft is ruled out."
+     },
+     {
+      "name": "Broken or separated exhaust pipe",
+      "clues": "A rusted joint or a pipe that's come apart, with no cut marks.",
+      "against": ""
+     },
+     {
+      "name": "Blown exhaust gasket",
+      "clues": "Loud, but not as loud, and there's no visible damage.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the car parked and cool, look underneath for a missing section or cut pipe ends.",
+      "Take photos for the police and insurance report."
+     ],
+     "shop": [
+      "Exhaust system inspection on a lift",
+      "Oxygen sensor and wiring check",
+      "Code scan after the repair"
+     ]
+    }
+   }
+  },
+  "r_impact": {
+   "result": {
+    "title": "The impact likely broke or knocked loose part of the exhaust",
+    "urgency": "soon",
+    "now": "Once the car is cool, look underneath for a bent, cracked or separated pipe. Get it inspected within the next few days, and keep any driving short.",
+    "if": [
+     "If you smell exhaust inside the car, don't drive it. Have it towed.",
+     "If something is hanging or scraping, pull over and call for a tow.",
+     "If you also see fluid dripping, the impact may have damaged other parts. Have it checked before driving."
+    ],
+    "why": "Exhaust pipes run low under the car, so they're often the first thing to hit a curb or road debris. A hit can crack a pipe, break a joint or tear a hanger, which lets exhaust escape before the muffler.",
+    "causes": [
+     {
+      "name": "Cracked or separated pipe joint",
+      "clues": "A visible gap or a pipe that's out of line.",
+      "against": ""
+     },
+     {
+      "name": "Damaged flex pipe",
+      "clues": "A woven, braided section of pipe that's torn or crushed.",
+      "against": ""
+     },
+     {
+      "name": "Crushed or punctured muffler",
+      "clues": "A dent or hole in the muffler, with the noise loudest at the back.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the car cool, look underneath for dents, gaps or hanging parts.",
+      "Look for any fluid drips on the ground under the car."
+     ],
+     "shop": [
+      "Exhaust system inspection on a lift",
+      "Check of nearby fuel and brake lines and the oil pan"
+     ]
+    }
+   }
+  },
+  "r_manifold": {
+   "result": {
+    "title": "Likely a leak at the exhaust manifold near the engine",
+    "urgency": "check",
+    "now": "Book an exhaust inspection when convenient, and mention that the ticking is loudest on a cold start.",
+    "if": [
+     "If you smell exhaust inside the car, especially through the vents, stop driving it and have it checked right away.",
+     "If you smell burning plastic or rubber under the hood, have it checked soon. Hot exhaust may be reaching nearby wiring or hoses."
+    ],
+    "why": "The exhaust manifold collects gas right where it leaves the engine. A cracked manifold or a blown gasket leaks in quick puffs, which sounds like ticking. It's often loudest when cold because the metal shrinks and the gap is bigger until it warms up.",
+    "causes": [
+     {
+      "name": "Blown exhaust manifold gasket",
+      "clues": "Ticking that matches engine speed and quiets down as the engine warms.",
+      "against": ""
+     },
+     {
+      "name": "Cracked exhaust manifold",
+      "clues": "Common on some trucks and older engines, with sooty marks near the crack.",
+      "against": ""
+     },
+     {
+      "name": "Broken or missing manifold bolt",
+      "clues": "Black soot at one corner of the manifold.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Listen near the engine on a cold start, staying clear of belts and the fan.",
+      "Look for black soot marks where the exhaust meets the engine."
+     ],
+     "shop": [
+      "Exhaust manifold inspection",
+      "Smoke test for exhaust leaks",
+      "Code scan if the check engine light is on"
+     ]
+    }
+   }
+  },
+  "r_mid_pipe": {
+   "result": {
+    "title": "Probably a leak in the pipe or a joint under the middle of the car",
+    "urgency": "soon",
+    "now": "Have the exhaust inspected within the next few days. Until then, don't sit in the car with the engine idling for long periods.",
+    "if": [
+     "If you smell exhaust inside the car or feel headachy or drowsy, stop driving and get fresh air. Have it towed.",
+     "If the check engine light comes on, mention it. A leak near an oxygen sensor can affect how the engine runs."
+    ],
+    "why": "The middle section of the exhaust runs right under where you sit. A leak there makes a deep roar under acceleration and is the most likely place for fumes to reach the cabin, which is why it shouldn't wait.",
+    "causes": [
+     {
+      "name": "Worn or torn flex pipe",
+      "clues": "A woven, braided section of pipe near the front that's frayed or cracked. Common on front-wheel-drive cars.",
+      "against": ""
+     },
+     {
+      "name": "Rusted pipe or failed joint gasket",
+      "clues": "Heavy rust or black soot at a joint.",
+      "against": ""
+     },
+     {
+      "name": "Damaged catalytic converter shell or connection",
+      "clues": "The noise is near the converter, sometimes with a rattle.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the car cool, look under the middle of the car for rust holes, gaps or black soot marks."
+     ],
+     "shop": [
+      "Exhaust system inspection on a lift",
+      "Exhaust leak test",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_muffler": {
+   "result": {
+    "title": "Most likely a rusted or damaged muffler or tailpipe",
+    "urgency": "check",
+    "now": "Book an exhaust inspection when convenient. Avoid idling with the trunk or rear hatch open.",
+    "if": [
+     "If you smell exhaust inside the car, especially in the back seat or with the hatch closed, stop driving it and have it checked before using the car again.",
+     "If the noise gets much louder suddenly, or something starts rattling or hanging, get it checked within a few days."
+    ],
+    "why": "The muffler and tailpipe sit at the back, where water and road salt collect, so they often rust from the inside out. A hole there makes the car louder but is the farthest point from the cabin.",
+    "causes": [
+     {
+      "name": "Rusted-through muffler",
+      "clues": "An older car, rust spots or holes, often on the bottom or seams.",
+      "against": ""
+     },
+     {
+      "name": "Rusted tailpipe or joint at the muffler",
+      "clues": "Soot or a gap where the pipe enters the muffler.",
+      "against": ""
+     },
+     {
+      "name": "Broken baffles inside the muffler",
+      "clues": "A rattle when you tap the muffler (when it's cold).",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the car cool, look at the muffler and tailpipe for rust holes or soot.",
+      "With the engine idling and the car in Park, carefully listen from behind for where the noise is loudest."
+     ],
+     "shop": [
+      "Exhaust system inspection on a lift",
+      "Exhaust leak test"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "There's an exhaust leak somewhere. Have it inspected",
+    "urgency": "check",
+    "now": "Book an exhaust inspection, ideally within the next week or two. Keep idling to a minimum until then.",
+    "if": [
+     "If you smell exhaust inside the car or feel headachy or drowsy, stop driving and get fresh air.",
+     "If something starts dragging or the noise gets much louder suddenly, pull over and call for help."
+    ],
+    "why": "A loud exhaust always means gas is escaping somewhere before the muffler. A technician can find the exact spot in minutes with the car on a lift.",
+    "causes": [
+     {
+      "name": "Rusted muffler or pipe",
+      "clues": "An older car, or one driven where roads are salted.",
+      "against": ""
+     },
+     {
+      "name": "Failed gasket or flex pipe",
+      "clues": "A rumble or puffing under the front or middle of the car.",
+      "against": ""
+     },
+     {
+      "name": "Broken hanger letting a joint separate",
+      "clues": "Rattling or clunking along with the noise.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound of the car starting and revving in Park.",
+      "Look under the car for anything hanging low."
+     ],
+     "shop": [
+      "Exhaust system inspection on a lift",
+      "Exhaust leak test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "exhaust-smell-in-cabin",
+  "rattle-under-car",
+  "popping-or-backfiring",
+  "check-engine-light-on"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises"
+  ],
+  "words": [
+   "exhaust",
+   "muffler",
+   "catalytic",
+   "manifold",
+   "flex pipe",
+   "tailpipe",
+   "gasket",
+   "hanger"
+  ]
+ },
+ "sources": [
+  "https://www.cdc.gov/carbon-monoxide/about/index.html",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

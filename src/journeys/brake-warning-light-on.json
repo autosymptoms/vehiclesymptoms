@@ -1,0 +1,460 @@
+{
+ "id": "brake-warning-light-on",
+ "title": "Red brake warning light on",
+ "h1": "Why is my red brake warning light on?",
+ "metaDesc": "Red brake light on? Find out in a few questions if it's the parking brake, low brake fluid or a brake system fault, how urgent it is, and what to tell your mechanic.",
+ "group": "light",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "brake light on dashboard",
+  "red brake light on",
+  "brake warning light",
+  "brake light on dash",
+  "brake system warning light",
+  "exclamation mark in circle light",
+  "brake light stays on",
+  "brake light on but parking brake off",
+  "parking brake light wont go off",
+  "brake and abs light on",
+  "low brake fluid light",
+  "brake light flashing on dash",
+  "is it safe to drive with brake light on"
+ ],
+ "intro": "The red BRAKE light (often the word BRAKE or an exclamation mark in a circle) is one of the most important lights on the dash. Sometimes it's just the parking brake, but it can also mean low brake fluid or a fault in the braking system. A few quick checks tell you which.",
+ "safety": [
+  "If the brake pedal feels soft, sinks toward the floor, or the car is slow to stop, pull over safely and don't drive on.",
+  "If you see clear to brownish oily fluid near a wheel or under the car by the pedal area, don't drive it.",
+  "If you smell burning or see smoke from a wheel, stop and let it cool. A brake may be stuck on."
+ ],
+ "start": "q_pedal",
+ "nodes": {
+  "q_pedal": {
+   "q": "How do the brakes feel and how is the car stopping?",
+   "help": "A healthy pedal feels firm and stops well above the floor. If the car is parked, start the engine and press the pedal firmly for about 10 seconds.",
+   "opts": [
+    {
+     "a": "Soft, spongy, or sinking toward the floor, or the car takes longer to stop",
+     "go": "r_hydraulic"
+    },
+    {
+     "a": "Normal, the same as always",
+     "go": "q_parking"
+    },
+    {
+     "a": "I'm not sure, or I haven't driven it since the light came on",
+     "go": "q_parking"
+    }
+   ]
+  },
+  "q_parking": {
+   "q": "Is the parking brake fully released?",
+   "help": "The parking brake may be a hand lever, a small pedal by your left foot, or a button marked P or with a brake symbol. Push it all the way down or release it fully, then watch the light.",
+   "opts": [
+    {
+     "a": "It was partly on. I released it and the light went out",
+     "go": "r_parking_brake"
+    },
+    {
+     "a": "It's fully released and the light stays on",
+     "go": "q_fluid"
+    },
+    {
+     "a": "It's an electric parking brake button, and there's a fault message or the light is flashing",
+     "go": "r_epb_fault"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_parking_brake"
+    }
+   ]
+  },
+  "q_fluid": {
+   "q": "With the engine off, where is the brake fluid level in the reservoir?",
+   "help": "The reservoir is a small see-through plastic tank, usually high on the driver's side near the back of the engine bay. The cap often says brake fluid or DOT 3/DOT 4, and the side has MIN and MAX marks.",
+   "opts": [
+    {
+     "a": "At or below the MIN mark",
+     "go": "q_leak"
+    },
+    {
+     "a": "Between MIN and MAX",
+     "go": "q_abs_too"
+    },
+    {
+     "a": "I can't find it or I'm not sure",
+     "go": "r_brake_unknown"
+    }
+   ]
+  },
+  "q_leak": {
+   "q": "Do you see any sign of a leak?",
+   "help": "Brake fluid is clear to light brown and feels slick, a bit like light oil. Check the ground under each wheel, the inside of each tire, and under the car near the brake pedal.",
+   "opts": [
+    {
+     "a": "Yes, wet or oily spots near a wheel, on a tire, or under the car",
+     "go": "r_leak"
+    },
+    {
+     "a": "No leak that I can see",
+     "go": "r_low_fluid"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_low_fluid"
+    }
+   ]
+  },
+  "q_abs_too": {
+   "q": "Is the amber ABS light on as well?",
+   "opts": [
+    {
+     "a": "Yes, the ABS light is on too",
+     "go": "r_ebd"
+    },
+    {
+     "a": "No, only the red brake light",
+     "go": "r_switch"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_brake_unknown"
+    }
+   ]
+  },
+  "r_hydraulic": {
+   "result": {
+    "title": "The brakes are losing pressure. This is a safety problem",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed or have a mobile mechanic inspect the brakes where it is.",
+    "if": [
+     "If you're on the road now, slow down gently, shift to a lower gear, and use the parking brake gradually if the pedal won't stop you. Pull over somewhere safe.",
+     "If you see fluid dripping, tell the tow or repair service so they bring the right parts."
+    ],
+    "why": "A red brake light with a soft or sinking pedal means the hydraulic system can't build normal pressure. That usually comes from a fluid leak or a failing master cylinder, and braking can get worse without warning.",
+    "causes": [
+     {
+      "name": "Brake fluid leak",
+      "clues": "Low fluid in the reservoir, or wet spots near a wheel or on the inside of a tire.",
+      "against": ""
+     },
+     {
+      "name": "Failing master cylinder",
+      "clues": "The pedal slowly sinks under steady pressure with no visible leak.",
+      "against": ""
+     },
+     {
+      "name": "Air in the brake lines",
+      "clues": "Recent brake work, and the pedal has felt spongy since.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Brake system leak inspection",
+      "Master cylinder test",
+      "Brake line and hose inspection",
+      "Brake bleed"
+     ]
+    }
+   }
+  },
+  "r_parking_brake": {
+   "result": {
+    "title": "Most likely the parking brake isn't fully released",
+    "urgency": "diy",
+    "now": "Release the parking brake all the way. Push a lever fully down, press a foot pedal to release it, or press the electric button with your foot on the brake. Then check that the light goes out.",
+    "if": [
+     "If the light stays on with the parking brake fully off, check the brake fluid level next.",
+     "If you drove a long way with the parking brake on and smell burning, let the rear brakes cool and have them checked soon."
+    ],
+    "why": "The same red light shows when the parking brake is on, and a lever pulled up just one click can be enough to turn it on. It's the most common reason for this light and the simplest to fix.",
+    "causes": [
+     {
+      "name": "Parking brake partly applied",
+      "clues": "The light goes out when you fully release it.",
+      "against": "If it stays on with the brake fully released, look elsewhere."
+     },
+     {
+      "name": "Sticky parking brake switch",
+      "clues": "The light flickers when you jiggle the lever or pedal.",
+      "against": ""
+     },
+     {
+      "name": "Low brake fluid",
+      "clues": "The light stays on with the parking brake off.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Release the parking brake fully and watch the light.",
+      "Jiggle the lever or pedal to see if the light flickers."
+     ],
+     "shop": [
+      "Parking brake switch check",
+      "Parking brake adjustment"
+     ]
+    }
+   }
+  },
+  "r_epb_fault": {
+   "result": {
+    "title": "The electric parking brake has a fault",
+    "urgency": "soon",
+    "now": "Get the electric parking brake checked within a few days. When you park, use Park (or leave it in gear on a manual) and turn the wheels toward the curb on a slope.",
+    "if": [
+     "If the parking brake won't release, or the car feels like it's dragging, don't drive it. Have it towed or call a mobile mechanic.",
+     "If the light came on right after a battery was replaced or jumped, restart the car once. Some systems need a moment to reset."
+    ],
+    "why": "Cars with a parking brake button often flash the red brake light or show a message when the electric parking brake has a fault. The regular brakes usually still work, but the parking brake may not hold the car or may not release properly.",
+    "causes": [
+     {
+      "name": "Parking brake motor or caliper fault",
+      "clues": "A grinding or whirring sound at a rear wheel when you press the button.",
+      "against": ""
+     },
+     {
+      "name": "Low voltage after a battery problem",
+      "clues": "It started after a dead battery or jump start.",
+      "against": ""
+     },
+     {
+      "name": "Switch or wiring fault",
+      "clues": "The button doesn't respond at all.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Read the message on the dash and look it up in the owner's manual.",
+      "Note whether the parking brake applies and releases when you press the button."
+     ],
+     "shop": [
+      "Brake system code scan",
+      "Parking brake motor and wiring test",
+      "Rear brake inspection"
+     ]
+    }
+   }
+  },
+  "r_leak": {
+   "result": {
+    "title": "Brake fluid is leaking. The brakes could fail",
+    "urgency": "stop",
+    "now": "Don't drive it, even after topping up the fluid. Have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If you must move the car a few feet out of danger, do it very slowly and test the brakes first."
+    ],
+    "why": "Low fluid plus a visible leak means the brake system is losing the fluid it needs to stop the car. Topping it up only hides the problem, and the leak can get worse suddenly.",
+    "causes": [
+     {
+      "name": "Leaking brake hose or line",
+      "clues": "Wet spots near a wheel or along the underside, often on older cars in salty areas.",
+      "against": ""
+     },
+     {
+      "name": "Leaking caliper or wheel cylinder",
+      "clues": "Fluid on the inside of one tire or wheel.",
+      "against": ""
+     },
+     {
+      "name": "Leaking master cylinder",
+      "clues": "Fluid under the car near the pedal area, or on the back of the engine bay.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Brake system leak inspection",
+      "Hose, line and caliper check",
+      "Master cylinder inspection"
+     ]
+    }
+   }
+  },
+  "r_low_fluid": {
+   "result": {
+    "title": "Brake fluid is low, often from worn brake pads or a slow leak",
+    "urgency": "soon",
+    "now": "Top up to the MAX mark with the fluid type printed on the cap, then have the brakes inspected within a day or two. Drive gently and only as far as you need.",
+    "if": [
+     "If the level drops again, or the pedal starts to feel soft, stop driving it and have it towed.",
+     "If you don't have the right fluid type, don't guess. Have a shop top it up and inspect the brakes."
+    ],
+    "why": "Brake fluid doesn't get used up. The level falls slowly as brake pads wear, so a low level often means the pads are thin. If the pads look fine, the fluid is going somewhere and there's a leak to find.",
+    "causes": [
+     {
+      "name": "Worn brake pads",
+      "clues": "Squealing or grinding when braking, or no brake work in a long time.",
+      "against": "If the pads were replaced recently, a leak is more likely."
+     },
+     {
+      "name": "Slow leak",
+      "clues": "The level keeps dropping after a top-up, or damp spots near a wheel.",
+      "against": ""
+     },
+     {
+      "name": "Worn master cylinder seals",
+      "clues": "Dampness around the reservoir or behind the engine bay.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Mark today's fluid level and check it again in a few days.",
+      "Look through the wheel spokes at the brake pad thickness if you can see it."
+     ],
+     "shop": [
+      "Brake pad and rotor inspection",
+      "Brake system leak check",
+      "Brake fluid condition test"
+     ]
+    }
+   }
+  },
+  "r_ebd": {
+   "result": {
+    "title": "Brake and ABS lights together mean brake balance may be off",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed or call a mobile mechanic to read the brake codes.",
+    "if": [
+     "If both lights went out after a restart, still get the codes read soon. The fault is stored and may come back."
+    ],
+    "why": "With fluid at a normal level, both lights on usually means the ABS system has a fault that also switches off electronic brake balance. That system keeps the rear wheels from locking in a hard stop. Without it, the car can skid or spin.",
+    "causes": [
+     {
+      "name": "Wheel speed sensor fault",
+      "clues": "Recent brake or wheel work, or a hard pothole hit.",
+      "against": ""
+     },
+     {
+      "name": "ABS module or pump fault",
+      "clues": "Both lights came on with no clear trigger.",
+      "against": ""
+     },
+     {
+      "name": "Low voltage after a battery problem",
+      "clues": "It started right after a dead battery or jump start.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check whether both lights stay on after you turn the car off and restart it."
+     ],
+     "shop": [
+      "ABS and brake system code scan",
+      "Wheel speed sensor data",
+      "ABS module and pump check"
+     ]
+    }
+   }
+  },
+  "r_switch": {
+   "result": {
+    "title": "Likely a faulty fluid level sensor or parking brake switch",
+    "urgency": "soon",
+    "now": "Have the brake system checked within a few days. Pay close attention to how the brakes feel until then.",
+    "if": [
+     "If the pedal feels soft, the fluid level drops, or the car is slow to stop, stop driving it.",
+     "If jiggling the parking brake makes the light flicker, the switch is the likely cause."
+    ],
+    "why": "With the parking brake off, normal fluid and a normal pedal, the brake system itself is probably fine. The light may be getting a false signal from a stuck fluid level float or a worn parking brake switch. A shop should still confirm that before you ignore it.",
+    "causes": [
+     {
+      "name": "Faulty parking brake switch",
+      "clues": "The light flickers when you move the lever or pedal.",
+      "against": ""
+     },
+     {
+      "name": "Faulty brake fluid level sensor",
+      "clues": "Fluid is near the MIN mark, or the light flickers on turns or bumps.",
+      "against": ""
+     },
+     {
+      "name": "Brake system fault that needs a scan",
+      "clues": "On some cars, this light also reports other brake faults.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Jiggle the parking brake lever or pedal and watch the light.",
+      "Note whether the light flickers on turns or over bumps."
+     ],
+     "shop": [
+      "Parking brake switch test",
+      "Fluid level sensor test",
+      "Brake system code scan"
+     ]
+    }
+   }
+  },
+  "r_brake_unknown": {
+   "result": {
+    "title": "Treat a red brake light as serious until it's checked",
+    "urgency": "stop",
+    "now": "Don't drive it until the brake fluid and brakes are checked. If you can't check them yourself, have it towed or ask a mobile mechanic to come to you.",
+    "if": [
+     "If someone can show you the fluid level and it's between MIN and MAX with a normal pedal, the cause is likely less urgent. Have it checked within a few days."
+    ],
+    "why": "With the parking brake off, the red light usually means low brake fluid or a brake system fault. Without knowing the fluid level, there's no safe way to rule out a problem that affects stopping.",
+    "causes": [
+     {
+      "name": "Low brake fluid",
+      "clues": "Worn pads, or wet spots near a wheel.",
+      "against": ""
+     },
+     {
+      "name": "Brake system or ABS fault",
+      "clues": "The ABS light is on too.",
+      "against": ""
+     },
+     {
+      "name": "Faulty switch or sensor",
+      "clues": "The brakes feel completely normal.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure the parking brake is fully released.",
+      "Look under the car and inside each wheel for wet spots."
+     ],
+     "shop": [
+      "Brake fluid level and leak check",
+      "Brake system code scan",
+      "Brake pad inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "abs-light-on",
+  "brake-fluid-leak",
+  "soft-or-spongy-brake-pedal",
+  "grinding-brakes",
+  "brakes-dragging"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "brake warning",
+   "brake fluid",
+   "master cylinder",
+   "parking brake",
+   "brake line",
+   "brake hose",
+   "brake pedal",
+   "electronic brake"
+  ]
+ },
+ "sources": [
+  "https://www.nissan.ie/ownership/car-owner-manual/manuals/iom/xtrail/0t33/e1/2024/brake-warning-light-1.shtml",
+  "https://owners-manual.mazda.com/gen/en/mazda3/mazda3_8hc8ee19b/contents/08070306.html",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

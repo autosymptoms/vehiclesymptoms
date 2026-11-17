@@ -1,0 +1,518 @@
+{
+ "id": "clicking-when-turning",
+ "title": "Clicking when turning",
+ "h1": "Why does my car click when I turn?",
+ "metaDesc": "Clicking or popping when turning? Answer a few quick questions to see if it's a CV joint, strut mount or steering part, how urgent it is, and what to tell your mechanic.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "clicking when turning",
+  "clicking noise when turning",
+  "popping when turning",
+  "click click when turning",
+  "clicking when turning sharp",
+  "clicking when turning and accelerating",
+  "clicking noise when turning left",
+  "clicking noise when turning right",
+  "CV joint clicking",
+  "CV axle noise",
+  "popping noise when turning steering wheel",
+  "knocking when turning",
+  "clicking in parking lot when turning",
+  "car clicks when i turn the wheel"
+ ],
+ "intro": "A rhythmic clicking when you turn, especially in parking lots, is the classic sign of a worn CV joint on a front axle. A single pop or click when you turn the wheel points somewhere else, like a strut mount. Answer the questions below to narrow it down and see how urgent it is.",
+ "safety": [
+  "If the steering suddenly feels loose or a wheel looks tilted, stop driving and get help.",
+  "If you hear a loud bang and the car won't move even though the engine revs, the axle may have broken. Don't keep trying to drive.",
+  "Never crawl under a car that's held up only by a jack."
+ ],
+ "start": "q_other_signs",
+ "nodes": {
+  "q_other_signs": {
+   "q": "Along with the clicking, is any of this happening?",
+   "help": "Pick the most serious one that fits.",
+   "opts": [
+    {
+     "a": "A loud clunking or banging that's getting worse fast, or the car hesitates to move when I press the gas",
+     "go": "r_cv_failing"
+    },
+    {
+     "a": "The steering feels loose, the car wanders, or there's a clunk over bumps too",
+     "go": "r_steering_suspension"
+    },
+    {
+     "a": "A vibration or shudder when I accelerate, even going straight",
+     "go": "r_cv_inner"
+    },
+    {
+     "a": "No, it's just the clicking",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When exactly do you hear it?",
+   "opts": [
+    {
+     "a": "While driving through a tight turn: a steady click-click-click that speeds up as the car speeds up",
+     "go": "q_boot"
+    },
+    {
+     "a": "A pop or clunk when I turn the steering wheel while stopped or barely moving",
+     "go": "r_strut_mount"
+    },
+    {
+     "a": "A fast ticking from the dashboard that matches the turn signal",
+     "go": "r_turn_signal"
+    },
+    {
+     "a": "A single click when I first brake or start moving after changing direction",
+     "go": "r_brake_hardware"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general_click"
+    }
+   ]
+  },
+  "q_boot": {
+   "q": "Can you check the rubber boots on the front axles?",
+   "help": "Park on level ground. Turn the steering wheel all the way to one side, then shut the engine off, set the parking brake and look behind the front tire. The CV boot is the accordion-shaped rubber cover where the axle meets the wheel. Check both sides.",
+   "opts": [
+    {
+     "a": "A boot is torn or split, or there's dark grease sprayed around the inside of the wheel",
+     "go": "r_cv_boot_torn"
+    },
+    {
+     "a": "The boots look intact and dry",
+     "go": "r_cv_worn"
+    },
+    {
+     "a": "My car is rear-wheel drive",
+     "go": "r_rwd_click"
+    },
+    {
+     "a": "I'm not sure, or I can't see them",
+     "go": "r_cv_worn"
+    }
+   ]
+  },
+  "r_cv_failing": {
+   "result": {
+    "title": "A CV joint or axle may be close to breaking",
+    "urgency": "stop",
+    "now": "Park it and don't drive any further. Have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If the engine revs but the car won't move, the axle has likely broken. Don't keep trying to drive."
+    ],
+    "why": "A CV joint that has gone from clicking to clunking or banging is badly worn. When it fails, the wheel stops getting power and the car can stop moving, sometimes in traffic. In rare cases it can damage nearby parts.",
+    "causes": [
+     {
+      "name": "Badly worn outer CV joint",
+      "clues": "Clicking for weeks or months, now turning into clunking.",
+      "against": ""
+     },
+     {
+      "name": "Worn inner CV joint",
+      "clues": "Clunks when you press or let off the gas.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine or transmission mount",
+      "clues": "A clunk when you shift into Drive or Reverse, and the engine visibly rocks.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look for a torn CV boot or grease sprayed inside the wheel."
+     ],
+     "shop": [
+      "CV axle and joint inspection for play",
+      "Engine and transmission mount check"
+     ]
+    }
+   }
+  },
+  "r_steering_suspension": {
+   "result": {
+    "title": "A worn steering or suspension joint is likely",
+    "urgency": "soon",
+    "now": "Get it checked within a few days. Drive gently, keep speeds down, and avoid potholes until then.",
+    "if": [
+     "If the steering suddenly feels very loose, the car pulls hard, or a wheel looks tilted, stop driving and have it towed.",
+     "If the clunk over bumps is the main noise, see our clunk-over-bumps guide too."
+    ],
+    "why": "Clicking or popping plus loose steering or clunks over bumps points to worn parts that hold the wheel in place, like ball joints, tie rod ends or sway bar links. These wear gradually, but a ball joint or tie rod that separates can make you lose control.",
+    "causes": [
+     {
+      "name": "Worn ball joint",
+      "clues": "A clunk or pop over bumps and when turning, and uneven tire wear.",
+      "against": ""
+     },
+     {
+      "name": "Worn tie rod end",
+      "clues": "Loose or vague steering, and the car wanders on the highway.",
+      "against": ""
+     },
+     {
+      "name": "Worn sway bar link or bushing",
+      "clues": "A rattle or clunk over small bumps, but steering feels normal.",
+      "against": "Less likely to cause loose steering."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether the steering wheel has more free play than it used to.",
+      "Look at the front tires for uneven wear on the inner or outer edge."
+     ],
+     "shop": [
+      "Ball joint and tie rod play check",
+      "Sway bar link and bushing inspection",
+      "Alignment check after repair"
+     ]
+    }
+   }
+  },
+  "r_cv_inner": {
+   "result": {
+    "title": "A worn inner CV joint or axle is likely",
+    "urgency": "soon",
+    "now": "Have the axles checked within a few days. Accelerate gently until then.",
+    "if": [
+     "If the vibration gets worse quickly or turns into a clunking, stop driving and have it towed.",
+     "If the vibration happens only at highway speed and not when accelerating, a tire balance problem is more likely."
+    ],
+    "why": "The inner CV joint lets the axle change length as the suspension moves. When it wears, it often causes a shudder when accelerating, sometimes with clicking in turns. It tends to get worse over time.",
+    "causes": [
+     {
+      "name": "Worn inner CV joint",
+      "clues": "Shudder under acceleration that goes away when you coast.",
+      "against": ""
+     },
+     {
+      "name": "Bent or damaged axle",
+      "clues": "Started after hitting a curb or pothole.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine or transmission mount",
+      "clues": "A clunk when shifting into gear, and the shake is felt more in the seat.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether the shudder happens only when accelerating, not when coasting.",
+      "With the engine off, look at the inner axle boots near the transmission for tears or grease."
+     ],
+     "shop": [
+      "CV axle inspection and test drive",
+      "Engine and transmission mount check",
+      "Tire balance check"
+     ]
+    }
+   }
+  },
+  "r_cv_boot_torn": {
+   "result": {
+    "title": "A torn CV boot has let grease out and dirt in. The joint is wearing",
+    "urgency": "soon",
+    "now": "Book a repair within the next week or so. Avoid sharp turns at speed until it's fixed.",
+    "if": [
+     "If the clicking turns into a clunking or banging, stop driving and have it towed.",
+     "If it hasn't started clicking yet, ask whether the boot alone can be replaced. Waiting usually means the whole axle."
+    ],
+    "why": "The CV boot keeps grease in and dirt and water out of the joint. Once it tears, the joint runs dry and wears quickly. Clicking in turns means wear has already started, and it will get louder until the joint fails.",
+    "causes": [
+     {
+      "name": "Torn outer CV boot",
+      "clues": "Grease sprayed on the inside of the wheel or nearby parts, and clicking in tight turns.",
+      "against": ""
+     },
+     {
+      "name": "Torn inner CV boot",
+      "clues": "Grease near the transmission end of the axle, and a shudder when accelerating.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look closely at both boots on each front axle.",
+      "Turn slowly in a circle in an empty parking lot, both directions, and note which way the click is louder."
+     ],
+     "shop": [
+      "CV boot and joint inspection",
+      "Axle play check"
+     ]
+    }
+   }
+  },
+  "r_cv_worn": {
+   "result": {
+    "title": "A worn outer CV joint on a front axle is the most likely cause",
+    "urgency": "check",
+    "now": "Book an axle inspection in the next couple of weeks. Avoid hard acceleration in tight turns until then.",
+    "if": [
+     "If the clicking gets louder, happens when driving straight, or turns into a clunk, get it checked soon.",
+     "If you hear a bang and the car won't move, don't keep trying to drive. Have it towed."
+    ],
+    "why": "Front-wheel-drive and many all-wheel-drive cars have CV joints that let the front wheels steer and get power at the same time. When the outer joint wears, it clicks in a steady rhythm during tight turns. It usually gets worse gradually, not overnight.",
+    "causes": [
+     {
+      "name": "Worn outer CV joint",
+      "clues": "Clicking in tight turns that gets faster as the car speeds up, louder turning one way.",
+      "against": "Less likely if your car is rear-wheel drive."
+     },
+     {
+      "name": "Torn CV boot you can't see",
+      "clues": "The tear is on the back side of the boot, or grease has been washed off.",
+      "against": ""
+     },
+     {
+      "name": "Worn strut mount or suspension part",
+      "clues": "The noise is a pop when turning the wheel, not a steady click.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "In an empty parking lot, drive slowly in a tight circle each way. A steady click points to the CV joint on the outside of the turn.",
+      "Ask a shop or a friend to look at the CV boots from underneath."
+     ],
+     "shop": [
+      "CV joint and boot inspection on a lift",
+      "Axle play check",
+      "Road test in tight turns"
+     ]
+    }
+   }
+  },
+  "r_rwd_click": {
+   "result": {
+    "title": "On a rear-wheel-drive car, a front steering or suspension part is more likely",
+    "urgency": "check",
+    "now": "Book a front suspension and steering check in the next couple of weeks.",
+    "if": [
+     "If the steering feels loose or the car wanders, get it checked soon.",
+     "If it's a four-wheel drive truck or SUV with the front axle engaged, the front CV or U-joints are possible too."
+    ],
+    "why": "Rear-wheel-drive cars don't send power through the front wheels, so the classic CV-joint click doesn't apply up front. Clicking or popping when turning is more often a strut or shock mount, a ball joint, or loose brake hardware.",
+    "causes": [
+     {
+      "name": "Worn strut mount or upper bearing",
+      "clues": "A pop or click when turning the wheel at low speed.",
+      "against": ""
+     },
+     {
+      "name": "Worn ball joint or tie rod end",
+      "clues": "Clunks over bumps, or loose steering.",
+      "against": ""
+     },
+     {
+      "name": "Loose brake caliper or pads shifting",
+      "clues": "A single click at the first stop after changing direction.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether it's a steady rhythm or a single pop.",
+      "Check whether it happens only when you turn the wheel while stopped."
+     ],
+     "shop": [
+      "Front suspension and steering inspection",
+      "Strut mount check",
+      "Brake hardware check"
+     ]
+    }
+   }
+  },
+  "r_strut_mount": {
+   "result": {
+    "title": "A worn strut mount or its bearing is the most likely cause",
+    "urgency": "check",
+    "now": "Book a front suspension check when convenient. Mention that it pops when you turn the wheel at low speed.",
+    "if": [
+     "If the steering feels loose or you also hear clunks over bumps, get it checked soon.",
+     "If the steering wheel feels like it sticks and then jumps, get it checked soon."
+    ],
+    "why": "On many cars the top of each front strut sits on a mount with a bearing that lets it turn with the steering. When that bearing or rubber mount wears, it can bind and then pop as you turn the wheel, especially when the car is barely moving.",
+    "causes": [
+     {
+      "name": "Worn strut mount or bearing plate",
+      "clues": "A pop or creak when turning the wheel while stopped or parking.",
+      "against": ""
+     },
+     {
+      "name": "Worn ball joint",
+      "clues": "A pop over bumps as well as when turning.",
+      "against": ""
+     },
+     {
+      "name": "Worn sway bar link or bushing",
+      "clues": "A clunk over small bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the car parked in Park and the parking brake on, have someone turn the steering wheel back and forth while you stand beside each front wheel and listen.",
+      "Note which side the pop comes from."
+     ],
+     "shop": [
+      "Strut mount and bearing inspection",
+      "Ball joint check",
+      "Sway bar link inspection"
+     ]
+    }
+   }
+  },
+  "r_turn_signal": {
+   "result": {
+    "title": "That's the turn signal. If it's clicking fast, a bulb is likely out",
+    "urgency": "diy",
+    "now": "Walk around the car with the turn signal on and check each front and rear signal bulb, including the side markers.",
+    "if": [
+     "If a bulb is out, replace it. The ticking should go back to normal speed.",
+     "If all bulbs work but the ticking is fast, check the bulb sockets for corrosion or have the wiring looked at."
+    ],
+    "why": "The normal turn signal tick comes from a relay or the car's computer. Many cars flash faster on purpose when a bulb is out, to warn you that other drivers can't see your signal.",
+    "causes": [
+     {
+      "name": "Burned-out turn signal bulb",
+      "clues": "Fast ticking only when signaling one direction.",
+      "against": ""
+     },
+     {
+      "name": "Corroded bulb socket or bad connection",
+      "clues": "The bulb looks fine but flickers or works on and off.",
+      "against": ""
+     },
+     {
+      "name": "Wrong bulb type",
+      "clues": "Started after a bulb was replaced recently.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check every turn signal bulb, front and rear.",
+      "Check the owner's manual for the correct bulb type."
+     ],
+     "shop": [
+      "Bulb socket and wiring check",
+      "Flasher relay test"
+     ]
+    }
+   }
+  },
+  "r_brake_hardware": {
+   "result": {
+    "title": "Brake pads or a caliper may be shifting slightly when the car changes direction",
+    "urgency": "check",
+    "now": "Mention it at your next brake service, or book a quick brake check if it's new or getting louder.",
+    "if": [
+     "If the click becomes a clunk, or the car pulls or vibrates when braking, get the brakes checked soon.",
+     "If the noise started after recent brake work, take it back to the shop that did it."
+    ],
+    "why": "Brake pads sit in clips with a tiny bit of room to move. When you switch from Reverse to Drive and brake, the pads can shift and click once. Missing or worn clips, or a loose caliper bolt, make it louder.",
+    "causes": [
+     {
+      "name": "Worn or missing pad clips",
+      "clues": "A single click on the first stop after changing direction.",
+      "against": ""
+     },
+     {
+      "name": "Loose caliper or bracket bolt",
+      "clues": "A louder clunk when braking, possibly after brake work.",
+      "against": ""
+     },
+     {
+      "name": "Worn suspension bushing",
+      "clues": "A clunk when braking hard, not only after changing direction.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether it only happens on the first stop after changing direction."
+     ],
+     "shop": [
+      "Brake pad clip and caliper bolt check",
+      "Suspension bushing inspection"
+     ]
+    }
+   }
+  },
+  "r_general_click": {
+   "result": {
+    "title": "Most likely a CV joint or front suspension part. Have it inspected",
+    "urgency": "check",
+    "now": "Book a front axle and suspension check in the next couple of weeks. Note when you hear the click so you can tell the shop.",
+    "if": [
+     "If the clicking turns into clunking, the steering feels loose, or the car hesitates to move, stop driving and have it towed."
+    ],
+    "why": "Clicking when turning usually comes from a worn CV joint or a front suspension part. Where and when it happens tells the shop which one, and a quick inspection on a lift usually confirms it.",
+    "causes": [
+     {
+      "name": "Worn outer CV joint",
+      "clues": "A steady click in tight turns that speeds up with the car.",
+      "against": ""
+     },
+     {
+      "name": "Worn strut mount",
+      "clues": "A pop when turning the wheel at low speed.",
+      "against": ""
+     },
+     {
+      "name": "Worn ball joint or tie rod end",
+      "clues": "Clunks over bumps, or loose steering.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record a short video with sound while turning slowly in an empty parking lot. It helps the shop."
+     ],
+     "shop": [
+      "CV axle and boot inspection",
+      "Front suspension and steering inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "clunk-over-bumps",
+  "creaking-when-turning-steering",
+  "loose-or-wandering-steering",
+  "car-shakes-when-accelerating",
+  "humming-noise-at-speed"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises",
+   "Driving"
+  ],
+  "words": [
+   "cv joint",
+   "cv axle",
+   "cv boot",
+   "axle",
+   "strut mount",
+   "ball joint",
+   "tie rod",
+   "clicking"
+  ]
+ },
+ "sources": [
+  "https://www.yourmechanic.com/article/symptoms-of-a-bad-or-failing-cv-boot",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

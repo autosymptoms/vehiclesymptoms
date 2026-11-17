@@ -1,0 +1,455 @@
+{
+ "id": "blue-smoke-from-exhaust",
+ "title": "Blue or gray smoke from exhaust",
+ "h1": "Why is blue smoke coming from my exhaust?",
+ "metaDesc": "Blue or gray exhaust smoke usually means the engine is burning oil. Answer a few questions to see the likely cause, how urgent it is, and what to tell your mechanic.",
+ "group": "leaksmell",
+ "cat": "Smoke",
+ "synonyms": [
+  "blue smoke from exhaust",
+  "gray smoke from exhaust",
+  "grey smoke from exhaust",
+  "blue smoke from tailpipe",
+  "car burning oil smoke",
+  "blue smoke on startup",
+  "puff of smoke when starting car",
+  "blue smoke when accelerating",
+  "smoke from exhaust after oil change",
+  "bluish smoke from exhaust",
+  "exhaust smells like burning oil",
+  "turbo smoking",
+  "car smoking from tailpipe"
+ ],
+ "intro": "Blue or blue-gray smoke from the tailpipe almost always means engine oil is getting into the cylinders and burning. When you see it and how fast the oil level drops tell you how serious it is. Answer the questions below to see the likely cause and what to do next.",
+ "safety": [
+  "If the oil pressure light comes on or the engine starts knocking, pull over and turn off the engine right away.",
+  "If heavy smoke is coming from under the hood rather than the tailpipe, pull over, turn off the engine and step away.",
+  "If the check engine light is flashing and the engine shakes, don't keep driving."
+ ],
+ "start": "q_when",
+ "nodes": {
+  "q_when": {
+   "q": "When do you see the blue or gray smoke?",
+   "help": "Have someone watch the tailpipe while you start the car and then press the gas, or check in a mirror. Blue smoke is easiest to see in sunlight.",
+   "opts": [
+    {
+     "a": "Heavy smoke along with an oil warning light, knocking, or the engine running badly",
+     "go": "r_severe"
+    },
+    {
+     "a": "Just a puff on startup that clears in a few seconds, mostly after the car has sat",
+     "go": "r_valve_seals"
+    },
+    {
+     "a": "Mostly when I press the gas hard",
+     "go": "q_turbo"
+    },
+    {
+     "a": "Right after an oil change or after I added oil",
+     "go": "r_overfilled"
+    },
+    {
+     "a": "All the time, at idle and while driving",
+     "go": "q_oil_level"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_oil_level"
+    }
+   ]
+  },
+  "q_turbo": {
+   "q": "Does your engine have a turbocharger?",
+   "help": "Many newer small engines are turbocharged. Look for \"turbo\", \"T\", \"TSI\", \"EcoBoost\" or similar on the car's badges, or check the owner's manual.",
+   "opts": [
+    {
+     "a": "Yes, it's turbocharged",
+     "go": "r_turbo"
+    },
+    {
+     "a": "No",
+     "go": "r_rings"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_rings"
+    }
+   ]
+  },
+  "q_oil_level": {
+   "q": "With the engine off on level ground, pull the oil dipstick. Where is the oil level?",
+   "help": "Wipe the dipstick, push it all the way back in, then pull it out again to read it. Some newer cars show oil level on the dash instead.",
+   "opts": [
+    {
+     "a": "Very low or not on the dipstick at all",
+     "go": "r_oil_very_low"
+    },
+    {
+     "a": "A bit low, and I've been adding oil between changes",
+     "go": "r_burning_oil"
+    },
+    {
+     "a": "Above the full mark",
+     "go": "r_overfilled"
+    },
+    {
+     "a": "Between the marks, where it should be",
+     "go": "r_minor"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_burning_oil"
+    }
+   ]
+  },
+  "r_severe": {
+   "result": {
+    "title": "The engine is burning a lot of oil and may be damaged",
+    "urgency": "stop",
+    "now": "Pull over and turn off the engine. Don't drive it any further. Have it towed to a shop.",
+    "if": [
+     "If there's smoke from under the hood, step away from the car and don't open the hood until it has cooled.",
+     "If the oil was very low, adding oil may not undo damage already done. Have it checked before you start it again."
+    ],
+    "why": "Heavy blue smoke with an oil light, knocking or rough running means the engine is losing oil fast or has internal damage. Running an engine low on oil can destroy it within minutes.",
+    "causes": [
+     {
+      "name": "Engine very low on oil",
+      "clues": "The oil light is on, or the dipstick shows little or no oil.",
+      "against": ""
+     },
+     {
+      "name": "Major internal engine damage",
+      "clues": "Knocking or rattling, rough running, or a flashing check engine light.",
+      "against": ""
+     },
+     {
+      "name": "Failed turbocharger (turbo engines)",
+      "clues": "A sudden loss of power with a whine or siren-like noise, then heavy smoke.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Oil level and pressure check",
+      "Compression and leak-down test",
+      "Turbocharger inspection on turbo engines",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_valve_seals": {
+   "result": {
+    "title": "Worn valve stem seals are the most likely cause",
+    "urgency": "check",
+    "now": "Check the oil level every couple of weeks and top it up as needed. Book a check when convenient.",
+    "if": [
+     "If the puff gets bigger, or you start adding oil often, have it checked sooner.",
+     "If the check engine light comes on or the engine starts misfiring, get it checked within a few days."
+    ],
+    "why": "Valve stem seals keep oil from running down into the cylinders. When they harden with age, oil seeps past while the car sits, then burns off in a puff of smoke on startup. It's common on higher-mileage engines and usually gets worse slowly.",
+    "causes": [
+     {
+      "name": "Worn valve stem seals or valve guides",
+      "clues": "A puff on startup after sitting, and sometimes when you let off the gas going downhill.",
+      "against": ""
+     },
+     {
+      "name": "Faulty PCV valve",
+      "clues": "Oil residue in the air intake, or a rough idle.",
+      "against": ""
+     },
+     {
+      "name": "Worn piston rings",
+      "clues": "Smoke also shows up when accelerating, not just on startup.",
+      "against": "Less likely if the smoke only appears on startup."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level regularly and keep track of how much you add.",
+      "Note whether smoke only appears on startup or also while driving."
+     ],
+     "shop": [
+      "Compression test",
+      "Leak-down test",
+      "PCV valve check"
+     ]
+    }
+   }
+  },
+  "r_rings": {
+   "result": {
+    "title": "Oil is likely getting past worn piston rings",
+    "urgency": "check",
+    "now": "Check the oil level weekly and top it up so it never runs low. Book an engine check when convenient.",
+    "if": [
+     "If you're adding more than a quart every 1,000 miles or so, get it checked soon.",
+     "If the oil light comes on or the engine knocks, pull over and turn off the engine."
+    ],
+    "why": "Piston rings seal the gap between the pistons and the cylinder walls. When they wear or stick, oil gets into the combustion chamber and burns, especially under load when you press the gas. Some engines are known for this.",
+    "causes": [
+     {
+      "name": "Worn or stuck piston rings",
+      "clues": "Smoke when accelerating, steady oil use, and sometimes lower power.",
+      "against": ""
+     },
+     {
+      "name": "Faulty PCV valve",
+      "clues": "Oil in the air intake, or a whistling noise.",
+      "against": "An easier fix, so worth ruling out first."
+     },
+     {
+      "name": "Leaking turbocharger seals",
+      "clues": "Only if the engine is turbocharged.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Write down how much oil you add and how many miles between top-ups.",
+      "Check if your vehicle has a known oil consumption issue or extended warranty."
+     ],
+     "shop": [
+      "Oil consumption test",
+      "Compression and leak-down test",
+      "PCV system check"
+     ]
+    }
+   }
+  },
+  "r_turbo": {
+   "result": {
+    "title": "The turbocharger may be leaking oil",
+    "urgency": "soon",
+    "now": "Check the oil level and top it up if needed. Have the turbo inspected within a few days, and avoid hard acceleration until then.",
+    "if": [
+     "If you hear a loud whine or siren-like noise, or lose power suddenly, pull over and turn off the engine. Have it towed.",
+     "If the oil level drops quickly, don't keep driving it until it's checked."
+    ],
+    "why": "A turbocharger spins very fast and is lubricated by engine oil. When its seals or bearings wear, oil leaks into the intake or exhaust and burns, mostly when the turbo is working hard. A failing turbo can get worse suddenly.",
+    "causes": [
+     {
+      "name": "Worn turbocharger seals or bearings",
+      "clues": "Smoke under hard acceleration, oil in the intake pipes, and a new whine.",
+      "against": ""
+     },
+     {
+      "name": "Blocked turbo oil drain or PCV problem",
+      "clues": "Oil being pushed out past the turbo seals even though the turbo spins freely.",
+      "against": ""
+     },
+     {
+      "name": "Worn piston rings",
+      "clues": "Smoke at other times too, and high oil use.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level.",
+      "Listen for a new whistling or whining sound when accelerating."
+     ],
+     "shop": [
+      "Turbocharger shaft play inspection",
+      "Intake and intercooler check for oil",
+      "PCV system check",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_overfilled": {
+   "result": {
+    "title": "There may be too much oil, or some was spilled during the oil change",
+    "urgency": "diy",
+    "now": "Check the oil level on level ground with the engine off. If it's well over the full mark, have the extra drained before driving much.",
+    "if": [
+     "If the level is correct and the smoke stops within a day or two of driving, it was likely spilled oil burning off.",
+     "If the smoke continues and the level is correct, have it checked."
+    ],
+    "why": "Too much oil can get whipped up by the spinning crankshaft and pushed into the intake, where it burns. Oil spilled on the engine or exhaust during a change can also smoke for a short while. Both are easy to sort out.",
+    "causes": [
+     {
+      "name": "Oil overfilled",
+      "clues": "The dipstick reads above the full mark right after a change or top-up.",
+      "against": ""
+     },
+     {
+      "name": "Oil spilled during the change",
+      "clues": "Smoke seems to come from under the hood, and it fades over a few drives.",
+      "against": ""
+     },
+     {
+      "name": "Oil filter or drain plug leaking onto the exhaust",
+      "clues": "Fresh drips under the car after the oil change.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the dipstick on level ground with the engine off for a few minutes.",
+      "Look under the car for fresh drips near the oil filter and drain plug."
+     ],
+     "shop": [
+      "Oil level correction",
+      "Filter and drain plug leak check"
+     ]
+    }
+   }
+  },
+  "r_oil_very_low": {
+   "result": {
+    "title": "The engine is dangerously low on oil",
+    "urgency": "stop",
+    "now": "Don't start the engine until you've added oil to the full mark. If the oil light was on or the engine knocked, have it towed instead of starting it.",
+    "if": [
+     "If you add oil and the engine runs quietly with no oil light, have it checked within a day or two to find out where the oil is going.",
+     "If it takes several quarts to reach the full mark, look for a major leak before starting it."
+    ],
+    "why": "An engine that's burning oil can use it faster than you'd expect. Once the level is very low, the engine's moving parts can lose lubrication and wear out or seize quickly.",
+    "causes": [
+     {
+      "name": "Heavy oil burning",
+      "clues": "Blue smoke and no oil spots under the car.",
+      "against": ""
+     },
+     {
+      "name": "Oil leak",
+      "clues": "Oil spots where you park, or an oily underside.",
+      "against": ""
+     },
+     {
+      "name": "Missed oil changes",
+      "clues": "It's been a long time since the last oil change.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Add the oil type listed in your owner's manual until it reaches the full mark.",
+      "Look under the car for leaks."
+     ],
+     "shop": [
+      "Oil leak inspection",
+      "Oil consumption test",
+      "Engine noise and oil pressure check"
+     ]
+    }
+   }
+  },
+  "r_burning_oil": {
+   "result": {
+    "title": "The engine is burning oil and needs to be checked",
+    "urgency": "soon",
+    "now": "Top up the oil to the full mark and have the engine checked within a few days. Check the oil before every longer drive until then.",
+    "if": [
+     "If the oil light comes on or the engine starts knocking, pull over and turn off the engine.",
+     "If the check engine light comes on, mention it to the shop. Burning oil can foul spark plugs and damage the catalytic converter."
+    ],
+    "why": "Smoke all the time plus a dropping oil level means oil is reaching the cylinders steadily. The engine can run low on oil without warning, and burning oil also wears out spark plugs and the catalytic converter over time.",
+    "causes": [
+     {
+      "name": "Worn piston rings",
+      "clues": "Smoke when accelerating, high mileage, or a known oil-use issue on your engine.",
+      "against": ""
+     },
+     {
+      "name": "Worn valve stem seals or guides",
+      "clues": "Worst on startup and when letting off the gas downhill.",
+      "against": ""
+     },
+     {
+      "name": "Faulty PCV valve or turbocharger",
+      "clues": "Oil in the intake, or a turbo engine with smoke under boost.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Track how much oil you add and how often.",
+      "Look at the spark plugs if you're comfortable doing so. Oily deposits support oil burning."
+     ],
+     "shop": [
+      "Compression and leak-down test",
+      "PCV system check",
+      "Oil consumption test",
+      "Spark plug inspection"
+     ]
+    }
+   }
+  },
+  "r_minor": {
+   "result": {
+    "title": "A small amount of oil burning or a PCV problem is likely",
+    "urgency": "check",
+    "now": "Keep checking the oil level every week or two, and book a check when convenient.",
+    "if": [
+     "If the oil level starts dropping, have it checked sooner.",
+     "If the smoke seems to come from under the car or hood rather than the tailpipe, look for an oil leak dripping onto the exhaust and have it fixed promptly."
+    ],
+    "why": "If the oil level stays steady, the engine isn't burning much yet. A sticking PCV valve can pull a little oil into the intake, and early seal wear can cause light smoke before oil use becomes noticeable.",
+    "causes": [
+     {
+      "name": "Faulty PCV valve",
+      "clues": "Oil residue in the air intake hose, or a rough idle.",
+      "against": ""
+     },
+     {
+      "name": "Early valve seal or ring wear",
+      "clues": "Light smoke that appears mainly on startup or under hard acceleration.",
+      "against": ""
+     },
+     {
+      "name": "Oil leak onto the exhaust",
+      "clues": "Smoke comes from under the car rather than the tailpipe, and there are oily spots underneath.",
+      "against": ""
+     },
+     {
+      "name": "Transmission fluid being burned (some older automatics)",
+      "clues": "The transmission fluid level drops, or shifting has changed.",
+      "against": "Rare on modern cars."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Mark the oil level and check it again in a week.",
+      "Look under the car for oily spots or a wet exhaust pipe."
+     ],
+     "shop": [
+      "PCV valve check",
+      "Oil leak inspection",
+      "Compression test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "burning-oil-low-oil-level",
+  "burning-oil-smell",
+  "oil-leak",
+  "white-smoke-from-exhaust",
+  "black-smoke-from-exhaust"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "oil consumption",
+   "oil burning",
+   "burning oil",
+   "burns oil",
+   "piston ring",
+   "valve seal",
+   "pcv",
+   "turbocharger",
+   "blue smoke"
+  ]
+ },
+ "sources": [
+  "https://firestonecompleteautocare.com/blog/maintenance/what-is-my-exhaust-color-telling-me",
+  "https://www.slashgear.com/1550878/white-black-blue-car-exhaust-smoke-explained"
+ ]
+}

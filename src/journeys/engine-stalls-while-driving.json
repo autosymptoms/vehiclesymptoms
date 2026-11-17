@@ -1,0 +1,547 @@
+{
+ "id": "engine-stalls-while-driving",
+ "title": "Engine stalls while driving",
+ "h1": "Why does my car shut off while driving?",
+ "metaDesc": "Engine stalled or shut off while driving? Answer a few quick questions to narrow down fuel, electrical or sensor causes, and whether it's safe to drive.",
+ "group": "start",
+ "cat": "Starting Problems",
+ "synonyms": [
+  "car stalls while driving",
+  "engine shuts off while driving",
+  "car died while driving",
+  "car turns off while driving",
+  "engine cut out",
+  "car shut off on the highway",
+  "engine dies at speed",
+  "car randomly shuts off",
+  "car stalled and restarted",
+  "car stalls when accelerating",
+  "lost power and died",
+  "car keeps stalling",
+  "engine quit while driving",
+  "car shuts off wont restart"
+ ],
+ "intro": "When the engine shuts off while you're moving, you lose power steering and most of your brake assist, so this is a safety problem even if it restarts. What you noticed right before it died is the best clue. Answer the questions below to narrow it down and see what to do next.",
+ "safety": [
+  "If the engine dies, keep steering and press the brake firmly. Both still work, but take much more effort.",
+  "If the temperature gauge is in the red, you see steam, or the oil light came on, don't restart it.",
+  "If you smell raw fuel or see smoke, get everyone out and away from the car.",
+  "If it stalls once, don't rely on it in traffic or on the highway until it's diagnosed."
+ ],
+ "start": "q_warning",
+ "nodes": {
+  "q_warning": {
+   "q": "Right before or as it died, did you notice any of these?",
+   "opts": [
+    {
+     "a": "Temperature gauge in the red, steam, or a hot smell",
+     "go": "r_overheat"
+    },
+    {
+     "a": "Oil pressure light, or loud knocking from the engine",
+     "go": "r_oil"
+    },
+    {
+     "a": "Battery light on, or lights and gauges dimmed or flickered",
+     "go": "r_charging"
+    },
+    {
+     "a": "Sputtering, shaking, loss of power, or a flashing check engine light",
+     "go": "q_fuel"
+    },
+    {
+     "a": "Nothing like that. It just shut off",
+     "go": "q_how"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_how"
+    }
+   ]
+  },
+  "q_how": {
+   "q": "How did it shut off?",
+   "opts": [
+    {
+     "a": "Suddenly, like flipping a switch, with no sputter",
+     "go": "q_restart"
+    },
+    {
+     "a": "It sputtered, surged or lost power first",
+     "go": "q_fuel"
+    },
+    {
+     "a": "When I hit a bump or my knee bumped the key or key ring",
+     "go": "r_ignition_switch"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_restart"
+    }
+   ]
+  },
+  "q_fuel": {
+   "q": "What was the fuel gauge showing?",
+   "opts": [
+    {
+     "a": "Near empty, or the low fuel light was on",
+     "go": "r_out_of_fuel"
+    },
+    {
+     "a": "A quarter tank or more",
+     "go": "r_fuel_delivery"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_fuel_delivery"
+    }
+   ]
+  },
+  "q_restart": {
+   "q": "Will it restart?",
+   "opts": [
+    {
+     "a": "Yes, it restarts and runs normally, sometimes only after cooling down",
+     "go": "r_restarts"
+    },
+    {
+     "a": "No, it cranks but won't start",
+     "go": "r_no_restart"
+    },
+    {
+     "a": "No, it won't crank and the dash went dark",
+     "go": "r_power_loss"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "r_overheat": {
+   "result": {
+    "title": "The engine overheated and may have shut down to protect itself",
+    "urgency": "stop",
+    "now": "Don't restart it. Let it cool for at least 30 minutes with the hood closed, then have it towed or call a mobile mechanic.",
+    "if": [
+     "If you see coolant leaking or the reservoir is empty once cool, there's a leak or a failed hose.",
+     "Never open the radiator cap on a hot engine. Hot coolant can spray out."
+    ],
+    "why": "An engine that gets hot enough to stall can warp or crack parts. Restarting it, or driving even a short distance, can turn a hose or thermostat repair into a major engine repair.",
+    "causes": [
+     {
+      "name": "Coolant leak or low coolant",
+      "clues": "A sweet smell, steam, or a puddle under the front of the car.",
+      "against": ""
+     },
+     {
+      "name": "Failed cooling fan or water pump",
+      "clues": "It overheated in traffic or with the A/C on.",
+      "against": ""
+     },
+     {
+      "name": "Head gasket damage",
+      "clues": "White exhaust smoke or coolant loss with no visible leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once fully cool, check the coolant reservoir level.",
+      "Look for leaks under the car."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Cooling fan and water pump check",
+      "Combustion gas (head gasket) test"
+     ]
+    }
+   }
+  },
+  "r_oil": {
+   "result": {
+    "title": "The engine may have lost oil pressure",
+    "urgency": "stop",
+    "now": "Don't restart it. Check the oil level on the dipstick, then have it towed or call a mobile mechanic.",
+    "if": [
+     "If the oil is very low, adding oil won't undo any damage. Have it checked before running it.",
+     "If the engine was knocking loudly before it stopped, it may be seriously damaged."
+    ],
+    "why": "Oil keeps metal parts from grinding against each other. When pressure drops, damage happens fast, and an engine that stalls with knocking may have seized. Restarting it can make the damage much worse.",
+    "causes": [
+     {
+      "name": "Very low oil level",
+      "clues": "An overdue oil change, oil leaks, or burning oil smell.",
+      "against": ""
+     },
+     {
+      "name": "Failed oil pump or blocked oil pickup",
+      "clues": "The oil level is fine but the light came on.",
+      "against": ""
+     },
+     {
+      "name": "Internal engine damage",
+      "clues": "Loud knocking before it died.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level on the dipstick with the engine off."
+     ],
+     "shop": [
+      "Oil pressure test with a gauge",
+      "Check whether the engine turns freely by hand",
+      "Oil inspection for metal particles"
+     ]
+    }
+   }
+  },
+  "r_charging": {
+   "result": {
+    "title": "The charging system likely failed and the battery ran down",
+    "urgency": "stop",
+    "now": "Don't count on it restarting and running. Have it towed to a shop or call a mobile mechanic.",
+    "if": [
+     "If a jump gets it running, it will likely die again within minutes. Don't drive it in traffic.",
+     "If you smelled burning rubber or heard a squeal first, the drive belt may have broken."
+    ],
+    "why": "If the alternator stops charging, the car runs on the battery alone. Lights dim, gauges act up, and then the engine shuts off once the battery is too low to keep it running.",
+    "causes": [
+     {
+      "name": "Failed alternator",
+      "clues": "The battery light came on before it died.",
+      "against": ""
+     },
+     {
+      "name": "Broken or slipping drive belt",
+      "clues": "Squealing, a burning rubber smell, or heavy steering.",
+      "against": ""
+     },
+     {
+      "name": "Loose or corroded battery or charging cable",
+      "clues": "Flickering lights, or it happened after a bump.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the drive belt with the engine off.",
+      "Check the battery clamps for looseness or buildup."
+     ],
+     "shop": [
+      "Alternator output test",
+      "Drive belt inspection",
+      "Battery load test",
+      "Voltage-drop test on charging cables"
+     ]
+    }
+   }
+  },
+  "r_ignition_switch": {
+   "result": {
+    "title": "A worn ignition switch may be cutting power",
+    "urgency": "stop",
+    "now": "Don't drive it until the ignition switch is checked. Have it towed, and check your VIN for open safety recalls.",
+    "if": [
+     "If there's an open recall, the dealer will fix it at no charge.",
+     "Until it's fixed, keep only the car key on the ring. A heavy key ring makes this worse."
+    ],
+    "why": "A worn ignition switch can slip from Run to Accessory or Off when it's jostled. The engine shuts off, and on some cars the airbags may be disabled too. Some vehicles have had recalls for exactly this.",
+    "causes": [
+     {
+      "name": "Worn ignition switch",
+      "clues": "It happens over bumps or when the key is touched.",
+      "against": ""
+     },
+     {
+      "name": "Heavy key ring pulling on the key",
+      "clues": "Lots of keys or accessories hanging from the car key.",
+      "against": ""
+     },
+     {
+      "name": "Loose wiring connection at the switch",
+      "clues": "Dash lights flicker over bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your VIN for open recalls on the NHTSA website.",
+      "Remove extra keys from the ring."
+     ],
+     "shop": [
+      "Ignition switch test",
+      "Recall check",
+      "Ignition wiring inspection"
+     ]
+    }
+   }
+  },
+  "r_out_of_fuel": {
+   "result": {
+    "title": "It most likely ran out of fuel",
+    "urgency": "diy",
+    "now": "Get somewhere safe, add a few gallons of fuel, and try to restart. It may need several tries of a few seconds each to refill the fuel lines.",
+    "if": [
+     "If it still won't start after adding fuel, the fuel pump may have been damaged. Have it towed.",
+     "If the gauge showed fuel left when it died, have the gauge checked so it doesn't happen again."
+    ],
+    "why": "Sputtering and surging before a stall is classic fuel starvation. When the tank is low, hard turns, hills or braking can slosh fuel away from the pickup and the engine starves.",
+    "causes": [
+     {
+      "name": "Out of fuel",
+      "clues": "The gauge was near empty or the low fuel light was on.",
+      "against": ""
+     },
+     {
+      "name": "Inaccurate fuel gauge",
+      "clues": "The gauge has read oddly before.",
+      "against": ""
+     },
+     {
+      "name": "Fuel pump struggling on a low tank",
+      "clues": "It sputters at low fuel levels even when there's some left.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Add fuel and try again.",
+      "Note how many miles you drove since the last fill-up."
+     ],
+     "shop": [
+      "Fuel gauge sender test",
+      "Fuel pressure test"
+     ]
+    }
+   }
+  },
+  "r_fuel_delivery": {
+   "result": {
+    "title": "Likely a fuel delivery problem or a severe misfire",
+    "urgency": "stop",
+    "now": "Don't drive it until it's checked. Have it towed or call a mobile mechanic who can scan for trouble codes.",
+    "if": [
+     "If the check engine light was flashing, the catalytic converter can be damaged by running it. Don't keep trying to drive it.",
+     "If you smell raw fuel, keep sparks and flames away and don't restart it."
+    ],
+    "why": "Sputtering, surging or losing power before a stall means the engine wasn't getting enough fuel or wasn't burning it properly. A weak fuel pump, a clogged filter or a bad sensor are common causes, and they tend to get worse.",
+    "causes": [
+     {
+      "name": "Weak fuel pump or clogged fuel filter",
+      "clues": "Worse going uphill or under hard acceleration, with no flashing light.",
+      "against": ""
+     },
+     {
+      "name": "Faulty airflow or throttle sensor",
+      "clues": "A steady check engine light, surging, or a rough idle.",
+      "against": ""
+     },
+     {
+      "name": "Severe misfire from an ignition coil or plugs",
+      "clues": "A flashing check engine light and shaking.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the check engine light was on or flashing.",
+      "Listen for the brief fuel pump hum from the rear when you turn the key to On."
+     ],
+     "shop": [
+      "Code scan and live sensor data",
+      "Fuel pressure and volume test",
+      "Ignition coil and spark plug check"
+     ]
+    }
+   }
+  },
+  "r_restarts": {
+   "result": {
+    "title": "A failing sensor or electrical connection is likely cutting the engine",
+    "urgency": "stop",
+    "now": "Don't rely on it until it's diagnosed. Have it towed or have a mobile mechanic scan for trouble codes, even if no warning light is on.",
+    "if": [
+     "If you're stuck somewhere unsafe and it restarts, move it only as far as a safe spot, then call for a tow.",
+     "If it only restarts after cooling down, tell the shop. That pattern points strongly to a heat-sensitive sensor."
+    ],
+    "why": "An engine that cuts out instantly with no sputter has usually lost spark or the signal that controls it. A crankshaft position sensor that fails when hot is a classic cause. These problems come and go, so it may run fine for days before cutting out again.",
+    "causes": [
+     {
+      "name": "Failing crankshaft or camshaft position sensor",
+      "clues": "It dies suddenly when warm and restarts after cooling.",
+      "against": ""
+     },
+     {
+      "name": "Loose wiring, ground or fuel pump relay",
+      "clues": "It happens over bumps, or it restarts right away.",
+      "against": ""
+     },
+     {
+      "name": "Worn ignition switch",
+      "clues": "The dash lights blink off as it dies.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Write down when it happens: warm or cold, speed, bumps.",
+      "Check your VIN for open recalls on the NHTSA website."
+     ],
+     "shop": [
+      "Code scan, including stored and pending codes",
+      "Crank and cam sensor signal test",
+      "Wiring, ground and relay inspection"
+     ]
+    }
+   }
+  },
+  "r_no_restart": {
+   "result": {
+    "title": "A failed fuel pump or crankshaft sensor is likely",
+    "urgency": "stop",
+    "now": "Stop cranking it. Have the car towed to a shop.",
+    "if": [
+     "If a key or security light is flashing, try your spare key. The anti-theft system can block the engine from running.",
+     "If it restarts after sitting, don't count on it. These parts often fail completely soon after."
+    ],
+    "why": "If the engine cranks normally but won't fire after dying on the road, it has lost fuel or spark completely. A fuel pump that stopped running and a crankshaft sensor that stopped reporting are the usual causes.",
+    "causes": [
+     {
+      "name": "Failed fuel pump",
+      "clues": "No hum from the rear when you turn the key to On.",
+      "against": ""
+     },
+     {
+      "name": "Failed crankshaft position sensor",
+      "clues": "It died suddenly with no sputter.",
+      "against": ""
+     },
+     {
+      "name": "Fuel pump relay or fuse",
+      "clues": "Sudden failure. These are quick to check first.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Listen for the fuel pump hum.",
+      "Look for a flashing key or security light."
+     ],
+     "shop": [
+      "Fuel pressure test",
+      "Code scan for crank and cam sensor codes",
+      "Fuel pump relay and fuse check"
+     ]
+    }
+   }
+  },
+  "r_power_loss": {
+   "result": {
+    "title": "The car lost all electrical power, likely at the battery connection",
+    "urgency": "stop",
+    "now": "Get to safety, then check whether a battery cable is loose or has come off. If you can't fix it on the spot, have it towed.",
+    "if": [
+     "If tightening a loose clamp brings everything back, have the cables and fuses checked before you rely on the car again.",
+     "If you smell burning, don't touch the wiring. Step away and call for help."
+    ],
+    "why": "When the engine and dash both go dead at once, the car has lost its main power. A loose or corroded battery cable is the most common cause. A blown main fuse or a failed ignition switch can do the same.",
+    "causes": [
+     {
+      "name": "Loose or corroded battery cable",
+      "clues": "A clamp that moves by hand, or it happened over a bump.",
+      "against": ""
+     },
+     {
+      "name": "Blown main fuse or fusible link",
+      "clues": "Cables are tight but there's still no power.",
+      "against": ""
+     },
+     {
+      "name": "Failed ignition switch",
+      "clues": "Power comes and goes when you move the key.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, check that both battery clamps are tight."
+     ],
+     "shop": [
+      "Battery cable and ground inspection",
+      "Main fuse check",
+      "Ignition switch test"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Have it diagnosed before you drive it again",
+    "urgency": "stop",
+    "now": "Have the car towed to a shop or call a mobile mechanic to scan it where it sits.",
+    "if": [
+     "If a warning light came on, tell the shop which one. It narrows things down quickly.",
+     "If you smell fuel or burning, don't try to restart it."
+    ],
+    "why": "An engine that shuts off while moving can stall again at a worse moment, like in an intersection or on a highway. The cause can be fuel, spark, electrical or overheating, and a scan plus a few tests will usually show which.",
+    "causes": [
+     {
+      "name": "Fuel delivery problem",
+      "clues": "Sputtering or loss of power first.",
+      "against": ""
+     },
+     {
+      "name": "Sensor or ignition failure",
+      "clues": "It cut out suddenly with no warning.",
+      "against": ""
+     },
+     {
+      "name": "Charging system failure",
+      "clues": "The battery light came on or the lights dimmed.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Write down what happened just before it died.",
+      "Check your VIN for open recalls."
+     ],
+     "shop": [
+      "Code scan",
+      "Fuel pressure test",
+      "Charging system test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "car-dies-when-coming-to-stop",
+  "starts-then-dies",
+  "engine-sputtering-misfire",
+  "battery-light-on",
+  "engine-overheating"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Starting Problems",
+   "Driving"
+  ],
+  "words": [
+   "stall",
+   "shut off",
+   "fuel pump",
+   "crankshaft position sensor",
+   "ignition switch",
+   "alternator",
+   "dies while driving",
+   "loss of power"
+  ]
+ },
+ "sources": [
+  "https://jdpower.com/cars/shopping-guides/what-does-it-mean-when-your-car-stalls",
+  "https://westerncentralnyaaa.com/node/35721"
+ ]
+}

@@ -1,0 +1,565 @@
+{
+ "id": "water-leak-inside-car",
+ "title": "Water inside the car",
+ "h1": "Why is there water inside my car?",
+ "metaDesc": "Wet carpet or water inside your car? Answer a few questions to find where it's getting in, how urgent it is, and what to tell your mechanic.",
+ "group": "leaksmell",
+ "cat": "Leaks",
+ "synonyms": [
+  "wet carpet in car",
+  "water on passenger floor",
+  "water leaking into car",
+  "car floor wet after rain",
+  "water in footwell",
+  "passenger side floor wet",
+  "drivers side floor wet",
+  "water dripping from headliner",
+  "sunroof leaking",
+  "water in trunk",
+  "wet floor after using ac",
+  "car leaks when it rains",
+  "water under floor mats",
+  "carpet soaked in car"
+ ],
+ "intro": "Water inside a car usually comes from a blocked drain, a worn seal or a clogged A/C drain. Where the water shows up, and when, points straight to the cause. Answer a few questions to find the likely source and how quickly you should deal with it.",
+ "safety": [
+  "If the liquid smells sweet or the inside of the windshield fogs with a greasy film, watch the temperature gauge. If it climbs, pull over and turn off the engine.",
+  "If the car sat in water deep enough to reach the floor or seats, don't start it until it's been inspected.",
+  "If you smell burning or see smoke from under the dash or seats, turn the car off and get out."
+ ],
+ "start": "q_type",
+ "nodes": {
+  "q_type": {
+   "q": "What is the liquid like?",
+   "help": "Press a white paper towel into the wet carpet and smell it. Coolant is often green, orange or pink and smells sweet.",
+   "opts": [
+    {
+     "a": "Plain water, no color or smell",
+     "go": "q_where"
+    },
+    {
+     "a": "Sweet-smelling or slightly slimy, or there's a greasy fog on the inside of the windshield",
+     "go": "r_heater_core"
+    },
+    {
+     "a": "It smells musty or moldy, but I'm not sure what it is",
+     "go": "q_where"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_where"
+    }
+   ]
+  },
+  "q_where": {
+   "q": "Where is it wet?",
+   "opts": [
+    {
+     "a": "The front passenger footwell",
+     "go": "q_passenger_when"
+    },
+    {
+     "a": "The driver's footwell",
+     "go": "q_when"
+    },
+    {
+     "a": "Dripping from the headliner, dome light or roof pillars",
+     "go": "q_sunroof"
+    },
+    {
+     "a": "Rear footwells or under the rear seats",
+     "go": "r_rear_leak"
+    },
+    {
+     "a": "The trunk or cargo area",
+     "go": "r_trunk_leak"
+    },
+    {
+     "a": "Several places, or I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_passenger_when": {
+   "q": "When does the passenger floor get wet?",
+   "help": "The A/C drain usually exits under the car near the passenger footwell, so this question helps separate the two most common causes.",
+   "opts": [
+    {
+     "a": "After running the A/C, even on dry days",
+     "go": "r_ac_drain"
+    },
+    {
+     "a": "After rain or a car wash",
+     "go": "r_cowl_drain"
+    },
+    {
+     "a": "Both, or I'm not sure",
+     "go": "r_general_leak"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When does it get wet?",
+   "opts": [
+    {
+     "a": "Only after rain or a car wash",
+     "go": "r_door_windshield_seal"
+    },
+    {
+     "a": "After running the A/C",
+     "go": "r_ac_drain"
+    },
+    {
+     "a": "After driving through deep water, or the car sat in a flood",
+     "go": "r_flood"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general_leak"
+    }
+   ]
+  },
+  "q_sunroof": {
+   "q": "Does your car have a sunroof or moonroof?",
+   "opts": [
+    {
+     "a": "Yes",
+     "go": "r_sunroof_drains"
+    },
+    {
+     "a": "No",
+     "go": "r_roof_seal"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_roof_seal"
+    }
+   ]
+  },
+  "r_heater_core": {
+   "result": {
+    "title": "The heater core may be leaking coolant into the cabin",
+    "urgency": "soon",
+    "now": "Check the coolant level when the engine is cold, top it up if needed, and get the car checked within a few days. Keep the windows cracked while you drive.",
+    "if": [
+     "If the temperature gauge rises above normal, pull over and turn off the engine.",
+     "If the windshield fogs so badly you can't see, don't drive it until it's fixed.",
+     "If the coolant level is dropping fast, don't drive it. Have it towed."
+    ],
+    "why": "The heater core is a small radiator behind the dashboard. When it leaks, hot coolant soaks the passenger carpet and its vapor leaves a greasy, sweet-smelling film on the glass. You're losing coolant, and the vapor isn't something you want to breathe.",
+    "causes": [
+     {
+      "name": "Leaking heater core",
+      "clues": "A sweet smell inside, a greasy film on the windshield, and wet passenger carpet.",
+      "against": "If the liquid is plain water with no smell, this is unlikely."
+     },
+     {
+      "name": "Leaking heater hose connection",
+      "clues": "Coolant loss and wetness near the firewall, where the hoses go into the dash.",
+      "against": ""
+     },
+     {
+      "name": "Blocked A/C drain",
+      "clues": "The water is clear and odorless, and it happens after running the A/C.",
+      "against": "A sweet smell points away from this."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the coolant level when the engine is cold.",
+      "Smell the wet carpet and look for a greasy film on the inside of the windshield."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Heater core and hose inspection",
+      "Check for coolant in the HVAC case"
+     ]
+    }
+   }
+  },
+  "r_ac_drain": {
+   "result": {
+    "title": "The A/C drain is probably blocked",
+    "urgency": "check",
+    "now": "Look under the car near the passenger footwell while the A/C runs. If no water drips out, the drain tube is likely clogged. Book a check to have it cleared and the carpet dried.",
+    "if": [
+     "If the carpet stays wet for more than a few days, have it dried properly to prevent mold and damage to wiring under the floor.",
+     "If the water smells sweet, it's probably coolant, not A/C water. Check your coolant level."
+    ],
+    "why": "The A/C pulls water out of the air and drains it through a small tube under the car. If leaves, dirt or insects block that tube, the water backs up and spills onto the passenger floor instead.",
+    "causes": [
+     {
+      "name": "Clogged A/C evaporator drain",
+      "clues": "No drip under the car when the A/C runs, and a wet passenger floor on dry days.",
+      "against": ""
+     },
+     {
+      "name": "Drain tube kinked or disconnected",
+      "clues": "It started after work behind the dashboard.",
+      "against": ""
+     },
+     {
+      "name": "Heater core leak",
+      "clues": "The water smells sweet or the windshield fogs with a film.",
+      "against": "Plain, odorless water points away from this."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Run the A/C for 10 minutes on a warm day and check for a drip under the car.",
+      "Feel the carpet after an A/C-only drive with no rain."
+     ],
+     "shop": [
+      "Clear the evaporator drain",
+      "Check the drain tube connection",
+      "Moisture check under the carpet"
+     ]
+    }
+   }
+  },
+  "r_cowl_drain": {
+   "result": {
+    "title": "Rainwater is probably getting in at the base of the windshield",
+    "urgency": "check",
+    "now": "Open the hood and clear any leaves or debris from the vented panel below the windshield, then book a check if it still leaks.",
+    "if": [
+     "If water reaches the fuse box or wiring under the dash, or electrical things start acting up, get it checked within a few days.",
+     "If the carpet stays wet, have it dried to prevent mold."
+    ],
+    "why": "The area below the windshield, called the cowl, collects rainwater and drains it away. When its drains clog with leaves, water can overflow into the fresh-air intake or past seals and end up on the passenger floor.",
+    "causes": [
+     {
+      "name": "Clogged cowl drains",
+      "clues": "Leaves or debris in the panel below the windshield, and it's worse after heavy rain.",
+      "against": ""
+     },
+     {
+      "name": "Windshield seal leak",
+      "clues": "Water appears high up, near the top of the dash or the pillar.",
+      "against": ""
+     },
+     {
+      "name": "Missing cabin air filter cover or seal",
+      "clues": "Recent cabin filter replacement.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Clear leaves and debris from the cowl area.",
+      "Have someone run a garden hose over the windshield base while you watch inside."
+     ],
+     "shop": [
+      "Water test of the cowl, windshield and door seals",
+      "Cowl drain cleaning",
+      "Moisture check under the carpet"
+     ]
+    }
+   }
+  },
+  "r_door_windshield_seal": {
+   "result": {
+    "title": "A door seal, windshield seal or body drain is likely letting rain in",
+    "urgency": "check",
+    "now": "Dry the carpet and book a water test so a shop can find exactly where it's getting in.",
+    "if": [
+     "If the carpet stays wet or smells musty, have it dried properly to prevent mold.",
+     "If electrical things start acting up, get it checked within a few days. Wiring and modules often sit under the carpet."
+    ],
+    "why": "Rubber seals harden and shrink with age, and doors have drain holes at the bottom that can clog. Either one lets rain or car wash water work its way into the footwell.",
+    "causes": [
+     {
+      "name": "Worn or damaged door seal",
+      "clues": "Water near the door sill, or light visible around the closed door.",
+      "against": ""
+     },
+     {
+      "name": "Clogged door drain holes",
+      "clues": "Water sloshing inside the door, or a wet sill after rain.",
+      "against": ""
+     },
+     {
+      "name": "Windshield or cowl leak",
+      "clues": "Water appears at the top of the footwell, near the dash.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for torn or flattened rubber seals around the door.",
+      "Check that the drain holes at the bottom of the door are clear."
+     ],
+     "shop": [
+      "Water hose test",
+      "Seal inspection",
+      "Moisture check under the carpet"
+     ]
+    }
+   }
+  },
+  "r_sunroof_drains": {
+   "result": {
+    "title": "The sunroof drains are most likely clogged",
+    "urgency": "diy",
+    "now": "Open the sunroof and slowly pour a cup of water into the channel near a corner. It should drain out under the car within a few seconds. If it pools, that drain is clogged.",
+    "if": [
+     "If the water doesn't drain, have a shop clear the drains. Forcing high-pressure air into them can pop the hoses loose.",
+     "If water drips near the dome light or airbag areas, or electrical things act up, get it checked within a few days."
+    ],
+    "why": "Sunroofs aren't watertight. They catch water in a tray and send it out through small hoses in the roof pillars. When those hoses clog or come loose, water overflows into the headliner and runs down the pillars.",
+    "causes": [
+     {
+      "name": "Clogged sunroof drain tubes",
+      "clues": "Water pools in the sunroof channel instead of draining.",
+      "against": ""
+     },
+     {
+      "name": "Disconnected or cracked drain tube",
+      "clues": "Water drains from the channel but still ends up inside, often down a pillar.",
+      "against": ""
+     },
+     {
+      "name": "Worn sunroof seal",
+      "clues": "It leaks only in heavy rain, around the glass edge.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Pour a little water into each corner of the sunroof channel and watch where it goes.",
+      "Look for water stains on the headliner near the pillars."
+     ],
+     "shop": [
+      "Sunroof drain cleaning and tube inspection",
+      "Water test",
+      "Headliner and wiring moisture check"
+     ]
+    }
+   }
+  },
+  "r_roof_seal": {
+   "result": {
+    "title": "A windshield, roof or roof-rack seal is likely leaking",
+    "urgency": "check",
+    "now": "Dry the area, then book a water test to find where it's getting in.",
+    "if": [
+     "If water drips near the dome light, airbag covers or other wiring, get it checked within a few days.",
+     "If the headliner stays damp or smells musty, have it dried to prevent mold."
+    ],
+    "why": "Without a sunroof, water coming through the roof area usually gets past the windshield seal, a roof-rack mount or an antenna base. These leaks often show up at the headliner or run down a pillar.",
+    "causes": [
+     {
+      "name": "Windshield seal leak",
+      "clues": "Water at the top corners of the windshield, especially after a windshield replacement.",
+      "against": ""
+     },
+     {
+      "name": "Roof rack or antenna mount seal",
+      "clues": "A drip spot directly below the rack or antenna.",
+      "against": ""
+     },
+     {
+      "name": "Rear window or hatch seal",
+      "clues": "Water near the back of the headliner.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for water stains on the headliner and note where they start.",
+      "Check whether the windshield was replaced recently."
+     ],
+     "shop": [
+      "Water hose test",
+      "Seal inspection",
+      "Wiring moisture check"
+     ]
+    }
+   }
+  },
+  "r_rear_leak": {
+   "result": {
+    "title": "Water in the rear is likely coming past a door seal, drain or body plug",
+    "urgency": "check",
+    "now": "Lift the floor mats to see how wet it is, dry it out, and book a water test.",
+    "if": [
+     "If the car has a sunroof, check the rear sunroof drains too. They often empty near the rear doors.",
+     "If the carpet stays wet, have it dried properly to prevent mold and corrosion."
+    ],
+    "why": "Rear footwells usually get wet from rear door seals, clogged door drains or a missing rubber plug in the floor. On cars with a sunroof, a blocked rear drain can also send water down the back pillars.",
+    "causes": [
+     {
+      "name": "Rear door seal or clogged door drains",
+      "clues": "Water near the rear door sills after rain.",
+      "against": ""
+     },
+     {
+      "name": "Missing or loose floor plug",
+      "clues": "It gets wet after driving through puddles, not just after rain.",
+      "against": ""
+     },
+     {
+      "name": "Rear sunroof drain",
+      "clues": "Water stains on the rear pillars or headliner.",
+      "against": "No sunroof rules this out."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the rear door seals and the drain holes at the bottom of the doors.",
+      "Look under the carpet for wet padding."
+     ],
+     "shop": [
+      "Water hose test",
+      "Floor plug and seal inspection"
+     ]
+    }
+   }
+  },
+  "r_trunk_leak": {
+   "result": {
+    "title": "A trunk seal, taillight gasket or body plug is likely leaking",
+    "urgency": "diy",
+    "now": "Lift the trunk floor and check the spare tire well for water, then look for cracked taillights or a torn trunk seal.",
+    "if": [
+     "If water keeps collecting, book a water test so it doesn't cause rust in the floor.",
+     "If there's wiring or a battery in the trunk area, get it checked within a few days."
+    ],
+    "why": "Trunks commonly leak through worn lid seals, taillight gaskets or a rear window seal. Water often collects unseen in the spare tire well and can lead to rust and a musty smell.",
+    "causes": [
+     {
+      "name": "Taillight gasket",
+      "clues": "Water trails below the taillights inside the trunk.",
+      "against": ""
+     },
+     {
+      "name": "Trunk lid or hatch seal",
+      "clues": "Water near the trunk opening after rain.",
+      "against": ""
+     },
+     {
+      "name": "Missing or loose body plug",
+      "clues": "Water in the spare tire well after driving in wet weather.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the spare tire well.",
+      "Look for cracked taillights and torn seals."
+     ],
+     "shop": [
+      "Water hose test",
+      "Taillight and seal inspection"
+     ]
+    }
+   }
+  },
+  "r_flood": {
+   "result": {
+    "title": "Water may have gotten into the engine, electrical system or airbags",
+    "urgency": "stop",
+    "now": "Don't start the car. Have it towed to a shop and contact your insurance company.",
+    "if": [
+     "If the car is already running and the water was only at the bottom of the doors, turn it off and have it inspected before relying on it.",
+     "If the engine stalled while driving through water, don't try to restart it. That can badly damage the engine."
+    ],
+    "why": "Deep water can get into the engine's air intake, which can wreck the engine if you start it. It can also soak wiring, computers and airbag parts under the seats and carpet, causing problems that show up weeks later.",
+    "causes": [
+     {
+      "name": "Water entering through door seals and floor openings",
+      "clues": "Wet carpet and padding after deep water.",
+      "against": ""
+     },
+     {
+      "name": "Water in the engine air intake",
+      "clues": "The engine stalled in the water or won't turn over normally.",
+      "against": ""
+     },
+     {
+      "name": "Water in electrical connectors and modules",
+      "clues": "Warning lights, odd electrical behavior, or a musty smell later on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note how high the water came on the outside of the car.",
+      "Take photos for your insurance company."
+     ],
+     "shop": [
+      "Air intake and engine oil check for water",
+      "Electrical and airbag system inspection",
+      "Carpet and padding removal to dry the floor"
+     ]
+    }
+   }
+  },
+  "r_general_leak": {
+   "result": {
+    "title": "A water test will show where it's getting in",
+    "urgency": "check",
+    "now": "Dry the carpet, then on a dry day run the A/C for 10 minutes and check the floor. If it's still dry, have someone run a garden hose over the car while you watch inside.",
+    "if": [
+     "If it only gets wet with the A/C on, the A/C drain is probably blocked.",
+     "If it smells sweet or the windshield fogs with a greasy film, check your coolant level. It may be the heater core."
+    ],
+    "why": "Most interior water comes from either the A/C drain or a rain leak. Testing them one at a time, A/C first and then a hose, tells you which one, and a shop can pinpoint it from there.",
+    "causes": [
+     {
+      "name": "Blocked A/C drain",
+      "clues": "Wet passenger floor after A/C use, even on dry days.",
+      "against": ""
+     },
+     {
+      "name": "Clogged cowl or body drains",
+      "clues": "It's worse after heavy rain or a car wash.",
+      "against": ""
+     },
+     {
+      "name": "Worn door or windshield seal",
+      "clues": "Water near a door sill or the top of the dash.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Test with the A/C first, then with a hose.",
+      "Feel under the carpet to see where it's wettest."
+     ],
+     "shop": [
+      "Water hose test",
+      "A/C drain check",
+      "Moisture check under the carpet"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "water-dripping-under-car",
+  "musty-smell-from-vents",
+  "windows-fogging-up",
+  "sweet-smell-from-car",
+  "electrical-accessories-not-working"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Leaks"
+  ],
+  "words": [
+   "water leak",
+   "wet carpet",
+   "sunroof",
+   "drain",
+   "seal",
+   "heater core",
+   "cowl",
+   "water"
+  ]
+ },
+ "sources": [
+  "https://www.capitalone.com/cars/learn/finding-the-right-car/why-is-the-carpet-wet-in-my-car/2845",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

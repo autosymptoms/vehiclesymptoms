@@ -1,0 +1,397 @@
+{
+ "id": "bouncy-ride",
+ "title": "Bouncy ride",
+ "h1": "Why does my car keep bouncing after bumps?",
+ "metaDesc": "Car bouncing after bumps, swaying or sagging? Answer a few quick questions to see if it's worn shocks, a broken spring or air suspension, and how urgent it is.",
+ "group": "shake",
+ "cat": "Driving",
+ "synonyms": [
+  "bouncy ride",
+  "car bounces after bumps",
+  "car keeps bouncing",
+  "car feels like a boat",
+  "car floats over bumps",
+  "bad shocks",
+  "worn struts",
+  "car bouncing on highway",
+  "car sways in turns",
+  "nose dives when braking",
+  "one corner of car sitting low",
+  "car sagging on one side",
+  "air suspension sagging",
+  "shocks wont stop bouncing"
+ ],
+ "intro": "Your shocks or struts are what stop the car from bouncing after it hits a bump. When they wear out, the ride gets floaty, the car dives when you brake, and the tires grip the road less well. A corner that suddenly sits low is a different, more urgent problem. Answer the questions below to find the likely cause.",
+ "safety": [
+  "If one corner suddenly sits much lower than the others, or you heard a bang from the suspension, don't drive it until it's checked.",
+  "If the car is hard to control on bumpy curves or bounces off line, slow down and leave extra stopping distance.",
+  "If a tire is rubbing on the body or a spring, stop driving. The tire can be cut and fail."
+ ],
+ "start": "q_what",
+ "nodes": {
+  "q_what": {
+   "q": "Which of these fits best?",
+   "opts": [
+    {
+     "a": "One corner sits lower than the others, or I heard a bang or loud clunk",
+     "go": "r_broken_spring"
+    },
+    {
+     "a": "It keeps bouncing after bumps, like a boat",
+     "go": "q_bounce_test"
+    },
+    {
+     "a": "The nose dives when I brake, or the back squats when I accelerate",
+     "go": "q_bounce_test"
+    },
+    {
+     "a": "It leans or sways a lot in turns",
+     "go": "r_sway"
+    },
+    {
+     "a": "It has air suspension, and it's sagging or a suspension warning is on",
+     "go": "r_air_suspension"
+    },
+    {
+     "a": "The ride is suddenly harsh and every bump hits hard",
+     "go": "r_harsh"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_bounce_test"
+    }
+   ]
+  },
+  "q_bounce_test": {
+   "q": "With the car parked, push down hard on one corner and let go. Try each corner. What happens?",
+   "help": "Press on the body above each wheel with your weight, then release. A healthy shock lets the car rise and settle with about one rebound.",
+   "opts": [
+    {
+     "a": "One or more corners bounce two or more times",
+     "go": "q_leak"
+    },
+    {
+     "a": "Every corner settles after about one bounce",
+     "go": "r_other_causes"
+    },
+    {
+     "a": "I'm not sure / I can't check",
+     "go": "r_worn_shocks"
+    }
+   ]
+  },
+  "q_leak": {
+   "q": "With a flashlight, look at the shocks or struts behind each wheel. Do any look wet or oily?",
+   "help": "Shocks and struts are the tube-shaped parts near each wheel, often inside the coil spring. A light film of dust is normal. Look for wet, oily residue running down the body of the shock.",
+   "opts": [
+    {
+     "a": "Yes, one or more is wet and oily",
+     "go": "r_leaking_shock"
+    },
+    {
+     "a": "No, they look dry",
+     "go": "r_worn_shocks"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_worn_shocks"
+    }
+   ]
+  },
+  "r_broken_spring": {
+   "result": {
+    "title": "A broken coil spring or failed suspension part is likely",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed or call a mobile mechanic to inspect it where it is.",
+    "if": [
+     "If a broken spring end is touching the tire, don't move the car at all. It can cut the tire.",
+     "If the car has air suspension, a failed air spring can also make a corner drop. Mention it to the shop."
+    ],
+    "why": "A corner that suddenly sits low, often after a bang over a bump, usually means a coil spring has snapped or a mount has failed. A broken spring can damage the tire and changes how the car steers and brakes.",
+    "causes": [
+     {
+      "name": "Broken coil spring",
+      "clues": "A bang over a bump, a corner sitting low, and sometimes a rattle or scraping from that wheel.",
+      "against": ""
+     },
+     {
+      "name": "Failed strut mount",
+      "clues": "A clunk from the top of the front suspension, and the body sits off level.",
+      "against": ""
+     },
+     {
+      "name": "Failed air spring (air suspension only)",
+      "clues": "The corner drops after sitting, with a suspension warning on the dash.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From a safe distance, compare the gap between each tire and the fender above it."
+     ],
+     "shop": [
+      "Spring and strut mount inspection on a lift",
+      "Tire and wheel check for damage",
+      "Alignment after repairs"
+     ]
+    }
+   }
+  },
+  "r_leaking_shock": {
+   "result": {
+    "title": "A leaking shock or strut has lost its ability to control bouncing",
+    "urgency": "soon",
+    "now": "Have the shocks or struts replaced within the next few days. Until then, drive gently, slow down for bumps and leave extra stopping distance.",
+    "if": [
+     "If the car is hard to control on bumpy roads or bounces off line in curves, don't drive it until it's fixed.",
+     "If the front shocks or struts are replaced, an alignment is usually needed afterward."
+    ],
+    "why": "Shocks and struts use fluid to soak up bouncing. Once fluid leaks out, that corner keeps bouncing, the tire loses contact with the road over bumps, and braking and steering get worse.",
+    "causes": [
+     {
+      "name": "Worn shock or strut seal",
+      "clues": "Wet, oily residue on the shock body, and a bouncy corner.",
+      "against": ""
+     },
+     {
+      "name": "Damaged shock",
+      "clues": "A recent hard impact, or a dented shock body.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note which corner is wet and which bounces the most."
+     ],
+     "shop": [
+      "Shock and strut inspection",
+      "Strut mount and spring check",
+      "Tire wear check for cupping"
+     ]
+    }
+   }
+  },
+  "r_worn_shocks": {
+   "result": {
+    "title": "Worn shocks or struts are the most likely cause",
+    "urgency": "check",
+    "now": "Book a suspension inspection and ask them to check the shocks or struts.",
+    "if": [
+     "If the car nose dives hard when braking or is hard to control on bumpy curves, get it checked within a few days.",
+     "If you see oily residue on any shock or strut, have it replaced soon."
+    ],
+    "why": "Shocks and struts wear out gradually, so the change is easy to miss. Worn ones let the car keep bouncing after bumps, dive when braking and sway in turns. That reduces grip and can make stopping distances longer.",
+    "causes": [
+     {
+      "name": "Worn shocks or struts",
+      "clues": "Bouncing after bumps, nose dive when braking, and high mileage on the original parts.",
+      "against": ""
+     },
+     {
+      "name": "Sagging springs",
+      "clues": "The car sits lower than it used to, especially at the rear.",
+      "against": ""
+     },
+     {
+      "name": "Worn strut mounts or bushings",
+      "clues": "Clunks or creaks over bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Do the bounce test on each corner.",
+      "Look for cupped, scalloped wear on the tires."
+     ],
+     "shop": [
+      "Shock and strut inspection",
+      "Spring and ride height check",
+      "Suspension bushing inspection"
+     ]
+    }
+   }
+  },
+  "r_sway": {
+   "result": {
+    "title": "Worn sway bar parts or shocks are likely letting the car lean",
+    "urgency": "check",
+    "now": "Book a suspension inspection and ask them to check the sway bar links, sway bar bushings and shocks.",
+    "if": [
+     "If you hear clunking or knocking over bumps, mention it. Sway bar links often make that sound when they wear.",
+     "If the car feels unstable in turns, slow down for curves and get it checked within a few days."
+    ],
+    "why": "The sway bar links the left and right sides of the suspension to keep the car level in turns. When its links or bushings wear, or the shocks are tired, the body leans more and the car feels less stable.",
+    "causes": [
+     {
+      "name": "Worn or broken sway bar links",
+      "clues": "A knock or rattle over small bumps.",
+      "against": ""
+     },
+     {
+      "name": "Worn sway bar bushings",
+      "clues": "A clunk or squeak when going over bumps or turning.",
+      "against": ""
+     },
+     {
+      "name": "Worn shocks or struts",
+      "clues": "Bouncing after bumps as well as leaning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Listen for knocking over small bumps with the windows down."
+     ],
+     "shop": [
+      "Sway bar link and bushing inspection",
+      "Shock and strut inspection"
+     ]
+    }
+   }
+  },
+  "r_air_suspension": {
+   "result": {
+    "title": "The air suspension is probably leaking or its compressor is failing",
+    "urgency": "soon",
+    "now": "Have the air suspension checked within the next few days. Drive gently and keep speeds down until then.",
+    "if": [
+     "If a corner drops low enough that the tire rubs or the car scrapes, don't drive it. Have it towed.",
+     "If the car only sags after sitting overnight and then rises, a slow leak is likely. Get it checked before the compressor wears out from overwork."
+    ],
+    "why": "Air suspension holds the car up with air springs filled by a small compressor. A leak in a spring or line, or a tired compressor, lets the car sag and changes how it rides and handles.",
+    "causes": [
+     {
+      "name": "Leaking air spring or air line",
+      "clues": "One corner sags after sitting, and the compressor runs often.",
+      "against": ""
+     },
+     {
+      "name": "Failing compressor or relay",
+      "clues": "The whole car sits low and you don't hear the compressor run.",
+      "against": ""
+     },
+     {
+      "name": "Ride height sensor fault",
+      "clues": "The car sits at an odd height with a warning light, but no obvious leak.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note which corner sags and how long it takes after parking.",
+      "Listen for the compressor running after you start the car."
+     ],
+     "shop": [
+      "Air suspension code scan",
+      "Leak test of air springs and lines",
+      "Compressor output test"
+     ]
+    }
+   }
+  },
+  "r_harsh": {
+   "result": {
+    "title": "A harsh, jittery ride often points to tire pressure or a damaged suspension part",
+    "urgency": "check",
+    "now": "Check the tire pressures against the sticker in the driver's door jamb. If they're right, book a suspension inspection.",
+    "if": [
+     "If it started suddenly after a hard bump and one corner sits lower, stop driving and have it inspected.",
+     "If you hear new clunks or rattles, get it checked within a few days."
+    ],
+    "why": "Overinflated tires make every bump sharper. If the pressures are right, a seized shock, a broken spring or worn bushings can stop the suspension from absorbing bumps the way it should.",
+    "causes": [
+     {
+      "name": "Tires overinflated",
+      "clues": "The tires were recently filled, or pressures are above the door jamb number.",
+      "against": ""
+     },
+     {
+      "name": "Damaged or seized shock or strut",
+      "clues": "One corner feels much stiffer than the others in the bounce test.",
+      "against": ""
+     },
+     {
+      "name": "Broken spring or worn bushings",
+      "clues": "Clunks or rattles over bumps, or the car sits unevenly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the tire pressures when cold.",
+      "Do the bounce test on each corner and compare."
+     ],
+     "shop": [
+      "Shock and strut inspection",
+      "Spring and bushing inspection"
+     ]
+    }
+   }
+  },
+  "r_other_causes": {
+   "result": {
+    "title": "The shocks may be fine. Check tires, springs and bushings next",
+    "urgency": "check",
+    "now": "Check the tire pressures, then book a suspension inspection and describe when the car bounces.",
+    "if": [
+     "If the bouncing only happens with a heavy load, check that you're within the weight limit on the door jamb sticker.",
+     "If the car dives hard when braking, ask the shop to test the shocks while driving. A simple bounce test doesn't catch every worn shock."
+    ],
+    "why": "A shock can pass a quick bounce test and still be weak at speed. Low tire pressure, sagging springs and worn bushings can also make a car feel floaty or unsettled.",
+    "causes": [
+     {
+      "name": "Shocks worn but not obvious when parked",
+      "clues": "High mileage on the original shocks, or bouncing mostly at highway speeds.",
+      "against": ""
+     },
+     {
+      "name": "Low or uneven tire pressure",
+      "clues": "A soft, wallowing feel.",
+      "against": ""
+     },
+     {
+      "name": "Sagging springs or worn bushings",
+      "clues": "The car sits lower than it used to, or clunks over bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the tire pressures.",
+      "Measure from the center of each wheel to the fender edge and compare side to side."
+     ],
+     "shop": [
+      "Road test",
+      "Shock and strut inspection",
+      "Ride height and spring check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "clunk-over-bumps",
+  "squeaking-over-bumps",
+  "loose-or-wandering-steering",
+  "uneven-tire-wear"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "shock",
+   "strut",
+   "spring",
+   "suspension",
+   "bounce",
+   "sway bar",
+   "air suspension",
+   "sag"
+  ]
+ },
+ "sources": [
+  "https://www.kbb.com/car-advice/car-shocks-struts-signs-worn-out",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

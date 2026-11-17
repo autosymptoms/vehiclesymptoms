@@ -1,0 +1,557 @@
+{
+ "id": "steam-from-under-hood",
+ "title": "Steam or smoke from under the hood",
+ "h1": "Why is steam or smoke coming from under my hood?",
+ "metaDesc": "Steam or smoke from under the hood? Answer a few quick questions to see if it's overheating, a coolant or oil leak, or just water, and how urgent it is.",
+ "group": "hot",
+ "cat": "Smoke",
+ "synonyms": [
+  "steam from hood",
+  "steam coming from engine",
+  "smoke from under hood",
+  "smoke coming from engine",
+  "car smoking under hood",
+  "steam from radiator",
+  "engine steaming",
+  "car is steaming",
+  "white smoke from engine bay",
+  "smoke from hood but not overheating",
+  "steam from hood after rain",
+  "car smoking after oil change",
+  "smoke under the hood wont stop"
+ ],
+ "intro": "Steam or smoke from under the hood can be anything from harmless water burning off to an engine that's badly overheating or a fire starting. The color, the smell and your temperature gauge tell you which. Answer the questions below to find out how serious it is and what to do right now.",
+ "safety": [
+  "If you see flames or the smoke keeps getting thicker, get everyone out, move well away from the car and call 911. Don't open the hood.",
+  "Never open the radiator cap or coolant tank cap on a hot engine. The coolant is under pressure and can spray out and burn you.",
+  "If the temperature gauge is in the red, pull over and turn off the engine as soon as it's safe.",
+  "Wait until steam has stopped before opening the hood, and keep your face and hands back when you do."
+ ],
+ "start": "q_danger",
+ "nodes": {
+  "q_danger": {
+   "q": "Do you see either of these right now?",
+   "help": "The temperature gauge usually has a C (cold) and H (hot) or a thermometer symbol. Some cars only have a red or blue thermometer warning light instead of a gauge.",
+   "opts": [
+    {
+     "a": "Flames, or dark smoke that keeps getting thicker",
+     "go": "r_fire"
+    },
+    {
+     "a": "The temperature gauge is in the red, or a red temperature warning light is on",
+     "go": "r_overheating"
+    },
+    {
+     "a": "Neither of these: the gauge looks normal",
+     "go": "q_smell"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_smell": {
+   "q": "What does it smell like?",
+   "help": "Stand a few steps back from the front of the car. Don't put your face near the engine.",
+   "opts": [
+    {
+     "a": "Sweet, a bit like syrup or maple",
+     "go": "q_coolant"
+    },
+    {
+     "a": "Burning oil, sharp and heavy",
+     "go": "r_oil_on_exhaust"
+    },
+    {
+     "a": "Burning rubber or melting plastic",
+     "go": "r_burning_rubber_plastic"
+    },
+    {
+     "a": "No real smell, just light white wisps",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_coolant": {
+   "q": "When you look (from a safe distance), what do you see?",
+   "help": "Coolant (antifreeze) is usually green, orange, pink, blue or yellow and feels slimy. The overflow tank is the see-through plastic bottle with MIN and MAX marks.",
+   "opts": [
+    {
+     "a": "Coolant spraying or pouring out, or a big puddle forming fast",
+     "go": "r_coolant_major"
+    },
+    {
+     "a": "Coolant bubbling or boiling out of the overflow tank",
+     "go": "r_boiling_over"
+    },
+    {
+     "a": "A slow drip, or a wet or crusty spot on a hose or the radiator",
+     "go": "r_coolant_leak"
+    },
+    {
+     "a": "I can't see where it's coming from / I'm not sure",
+     "go": "r_coolant_leak"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When did you notice it?",
+   "opts": [
+    {
+     "a": "After rain, a car wash, or driving through puddles or snow, and it faded within a few minutes",
+     "go": "r_water_evaporating"
+    },
+    {
+     "a": "Within a few days after an oil change or other engine work",
+     "go": "r_oil_on_exhaust"
+    },
+    {
+     "a": "It's actually from the tailpipe on a cold morning, not the hood",
+     "go": "r_exhaust_condensation"
+    },
+    {
+     "a": "It keeps coming every time I drive, even in dry weather",
+     "go": "r_coolant_leak"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "r_fire": {
+   "result": {
+    "title": "This could be an engine fire starting. Get away from the car",
+    "urgency": "stop",
+    "now": "Turn off the engine, get everyone out and at least 100 feet away, and call 911. Don't open the hood and don't go back for belongings.",
+    "if": [
+     "If the smoke stops on its own, still don't restart the car. Have it towed and inspected before anyone drives it."
+    ],
+    "why": "Flames or thick, darkening smoke mean something is burning, not just steam. Opening the hood lets in a rush of air that can make a fire flare up suddenly, and fuel lines and tires can burn quickly.",
+    "causes": [
+     {
+      "name": "Fuel leaking onto hot engine or exhaust parts",
+      "clues": "A strong gasoline smell before or with the smoke.",
+      "against": ""
+     },
+     {
+      "name": "Electrical short or melting wiring",
+      "clues": "A burning plastic smell, fuses blowing, or lights and gauges acting up beforehand.",
+      "against": ""
+     },
+     {
+      "name": "Oil or other fluid burning on the exhaust",
+      "clues": "A recent oil leak or engine work, and a heavy burning oil smell.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Fire damage inspection of wiring, fuel lines and hoses",
+      "Fuel system leak inspection",
+      "Electrical system inspection"
+     ]
+    }
+   }
+  },
+  "r_overheating": {
+   "result": {
+    "title": "The engine is overheating. Stop now to avoid serious damage",
+    "urgency": "stop",
+    "now": "Pull over as soon as it's safe, turn off the engine and let it cool for at least 30 minutes. Don't open the radiator cap. Have the car towed or call a mobile mechanic.",
+    "if": [
+     "If you're in a dangerous spot and need a moment to reach a safe place, turn the heater to full hot with the fan on high. It pulls some heat away from the engine.",
+     "If the coolant tank is empty once the engine is cool, there's a leak or another fault behind it. Topping it up doesn't fix the cause, so still have it checked before relying on the car."
+    ],
+    "why": "Steam with the gauge in the red means the engine is running far hotter than it's designed to. Keeping it running can warp the cylinder head or blow the head gasket, turning a simple repair into a major one.",
+    "causes": [
+     {
+      "name": "Coolant leak (hose, radiator or water pump)",
+      "clues": "A sweet smell, coolant under the car, or a low overflow tank.",
+      "against": ""
+     },
+     {
+      "name": "Radiator fan not working",
+      "clues": "It overheated in traffic or at idle but was fine on the highway.",
+      "against": "If it overheated at highway speed, the fan is a less likely cause."
+     },
+     {
+      "name": "Thermostat stuck closed",
+      "clues": "The gauge climbed quickly after a normal start, with no visible leak.",
+      "against": ""
+     },
+     {
+      "name": "Blown head gasket",
+      "clues": "Coolant keeps disappearing with no leak, white smoke from the tailpipe, or bubbles in the coolant tank.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once fully cool, check the coolant level in the overflow tank.",
+      "Look under the front of the car for a coolant puddle."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Radiator fan and fan circuit test",
+      "Thermostat check",
+      "Combustion gas (block) test for a head gasket leak"
+     ]
+    }
+   }
+  },
+  "r_coolant_major": {
+   "result": {
+    "title": "A coolant hose or the radiator has likely burst",
+    "urgency": "stop",
+    "now": "Turn off the engine and stay back while it cools. Don't restart it. Have the car towed or have a mobile mechanic come to you.",
+    "if": [
+     "If the temperature gauge was already climbing before you stopped, mention it to the shop so they check for heat damage too."
+    ],
+    "why": "When coolant is pouring out, the engine will lose most of it within minutes and overheat quickly. Running it even a short distance this way can cause serious engine damage.",
+    "causes": [
+     {
+      "name": "Burst or split coolant hose",
+      "clues": "Coolant spraying from a rubber hose near the top or front of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Cracked radiator or radiator seam",
+      "clues": "Coolant pouring from behind the front grille.",
+      "against": ""
+     },
+     {
+      "name": "Failed water pump",
+      "clues": "Coolant pouring from the front of the engine, near the drive belt.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From a safe distance, note where the coolant is coming from."
+     ],
+     "shop": [
+      "Visual inspection of hoses, radiator and water pump",
+      "Cooling system pressure test",
+      "Check for overheating damage"
+     ]
+    }
+   }
+  },
+  "r_boiling_over": {
+   "result": {
+    "title": "Coolant is boiling over, so the engine is likely overheating",
+    "urgency": "stop",
+    "now": "Turn off the engine and let it cool for at least 30 minutes without opening any caps. Then have the car towed or call a mobile mechanic.",
+    "if": [
+     "If the gauge reads normal, don't trust it. When coolant is low, the sensor can read low even though the engine is very hot.",
+     "If you see bubbles in the tank with the engine running and fully warm, tell the shop. That can be a sign of a head gasket leak."
+    ],
+    "why": "Coolant boiling out of the overflow tank means it's getting hotter than the system can handle. That happens when coolant is low, flow is blocked, the cap isn't holding pressure, or exhaust gases are leaking into the coolant.",
+    "causes": [
+     {
+      "name": "Low coolant from a leak",
+      "clues": "A sweet smell, drips under the car, or the tank has been low before.",
+      "against": ""
+     },
+     {
+      "name": "Faulty radiator or tank cap",
+      "clues": "Coolant seeps from around the cap, but there's no other leak.",
+      "against": ""
+     },
+     {
+      "name": "Thermostat stuck or fan not working",
+      "clues": "It happened in traffic or soon after a normal start.",
+      "against": ""
+     },
+     {
+      "name": "Head gasket leak",
+      "clues": "Coolant keeps disappearing, white smoke from the tailpipe, or constant bubbling in the tank.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once fully cool, check the coolant level.",
+      "Look for drips under the front of the car."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Radiator cap pressure test",
+      "Combustion gas (block) test",
+      "Thermostat and fan check"
+     ]
+    }
+   }
+  },
+  "r_coolant_leak": {
+   "result": {
+    "title": "A small coolant leak is likely hitting hot engine parts",
+    "urgency": "soon",
+    "now": "Once the engine is fully cool, check the coolant level in the overflow tank and top it up to the MAX line with the type listed in your owner's manual. Get the leak checked within a few days.",
+    "if": [
+     "If the level drops noticeably between checks, or the temperature gauge rises above its usual spot, stop driving and have it towed.",
+     "If you also see white smoke from the tailpipe with a sweet smell, get it checked right away. That can mean coolant is leaking inside the engine."
+    ],
+    "why": "A sweet smell or steam with a normal temperature gauge usually means a small amount of coolant is dripping or seeping onto hot parts and steaming off. It's not an emergency yet, but leaks tend to grow, and running low on coolant will make the engine overheat.",
+    "causes": [
+     {
+      "name": "Leaking hose or loose hose clamp",
+      "clues": "A wet or crusty spot where a rubber hose connects.",
+      "against": ""
+     },
+     {
+      "name": "Leaking radiator",
+      "clues": "Drips or crusty colored residue at the front of the car.",
+      "against": ""
+     },
+     {
+      "name": "Water pump seal leak",
+      "clues": "Drips or residue near the drive belt at the front of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Heater core leak",
+      "clues": "A sweet smell inside the car, foggy windows, or a damp passenger-side floor.",
+      "against": "Steam from under the hood alone points more to the engine bay than the heater core."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the coolant level when the engine is cold, and note it each day.",
+      "Look for colored drips under the front of the car after it's parked overnight.",
+      "Watch the temperature gauge on every drive."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "UV dye leak test",
+      "Radiator cap pressure test"
+     ]
+    }
+   }
+  },
+  "r_oil_on_exhaust": {
+   "result": {
+    "title": "Oil is probably dripping onto the hot exhaust",
+    "urgency": "soon",
+    "now": "Once the engine is cool, check the oil level on the dipstick and top it up if it's low. Then get the leak looked at within a few days.",
+    "if": [
+     "If it started right after an oil change, a little spilled oil can smoke for a drive or two. If it continues, have the shop check the oil filter, drain plug and filler cap.",
+     "If the oil level is below the minimum mark, don't drive until it's topped up.",
+     "If the smoke gets thick or you see flames, get out, move away and call 911."
+    ],
+    "why": "Oil smoking on the exhaust gives off a heavy, sharp burning smell and bluish-white smoke. It's usually a leaking gasket or a loose part, but oil on hot parts is a fire risk and the engine can run low on oil.",
+    "causes": [
+     {
+      "name": "Leaking valve cover gasket",
+      "clues": "Oily residue along the top edge of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Spill or loose part from a recent oil change",
+      "clues": "It started right after a service, and the oil filter or filler cap area is wet.",
+      "against": ""
+     },
+     {
+      "name": "Other engine oil leak",
+      "clues": "Brown or black drops under the car.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the oil level on the dipstick with the engine off and cool.",
+      "Make sure the oil filler cap is on tight.",
+      "Look for wet, oily areas on top of and under the engine."
+     ],
+     "shop": [
+      "Oil leak inspection (sometimes with UV dye)",
+      "Valve cover gasket inspection",
+      "Oil filter and drain plug check"
+     ]
+    }
+   }
+  },
+  "r_burning_rubber_plastic": {
+   "result": {
+    "title": "Something is melting or a belt is burning. Don't keep running it",
+    "urgency": "stop",
+    "now": "Turn off the engine and don't restart it. Once it's cool, look for anything stuck to the exhaust. Have the car towed if you can't find a simple cause.",
+    "if": [
+     "If you find a plastic bag or debris melted onto the exhaust and nothing else looks damaged, have a mechanic confirm it's clear before you rely on the car.",
+     "If the smell is coming from one wheel instead of the hood, a brake may be dragging. Don't drive on it."
+    ],
+    "why": "Burning rubber or plastic smells mean something that shouldn't be getting hot is. A belt slipping on a seized pulley, melting wiring, or debris on the exhaust can each start a fire if you keep going.",
+    "causes": [
+     {
+      "name": "Drive belt slipping on a seized pulley or A/C compressor",
+      "clues": "A squeal before the smell, or the smell is strongest at the front of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Electrical short or melting wiring",
+      "clues": "A sharp plastic smell, blown fuses, or electrical items acting up.",
+      "against": ""
+     },
+     {
+      "name": "Plastic bag or road debris on the exhaust",
+      "clues": "It started right after driving over something.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once cool, look under the car at the exhaust for melted plastic.",
+      "Check that the drive belt is in place and not shredded."
+     ],
+     "shop": [
+      "Drive belt and pulley inspection",
+      "Wiring and fuse inspection",
+      "Brake drag check"
+     ]
+    }
+   }
+  },
+  "r_water_evaporating": {
+   "result": {
+    "title": "Most likely just water steaming off hot engine parts",
+    "urgency": "diy",
+    "now": "Watch it for a few minutes. If the steam fades and the temperature gauge stays in its normal spot, it was water burning off.",
+    "if": [
+     "If it keeps steaming after 10 to 15 minutes of driving in dry weather, check the coolant level once the engine is cool.",
+     "If you notice a sweet smell, or the gauge starts to climb, treat it as a coolant leak and get it checked."
+    ],
+    "why": "Rain, a car wash or splashing through puddles leaves water on the hot engine and exhaust. It turns to light, odorless white steam that disappears quickly. That's normal and harmless.",
+    "causes": [
+     {
+      "name": "Rain or wash water evaporating",
+      "clues": "It happened after wet weather or washing, faded quickly, and had no smell.",
+      "against": "A sweet or burning smell points to something else."
+     },
+     {
+      "name": "Small coolant seep",
+      "clues": "It keeps happening in dry weather, or the coolant tank drops over time.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Watch the temperature gauge.",
+      "Check the coolant level when the engine is cold."
+     ],
+     "shop": [
+      "Cooling system pressure test if the steam keeps coming back"
+     ]
+    }
+   }
+  },
+  "r_exhaust_condensation": {
+   "result": {
+    "title": "White vapor from the tailpipe on a cold morning is usually normal",
+    "urgency": "diy",
+    "now": "Watch whether the vapor fades once the engine is fully warmed up, usually within 10 to 15 minutes of driving.",
+    "if": [
+     "If thick white smoke continues after the engine is warm, especially with a sweet smell, get it checked soon. Coolant may be leaking inside the engine.",
+     "If the coolant level keeps dropping with no leak you can find, have the shop test for a head gasket leak."
+    ],
+    "why": "Burning fuel makes water vapor. When the engine and exhaust are cold, that vapor condenses into white clouds out of the tailpipe. Once things warm up, it should become hard to see.",
+    "causes": [
+     {
+      "name": "Normal condensation",
+      "clues": "Cold or damp weather, thin vapor that fades as the engine warms, no smell.",
+      "against": "Thick smoke that keeps going after warm-up is not normal."
+     },
+     {
+      "name": "Coolant burning inside the engine (head gasket)",
+      "clues": "Thick white smoke after warm-up, a sweet smell, and a coolant level that keeps dropping.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the vapor stops once the car is fully warm.",
+      "Check the coolant level once a week for a few weeks."
+     ],
+     "shop": [
+      "Combustion gas (block) test",
+      "Cooling system pressure test"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Treat it as overheating until you know it isn't",
+    "urgency": "stop",
+    "now": "Pull over when it's safe, turn off the engine and wait at least 30 minutes before opening the hood. Don't open the radiator cap.",
+    "if": [
+     "If you see flames or the smoke grows, get everyone away and call 911.",
+     "If, once cool, the coolant and oil levels are full, there are no leaks and nothing smells burnt, it may have been water steaming off. Have a mechanic confirm before you rely on the car."
+    ],
+    "why": "Without knowing the temperature reading or the smell, it's hard to rule out overheating, and driving an overheating engine can ruin it quickly. Stopping costs a few minutes; guessing wrong can cost the engine.",
+    "causes": [
+     {
+      "name": "Engine overheating",
+      "clues": "The gauge climbs, the heater blows cold, or there's a sweet smell.",
+      "against": ""
+     },
+     {
+      "name": "Coolant or oil leaking onto hot parts",
+      "clues": "A sweet or burning oil smell.",
+      "against": ""
+     },
+     {
+      "name": "Water evaporating",
+      "clues": "Recent rain or a car wash, and it faded quickly with no smell.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Once cool, check the coolant and oil levels.",
+      "Look under the car for fresh drips."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Oil and coolant leak inspection",
+      "Code scan for temperature sensor data"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "engine-overheating",
+  "losing-coolant-no-visible-leak",
+  "sweet-smell-from-car",
+  "burning-oil-smell",
+  "white-smoke-from-exhaust"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Smoke",
+   "Leaks"
+  ],
+  "words": [
+   "steam",
+   "smoke",
+   "coolant",
+   "overheat",
+   "radiator",
+   "hose",
+   "water pump",
+   "head gasket",
+   "oil leak"
+  ]
+ },
+ "sources": [
+  "https://www.usfa.fema.gov/prevention/vehicle-fires",
+  "https://www.acg.aaa.com/connect/blogs/5c/auto/why-is-my-car-overheating"
+ ]
+}

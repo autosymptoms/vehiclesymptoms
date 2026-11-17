@@ -1,0 +1,516 @@
+{
+ "id": "push-button-start-not-working",
+ "title": "Push-button start not working",
+ "h1": "Why won't my push-button start work?",
+ "metaDesc": "Push-button start not working or key not detected? Answer a few quick questions to see if it's the fob battery, brake switch, car battery or starter.",
+ "group": "start",
+ "cat": "Starting Problems",
+ "synonyms": [
+  "push button start not working",
+  "push to start not working",
+  "key not detected",
+  "key fob not detected",
+  "no key detected message",
+  "start button not working",
+  "car wont start with push button",
+  "keyless start not working",
+  "smart key not working",
+  "key fob dead how to start car",
+  "start button lights up but car wont start",
+  "press brake to start but nothing happens",
+  "key not recognized car wont start"
+ ],
+ "intro": "Push-button start depends on three things: the car detecting your key fob, the brake switch telling it your foot is down, and enough battery power to crank. A message on the dash or what happens when you press the button usually shows which one failed. Answer the questions below to find the fix.",
+ "safety": [
+  "If you smell burning plastic or see smoke from the dash or under the hood, stop trying and step away from the car.",
+  "Don't press Start over and over with the engine cranking for long periods. Give it a minute between tries."
+ ],
+ "start": "q_what_happens",
+ "nodes": {
+  "q_what_happens": {
+   "q": "What happens when you press Start with your foot on the brake?",
+   "opts": [
+    {
+     "a": "A \"Key not detected\" message or a key symbol shows on the dash",
+     "go": "q_remote"
+    },
+    {
+     "a": "The dash lights up, but the engine doesn't crank",
+     "go": "q_brake"
+    },
+    {
+     "a": "Nothing at all: no lights, no message, and the doors may not unlock",
+     "go": "r_dead_battery"
+    },
+    {
+     "a": "Rapid clicking, or the dash lights flicker or dim",
+     "go": "r_weak_battery"
+    },
+    {
+     "a": "The engine cranks or starts but then won't keep running",
+     "go": "r_key_or_fuel"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_brake"
+    }
+   ]
+  },
+  "q_remote": {
+   "q": "Does the remote lock and unlock the doors from a normal distance?",
+   "opts": [
+    {
+     "a": "Only when I'm very close, or not at all",
+     "go": "r_fob_battery"
+    },
+    {
+     "a": "Yes, it works normally",
+     "go": "q_spare"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_fob_battery"
+    }
+   ]
+  },
+  "q_spare": {
+   "q": "Have you tried your spare key fob?",
+   "opts": [
+    {
+     "a": "Yes, and the spare works",
+     "go": "r_fob_damaged"
+    },
+    {
+     "a": "Yes, and the spare doesn't work either",
+     "go": "r_detection_fault"
+    },
+    {
+     "a": "I don't have a spare / I'm not sure",
+     "go": "r_fob_battery"
+    }
+   ]
+  },
+  "q_brake": {
+   "q": "Are you pressing the brake firmly, and is the car fully in Park?",
+   "help": "Most push-button cars won't crank unless the brake is pressed (or the clutch, on a manual) and the shifter is all the way in Park or Neutral.",
+   "opts": [
+    {
+     "a": "Yes, the brake is pressed firmly and it's in Park",
+     "go": "q_brake_lights"
+    },
+    {
+     "a": "Not sure I pressed hard enough, or it may not be fully in Park",
+     "go": "r_technique"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_technique"
+    }
+   ]
+  },
+  "q_brake_lights": {
+   "q": "Do the brake lights come on when you press the pedal?",
+   "help": "Ask someone to look, or back up close to a wall or garage door and check for the red glow. Some cars also show a \"press brake\" message that doesn't go away when you press it.",
+   "opts": [
+    {
+     "a": "No, the brake lights don't come on",
+     "go": "r_brake_switch"
+    },
+    {
+     "a": "Yes, they work",
+     "go": "r_starter_or_park"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_starter_or_park"
+    }
+   ]
+  },
+  "r_fob_battery": {
+   "result": {
+    "title": "The key fob battery is most likely low",
+    "urgency": "diy",
+    "now": "Hold the key fob right against the Start button (or put it in the backup spot your owner's manual shows) and press Start with your foot on the brake. Then replace the fob battery.",
+    "if": [
+     "If it starts with the fob against the button, a new fob battery will almost certainly fix it.",
+     "If it still says key not detected after a new battery, try the spare fob. If that fails too, the car's key system needs a check."
+    ],
+    "why": "The car looks for a weak radio signal from your fob. As the fob battery fades, the car stops detecting it from your pocket. Push-button cars have a backup spot where the fob can still be read with a dead battery.",
+    "causes": [
+     {
+      "name": "Weak or dead fob battery",
+      "clues": "The remote's range has been getting shorter, or a low key battery message has appeared.",
+      "against": "If the remote works normally from a distance, the fob battery is less likely."
+     },
+     {
+      "name": "Signal interference",
+      "clues": "The fob is near a phone, charger or other electronics, or you're near radio towers or strong transmitters.",
+      "against": ""
+     },
+     {
+      "name": "Damaged key fob",
+      "clues": "It was dropped or got wet.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Hold the fob against the Start button and try again.",
+      "Replace the fob battery (often a coin battery). The size is in your owner's manual or inside the fob.",
+      "Move the fob away from phones and chargers."
+     ],
+     "shop": [
+      "Key fob signal test",
+      "Immobilizer code scan"
+     ]
+    }
+   }
+  },
+  "r_fob_damaged": {
+   "result": {
+    "title": "Your main key fob is likely faulty or has lost its programming",
+    "urgency": "check",
+    "now": "Use the spare for now. Replace the main fob's battery first, and if it still isn't detected, book a dealer or locksmith visit to check or reprogram it.",
+    "if": [
+     "If the main fob was dropped or got wet, it may need replacing.",
+     "If you only have one working fob left, get a replacement made soon so you aren't stranded."
+    ],
+    "why": "If the spare works, the car's key system is fine and the problem is in the main fob: a dead battery, internal damage, or a chip that's lost its pairing with the car.",
+    "causes": [
+     {
+      "name": "Dead fob battery",
+      "clues": "The remote buttons are weak or dead too.",
+      "against": "If the remote buttons work well from a distance, the battery is less likely."
+     },
+     {
+      "name": "Physical or water damage",
+      "clues": "The fob was dropped, crushed or went through the wash.",
+      "against": ""
+     },
+     {
+      "name": "Lost programming",
+      "clues": "It stopped working suddenly, with no damage.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Replace the fob battery.",
+      "Check the fob for cracks or water damage."
+     ],
+     "shop": [
+      "Key fob signal test",
+      "Key reprogramming or replacement"
+     ]
+    }
+   }
+  },
+  "r_detection_fault": {
+   "result": {
+    "title": "The car's key detection system or its power may be the problem",
+    "urgency": "check",
+    "now": "Move phones and chargers away, hold the fob against the Start button and try again. If it still isn't detected, have a dealer or locksmith come to you, or have the car towed to one.",
+    "if": [
+     "If the dash lights are dim or flicker, the car battery may be too weak to run the key system. Try a jump start.",
+     "If it works in a different location, something nearby was interfering with the signal."
+    ],
+    "why": "When neither fob is detected but both remotes work, the problem is more likely on the car's side: low car battery voltage, interference, or a faulty antenna or key control module.",
+    "causes": [
+     {
+      "name": "Weak car battery",
+      "clues": "Dim or flickering lights, or slow cranking recently.",
+      "against": ""
+     },
+     {
+      "name": "Signal interference",
+      "clues": "It happens in one place, like a parking garage or near transmitters.",
+      "against": ""
+     },
+     {
+      "name": "Faulty key antenna or control module",
+      "clues": "It fails everywhere, with both fobs and a good battery.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try the fob-against-the-button backup method.",
+      "Try a jump start if the lights are dim."
+     ],
+     "shop": [
+      "Battery test",
+      "Code scan of the keyless and immobilizer systems",
+      "Key antenna check"
+     ]
+    }
+   }
+  },
+  "r_technique": {
+   "result": {
+    "title": "The car may not be sensing the brake, Park or an unlocked steering wheel",
+    "urgency": "diy",
+    "now": "Press the brake pedal hard and hold it, move the shifter firmly into Park, then press Start. If the steering wheel is locked, gently turn it left and right while you press Start.",
+    "if": [
+     "If it starts in Neutral but not Park, the gear-position switch may be faulty. Book a check.",
+     "If it still won't crank with the brake pressed firmly, check whether your brake lights work."
+    ],
+    "why": "As a safety feature, push-button cars won't crank unless they sense the brake pedal and Park (or the clutch on a manual). A light press or a shifter not fully in Park is a common reason nothing happens.",
+    "causes": [
+     {
+      "name": "Brake not pressed firmly enough",
+      "clues": "It works some days and not others.",
+      "against": ""
+     },
+     {
+      "name": "Shifter not fully in Park",
+      "clues": "A gear indicator that doesn't show P clearly.",
+      "against": ""
+     },
+     {
+      "name": "Steering lock engaged",
+      "clues": "The steering wheel won't turn, or a steering lock message appears.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Press the brake firmly before pressing Start.",
+      "Try starting in Neutral.",
+      "Wiggle the steering wheel while pressing Start."
+     ],
+     "shop": [
+      "Brake switch check",
+      "Gear-position switch check"
+     ]
+    }
+   }
+  },
+  "r_brake_switch": {
+   "result": {
+    "title": "A faulty brake light switch is likely blocking the start",
+    "urgency": "soon",
+    "now": "Have the brake light switch checked within the next few days. Your brake lights don't warn drivers behind you right now.",
+    "if": [
+     "If only one brake light is out, that's a bulb, not the switch. Look at whether all of them stay dark.",
+     "If you need to move the car before it's fixed, a mobile mechanic can often replace the switch on the spot."
+    ],
+    "why": "The car uses the brake light switch to know your foot is on the pedal. If none of the brake lights come on, the switch has likely failed, so the car won't let you start it, and drivers behind you get no warning when you brake.",
+    "causes": [
+     {
+      "name": "Failed brake light switch",
+      "clues": "No brake lights at all, and a press-brake message that won't clear.",
+      "against": ""
+     },
+     {
+      "name": "Blown brake light fuse",
+      "clues": "Brake lights and other items on the same fuse stopped working together.",
+      "against": ""
+     },
+     {
+      "name": "Loose switch or wiring at the pedal",
+      "clues": "It works sometimes depending on how hard you press.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Have someone check whether any brake lights come on.",
+      "Check the brake light fuse listed in your owner's manual."
+     ],
+     "shop": [
+      "Brake light switch test",
+      "Brake light circuit and fuse check"
+     ]
+    }
+   }
+  },
+  "r_starter_or_park": {
+   "result": {
+    "title": "The starter, a weak battery or the Park switch is likely the problem",
+    "urgency": "check",
+    "now": "Try starting in Neutral with the brake pressed. If that doesn't work, try a jump start. If it still won't crank, have it towed or call a mobile mechanic.",
+    "if": [
+     "If it starts in Neutral but not Park, the gear-position switch is the likely fault.",
+     "If it starts with a jump, have the battery and charging system tested soon."
+    ],
+    "why": "With the key detected and the brake working, the car is ready to crank, but the starter isn't turning the engine. That points to a battery too weak to crank, a gear-position switch not reporting Park, or a failing starter.",
+    "causes": [
+     {
+      "name": "Weak battery",
+      "clues": "Dim lights, a slow crank recently, or a battery more than 4 years old.",
+      "against": "If the lights stay bright while pressing Start, the battery is less likely."
+     },
+     {
+      "name": "Gear-position (Park/Neutral) switch",
+      "clues": "It starts in Neutral but not Park.",
+      "against": ""
+     },
+     {
+      "name": "Failing starter",
+      "clues": "A single click, or starting has been hit-or-miss lately.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try starting in Neutral.",
+      "Try a jump start or booster pack."
+     ],
+     "shop": [
+      "Battery load test",
+      "Starter circuit test",
+      "Gear-position switch check"
+     ]
+    }
+   }
+  },
+  "r_dead_battery": {
+   "result": {
+    "title": "The car's main battery is most likely dead",
+    "urgency": "diy",
+    "now": "Use the metal key hidden inside your fob to open the driver's door, then jump start the car or use a battery booster.",
+    "if": [
+     "If a jump works, drive at least 30 minutes or have the battery and charging system tested soon.",
+     "If nothing happens even with a good jump, a main fuse or cable may have failed. It will need a tow or a mobile mechanic.",
+     "On a hybrid or electric car, check your owner's manual for where to connect jumper cables before you start."
+    ],
+    "why": "With no lights and no response, the car has no power to run the key system or the starter. The usual reason is a drained 12-volt battery, which many push-button cars have even if they're hybrid or electric.",
+    "causes": [
+     {
+      "name": "Drained or dead 12-volt battery",
+      "clues": "Lights left on, the car sat for weeks, cold weather, or an older battery.",
+      "against": ""
+     },
+     {
+      "name": "Loose or corroded battery cable",
+      "clues": "Crusty buildup on the terminals, or a loose clamp.",
+      "against": ""
+     },
+     {
+      "name": "Blown main fuse",
+      "clues": "A jump start changes nothing at all.",
+      "against": "Much less common than a battery problem."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the battery terminals for corrosion or loose clamps.",
+      "Try a jump start or booster pack."
+     ],
+     "shop": [
+      "Battery load test",
+      "Charging system test",
+      "Parasitic draw test if the battery keeps dying"
+     ]
+    }
+   }
+  },
+  "r_weak_battery": {
+   "result": {
+    "title": "The battery is likely too weak to crank the engine",
+    "urgency": "diy",
+    "now": "Check that the battery clamps are tight and clean, then try a jump start or a battery booster.",
+    "if": [
+     "If it starts with a jump, have the battery and alternator tested soon.",
+     "If it still only clicks with a good jump, the cables or starter are the more likely problem."
+    ],
+    "why": "Rapid clicking or flickering lights mean there's enough power to run the dash, but not enough to spin the starter. A weak battery can also cause key-not-detected messages because the key system needs steady voltage.",
+    "causes": [
+     {
+      "name": "Weak or discharged battery",
+      "clues": "Dim lights, cold weather, or a battery more than 4 years old.",
+      "against": ""
+     },
+     {
+      "name": "Corroded or loose battery terminal",
+      "clues": "Visible buildup, or the clicking changes when you wiggle a cable.",
+      "against": ""
+     },
+     {
+      "name": "Alternator not charging",
+      "clues": "The battery light came on recently while driving.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the battery terminals.",
+      "Try a jump start or a booster pack."
+     ],
+     "shop": [
+      "Battery load test",
+      "Alternator output test",
+      "Voltage-drop test on the battery cables"
+     ]
+    }
+   }
+  },
+  "r_key_or_fuel": {
+   "result": {
+    "title": "The key system or fuel delivery is likely stopping the engine",
+    "urgency": "check",
+    "now": "Look for a flashing key or security light, and try the spare fob. If it still won't keep running, have the codes read or call a mobile mechanic.",
+    "if": [
+     "If the spare fob works, replace the main fob's battery or have it checked.",
+     "If you smell raw fuel, stop trying to start it and keep flames away."
+    ],
+    "why": "If the engine cranks or fires and then dies, the button and starter are working. The anti-theft system cutting fuel because it doesn't recognize the key is common, followed by fuel or idle problems.",
+    "causes": [
+     {
+      "name": "Immobilizer not recognizing the key",
+      "clues": "A flashing key or security light, or it works with one fob but not the other.",
+      "against": ""
+     },
+     {
+      "name": "Fuel delivery problem",
+      "clues": "No hum from the rear when the car is switched on, or low fuel.",
+      "against": ""
+     },
+     {
+      "name": "Idle control or sensor problem",
+      "clues": "A check engine light, or a rough idle before it dies.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try the spare fob.",
+      "Watch for a security light."
+     ],
+     "shop": [
+      "Immobilizer code scan",
+      "Fuel pressure test",
+      "Code scan"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "car-wont-start",
+  "security-light-flashing-wont-start",
+  "battery-keeps-dying",
+  "starts-then-dies",
+  "stuck-in-park"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Starting Problems",
+   "Warning Lights"
+  ],
+  "words": [
+   "push button",
+   "key fob",
+   "key not detected",
+   "smart key",
+   "keyless",
+   "brake switch",
+   "immobilizer",
+   "start button"
+  ]
+ },
+ "sources": [
+  "https://owners-manual.mazda.com/gen/en/cx-5/cx-5_8ft1ee17b/contents/05010201.html",
+  "https://www.aa1car.com/library/keyfob_wont_start_car.htm"
+ ]
+}

@@ -1,0 +1,632 @@
+{
+ "id": "power-steering-fluid-leak",
+ "title": "Power steering fluid leak",
+ "h1": "Why is my car leaking power steering fluid?",
+ "metaDesc": "Power steering fluid leak? Answer a few quick questions to find the likely source, how urgent it is, and what to tell your mechanic.",
+ "group": "leaksmell",
+ "cat": "Leaks",
+ "synonyms": [
+  "power steering leak",
+  "power steering fluid leaking",
+  "leaking power steering fluid",
+  "power steering pump leak",
+  "power steering hose leak",
+  "steering rack leak",
+  "red fluid leak front of car",
+  "power steering fluid low",
+  "power steering fluid keeps going low",
+  "steering whines and fluid is low",
+  "fluid leaking near front wheel",
+  "powersteering leak",
+  "power stearing fluid leak"
+ ],
+ "intro": "Power steering fluid is a thin oil, usually red, pink, amber or clear, that helps you turn the wheel. A small seep can wait a little, but a fast leak can leave the steering heavy and wreck the pump. Answer a few questions and we'll tell you how urgent it is and where it's most likely coming from.",
+ "safety": [
+  "If the steering suddenly becomes very heavy while driving, slow down gently, hold the wheel firmly with both hands and pull over when it's safe.",
+  "If you see smoke or smell burning oil from under the hood, pull over, turn off the engine and step away from the car.",
+  "If fluid is spraying or the reservoir empties after a short drive, don't drive it."
+ ],
+ "start": "q_symptoms",
+ "nodes": {
+  "q_symptoms": {
+   "q": "Besides the leak, have you noticed any of these?",
+   "help": "These are the signs that change how urgent a power steering leak is.",
+   "opts": [
+    {
+     "a": "The steering is suddenly heavy or very hard to turn",
+     "go": "r_hard_steering"
+    },
+    {
+     "a": "Smoke or a burning oil smell from under the hood",
+     "go": "r_leak_on_hot"
+    },
+    {
+     "a": "A whine or groan when I turn the wheel, but steering still feels normal",
+     "go": "r_whine_low"
+    },
+    {
+     "a": "None of these. I've just seen fluid or a low level",
+     "go": "q_where"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_where"
+    }
+   ]
+  },
+  "q_where": {
+   "q": "Where are you seeing the fluid?",
+   "help": "The power steering pump is usually at the front of the engine, driven by the belt. The steering rack sits low, between the front wheels.",
+   "opts": [
+    {
+     "a": "Drips or a puddle under the front of the engine",
+     "go": "q_amount"
+    },
+    {
+     "a": "Wet, oily hoses or grime around the reservoir or pump",
+     "go": "r_hose_seep"
+    },
+    {
+     "a": "Near the front wheels, or on the rubber boots behind them",
+     "go": "r_rack_leak"
+    },
+    {
+     "a": "I'm not sure it's power steering fluid",
+     "go": "q_reservoir"
+    }
+   ]
+  },
+  "q_reservoir": {
+   "q": "Does your car have a power steering fluid reservoir, and what's the level?",
+   "help": "Many newer cars use electric power steering, which has no fluid at all. If yours has a reservoir, the cap usually shows a steering wheel symbol. Your owner's manual will say which type you have.",
+   "opts": [
+    {
+     "a": "It has a reservoir and the level is low",
+     "go": "q_amount"
+    },
+    {
+     "a": "It has a reservoir and the level is full",
+     "go": "r_other_fluid"
+    },
+    {
+     "a": "There's no reservoir, or the manual says it has electric steering",
+     "go": "r_electric_steering"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_amount": {
+   "q": "How much is it leaking?",
+   "opts": [
+    {
+     "a": "A few drops or a spot about the size of a coin overnight",
+     "go": "r_slow_seep"
+    },
+    {
+     "a": "A puddle the size of a plate, or the level drops noticeably within a few days",
+     "go": "r_fast_leak"
+    },
+    {
+     "a": "It's dripping steadily or spraying, or the reservoir empties after a short drive",
+     "go": "r_major_leak"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_check_level"
+    }
+   ]
+  },
+  "r_hard_steering": {
+   "result": {
+    "title": "The system has likely lost enough fluid or pressure to stop assisting",
+    "urgency": "stop",
+    "now": "Park it and don't drive it until it's repaired. Have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If the reservoir is nearly empty, topping it up won't fix the leak, and the steering can go heavy again without warning.",
+     "If the belt is broken or missing, other parts it drives, like the alternator or water pump, may also have stopped working."
+    ],
+    "why": "Heavy steering means the pump is no longer giving you assist. That makes the car hard to control in a turn or an emergency, and running the pump without enough fluid quickly damages it.",
+    "causes": [
+     {
+      "name": "Fluid level too low from a leak",
+      "clues": "A low or empty reservoir, a whine before the steering went heavy, and fluid under the front of the car.",
+      "against": ""
+     },
+     {
+      "name": "Burst high-pressure hose",
+      "clues": "It happened suddenly, with a fresh wet spray around the engine bay.",
+      "against": ""
+     },
+     {
+      "name": "Broken or slipping drive belt",
+      "clues": "A squeal or slap before it happened, or the battery light came on too.",
+      "against": "If the belt is in place and tight, this is less likely."
+     },
+     {
+      "name": "Failed power steering pump",
+      "clues": "The fluid is full but the pump has been noisy for a while.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look at the reservoir level.",
+      "Check that the drive belt is still in place."
+     ],
+     "shop": [
+      "Fluid level and leak inspection",
+      "Power steering pressure test",
+      "Drive belt and tensioner check"
+     ]
+    }
+   }
+  },
+  "r_leak_on_hot": {
+   "result": {
+    "title": "Power steering fluid may be dripping onto hot engine or exhaust parts",
+    "urgency": "stop",
+    "now": "Turn the engine off and let it cool. Don't drive it. Have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If you see flames, get everyone away from the car and call 911.",
+     "If the smoke stops once cool and you find only a little oily residue, the leak still needs fixing before the car is used again."
+    ],
+    "why": "Power steering fluid is an oil and will smoke, and can catch fire, if it lands on the exhaust or a hot engine. That's why smoke turns a routine leak into a stop-now problem.",
+    "causes": [
+     {
+      "name": "Leaking pressure hose near the exhaust",
+      "clues": "Wet hoses near the front of the engine, with smoke after driving.",
+      "against": ""
+     },
+     {
+      "name": "Leaking pump seal",
+      "clues": "Fluid around the pump at the front of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Overfilled reservoir pushing fluid out of the cap",
+      "clues": "It started right after someone topped up the fluid.",
+      "against": ""
+     },
+     {
+      "name": "A different fluid, like engine oil",
+      "clues": "The fluid is dark brown or black, and the power steering level is full.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Engine bay leak inspection with the engine cool",
+      "Pressure test of the power steering system",
+      "Check for oil residue on the exhaust"
+     ]
+    }
+   }
+  },
+  "r_whine_low": {
+   "result": {
+    "title": "A whine when turning usually means the fluid is low",
+    "urgency": "soon",
+    "now": "With the engine off, check the power steering fluid level and add the type listed in your owner's manual if it's low. Then have the leak found within a few days.",
+    "if": [
+     "If the steering starts to feel heavy, stop driving it and have it towed.",
+     "If the level is full and it still whines, the pump or belt may be wearing out. Book a check."
+    ],
+    "why": "When fluid runs low, the pump draws in air, which makes a whine or groan, especially at full lock. If you keep driving that way, the pump wears out quickly.",
+    "causes": [
+     {
+      "name": "Low fluid from a slow leak",
+      "clues": "The reservoir is below the mark, and you've seen drips or wet hoses.",
+      "against": ""
+     },
+     {
+      "name": "Worn power steering pump",
+      "clues": "The fluid is full, but the noise keeps getting louder.",
+      "against": ""
+     },
+     {
+      "name": "Old or foamy fluid",
+      "clues": "The fluid looks dark, bubbly or milky.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the reservoir level with the engine off.",
+      "Notice whether the noise is loudest when turning the wheel all the way."
+     ],
+     "shop": [
+      "Leak inspection",
+      "Fluid condition check",
+      "Pump pressure and noise check"
+     ]
+    }
+   }
+  },
+  "r_hose_seep": {
+   "result": {
+    "title": "A hose or fitting near the reservoir or pump is likely seeping",
+    "urgency": "check",
+    "now": "Wipe the area clean, check the fluid level, and book a check. Look again in a day or two to see where fresh fluid appears.",
+    "if": [
+     "If the level drops noticeably or you see drips on the ground, get it checked within a few days.",
+     "If the hose is near the exhaust and you smell burning, don't drive it until it's fixed."
+    ],
+    "why": "Rubber hoses and their clamps harden with age and start to seep where they connect. A seep is slow, but it tends to get worse and leaves the system low over time.",
+    "causes": [
+     {
+      "name": "Aging return or low-pressure hose",
+      "clues": "Oily grime around a rubber hose and its clamp.",
+      "against": ""
+     },
+     {
+      "name": "Leaking high-pressure hose fitting",
+      "clues": "Wetness at a metal fitting near the pump or rack.",
+      "against": ""
+     },
+     {
+      "name": "Reservoir cap or seal",
+      "clues": "Residue only around the top of the reservoir.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Wipe the area clean and check it again after a drive.",
+      "Keep an eye on the reservoir level."
+     ],
+     "shop": [
+      "Leak inspection with the engine running",
+      "Dye test if the source isn't obvious",
+      "Hose and clamp inspection"
+     ]
+    }
+   }
+  },
+  "r_rack_leak": {
+   "result": {
+    "title": "The steering rack or its seals are probably leaking",
+    "urgency": "soon",
+    "now": "Check the fluid level and top it up if needed, then have the steering rack looked at within a few days.",
+    "if": [
+     "If the steering feels heavy, notchy or loose, stop driving it and have it towed.",
+     "If the rubber boots behind the wheels are full of fluid or torn, mention it to the shop. Dirt getting in speeds up wear."
+    ],
+    "why": "The steering rack sits between the front wheels and has seals at each end. When they wear, fluid collects in the rubber boots or drips near the wheels. Rack leaks usually get worse and can let the system run low.",
+    "causes": [
+     {
+      "name": "Worn steering rack seals",
+      "clues": "Fluid in or on the rubber boots behind the front wheels.",
+      "against": ""
+     },
+     {
+      "name": "Leaking line fitting at the rack",
+      "clues": "Wetness at the metal lines where they connect to the rack.",
+      "against": ""
+     },
+     {
+      "name": "A different fluid, like engine or transmission oil",
+      "clues": "The power steering level isn't dropping.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the reservoir level.",
+      "With the car parked, look at the rubber boots behind the front wheels for wetness."
+     ],
+     "shop": [
+      "Steering rack and boot inspection",
+      "Line fitting inspection",
+      "Steering play and tie-rod check"
+     ]
+    }
+   }
+  },
+  "r_slow_seep": {
+   "result": {
+    "title": "A slow power steering seep, most likely from a hose or seal",
+    "urgency": "check",
+    "now": "Check the fluid level weekly and top it up as needed with the type in your owner's manual. Book a check to find the source.",
+    "if": [
+     "If the spot gets bigger or the level drops faster, get it checked within a few days.",
+     "If the steering starts to whine or feel heavy, have it looked at right away."
+    ],
+    "why": "A coin-size spot means the system is losing a little fluid, not a lot. That isn't an emergency, but low fluid wears out the pump, and seeps rarely stop on their own.",
+    "causes": [
+     {
+      "name": "Aging hose or clamp",
+      "clues": "Oily grime on the hoses at the front of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Pump shaft seal",
+      "clues": "Wetness right behind the pump pulley.",
+      "against": ""
+     },
+     {
+      "name": "Steering rack seals",
+      "clues": "Drips farther back, near the front wheels.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Put cardboard under the front of the car overnight to see exactly where it drips.",
+      "Note the reservoir level so you can tell if it's dropping."
+     ],
+     "shop": [
+      "Leak inspection",
+      "Dye test if the source isn't clear"
+     ]
+    }
+   }
+  },
+  "r_fast_leak": {
+   "result": {
+    "title": "An active leak, likely a hose, the pump or the steering rack",
+    "urgency": "soon",
+    "now": "Top up the fluid to the full mark with the type in your owner's manual, keep trips short, and get it checked within a few days.",
+    "if": [
+     "If the level drops a lot after one short trip, don't drive it. Have it towed.",
+     "If the steering whines or feels heavier, stop driving it."
+    ],
+    "why": "A plate-size puddle or a level that drops in days means the system will run low soon. Once it's low, the steering gets heavy and the pump can be damaged.",
+    "causes": [
+     {
+      "name": "Leaking pressure or return hose",
+      "clues": "Wet hoses, and drips under the front of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Worn pump seal",
+      "clues": "Fluid around the pump and on the belt.",
+      "against": ""
+     },
+     {
+      "name": "Steering rack seals",
+      "clues": "Fluid near the front wheels or in the rubber boots.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note how much fluid you add and how fast it goes down.",
+      "Put cardboard under the car overnight to mark where it drips."
+     ],
+     "shop": [
+      "Leak inspection with the engine running",
+      "Pressure test",
+      "Steering rack inspection"
+     ]
+    }
+   }
+  },
+  "r_major_leak": {
+   "result": {
+    "title": "A major leak, most likely a burst hose or a failed seal",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If fluid is getting onto the exhaust or you see smoke, keep everyone away from the car until it cools."
+    ],
+    "why": "At this rate the system will run dry within minutes of driving. You'd lose steering assist, the pump would be damaged, and fluid spraying onto hot parts is a fire risk.",
+    "causes": [
+     {
+      "name": "Burst or cracked high-pressure hose",
+      "clues": "A sudden heavy leak with fluid sprayed around the engine bay.",
+      "against": ""
+     },
+     {
+      "name": "Failed pump seal",
+      "clues": "Fluid pouring from behind the pump pulley.",
+      "against": ""
+     },
+     {
+      "name": "Loose or broken line fitting",
+      "clues": "Recent work on the steering, or fluid at a metal fitting.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Leak inspection",
+      "Hose and fitting replacement as needed",
+      "Pump check after the repair"
+     ]
+    }
+   }
+  },
+  "r_other_fluid": {
+   "result": {
+    "title": "If the power steering level is full, the leak is probably another fluid",
+    "urgency": "check",
+    "now": "Dab a drop on white paper and note the color, then check your engine oil, coolant, brake and transmission fluid levels.",
+    "if": [
+     "If the brake fluid level is low, don't drive it until it's checked. Brake fluid leaks can cause brake failure.",
+     "If the fluid is green, orange or pink and smells sweet, it's likely coolant. Watch your temperature gauge."
+    ],
+    "why": "Power steering fluid can look like transmission fluid or light oil. If its reservoir stays full, something else is leaking, and a few quick checks usually show what.",
+    "causes": [
+     {
+      "name": "Transmission fluid",
+      "clues": "Red or pink fluid, closer to the middle of the car.",
+      "against": ""
+     },
+     {
+      "name": "Engine oil",
+      "clues": "Brown or black fluid under the engine.",
+      "against": ""
+     },
+     {
+      "name": "Coolant",
+      "clues": "Green, orange or pink fluid with a sweet smell.",
+      "against": ""
+     },
+     {
+      "name": "Brake fluid",
+      "clues": "Clear to yellowish, slick fluid near a wheel or behind the engine.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check every fluid level you can reach.",
+      "Look at the color of a drop on white paper."
+     ],
+     "shop": [
+      "Leak inspection",
+      "Fluid identification"
+     ]
+    }
+   }
+  },
+  "r_electric_steering": {
+   "result": {
+    "title": "Your car likely has electric steering, so the fluid is from something else",
+    "urgency": "check",
+    "now": "Dab a drop on white paper and note the color, then check your engine oil, coolant, brake and transmission fluid levels.",
+    "if": [
+     "If the brake fluid level is low, don't drive it until it's checked.",
+     "If the steering feels heavy and a steering warning light is on, have it checked before driving. Electric steering can fail without any leak."
+    ],
+    "why": "Electric power steering uses a motor instead of fluid, so it can't leak. The fluid you're seeing is coming from another system.",
+    "causes": [
+     {
+      "name": "Engine oil",
+      "clues": "Brown or black fluid under the engine.",
+      "against": ""
+     },
+     {
+      "name": "Transmission fluid",
+      "clues": "Red or pink fluid.",
+      "against": ""
+     },
+     {
+      "name": "Coolant",
+      "clues": "Green, orange or pink fluid with a sweet smell.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Confirm your steering type in the owner's manual.",
+      "Check the fluid levels you can reach."
+     ],
+     "shop": [
+      "Leak inspection",
+      "Fluid identification"
+     ]
+    }
+   }
+  },
+  "r_check_level": {
+   "result": {
+    "title": "Start by checking the level to see how fast it's dropping",
+    "urgency": "diy",
+    "now": "With the engine off, check the power steering reservoir level and note where it sits. Put cardboard under the front of the car overnight.",
+    "if": [
+     "If the level is low and you see drips by morning, get it checked within a few days.",
+     "If the steering whines or feels heavy, have it checked before driving further."
+    ],
+    "why": "How fast the fluid drops tells you how urgent the leak is. One night of cardboard under the car shows how much is leaking and where.",
+    "causes": [
+     {
+      "name": "Hose or clamp seep",
+      "clues": "Drips under the front of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Pump seal",
+      "clues": "Wetness right behind the pump pulley.",
+      "against": ""
+     },
+     {
+      "name": "Steering rack seals",
+      "clues": "Drips near the front wheels.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the reservoir level with the engine off.",
+      "Check the cardboard in the morning."
+     ],
+     "shop": [
+      "Leak inspection",
+      "Dye test"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Not sure what's leaking? A quick shop check will sort it out",
+    "urgency": "check",
+    "now": "Put white paper or cardboard under the car overnight and note the color and spot, then book a leak check.",
+    "if": [
+     "If the steering feels heavy, the brake pedal feels soft or the temperature gauge rises, don't drive it. Have it towed.",
+     "If the puddle grows quickly, get it checked within a day or two."
+    ],
+    "why": "Several fluids look alike, and some cars don't use power steering fluid at all. The color, the location and which level is dropping usually tell a technician what's leaking in a few minutes.",
+    "causes": [
+     {
+      "name": "Power steering fluid",
+      "clues": "Red, pink, amber or clear fluid under the front of the engine.",
+      "against": ""
+     },
+     {
+      "name": "Transmission fluid",
+      "clues": "Red or pink fluid closer to the middle of the car.",
+      "against": ""
+     },
+     {
+      "name": "Engine oil or coolant",
+      "clues": "Brown or black oil, or sweet-smelling green, orange or pink coolant.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the color and location of the drips.",
+      "Take a photo of the puddle for the shop."
+     ],
+     "shop": [
+      "Leak inspection",
+      "Fluid identification"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "fluid-leak-under-car",
+  "steering-hard-to-turn",
+  "whining-when-turning-steering",
+  "transmission-fluid-leak",
+  "power-steering-warning-light"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Leaks"
+  ],
+  "words": [
+   "power steering",
+   "steering pump",
+   "steering rack",
+   "steering hose",
+   "pressure hose",
+   "rack and pinion",
+   "steering fluid",
+   "leak"
+  ]
+ },
+ "sources": [
+  "https://www.capitalone.com/cars/learn/managing-your-money-wisely/whats-that-puddle-under-my-car-a-guide-to-automotive-leaks/2148",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

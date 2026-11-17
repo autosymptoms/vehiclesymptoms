@@ -1,0 +1,410 @@
+{
+ "id": "car-shakes-when-braking",
+ "title": "Car shakes when braking",
+ "h1": "Why does my car shake when I brake?",
+ "metaDesc": "Car shakes when braking? Answer a few quick questions to see if it's the rotors, calipers or suspension, how urgent it is, and what to tell your mechanic.",
+ "group": "shake",
+ "cat": "Driving",
+ "synonyms": [
+  "car shakes when braking",
+  "steering wheel shakes when braking",
+  "brake pedal pulsating",
+  "brakes vibrate when stopping",
+  "warped rotors",
+  "shaking when braking at high speed",
+  "car vibrates when I brake",
+  "brake shudder",
+  "pulsing brake pedal",
+  "steering wheel wobble when braking",
+  "car shakes when stopping",
+  "brakes shaking",
+  "wheel shakes when i hit the brakes"
+ ],
+ "intro": "A shake or pulse when you brake usually comes from the brake rotors no longer being perfectly even. That's common and not an emergency on its own, but a shake that comes with a soft pedal, grinding or a burning smell is a different story. Answer the questions below to see how urgent yours is and what's most likely behind it.",
+ "safety": [
+  "If the brake pedal feels soft, sinks toward the floor, or the red brake warning light comes on, stop driving and get help.",
+  "If you smell burning or see smoke from a wheel, pull over safely and let the brakes cool. Don't keep driving.",
+  "If you hear loud metal-on-metal grinding when braking, stop driving it. Your brakes may be worn through."
+ ],
+ "start": "q_warning",
+ "nodes": {
+  "q_warning": {
+   "q": "Besides the shaking, do any of these happen?",
+   "help": "These are signs the brakes themselves aren't working properly, which matters more than the shake.",
+   "opts": [
+    {
+     "a": "The pedal feels soft or sinks, or the car pulls hard to one side when braking",
+     "go": "r_brake_failure"
+    },
+    {
+     "a": "Loud grinding or scraping, like metal on metal",
+     "go": "r_grinding"
+    },
+    {
+     "a": "A burning smell, smoke, or one wheel is much hotter than the others",
+     "go": "r_sticking_caliper"
+    },
+    {
+     "a": "None of these, the brakes stop the car normally",
+     "go": "q_where"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_where"
+    }
+   ]
+  },
+  "q_where": {
+   "q": "Where do you feel the shaking most when you brake?",
+   "help": "Front brake problems usually show up in the steering wheel and brake pedal. Rear brake problems are felt more in the seat or the whole car.",
+   "opts": [
+    {
+     "a": "In the steering wheel",
+     "go": "q_when"
+    },
+    {
+     "a": "In the brake pedal, which pulses up and down",
+     "go": "r_rotors"
+    },
+    {
+     "a": "In the seat or through the whole car",
+     "go": "r_rear_brakes"
+    },
+    {
+     "a": "The car shakes when I'm not braking too, it just gets worse when I brake",
+     "go": "r_suspension_tires"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_rotors"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "Which of these fits the steering wheel shake best?",
+   "opts": [
+    {
+     "a": "It's worst when braking from highway speed, and fine otherwise",
+     "go": "r_rotors"
+    },
+    {
+     "a": "It started right after new brakes, new tires or a tire rotation",
+     "go": "r_after_service"
+    },
+    {
+     "a": "The car also clunks over bumps, wanders, or the steering feels loose",
+     "go": "r_suspension_tires"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_rotors"
+    }
+   ]
+  },
+  "r_brake_failure": {
+   "result": {
+    "title": "The braking system may be failing. Don't drive it",
+    "urgency": "stop",
+    "now": "Park the car and have it towed to a shop, or have a mobile mechanic come to you.",
+    "if": [
+     "If the red brake warning light is on or the brake fluid is low, that adds to the evidence of a leak. Don't top it off and drive.",
+     "If the car pulls hard to one side, a caliper or brake hose on one side may be stuck or failing."
+    ],
+    "why": "A soft or sinking pedal means the brakes may not have enough hydraulic pressure to stop the car, and a hard pull means one side is braking much more than the other. Either can get worse without warning, so the car shouldn't be driven until it's inspected.",
+    "causes": [
+     {
+      "name": "Brake fluid leak",
+      "clues": "A low fluid level, a wet spot near a wheel, or a soft pedal that keeps getting worse.",
+      "against": ""
+     },
+     {
+      "name": "Stuck or seized caliper on one side",
+      "clues": "The car pulls hard to one side, and that wheel gets very hot.",
+      "against": ""
+     },
+     {
+      "name": "Air in the brake lines or failing master cylinder",
+      "clues": "A spongy pedal, or a pedal that slowly sinks while you hold it down at a stop.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, check the brake fluid level in the reservoir under the hood.",
+      "Look behind each wheel and under the car for wet, oily spots."
+     ],
+     "shop": [
+      "Brake system inspection on a lift",
+      "Brake fluid leak check",
+      "Caliper and hose inspection",
+      "Master cylinder test"
+     ]
+    }
+   }
+  },
+  "r_grinding": {
+   "result": {
+    "title": "The brake pads are likely worn down to metal",
+    "urgency": "stop",
+    "now": "Avoid driving the car. Have it towed or have a mobile mechanic replace the brakes where it's parked.",
+    "if": [
+     "If the grinding only happened once after the car sat in the rain, it may have been surface rust that wore off. If it keeps happening, have the brakes inspected before driving further.",
+     "If the brake pedal also feels soft or the car pulls hard, don't drive it at all."
+    ],
+    "why": "Grinding when braking usually means the pad material is gone and metal is scraping the rotor. That reduces braking power and quickly gouges the rotor, which causes shaking. The longer it goes, the worse and more costly the damage.",
+    "causes": [
+     {
+      "name": "Brake pads worn through",
+      "clues": "A squeal for weeks before the grinding started, or a long time since the last brake job.",
+      "against": ""
+     },
+     {
+      "name": "Rock or debris caught in the brake",
+      "clues": "The grinding started suddenly after driving on gravel.",
+      "against": ""
+     },
+     {
+      "name": "Rusted or damaged rotor",
+      "clues": "The car sat for a long time, or the rotor surface looks rough and grooved.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look through the wheel spokes at the brake pad and rotor for deep grooves or very thin pads."
+     ],
+     "shop": [
+      "Brake pad thickness measurement",
+      "Rotor inspection and thickness measurement",
+      "Caliper inspection"
+     ]
+    }
+   }
+  },
+  "r_sticking_caliper": {
+   "result": {
+    "title": "A brake may be sticking and overheating",
+    "urgency": "stop",
+    "now": "Pull over safely and let the brakes cool. Then have the car towed or have a mobile mechanic check it.",
+    "if": [
+     "If you see flames or heavy smoke, get away from the car and call for help.",
+     "If the smell happened once after a long downhill stretch and the brakes feel normal after cooling, have them inspected soon anyway."
+    ],
+    "why": "A burning smell or one very hot wheel means a brake isn't releasing fully. The constant rubbing overheats the pad and rotor, which causes shaking and can fade the brakes or, in rare cases, start a fire.",
+    "causes": [
+     {
+      "name": "Sticking or seized caliper",
+      "clues": "One wheel is much hotter than the others, and the car may pull to that side.",
+      "against": ""
+     },
+     {
+      "name": "Stuck caliper slide pins",
+      "clues": "Uneven pad wear, with one pad much thinner than the other on the same wheel.",
+      "against": ""
+     },
+     {
+      "name": "Parking brake not fully releasing",
+      "clues": "The heat and smell come from a rear wheel.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Make sure the parking brake is fully released.",
+      "After the car cools, carefully hold your hand near (not on) each wheel to compare heat."
+     ],
+     "shop": [
+      "Caliper and slide pin inspection",
+      "Brake hose check",
+      "Pad and rotor inspection"
+     ]
+    }
+   }
+  },
+  "r_rotors": {
+   "result": {
+    "title": "The front brake rotors are most likely uneven, often called warped",
+    "urgency": "soon",
+    "now": "Have the brakes inspected within the next few days. Until then, allow extra stopping distance and avoid hard braking from high speed.",
+    "if": [
+     "If the shaking gets suddenly worse, or the pedal starts feeling soft, stop driving and have it towed.",
+     "If the pads are also low, the shop will usually replace or resurface the rotors at the same time."
+    ],
+    "why": "When the brake rotor's surface becomes uneven, the pads grab harder on some spots than others as it spins. You feel that as a pulse in the pedal or a shake in the steering wheel, usually worst when slowing from higher speeds. It's common and fixable, and the brakes still work, but it tends to get worse and wears the pads unevenly.",
+    "causes": [
+     {
+      "name": "Uneven rotor thickness or pad deposits",
+      "clues": "A steady pulse in the pedal that gets worse when braking from highway speed.",
+      "against": ""
+     },
+     {
+      "name": "Overheated rotors",
+      "clues": "The car does a lot of towing, mountain driving or hard braking.",
+      "against": ""
+     },
+     {
+      "name": "Sticking caliper",
+      "clues": "One wheel runs hotter than the others, or the pads are wearing unevenly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the shake is in the pedal, the steering wheel, or both.",
+      "Note the speed at which it's most noticeable."
+     ],
+     "shop": [
+      "Rotor runout and thickness measurement",
+      "Pad thickness and wear pattern check",
+      "Caliper slide inspection",
+      "Wheel lug nut torque check"
+     ]
+    }
+   }
+  },
+  "r_rear_brakes": {
+   "result": {
+    "title": "The rear rotors or brake drums are likely uneven",
+    "urgency": "check",
+    "now": "Book a brake inspection when convenient. Mention that you feel it in the seat rather than the steering wheel.",
+    "if": [
+     "If the pedal starts to feel soft, or you hear grinding, stop driving and have it towed.",
+     "If the parking brake also feels weak or grabby, ask the shop to check it at the same time."
+    ],
+    "why": "Rear brake problems don't usually reach the steering wheel, so you feel them in the seat or the whole car instead. Rear rotors can become uneven like the fronts, and drum brakes can go slightly out of round.",
+    "causes": [
+     {
+      "name": "Uneven rear rotors",
+      "clues": "A shudder through the seat when braking, especially from higher speeds.",
+      "against": ""
+     },
+     {
+      "name": "Out-of-round rear brake drums",
+      "clues": "The car has drum brakes at the rear, and the shudder is worse at lower speeds.",
+      "against": ""
+     },
+     {
+      "name": "Sticking rear caliper or parking brake",
+      "clues": "One rear wheel runs hotter, or there's a burning smell after driving.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check whether the shake changes if you brake gently versus firmly."
+     ],
+     "shop": [
+      "Rear rotor or drum measurement",
+      "Caliper and parking brake inspection",
+      "Rear suspension check"
+     ]
+    }
+   }
+  },
+  "r_suspension_tires": {
+   "result": {
+    "title": "Worn suspension parts or a tire problem may be making it shake",
+    "urgency": "soon",
+    "now": "Get the front suspension, tires and brakes inspected within the next few days. Drive gently and avoid highways until then.",
+    "if": [
+     "If you see a bulge on a tire, or the steering suddenly feels much looser, don't drive it. Use the spare or have it towed.",
+     "If the shake only happens when braking, the rotors are the more likely cause."
+    ],
+    "why": "Braking shifts the car's weight forward and puts extra load on the front suspension. Worn joints, bushings or a damaged tire that cause a mild shake normally can get much worse when you brake, and loose steering parts are a safety risk.",
+    "causes": [
+     {
+      "name": "Worn control arm bushings or ball joints",
+      "clues": "Clunks over bumps, or the steering wheel jerks when braking.",
+      "against": ""
+     },
+     {
+      "name": "Worn tie rod ends",
+      "clues": "Loose or wandering steering.",
+      "against": ""
+     },
+     {
+      "name": "Out-of-balance or damaged tire",
+      "clues": "A shake at highway speed that's there even without braking, or a visible bulge.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look over each tire for bulges, cuts or uneven wear."
+     ],
+     "shop": [
+      "Front suspension and steering inspection",
+      "Tire and wheel balance check",
+      "Rotor runout measurement"
+     ]
+    }
+   }
+  },
+  "r_after_service": {
+   "result": {
+    "title": "Something from the recent work may not be right",
+    "urgency": "soon",
+    "now": "Go back to the shop that did the work within a day or two and ask them to check the wheel lug nuts, rotors and balance.",
+    "if": [
+     "If you hear clicking or clunking from a wheel, or feel a wobble, stop driving. A wheel may be loose. Have it towed.",
+     "If it was a brake job, new pads sometimes need a proper break-in. Ask the shop if that was done."
+    ],
+    "why": "Lug nuts that weren't tightened evenly can distort a rotor and cause a shake under braking. New rotors can also have a slight runout, or a tire may have lost a balance weight.",
+    "causes": [
+     {
+      "name": "Uneven or loose lug nuts",
+      "clues": "The shake started right after a tire change or rotation.",
+      "against": ""
+     },
+     {
+      "name": "Rotor runout or rust between the rotor and hub",
+      "clues": "New rotors were installed, and the shake started right away.",
+      "against": ""
+     },
+     {
+      "name": "Missing wheel balance weight",
+      "clues": "The steering wheel also shakes at highway speed without braking.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that none of the lug nuts look loose or missing."
+     ],
+     "shop": [
+      "Lug nut torque check",
+      "Rotor runout measurement",
+      "Wheel balance check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "grinding-brakes",
+  "steering-wheel-shaking",
+  "car-pulls-when-braking",
+  "soft-or-spongy-brake-pedal",
+  "vibration-at-highway-speed"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Noises"
+  ],
+  "words": [
+   "brake",
+   "rotor",
+   "pad",
+   "caliper",
+   "vibration",
+   "shake",
+   "pulsation",
+   "warped"
+  ]
+ },
+ "sources": [
+  "https://www.powerstop.com/resources/pulsing-vibrating-brake-pedal-dtv/",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

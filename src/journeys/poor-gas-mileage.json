@@ -1,0 +1,546 @@
+{
+ "id": "poor-gas-mileage",
+ "title": "Gas mileage suddenly worse",
+ "h1": "Why did my gas mileage suddenly get worse?",
+ "metaDesc": "Gas mileage dropped? Answer a few questions to see if it's tires, weather, a sensor, a dragging brake or an engine problem, and how urgent it is.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "bad gas mileage",
+  "poor gas mileage",
+  "gas mileage dropped",
+  "mpg dropped suddenly",
+  "car using more gas than usual",
+  "burning through gas",
+  "fuel economy worse",
+  "bad fuel economy",
+  "car guzzling gas",
+  "gas mileage went down",
+  "low mpg",
+  "why is my car using so much gas",
+  "gas milage bad",
+  "worse mpg in winter"
+ ],
+ "intro": "Lower fuel economy is often harmless, like cold weather or low tires. A sudden drop that comes with other signs can point to a dragging brake, a fuel leak or an engine problem that will get worse. Answer a few questions to see which applies to you.",
+ "safety": [
+  "If you smell raw fuel, stop driving, turn the engine off and keep sparks and flames away.",
+  "If the check engine light is flashing and the engine shakes, pull over and stop. Driving on can overheat and damage the catalytic converter.",
+  "If a wheel is smoking or gives off a strong burning smell, pull over and let it cool."
+ ],
+ "start": "q_signs",
+ "nodes": {
+  "q_signs": {
+   "q": "Along with the worse mileage, do you notice any of these?",
+   "help": "These signs change how urgent it is, so pick the most serious one that applies.",
+   "opts": [
+    {
+     "a": "A flashing check engine light, or the engine shaking or misfiring",
+     "go": "r_misfire"
+    },
+    {
+     "a": "A smell of raw gasoline, inside or outside the car",
+     "go": "r_fuel_leak"
+    },
+    {
+     "a": "A burning smell from a wheel, or the car feels held back, like the brakes are on",
+     "go": "r_dragging_brake"
+    },
+    {
+     "a": "The check engine light is on steadily (not flashing)",
+     "go": "r_cel_steady"
+    },
+    {
+     "a": "None of these",
+     "go": "q_pattern"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_pattern"
+    }
+   ]
+  },
+  "q_pattern": {
+   "q": "Which of these fits best?",
+   "help": "For an accurate number, fill the tank, reset the trip meter, drive normally, then divide the miles driven by the gallons it takes to refill. Dash readouts can be off.",
+   "opts": [
+    {
+     "a": "It started when the weather turned cold, or I'm making more short trips",
+     "go": "r_seasonal"
+    },
+    {
+     "a": "The tires look low, or the tire pressure light has come on",
+     "go": "r_tires"
+    },
+    {
+     "a": "Something changed: new tires, a roof rack, towing, a heavier load or a different fuel",
+     "go": "r_change"
+    },
+    {
+     "a": "The temperature gauge reads lower than usual, or the heater is slow to warm up",
+     "go": "r_thermostat"
+    },
+    {
+     "a": "The engine feels sluggish, hesitates or idles rough",
+     "go": "r_engine"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_misfire": {
+   "result": {
+    "title": "The engine is likely misfiring, which wastes fuel and can damage the exhaust",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and turn the engine off. Have the car towed or have a mobile mechanic come to you.",
+    "if": [
+     "If the light stops flashing and stays on steadily, it's less urgent, but still have it checked within a day or two.",
+     "If you see smoke or smell burning from under the car, step away from it. An overheated catalytic converter can get extremely hot."
+    ],
+    "why": "A flashing check engine light means the engine is misfiring badly. Unburned fuel goes out the exhaust, which is why mileage drops, and it can overheat and ruin the catalytic converter. Stopping early can prevent a much bigger repair.",
+    "causes": [
+     {
+      "name": "Worn spark plug or failed ignition coil",
+      "clues": "Shaking at idle or when accelerating, or plugs overdue for replacement.",
+      "against": ""
+     },
+     {
+      "name": "Fuel injector problem",
+      "clues": "The misfire is in one cylinder, or the exhaust smells of fuel.",
+      "against": ""
+     },
+     {
+      "name": "Vacuum leak or mechanical engine problem",
+      "clues": "A hissing sound, or misfires in several cylinders at once.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note when the light flashes: at idle, when accelerating or when cruising."
+     ],
+     "shop": [
+      "Code scan for misfire codes",
+      "Spark plug and ignition coil check",
+      "Fuel injector test",
+      "Compression test if needed"
+     ]
+    }
+   }
+  },
+  "r_fuel_leak": {
+   "result": {
+    "title": "A fuel leak may be causing both the smell and the lost mileage",
+    "urgency": "stop",
+    "now": "Turn the engine off and keep flames and sparks away. Look for wet spots or drips under the car, then have it towed.",
+    "if": [
+     "If fuel is dripping or pooling, move away from the car and call for help.",
+     "If the smell is only near the gas cap right after filling up and then goes away, a loose or damaged cap is possible. Have it checked if the smell comes back."
+    ],
+    "why": "You should never smell raw gasoline strongly around a car. A leaking fuel line, injector seal or tank can waste fuel quickly, which shows up as worse mileage, and it's a fire risk.",
+    "causes": [
+     {
+      "name": "Leaking fuel line or fitting",
+      "clues": "A wet spot under the car, and the smell is strongest outside.",
+      "against": ""
+     },
+     {
+      "name": "Leaking injector or fuel rail seal",
+      "clues": "The smell is strongest under the hood after driving.",
+      "against": ""
+     },
+     {
+      "name": "Leaking fuel tank or filler neck",
+      "clues": "Wet spots or a smell near the rear of the car.",
+      "against": ""
+     },
+     {
+      "name": "Loose or damaged gas cap",
+      "clues": "The smell is near the fuel door, and the check engine light may be on.",
+      "against": "A loose cap alone rarely makes a big difference to mileage."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Without starting the engine, look for wet spots or drips under the car.",
+      "Check that the gas cap is tight."
+     ],
+     "shop": [
+      "Fuel system leak inspection",
+      "Fuel pressure test",
+      "Evaporative system smoke test"
+     ]
+    }
+   }
+  },
+  "r_dragging_brake": {
+   "result": {
+    "title": "A brake that isn't releasing is likely dragging the car",
+    "urgency": "soon",
+    "now": "Make sure the parking brake is fully released, then have the brakes checked within a day or two.",
+    "if": [
+     "If a wheel is smoking or too hot to go near, don't drive it. Let it cool and have it towed.",
+     "If the car pulls to one side or the brake pedal feels different, get it checked before driving any further."
+    ],
+    "why": "A brake caliper or parking brake that doesn't fully release keeps rubbing, which wastes fuel and creates heat. Left alone, it can overheat the brakes, wear them out fast and weaken your stopping power.",
+    "causes": [
+     {
+      "name": "Sticking brake caliper",
+      "clues": "One wheel is hotter than the others, has more brake dust, or the car pulls to one side.",
+      "against": ""
+     },
+     {
+      "name": "Parking brake not fully releasing",
+      "clues": "The brake warning light stays on, or the rear wheels get hot.",
+      "against": ""
+     },
+     {
+      "name": "Collapsed brake hose",
+      "clues": "One wheel keeps dragging for a while after you brake.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that the parking brake is fully off.",
+      "After a drive, hold your hand near (not on) each wheel to feel if one is much hotter than the others."
+     ],
+     "shop": [
+      "Brake inspection",
+      "Caliper and slide pin check",
+      "Parking brake check"
+     ]
+    }
+   }
+  },
+  "r_cel_steady": {
+   "result": {
+    "title": "A sensor or engine fault is likely making the engine use extra fuel",
+    "urgency": "check",
+    "now": "Have the trouble codes read. Many auto parts stores do it free, and the code shows which sensor or system to look at.",
+    "if": [
+     "If the light starts flashing or the engine runs rough, pull over and stop.",
+     "If the gas cap was loose, tighten it. The light may go off on its own after several days of driving."
+    ],
+    "why": "The engine computer uses sensors to decide how much fuel to add. When one reads wrong, the engine can run rich (with too much fuel), which costs mileage, and the computer usually turns on the check engine light. The code tells you where to start.",
+    "causes": [
+     {
+      "name": "Faulty oxygen sensor",
+      "clues": "Oxygen sensor codes, or mileage that dropped over weeks.",
+      "against": ""
+     },
+     {
+      "name": "Dirty or faulty airflow sensor",
+      "clues": "Hesitation, rough idle, or airflow sensor codes.",
+      "against": ""
+     },
+     {
+      "name": "Coolant temperature sensor or thermostat",
+      "clues": "The temperature gauge reads low, or the heater is slow to warm up.",
+      "against": ""
+     },
+     {
+      "name": "Evaporative system leak, like a loose gas cap",
+      "clues": "Evap codes.",
+      "against": "This turns the light on but usually doesn't change mileage much."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Get the codes read.",
+      "Check that the gas cap is tight."
+     ],
+     "shop": [
+      "Code scan and live sensor data",
+      "Fuel trim check",
+      "Sensor tests"
+     ]
+    }
+   }
+  },
+  "r_seasonal": {
+   "result": {
+    "title": "Cold weather and short trips are probably the main reason",
+    "urgency": "diy",
+    "now": "Check your tire pressure, since cold weather lowers it, and combine short errands into one trip where you can.",
+    "if": [
+     "If mileage doesn't recover when the weather warms up, look for another cause.",
+     "If the temperature gauge stays lower than usual even after a long drive, the thermostat may be stuck open."
+    ],
+    "why": "Engines use more fuel until they warm up, and in cold weather that takes longer. Winter-blend gasoline holds slightly less energy, cold air and low tire pressure add drag, and the heater, defroster and seat heaters add load. On short trips the engine spends most of its time cold.",
+    "causes": [
+     {
+      "name": "Cold engine and short trips",
+      "clues": "Lots of short drives, especially on cold mornings.",
+      "against": ""
+     },
+     {
+      "name": "Lower tire pressure in cold weather",
+      "clues": "The tire pressure light comes on during cold mornings.",
+      "against": ""
+     },
+     {
+      "name": "Winter-blend fuel and more heater and defroster use",
+      "clues": "The drop started in late fall and is similar every year.",
+      "against": ""
+     },
+     {
+      "name": "Long warm-up idling",
+      "clues": "You let the car idle for several minutes before driving.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Track mileage by hand over a few full tanks.",
+      "Check tire pressure at least monthly in cold weather."
+     ],
+     "shop": [
+      "Thermostat and coolant temperature check if the gauge reads low"
+     ]
+    }
+   }
+  },
+  "r_tires": {
+   "result": {
+    "title": "Low tire pressure is likely costing you fuel",
+    "urgency": "diy",
+    "now": "Check all four tires with a gauge when they're cold, and fill them to the pressure on the sticker inside the driver's door.",
+    "if": [
+     "If one tire keeps losing air, have it checked for a puncture or a leaking valve.",
+     "If the tire pressure light stays on after filling, have the tires and their sensors checked."
+    ],
+    "why": "Underinflated tires flex more and roll with more resistance, so the engine works harder to keep the car moving. They also wear faster and grip less. It's the easiest mileage problem to fix.",
+    "causes": [
+     {
+      "name": "Normal air loss over time",
+      "clues": "All four tires are a little low.",
+      "against": ""
+     },
+     {
+      "name": "Cold weather",
+      "clues": "The light comes on during cold mornings.",
+      "against": ""
+     },
+     {
+      "name": "Puncture or leaking valve",
+      "clues": "One tire is much lower than the others.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check pressure with a gauge, not by eye.",
+      "Use the pressure on the door sticker, not the maximum printed on the tire."
+     ],
+     "shop": [
+      "Tire leak inspection",
+      "Tire pressure sensor check"
+     ]
+    }
+   }
+  },
+  "r_change": {
+   "result": {
+    "title": "A recent change is likely the reason",
+    "urgency": "diy",
+    "now": "Think about what changed around the time the mileage dropped, and undo it where you can, like removing an empty roof rack or extra weight.",
+    "if": [
+     "If you switched to fuel with more ethanol, lower mileage is expected. Only use fuels your owner's manual approves.",
+     "If the drop came right after new tires, check their pressure. Some tires simply roll with more resistance.",
+     "If the drop came right after a repair, mention it to the shop that did the work."
+    ],
+    "why": "Fuel economy depends on how hard the engine has to work. Extra weight, towing, roof racks and cargo boxes add load or wind drag, and tires with more grip or a different size can roll harder. Fuel with more ethanol holds less energy per gallon.",
+    "causes": [
+     {
+      "name": "Roof rack, cargo box, towing or extra weight",
+      "clues": "The drop appeared right after you added it.",
+      "against": ""
+     },
+     {
+      "name": "New tires",
+      "clues": "A different type or size, or they're underinflated.",
+      "against": ""
+     },
+     {
+      "name": "Fuel with more ethanol",
+      "clues": "You switched stations or fuel types.",
+      "against": ""
+     },
+     {
+      "name": "A change in how or where you drive",
+      "clues": "More fast highway driving, or more stop-and-go traffic.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Remove unneeded weight and racks, then track the next tank.",
+      "Check tire pressure."
+     ],
+     "shop": [
+      "Tire and alignment check if the drop came with new tires"
+     ]
+    }
+   }
+  },
+  "r_thermostat": {
+   "result": {
+    "title": "The thermostat may be stuck open, so the engine never fully warms up",
+    "urgency": "check",
+    "now": "Watch where the temperature gauge settles on your next longer drive, and book a check when convenient.",
+    "if": [
+     "If the gauge ever climbs toward hot, pull over and turn the engine off. That's a different and more serious problem.",
+     "If the heater barely warms the cabin in winter, get it checked sooner, because the defroster may not clear the windshield."
+    ],
+    "why": "The thermostat keeps coolant in the engine until it warms up. If it sticks open, the engine runs cooler than it should. The engine computer then adds extra fuel as if the engine were still cold, which lowers mileage.",
+    "causes": [
+     {
+      "name": "Thermostat stuck open",
+      "clues": "The gauge sits low on the highway, and the heater is lukewarm.",
+      "against": ""
+     },
+     {
+      "name": "Faulty coolant temperature sensor",
+      "clues": "A check engine light, or the gauge acting oddly.",
+      "against": ""
+     },
+     {
+      "name": "Low coolant",
+      "clues": "The coolant reservoir is low, and the heater blows cool air at times.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note where the gauge settles after a 15-minute drive.",
+      "Check the coolant level when the engine is cold."
+     ],
+     "shop": [
+      "Code scan",
+      "Thermostat and sensor test",
+      "Cooling system check"
+     ]
+    }
+   }
+  },
+  "r_engine": {
+   "result": {
+    "title": "An engine performance problem is likely making it work harder",
+    "urgency": "soon",
+    "now": "Have the engine checked in the next few days, including a code scan even if the check engine light isn't on.",
+    "if": [
+     "If the check engine light starts flashing, pull over and stop.",
+     "If the car struggles badly uphill or the exhaust smells like rotten eggs, a blocked catalytic converter is possible. Get it checked sooner."
+    ],
+    "why": "An engine that's down on power has to work harder to do the same job, so it uses more fuel. Worn spark plugs, a dirty airflow sensor or a partly blocked exhaust are common reasons, and they usually get worse over time.",
+    "causes": [
+     {
+      "name": "Worn spark plugs or a weak ignition coil",
+      "clues": "Plugs overdue for replacement, hesitation, or a rough idle.",
+      "against": ""
+     },
+     {
+      "name": "Dirty airflow sensor",
+      "clues": "Hesitation, surging or a rough idle.",
+      "against": ""
+     },
+     {
+      "name": "Restricted catalytic converter",
+      "clues": "Sluggish mostly uphill or at highway speed, a rotten egg smell, or a rattle underneath.",
+      "against": ""
+     },
+     {
+      "name": "Clogged air filter",
+      "clues": "The filter is visibly dirty.",
+      "against": "On modern fuel-injected cars a dirty filter mostly hurts acceleration, not mileage."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note when it hesitates: cold, warm, uphill or at idle.",
+      "Check your service records for when the spark plugs were last changed."
+     ],
+     "shop": [
+      "Code scan and fuel trim data",
+      "Ignition system check",
+      "Exhaust back-pressure test"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "Confirm the drop over a tank or two, then have the basics checked",
+    "urgency": "check",
+    "now": "Check tire pressure, then measure your mileage by hand over the next full tank to confirm the drop.",
+    "if": [
+     "If the drop is large and sudden, or another symptom shows up, have it checked sooner.",
+     "If the check engine light comes on, get the codes read."
+    ],
+    "why": "Mileage naturally varies with weather, traffic, fuel and driving style, and dash readouts can be off. A measured drop that sticks around usually comes from tires, brakes, sensors or engine wear, and a shop can check those quickly.",
+    "causes": [
+     {
+      "name": "Tire pressure or wheel alignment",
+      "clues": "Tires look low, or uneven tire wear.",
+      "against": ""
+     },
+     {
+      "name": "Changes in driving or weather",
+      "clues": "More short trips, more traffic, or colder weather.",
+      "against": ""
+     },
+     {
+      "name": "Sensor or engine problem not yet setting a warning light",
+      "clues": "The engine feels slightly less lively.",
+      "against": ""
+     },
+     {
+      "name": "Slightly dragging brake",
+      "clues": "One wheel has more brake dust or feels warmer.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Measure mileage by hand over a full tank.",
+      "Check tire pressure."
+     ],
+     "shop": [
+      "Code scan and fuel trim data",
+      "Brake drag check",
+      "Tire and alignment check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "check-engine-light-on",
+  "tire-pressure-light-on",
+  "brakes-dragging",
+  "loss-of-power-when-accelerating",
+  "gas-smell"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "fuel economy",
+   "mileage",
+   "mpg",
+   "oxygen sensor",
+   "thermostat",
+   "airflow sensor",
+   "spark plug",
+   "fuel leak",
+   "caliper"
+  ]
+ },
+ "sources": [
+  "https://fueleconomy.gov/feg/coldweather.shtml",
+  "https://www.fueleconomy.gov/feg/maintain.jsp"
+ ]
+}

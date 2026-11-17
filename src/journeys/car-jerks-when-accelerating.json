@@ -1,0 +1,541 @@
+{
+ "id": "car-jerks-when-accelerating",
+ "title": "Car jerks when accelerating",
+ "h1": "Why does my car jerk when I accelerate?",
+ "metaDesc": "Car jerks or bucks when you press the gas? Find out if it's a misfire, fuel, the transmission or a worn mount, how urgent it is, and what to tell your mechanic.",
+ "group": "shake",
+ "cat": "Driving",
+ "synonyms": [
+  "car jerks when accelerating",
+  "car jerking when I press the gas",
+  "car bucking when accelerating",
+  "car stutters when accelerating",
+  "jerky acceleration",
+  "car lurches when accelerating",
+  "car jerks when i give it gas",
+  "car jumps when accelerating",
+  "car hesitates and jerks",
+  "car jerks at low speed",
+  "car jerks when shifting gears",
+  "car jerking uphill",
+  "car shudders at 40 mph",
+  "car jerks and check engine light flashing"
+ ],
+ "intro": "A jerk or buck when you press the gas usually comes from the engine stumbling, the transmission shifting badly, or worn parts letting the engine rock. When it happens and what the dash shows are the best clues. Answer a few questions and we'll point you to the likely cause and how soon to deal with it.",
+ "safety": [
+  "If the check engine light is flashing and the car is shaking, pull over and stop driving it.",
+  "If you smell fuel or see smoke, pull over, turn the engine off and get away from the car.",
+  "If the car suddenly loses power in traffic, turn on your hazards and get to the shoulder."
+ ],
+ "start": "q_light",
+ "nodes": {
+  "q_light": {
+   "q": "Is the check engine light on right now?",
+   "help": "The check engine light is the engine-shaped symbol, usually yellow or orange. A flashing light is more serious than a steady one.",
+   "opts": [
+    {
+     "a": "Yes, and it's flashing",
+     "go": "r_severe_misfire"
+    },
+    {
+     "a": "Yes, it's on and steady",
+     "go": "r_steady_cel"
+    },
+    {
+     "a": "No, no warning lights",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When does the jerk happen?",
+   "opts": [
+    {
+     "a": "As the automatic transmission changes gears: a hard bump or slam",
+     "go": "r_transmission"
+    },
+    {
+     "a": "Cruising gently around 30 to 50 mph, like driving over rumble strips",
+     "go": "r_torque_converter"
+    },
+    {
+     "a": "When I press the gas harder, pull away or climb a hill: the engine stumbles or bucks",
+     "go": "q_engine"
+    },
+    {
+     "a": "Only when I first press the gas or lift off: a single clunk or jolt",
+     "go": "r_mounts"
+    },
+    {
+     "a": "It's a manual, and it bucks or shudders as I let the clutch out",
+     "go": "r_clutch"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_engine": {
+   "q": "Which of these fits best?",
+   "help": "These clues separate an ignition problem from a fuel or air problem.",
+   "opts": [
+    {
+     "a": "It's worse on damp or rainy days, or the engine also shakes when idling",
+     "go": "r_ignition"
+    },
+    {
+     "a": "It sputters and loses power like it's starving, especially uphill or at higher speeds",
+     "go": "r_fuel"
+    },
+    {
+     "a": "It hesitates and then surges, or the idle is uneven and I hear a hiss",
+     "go": "r_air"
+    },
+    {
+     "a": "None of these / I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_severe_misfire": {
+   "result": {
+    "title": "The engine is misfiring badly enough to cause damage",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and turn the engine off. Have the car towed or call a mobile mechanic instead of continuing on.",
+    "if": [
+     "If the light stops flashing after a restart, don't trust it. The fault is still there, so get it checked before using the car.",
+     "If you smell fuel or see smoke, step away from the car and call for help."
+    ],
+    "why": "A flashing check engine light means the engine computer has detected misfires severe enough to damage the catalytic converter. Unburned fuel goes into the exhaust and can overheat it. The jerking you feel is cylinders cutting in and out.",
+    "causes": [
+     {
+      "name": "Failed ignition coil or spark plug",
+      "clues": "The jerk is strongest under load, and the engine also shakes at idle.",
+      "against": ""
+     },
+     {
+      "name": "Fuel injector stuck or not working",
+      "clues": "The misfire stays on the same cylinder even after the coil is swapped.",
+      "against": ""
+     },
+     {
+      "name": "Internal engine problem, such as low compression",
+      "clues": "Ticking or knocking, oil or coolant loss, or a misfire that stays after ignition parts are replaced.",
+      "against": "Much less common than coil or spark plug problems."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note what you were doing when the light started flashing.",
+      "Note any other warning lights on the dash."
+     ],
+     "shop": [
+      "Code scan and misfire counts by cylinder",
+      "Ignition coil and spark plug inspection",
+      "Fuel injector test",
+      "Compression test if needed"
+     ]
+    }
+   }
+  },
+  "r_steady_cel": {
+   "result": {
+    "title": "An engine fault is stored. The code will narrow it down",
+    "urgency": "soon",
+    "now": "Have the trouble codes read within the next few days. Many auto parts stores do it free. Drive gently until then and avoid hard acceleration.",
+    "if": [
+     "If the light starts flashing, pull over and stop driving.",
+     "If the code points to the transmission, keep trips short and get it checked as soon as you can."
+    ],
+    "why": "A steady check engine light means the computer has found a fault, but not one it treats as immediately damaging. Jerking with a steady light is often an early misfire, a fuel delivery problem or a sensor giving bad readings. The stored code tells the shop where to start.",
+    "causes": [
+     {
+      "name": "Early misfire from a worn spark plug or ignition coil",
+      "clues": "The jerk is worse under load or uphill, and the engine may shake at idle.",
+      "against": ""
+     },
+     {
+      "name": "Faulty sensor, such as the airflow or throttle sensor",
+      "clues": "Hesitation followed by a surge, or worse fuel economy.",
+      "against": ""
+     },
+     {
+      "name": "Fuel delivery problem",
+      "clues": "Sputtering at higher speeds or on hills.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Get the codes read and write down the full letters and numbers.",
+      "Note when the jerk happens: speed, how hard you press the gas, and whether the engine is cold or warm."
+     ],
+     "shop": [
+      "Code scan and freeze-frame data",
+      "Live sensor data review",
+      "Misfire counts by cylinder"
+     ]
+    }
+   }
+  },
+  "r_ignition": {
+   "result": {
+    "title": "Most likely a misfire from a worn spark plug or ignition coil",
+    "urgency": "soon",
+    "now": "Book a check within the next few days, and avoid hard acceleration until then.",
+    "if": [
+     "If the check engine light starts flashing, pull over and stop driving.",
+     "If the spark plugs are past the replacement interval in your owner's manual, tell the shop."
+    ],
+    "why": "When a spark plug or coil is weak, a cylinder can fail to fire just when the engine is working hardest. You feel that as a jerk or buck. Moisture makes weak ignition parts worse, which is why it can be worse on damp days.",
+    "causes": [
+     {
+      "name": "Worn spark plugs",
+      "clues": "High mileage, or plugs past their replacement interval.",
+      "against": "Less likely if the plugs were replaced recently."
+     },
+     {
+      "name": "Failing ignition coil or plug wire",
+      "clues": "Worse in damp weather, or a check engine light that comes and goes.",
+      "against": ""
+     },
+     {
+      "name": "Clogged or failing fuel injector",
+      "clues": "A misfire on one cylinder that doesn't move when the coil is swapped.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your service records for the last spark plug change.",
+      "Have the codes read if the check engine light has come on, even briefly."
+     ],
+     "shop": [
+      "Code scan and misfire counts",
+      "Spark plug and coil inspection",
+      "Coil swap test between cylinders"
+     ]
+    }
+   }
+  },
+  "r_fuel": {
+   "result": {
+    "title": "The engine may not be getting enough fuel under load",
+    "urgency": "soon",
+    "now": "Book a check within the next few days. Until then, keep the tank above a quarter full and avoid hard acceleration and long climbs.",
+    "if": [
+     "If it starts stalling or losing power in traffic, stop driving it and have it towed.",
+     "If it began right after a fill-up, tell the shop. Bad or watery fuel can cause this."
+    ],
+    "why": "When you accelerate hard, the engine needs much more fuel. A weak fuel pump, a clogged filter or dirty injectors may keep up at idle but fall short when you ask for power, so the engine sputters and jerks.",
+    "causes": [
+     {
+      "name": "Weak fuel pump",
+      "clues": "Worse uphill, at higher speeds or when the tank is low.",
+      "against": ""
+     },
+     {
+      "name": "Clogged fuel filter",
+      "clues": "A slow loss of power over months, on cars that have a replaceable filter.",
+      "against": ""
+     },
+     {
+      "name": "Dirty or failing fuel injectors",
+      "clues": "A rough idle and worse fuel economy.",
+      "against": ""
+     },
+     {
+      "name": "Contaminated fuel",
+      "clues": "It started suddenly right after a fill-up.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether it's worse when the tank is low.",
+      "Think back to whether it started right after a fill-up."
+     ],
+     "shop": [
+      "Fuel pressure and volume test under load",
+      "Code scan for lean-running codes",
+      "Fuel injector testing"
+     ]
+    }
+   }
+  },
+  "r_air": {
+   "result": {
+    "title": "An air leak or a dirty airflow sensor may be throwing off the fuel mix",
+    "urgency": "check",
+    "now": "Book a check when convenient. A shop can find most air leaks quickly with a smoke test.",
+    "if": [
+     "If the check engine light comes on or the hesitation gets worse, get it checked within a few days.",
+     "If the engine starts stalling at stops, have it looked at before relying on the car."
+    ],
+    "why": "The engine computer measures the air coming in to decide how much fuel to add. A cracked vacuum hose lets in air it didn't measure, and a dirty airflow sensor misreads it. Either way the mix comes out wrong, so the car hesitates and then surges.",
+    "causes": [
+     {
+      "name": "Vacuum leak from a cracked hose or intake gasket",
+      "clues": "A hissing sound, or a high or uneven idle.",
+      "against": ""
+     },
+     {
+      "name": "Dirty or faulty mass airflow sensor",
+      "clues": "Hesitation then surge, and worse fuel economy.",
+      "against": ""
+     },
+     {
+      "name": "Dirty throttle body",
+      "clues": "A rough idle, or the car feels sticky right off the pedal.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine idling and the car in Park, listen from the front of the car for a hiss.",
+      "With the engine off, look for cracked or loose rubber hoses on top of the engine.",
+      "Check that the air filter isn't badly clogged."
+     ],
+     "shop": [
+      "Smoke test for vacuum leaks",
+      "Code scan and live airflow data",
+      "Throttle body inspection"
+     ]
+    }
+   }
+  },
+  "r_transmission": {
+   "result": {
+    "title": "The automatic transmission may be shifting harshly",
+    "urgency": "soon",
+    "now": "Book a transmission check within the next few days. Until then, accelerate gently and avoid towing or heavy loads.",
+    "if": [
+     "If the engine revs but the car doesn't speed up, or a transmission warning light comes on, stop driving and have it towed.",
+     "If you see red or pink fluid where you park, tell the shop. Low fluid causes harsh shifts."
+    ],
+    "why": "A jolt right as the gears change means the transmission isn't controlling the shift smoothly. Low or worn-out fluid, a shift control problem or worn internal parts can all cause it. Catching it early often keeps the repair smaller.",
+    "causes": [
+     {
+      "name": "Low or worn-out transmission fluid",
+      "clues": "Red or pink drips, or fluid that's dark and smells burnt.",
+      "against": ""
+     },
+     {
+      "name": "Shift solenoid or transmission control fault",
+      "clues": "A transmission warning light, or shifts that are smooth sometimes and harsh other times.",
+      "against": ""
+     },
+     {
+      "name": "Worn internal clutches",
+      "clues": "High mileage, slipping, or harsh shifts that keep getting worse.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "If your car has a transmission dipstick, check the level and color the way your owner's manual describes. Many are checked with the engine warm and running.",
+      "Look for red or pink spots where you park."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Fluid level and condition check",
+      "Road test with live transmission data",
+      "Check for software updates"
+     ]
+    }
+   }
+  },
+  "r_torque_converter": {
+   "result": {
+    "title": "Likely torque converter shudder",
+    "urgency": "check",
+    "now": "Book a transmission check when convenient. Tell the shop it feels like rumble strips at steady, light cruising.",
+    "if": [
+     "If it gets worse quickly, or you notice slipping or a transmission warning light, get it checked within a few days.",
+     "If you see red or pink fluid under the car, get it checked sooner."
+    ],
+    "why": "The torque converter connects the engine to an automatic transmission. At steady, light cruising it locks up to save fuel, and if that lockup clutch grabs unevenly, the car shudders as if crossing rumble strips. Worn fluid is a common cause, and it tends to get worse over time.",
+    "causes": [
+     {
+      "name": "Worn or contaminated transmission fluid",
+      "clues": "The fluid hasn't been changed in a long time, or it looks dark.",
+      "against": ""
+     },
+     {
+      "name": "Worn torque converter lockup clutch",
+      "clues": "The shudder stops when you press harder or lift off the gas.",
+      "against": ""
+     },
+     {
+      "name": "Engine misfire under light load",
+      "clues": "A check engine light, or a shake at idle.",
+      "against": "A misfire usually feels worse when you press harder, not lighter."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the speed range where it happens.",
+      "Notice whether a little more or a little less gas makes it stop."
+     ],
+     "shop": [
+      "Transmission code scan",
+      "Road test watching torque converter lockup data",
+      "Fluid condition check"
+     ]
+    }
+   }
+  },
+  "r_mounts": {
+   "result": {
+    "title": "Worn engine mounts or play in the drive axles",
+    "urgency": "check",
+    "now": "Book a check when convenient, and ask the shop to inspect the engine and transmission mounts and the drive axles.",
+    "if": [
+     "If you hear a loud bang, or the clunk is getting worse quickly, get it checked within a few days.",
+     "If you also hear clicking when turning sharply, a worn axle joint is likely. Get it checked soon."
+    ],
+    "why": "Mounts are rubber blocks that hold the engine and transmission in place. When they wear out, the engine rocks when you get on or off the gas, and you feel it as a clunk or jolt. Worn axle joints can feel very similar.",
+    "causes": [
+     {
+      "name": "Worn or broken engine or transmission mount",
+      "clues": "A clunk when shifting into Drive or Reverse, or more vibration at idle.",
+      "against": ""
+     },
+     {
+      "name": "Worn CV joint or U-joint",
+      "clues": "Clicking when turning, or a clunk that seems to come from under the car rather than the engine bay.",
+      "against": ""
+     },
+     {
+      "name": "Loose exhaust hanger or heat shield",
+      "clues": "A thump or rattle along with the clunk.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether the clunk also happens when shifting into Drive or Reverse.",
+      "Listen for clicking while making slow, tight turns in an empty parking lot."
+     ],
+     "shop": [
+      "Engine and transmission mount inspection",
+      "Drive axle, CV joint and U-joint check",
+      "Exhaust hanger inspection"
+     ]
+    }
+   }
+  },
+  "r_clutch": {
+   "result": {
+    "title": "The clutch may be grabbing unevenly (clutch chatter)",
+    "urgency": "check",
+    "now": "Book a check when convenient. Until then, let the clutch out slowly and smoothly.",
+    "if": [
+     "If the engine revs but the car doesn't speed up in higher gears, the clutch is slipping. Get it checked within a few days.",
+     "If you smell burning after pulling away, avoid slipping the clutch and get it checked soon."
+    ],
+    "why": "When the clutch grabs unevenly as you let it out, the car shudders or bucks. Oil on the clutch, worn clutch parts or weak engine mounts are the usual reasons.",
+    "causes": [
+     {
+      "name": "Contaminated or worn clutch disc",
+      "clues": "Chatter that's worse when hot, or a burning smell.",
+      "against": ""
+     },
+     {
+      "name": "Worn engine or transmission mounts",
+      "clues": "A clunk along with the chatter.",
+      "against": ""
+     },
+     {
+      "name": "Worn or uneven flywheel",
+      "clues": "Chatter plus vibration you can feel through the pedal.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether it's worse when the car is fully warmed up.",
+      "Look for oil drips between the engine and the transmission."
+     ],
+     "shop": [
+      "Clutch engagement and slip test",
+      "Mount inspection",
+      "Check for an oil leak onto the clutch"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "Jerking needs a code scan and a short road test to pin down",
+    "urgency": "check",
+    "now": "Have the codes read and book a check. Tell the shop when the jerk happens: speed, how hard you press the gas, and whether the engine is cold or warm.",
+    "if": [
+     "If the check engine light starts flashing, pull over and stop driving.",
+     "If the jerking gets worse or the car starts losing power, stop driving it and have it towed."
+    ],
+    "why": "Jerking can come from the engine, the transmission or worn mounts, and they can feel alike from the driver's seat. A code scan plus a short road test usually separates them quickly.",
+    "causes": [
+     {
+      "name": "Ignition misfire",
+      "clues": "Worse under load or uphill.",
+      "against": ""
+     },
+     {
+      "name": "Fuel delivery problem",
+      "clues": "Sputtering at higher speeds.",
+      "against": ""
+     },
+     {
+      "name": "Transmission shift problem",
+      "clues": "It happens exactly as the gears change.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Keep notes on when it happens.",
+      "Have the codes read even with no light on. Some faults are stored before the light comes on."
+     ],
+     "shop": [
+      "Code scan including pending codes",
+      "Road test",
+      "Misfire and fuel trim data"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "hesitation-when-accelerating",
+  "engine-sputtering-misfire",
+  "check-engine-light-flashing",
+  "transmission-slipping",
+  "car-shakes-when-accelerating"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "jerk",
+   "misfire",
+   "spark plug",
+   "ignition coil",
+   "hesitation",
+   "stumble",
+   "shudder",
+   "torque converter",
+   "fuel pump",
+   "mount"
+  ]
+ },
+ "sources": [
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

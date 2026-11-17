@@ -1,0 +1,445 @@
+{
+ "id": "creaking-when-turning-steering",
+ "title": "Creaking when turning the wheel",
+ "h1": "Why does my car creak or groan when I turn the steering wheel?",
+ "metaDesc": "Creaking or groaning when you turn the steering wheel? Answer a few questions to see if it's a strut mount, ball joint or bushing, how urgent it is, and what to do.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "creaking when turning",
+  "creaking noise when turning steering wheel",
+  "groaning when turning",
+  "steering wheel creaks",
+  "creak when turning at low speed",
+  "creaking when parking",
+  "squeaky steering",
+  "front end creaking",
+  "creaking noise when turning and going over bumps",
+  "steering makes noise when turning",
+  "car groans when turning",
+  "creaking in cold weather when turning",
+  "popping noise when turning wheel"
+ ],
+ "intro": "A creak or groan when you turn the wheel usually comes from a rubber or metal joint in the steering or front suspension that's dry or worn. Most of the time it's annoying rather than dangerous, but some of those joints hold the wheel to the car. These questions help you tell which is which.",
+ "safety": [
+  "If the steering suddenly feels loose, the car wanders, or a front wheel looks tilted, pull over and don't drive it.",
+  "If you hear a loud bang or clunk and the steering changes, stop as soon as it's safe and call for a tow.",
+  "If the steering suddenly gets very hard to turn, slow down and pull over carefully."
+ ],
+ "start": "q_feel",
+ "nodes": {
+  "q_feel": {
+   "q": "Besides the noise, how does the steering feel?",
+   "help": "\"Loose\" means the wheel moves a bit before the car responds, or you're constantly correcting to stay straight.",
+   "opts": [
+    {
+     "a": "Loose or vague, the car wanders, the wheel is crooked, or there's a heavy clunk",
+     "go": "r_steering_unsafe"
+    },
+    {
+     "a": "Heavier than usual, or there's a whine as well as the groan",
+     "go": "r_power_steering"
+    },
+    {
+     "a": "It feels normal. It's just the noise",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When do you hear the creak most?",
+   "opts": [
+    {
+     "a": "Turning the wheel at low speed or while parking",
+     "go": "q_source"
+    },
+    {
+     "a": "Turning while going over bumps, dips or driveways",
+     "go": "r_ball_joint"
+    },
+    {
+     "a": "Mostly in cold or wet weather, and it fades as the car warms up",
+     "go": "r_bushings"
+    },
+    {
+     "a": "Only in very tight turns, with a scrubbing or hopping feeling",
+     "go": "r_tire_scrub"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_source": {
+   "q": "Where does the sound seem to come from?",
+   "help": "Try turning the wheel back and forth with the car stopped and the engine running, with a window down.",
+   "opts": [
+    {
+     "a": "Up near the top of a front wheel, sometimes with a pop or a small jolt in the steering wheel",
+     "go": "r_strut_mount"
+    },
+    {
+     "a": "Low down near a front wheel, a dry creak like an old door hinge",
+     "go": "r_ball_joint"
+    },
+    {
+     "a": "Inside the car: the steering column, the dash or the wheel itself",
+     "go": "r_column"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "r_steering_unsafe": {
+   "result": {
+    "title": "A worn steering or suspension joint may be close to failing",
+    "urgency": "stop",
+    "now": "Don't drive it. Have the car towed or have a mobile mechanic inspect the front end.",
+    "if": [
+     "If you're on the road when it starts, slow down gently, avoid hard braking and sharp turns, and pull over as soon as it's safe.",
+     "If a front wheel leans in or out at the top, a ball joint may have separated. Don't move the car at all."
+    ],
+    "why": "Creaking plus loose steering or a heavy clunk suggests a ball joint or tie rod end is badly worn. These parts connect the wheels to the car and the steering. If one separates, you can lose control of that wheel.",
+    "causes": [
+     {
+      "name": "Badly worn ball joint",
+      "clues": "Creaking and clunking over bumps, uneven tire wear, a wheel that looks tilted.",
+      "against": ""
+     },
+     {
+      "name": "Worn tie rod end",
+      "clues": "Play in the steering wheel and wandering at highway speed.",
+      "against": ""
+     },
+     {
+      "name": "Broken coil spring or control arm mount",
+      "clues": "One corner sits lower than the others, or a loud clunk when turning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Ball joint and tie rod inspection with the wheels off the ground",
+      "Front suspension inspection on a lift",
+      "Wheel alignment check after repairs"
+     ]
+    }
+   }
+  },
+  "r_power_steering": {
+   "result": {
+    "title": "The power steering system may be low on fluid or struggling",
+    "urgency": "soon",
+    "now": "If your car has a power steering fluid reservoir, check the level with the engine off. Get the steering checked within the next few days.",
+    "if": [
+     "If the steering becomes very hard to turn, or a steering warning light comes on, don't drive it. Have it towed.",
+     "If the fluid is low, top it up with the type in your owner's manual, and look for a leak. It went somewhere."
+    ],
+    "why": "A groan with heavier steering usually means the power steering isn't giving full assist. On cars with hydraulic steering, low fluid or a worn pump is the usual cause. On electric steering, it can be a motor or sensor fault.",
+    "causes": [
+     {
+      "name": "Low power steering fluid from a leak",
+      "clues": "A low reservoir, or reddish or amber drips under the front.",
+      "against": "Doesn't apply if your car has electric power steering with no reservoir."
+     },
+     {
+      "name": "Worn power steering pump",
+      "clues": "The fluid level is fine but the groan or whine is getting louder.",
+      "against": ""
+     },
+     {
+      "name": "Electric power steering fault",
+      "clues": "A steering warning light, or the heaviness comes and goes.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the power steering fluid level, if your car has a reservoir.",
+      "Look under the front of the car for fresh drips."
+     ],
+     "shop": [
+      "Power steering fluid and leak inspection",
+      "Power steering pump pressure test",
+      "Code scan for electric steering faults"
+     ]
+    }
+   }
+  },
+  "r_ball_joint": {
+   "result": {
+    "title": "Likely a dry or worn ball joint",
+    "urgency": "soon",
+    "now": "Have the front suspension inspected within the next few days. Until then, avoid potholes, curbs and sharp turns at speed.",
+    "if": [
+     "If the steering starts feeling loose, the car wanders, or you hear clunking, stop driving it and have it towed.",
+     "If a shop finds the joint is only dry and not loose, it may just need grease, if it's the type that can be greased."
+    ],
+    "why": "Ball joints are pivots that let the front wheels steer and move up and down. When the grease inside dries out or the joint wears, it creaks as it moves, especially when you turn and hit a bump at the same time. A worn ball joint gets worse over time and can eventually separate.",
+    "causes": [
+     {
+      "name": "Worn or dry lower ball joint",
+      "clues": "A creak like a squeaky door when turning over bumps, coming from low near the wheel.",
+      "against": ""
+     },
+     {
+      "name": "Torn ball joint boot",
+      "clues": "A split rubber boot lets grease out and dirt in.",
+      "against": ""
+     },
+     {
+      "name": "Worn control arm bushing",
+      "clues": "Creaking over bumps even when driving straight.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Bounce the front of the car by pushing down on it while parked and listen for the creak.",
+      "Look behind the front wheels for torn rubber boots."
+     ],
+     "shop": [
+      "Ball joint play check with the wheels off the ground",
+      "Control arm bushing inspection",
+      "Front suspension inspection on a lift"
+     ]
+    }
+   }
+  },
+  "r_bushings": {
+   "result": {
+    "title": "Probably dry rubber bushings, often in the sway bar or control arms",
+    "urgency": "check",
+    "now": "Book a front suspension check when convenient, and mention that it's worse in cold or wet weather.",
+    "if": [
+     "If the creak becomes a clunk, or it starts happening in warm weather too, get it checked within a few days.",
+     "If the steering feels loose or the car wanders, stop driving it and have it checked right away."
+    ],
+    "why": "The suspension uses rubber bushings to cushion metal parts. As they age, they harden and creak when they twist, and cold or wet weather makes it worse. This is usually a nuisance, but worn bushings can affect handling and tire wear over time.",
+    "causes": [
+     {
+      "name": "Dry or worn sway bar bushings",
+      "clues": "Creaking over bumps and in turns, worse in the cold.",
+      "against": ""
+     },
+     {
+      "name": "Worn control arm bushings",
+      "clues": "Creaking plus a slight clunk when braking or accelerating.",
+      "against": ""
+     },
+     {
+      "name": "Dry strut mount",
+      "clues": "The creak is near the top of the wheel when turning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the noise happens only when the weather is cold or damp.",
+      "Bounce the front of the car while parked and listen."
+     ],
+     "shop": [
+      "Bushing inspection on a lift",
+      "Sway bar link and bushing check",
+      "Front suspension inspection"
+     ]
+    }
+   }
+  },
+  "r_tire_scrub": {
+   "result": {
+    "title": "Probably the tires scrubbing in tight turns, which is often normal",
+    "urgency": "diy",
+    "now": "Check your tire pressures and set them to the numbers on the sticker inside the driver's door. If you have 4WD or AWD with a selectable mode, make sure it's in 2WD or Auto on dry pavement.",
+    "if": [
+     "If you have a part-time 4WD system that's engaged on dry pavement, switch it off. Driving that way can damage the drivetrain.",
+     "If the noise or hopping happens in normal turns too, or the 4WD warning light is on, book a check."
+    ],
+    "why": "At full lock, the front tires turn at slightly different angles and can scrub on the pavement, which makes a groan, especially on smooth parking garage floors. A 4WD system locked in on dry pavement causes a similar binding or hopping feel.",
+    "causes": [
+     {
+      "name": "Normal tire scrub at full lock",
+      "clues": "Only in very tight turns on smooth floors, and nothing else is wrong.",
+      "against": ""
+     },
+     {
+      "name": "4WD engaged on dry pavement",
+      "clues": "A part-time 4WD truck or SUV with 4WD switched on.",
+      "against": "Doesn't apply to two-wheel-drive cars."
+     },
+     {
+      "name": "AWD or differential problem",
+      "clues": "Binding or shuddering in turns even in normal mode, or mismatched tires.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that all four tires are inflated correctly.",
+      "Check the 4WD selector or dash indicator.",
+      "Make sure all four tires are the same size and similarly worn."
+     ],
+     "shop": [
+      "Wheel alignment check",
+      "4WD or AWD system inspection",
+      "Differential fluid check"
+     ]
+    }
+   }
+  },
+  "r_strut_mount": {
+   "result": {
+    "title": "Most likely a worn strut mount or strut bearing",
+    "urgency": "check",
+    "now": "Book a front suspension check when convenient. Mention that the creak or pop happens when turning at low speed.",
+    "if": [
+     "If you feel a jolt or clunk through the wheel over bumps, or the steering feels notchy, get it checked within a few days.",
+     "If the steering starts feeling loose or the car wanders, stop driving it and have it checked right away."
+    ],
+    "why": "On many cars, the top of each front strut sits in a mount with a bearing that rotates when you steer. When the bearing wears or the rubber dries out, it creaks, groans or pops as you turn, especially at low speed. It's not usually urgent, but it gets worse.",
+    "causes": [
+     {
+      "name": "Worn strut bearing",
+      "clues": "A creak or pop when turning while parked, sometimes felt in the steering wheel.",
+      "against": ""
+     },
+     {
+      "name": "Worn strut mount rubber",
+      "clues": "A clunk over bumps along with the creak.",
+      "against": ""
+     },
+     {
+      "name": "Worn strut or broken coil spring",
+      "clues": "One corner sits lower or the car bounces more than usual.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With a window down, turn the wheel back and forth while parked and note which side the sound comes from.",
+      "Check whether one front corner sits lower than the other."
+     ],
+     "shop": [
+      "Strut mount and bearing inspection",
+      "Coil spring inspection",
+      "Front suspension inspection on a lift"
+     ]
+    }
+   }
+  },
+  "r_column": {
+   "result": {
+    "title": "The noise is probably in the steering column or trim, not the suspension",
+    "urgency": "diy",
+    "now": "With the car parked, turn the wheel slowly and see whether the steering wheel cover or the plastic trim around the column is rubbing.",
+    "if": [
+     "If the airbag warning light is on, have the car checked soon. A worn clock spring inside the steering wheel can affect the airbag and horn.",
+     "If the steering feels notchy, sticky or clunky, book a check within a few days. The steering shaft joint may be worn."
+    ],
+    "why": "If the creak comes from inside the car, the cause is usually something rubbing in the steering column or the trim around it. That's mostly a comfort issue, but a worn steering shaft joint or clock spring should still be looked at.",
+    "causes": [
+     {
+      "name": "Steering wheel or column trim rubbing",
+      "clues": "The creak changes when you press on the plastic around the column.",
+      "against": ""
+     },
+     {
+      "name": "Dry or worn steering shaft joint",
+      "clues": "A creak or slight clunk felt through the wheel, often heard by the driver's feet.",
+      "against": ""
+     },
+     {
+      "name": "Worn clock spring",
+      "clues": "A rubbing sound inside the wheel, sometimes with the airbag light or horn not working.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Press gently on the column trim while turning the wheel and listen for changes.",
+      "Check whether the airbag light is off after the car starts."
+     ],
+     "shop": [
+      "Steering column and shaft inspection",
+      "Clock spring check",
+      "Airbag system code scan if the light is on"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "Have the steering and front suspension inspected",
+    "urgency": "check",
+    "now": "Book a front-end inspection when convenient. Record a short video with sound of the creak while turning the wheel to show the technician.",
+    "if": [
+     "If the steering feels loose, the car wanders, or you hear clunking, stop driving it and have it checked right away.",
+     "If the steering gets heavier or you hear a whine, check the power steering fluid, if your car has a reservoir."
+    ],
+    "why": "Creaks when turning come from a handful of joints in the steering and suspension. A technician can check them all for wear in a few minutes with the car on a lift.",
+    "causes": [
+     {
+      "name": "Worn strut mount or bearing",
+      "clues": "Creaking or popping at low speed when turning.",
+      "against": ""
+     },
+     {
+      "name": "Dry or worn ball joint",
+      "clues": "Creaking when turning over bumps.",
+      "against": ""
+     },
+     {
+      "name": "Dry suspension bushings",
+      "clues": "Worse in cold or wet weather.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether it happens parked, at low speed, over bumps, or only in cold weather.",
+      "Bounce the front of the car while parked and listen."
+     ],
+     "shop": [
+      "Front suspension inspection on a lift",
+      "Ball joint and tie rod check",
+      "Strut mount inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "clunk-over-bumps",
+  "clicking-when-turning",
+  "whining-when-turning-steering",
+  "loose-or-wandering-steering",
+  "squeaking-over-bumps"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises"
+  ],
+  "words": [
+   "steering",
+   "ball joint",
+   "strut",
+   "bushing",
+   "tie rod",
+   "creak",
+   "groan",
+   "suspension"
+  ]
+ },
+ "sources": [
+  "https://www.brakeandfrontend.com/tech-feature-worn-steering-and-suspension-parts-are-often-overlooked/",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}
