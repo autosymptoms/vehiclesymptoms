@@ -16,6 +16,7 @@ module.exports = async (req, res) => {
   if (req.method === 'GET') return res.status(200).json({ enabled: !!key });
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
   if (!key) return res.status(503).json({ error: 'Email is not set up yet' });
+  if (!/^re_[A-Za-z0-9_]{10,}$/.test(key)) { console.error('RESEND_API_KEY malformed, length', key.length); return res.status(503).json({ error: 'Could not send right now. Please try again later. (code key)' }) }
   let b = req.body; if (typeof b === 'string') { try { b = JSON.parse(b) } catch (e) { b = {} } }
   b = b || {};
   if (b.website) return res.status(200).json({ ok: true }); // honeypot field: bots fill it, people never see it
