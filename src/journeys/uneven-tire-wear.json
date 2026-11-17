@@ -21,7 +21,7 @@
   "tires wearing out too fast",
   "wont pass inspection tires"
  ],
- "intro": "The way a tire wears is a record of how it's been running. Edge wear, center wear, one-sided wear and choppy patches each point to a different cause, from tire pressure to alignment to worn suspension parts. Answer a few questions to find the likely cause and whether the tires are still safe.",
+ "intro": "The way a tire wears is a record of how it's been running. Edge wear, center wear, one-sided wear and choppy patches each point to a different cause, from tire pressure to alignment to worn suspension parts. Answer a few questions to narrow down the likely cause and how urgent it is.",
  "safety": [
   "If you can see fabric or steel cords, or a bulge on any tire, don't drive on it. Use the spare or call for help.",
   "If the tread is worn down to the wear bars, replace the tire soon. Grip in rain and snow drops sharply.",
@@ -109,12 +109,13 @@
   },
   "r_cords_showing": {
    "result": {
-    "title": "The tire is worn through and unsafe",
+    "title": "The tire is worn through. Don't drive on it",
     "urgency": "stop",
     "now": "Don't drive on this tire. Put on the spare or call roadside assistance, then replace the tire.",
     "if": [
      "If the other tire on the same axle is close to this worn, replace both.",
-     "If the wear is on one edge, have the alignment and suspension checked when you replace it, or the new tire will wear the same way."
+     "If the wear is on one edge, have the alignment and suspension checked when you replace it, or the new tire will wear the same way.",
+     "If your spare is a small temporary one, follow the speed and distance limits printed on it."
     ],
     "why": "Once the cords show, there's almost nothing left between the air inside and the road. The tire can burst or lose air suddenly, especially at highway speed or in heat.",
     "causes": [
@@ -151,9 +152,10 @@
     "now": "Plan to replace the tire within a few days. Drive gently, leave extra following distance, and avoid heavy rain or snow if you can.",
     "if": [
      "If cords or a bulge appear, stop driving on it and use the spare.",
-     "If the low spot is on one edge or in patches, have the alignment and suspension checked so new tires don't wear the same way."
+     "If the low spot is on one edge or in patches, have the alignment and suspension checked so new tires don't wear the same way.",
+     "If you feel a new thump or vibration, or the tire pressure light comes on, pull over safely and look at the tire before driving further."
     ],
-    "why": "Tread grooves push water out from under the tire. When the tread gets this low, the tire can skim over water and stopping distances get much longer on wet roads. Most states also consider a tire this worn to be illegal.",
+    "why": "Tread grooves push water out from under the tire. When the tread gets this low, the tire can skim over water and stopping distances get much longer on wet roads. In many places a tire this worn may also fail inspection.",
     "causes": [
      {
       "name": "Normal wear plus an underlying problem",
@@ -181,12 +183,14 @@
   },
   "r_underinflated": {
    "result": {
-    "title": "Edge wear on both sides usually means low tire pressure",
+    "title": "Edge wear on both sides often points to low tire pressure",
     "urgency": "diy",
     "now": "Check the pressure in all four tires when cold and set them to the number on the driver's door sticker. Recheck monthly.",
     "if": [
-     "If one tire keeps going low, it probably has a slow leak. Have it found and fixed.",
-     "If you often carry heavy loads, check your owner's manual. Some vehicles call for higher pressure when loaded."
+     "If one tire keeps going low, it may have a slow leak. Have it found and fixed.",
+     "If you often carry heavy loads, check your owner's manual. Some vehicles call for higher pressure when loaded.",
+     "If a tire is very low or flat, or you see a nail, cut or bulge in the sidewall, don't drive on it. Use the spare or call for help.",
+     "If the pressures were already correct, have the tires and alignment checked, since something else may be causing the wear."
     ],
     "why": "When a tire is low, its center sags inward and the edges carry the weight. The edges wear faster, the tire runs hotter and fuel economy drops.",
     "causes": [
@@ -220,12 +224,13 @@
   },
   "r_overinflated": {
    "result": {
-    "title": "Center wear usually means the tires are overinflated",
+    "title": "Center wear often points to tires that are overinflated",
     "urgency": "diy",
     "now": "Set the tires to the pressure on the driver's door sticker, not the maximum pressure printed on the tire.",
     "if": [
      "If the pressure is already correct, the tire size may not suit the wheel. Ask a tire shop to check.",
-     "If only the drive wheels show this, hard acceleration can add to it."
+     "If only the drive wheels show this, hard acceleration can add to it.",
+     "If you see cords, a bulge or a cut, don't drive on that tire."
     ],
     "why": "Too much air makes the center of the tread bulge slightly and carry most of the weight. The center wears out first, and the tire grips less because less rubber touches the road.",
     "causes": [
@@ -252,12 +257,14 @@
   },
   "r_camber": {
    "result": {
-    "title": "One-edge wear points to the wheel alignment",
+    "title": "One-edge wear often points to the wheel alignment",
     "urgency": "check",
     "now": "Book a wheel alignment and ask the shop to check the suspension parts first. Rotate or replace the worn tires as advised.",
     "if": [
      "If the wear is severe or the car pulls, get it done sooner.",
-     "If the problem came on after hitting a pothole or curb, ask the shop to check for bent parts, not just adjust the alignment."
+     "If the problem came on after hitting a pothole or curb, ask the shop to check for bent parts, not just adjust the alignment.",
+     "If you hear clunks over bumps or the steering feels loose, have the steering and suspension checked before driving at speed.",
+     "If you can see cords or a bulge, don't drive on that tire."
     ],
     "why": "If a wheel leans in or out at the top, more weight rides on one edge of the tread and it wears faster. Alignment can drift from potholes and age, and worn parts can make it change while driving.",
     "causes": [
@@ -292,12 +299,12 @@
   },
   "r_toe": {
    "result": {
-    "title": "Feathered wear usually means the toe setting is off",
+    "title": "Feathered wear often points to the toe setting",
     "urgency": "check",
     "now": "Book a wheel alignment, and ask the shop to check the tie rod ends for wear before aligning.",
     "if": [
-     "If the steering wheel is off-center or the car pulls, mention it. It confirms an alignment problem.",
-     "If you hear clunks or the steering feels loose, get the steering checked sooner."
+     "If the steering wheel is off-center or the car pulls, mention it. It supports an alignment problem.",
+     "If you hear clunks or the steering feels loose or wanders, have the steering checked before driving at speed."
     ],
     "why": "Toe is whether the wheels point straight ahead or slightly in or out. When they point the wrong way, the tire scrubs sideways as it rolls, leaving ridges across the tread. It can wear a tire out fast.",
     "causes": [
@@ -331,14 +338,15 @@
   },
   "r_worn_suspension": {
    "result": {
-    "title": "Worn steering or suspension parts are likely causing the wear",
-    "urgency": "soon",
-    "now": "Have the steering and suspension inspected within a few days, before getting an alignment.",
+    "title": "Worn steering or suspension parts may be causing the wear",
+    "urgency": "stop",
+    "now": "Don't rely on the car until the steering and suspension have been inspected. A badly worn ball joint or tie rod end can come apart with little warning. Have it towed, or ask a mobile mechanic to check it where it's parked.",
     "if": [
-     "If the steering feels very loose, or you hear a loud clunk followed by a change in steering, stop driving and have it towed.",
-     "If parts are replaced, get an alignment afterward."
+     "If the steering feels very loose, the car wanders, or you hear a loud clunk followed by a change in steering, don't drive it. Have it towed.",
+     "If parts are replaced, get an alignment afterward.",
+     "If the shop finds only minor play, ask them how soon the repair is needed and whether the car is OK to use until then."
     ],
-    "why": "Loose ball joints, tie rods or bushings let the wheel shift while driving, so the alignment keeps changing and the tire wears unevenly. An alignment alone won't hold until worn parts are replaced.",
+    "why": "Loose ball joints, tie rods or bushings let the wheel shift while driving, so the alignment keeps changing and the tire wears unevenly. An alignment may not hold with worn parts, so a shop will usually check each joint for play first and align after any repairs.",
     "causes": [
      {
       "name": "Worn ball joint",
@@ -370,12 +378,13 @@
   },
   "r_cupping": {
    "result": {
-    "title": "Cupping usually points to worn shocks or struts, or balance",
+    "title": "Cupping often points to worn shocks or struts, or wheel balance",
     "urgency": "check",
     "now": "Book an inspection of the shocks, struts and wheel balance, and ask whether the tires can be rotated or need replacing.",
     "if": [
      "If the car bounces more than once after a bump, or nose-dives when braking, get it checked sooner.",
-     "If there's a growling noise that changes when you steer, a wheel bearing may also be worn."
+     "If there's a growling noise that changes when you steer, a wheel bearing may also be worn.",
+     "If you feel a vibration that's getting worse, or you see cords or a bulge, stop and have the tire looked at before driving further."
     ],
     "why": "When shocks or struts are worn, or a wheel is out of balance, the tire bounces slightly as it rolls and scuffs the road in spots. That leaves a pattern of dips, and usually a humming noise that gets louder with speed.",
     "causes": [
@@ -409,12 +418,13 @@
   },
   "r_flat_spot": {
    "result": {
-    "title": "A single flat spot usually comes from a skid or a sticking brake",
+    "title": "A single flat spot often comes from a skid or a sticking brake",
     "urgency": "check",
     "now": "Have the tire and the brake on that wheel checked when convenient.",
     "if": [
-     "If that wheel feels hot after driving or the car pulls, the brake may be dragging. Get it checked sooner.",
-     "If the flat spot goes deep or you feel a thump at speed, replace the tire."
+     "If that wheel feels much hotter than the others after driving, or the car pulls when braking, the brake may be dragging. Get it checked within a day or two.",
+     "If the flat spot goes deep or you feel a thump at speed, have the tire inspected. It may need replacing.",
+     "If you smell burning or see smoke from a wheel, or the brake pedal feels different, pull over and have it checked before driving further."
     ],
     "why": "A tire that slides without rolling scrubs off rubber in one spot. That happens in a hard skid, or when a brake grabs or doesn't release fully. A car that sits for weeks can also get a temporary flat spot that smooths out after driving.",
     "causes": [
@@ -447,12 +457,13 @@
   },
   "r_rotation": {
    "result": {
-    "title": "This is normal wear that tire rotation can even out",
+    "title": "This looks like normal front-versus-rear wear that rotation can help even out",
     "urgency": "diy",
     "now": "Have the tires rotated on the schedule in your owner's manual and keep the pressures set to the door sticker.",
     "if": [
      "If the faster-wearing pair is close to the wear bars, replace them.",
-     "If one axle wears very fast even with rotation, have the alignment checked."
+     "If one axle wears very fast even with rotation, have the alignment checked.",
+     "If any tire shows cords, a bulge or a cut, don't drive on it."
     ],
     "why": "Front tires do most of the steering and, on front-wheel-drive cars, most of the pulling. They naturally wear faster than the rears. Rotating them regularly spreads the wear so all four last longer.",
     "causes": [
@@ -486,9 +497,10 @@
     "now": "Check the tire pressures today, then book a tire and alignment inspection.",
     "if": [
      "If any tire shows cords or a bulge, don't drive on it.",
-     "If the car pulls or the steering feels loose, mention it. It helps narrow down the cause."
+     "If the car pulls or the steering feels loose, mention it. It helps narrow down the cause.",
+     "If you hear clunks or the steering feels loose or wanders, have the steering checked before driving at speed."
     ],
-    "why": "Uneven wear almost always comes from tire pressure, alignment, or worn suspension parts. A technician can measure the tread across each tire and tell which one in a few minutes.",
+    "why": "Uneven wear usually comes from tire pressure, alignment, or worn suspension parts. A technician can measure the tread across each tire and narrow it down quickly.",
     "causes": [
      {
       "name": "Incorrect tire pressure",

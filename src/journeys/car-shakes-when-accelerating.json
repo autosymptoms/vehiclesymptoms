@@ -20,7 +20,7 @@
   "car shaking and check engine light flashing",
   "car shakes going uphill"
  ],
- "intro": "A shake that shows up when you press the gas usually comes from the engine, the parts that carry power to the wheels, or the tires. When it happens, and whether a warning light is on, separates a harmless balance issue from a problem that can do real damage. Answer the questions below to narrow it down.",
+ "intro": "A shake that shows up when you press the gas usually comes from the engine, the parts that carry power to the wheels, or the tires. When it happens, and whether a warning light is on, helps separate a simple balance issue from a problem that can do real damage. Answer the questions below to narrow it down.",
  "safety": [
   "If the check engine light is flashing, ease off the gas and pull over. A severe misfire can overheat and ruin the catalytic converter.",
   "If the shaking suddenly becomes violent or you hear a thumping that wasn't there before, slow down and pull over safely right away.",
@@ -104,17 +104,18 @@
   },
   "r_misfire_flashing": {
    "result": {
-    "title": "A flashing check engine light means a severe misfire",
+    "title": "A flashing check engine light usually means a severe misfire",
     "urgency": "stop",
     "now": "Ease off the gas, pull over when it's safe and turn the engine off. Have it towed or call a mobile mechanic.",
     "if": [
      "If you smell fuel, see smoke or the engine is losing a lot of power, step away from the car once it's off.",
-     "If the light stops flashing after a restart, the misfire may come back. Still have it checked before driving any distance."
+     "If the light stops flashing after a restart, the misfire may come back. Still have it checked before driving any distance.",
+     "If the temperature gauge climbs toward hot or a red warning light comes on, turn the engine off as soon as you are stopped safely."
     ],
-    "why": "A flashing light is the car's way of saying the misfire is bad enough to cause damage now. Unburned fuel goes into the exhaust and can overheat the catalytic converter, which can be costly to replace and is a fire risk in extreme cases.",
+    "why": "A flashing light usually means the misfire is bad enough to cause damage now. Unburned fuel goes into the exhaust and can overheat the catalytic converter, which can be costly to replace and is a fire risk in extreme cases.",
     "causes": [
      {
-      "name": "Failed ignition coil or spark plug",
+      "name": "Faulty ignition coil or spark plug",
       "clues": "The shake is worst under load, like going uphill or merging, and the engine feels like it's missing a beat.",
       "against": ""
      },
@@ -145,18 +146,20 @@
   },
   "r_misfire_steady": {
    "result": {
-    "title": "The engine is probably misfiring under load",
+    "title": "The engine may be misfiring under load",
     "urgency": "soon",
-    "now": "Get the code read and the engine checked within the next few days. Drive gently until then and avoid hard acceleration and towing.",
+    "now": "Get the code read and the engine checked within the next few days. Until then, keep trips short, drive gently and avoid hard acceleration and towing a trailer.",
     "if": [
      "If the check engine light starts flashing, pull over and stop driving. Have it towed.",
-     "If the shaking gets worse or the car loses power on the highway, stop driving it and have it towed."
+     "If the shaking gets worse or the car loses power on the highway, pull over when it is safe and have it towed.",
+     "If you smell fuel or a strong rotten-egg smell, or see smoke, pull over, turn the engine off and step away from the car.",
+     "If the temperature gauge climbs toward hot, pull over and turn the engine off."
     ],
-    "why": "A steady check engine light with a rough, weak feeling under acceleration usually means one cylinder isn't firing properly when the engine is working hardest. Worn spark plugs and failing ignition coils are the most common reasons.",
+    "why": "A steady check engine light with a rough, weak feeling under acceleration often means one cylinder isn't firing properly when the engine is working hardest. Worn spark plugs and failing ignition coils are common reasons, but the code and a few tests are needed to know which part is at fault.",
     "causes": [
      {
       "name": "Worn spark plugs or a failing ignition coil",
-      "clues": "The engine is due for plugs, or the shake is worse in damp weather or going uphill.",
+      "clues": "The plugs are due by your service schedule, or the shake is worse in damp weather or going uphill.",
       "against": ""
      },
      {
@@ -190,9 +193,10 @@
     "urgency": "stop",
     "now": "Slow down, pull over somewhere safe and stop. Walk around the car and look at each tire. Call roadside assistance if anything looks wrong.",
     "if": [
-     "If a tire has a bulge, a flat spot, exposed cords or looks out of shape, put on the spare or have the car towed.",
+     "If a tire has a bulge, a flat spot, exposed cords or looks out of shape, don't drive on it. Put on the spare if you can do it safely off the road, or have the car towed.",
      "If the lug nuts on a wheel are loose or missing, don't move the car. Call for help.",
-     "If the tires look fine, have the car towed to a shop. A broken axle joint or mount can also cause a sudden shake."
+     "If the tires look fine, have the car towed to a shop. A broken axle joint, driveshaft joint or mount can also cause a sudden shake.",
+     "If you smell burning or fuel, or see smoke, stay away from the car and call for help."
     ],
     "why": "A shake that appears suddenly and hard is different from one that grew over weeks. It often means a tire's internal belts have separated, a wheel is loose, or a drive part has broken. Any of these can lead to losing control.",
     "causes": [
@@ -227,14 +231,16 @@
   },
   "r_torque_converter": {
    "result": {
-    "title": "A light shudder at moderate speeds often comes from the transmission's torque converter",
+    "title": "A light shudder at moderate speeds is often linked to the transmission's torque converter",
     "urgency": "check",
     "now": "Book a transmission check and ask the shop to look for a torque converter shudder and the condition of the transmission fluid.",
     "if": [
      "If the transmission starts slipping, shifting harshly or a transmission warning light comes on, get it checked within a few days.",
-     "If a check engine light comes on, have the code read. A mild misfire can feel just like this."
+     "If the check engine light comes on, have the code read. A mild misfire can feel just like this.",
+     "If the check engine light flashes, or the shake becomes violent, pull over when it is safe and have it towed.",
+     "If you smell something burning or see fluid dripping under the car, stop driving it and have it checked before driving further."
     ],
-    "why": "In an automatic, the torque converter has a clutch that locks up at cruising speeds to save fuel. When that clutch or the fluid is worn, it can grab unevenly, which feels like rolling over rumble strips under light gas.",
+    "why": "In an automatic, the torque converter has a clutch that locks up at cruising speeds to save fuel. When that clutch or the fluid is worn, it can grab unevenly, which feels like rolling over rumble strips under light gas. A misfire can feel very similar, so a shop will usually check for engine codes as well.",
     "causes": [
      {
       "name": "Torque converter clutch shudder",
@@ -267,14 +273,15 @@
   },
   "r_motor_mounts": {
    "result": {
-    "title": "Worn engine or transmission mounts are the likely cause",
+    "title": "Worn engine or transmission mounts are a possible cause",
     "urgency": "check",
     "now": "Book an inspection of the engine and transmission mounts.",
     "if": [
      "If the clunk becomes loud or the engine visibly lifts when you rev it, get it checked within a few days. A broken mount can let other parts get damaged.",
-     "If there's also a misfire or check engine light, the engine may be shaking harder than the mounts can absorb."
+     "If there's also a misfire or check engine light, the engine may be shaking harder than the mounts can absorb. Have the code read too.",
+     "If the check engine light flashes, or you get a sudden violent shake or a loud bang, pull over when it is safe and have it towed."
     ],
-    "why": "Mounts are rubber blocks that hold the engine and transmission in place and soak up vibration. When they crack or collapse, the engine rocks when you put power on or let off, and you feel it as a jolt or shake through the car.",
+    "why": "Mounts are rubber blocks that hold the engine and transmission in place and soak up vibration. When they crack or collapse, the engine rocks when you put power on or let off, and you feel it as a jolt or shake through the car. A shop will usually inspect the mounts and the drive axles together, because a worn axle joint can feel similar.",
     "causes": [
      {
       "name": "Worn or broken engine mount",
@@ -294,7 +301,7 @@
     ],
     "confirm": {
      "you": [
-      "With the hood open and someone holding the brake firmly, watch the engine as they shift between Drive and Reverse. Stand to the side, not in front. A big lurch suggests a bad mount."
+      "With the hood open and someone in the driver's seat holding the brake pedal down hard, watch the engine as they shift between Drive and Reverse without pressing the gas. Stand well to the side, never in front of the car. A big lurch suggests a mount worth having checked."
      ],
      "shop": [
       "Visual mount inspection for cracks and separation",
@@ -306,14 +313,15 @@
   },
   "r_cv_axle": {
    "result": {
-    "title": "A worn CV axle is the most likely cause",
+    "title": "A worn CV axle is a likely cause",
     "urgency": "soon",
     "now": "Have the front axles inspected within the next few days. Drive gently and avoid hard acceleration until then.",
     "if": [
-     "If you hear loud clicking or clunking, or the shaking gets suddenly worse, stop driving and have it towed. A broken axle leaves the car unable to move.",
-     "If the rubber boot is torn but the joint isn't noisy yet, replacing the boot or axle early can prevent further wear."
+     "If you hear loud clicking or clunking, or the shaking gets suddenly worse, pull over when it is safe and have it towed. A broken axle leaves the car unable to move.",
+     "If the rubber boot is torn but the joint isn't noisy yet, mention it to the shop. Catching a torn boot early can sometimes save the joint.",
+     "If the check engine light flashes, pull over and stop driving."
     ],
-    "why": "On front-wheel-drive cars, the CV axles carry power to the wheels through flexible joints. When the inner joint wears, it wobbles under load, so the shake grows as you accelerate and fades when you coast. A torn rubber boot lets grease out and dirt in, which speeds this up.",
+    "why": "On front-wheel-drive cars, the CV axles carry power to the wheels through flexible joints. When the inner joint wears, it can wobble under load, so the shake grows as you accelerate and fades when you coast. A torn rubber boot lets grease out and dirt in, which speeds this up. A shop will usually check the axles for play and the mounts before deciding which part is at fault.",
     "causes": [
      {
       "name": "Worn inner CV joint",
@@ -346,12 +354,13 @@
   },
   "r_driveshaft": {
    "result": {
-    "title": "A worn driveshaft joint is the likely cause",
+    "title": "A worn driveshaft joint is a possible cause",
     "urgency": "soon",
     "now": "Have the driveshaft and its joints inspected within the next few days. Drive gently until then.",
     "if": [
-     "If you hear a loud clunk, a squeak that matches road speed, or a new scraping noise from under the car, stop driving and have it towed. A driveshaft that comes loose can cause serious damage.",
-     "If the vehicle was recently lifted or lowered, the driveshaft angles may have changed."
+     "If you hear a loud clunk, a squeak that matches road speed, or a new scraping noise from under the car, pull over when it is safe and have it towed. A driveshaft that comes loose can cause serious damage and loss of control.",
+     "If the vehicle was recently lifted or lowered, the driveshaft angles may have changed.",
+     "If the vibration suddenly becomes much stronger, pull over and stop driving."
     ],
     "why": "The driveshaft carries power from the transmission to the rear axle through small universal joints. When a joint wears or the shaft goes out of balance, it shakes more when it's under load and often clunks when you shift into gear.",
     "causes": [
@@ -385,14 +394,15 @@
   },
   "r_tire_wheel": {
    "result": {
-    "title": "This sounds like a tire or wheel balance issue, not an acceleration problem",
+    "title": "This points to a tire or wheel issue more than an acceleration problem",
     "urgency": "check",
     "now": "Have the tires balanced and inspected at a tire shop.",
     "if": [
-     "If a tire has a bulge, lump or uneven wear spots, have it replaced before highway driving.",
-     "If balancing doesn't fix it, ask the shop to check for a bent wheel or a tire that's out of round."
+     "If a tire has a bulge, a lump or exposed cords, don't drive on it. Put on the spare or have the car towed.",
+     "If the shaking suddenly becomes violent or you hear a new thumping, slow down and pull over safely.",
+     "If balancing doesn't fix it, ask the shop to check for a bent wheel, a tire that's out of round, or worn suspension parts."
     ],
-    "why": "If the shake depends on speed and not on the gas pedal, it's coming from something that spins with the wheels. An out-of-balance tire, a bent wheel or a damaged tire is the usual reason.",
+    "why": "If the shake depends on speed and not on the gas pedal, it's most likely coming from something that spins with the wheels. An out-of-balance tire, a bent wheel or a damaged tire is the usual reason, though worn wheel bearings or suspension parts can feel similar.",
     "causes": [
      {
       "name": "Tire out of balance",
@@ -430,7 +440,8 @@
     "now": "Book a check and tell the shop when the shake happens: the speed, how hard you're pressing the gas, and whether it fades when you coast.",
     "if": [
      "If the check engine light starts flashing, pull over and stop driving.",
-     "If the shake suddenly becomes violent or you hear a new clunk, pull over and have it towed."
+     "If the shake suddenly becomes violent or you hear a new clunk, pull over and have it towed.",
+     "If you smell fuel or burning, or see smoke, pull over, turn the engine off and step away from the car."
     ],
     "why": "Shaking under acceleration can come from the engine, the axles, the mounts or the tires. A short road test with a technician usually narrows it down quickly.",
     "causes": [

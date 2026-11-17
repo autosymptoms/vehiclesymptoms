@@ -21,7 +21,7 @@
   "brake pressed but shifter won't move",
   "stuck in park no brake lights"
  ],
- "intro": "Automatic cars lock the shifter in Park until they sense your foot on the brake. When it won't move, the cause is usually small: a brake light switch, a blown fuse, a weak battery or the car's weight resting on the Park lock. A few questions will tell you which, and how to get moving safely.",
+ "intro": "Automatic cars lock the shifter in Park until they sense your foot on the brake. When it won't move, the cause is usually small: a brake light switch, a blown fuse, a weak battery or the car's weight resting on the Park lock. A few questions will help narrow down which, and what to do next.",
  "safety": [
   "Set the parking brake before you try to force anything. If the shifter suddenly releases, the car could roll.",
   "Don't drive without working brake lights. Drivers behind you won't know you're stopping."
@@ -95,14 +95,15 @@
   },
   "r_hill": {
    "result": {
-    "title": "The car's weight is pressing on the Park lock",
+    "title": "The car's weight may be pressing on the Park lock",
     "urgency": "diy",
     "now": "Set the parking brake, start the engine, press the brake pedal firmly, and shift out of Park with a firm, steady pull rather than a jerk.",
     "if": [
-     "If it releases with a clunk, that's normal in this situation. Next time, set the parking brake before you shift into Park on a slope.",
-     "If it still won't move, check whether the brake lights work. The problem may be electrical instead."
+     "If it releases with a clunk, that's common in this situation. Next time, set the parking brake before you shift into Park on a slope.",
+     "If it still won't move, check whether the brake lights work. The problem may be electrical instead.",
+     "If the car rolls while the shifter shows Park, or the gear display doesn't match the shifter, keep the parking brake set and don't drive it. Have it checked first."
     ],
-    "why": "When you park on a slope and shift into Park before setting the parking brake, the car rolls slightly until its weight rests on a small metal pin in the transmission (the Park pawl). That load can make the shifter very hard to move. It's not a fault, but it puts extra stress on parts if it happens often.",
+    "why": "When you park on a slope and shift into Park before setting the parking brake, the car rolls slightly until its weight rests on a small metal pin in the transmission (the Park pawl). That load can make the shifter very hard to move. This usually isn't a fault, but it puts extra stress on parts if it happens often.",
     "causes": [
      {
       "name": "Car's weight on the Park pawl",
@@ -134,15 +135,16 @@
   },
   "r_brake_switch": {
    "result": {
-    "title": "A faulty brake light switch or a blown fuse is the likely cause",
+    "title": "A brake light switch or a blown fuse is a likely cause",
     "urgency": "soon",
     "now": "Check the fuse for the brake lights or stop lamps (your owner's manual shows which one) and replace it if it's blown.",
     "if": [
-     "If the fuse is fine, the brake light switch near the top of the brake pedal is likely bad. Have it replaced within a few days, and avoid driving until the brake lights work, especially in traffic or after dark.",
-     "If a new fuse blows right away, there's a short in the wiring that a shop needs to find.",
-     "If you must move the car before then, use the shift lock release, a small slot or button near the shifter (see your owner's manual)."
+     "If the fuse is fine, the brake light switch near the top of the brake pedal or its wiring is the next thing to check. A shop will usually test the switch and its signal before replacing it. Avoid driving until the brake lights work.",
+     "If a new fuse blows right away, there may be a short in the wiring that a shop needs to find.",
+     "If the brake pedal feels soft, sinks, or feels different than usual, or the brake warning light is on, don't drive. Have the brakes inspected first.",
+     "If you must move the car before then, use the shift lock release, a small slot or button near the shifter (see your owner's manual). Use it only to move the car out of the way or onto a tow truck, not to drive in traffic without brake lights."
     ],
-    "why": "The car only unlocks the shifter when it gets a signal that the brake is pressed, and on most cars that signal comes from the brake light switch. No brake lights plus a locked shifter almost always means the switch or its fuse. It's a common and usually simple fix, but brake lights are essential so drivers behind you know you're stopping.",
+    "why": "The car only unlocks the shifter when it gets a signal that the brake is pressed, and on most cars that signal comes from the brake light switch. No brake lights plus a locked shifter most often points to the switch, its fuse or its wiring. It's often a simple repair, but brake lights are essential so drivers behind you know you're stopping.",
     "causes": [
      {
       "name": "Failed brake light switch",
@@ -175,14 +177,15 @@
   },
   "r_shift_lock": {
    "result": {
-    "title": "The shift lock itself is likely sticking or has failed",
+    "title": "The shift lock itself may be sticking or not releasing",
     "urgency": "check",
     "now": "Use the shift lock release: with the parking brake set and your foot on the brake, press into the small slot or button near the shifter (your owner's manual shows where) while you move the shifter out of Park.",
     "if": [
      "If the release lets you shift, get the shift lock checked when convenient so you don't get stuck again somewhere inconvenient.",
-     "If even the release doesn't free it, the shift cable or the shifter itself may be damaged. Have it towed or call a mobile mechanic."
+     "If even the release doesn't free it, the shift cable or the shifter itself may be damaged. Have it towed or call a mobile mechanic.",
+     "If the car rolls while the shifter shows Park, or the gear display doesn't match the shifter, set the parking brake and don't drive it until it's checked."
     ],
-    "why": "Working brake lights mean the brake signal is probably fine. The problem is more likely the small electric lock (solenoid) in the shifter that's supposed to release, or something jamming the shifter, like a spilled drink that has gone sticky. The manual release bypasses that lock.",
+    "why": "Working brake lights suggest the brake signal is probably reaching the shifter. The problem may be the small electric lock (solenoid) in the shifter that's supposed to release, or something jamming the shifter, like a spilled drink that has gone sticky. The manual release bypasses that lock.",
     "causes": [
      {
       "name": "Failed shift lock solenoid",
@@ -215,14 +218,15 @@
   },
   "r_battery": {
    "result": {
-    "title": "A weak or dead battery is keeping the shifter locked",
+    "title": "A weak or dead battery may be keeping the shifter locked",
     "urgency": "diy",
     "now": "Jump-start the car or use a battery booster, then press the brake firmly and try the shifter again.",
     "if": [
      "If it shifts once the car has power, have the battery and charging system tested soon.",
+     "If the battery light comes on after the car starts, or the battery goes flat again soon, have the charging system checked before relying on the car.",
      "If you need to move the car without power, your owner's manual explains the shift lock release, or how to put an electronic shifter in Neutral for towing."
     ],
-    "why": "The shift lock, and electronic shifters in particular, need electrical power to release. With a dead or weak battery they stay locked even though nothing is wrong with the transmission.",
+    "why": "The shift lock, and electronic shifters in particular, need electrical power to release. With a dead or weak battery they can stay locked even when the transmission itself has no fault.",
     "causes": [
      {
       "name": "Dead or weak battery",
@@ -254,12 +258,12 @@
   },
   "r_shift_cable": {
    "result": {
-    "title": "The shift cable has likely broken or come loose",
+    "title": "The shift cable may have broken or come loose",
     "urgency": "stop",
     "now": "Set the parking brake firmly and don't drive it. Have it towed or have a mobile mechanic come to you.",
     "if": [
      "If you're not certain which gear the transmission is actually in, block the wheels too before you get out.",
-     "If the shifter feels loose or floppy, a broken cable bushing is very likely, which is usually a small repair."
+     "If the shifter feels loose or floppy, a broken cable bushing is a common cause. A shop will usually check the bushing and cable before looking further."
     ],
     "why": "The shifter is connected to the transmission by a cable. When the cable or the small bushing that holds it breaks, the shifter moves but the transmission stays where it was. The car can't be shifted reliably, and you can't trust Park to hold it.",
     "causes": [
@@ -297,6 +301,7 @@
     "now": "Turn the car off, wait a minute, then restart it with your foot firmly on the brake and try again. If it still won't leave Park, contact a dealer or repair shop.",
     "if": [
      "If a transmission or shifter warning stays on, have it towed rather than forcing it. Your owner's manual explains how to put the car in Neutral for towing.",
+     "If the car rolls while the display shows Park, set the parking brake, block the wheels and don't drive it.",
      "Check for open recalls on your car by VIN on the NHTSA recalls site. Some electronic shifters have been recalled."
     ],
     "why": "Push-button and dial shifters don't move the transmission directly. They send a signal to a control module, which needs good battery voltage, a brake signal and working sensors. If any of those is missing, the car may keep itself in Park as a safety measure.",
@@ -337,10 +342,11 @@
     "urgency": "diy",
     "now": "With the parking brake set, turn the key to ON or start the engine, press the brake firmly and try again. If it won't move, use the shift lock release near the shifter (your owner's manual shows where).",
     "if": [
-     "If the dash is dim or the car won't start, the battery is the likely cause.",
-     "If the release works, find out why within a few days, starting with whether the brake lights work."
+     "If the dash is dim or the car won't start, a weak battery is a likely cause.",
+     "If the release works, find out why within a few days, starting with whether the brake lights work. Don't drive in traffic without working brake lights.",
+     "If the car rolls while the shifter shows Park, or the gear display doesn't match the shifter, set the parking brake and don't drive it until it's checked."
     ],
-    "why": "Most cars stuck in Park have one of a few simple problems: the brake signal isn't reaching the shift lock, the battery is weak, or the car's weight is resting on the Park lock. The shift lock release lets you move the car while you sort out which.",
+    "why": "Many cars stuck in Park have one of a few simple problems: the brake signal isn't reaching the shift lock, the battery is weak, or the car's weight is resting on the Park lock. The shift lock release lets you move the car while you sort out which.",
     "causes": [
      {
       "name": "Brake light switch or fuse",

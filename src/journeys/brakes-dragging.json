@@ -110,14 +110,16 @@
   },
   "r_overheated": {
    "result": {
-    "title": "A brake is overheating, most likely from sticking on",
+    "title": "A brake may be overheating, possibly from sticking on",
     "urgency": "stop",
     "now": "Pull over somewhere safe, turn off the engine and let the brakes cool for at least 30 minutes. Then have the car towed or call a mobile mechanic.",
     "if": [
      "If there are flames, get everyone away from the car and call 911.",
-     "If it happened only after a long, steep downhill with heavy braking and the brakes feel normal once fully cooled, have them inspected before your next long trip and use a lower gear on hills."
+     "If it happened only after a long, steep downhill with heavy braking and all the wheels were hot, the brakes may have overheated from use rather than sticking. Overheating can still damage pads, rotors and fluid, so have them checked before driving further. On long hills, use a lower gear.",
+     "If the brake pedal felt soft, sank, or the car took longer to stop, the brakes may not work normally even after cooling. Don't drive it.",
+     "If you see fluid around the inside of a wheel, tell the shop. A brake fluid leak can lead to brake failure."
     ],
-    "why": "Smoke or a burning smell means a brake is getting far hotter than normal. That happens when it doesn't release, so it rubs constantly. Overheated brakes can fade and stop working well, and can set grease or the tire alight.",
+    "why": "Smoke or a burning smell usually means a brake is getting far hotter than normal. That often happens when it doesn't release, so it rubs constantly. Overheated brakes can fade and stop working well, and in bad cases can set grease or the tire alight.",
     "causes": [
      {
       "name": "Sticking caliper",
@@ -154,10 +156,11 @@
     "urgency": "stop",
     "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
     "if": [
-     "If the brakes release after the car sits and cools, then drag again after driving, tell the shop. It points to the master cylinder or brake fluid.",
-     "If anyone recently added fluid, tell the shop what was used. The wrong fluid can make seals swell."
+     "If the brakes release after the car sits and cools, then drag again after driving, tell the shop. It can point to the master cylinder or the brake fluid.",
+     "If anyone recently added fluid, tell the shop what was used. The wrong fluid can make seals swell.",
+     "If you smell burning or see smoke from any wheel, keep everyone clear of the hot wheels and let them cool before anyone goes near them."
     ],
-    "why": "When every wheel drags at once, the problem is usually in the parts shared by all four brakes: the master cylinder, the brake booster, or the fluid itself. Brakes that won't release can overheat quickly and then fade when you need them.",
+    "why": "When every wheel drags at once, the cause is often in the parts shared by all four brakes: the master cylinder, the brake booster, or the fluid itself. Brakes that won't release can overheat quickly and then fade when you need them.",
     "causes": [
      {
       "name": "Master cylinder not releasing pressure",
@@ -187,14 +190,15 @@
   },
   "r_caliper": {
    "result": {
-    "title": "A sticking brake caliper is the most likely cause",
+    "title": "A sticking brake caliper is a likely cause",
     "urgency": "soon",
     "now": "Have the brakes checked within a few days. Drive only short, gentle trips until then.",
     "if": [
      "If you smell burning or see smoke, stop and let it cool, then have it towed.",
-     "If the pull gets stronger or the pedal feels different, stop driving it and have it towed."
+     "If the pull gets stronger, the pedal feels soft or different, or the car takes longer to stop, stop driving it and have it towed.",
+     "If the red brake warning light comes on, stop driving and have the brakes checked before going further."
     ],
-    "why": "Calipers slide on pins and use a piston that can corrode or stick. When one doesn't release, its pads keep rubbing. That wheel gets hot, the car pulls toward it, and the pads and rotor wear out fast.",
+    "why": "Calipers slide on pins and use a piston that can corrode or stick. When one doesn't release, its pads keep rubbing. That wheel gets hot, the car pulls toward it, and the pads and rotor wear out fast. A shop will usually check the slide pins, piston and hose before deciding which part needs replacing.",
     "causes": [
      {
       "name": "Seized or sticking caliper slide pins",
@@ -228,12 +232,13 @@
   },
   "r_parking_brake": {
    "result": {
-    "title": "The parking brake is likely not fully releasing",
+    "title": "The parking brake may not be fully releasing",
     "urgency": "soon",
     "now": "Make sure the lever or pedal is fully released, then have the rear brakes checked within a few days. Drive only short, gentle trips until then.",
     "if": [
      "If it's stuck after a cold, wet night, it may free up once the car warms. Have the cables checked anyway, since it will likely happen again.",
-     "If you smell burning or see smoke from the rear, stop and have it towed."
+     "If you smell burning or see smoke from the rear, stop and have it towed.",
+     "If the red brake light stays on after the parking brake is fully released, or the pedal feels soft, don't drive it until the brakes are checked. That can mean low brake fluid."
     ],
     "why": "Parking brake cables can rust or freeze, and the springs or parts inside rear brakes can stick. When they don't fully release, the rear brakes keep rubbing, overheat and wear quickly.",
     "causes": [
@@ -273,7 +278,8 @@
     "now": "Check the owner's manual for the release steps, which usually involve the brake pedal, the button and the engine running. If it won't release, have the car towed or call a mobile mechanic rather than forcing it.",
     "if": [
      "If the battery is weak or was recently disconnected, the system may need a reset or a scan tool.",
-     "If a rear brake is hot or smells, don't drive it until it's been checked."
+     "If a rear brake is hot, smells burning or is smoking, don't drive it until it's been checked.",
+     "If the pedal feels soft or the red brake light stays on once the parking brake is released, don't drive it until the brakes are checked."
     ],
     "why": "An electronic parking brake uses small motors at the rear calipers. A weak battery, a failed motor or a system fault can stop it from releasing, and driving against it can damage the brakes quickly.",
     "causes": [
@@ -313,7 +319,9 @@
     "now": "Don't drive until the brakes are checked. With the engine off, look at the brake fluid level in the reservoir, then have the car towed or call a mobile mechanic.",
     "if": [
      "If the fluid is low, look for wet spots near the wheels or under the car. A leak can lead to brake failure.",
-     "If the fluid is full and the pedal feels normal, a parking brake switch fault is possible, but let a technician confirm it before driving."
+     "If the fluid is full and the pedal feels normal, a parking brake switch fault is possible, but let a technician confirm it before driving.",
+     "Topping up the fluid isn't a fix. Low brake fluid with no leak you can see still needs an inspection before driving, since leaks can hide inside the wheels or under covers.",
+     "If the pedal feels soft or sinks, don't move the car."
     ],
     "why": "The red brake light covers the parking brake and the brake fluid level. If it stays on with the parking brake released, fluid may be low from a leak or very worn pads, which can affect stopping.",
     "causes": [
@@ -348,14 +356,15 @@
   },
   "r_after_repair": {
    "result": {
-    "title": "Something from the recent brake work is likely binding",
+    "title": "Something from the recent brake work may be binding",
     "urgency": "soon",
     "now": "Take it back to the shop that did the work within a few days, and tell them which wheel is hot or noisy. Drive only short, gentle trips until then.",
     "if": [
      "If you smell burning or see smoke, stop and have it towed.",
-     "If the pedal feels soft or sinks, stop driving and have it towed."
+     "If the pedal feels soft or sinks, stop driving and have it towed.",
+     "If the red brake warning light comes on or the car takes longer to stop, stop driving and have it towed."
     ],
-    "why": "New pads that fit too tightly, slide pins that weren't cleaned and lubricated, or a parking brake that wasn't adjusted can all keep a brake from releasing fully. It's usually a quick fix but shouldn't be ignored.",
+    "why": "New pads that fit too tightly, slide pins that weren't cleaned and lubricated, or a parking brake that needs adjusting can all keep a brake from releasing fully. The shop that did the work will want to know, and it's often a straightforward recheck, but it shouldn't wait.",
     "causes": [
      {
       "name": "Pads binding in the caliper bracket",
@@ -387,14 +396,16 @@
   },
   "r_other_drag": {
    "result": {
-    "title": "The brakes may be fine. Something else may be holding the car back",
+    "title": "No wheel stands out, so something besides a single brake may be holding the car back",
     "urgency": "check",
     "now": "Check the tire pressures, then book a check for the wheel bearings and drivetrain when convenient.",
     "if": [
-     "If you hear a hum or growl that changes when you steer, a wheel bearing is likely. Get it checked sooner.",
-     "If the engine revs but the car is slow to pick up speed, the transmission may be slipping."
+     "If you hear a hum or growl that changes when you steer, a wheel bearing is a possibility. Get it checked sooner.",
+     "If the engine revs but the car is slow to pick up speed, the transmission may be slipping.",
+     "If you notice a burning smell, smoke, or one wheel much hotter than the others, treat it as a dragging brake: pull over, let it cool, and don't drive further until it's checked.",
+     "If the brake pedal feels high, hard, soft or different, have the brakes checked before driving further."
     ],
-    "why": "If no wheel is hotter than the others, a dragging brake is less likely. Low tires, a worn wheel bearing, or an engine or transmission problem can also make a car feel sluggish or coast poorly.",
+    "why": "If no wheel is hotter than the others, a single sticking brake is less likely, but the hand test is rough and can't rule it out. Low tires, a worn wheel bearing, or an engine or transmission problem can also make a car feel sluggish or coast poorly. A shop can spin each wheel on a lift to check.",
     "causes": [
      {
       "name": "Low tire pressure",
@@ -432,7 +443,8 @@
     "now": "Make sure the parking brake is fully released, then have the brakes inspected within a few days. Drive only short, gentle trips until then.",
     "if": [
      "If you notice smoke, a strong burning smell, or the pedal feels different, stop driving and have it towed.",
-     "If the car pulls to one side, get it checked within a few days."
+     "If the car pulls to one side, get it checked within a few days.",
+     "If the red brake warning light comes on, have the brakes checked before driving further."
     ],
     "why": "A shop can lift the car and spin each wheel by hand to find one that doesn't turn freely. That quickly shows whether a caliper, the parking brake or something else is causing the drag.",
     "causes": [

@@ -191,14 +191,15 @@
   },
   "r_charging": {
    "result": {
-    "title": "The charging system may be failing, and accessories are shutting down",
-    "urgency": "soon",
-    "now": "Have the battery and alternator tested as soon as you can, ideally today. Turn off electrical extras and keep trips short until then.",
+    "title": "The charging system may be failing, and accessories may be shutting down to save power",
+    "urgency": "stop",
+    "now": "Get off the road somewhere safe and turn off electrical extras. Don't set out again until the battery and alternator have been tested. A mobile mechanic or a tow is the safest way to get it checked, because the car may shut off without much warning.",
     "if": [
-     "If the lights keep dimming or the engine starts to stumble, pull over somewhere safe and have it towed. The car may shut off.",
-     "If the problem cleared after a jump start or new battery, still have the alternator tested."
+     "If the lights keep dimming, the steering gets heavy or the engine starts to stumble, get off the road right away. The car may shut off.",
+     "If the problem cleared after a jump start or new battery, still have the alternator tested.",
+     "If you smell burning or see smoke from under the hood, turn the car off and get everyone out."
     ],
-    "why": "When voltage drops, many cars shut off non-essential accessories first, so windows and the radio can stop working before the engine does. The battery light confirms the car isn't charging properly.",
+    "why": "When voltage drops, many cars shut off non-essential accessories first, so windows and the radio can stop working before the engine does. A battery light suggests the car isn't charging properly, and a shop will usually test the battery, alternator and cables before replacing anything.",
     "causes": [
      {
       "name": "Failing alternator",
@@ -230,14 +231,15 @@
   },
   "r_water": {
    "result": {
-    "title": "Water has probably gotten into a switch, connector or module",
+    "title": "Water may have gotten into a switch, connector or module",
     "urgency": "soon",
     "now": "Dry the interior as much as you can, leave the affected switches alone for now, and have the electrical system checked within a few days.",
     "if": [
      "If anything smells hot or burnt, turn the car off and don't use it until it's inspected.",
-     "If the carpet is wet, find where the water is getting in. Modules under the seats and carpet are easily damaged."
+     "If the carpet is wet, find where the water is getting in. Modules under the seats and carpet are easily damaged.",
+     "If the airbag light comes on, or the car won't start or acts on its own, have it checked before relying on it. Modules under the seats and carpet include safety systems on many cars."
     ],
-    "why": "Switches, connectors and control modules don't tolerate water. Moisture can make them stop working, act on their own, or short out. Some recover once dry; others are damaged and need replacing.",
+    "why": "Switches, connectors and control modules don't tolerate water. Moisture can make them stop working, act on their own, or short out. Some recover once dry; others are damaged. A shop will usually dry and test the connector or module before deciding whether anything needs replacing.",
     "causes": [
      {
       "name": "Water in a door switch or connector",
@@ -270,14 +272,16 @@
   },
   "r_fuse": {
    "result": {
-    "title": "A blown fuse is the most likely and easiest thing to check",
+    "title": "A blown fuse is a common and easy thing to check first",
     "urgency": "diy",
     "now": "Use your owner's manual to find the fuse for the item that stopped working, and replace it with one of the same rating if it's blown.",
     "if": [
      "If the new fuse blows right away or soon after, stop replacing it. There's a short circuit, so book a repair.",
-     "If the fuses are fine and several things are still dead, have the wiring and control modules checked."
+     "If the fuses are fine and several things are still dead, have the wiring and control modules checked.",
+     "If you smell burning or see smoke, turn the car off and get out. Don't keep swapping fuses.",
+     "If what stopped working is something you need to drive safely, like headlights, wipers, brake lights or turn signals, get it fixed before driving in conditions where you need it."
     ],
-    "why": "Fuses protect circuits by burning out when something draws too much current. When several things on one circuit stop together, or something dies with no warning, a fuse is the first and cheapest thing to check.",
+    "why": "Fuses protect circuits by burning out when something draws too much current. When several things on one circuit stop together, or something dies with no warning, a fuse is a quick first thing to check. A fuse that blows is a symptom, so if it keeps happening the shop will look for the short behind it.",
     "causes": [
      {
       "name": "Blown fuse",
@@ -310,7 +314,7 @@
   },
   "r_window_regulator": {
    "result": {
-    "title": "The window regulator, the track that moves the glass, has likely broken",
+    "title": "The window regulator, the track that moves the glass, may have broken",
     "urgency": "check",
     "now": "Stop pressing the switch so the motor doesn't burn out, and book a repair. If the window is down, cover the opening to keep rain out.",
     "if": [
@@ -348,7 +352,7 @@
   },
   "r_window_lock": {
    "result": {
-    "title": "The window lock button on the driver's door is probably turned on",
+    "title": "The window lock button on the driver's door may be turned on",
     "urgency": "diy",
     "now": "Find the window lock button on the driver's door switch panel (often marked with a window and a lock or an X) and press it to turn it off.",
     "if": [
@@ -386,13 +390,13 @@
   },
   "r_window_dead": {
    "result": {
-    "title": "A worn window motor, switch or door wiring is likely",
+    "title": "Possibly a worn window motor, switch or door wiring",
     "urgency": "check",
     "now": "Try the window from the driver's master switch as well as its own switch, then book a repair when convenient.",
     "if": [
-     "If it works from the driver's switch but not its own, that door's switch is the likely problem.",
+     "If it works from the driver's switch but not its own, that door's switch is a likely suspect.",
      "If the window is stuck open, cover it and get it fixed soon to keep rain and thieves out.",
-     "If it moves slowly or stops partway, a dry or dirty window track or a tired motor is likely."
+     "If it moves slowly or stops partway, a dry or dirty window track or a tired motor are possibilities."
     ],
     "why": "When a single window does nothing or struggles, the fault is usually in that door: its switch, its motor, or the wires that pass through the door hinge area, which flex every time the door opens.",
     "causes": [
@@ -427,7 +431,7 @@
   },
   "r_lock_actuator": {
    "result": {
-    "title": "The lock motor (actuator) in that door is likely failing",
+    "title": "The lock motor (actuator) in that door may be failing",
     "urgency": "check",
     "now": "Use the key or the manual lock on that door for now, and book a repair when convenient.",
     "if": [
@@ -466,14 +470,14 @@
   },
   "r_fob": {
    "result": {
-    "title": "The key fob battery is most likely dead",
+    "title": "A weak key fob battery is a common cause",
     "urgency": "diy",
     "now": "Replace the key fob battery, which is usually a coin-type battery listed in your owner's manual.",
     "if": [
      "If your spare fob works, the main fob's battery or the fob itself is the problem.",
      "If neither fob works with new batteries, the car's receiver or the fobs may need checking or reprogramming by a dealer or locksmith."
     ],
-    "why": "If the switch inside the car locks and unlocks all the doors, the lock motors and wiring are working. That leaves the fob or the car's receiver, and a weak fob battery is by far the most common cause.",
+    "why": "If the switch inside the car locks and unlocks all the doors, the lock motors and wiring are working. That leaves the fob or the car's receiver, and a weak fob battery is a common cause and the easiest to try first.",
     "causes": [
      {
       "name": "Dead fob battery",
@@ -513,7 +517,7 @@
      "If you can't find the code, a dealer for your car's brand can usually look it up with your VIN and proof of ownership.",
      "If you enter the wrong code several times, it may lock you out for a while. Leave the radio on and wait as the manual describes."
     ],
-    "why": "Many radios lock themselves when the battery is disconnected, as a theft deterrent. They need the original code before they'll work again. Nothing is broken.",
+    "why": "Many radios lock themselves when the battery is disconnected, as a theft deterrent. They need the original code before they'll work again. Usually nothing is broken.",
     "causes": [
      {
       "name": "Anti-theft lock after the battery was disconnected or went flat",
@@ -540,11 +544,11 @@
   },
   "r_infotainment": {
    "result": {
-    "title": "The radio or screen likely needs a software reset or update",
+    "title": "The radio or screen may need a software reset or update",
     "urgency": "check",
     "now": "Try a reset: turn the car off, open and close the driver's door, wait a few minutes, then restart. Check your owner's manual for a specific reset procedure.",
     "if": [
-     "If the screen also controls things like climate or the backup camera and those stop working, get it checked within a few days.",
+     "If the screen also controls things like climate, defrost or the backup camera and those stop working, get it checked within a few days, and don't rely on the camera when reversing.",
      "If it started after a phone was connected, try deleting the phone from the system and re-pairing it."
     ],
     "why": "Modern radios are small computers. Freezing, rebooting or losing sound is often a software glitch that a reset or update fixes. If it keeps happening, the unit, its amplifier or its wiring may need repair.",
@@ -580,12 +584,13 @@
   },
   "r_wiring_intermittent": {
    "result": {
-    "title": "A broken or loose wire is likely, often where the wires pass into a door",
+    "title": "A broken or loose wire is possible, often where the wires pass into a door",
     "urgency": "check",
     "now": "Note exactly what cuts out and when, then book an electrical diagnosis when convenient.",
     "if": [
      "If you smell burning or anything feels hot, turn off the car and don't use it until it's inspected.",
-     "If the problems happen when the door opens or closes, the wires in the door hinge area are the most likely spot."
+     "If the problems happen when the door opens or closes, the wires in the door hinge area are a likely place to check first.",
+     "If headlights, wipers or other lights cut out, don't drive at night or in bad weather until it's fixed."
     ],
     "why": "Things that cut in and out with bumps or door movement usually come from a wire that's cracked inside its insulation, or a connector that's loose or corroded. The wires that run through the door hinge area flex constantly and are a common failure point.",
     "causes": [

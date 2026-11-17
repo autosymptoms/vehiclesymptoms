@@ -21,7 +21,7 @@
   "traction control and check engine light on",
   "traction control light stays on"
  ],
- "intro": "The traction or stability control light (usually a car with wavy skid marks behind it) does two different jobs. A quick flash while driving on a slippery road means the system is working. A light that stays on means it's been switched off or has found a fault, and the other lights on the dash usually tell you why.",
+ "intro": "The traction or stability control light (usually a car with wavy skid marks behind it) does two different jobs. A quick flash while driving on a slippery road usually means the system is working. A light that stays on usually means it's been switched off or has found a fault, and the other lights on the dash often help show why.",
  "safety": [
   "If the red BRAKE light is on too, or the brake pedal feels soft, don't drive it until the brakes are checked.",
   "If the check engine light is flashing and the engine shakes or runs rough, pull over safely and turn the engine off.",
@@ -107,12 +107,13 @@
   },
   "r_working": {
    "result": {
-    "title": "The system is doing its job on a slippery road",
+    "title": "The system is likely doing its job on a slippery road",
     "urgency": "diy",
-    "now": "Ease off the gas, steer smoothly, and slow down for the conditions. The light should go out once the tires have grip again.",
+    "now": "Ease off the gas, steer smoothly, and slow down for the conditions. The light usually goes out once the tires have grip again.",
     "if": [
      "If it flickers often on dry roads too, the tires may be worn or a sensor may be reading wrong. Get it checked.",
-     "If you're stuck in snow or mud, briefly turning traction control off can help you rock free. Turn it back on once you're moving."
+     "If you're stuck in snow or mud, briefly turning traction control off can help you rock free. Turn it back on once you're moving.",
+     "If the light stays on steadily, or the ABS or check engine light comes on with it, the system may have a fault. Get it checked within a few days. If the red BRAKE light comes on, don't drive until the brakes are checked."
     ],
     "why": "When a wheel starts to spin or the car starts to slide, the system brakes that wheel or cuts engine power for a moment. The light flickers to tell you it's stepping in, which means the road is slippery.",
     "causes": [
@@ -144,9 +145,10 @@
     "now": "Press the traction control button (often a car with skid marks and the word OFF) once, or turn the car off and restart it. Most systems turn back on at startup.",
     "if": [
      "If the OFF light won't go out after a restart, the system may have a fault. Get it checked within a few days.",
-     "If the button is stuck or was pressed by something in the console, free it and try again."
+     "If the button is stuck or was pressed by something in the console, free it and try again.",
+     "If the ABS or red BRAKE light is also on, or the brake pedal feels different, don't drive until the brakes are checked."
     ],
-    "why": "Most cars let you switch traction control off, which is useful when stuck in snow or mud. The OFF light simply shows it's switched off. It's easy to press the button by accident.",
+    "why": "Most cars let you switch traction control off, which is useful when stuck in snow or mud. The OFF light usually just shows it's switched off. It's easy to press the button by accident.",
     "causes": [
      {
       "name": "Button pressed by accident",
@@ -178,14 +180,15 @@
   },
   "r_false_activation": {
    "result": {
-    "title": "The system is stepping in when it shouldn't, usually from a bad sensor reading",
+    "title": "The system may be stepping in when it shouldn't, often from a bad sensor reading",
     "urgency": "soon",
     "now": "Get the stability control system scanned within a few days. Until then, allow extra time when pulling into traffic, because the car may cut power without warning.",
     "if": [
      "If the car cuts power or brakes hard on its own in traffic, stop driving it and have it towed.",
-     "If one tire is lower or a different size than the others, fix that first. It can confuse the system."
+     "If one tire is lower or a different size than the others, fix that first. It can confuse the system.",
+     "If the ABS or red BRAKE light comes on, or the brake pedal feels soft or different, don't drive it until the brakes are checked."
     ],
-    "why": "The system compares wheel speeds and steering angle to detect skids. If a sensor sends a wrong reading, or one tire spins at a different speed, the system thinks the car is sliding and brakes a wheel or cuts power on a dry road.",
+    "why": "The system compares wheel speeds and steering angle to detect skids. If a sensor sends a wrong reading, or one tire spins at a different speed, the system can think the car is sliding and brake a wheel or cut power on a dry road. A shop will usually watch live sensor data on a test drive before replacing a sensor.",
     "causes": [
      {
       "name": "Faulty wheel speed sensor",
@@ -217,13 +220,15 @@
   },
   "r_brake_system": {
    "result": {
-    "title": "Traction, ABS and red brake lights together point to a brake system problem",
+    "title": "Traction, ABS and red brake lights together can point to a brake system problem",
     "urgency": "stop",
     "now": "Don't drive it. Check that the parking brake is fully released and look at the brake fluid level, then have it towed or call a mobile mechanic.",
     "if": [
-     "If the lights go out after you fully release the parking brake, have the ABS checked soon instead."
+     "If the red BRAKE light goes out once the parking brake is fully released and the pedal feels normal, the ABS and traction lights still need checking within a day or two. If the red light stays on, keep the car parked.",
+     "If the brake fluid is low, topping it up doesn't make the car safe to drive, even if you can't see a leak. Have the brakes inspected before driving.",
+     "If the brake pedal feels soft, sinks toward the floor, or needs much more force, don't drive the car."
     ],
-    "why": "Traction and stability control rely on the ABS system. When the red brake light joins them, fluid may be low or the system that balances front and rear braking may be off. The car can skid or spin in a hard stop.",
+    "why": "Traction and stability control rely on the ABS system. When the red brake light joins them, fluid may be low or the system that balances front and rear braking may not be working. The car can skid or spin in a hard stop, and low fluid can also mean a leak or very worn brakes.",
     "causes": [
      {
       "name": "Low brake fluid",
@@ -256,18 +261,19 @@
   },
   "r_wheel_sensor": {
    "result": {
-    "title": "A wheel speed sensor fault has likely switched off ABS and traction control",
+    "title": "A wheel speed sensor fault may have switched off ABS and traction control",
     "urgency": "soon",
-    "now": "Get the ABS codes read within the next few days. Until then, brake earlier and leave extra room, especially in rain or snow.",
+    "now": "Get the ABS codes read within the next few days. Until then, brake earlier and leave extra room, especially in rain or snow, and pay attention to how the brakes feel.",
     "if": [
-     "If the red BRAKE light comes on or the pedal feels soft, stop driving it.",
-     "If the lights came on right after brake or wheel work, go back to the shop that did it."
+     "If the red BRAKE light comes on, or the pedal feels soft, sinks or needs more force, stop driving it.",
+     "If you hear grinding, smell burning from a wheel, or the car pulls when braking, have it checked before driving further.",
+     "If the lights came on right after brake or wheel work, contact the shop that did it. A sensor or connector may have been disturbed, and they can check it."
     ],
-    "why": "Traction control, stability control and ABS all use the same wheel speed sensors. When one fails, the car switches all three off and lights both warnings. Normal braking usually still works.",
+    "why": "Traction control, stability control and ABS all use the same wheel speed sensors. When one stops sending a signal, the car switches these systems off and lights the warnings. Regular braking is designed to keep working without ABS, but the wheels can lock in a hard stop, so allow more distance. A shop will usually check live sensor data and the wiring before replacing a sensor.",
     "causes": [
      {
       "name": "Failed wheel speed sensor",
-      "clues": "The most common cause, especially on older cars in salty areas.",
+      "clues": "A common cause, especially on older cars in salty areas.",
       "against": ""
      },
      {
@@ -296,13 +302,14 @@
   },
   "r_misfire": {
    "result": {
-    "title": "The engine is misfiring, and traction control has shut off as a result",
+    "title": "The engine may be misfiring, and traction control has shut off as a result",
     "urgency": "stop",
     "now": "Pull over safely and turn the engine off. Have the car towed or call a mobile mechanic.",
     "if": [
-     "If you smell fuel or see smoke, get everyone out and away from the car."
+     "If you smell fuel or see smoke, get everyone out and away from the car.",
+     "If the temperature gauge is high or the oil pressure light is on, don't restart the engine."
     ],
-    "why": "A flashing check engine light means a misfire bad enough to overheat and damage the catalytic converter. Many cars switch traction control off when the engine has a serious fault, because they can't control engine power reliably.",
+    "why": "A flashing check engine light usually means a misfire bad enough to overheat and damage the catalytic converter. Many cars switch traction control off when the engine has a serious fault, because they can't control engine power reliably.",
     "causes": [
      {
       "name": "Failed ignition coil or spark plug",
@@ -332,14 +339,15 @@
   },
   "r_engine_fault": {
    "result": {
-    "title": "An engine fault has likely switched off traction control",
+    "title": "An engine fault may have switched off traction control",
     "urgency": "soon",
     "now": "Have the engine codes read within a few days. Many auto parts stores can read basic codes for you.",
     "if": [
      "If the check engine light starts flashing or the engine runs rough, pull over and stop driving.",
-     "If the car goes into a low-power mode, keep trips short and get it checked right away."
+     "If the temperature gauge climbs toward the red or the oil pressure light comes on, pull over and turn the engine off.",
+     "If the car goes into a low-power mode, have it checked before relying on it. Low power can make merging and passing dangerous."
     ],
-    "why": "Traction control works partly by reducing engine power. When the engine computer finds a fault, many cars switch traction control off as a precaution. Fixing the engine fault usually turns the traction light off too.",
+    "why": "Traction control works partly by reducing engine power. When the engine computer finds a fault, many cars switch traction control off as a precaution. Fixing the engine fault often turns the traction light off too.",
     "causes": [
      {
       "name": "Engine sensor or emissions fault",
@@ -371,12 +379,13 @@
   },
   "r_steering_angle": {
    "result": {
-    "title": "The steering angle sensor likely needs to be reset or calibrated",
+    "title": "The steering angle sensor may need to be reset or calibrated",
     "urgency": "check",
     "now": "Check your owner's manual for a reset step, such as turning the wheel fully left and right with the engine running. If that doesn't work, book a calibration.",
     "if": [
-     "If the light came on after an alignment, ask the alignment shop to calibrate the sensor.",
-     "If the car feels like it's braking a wheel on its own in turns, get it checked within a few days."
+     "If the light came on after an alignment, ask the alignment shop to calibrate the sensor. It's a normal part of the job on many cars.",
+     "If the car brakes a wheel or cuts power on its own, especially in turns, stop driving it and have it checked.",
+     "If the ABS or red BRAKE light comes on, or the steering feels different, have it checked before driving further."
     ],
     "why": "Stability control needs to know where the steering wheel is pointed. After the battery is disconnected or the wheels are aligned, some cars lose that setting and turn the light on until the sensor is reset.",
     "causes": [
@@ -416,7 +425,8 @@
     "now": "Check all four tire pressures and set them to the door-sticker values. If a compact spare is on, get the regular tire back on soon.",
     "if": [
      "If the light stays on after the tires are matched and inflated, get a stability control scan.",
-     "If only two tires were replaced, ask the tire shop whether the tire sizes and wear levels are close enough for your car, especially if it's all-wheel drive."
+     "If only two tires were replaced, ask the tire shop whether the tire sizes and wear levels are close enough for your car, especially if it's all-wheel drive.",
+     "If you see a bulge, cut or cords on a tire, or the ABS or red BRAKE light comes on, don't drive until it's checked."
     ],
     "why": "The system compares how fast each wheel turns. A low tire, a smaller spare, or tires with very different wear spin at a different speed, which can look like wheel slip and turn the light on.",
     "causes": [
@@ -450,18 +460,20 @@
   },
   "r_tc_general": {
    "result": {
-    "title": "Traction and stability control have switched off because of a fault",
+    "title": "Traction and stability control may have switched off because of a fault",
     "urgency": "soon",
-    "now": "Get the stability control and ABS codes read within the next few days. Until then, drive more gently and leave extra room, especially on slippery roads.",
+    "now": "Get the stability control and ABS codes read within the next few days. Until then, drive more gently, leave extra room, especially on slippery roads, and pay attention to how the brakes feel.",
     "if": [
      "If the ABS or red BRAKE light comes on, or the brakes feel different, stop driving it.",
-     "If the check engine light comes on too, mention it. Fixing the engine fault may clear the traction light."
+     "If the check engine light starts flashing or the engine runs rough, pull over and turn it off.",
+     "If the car brakes a wheel or cuts power on its own, stop driving it and have it checked.",
+     "If the check engine light comes on steadily too, mention it. Fixing the engine fault may clear the traction light."
     ],
-    "why": "A steady traction or stability light without the word OFF means the system found a fault and turned itself off. The car drives and brakes normally, but it won't help you if a wheel spins or the car starts to slide. A scan points to the part at fault.",
+    "why": "A steady traction or stability light without the word OFF usually means the system found a fault and turned itself off. The car won't get the system's help if a wheel spins or the car starts to slide. A scan shows which sensor or circuit to test next.",
     "causes": [
      {
       "name": "Wheel speed sensor fault",
-      "clues": "The most common cause. The ABS light may come on too.",
+      "clues": "A common cause. The ABS light may come on too.",
       "against": ""
      },
      {

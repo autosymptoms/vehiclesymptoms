@@ -130,7 +130,8 @@
     "now": "Don't drive it. Have the car towed or call a mobile mechanic to inspect the brakes.",
     "if": [
      "If the brake pedal feels firm and the brake fluid reservoir is full, the fluid may be something else. Still have a technician confirm before you use the car.",
-     "If the car is already moving and the pedal sinks, pump the brakes, use the parking brake gently and steer to a safe stop."
+     "If the car is already moving and the pedal sinks, pump the brakes, use the parking brake gently and steer to a safe stop.",
+     "If the brake fluid reservoir is low but you can't find a leak, still don't drive it. Fluid can leak where you can't see it, or the level can drop as pads wear. A shop should check before you top up and go."
     ],
     "why": "Brake fluid is what makes the brakes work. A leak lets fluid out and air in, and the pedal can sink to the floor with little warning. Brake fluid is clear to yellowish or brown, feels slick, and often shows up near a wheel or under the driver's side of the engine bay.",
     "causes": [
@@ -165,7 +166,7 @@
   },
   "r_fuel": {
    "result": {
-    "title": "A fuel leak is a fire risk",
+    "title": "A possible fuel leak is a fire risk",
     "urgency": "stop",
     "now": "Don't start the car. Keep sparks, flames and cigarettes away, and have it towed to a shop.",
     "if": [
@@ -204,14 +205,15 @@
   },
   "r_overheat": {
    "result": {
-    "title": "Coolant is leaking and the engine is overheating",
+    "title": "Coolant may be leaking and the engine may be overheating",
     "urgency": "stop",
     "now": "Turn the engine off as soon as it's safe. Don't open the radiator or coolant cap while it's hot. Have the car towed or call a mobile mechanic.",
     "if": [
      "If you're stuck in traffic and can't pull over yet, turn the heater to full hot with the fan on high. It pulls some heat away from the engine.",
-     "If steam is pouring from under the hood, stay back and let it cool before opening anything."
+     "If steam is pouring from under the hood, stay back and let it cool before opening anything.",
+     "If the oil pressure light comes on, or you hear knocking, turn the engine off and don't restart it."
     ],
-    "why": "Running an overheating engine can warp or crack major parts within minutes. Coolant is the green, orange, pink or yellow sweet-smelling fluid, and losing it is the most common reason engines overheat.",
+    "why": "Running an overheating engine can warp or crack major parts within minutes. Coolant is the green, orange, pink or yellow sweet-smelling fluid, and losing it is one of the most common reasons engines overheat.",
     "causes": [
      {
       "name": "Leaking radiator or coolant hose",
@@ -248,7 +250,8 @@
     "now": "Turn the engine off and leave it off. After a few minutes, check the dipstick. If it's low, add the oil type listed in your owner's manual. If you can't, have it towed.",
     "if": [
      "If the light stays on after the level is correct, or you hear ticking or knocking, don't run the engine. Have it towed.",
-     "If oil is pouring out, don't refill and restart. Have it towed."
+     "If oil is pouring out, don't refill and restart. Have it towed.",
+     "Even if the light goes out after topping up, a leak big enough to leave a puddle can drain the oil again quickly. Have the leak checked before driving any distance."
     ],
     "why": "The oil pressure light means oil isn't reaching the engine with enough pressure to protect it. Running even briefly like that can ruin the engine. A leak big enough to leave a puddle can drain the oil quickly.",
     "causes": [
@@ -264,7 +267,7 @@
      },
      {
       "name": "Failing oil pump or pressure sensor",
-      "clues": "The light stays on even though the oil level is full.",
+      "clues": "The light stays on even though the oil level is full. A shop will usually measure the real oil pressure with a gauge before replacing the sensor or pump.",
       "against": ""
      }
     ],
@@ -283,14 +286,14 @@
   },
   "r_ac_water": {
    "result": {
-    "title": "Probably just water from the air conditioning",
+    "title": "Possibly just water from the air conditioning",
     "urgency": "diy",
-    "now": "Rub a drop between your fingers. If it's clear, odorless and not slippery, and you've been using the A/C or defroster, it's normal and needs no repair.",
+    "now": "Rub a drop between your fingers. If it's clear, odorless and not slippery, and you've been using the A/C or defroster, it's most likely normal A/C condensation, which doesn't need a repair.",
     "if": [
      "If it feels slippery, smells sweet or has any color, it isn't plain water. Go back and pick the color instead.",
      "If water is collecting on the passenger-side floor inside the car, the A/C drain may be blocked. Book a check."
     ],
-    "why": "The A/C pulls moisture out of the cabin air and drains it under the car, usually near the front passenger side. On hot, humid days it can leave a surprisingly large puddle. That's normal.",
+    "why": "The A/C pulls moisture out of the cabin air and drains it under the car, usually near the front passenger side. On hot, humid days it can leave a surprisingly large puddle. This is a normal part of how A/C works.",
     "causes": [
      {
       "name": "Normal A/C condensation",
@@ -321,15 +324,15 @@
   },
   "r_oil": {
    "result": {
-    "title": "Most likely an engine oil leak",
+    "title": "Likely an engine oil leak",
     "urgency": "check",
     "now": "Check the oil level on the dipstick and top up if needed. Book a check to find the source when convenient.",
     "if": [
      "If the oil is below the low mark, or the spot is bigger than your hand after one night, get it checked within a few days.",
-     "If you see smoke or smell burning oil from under the hood, get it checked soon. Oil may be dripping onto the hot exhaust.",
-     "If the oil pressure light comes on, turn the engine off right away."
+     "If you see smoke or smell burning oil from under the hood, pull over, turn the engine off and let it cool. Oil may be dripping onto the hot exhaust, which can be a fire risk. Have it checked before driving further.",
+     "If the oil pressure light comes on, or you hear ticking or knocking, turn the engine off right away."
     ],
-    "why": "Engine oil is light brown when fresh, dark brown or black when used, and feels slippery. Most oil leaks are slow seeps from gaskets that harden with age and heat. The real risk is running low, so keep an eye on the level.",
+    "why": "Engine oil is light brown when fresh, dark brown or black when used, and feels slippery. Many oil leaks are slow seeps from gaskets that harden with age and heat. The main risks are running low and oil dripping onto hot parts, so keep an eye on the level.",
     "causes": [
      {
       "name": "Oil pan gasket or drain plug",
@@ -363,14 +366,16 @@
   },
   "r_red": {
    "result": {
-    "title": "Likely transmission fluid or power steering fluid",
+    "title": "Possibly transmission fluid or power steering fluid",
     "urgency": "soon",
     "now": "Book a check within the next few days. If your car has a transmission dipstick or a see-through power steering reservoir, check those levels.",
     "if": [
      "If the transmission slips, shifts hard or is slow to go into gear, stop driving it and have it towed.",
-     "If the steering suddenly gets heavy or whines loudly, limit driving and get it checked right away."
+     "If the steering suddenly gets heavy or hard to turn, pull over when it's safe and don't drive it until it's checked.",
+     "If it smells like gasoline, don't start the car. Keep sparks and flames away and have it towed.",
+     "If the fluid is thin, clear to yellowish and slick, or the brake pedal feels different, it may be brake fluid. Don't drive the car until it's checked."
     ],
-    "why": "Red or pink oily fluid is usually automatic transmission fluid, and some power steering systems use it too. Transmission leaks tend to drip under the middle of the car, power steering leaks near the front. Running either system low can damage it.",
+    "why": "Red or pink oily fluid is often automatic transmission fluid, and some power steering systems use it too. Transmission leaks tend to drip under the middle of the car, power steering leaks near the front. Running either system low can damage it.",
     "causes": [
      {
       "name": "Transmission pan gasket, cooler line or seal",
@@ -404,12 +409,13 @@
   },
   "r_coolant": {
    "result": {
-    "title": "Likely a coolant (antifreeze) leak",
+    "title": "Possibly a coolant (antifreeze) leak",
     "urgency": "soon",
     "now": "With the engine cold, check the coolant overflow tank and top it up with the type in your owner's manual. Get the leak checked within a few days and watch the temperature gauge.",
     "if": [
      "If the temperature gauge rises above normal or you see steam, pull over and turn the engine off.",
-     "If it's a steady drip, or the tank is low again within a day or two, have it towed rather than risk overheating."
+     "If it's a steady drip, or the tank is low again within a day or two, have it towed rather than risk overheating.",
+     "If you see white smoke from the exhaust with a sweet smell, or the coolant keeps disappearing with no drip, mention it to the shop and avoid driving until it's checked."
     ],
     "why": "Coolant is usually green, orange, pink or yellow, feels watery and smells sweet. Small leaks tend to grow, and running low on coolant leads to overheating, which can badly damage the engine.",
     "causes": [
@@ -445,9 +451,9 @@
   },
   "r_washer": {
    "result": {
-    "title": "Probably windshield washer fluid",
+    "title": "Possibly windshield washer fluid",
     "urgency": "diy",
-    "now": "Fill the washer fluid reservoir and watch for drips. A cracked tank or a loose hose is the usual cause.",
+    "now": "Fill the washer fluid reservoir and watch for drips. A cracked tank or a loose hose is a common cause.",
     "if": [
      "If it smells sweet or the coolant tank is also dropping, it may be coolant. Get it checked within a few days.",
      "If the washers don't spray, the pump or a hose is probably where it's leaking."
@@ -483,12 +489,14 @@
   },
   "r_engine_area": {
    "result": {
-    "title": "Fluid under the engine is most often oil or coolant",
+    "title": "Fluid under the engine is often oil or coolant",
     "urgency": "check",
-    "now": "With the engine cold and off, check the oil dipstick and the coolant overflow tank. Whichever is low is likely the leak. Book a check to confirm.",
+    "now": "With the engine cold and off, check the oil dipstick, the coolant overflow tank and the brake fluid reservoir. Whichever is low may be the leak. Book a check to confirm.",
     "if": [
      "If either level is below the low mark, top it up and get it checked within a few days.",
-     "If the temperature gauge rises or the oil pressure light comes on, pull over and turn the engine off."
+     "If the temperature gauge rises or the oil pressure light comes on, pull over and turn the engine off.",
+     "If the brake fluid reservoir is below the MIN mark, don't drive the car until it's inspected, even if you can't see where it's leaking.",
+     "If you see smoke or smell burning from under the hood, turn the engine off and let it cool before doing anything else."
     ],
     "why": "The engine sits at the front of most cars, and the two fluids it holds the most of are oil and coolant. Checking both levels is the fastest way to tell which one you're losing.",
     "causes": [
@@ -510,7 +518,7 @@
     ],
     "confirm": {
      "you": [
-      "Check the oil level and the coolant overflow tank.",
+      "Check the oil level, the coolant overflow tank and the brake fluid reservoir.",
       "Slide white cardboard under the engine overnight to see the color."
      ],
      "shop": [
@@ -523,9 +531,9 @@
   },
   "r_rear": {
    "result": {
-    "title": "A drip toward the back is usually exhaust water, axle oil or fuel",
+    "title": "A drip toward the back is often exhaust water, axle oil or fuel",
     "urgency": "check",
-    "now": "If it's clear water dripping from the tailpipe, that's normal. Otherwise, note its color and smell and book a check when convenient.",
+    "now": "If it's clear water dripping from the tailpipe, that's usually normal condensation. Otherwise, note its color and smell and book a check when convenient.",
     "if": [
      "If it smells like gasoline, don't start the car. Have it towed.",
      "If it's slick and right next to a rear wheel, it may be brake fluid. Don't drive the car until it's checked.",
@@ -575,7 +583,8 @@
     "if": [
      "If the brake pedal feels soft or the brake light is on, don't drive the car.",
      "If you smell gasoline, don't start the car and keep flames away.",
-     "If a warning light comes on, follow what that light means first."
+     "If a warning light comes on, follow what that light means first.",
+     "If the temperature gauge is high or you see steam, pull over and turn the engine off."
     ],
     "why": "Color, feel and location together identify nearly every leak. A clean white surface makes the color obvious, and where the spot lands points to the part that's leaking.",
     "causes": [
@@ -598,7 +607,7 @@
     "confirm": {
      "you": [
       "Take a photo of the spot on the cardboard to show the shop.",
-      "Check the oil, coolant and brake fluid levels with the engine off."
+      "Check the oil, coolant and brake fluid levels with the engine off. If the brake fluid is below MIN, don't drive the car until it's inspected."
      ],
      "shop": [
       "Leak inspection on a lift",

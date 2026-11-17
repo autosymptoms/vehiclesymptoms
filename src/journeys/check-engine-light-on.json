@@ -21,7 +21,7 @@
   "check engin light",
   "is it safe to drive with check engine light on"
  ],
- "intro": "A steady check engine light means the engine computer has found a fault and stored a code. It covers hundreds of problems, from a loose gas cap to a failing sensor, and most are not emergencies. How the car is driving tells you how urgent it is, and a quick code scan tells you where to look.",
+ "intro": "A steady check engine light means the engine computer has found a fault and stored a code. It covers hundreds of problems, from a loose gas cap to a failing sensor. Many are not emergencies, but the light alone can't tell you which. How the car is driving gives you a sense of how urgent it is, and a code scan tells the shop where to start testing.",
  "safety": [
   "If the check engine light starts flashing, or the engine shakes or stumbles hard, pull over and turn the engine off. A severe misfire can overheat the exhaust.",
   "If the temperature gauge reaches red, or the red oil light comes on, pull over and turn the engine off.",
@@ -103,14 +103,15 @@
   },
   "r_misfire": {
    "result": {
-    "title": "The engine is likely misfiring. Stop driving it until it's checked",
+    "title": "The engine may be misfiring. Stop driving it until it's checked",
     "urgency": "stop",
     "now": "Pull over where it's safe, turn off the engine, and have the car towed or call a mobile mechanic.",
     "if": [
      "If the shaking was brief and has stopped, don't assume the problem is gone. Have the code read before you drive it again.",
-     "If you smell fuel or see smoke, step away from the car and call for help."
+     "If you smell fuel or see smoke, step away from the car and call for help.",
+     "If the temperature gauge climbs toward red or a red warning light comes on, pull over and turn the engine off."
     ],
-    "why": "Shaking or stumbling with the check engine light on usually means one or more cylinders aren't firing. Unburned fuel then goes into the exhaust, where it can overheat and ruin the catalytic converter, and in bad cases start a fire. Driving on it turns a small repair into a big one.",
+    "why": "Shaking or stumbling with the check engine light on usually means one or more cylinders aren't firing. Unburned fuel then goes into the exhaust, where it can overheat and ruin the catalytic converter, and in bad cases start a fire. Driving on it can turn a small repair into a big one. The code and misfire data tell the shop which cylinder and parts to test.",
     "causes": [
      {
       "name": "Failed ignition coil or worn spark plug",
@@ -149,7 +150,9 @@
     "now": "Pull over safely, turn off the engine, and don't restart it. Have the car towed or call a mobile mechanic.",
     "if": [
      "If the temperature gauge is high, don't open the radiator cap until the engine has fully cooled. Hot coolant can burn you.",
-     "If the red oil light came on, check the oil level once the engine is off. Even if adding oil turns the light off, have it checked before driving again."
+     "If the red oil light came on, check the oil level once the engine is off. Even if adding oil turns the light off, have it checked before driving again.",
+     "If the coolant is low, don't just top it up and drive. The reason it went low needs to be found first.",
+     "If the red battery light is on together with a rising temperature gauge, a drive belt may have failed. Don't restart the engine."
     ],
     "why": "Red warning lights mean something that can damage the engine or leave you stranded within minutes: overheating, low oil pressure or a charging failure. The check engine light is often just reporting the same problem. The red light sets the urgency.",
     "causes": [
@@ -185,12 +188,14 @@
   },
   "r_limp_mode": {
    "result": {
-    "title": "The car has likely gone into a protective low-power mode",
+    "title": "The car may have gone into a protective low-power mode",
     "urgency": "soon",
-    "now": "Keep driving to a minimum. If you must move it, take a short, gentle trip to a shop and avoid highways, or have it towed.",
+    "now": "Keep driving to a minimum. A tow is the safest option. If you must move it, keep it to a short, gentle trip to a shop on low-speed roads and avoid highways.",
     "if": [
      "If you can't keep up with traffic or the car hesitates badly when you press the gas, don't drive it. Have it towed.",
-     "If the light starts flashing or the engine shakes, pull over and turn the engine off."
+     "If the light starts flashing or the engine shakes, pull over and turn the engine off.",
+     "If the temperature gauge climbs toward red or a red warning light comes on, pull over and turn the engine off.",
+     "If the engine stalls, or steering or braking suddenly takes more effort, pull over safely and don't drive it further."
     ],
     "why": "When the computer sees a fault that could damage the engine or transmission, it often limits power or holds a single gear to protect them. The car can still move, but it can be dangerously slow merging or on hills. A code scan points to the cause.",
     "causes": [
@@ -230,7 +235,8 @@
     "now": "Turn the engine off, look under the car for wet spots or dripping fuel, and have the car towed to a shop.",
     "if": [
      "If you see fuel dripping or pooling, keep everyone away, don't start the car, and call for help.",
-     "If the only smell is near the filler door and it fades, check that the gas cap is on and tight."
+     "Not seeing a drip doesn't rule out a leak. Fuel can leak onto hot parts and evaporate before it reaches the ground.",
+     "If the only smell is near the filler door and it fades, check that the gas cap is on and tight. If the smell returns or is ever noticeable inside the car, have it checked before driving."
     ],
     "why": "The check engine light often comes on for fuel vapor leaks. A faint smell from a loose cap is minor, but a strong raw fuel smell can mean liquid fuel is leaking near hot engine or exhaust parts, which is a fire risk.",
     "causes": [
@@ -265,14 +271,15 @@
   },
   "r_gas_cap": {
    "result": {
-    "title": "A loose or worn gas cap is the most likely cause",
+    "title": "A loose or worn gas cap is a common cause",
     "urgency": "diy",
     "now": "Take the gas cap off, check the rubber seal for cracks, and put it back on until it clicks. Then drive normally for a few days.",
     "if": [
      "If the light hasn't gone off after a week of normal driving, have the code read. It may be another leak in the fuel vapor system.",
-     "If the car starts running poorly or the light flashes, stop and have it checked."
+     "If the car starts running poorly or the light flashes, stop and have it checked.",
+     "If you smell fuel strongly, especially inside the car or under the hood, don't drive it. Have it checked."
     ],
-    "why": "The fuel system is sealed to keep gasoline vapor in. If the cap isn't tight after a fill-up, the computer detects a small leak and turns on the light. The light doesn't go out right away after you fix it. It usually needs several days of driving to recheck.",
+    "why": "The fuel system is sealed to keep gasoline vapor in. If the cap isn't tight after a fill-up, the computer can detect a small leak and turn on the light. The light doesn't go out right away after you fix it. It usually needs several days of driving to recheck. If it stays on, the code will show whether the cap or another part of the system is the cause.",
     "causes": [
      {
       "name": "Gas cap not tightened",
@@ -306,14 +313,16 @@
   },
   "r_o2_cat": {
    "result": {
-    "title": "Likely an oxygen sensor or catalytic converter problem",
+    "title": "Possibly an oxygen sensor or catalytic converter problem",
     "urgency": "check",
     "now": "Have the code read and book a check within the next couple of weeks.",
     "if": [
      "If the rotten egg smell is strong or you notice a rattle under the car, get it checked sooner.",
-     "If the car loses power or the exhaust seems blocked, don't drive it far."
+     "If the car loses power or the exhaust seems blocked, have it checked before driving further. A blocked converter can get very hot.",
+     "If you smell raw fuel or burning, or see smoke, pull over, turn the engine off and step away from the car.",
+     "If the check engine light starts flashing, pull over and turn the engine off."
     ],
-    "why": "Oxygen sensors measure the exhaust so the computer can adjust the fuel mix. When one fails, mileage often drops. A worn catalytic converter can't clean the exhaust properly, which can cause a sulfur smell. Fixing a sensor early can help protect the converter.",
+    "why": "Oxygen sensors measure the exhaust so the computer can adjust the fuel mix. When one fails, mileage often drops. A worn catalytic converter can't clean the exhaust properly, which can cause a sulfur smell. A shop will usually test the sensors and check for misfires or fuel mixture problems before replacing a converter, since those can damage a new one too.",
     "causes": [
      {
       "name": "Failing oxygen sensor",
@@ -346,14 +355,15 @@
   },
   "r_rough_idle": {
    "result": {
-    "title": "A small misfire or vacuum leak is likely",
+    "title": "A small misfire or vacuum leak may be the cause",
     "urgency": "soon",
     "now": "Have the code read and get it checked within a few days. Keep trips short and gentle until then.",
     "if": [
      "If the shaking gets worse while driving or the light starts flashing, pull over and turn the engine off.",
-     "If you hear a hiss from the engine bay, mention it to the shop."
+     "If you hear a hiss from the engine bay, mention it to the shop.",
+     "If you smell raw fuel or burning, or see smoke, pull over, turn the engine off and step away from the car."
     ],
-    "why": "A rough idle with the check engine light on often means a cylinder is misfiring now and then, or extra air is getting in through a cracked hose. Caught early, these are usually simple repairs. Left alone, a misfire can damage the catalytic converter.",
+    "why": "A rough idle with the check engine light on often means a cylinder is misfiring now and then, or extra air is getting in through a cracked hose. Caught early, these are often simple repairs once a shop confirms the cause. Left alone, a misfire can damage the catalytic converter.",
     "causes": [
      {
       "name": "Worn spark plug or weak ignition coil",
@@ -386,14 +396,16 @@
   },
   "r_intermittent": {
    "result": {
-    "title": "Probably a sensor or wiring fault that comes and goes",
+    "title": "Possibly a sensor or wiring fault that comes and goes",
     "urgency": "check",
     "now": "Have the code read while the light is on, or ask a shop to read stored codes, and book a check when convenient.",
     "if": [
      "If the light starts flashing or the car runs badly, get it checked right away.",
-     "If you have an emissions test coming up, get it fixed first. Cars with recent faults often fail."
+     "If you have an emissions test coming up, get it fixed first. Cars with recent faults often fail.",
+     "If you smell raw fuel or burning, or see smoke, pull over, turn the engine off and step away from the car.",
+     "If the temperature gauge climbs toward red or a red warning light comes on, pull over and turn the engine off."
     ],
-    "why": "A light that turns itself off usually means the fault cleared, but the code stays stored. Damp or cold weather can bring out marginal sensors, connectors and small vapor leaks. The stored code shows which one.",
+    "why": "A light that turns itself off often means the fault cleared for now, but the code stays stored. Damp or cold weather can bring out marginal sensors, connectors and small vapor leaks. The stored code shows the shop where to start testing.",
     "causes": [
      {
       "name": "Marginal sensor",
@@ -431,7 +443,8 @@
     "now": "Have the trouble code read within the next week or so. Many auto parts stores do it free, or a shop can do it.",
     "if": [
      "If the light starts flashing or the car shakes, pull over and turn the engine off.",
-     "If any red warning light comes on or the temperature gauge rises, pull over and turn the engine off."
+     "If any red warning light comes on or the temperature gauge rises, pull over and turn the engine off.",
+     "If you smell raw fuel or burning, or see smoke, pull over, turn the engine off and step away from the car."
     ],
     "why": "A steady light with a car that drives normally is usually not an emergency, but it's not something to ignore either. The code tells the shop which system to test. Waiting months can let a small fault damage something more expensive, and a second problem may hide behind the light that's already on.",
     "causes": [

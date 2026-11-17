@@ -20,7 +20,7 @@
   "overheats with ac on at idle",
   "wont cool down at idle"
  ],
- "intro": "When a car runs hot while stopped but cools down once it's moving, the problem is almost always airflow through the radiator. At speed, air does the work. At a standstill, the cooling fan has to. A few quick checks usually narrow it down.",
+ "intro": "When a car runs hot while stopped but cools down once it's moving, the problem is most often airflow through the radiator. At speed, air does the work. At a standstill, the cooling fan has to. A few quick checks usually narrow it down.",
  "safety": [
   "If the gauge reaches the red, a temperature warning comes on, or you see steam, pull over safely and turn the engine off.",
   "Never open the radiator cap or coolant tank cap on a hot engine. Hot coolant under pressure can cause serious burns.",
@@ -114,7 +114,9 @@
     "now": "Pull over somewhere safe, turn the engine off and let it cool for at least 30 minutes. Then have it towed or call a mobile mechanic.",
     "if": [
      "If you can't pull over yet, turn the A/C off and the heater on full hot with the fan on high. It pulls some heat away from the engine.",
-     "If the oil pressure light comes on or the engine knocks, shut it off immediately."
+     "If the oil pressure light comes on or the engine knocks, shut it off immediately.",
+     "If the coolant is low once it has cooled, topping it up doesn't fix the cause. Have it checked before driving again.",
+     "If you see coolant pouring out, or smell a strong sweet smell inside the car, keep the engine off."
     ],
     "why": "Once the gauge reaches the red, the engine is hotter than it's designed to run. Sitting in traffic gives it no cooling airflow at all, so it will keep climbing. Stopping quickly can be the difference between a fan repair and a damaged engine.",
     "causes": [
@@ -149,12 +151,12 @@
   },
   "r_fan_not_running": {
    "result": {
-    "title": "The cooling fan isn't turning on",
-    "urgency": "soon",
-    "now": "Get the fan circuit checked within the next few days. Until then, avoid idling and stop-and-go traffic.",
+    "title": "The cooling fan may not be turning on",
+    "urgency": "stop",
+    "now": "Avoid driving it until the fan works, because without the fan it will overheat whenever you're stopped or in slow traffic. With the engine off, check the fan fuse. If the fuse is fine or the fan still won't run, have a mobile mechanic look at it or have it towed.",
     "if": [
-     "If the gauge rises while you're stopped, turn the A/C off and the heater on full hot, and pull over and turn the engine off if it nears the red.",
-     "If a fuse is blown, replacing it may get the fan working, but a fuse that blows again points to a failing fan motor."
+     "If the gauge reaches the red, a temperature warning comes on, or you see steam, pull over and turn the engine off right away.",
+     "If a fuse is blown, replacing it may get the fan working, but a fuse that blows again means something is drawing too much current. A shop will usually test the fan motor and wiring before replacing parts."
     ],
     "why": "When you're stopped there's no air rushing through the radiator, so the fan has to pull air through. A fan that never runs explains overheating that only happens in traffic and clears up once you're moving.",
     "causes": [
@@ -189,12 +191,13 @@
   },
   "r_fan_weak": {
    "result": {
-    "title": "The cooling fan is running, but not hard enough",
+    "title": "The cooling fan may be running, but not hard enough",
     "urgency": "soon",
     "now": "Have the fans checked within the next few days, and avoid long idling until then.",
     "if": [
-     "If the gauge climbs toward the red, pull over and turn the engine off.",
-     "If the high fan speed never kicks in, the fault is often a relay or resistor rather than the motor."
+     "If the gauge climbs toward the red, a temperature warning comes on, or you see steam, pull over and turn the engine off.",
+     "If the high fan speed never kicks in, the fault is often a relay or resistor rather than the motor.",
+     "If you notice a sweet smell or coolant dripping, have it checked before driving again."
     ],
     "why": "Many cars use two fans or two fan speeds. If one fan or the high speed isn't working, there's enough airflow on a mild day but not in heat, heavy traffic or with the A/C on.",
     "causes": [
@@ -228,11 +231,11 @@
   },
   "r_fan_clutch": {
    "result": {
-    "title": "A worn fan clutch is the most likely cause",
+    "title": "A worn fan clutch is a common cause",
     "urgency": "soon",
     "now": "Get the fan clutch checked within the next few days, and avoid towing and long idling until then.",
     "if": [
-     "If the gauge reaches the red, pull over and turn the engine off.",
+     "If the gauge reaches the red, a temperature warning comes on, or you see steam, pull over and turn the engine off.",
      "If the fan wobbles or the blades are cracked, don't drive it. A broken fan can damage the radiator."
     ],
     "why": "Belt-driven fans use a clutch that locks up when the engine is hot to pull more air. When the clutch wears out, the fan freewheels and moves too little air at idle, even though it looks like it's spinning.",
@@ -267,12 +270,13 @@
   },
   "r_low_coolant": {
    "result": {
-    "title": "Low coolant is making it run hot",
-    "urgency": "soon",
-    "now": "With the engine cold, top up the overflow tank to MAX with the coolant type in your owner's manual, then have the leak found within the next few days.",
+    "title": "Low coolant may be making it run hot",
+    "urgency": "stop",
+    "now": "With the engine fully cold, top up the overflow tank to MAX with the coolant type in your owner's manual. Then have the cooling system checked before relying on the car, since the coolant went somewhere and it has already run hot. A mobile mechanic or a tow avoids overheating it again.",
     "if": [
-     "If it drops again quickly, or the gauge reaches the red, stop driving it and have it towed.",
-     "If you see white sweet-smelling exhaust smoke or milky oil, don't drive it. That points to an internal leak."
+     "If the level drops again quickly, the gauge reaches the red, or you see steam, keep the engine off and have it towed.",
+     "If you see white sweet-smelling exhaust smoke or milky oil, don't drive it. That points to an internal leak.",
+     "If the heater blows cold while the gauge is high, coolant may not be circulating. Turn the engine off."
     ],
     "why": "With less coolant, the system has less capacity to carry heat away. That shows up first when airflow is weakest, which is when you're stopped. The coolant had to go somewhere, so a leak still needs finding.",
     "causes": [
@@ -287,9 +291,9 @@
       "against": ""
      },
      {
-      "name": "Internal leak (head gasket)",
+      "name": "Internal leak, such as a head gasket",
       "clues": "White exhaust smoke, milky oil, or no leak anywhere.",
-      "against": ""
+      "against": "Usually confirmed with a pressure test and a combustion gas test, not by the symptoms alone."
      }
     ],
     "confirm": {
@@ -311,11 +315,11 @@
     "urgency": "diy",
     "now": "With the engine fully cold, check that the overflow tank is between MIN and MAX. Then warm the engine, turn on the A/C, and see whether the radiator fan spins.",
     "if": [
-     "If the coolant is low, top it up with the right coolant and look for a leak.",
+     "If the coolant is low, top it up with the right coolant once the engine is cold, and have it checked before relying on the car.",
      "If the fan doesn't spin, get the fan checked before driving in traffic.",
-     "If the gauge reaches the red at any point, pull over and turn the engine off."
+     "If the gauge reaches the red, a temperature warning comes on, or you see steam at any point, pull over and turn the engine off."
     ],
-    "why": "Overheating only at idle almost always comes down to a fan that isn't moving enough air or a cooling system that's low on coolant. Both are quick, safe checks once you know where to look.",
+    "why": "Overheating only at idle usually comes down to a fan that isn't moving enough air or a cooling system that's low on coolant. Both are quick checks once you know where to look, as long as the engine is cold for the coolant check and you stay clear of the fan.",
     "causes": [
      {
       "name": "Cooling fan not working",
@@ -352,7 +356,7 @@
     "now": "Look at the front of the radiator and A/C condenser through the grille for leaves, bugs or dirt, and book a cooling system check.",
     "if": [
      "If you find debris, gently rinse it with a garden hose at low pressure. Don't use a pressure washer, which can flatten the fins.",
-     "If the gauge starts reaching the red, stop driving it and get it checked first."
+     "If the gauge starts reaching the red, a temperature warning comes on, or you see steam, pull over, turn the engine off, and have it checked before driving again."
     ],
     "why": "The A/C condenser sits in front of the radiator and shares the same airflow. When both the engine and the A/C struggle only at idle, something is limiting the air the fan can pull through, or the fan isn't pulling as hard as it should.",
     "causes": [
@@ -392,9 +396,10 @@
     "now": "Get the cooling system checked within the next few days, and avoid long idling until then.",
     "if": [
      "If it starts running hot at highway speed too, stop driving it and have it towed.",
-     "If the heater blows cold while the gauge is high, coolant isn't circulating. Don't drive it."
+     "If the heater blows cold while the gauge is high, coolant isn't circulating. Don't drive it.",
+     "If the gauge reaches the red or you see steam, pull over and turn the engine off."
     ],
-    "why": "If the fan and coolant level are fine, the problem is likely inside the system: a radiator that's partly clogged, a thermostat that doesn't open fully, or a water pump that moves less coolant at low engine speed. Idling is when these show up first.",
+    "why": "If the fan and coolant level are fine, the problem may be inside the system: a radiator that's partly clogged, a thermostat that doesn't open fully, or a water pump that moves less coolant at low engine speed. Idling is when these show up first.",
     "causes": [
      {
       "name": "Partly clogged radiator",
@@ -427,7 +432,7 @@
   },
   "r_unsure": {
    "result": {
-    "title": "Most likely a fan or airflow problem. Have it checked",
+    "title": "Often a fan or airflow problem. Have it checked",
     "urgency": "soon",
     "now": "Book a cooling system check within the next few days, and avoid idling and heavy traffic until then.",
     "if": [

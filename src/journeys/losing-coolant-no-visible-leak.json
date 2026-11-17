@@ -20,7 +20,7 @@
   "coolant loss head gasket",
   "low coolant light keeps coming on"
  ],
- "intro": "The cooling system is sealed, so coolant doesn't get used up like fuel. If the level keeps dropping without a puddle, it's escaping somewhere you can't see: as vapor from a hot leak, inside the car, or inside the engine. A few clues usually point to which.",
+ "intro": "The cooling system is sealed, so coolant doesn't get used up like fuel. If the level keeps dropping without a puddle, it's escaping somewhere you can't see: as vapor from a hot leak, inside the car, or inside the engine. A few clues can help point to which.",
  "safety": [
   "If the temperature gauge reaches the red or a temperature warning comes on, pull over safely and turn the engine off.",
   "Never open the radiator cap or coolant tank cap on a hot engine. Hot coolant under pressure can cause serious burns.",
@@ -100,14 +100,16 @@
   },
   "r_overheat_stop": {
    "result": {
-    "title": "Coolant loss is now causing overheating. Stop driving it",
+    "title": "Coolant loss may now be causing overheating. Stop driving it",
     "urgency": "stop",
     "now": "If it's running hot, pull over somewhere safe and turn the engine off. Once it's cool, have it towed or call a mobile mechanic.",
     "if": [
      "If you're stuck in traffic and can't pull over yet, turn the A/C off and the heater on full hot to pull some heat away.",
-     "If you also see white exhaust smoke or milky oil, don't try to restart it."
+     "If you also see white exhaust smoke or milky oil, don't try to restart it.",
+     "If you see steam or smoke, step away from the car and don't open the hood or any cap until it has cooled.",
+     "If the oil pressure light comes on or the engine knocks, turn it off immediately and don't restart it."
     ],
-    "why": "Once the engine runs hot, there's no longer enough coolant to protect it. Overheating can warp the cylinder head or blow the head gasket, which also causes coolant loss, so the problem can quickly feed itself.",
+    "why": "If the engine is running hot, there may no longer be enough coolant to protect it. Overheating can warp the cylinder head or blow the head gasket, which also causes coolant loss, so the problem can quickly feed itself.",
     "causes": [
      {
       "name": "Head gasket leak",
@@ -139,14 +141,14 @@
   },
   "r_head_gasket": {
    "result": {
-    "title": "Coolant is likely leaking inside the engine, often a head gasket",
+    "title": "Coolant may be leaking inside the engine, often at the head gasket",
     "urgency": "stop",
     "now": "Don't drive it. Have it towed or have a mobile mechanic test it.",
     "if": [
      "If the oil looks milky, don't start the engine at all. Coolant in the oil can quickly ruin the bearings.",
      "If a test rules out the head gasket, a leaking intake gasket, oil cooler or EGR cooler (on some engines) can cause similar signs."
     ],
-    "why": "Sweet-smelling white smoke that stays after warm-up, or milky oil, means coolant is getting into the cylinders or the oil. Driving on it can turn a gasket repair into a full engine replacement.",
+    "why": "Sweet-smelling white smoke that stays after warm-up, or milky oil, can mean coolant is getting into the cylinders or the oil. A shop will usually confirm this with a combustion gas test and a pressure test before any engine work. Driving on it can turn a gasket repair into a full engine replacement.",
     "causes": [
      {
       "name": "Blown head gasket",
@@ -179,14 +181,14 @@
   },
   "r_heater_core": {
    "result": {
-    "title": "The heater core is probably leaking inside the car",
+    "title": "The heater core may be leaking inside the car",
     "urgency": "soon",
     "now": "Top up the coolant when the engine is cold, and get the heater core checked within the next few days.",
     "if": [
      "If the windshield fogs so you can't see, don't drive it until it's fixed.",
      "If the temperature gauge rises above normal, pull over and turn the engine off."
     ],
-    "why": "The heater core is a small radiator behind the dash. When it leaks, coolant escapes into the cabin as vapor or soaks into the carpet, so you never see a puddle under the car. The sweet smell and greasy fog on the glass are the giveaways.",
+    "why": "The heater core is a small radiator behind the dash. When it leaks, coolant escapes into the cabin as vapor or soaks into the carpet, so you never see a puddle under the car. The sweet smell and greasy fog on the glass are the usual clues.",
     "causes": [
      {
       "name": "Leaking heater core",
@@ -219,12 +221,13 @@
   },
   "r_hot_leak": {
    "result": {
-    "title": "A small leak is likely boiling off when the engine is hot",
+    "title": "A small leak may be boiling off when the engine is hot",
     "urgency": "soon",
     "now": "Have a shop pressure-test the cooling system within the next few days. Keep the coolant topped up when cold until then.",
     "if": [
      "If the temperature gauge rises above normal, pull over and turn the engine off.",
-     "If you see heavy steam rather than faint wisps, stop driving it."
+     "If you see heavy steam rather than faint wisps, stop driving it.",
+     "If you notice white sweet-smelling exhaust smoke or milky oil, stop driving it."
     ],
     "why": "Under pressure, a hot cooling system can seep from a hose, the water pump or the radiator, and the coolant evaporates on hot engine parts before it can drip. That leaves a sweet smell and crusty residue instead of a puddle.",
     "causes": [
@@ -263,14 +266,15 @@
   },
   "r_slow_loss": {
    "result": {
-    "title": "A slow seep or a worn cap is the most likely cause",
+    "title": "A slow seep or a worn cap is a common cause",
     "urgency": "check",
     "now": "Keep the overflow tank between MIN and MAX when cold, and book a cooling system pressure test when convenient.",
     "if": [
      "If the loss speeds up, or the temperature gauge rises above normal, get it checked within a few days.",
-     "If you notice white exhaust smoke or milky oil, stop driving it."
+     "If you notice white exhaust smoke or milky oil, stop driving it.",
+     "If you notice a sweet smell inside the car or greasy fog on the windshield, get it checked within a few days."
     ],
-    "why": "A very slow loss usually comes from a tiny seep that evaporates, or a radiator or tank cap that no longer holds pressure and lets coolant escape as vapor. It's not urgent, but slow leaks tend to grow.",
+    "why": "A very slow loss usually comes from a tiny seep that evaporates, or a radiator or tank cap that no longer holds pressure and lets coolant escape as vapor. A slow loss is usually less pressing than a fast one, but slow leaks tend to grow, and an internal leak can start small, so it's worth having tested.",
     "causes": [
      {
       "name": "Worn radiator or tank cap",
@@ -303,12 +307,13 @@
   },
   "r_air_burped": {
    "result": {
-    "title": "Trapped air is likely working its way out after the service",
+    "title": "Trapped air may be working its way out after the service",
     "urgency": "diy",
     "now": "With the engine cold, top up the overflow tank to the MAX line with the same coolant that was used, then check it again after the next few drives.",
     "if": [
      "If the level keeps dropping after a week or so, there's a real leak. Have it pressure-tested.",
-     "If the temperature gauge rises above normal or the heater blows cold, get it checked within a few days. A large air pocket may need to be bled out."
+     "If the temperature gauge rises above normal or the heater blows cold, get it checked within a few days. A large air pocket may need to be bled out.",
+     "If you see steam or smell coolant, pull over when it's safe and turn the engine off."
     ],
     "why": "After coolant is drained and refilled, air can stay trapped in the engine and heater. As it works its way out over the first few drives, coolant takes its place and the tank level drops. Once the air is gone, the level should hold steady.",
     "causes": [
@@ -337,15 +342,16 @@
   },
   "r_fast_loss": {
    "result": {
-    "title": "Coolant is escaping fast. A pressure test will find where",
+    "title": "Coolant is escaping fast. A pressure test can help find where",
     "urgency": "soon",
-    "now": "Get the cooling system pressure-tested within the next few days. Top up when cold and keep trips short until then.",
+    "now": "Get the cooling system pressure-tested within the next few days. Until then, check the level with the engine cold before every trip, top up as needed, keep trips short, avoid highways and towing, and watch the temperature gauge.",
     "if": [
      "If the temperature gauge rises above normal, pull over and turn the engine off.",
      "If you need to add coolant after every drive, don't drive it. Have it towed.",
-     "If white sweet-smelling exhaust smoke appears, stop driving it."
+     "If white sweet-smelling exhaust smoke appears, stop driving it.",
+     "If you see steam or the oil turns milky, stop driving it and have it towed."
     ],
-    "why": "Losing coolant every few days with normal-looking oil usually means a leak that only opens up when the system is hot and under pressure, or one hiding behind the dash. It can also be an early head gasket leak that hasn't reached the oil yet. A pressure test and a combustion gas test usually sort out which.",
+    "why": "Losing coolant every few days with normal-looking oil often means a leak that only opens up when the system is hot and under pressure, or one hiding behind the dash. It can also be an early head gasket leak that hasn't reached the oil yet. A pressure test and a combustion gas test can usually sort out which.",
     "causes": [
      {
       "name": "Leak that only shows up hot and under pressure",
@@ -384,7 +390,8 @@
     "now": "Mark the coolant level when cold, top it up if needed, and book a cooling system pressure test when convenient.",
     "if": [
      "If the level drops quickly, or the temperature gauge rises above normal, get it checked within a few days.",
-     "If you see white sweet-smelling exhaust smoke or milky oil, stop driving it."
+     "If you see white sweet-smelling exhaust smoke or milky oil, stop driving it.",
+     "If you notice a sweet smell inside the car or fog on the windshield, get it checked within a few days."
     ],
     "why": "Knowing how fast the coolant is disappearing helps separate a minor seep from a serious internal leak. A pressure test is the standard way to find leaks you can't see.",
     "causes": [

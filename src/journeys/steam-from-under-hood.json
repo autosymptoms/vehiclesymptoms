@@ -167,7 +167,8 @@
     "now": "Pull over as soon as it's safe, turn off the engine and let it cool for at least 30 minutes. Don't open the radiator cap. Have the car towed or call a mobile mechanic.",
     "if": [
      "If you're in a dangerous spot and need a moment to reach a safe place, turn the heater to full hot with the fan on high. It pulls some heat away from the engine.",
-     "If the coolant tank is empty once the engine is cool, there's a leak or another fault behind it. Topping it up doesn't fix the cause, so still have it checked before relying on the car."
+     "If the coolant tank is empty once the engine is cool, there's a leak or another fault behind it. Topping it up doesn't fix the cause, so still have it checked before relying on the car.",
+     "If you see flames or the smoke turns dark and thick, get everyone away from the car and call 911."
     ],
     "why": "Steam with the gauge in the red means the engine is running far hotter than it's designed to. Keeping it running can warp the cylinder head or blow the head gasket, turning a simple repair into a major one.",
     "causes": [
@@ -208,11 +209,12 @@
   },
   "r_coolant_major": {
    "result": {
-    "title": "A coolant hose or the radiator has likely burst",
+    "title": "A coolant hose, the radiator or the water pump may be leaking badly",
     "urgency": "stop",
     "now": "Turn off the engine and stay back while it cools. Don't restart it. Have the car towed or have a mobile mechanic come to you.",
     "if": [
-     "If the temperature gauge was already climbing before you stopped, mention it to the shop so they check for heat damage too."
+     "If the temperature gauge was already climbing before you stopped, mention it to the shop so they check for heat damage too.",
+     "If you see flames or the smoke turns dark and thick, get everyone away from the car and call 911."
     ],
     "why": "When coolant is pouring out, the engine will lose most of it within minutes and overheat quickly. Running it even a short distance this way can cause serious engine damage.",
     "causes": [
@@ -246,7 +248,7 @@
   },
   "r_boiling_over": {
    "result": {
-    "title": "Coolant is boiling over, so the engine is likely overheating",
+    "title": "Coolant boiling over usually means the engine is overheating",
     "urgency": "stop",
     "now": "Turn off the engine and let it cool for at least 30 minutes without opening any caps. Then have the car towed or call a mobile mechanic.",
     "if": [
@@ -292,14 +294,16 @@
   },
   "r_coolant_leak": {
    "result": {
-    "title": "A small coolant leak is likely hitting hot engine parts",
+    "title": "Coolant may be leaking onto hot engine parts",
     "urgency": "soon",
-    "now": "Once the engine is fully cool, check the coolant level in the overflow tank and top it up to the MAX line with the type listed in your owner's manual. Get the leak checked within a few days.",
+    "now": "Don't drive until you've checked the coolant level with the engine fully cool. If it's between MIN and MAX, top it up with the type listed in your owner's manual and get the leak checked within a few days. If the tank is empty or well below MIN, have it inspected before driving.",
     "if": [
      "If the level drops noticeably between checks, or the temperature gauge rises above its usual spot, stop driving and have it towed.",
+     "If the gauge reaches the red, a temperature warning light comes on, or the heater suddenly blows cold, pull over and turn off the engine.",
+     "If the steam gets heavier or keeps pouring out, stop and let the engine cool before going any further.",
      "If you also see white smoke from the tailpipe with a sweet smell, get it checked right away. That can mean coolant is leaking inside the engine."
     ],
-    "why": "A sweet smell or steam with a normal temperature gauge usually means a small amount of coolant is dripping or seeping onto hot parts and steaming off. It's not an emergency yet, but leaks tend to grow, and running low on coolant will make the engine overheat.",
+    "why": "A sweet smell or steam with a normal temperature gauge often comes from a small amount of coolant dripping or seeping onto hot parts and steaming off. Leaks tend to grow, and running low on coolant will make the engine overheat. When coolant is very low, the gauge can also read normal even though the engine is hot, so the level check matters more than the gauge.",
     "causes": [
      {
       "name": "Leaking hose or loose hose clamp",
@@ -338,15 +342,16 @@
   },
   "r_oil_on_exhaust": {
    "result": {
-    "title": "Oil is probably dripping onto the hot exhaust",
+    "title": "Oil may be dripping onto the hot exhaust",
     "urgency": "soon",
-    "now": "Once the engine is cool, check the oil level on the dipstick and top it up if it's low. Then get the leak looked at within a few days.",
+    "now": "Once the engine is cool, check the oil level on the dipstick and top it up if it's low. Get the leak looked at within a few days, and sooner if the smoke doesn't fade.",
     "if": [
-     "If it started right after an oil change, a little spilled oil can smoke for a drive or two. If it continues, have the shop check the oil filter, drain plug and filler cap.",
-     "If the oil level is below the minimum mark, don't drive until it's topped up.",
+     "If it started right after an oil change, a little spilled oil can smoke for a drive or two. If it continues, ask the shop that did the work to check the oil filter, drain plug and filler cap.",
+     "If the oil level is below the minimum mark, or you see oil dripping steadily, don't drive until it's been checked.",
+     "If the oil pressure warning light comes on or the engine starts knocking, pull over and turn it off right away.",
      "If the smoke gets thick or you see flames, get out, move away and call 911."
     ],
-    "why": "Oil smoking on the exhaust gives off a heavy, sharp burning smell and bluish-white smoke. It's usually a leaking gasket or a loose part, but oil on hot parts is a fire risk and the engine can run low on oil.",
+    "why": "Oil smoking on the exhaust gives off a heavy, sharp burning smell and bluish-white smoke. Common causes are a leaking gasket or a loose part, but oil on hot parts is a fire risk and the engine can run low on oil.",
     "causes": [
      {
       "name": "Leaking valve cover gasket",
@@ -380,12 +385,13 @@
   },
   "r_burning_rubber_plastic": {
    "result": {
-    "title": "Something is melting or a belt is burning. Don't keep running it",
+    "title": "Something may be melting or a belt may be burning. Don't keep running it",
     "urgency": "stop",
     "now": "Turn off the engine and don't restart it. Once it's cool, look for anything stuck to the exhaust. Have the car towed if you can't find a simple cause.",
     "if": [
      "If you find a plastic bag or debris melted onto the exhaust and nothing else looks damaged, have a mechanic confirm it's clear before you rely on the car.",
-     "If the smell is coming from one wheel instead of the hood, a brake may be dragging. Don't drive on it."
+     "If the smell is coming from one wheel instead of the hood, a brake may be dragging. Don't drive on it.",
+     "If you see flames or the smoke gets thicker, get everyone away from the car and call 911."
     ],
     "why": "Burning rubber or plastic smells mean something that shouldn't be getting hot is. A belt slipping on a seized pulley, melting wiring, or debris on the exhaust can each start a fire if you keep going.",
     "causes": [
@@ -420,14 +426,16 @@
   },
   "r_water_evaporating": {
    "result": {
-    "title": "Most likely just water steaming off hot engine parts",
+    "title": "This could be water steaming off hot engine parts",
     "urgency": "diy",
-    "now": "Watch it for a few minutes. If the steam fades and the temperature gauge stays in its normal spot, it was water burning off.",
+    "now": "Watch it for a few minutes. If the steam fades, has no smell and the temperature gauge stays in its normal spot, water burning off is the likely explanation. Check the coolant level the next time the engine is cold.",
     "if": [
      "If it keeps steaming after 10 to 15 minutes of driving in dry weather, check the coolant level once the engine is cool.",
-     "If you notice a sweet smell, or the gauge starts to climb, treat it as a coolant leak and get it checked."
+     "If you notice a sweet smell, or the coolant level is below MIN, treat it as a coolant leak and get it checked.",
+     "If the gauge climbs toward the red or a temperature warning light comes on, pull over and turn off the engine.",
+     "If the smoke turns dark, smells burnt or gets thicker, stop and get away from the car."
     ],
-    "why": "Rain, a car wash or splashing through puddles leaves water on the hot engine and exhaust. It turns to light, odorless white steam that disappears quickly. That's normal and harmless.",
+    "why": "Rain, a car wash or splashing through puddles leaves water on the hot engine and exhaust. It turns to light, odorless white steam that disappears quickly. That's common and usually stops on its own once things dry out.",
     "causes": [
      {
       "name": "Rain or wash water evaporating",
@@ -457,8 +465,9 @@
     "urgency": "diy",
     "now": "Watch whether the vapor fades once the engine is fully warmed up, usually within 10 to 15 minutes of driving.",
     "if": [
-     "If thick white smoke continues after the engine is warm, especially with a sweet smell, get it checked soon. Coolant may be leaking inside the engine.",
-     "If the coolant level keeps dropping with no leak you can find, have the shop test for a head gasket leak."
+     "If thick white smoke continues after the engine is warm, especially with a sweet smell, get it checked before relying on the car. Coolant may be leaking inside the engine.",
+     "If the coolant level keeps dropping with no leak you can find, ask the shop to test for a head gasket leak.",
+     "If the temperature gauge climbs toward the red or a temperature warning light comes on, pull over and turn off the engine."
     ],
     "why": "Burning fuel makes water vapor. When the engine and exhaust are cold, that vapor condenses into white clouds out of the tailpipe. Once things warm up, it should become hard to see.",
     "causes": [

@@ -129,12 +129,13 @@
   },
   "r_binding": {
    "result": {
-    "title": "This is driveline binding from using part-time 4WD on pavement",
+    "title": "This is likely driveline binding from using part-time 4WD on pavement",
     "urgency": "diy",
     "now": "Shift back to 2WD (or 2 High) as soon as you're on dry pavement. Driving straight for a short distance usually releases the tension.",
     "if": [
      "If it won't come out of 4WD, try reversing straight for a few feet, then shift again.",
-     "If you have full-time 4WD or AWD and feel this, it isn't normal. Have the vehicle checked soon."
+     "If you have full-time 4WD or AWD and feel this, it isn't normal. Have the vehicle checked soon.",
+     "If you hear banging or grinding, or the binding continues in 2WD, stop driving and have it checked before going further."
     ],
     "why": "Part-time 4WD locks the front and rear axles together. In a turn the wheels need to travel different distances, and on grippy pavement they can't slip to make up the difference, so the driveline winds up. That's why part-time 4WD is meant for loose or slippery surfaces only.",
     "causes": [
@@ -163,12 +164,13 @@
   },
   "r_engage_procedure": {
    "result": {
-    "title": "It likely needs to be engaged a specific way",
+    "title": "It may need to be engaged a specific way",
     "urgency": "diy",
     "now": "Check your owner's manual for the exact steps. For 4 High, most trucks want slow, straight rolling. For 4 Low, stop or barely roll, shift to Neutral, then select 4 Low.",
     "if": [
      "If the light keeps flashing after you follow the steps exactly, roll forward or backward a few feet in a straight line. That often lets the gears line up.",
-     "If it still won't engage, the actuator or switch may be at fault. Book a check."
+     "If it still won't engage, the actuator or switch may be at fault. Book a check.",
+     "If you hear grinding or banging while it tries to engage, stop trying and have it checked."
     ],
     "why": "Many 4WD systems won't shift unless speed, gear position and steering are right. A flashing light usually means the system is waiting for the gears to line up or for the right conditions.",
     "causes": [
@@ -201,7 +203,7 @@
     "now": "Stop the vehicle, then turn both front hub dials fully to LOCK before selecting 4WD.",
     "if": [
      "If one hub won't turn or won't stay locked, have the hub checked.",
-     "If both hubs are locked and the front wheels still don't drive, the transfer case or front axle needs to be checked."
+     "If both hubs are locked and the front wheels still don't drive, have the transfer case and front axle checked."
     ],
     "why": "With manual hubs, the front wheels aren't connected to the front axle until you lock them. The transfer case can be in 4WD, but no power reaches the front wheels if the hubs are free.",
     "causes": [
@@ -230,7 +232,7 @@
   },
   "r_actuator_switch": {
    "result": {
-    "title": "A shift motor, actuator or 4WD switch is likely at fault",
+    "title": "A shift motor, actuator or 4WD switch may be at fault",
     "urgency": "check",
     "now": "Book a check, and don't count on 4WD until it's fixed. Have the 4WD module codes read.",
     "if": [
@@ -240,7 +242,7 @@
     "why": "On most modern trucks, a switch tells a module to run an electric motor that shifts the transfer case. Some also use an actuator to connect the front axle. If any of these fail, the system can't complete the shift.",
     "causes": [
      {
-      "name": "Failed transfer case shift motor",
+      "name": "Transfer case shift motor fault",
       "clues": "No whir or click from under the vehicle when you select 4WD.",
       "against": ""
      },
@@ -262,7 +264,7 @@
      ],
      "shop": [
       "4WD module code scan",
-      "Shift motor and actuator test",
+      "Shift motor and actuator test before any parts are replaced",
       "Switch and wiring check"
      ]
     }
@@ -270,12 +272,13 @@
   },
   "r_front_not_driving": {
    "result": {
-    "title": "Power probably isn't reaching the front wheels",
+    "title": "Power may not be reaching the front wheels",
     "urgency": "soon",
     "now": "Have it checked within a few days. Don't rely on 4WD in snow, mud or on steep ground until it's fixed.",
     "if": [
      "If you hear clunking or grinding from the front, stop using 4WD and have it inspected before driving further.",
-     "If your truck has manual hubs, check that both are locked first."
+     "If your truck has manual hubs, check that both are locked first.",
+     "If a driveshaft looks loose or hanging, or you hear metal scraping, don't move the vehicle. Have it towed."
     ],
     "why": "The 4WD light only shows what the switch or transfer case thinks is happening. If the front axle isn't connected, or a part between the transfer case and front wheels has failed, the front wheels won't pull.",
     "causes": [
@@ -312,12 +315,13 @@
    "result": {
     "title": "The 4WD or AWD system has stored a fault",
     "urgency": "check",
-    "now": "Book a code scan and inspection. Until then, drive normally in 2WD and don't count on 4WD or AWD.",
+    "now": "Book a code scan and inspection. Until then, drive gently in 2WD (or as your AWD vehicle allows), and don't count on 4WD or AWD.",
     "if": [
      "If you hear grinding or banging or the vehicle jerks, stop and have it towed.",
-     "If the ABS or traction light comes on too, mention it. A wheel speed sensor is a common cause."
+     "If the ABS or traction light comes on too, mention it. A wheel speed sensor is a common cause.",
+     "If you smell burning or see fluid leaking from the middle or ends of the vehicle, stop and have it checked before driving further."
     ],
-    "why": "A Service 4WD or AWD message means the system saw a problem and may have turned itself off to protect the parts. The car usually still drives, but the extra traction may not be there when you need it.",
+    "why": "A Service 4WD or AWD message means the system saw a problem and may have turned itself off to protect the parts. Many vehicles still drive in this state, but the extra traction may not be there when you need it.",
     "causes": [
      {
       "name": "Shift motor, actuator or switch fault",
@@ -350,14 +354,14 @@
   },
   "r_sensor_fault": {
    "result": {
-    "title": "A wheel speed sensor problem is a likely cause",
-    "urgency": "check",
-    "now": "Book a code scan. Drive normally but gently, and allow extra stopping distance on slippery roads.",
+    "title": "A wheel speed sensor problem is a possible cause",
+    "urgency": "soon",
+    "now": "Have the codes read and the brakes checked within a few days. Until then, drive gently and allow extra stopping distance, especially on slippery roads.",
     "if": [
-     "If the red brake warning light comes on too, or the brake pedal feels different, have it checked right away.",
-     "If a wheel bearing is humming or growling, get it checked sooner."
+     "If the red brake warning light comes on too, or the brake pedal feels soft, sinks or takes more effort, don't drive it. Have the brakes checked first.",
+     "If a wheel bearing is humming or growling, or a wheel feels loose, get it checked before driving further."
     ],
-    "why": "The 4WD, AWD, ABS and traction systems all share wheel speed information. When one sensor fails, all of them may switch off at once. Normal braking still works, but anti-lock braking and the extra traction may not.",
+    "why": "The 4WD, AWD, ABS and traction systems all share wheel speed information. When one sensor fails, all of them may switch off at once. With the ABS light on, the anti-lock function and the extra traction may not work, so the wheels can lock in a hard stop on a slippery road.",
     "causes": [
      {
       "name": "Failed or dirty wheel speed sensor",
@@ -395,7 +399,8 @@
     "now": "Within a few days, have all four tires measured for size and tread depth, then match them as your owner's manual requires.",
     "if": [
      "If you notice shuddering or binding in turns, have the transfer case or rear drive unit checked.",
-     "If only one tire was replaced on an AWD vehicle, ask whether it needs to be shaved to match the others."
+     "If only one tire was replaced on an AWD vehicle, ask the tire shop whether it needs to be shaved to match the others.",
+     "If you hear grinding or banging, or the vehicle jerks, stop and have it checked before driving further."
     ],
     "why": "AWD and 4WD systems expect all four wheels to turn at almost the same speed. A new tire next to worn ones, or a different size, makes them turn at different speeds all the time. That can set a warning and wear out the parts that split power between the axles.",
     "causes": [
@@ -425,12 +430,12 @@
   },
   "r_engage_grind": {
    "result": {
-    "title": "A brief grind when engaging usually means the shift is happening too fast or a part is wearing",
+    "title": "A brief grind when engaging often means the shift is happening too fast or a part is wearing",
     "urgency": "soon",
     "now": "Engage 4WD only at the speed and conditions in your owner's manual, and have it checked within a few days if the grind continues.",
     "if": [
      "If the grinding continues after it engages, or there's a burning smell, stop and have it towed.",
-     "If it only happens when shifting at higher speeds, slowing down first may be all it needs."
+     "If it only happens when shifting at higher speeds, try slowing down first. If it still grinds, have it checked."
     ],
     "why": "Gears and the front axle connection need to spin at matching speeds to engage smoothly. Shifting too fast, or a worn actuator or hub, can make them clash briefly before they lock in.",
     "causes": [
@@ -472,7 +477,7 @@
      "If you see a driveshaft hanging or hear metal scraping, don't move the vehicle at all.",
      "If you smell burning, keep away from the underside until it cools."
     ],
-    "why": "Constant grinding, banging or jerking means parts in the driveline are slipping or broken. Driving on them can lock a wheel or drop a driveshaft, and the damage spreads fast.",
+    "why": "Constant grinding, banging or jerking can mean parts in the driveline are slipping or broken. Driving on them can lock a wheel or drop a driveshaft, and the damage spreads fast.",
     "causes": [
      {
       "name": "Transfer case failure (chain, gears or low fluid)",
@@ -507,7 +512,7 @@
     "now": "Book a check, and don't rely on 4WD or AWD until it's confirmed working. Note any lights or messages on the dash.",
     "if": [
      "If you hear grinding or banging, or the vehicle shudders, stop and have it towed.",
-     "If it only acts up on dry pavement in 4WD, switch back to 2WD. That may be normal binding."
+     "If it only acts up on dry pavement in part-time 4WD, switch back to 2WD. That may be normal binding."
     ],
     "why": "4WD trouble can come from how it's being engaged, a failed actuator or sensor, or worn driveline parts. A scan and a quick inspection usually narrow it down fast.",
     "causes": [

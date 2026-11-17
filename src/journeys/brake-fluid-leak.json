@@ -122,7 +122,7 @@
   },
   "r_pedal": {
    "result": {
-    "title": "The brakes are losing pressure. Don't drive the car",
+    "title": "The brakes may be losing pressure. Don't drive the car",
     "urgency": "stop",
     "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
     "if": [
@@ -137,7 +137,7 @@
       "against": ""
      },
      {
-      "name": "Failing master cylinder",
+      "name": "Master cylinder problem",
       "clues": "The pedal slowly sinks while you hold steady pressure, with or without a visible leak.",
       "against": ""
      },
@@ -160,7 +160,7 @@
   },
   "r_light": {
    "result": {
-    "title": "The red brake light with a leak points to low brake fluid",
+    "title": "The red brake light with a leak can point to low brake fluid",
     "urgency": "stop",
     "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
     "if": [
@@ -200,17 +200,17 @@
   },
   "r_wheel": {
    "result": {
-    "title": "A brake caliper or wheel cylinder is likely leaking",
+    "title": "A brake caliper or wheel cylinder may be leaking",
     "urgency": "stop",
     "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
     "if": [
-     "If fluid has soaked the brake pads or shoes, they'll need replacing too. Contaminated pads don't grip properly.",
+     "If fluid has soaked the brake pads or shoes, a shop will usually replace them as well. Contaminated pads don't grip properly.",
      "If it turns out to be thick black grease instead of slick fluid, it may be a torn axle boot. Still have it checked before using the car."
     ],
     "why": "Each wheel has a caliper, or a wheel cylinder on drum brakes, that uses brake fluid to press the pads or shoes. A leak there drains fluid and can coat the pads, so that wheel brakes poorly. The pedal can go soft with little warning.",
     "causes": [
      {
-      "name": "Leaking caliper piston seal",
+      "name": "Caliper piston seal leaking",
       "clues": "Wet, slick fluid on the inside of a front wheel.",
       "against": ""
      },
@@ -240,7 +240,7 @@
   },
   "r_line": {
    "result": {
-    "title": "A brake line or hose is likely leaking",
+    "title": "A brake line or hose may be leaking",
     "urgency": "stop",
     "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
     "if": [
@@ -320,8 +320,8 @@
     "urgency": "stop",
     "now": "Don't drive it until it's checked. Have it towed or call a mobile mechanic.",
     "if": [
-     "If it's plain water or smells sweet, it's more likely an A/C drain or heater core leak, not the brakes. Have it checked within a few days.",
-     "If the car is a manual and the clutch pedal feels soft or sticks, the clutch system is the likely source."
+     "If it's plain water or smells sweet, it may be an A/C drain or heater core leak instead. Still have the brake fluid level and pedal checked before driving, and mention any sweet smell or foggy windows to the shop.",
+     "If the car is a manual and the clutch pedal feels soft or sticks, the clutch system may be the source. Many cars share the brake fluid reservoir with the clutch, so it still needs checking before you drive."
     ],
     "why": "The brake master cylinder, and on manual cars the clutch master cylinder, sit just in front of the pedals. A leak there can run back toward the pedal area. Both use brake fluid, and many cars share one reservoir, so either leak can lead to low brake fluid.",
     "causes": [
@@ -395,14 +395,14 @@
   },
   "r_not_brake": {
    "result": {
-    "title": "The fluid you found probably isn't brake fluid",
-    "urgency": "check",
-    "now": "Check the reservoir again in a few days to make sure it holds steady, and book a check when convenient to identify the fluid.",
+    "title": "The fluid you found may not be brake fluid, but have the brakes checked",
+    "urgency": "soon",
+    "now": "Have the brakes inspected within the next few days so a shop can identify the fluid and confirm the brakes aren't leaking. Check the reservoir again before each drive until then.",
     "if": [
      "If the brake fluid level drops when you check again, treat it as a leak and don't drive the car until it's checked.",
-     "If the brake pedal ever feels soft or the red brake light comes on, don't drive it."
+     "If the pedal feels soft or sinks, the red BRAKE light comes on, the car pulls to one side when braking, or you smell burning from a wheel, don't drive it until the brakes are checked."
     ],
-    "why": "A full reservoir and a firm pedal mean the brake system is very likely holding its fluid. Other fluids near the wheels, like shock absorber oil or axle grease, can look similar.",
+    "why": "A full reservoir and a firm pedal are good signs, but they don't prove there's no leak. A slow leak can take time to lower the level. Other fluids near the wheels, like shock absorber oil or axle grease, can also look similar.",
     "causes": [
      {
       "name": "Leaking shock absorber or strut",
@@ -435,17 +435,19 @@
   },
   "r_pad_wear": {
    "result": {
-    "title": "The level may just be dropping as the brake pads wear",
-    "urgency": "check",
-    "now": "Book a brake inspection when convenient. When new pads go in, the fluid level usually rises back up on its own.",
+    "title": "The level may be dropping as the brake pads wear, but a leak needs to be ruled out",
+    "urgency": "soon",
+    "now": "Have the brakes inspected within the next few days. A shop will usually check pad thickness and look for leaks before deciding whether it's just pad wear. Don't top it up to MAX yourself before the inspection, as the level helps them judge.",
     "if": [
      "If the level keeps dropping between checks, or you spot any wet areas near the wheels, treat it as a leak and don't drive the car until it's checked.",
-     "If the level reaches MIN or the red brake light comes on, don't drive it."
+     "If the level reaches MIN or the red brake light comes on, don't drive it until the brakes are checked.",
+     "If the pedal feels soft or sinks, the red BRAKE light comes on, the car pulls to one side when braking, or you smell burning from a wheel, don't drive it until the brakes are checked.",
+     "If you hear grinding when you brake, the pads may be worn down to metal. Don't drive it until they're checked."
     ],
-    "why": "As brake pads wear thinner, the brake pistons sit further out and hold more fluid, so the reservoir level drops slowly over many months. That's normal. A sudden drop, or any dampness near the wheels, is not.",
+    "why": "As brake pads wear thinner, the brake pistons sit further out and hold more fluid, so the reservoir level drops slowly over many months. That can be normal. A sudden drop, or any dampness near the wheels, is not, and from here it isn't possible to tell the two apart.",
     "causes": [
      {
-      "name": "Normal brake pad wear",
+      "name": "Brake pad wear",
       "clues": "A slow drop over months, and the pads are getting old.",
       "against": ""
      },

@@ -20,7 +20,7 @@
   "wheel wobble at low speed",
   "steering wheel shakes on highway"
  ],
- "intro": "A shaking steering wheel almost always comes from something at the front wheels: the tires, the wheels themselves, the brakes or the steering parts. When the shake happens tells you which. Answer the questions below to find the most likely cause and how soon to deal with it.",
+ "intro": "A shaking steering wheel usually comes from something at the front wheels: the tires, the wheels themselves, the brakes or the steering parts. When the shake happens helps narrow down which. Answer the questions below to see the most likely causes and how soon to deal with it.",
  "safety": [
   "If the shaking starts suddenly and violently, slow down and pull over safely right away.",
   "If a tire has a bulge, a bubble or exposed cords, don't drive on it. It can blow out.",
@@ -123,12 +123,13 @@
   },
   "r_tire_damage": {
    "result": {
-    "title": "A damaged tire is causing the shake and could fail",
+    "title": "A damaged tire may be causing the shake and could fail",
     "urgency": "stop",
     "now": "Don't drive on that tire. Put on the spare or call roadside assistance.",
     "if": [
      "If the spare is a small temporary one, follow the speed and distance limits printed on it and replace the damaged tire soon.",
-     "If more than one tire looks damaged, have the car towed."
+     "If more than one tire looks damaged, have the car towed.",
+     "If the steering feels loose, the car pulls hard, or you hear clunking from that corner, have the car towed instead of fitting the spare yourself."
     ],
     "why": "A bulge or lump means the tire's internal structure is broken, often from a pothole or from belts separating inside. A tire in that state shakes the steering and can blow out without warning.",
     "causes": [
@@ -197,14 +198,16 @@
   },
   "r_bent_wheel": {
    "result": {
-    "title": "A bent wheel or damaged tire from an impact is likely",
+    "title": "A bent wheel or tire damage from an impact is a likely cause",
     "urgency": "soon",
-    "now": "Have the wheels and tires inspected and balanced within the next few days. Keep your speed down until then.",
+    "now": "If the shake is strong, or you weren't able to check the tires and lug nuts, don't drive on. Call roadside assistance. If it's mild and the tires and lug nuts look normal, keep your speed down and have the wheels and tires inspected within the next few days.",
     "if": [
      "If the shake gets worse, you hear a thump, or the car pulls hard to one side, stop driving and have it towed.",
+     "If you hear clicking or clunking from one wheel, or a lug nut looks loose, stop and don't drive until the wheel is checked.",
+     "If you later spot a bulge, lump or exposed cords on a tire, don't drive on that tire.",
      "If the car also pulls or the steering wheel is now off-center, ask for an alignment check too. The impact may have bent a steering or suspension part."
     ],
-    "why": "Hitting a pothole or curb can bend the edge of a wheel or damage the tire inside where you can't see it. Either one makes the wheel spin unevenly, and you feel it as a shake that grows with speed.",
+    "why": "Hitting a pothole or curb can bend the edge of a wheel or damage the tire inside where you can't see it. Either one makes the wheel spin unevenly, and you feel it as a shake that grows with speed. Damage you can't see can still get worse, which is why a shop will usually check the wheel on a balancer before deciding what needs replacing.",
     "causes": [
      {
       "name": "Bent wheel",
@@ -237,14 +240,15 @@
   },
   "r_brake_rotors": {
    "result": {
-    "title": "Uneven brake rotors are the most common cause of shaking when braking",
+    "title": "Uneven brake rotors are a common cause of shaking when braking",
     "urgency": "check",
     "now": "Book a brake inspection and mention that the steering wheel shakes when you brake.",
     "if": [
-     "If you also hear grinding, or the brake pedal feels soft or sinks, get the brakes checked within a day or two.",
-     "If the car pulls hard to one side when you brake, have it checked soon. A brake caliper may be sticking."
+     "If the brake pedal feels soft, sinks toward the floor, or the brake warning light comes on, don't drive the car. Have it inspected first.",
+     "If you also hear grinding, or smell burning from a wheel, get the brakes checked before driving much further.",
+     "If the car pulls hard to one side when you brake, have it checked before relying on the car. A brake caliper may be sticking."
     ],
-    "why": "When the brake rotors (the metal discs the pads squeeze) wear unevenly, the pads grip a surface that isn't flat. That pulses back through the steering wheel and the brake pedal every time you slow down.",
+    "why": "When the brake rotors (the metal discs the pads squeeze) wear unevenly, the pads grip a surface that isn't flat. That pulses back through the steering wheel and the brake pedal every time you slow down. A shop will usually measure the rotors before deciding whether to resurface or replace them.",
     "causes": [
      {
       "name": "Uneven or worn brake rotors",
@@ -277,14 +281,15 @@
   },
   "r_after_tire_work": {
    "result": {
-    "title": "A wheel is probably out of balance or not seated right after the tire work",
+    "title": "A wheel may be out of balance or not seated right after the tire work",
     "urgency": "check",
     "now": "Go back to the shop that did the work and ask them to recheck the balance and the lug nut torque.",
     "if": [
      "If you hear clicking or clunking from one wheel, stop and check the lug nuts before driving further.",
+     "If the shake is strong or getting worse quickly, don't drive on. Call the shop or roadside assistance.",
      "If rebalancing doesn't help, ask them to check for a defective new tire or a bent wheel."
     ],
-    "why": "A shake that starts right after tire work usually means a wheel weight was missed or fell off, or the tire wasn't seated evenly on the wheel. Shops expect to fix this, and it's a quick recheck.",
+    "why": "A shake that starts right after tire work often means a wheel weight was missed or fell off, or the tire wasn't seated evenly on the wheel. Good shops expect to recheck their work, and it's usually a quick check.",
     "causes": [
      {
       "name": "Wheel out of balance",
@@ -317,14 +322,15 @@
   },
   "r_balance": {
    "result": {
-    "title": "Tire balance is the most likely cause of a highway-speed shake",
+    "title": "Tire balance is a common cause of a highway-speed shake",
     "urgency": "check",
     "now": "Have the front tires balanced and inspected at a tire shop.",
     "if": [
      "If balancing doesn't fix it, ask for a check of the wheels for bends and the tires for internal damage.",
-     "If the shake suddenly gets worse or you hear a thump, slow down and have the tires checked right away."
+     "If the shake suddenly gets worse or you hear a thump, slow down and have the tires checked right away.",
+     "If you see a bulge or lump on a tire, or hear clicking or clunking from a wheel, don't drive on it until it's checked."
     ],
-    "why": "A shake that appears in one speed range, often around 50 to 70 mph, and fades above or below it is the classic sign of a wheel out of balance. Wheel weights fall off and tires wear unevenly over time.",
+    "why": "A shake that appears in one speed range, often around 50 to 70 mph, and fades above or below it is a classic sign of a wheel out of balance. Wheel weights fall off and tires wear unevenly over time.",
     "causes": [
      {
       "name": "Front tire out of balance",
@@ -362,9 +368,10 @@
     "now": "Have the front suspension and steering inspected within the next few days. Avoid high speeds until then.",
     "if": [
      "If the steering suddenly becomes very loose or the car is hard to keep in its lane, stop driving and have it towed.",
-     "If the tires have uneven wear, ask for an alignment after any worn parts are replaced."
+     "If you hear a loud clunk and the steering suddenly feels different, pull over and have it towed.",
+     "If the tires have uneven wear, ask for an alignment after any repair."
     ],
-    "why": "Tie rods, ball joints and control arm bushings hold the front wheels steady. When they wear, small vibrations turn into a shimmy you feel in the wheel. Worn shocks can also let the tires bounce, which wears the tread into a wavy pattern that makes the shake worse.",
+    "why": "Tie rods, ball joints and control arm bushings hold the front wheels steady. When they wear, small vibrations can turn into a shimmy you feel in the wheel. Worn shocks can also let the tires bounce, which wears the tread into a wavy pattern that makes the shake worse. A shop will usually check each joint for play before deciding which part to replace.",
     "causes": [
      {
       "name": "Worn tie rod ends",
@@ -402,6 +409,7 @@
     "now": "Have the wheel bearings checked within the next few days. Keep speeds moderate until then.",
     "if": [
      "If the noise turns into grinding, or the wheel feels loose or wobbly, stop driving and have it towed.",
+     "If one wheel is much hotter than the others after a drive, or you smell burning from a wheel, don't keep driving. Have it inspected first.",
      "If the noise changes when you gently weave left and right, mention which way makes it louder. It helps the shop find which side."
     ],
     "why": "A wheel bearing lets the wheel spin smoothly on the hub. When it wears, it usually hums or growls first, and as it gets worse it can let the wheel wobble, which you feel in the steering.",
@@ -436,12 +444,13 @@
   },
   "r_low_speed_wobble": {
    "result": {
-    "title": "A low-speed wobble usually means a damaged tire or a bent wheel",
+    "title": "A low-speed wobble often comes from a damaged tire or a bent wheel",
     "urgency": "soon",
     "now": "Look over each tire for lumps or uneven spots, then have the tires and wheels inspected within the next few days.",
     "if": [
      "If you see a bulge, lump or exposed cords, don't drive on that tire. Put on the spare or call roadside assistance.",
-     "If the wobble is getting worse quickly, stop driving and have it towed."
+     "If the wobble is getting worse quickly, stop driving and have it towed.",
+     "If the steering feels loose or you hear clunking from a wheel, don't drive until it's checked."
     ],
     "why": "Balance problems mostly show up at higher speeds. A slow, side-to-side wobble at low speed more often comes from a tire whose internal belts have shifted or a wheel that's bent, so it doesn't roll true.",
     "causes": [
@@ -481,9 +490,10 @@
     "now": "Check the tire pressures and look over each tire, then book a tire balance and front-end inspection.",
     "if": [
      "If the shake started suddenly or is getting worse quickly, pull over and inspect the tires before driving further.",
-     "If it only happens when braking, ask for the brakes to be checked as well."
+     "If you hear clicking or clunking from a wheel, see a bulge on a tire, or the steering feels loose, don't drive on. Have it checked first.",
+     "If it only happens when braking, ask for the brakes to be checked as well. If the brake pedal feels soft or sinks, don't drive the car."
     ],
-    "why": "Most steering wheel shakes come from the front tires and wheels. If those check out, the brakes and the steering and suspension parts are next.",
+    "why": "Most steering wheel shakes come from the front tires and wheels. If those check out, the brakes and the steering and suspension parts are the next things a shop will usually test.",
     "causes": [
      {
       "name": "Tire out of balance",

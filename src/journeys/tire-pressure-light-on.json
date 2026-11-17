@@ -21,7 +21,7 @@
   "horseshoe light with exclamation mark",
   "tire pressure sensor fault"
  ],
- "intro": "The tire pressure light (a horseshoe shape with an exclamation mark) means at least one tire is well below its proper pressure, or that the monitoring system itself has a fault. A steady light usually means low pressure. A light that flashes for about a minute at startup and then stays on usually means a system fault.",
+ "intro": "The tire pressure light (a horseshoe shape with an exclamation mark) usually means at least one tire is well below its proper pressure, or that the monitoring system itself has a fault. A steady light usually means low pressure. A light that flashes for about a minute at startup and then stays on usually means a system fault.",
  "safety": [
   "If a tire is flat or the car starts pulling, wobbling or thumping, slow down and pull over somewhere safe. Driving on a flat can ruin the tire and wheel and make the car hard to control.",
   "If you're changing a tire at the roadside, get well away from traffic first. If that's not possible, call roadside assistance."
@@ -108,7 +108,7 @@
   },
   "r_flat": {
    "result": {
-    "title": "A tire is flat or losing air fast",
+    "title": "A tire may be flat or losing air fast",
     "urgency": "stop",
     "now": "Pull over somewhere safe and don't drive further on it. Put on the spare if you can do it safely, or call roadside assistance.",
     "if": [
@@ -153,9 +153,10 @@
     "now": "Inflate it to the door-sticker pressure, then have it checked for a leak within a few days. Check its pressure every day until then.",
     "if": [
      "If it drops a lot overnight or won't hold air at all, use the spare and don't drive on that tire.",
-     "If you see a bulge or a cut in the sidewall, don't drive on it. Use the spare."
+     "If you see a bulge or a cut in the sidewall, don't drive on it. Use the spare.",
+     "If the car starts pulling, wobbling, vibrating or thumping, slow down, pull over somewhere safe and check the tire."
     ],
-    "why": "When one tire is clearly lower than the rest, it's losing air on its own, usually through a small puncture, the valve stem, or the seal between the tire and the wheel. Small leaks are often repairable if caught early.",
+    "why": "When one tire is clearly lower than the rest, it's likely losing air on its own, often through a small puncture, the valve stem, or the seal between the tire and the wheel. Small leaks are often repairable if caught early, and a shop will usually water-test the tire to find the spot.",
     "causes": [
      {
       "name": "Nail or screw in the tread",
@@ -190,10 +191,12 @@
    "result": {
     "title": "Cold weather has likely lowered the pressure in all four tires",
     "urgency": "diy",
-    "now": "Fill all four tires to the door-sticker pressure. The light should go out after a few minutes of driving.",
+    "now": "Fill all four tires to the door-sticker pressure. The light usually goes out after a few minutes of driving.",
     "if": [
      "If the light comes back within a few days and one tire is lower than the others, that tire probably has a slow leak.",
-     "If the light doesn't go out after inflating and driving, your car may need a TPMS reset. See the owner's manual."
+     "If the light doesn't go out after inflating and driving, your car may need a TPMS reset. See the owner's manual.",
+     "If any tire looks much lower than the others, or you see a bulge, cut or cords, don't drive on it. Use the spare or call roadside assistance.",
+     "If the car pulls, wobbles or thumps, slow down and pull over somewhere safe."
     ],
     "why": "Air pressure drops when it gets colder, roughly 1 psi for every 10°F. A cold snap can push all four tires low enough to turn on the light, especially if they were already a little under.",
     "causes": [
@@ -226,7 +229,8 @@
     "now": "Look up the TPMS reset in your owner's manual. Some cars have a reset button or a menu option, then need 10 to 20 minutes of driving to relearn.",
     "if": [
      "If the light is still on after a reset and a few drives, have the TPMS sensors checked when convenient.",
-     "If you checked the pressures while the tires were warm, recheck them cold. Warm tires read higher."
+     "If you checked the pressures while the tires were warm, recheck them cold. Warm tires read higher.",
+     "If a tire starts to look low, or the car pulls, wobbles or thumps, pull over and check the tires before driving further."
     ],
     "why": "Some cars don't measure pressure directly. They compare how fast each wheel spins, and they need a reset after you inflate the tires or rotate them. Cars with a sensor in each wheel can also show a light if one sensor sends a wrong reading.",
     "causes": [
@@ -262,9 +266,9 @@
    "result": {
     "title": "Treat it as a low tire until you've checked the pressures",
     "urgency": "diy",
-    "now": "Drive gently to the nearest gas station or tire shop and check all four tires against the pressure on the driver's door sticker.",
+    "now": "First look at all four tires. If none look low, drive gently a short distance to the nearest gas station or tire shop and check all four against the pressure on the driver's door sticker.",
     "if": [
-     "If a tire looks low or the car pulls, wobbles or thumps on the way, pull over safely and use the spare or call roadside assistance.",
+     "If a tire looks low, or the car pulls, wobbles or thumps on the way, pull over safely and use the spare or call roadside assistance.",
      "If all four tires are fine, follow the TPMS reset steps in your owner's manual."
     ],
     "why": "A steady tire pressure light most often means at least one tire is truly low. Low tires wear out faster, hurt braking and handling, and can overheat. The only way to know is to measure.",
@@ -299,13 +303,14 @@
   },
   "r_after_tire_work": {
    "result": {
-    "title": "The tire sensors probably weren't installed or programmed after the tire work",
+    "title": "The tire sensors may not be installed, matched or programmed after the tire work",
     "urgency": "check",
     "now": "Go back to the shop that did the tire work and ask them to check and program the TPMS sensors. Check your tire pressures with a gauge in the meantime.",
     "if": [
-     "If a tire also looks low, inflate it and check it for a leak first. The system can't warn you while it's faulty."
+     "If a tire also looks low, inflate it and check it for a leak first. The system can't warn you while it's faulty.",
+     "If the car pulls, wobbles or thumps, pull over and check the tires. The light may not warn you while the system is faulty."
     ],
-    "why": "A light that flashes and then stays on means the monitoring system can't read one or more sensors. After new wheels or a tire swap, the sensors may be missing, damaged during mounting, or not yet matched to the car.",
+    "why": "A light that flashes and then stays on usually means the monitoring system can't read one or more sensors. After new wheels or a tire swap, the sensors may be missing, damaged during mounting, or not yet matched to the car. Most tire shops can scan the sensors and program them quickly.",
     "causes": [
      {
       "name": "Sensors not programmed to the car",
@@ -337,11 +342,12 @@
   },
   "r_spare": {
    "result": {
-    "title": "The spare tire doesn't have a pressure sensor, so the system flags a fault",
+    "title": "The spare tire probably doesn't have a pressure sensor, so the system flags a fault",
     "urgency": "soon",
     "now": "Get the original tire repaired or replaced and put back on. Check the spare's pressure with a gauge, and follow any speed and distance limits printed on a compact spare.",
     "if": [
-     "If the light keeps flashing after the original wheel is back on, have the TPMS sensors checked."
+     "If the light keeps flashing after the original wheel is back on, have the TPMS sensors checked.",
+     "If the spare looks low, or the car pulls, wobbles or thumps, pull over and check it. The light can't warn you about the spare's pressure."
     ],
     "why": "Most spare tires don't have a TPMS sensor. When the car can't find the sensor it expects, it flashes the light and then leaves it on to show the system isn't working.",
     "causes": [
@@ -370,13 +376,14 @@
   },
   "r_tpms_fault": {
    "result": {
-    "title": "The tire pressure monitoring system has a fault, often a dead sensor battery",
+    "title": "The tire pressure monitoring system likely has a fault, often a worn sensor battery",
     "urgency": "check",
-    "now": "Book a TPMS check when convenient. Until it's fixed, check your tire pressures with a gauge about once a month and before long trips.",
+    "now": "Book a TPMS check when convenient. Until it's fixed, check your tire pressures with a gauge every week or two and before long trips.",
     "if": [
-     "If any tire looks low or the car feels different, check the pressures right away. The light can't warn you while the system is faulty."
+     "If any tire looks low or the car feels different, check the pressures right away. The light can't warn you while the system is faulty.",
+     "If the car pulls, wobbles or thumps, slow down and pull over somewhere safe."
     ],
-    "why": "A light that flashes at startup and then stays on means the system can't read one or more sensors. The tires themselves may be fine. Sensor batteries are sealed inside and wear out with age, so older cars often lose a sensor.",
+    "why": "A light that flashes at startup and then stays on usually means the system can't read one or more sensors. That doesn't tell you anything about the actual tire pressures, so check them with a gauge. Sensor batteries are sealed inside and wear out with age, so older cars often lose a sensor.",
     "causes": [
      {
       "name": "Sensor battery worn out",
@@ -396,7 +403,7 @@
     ],
     "confirm": {
      "you": [
-      "Check all four tires with a gauge so you know they're safe."
+      "Check all four tires with a gauge so you know their actual pressures."
      ],
      "shop": [
       "TPMS sensor scan for each wheel",

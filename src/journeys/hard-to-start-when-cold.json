@@ -103,13 +103,14 @@
   },
   "r_battery_weak": {
    "result": {
-    "title": "The battery is most likely too weak for cold starts",
+    "title": "The battery may be too weak for cold starts",
     "urgency": "diy",
     "now": "Check that the battery clamps are tight and free of crusty buildup, then have the battery tested. Many auto parts stores test batteries free.",
     "if": [
-     "If it fails the test or is older than about 4 to 5 years, replace it before it leaves you stranded.",
-     "If it won't start at all, a jump start or booster pack should get you going.",
-     "If the battery tests good, ask them to test the alternator and starter too."
+     "If it fails a load test, replace it before it leaves you stranded. Age alone doesn't prove it's bad, but a battery older than about 4 to 5 years is worth testing before winter.",
+     "If it won't start at all, a jump start or booster pack may get you going. If you jump-start it, follow your owner's manual. Don't jump a battery that is cracked, leaking, swollen or smells like rotten eggs.",
+     "If the battery tests good, ask them to test the alternator and starter too.",
+     "If the battery light comes on or the lights dim while driving, the charging system may be the problem. Have it tested soon."
     ],
     "why": "A battery loses a lot of its strength in the cold, while cold, thick oil makes the engine harder to turn. An aging battery that seems fine in summer often can't keep up on a cold morning.",
     "causes": [
@@ -149,8 +150,9 @@
     "urgency": "soon",
     "now": "Get the charging system tested within the next few days. Until then, avoid short trips with lots of lights and accessories on.",
     "if": [
-     "If the battery light comes on and stays on while driving, head straight to a shop or a safe place. The car may die once the battery runs down.",
-     "If the headlights get dim and the dash flickers, pull over safely. The battery is running out."
+     "If the battery light comes on and stays on while driving, the car may run only until the battery is drained. Head for a safe place to stop rather than a long drive.",
+     "If the headlights get dim and the dash flickers, pull over safely. The battery is running out.",
+     "If the battery light comes on along with a rising temperature gauge or heavy steering, a broken drive belt is possible. Pull over and turn the engine off."
     ],
     "why": "A newer battery that keeps running low usually isn't getting recharged properly. Cold weather makes the problem show up first because starting takes more power.",
     "causes": [
@@ -185,12 +187,13 @@
   },
   "r_starter_oil": {
    "result": {
-    "title": "A worn starter, poor cable connection or too-thick oil is likely",
+    "title": "A worn starter, poor cable connection or too-thick oil are possible causes",
     "urgency": "check",
     "now": "Check your owner's manual or the oil cap for the correct oil grade and compare it with your last oil change receipt. Then book a check of the starter and cables.",
     "if": [
      "If the crank keeps getting slower or you hear grinding, get it checked soon. A starter that's failing usually gets worse.",
-     "If the battery cables feel warm after cranking, a bad connection is likely."
+     "If the battery cables feel warm after cranking, a poor connection is likely. Tell the shop.",
+     "If you smell burning or see smoke from under the hood after cranking, stop trying to start it."
     ],
     "why": "With a good battery, a slow cold crank points to something resisting the starter or limiting its power. A worn starter, a corroded cable or ground strap, or oil that's thicker than recommended can each do it.",
     "causes": [
@@ -225,12 +228,12 @@
   },
   "r_fuel_pressure": {
    "result": {
-    "title": "Fuel pressure is likely draining away overnight",
+    "title": "Fuel pressure may be draining away overnight",
     "urgency": "check",
     "now": "Turn the key to ON and wait a few seconds before cranking, or do it twice, to let the fuel pump build pressure. Book a check when convenient.",
     "if": [
      "If it starts getting harder to start even with this trick, or it hesitates while driving, get it checked sooner.",
-     "If you smell fuel at any point, stop and have it inspected before driving."
+     "If you smell fuel at any point, stop trying to start it and have it inspected before driving."
     ],
     "why": "The fuel system is meant to hold pressure after you shut off the engine. If a valve in the pump or a leaky injector lets it bleed off overnight, the pump has to refill the lines before the engine can start, so it cranks longer.",
     "causes": [
@@ -265,14 +268,14 @@
   },
   "r_sensor_ignition": {
    "result": {
-    "title": "A sensor or ignition problem is likely making cold starts harder",
+    "title": "A sensor or ignition problem may be making cold starts harder",
     "urgency": "check",
     "now": "Have the trouble codes read, then book a check. Many parts stores read codes free.",
     "if": [
-     "If the check engine light is flashing, don't drive it. That signals a serious misfire that can damage the catalytic converter.",
+     "If the check engine light is flashing, don't drive it. That usually signals a serious misfire that can damage the catalytic converter.",
      "If it stalls while driving, don't drive it until it's fixed."
     ],
-    "why": "A cold engine needs extra fuel and a strong spark to start. If the coolant temperature sensor tells the computer the engine is warm, it won't add that extra fuel. Worn spark plugs or weak coils also struggle most in the cold.",
+    "why": "A cold engine needs extra fuel and a strong spark to start. For example, if the coolant temperature sensor tells the computer the engine is warm, it won't add that extra fuel. Worn spark plugs or weak coils also struggle most in the cold.",
     "causes": [
      {
       "name": "Faulty coolant temperature sensor",
@@ -305,12 +308,13 @@
   },
   "r_cold_running": {
    "result": {
-    "title": "The engine isn't getting the right mix when cold",
+    "title": "The engine may not be getting the right mix when cold",
     "urgency": "check",
     "now": "Let it idle for 30 seconds before driving off on cold mornings, and book a check when convenient.",
     "if": [
      "If the check engine light flashes or the car shakes hard, don't drive it. A misfire can damage the catalytic converter.",
-     "If it stalls once you're moving, get it checked before driving it again."
+     "If it stalls once you're moving, don't drive it until it's checked. Losing the engine can make steering and braking much harder.",
+     "If you smell fuel, stop the engine and keep sparks and flames away."
     ],
     "why": "A cold engine needs a higher idle and extra fuel until it warms up. If a temperature sensor reads wrong, the idle system is dirty, or a cylinder misfires in the cold, the engine shakes or dies until it warms.",
     "causes": [
@@ -350,7 +354,7 @@
   },
   "r_glow_plugs": {
    "result": {
-    "title": "Diesel cold starts usually point to glow plugs or the battery",
+    "title": "Diesel cold starts often point to glow plugs or the battery",
     "urgency": "check",
     "now": "Turn the key to ON and wait for the coil-shaped glow plug light to go out before cranking. If it's still hard to start, book a check of the glow plugs and battery.",
     "if": [
@@ -394,9 +398,10 @@
     "urgency": "stop",
     "now": "Don't try to start it again. Keep sparks and flames away and have the car towed.",
     "if": [
-     "If fuel is dripping or pooling, move people away from the car and call the fire department."
+     "If fuel is dripping or pooling, move people away from the car and call the fire department.",
+     "If the smell fades and you can't see a wet spot, still have it checked before starting again. Fuel can leak where you can't see it."
     ],
-    "why": "A raw fuel smell or a wet spot means fuel is getting somewhere it shouldn't. A leak can also let fuel pressure drain away overnight, which causes long cranking, and fuel near hot parts is a fire risk.",
+    "why": "A raw fuel smell or a wet spot can mean fuel is getting somewhere it shouldn't. A leak can also let fuel pressure drain away overnight, which causes long cranking, and fuel near hot parts is a fire risk.",
     "causes": [
      {
       "name": "Leaking fuel line or fitting",
@@ -430,10 +435,11 @@
    "result": {
     "title": "Start with a battery test, then a shop check",
     "urgency": "check",
-    "now": "Have the battery tested, since it's the most common cause of hard cold starts. If it passes, book a shop check and describe exactly what you hear.",
+    "now": "Have the battery tested, since it's one of the most common causes of hard cold starts. If it passes, book a shop check and describe exactly what you hear.",
     "if": [
-     "If you smell fuel, stop trying to start it.",
-     "If it won't start at all, a jump start is the first thing to try."
+     "If you smell fuel, stop trying to start it and keep sparks and flames away.",
+     "If it won't start at all, a jump start is a reasonable first try. If you jump-start it, follow your owner's manual. Don't jump a battery that is cracked, leaking, swollen or smells like rotten eggs.",
+     "If the check engine light flashes or the engine shakes hard after starting, don't drive it."
     ],
     "why": "Hard cold starts come from three main areas: battery and starter, fuel delivery, and the sensors that set the cold-start fuel mix. The battery is the easiest and most common place to start.",
     "causes": [

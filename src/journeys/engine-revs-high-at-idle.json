@@ -124,12 +124,13 @@
   },
   "r_normal_cold_idle": {
    "result": {
-    "title": "This is most likely the normal fast idle of a cold engine",
+    "title": "This sounds like the normal fast idle of a cold engine",
     "urgency": "diy",
-    "now": "No repair needed if the idle drops back to normal within a few minutes. Just keep an eye on it.",
+    "now": "If the idle drops back to normal within a few minutes, there's usually nothing to repair. Keep an eye on it.",
     "if": [
      "If the idle stays high after the temperature gauge reaches its normal spot, have it checked.",
-     "If the idle is only a little higher with the A/C or defroster on, that's normal too. The engine raises it to carry the extra load."
+     "If the idle is only a little higher with the A/C or defroster on, that's normal too. The engine raises it to carry the extra load.",
+     "If the car pushes forward when you lift off the gas, or the gas pedal sticks or comes up slowly, don't drive it until it's checked."
     ],
     "why": "A cold engine runs a higher idle on purpose. It helps the engine run smoothly and warms up the parts that clean the exhaust faster. Once warm, the computer brings the idle back down.",
     "causes": [
@@ -157,12 +158,13 @@
   },
   "r_idle_relearn": {
    "result": {
-    "title": "The engine computer probably needs to relearn its idle",
+    "title": "The engine computer may need to relearn its idle",
     "urgency": "diy",
     "now": "Let the engine idle in Park until it's fully warm with everything switched off, then drive normally for a few days. Many cars relearn the idle on their own.",
     "if": [
      "If the idle is still high after a few days of normal driving, a shop can run the idle relearn procedure for your vehicle.",
-     "If the high idle comes with a check engine light, get the code read."
+     "If the high idle comes with a check engine light, get the code read.",
+     "If the car pushes forward when you lift off the gas or is hard to slow down, stop driving it and have it checked."
     ],
     "why": "Disconnecting the battery or cleaning the throttle can erase what the engine computer learned about holding a steady idle. Until it relearns, the idle can sit high or wander.",
     "causes": [
@@ -191,14 +193,16 @@
   },
   "r_vacuum_leak": {
    "result": {
-    "title": "A vacuum leak is the most likely cause",
+    "title": "A vacuum leak is a possible cause",
     "urgency": "check",
     "now": "Have the check engine code read, then book a vacuum leak test when convenient.",
     "if": [
      "If the check engine light starts flashing or the engine runs very rough, stop driving and have it checked.",
-     "If you find a hose that has popped off, a shop can usually fix it quickly."
+     "If you find a hose that has popped off, a shop can usually fix it quickly.",
+     "If the brake pedal feels hard or needs more force than usual, a brake booster hose may be leaking. Have it checked before driving further.",
+     "If the car pushes forward when you lift off the gas, stop driving it and have it towed."
     ],
-    "why": "The engine sets idle by controlling how much air gets in. A cracked hose or leaking gasket lets in extra air the computer can't control, so the idle rises. A hiss is often the leak itself.",
+    "why": "The engine sets idle by controlling how much air gets in. A cracked hose or leaking gasket lets in extra air the computer can't control, so the idle rises. A hiss is often the leak itself. A shop will usually smoke-test the intake to find the leak before replacing parts.",
     "causes": [
      {
       "name": "Cracked, split or disconnected vacuum hose",
@@ -236,7 +240,8 @@
     "now": "Book a check when convenient. Mention that the temperature gauge stays low or the heater is weak.",
     "if": [
      "If the temperature gauge ever climbs into the red, pull over and turn the engine off.",
-     "If the check engine light is on, get the code read. It often points right to the sensor."
+     "If the check engine light is on, get the code read. It can point toward the sensor or thermostat circuit, and a shop will usually confirm with live data before replacing parts.",
+     "If the coolant is low, have the cooling system checked for a leak soon. Low coolant can lead to overheating."
     ],
     "why": "The computer keeps a fast idle until it sees the engine is warm. A thermostat stuck open keeps the engine from warming up, and a faulty temperature sensor can report cold when it isn't. Either way the idle stays high.",
     "causes": [
@@ -271,12 +276,13 @@
   },
   "r_idle_control": {
    "result": {
-    "title": "The idle control system is likely dirty or faulty",
+    "title": "The idle control system may be dirty or faulty",
     "urgency": "check",
     "now": "Book a check when convenient. Note whether the surging happens warm or cold, and with the A/C on or off.",
     "if": [
-     "If the engine stalls when you come to a stop, get it checked sooner. Stalling in traffic is dangerous.",
-     "If you also hear a hiss, a vacuum leak is the more likely cause."
+     "If the engine stalls when you slow down or come to a stop, avoid driving it until it's checked. When the engine dies, steering and braking take much more effort.",
+     "If you also hear a hiss, a vacuum leak is the more likely cause.",
+     "If the car pushes forward when you lift off the gas, stop driving it and have it towed."
     ],
     "why": "The engine uses a throttle valve or a small idle air valve to hold a steady idle. When carbon builds up or a part starts failing, the computer keeps overcorrecting and the RPM hunts up and down.",
     "causes": [
@@ -316,7 +322,8 @@
     "now": "Have the check engine code read if the light is on, and book an inspection when convenient.",
     "if": [
      "If the car pushes forward when you lift off the gas, or the pedal sticks, stop driving it and have it towed.",
-     "If the temperature gauge stays low, mention it. It points to a thermostat or sensor."
+     "If the temperature gauge stays low, mention it. It can point to a thermostat or sensor.",
+     "If the check engine light flashes or the engine shakes, pull over safely and turn it off."
     ],
     "why": "A high idle usually comes from extra air getting in, a sensor telling the computer the engine is cold, or an idle control part that isn't working. A technician can tell which with a scan tool and a smoke test.",
     "causes": [

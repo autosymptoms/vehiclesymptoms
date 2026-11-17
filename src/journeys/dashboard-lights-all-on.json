@@ -108,12 +108,13 @@
   },
   "r_bulb_check": {
    "result": {
-    "title": "This is the normal startup self-check",
+    "title": "This sounds like the normal startup self-check",
     "urgency": "diy",
-    "now": "Nothing to fix. Just watch that every light goes out within a few seconds of the engine starting.",
+    "now": "If every light goes out within a few seconds of the engine starting, there's usually nothing to fix. Keep an eye on it for the next few starts.",
     "if": [
      "If any light stays on after the engine is running, look it up in your owner's manual and follow that light's advice.",
-     "If a light that normally comes on at startup doesn't come on at all, have the bulb or system checked. It may not warn you when it should."
+     "If a light that normally comes on at startup doesn't come on at all, have the bulb or system checked. It may not warn you when it should.",
+     "If a red light such as oil pressure, temperature or brake stays on after starting, don't drive. Turn the engine off and get it checked."
     ],
     "why": "When you switch the car on, it lights up most of its warning lights for a moment to show that the bulbs and systems work. They should all go out once the engine is running.",
     "causes": [
@@ -144,8 +145,10 @@
     "urgency": "diy",
     "now": "Check that the battery clamps are tight and clean, then drive a short distance. Many of these lights clear on their own once the systems see steady voltage.",
     "if": [
-     "If the battery light stays on, have the alternator and battery tested soon.",
-     "If the lights are still on after a few drives, have the codes read. Some systems, like steering or windows, need a reset after battery work."
+     "If the battery light stays on with the engine running, the battery may not be charging. Have the alternator and battery tested before relying on the car for longer trips.",
+     "If the lights are still on after a few drives, have the codes read. Some systems, like steering or windows, need a reset after battery work.",
+     "If a red oil pressure, temperature or brake light stays on, turn the engine off and get it checked before driving.",
+     "If the lights flicker, the steering gets heavy or the engine stumbles, get off the road somewhere safe. The battery may not be charging."
     ],
     "why": "When voltage drops low, many computers in the car store faults at once and turn on their lights. After a jump or a new battery, some lights clear by themselves, and others need a short drive or a reset to go out.",
     "causes": [
@@ -180,12 +183,13 @@
   },
   "r_charging_failing": {
    "result": {
-    "title": "The charging system is likely failing, and the car is running low on power",
+    "title": "The charging system may be failing, and the car could be running low on power",
     "urgency": "stop",
     "now": "Get off the road somewhere safe while the car still runs, then turn it off. Have it towed or call a mobile mechanic.",
     "if": [
-     "If the engine temperature is rising too, a broken drive belt is likely. Don't restart the engine.",
-     "If you're stuck somewhere unsafe, turn on your hazard lights and call roadside assistance."
+     "If the engine temperature is rising too, the drive belt may have broken. Don't restart the engine.",
+     "If you're stuck somewhere unsafe, turn on your hazard lights and call roadside assistance.",
+     "If you smell burning or see smoke from under the hood or the dash, turn the car off and get everyone out."
     ],
     "why": "When the alternator stops charging, the car runs on battery alone. As voltage drops, the computers turn on warnings, lights flicker, steering assist can cut out, and eventually the engine stops. That often happens in traffic.",
     "causes": [
@@ -221,14 +225,16 @@
   },
   "r_voltage_soon": {
    "result": {
-    "title": "Most likely a voltage problem from the battery, a cable or the alternator",
+    "title": "Possibly a voltage problem from the battery, a cable or the alternator",
     "urgency": "soon",
     "now": "Check that the battery clamps are tight and clean, then get the battery and charging system tested within the next few days.",
     "if": [
      "If the battery light comes on or the headlights dim, get off the road and have it towed.",
-     "If a red warning light comes on, pull over and turn the engine off."
+     "If a red warning light comes on, pull over and turn the engine off.",
+     "If the steering gets heavy or the engine stumbles, get off the road while the car still runs.",
+     "If you smell burning plastic or see smoke, pull over, turn the car off and get out."
     ],
-    "why": "Every computer in the car needs steady voltage. A weak battery, a loose cable or a tired alternator can make many warnings appear at once or flicker. It's the most common reason for a dash full of lights.",
+    "why": "Every computer in the car needs steady voltage. A weak battery, a loose cable or a tired alternator can make many warnings appear at once or flicker. It's a common reason for a dash full of lights, and a shop will usually test the battery and charging system before replacing any modules.",
     "causes": [
      {
       "name": "Loose or corroded battery terminal or ground strap",
@@ -267,7 +273,8 @@
     "now": "Book a check when convenient. Make sure the battery clamps are tight first, since low voltage can look the same.",
     "if": [
      "If the speedometer or fuel gauge becomes unreliable, get it fixed sooner. You need to know your speed and fuel.",
-     "If the battery light comes on or other systems act up, treat it as a voltage problem and get it checked within a few days."
+     "If the battery light comes on or other systems act up, treat it as a voltage problem and get it checked within a few days.",
+     "If you can't trust the temperature gauge or warning lights, you may not be warned about overheating or low oil pressure. Watch for steam, hot smells or new noises, and pull over if you notice any."
     ],
     "why": "If only the gauges glitch while the engine, lights and radio work normally, the problem is usually inside the cluster or its connector, not the rest of the car.",
     "causes": [
@@ -307,7 +314,9 @@
     "now": "Pull over where it's safe and turn the engine off. Have the car towed or call a mobile mechanic.",
     "if": [
      "If the red brake light is on and the pedal feels soft or sinks, don't drive it at all.",
-     "If the red light was oil pressure, check the oil level once the engine is off, but don't restart it even if it looks full."
+     "If the red light was oil pressure, check the oil level once the engine is off, but don't restart it even if it looks full.",
+     "If you smell burning or see smoke, get everyone out and away from the car.",
+     "If the check engine light is flashing as well, the engine may be misfiring badly. Don't restart it."
     ],
     "why": "Red warnings for oil pressure, engine temperature and brakes mean a risk of engine damage or a safety failure. Even if other lights came on at the same time, the red one decides what you do.",
     "causes": [
@@ -348,14 +357,15 @@
   },
   "r_abs_group": {
    "result": {
-    "title": "One ABS problem usually turns on all of these lights together",
+    "title": "One ABS problem can turn on all of these lights together",
     "urgency": "soon",
-    "now": "Drive gently and leave extra stopping distance. Have the ABS codes read within the next few days.",
+    "now": "Check the brake fluid reservoir first. If it's at or below MIN, don't just top it up; have the brakes inspected before driving further. If the level is fine and the pedal feels normal, drive gently, leave extra stopping distance, and have the ABS codes read within the next few days.",
     "if": [
-     "If the red brake light comes on or the pedal feels soft or low, stop driving it.",
-     "If the speedometer also acts up, a wheel speed sensor is even more likely."
+     "If the red brake light comes on or the pedal feels soft, low or sinks, stop driving it and have it towed.",
+     "If the speedometer also acts up, a wheel speed sensor is even more likely.",
+     "If braking takes more force than usual, the pedal travels further, the car pulls when braking, or you hear grinding, stop driving it and have the brakes checked."
     ],
-    "why": "Traction and stability control rely on the ABS system's wheel speed sensors. When ABS has a fault, the others switch off too, so several lights appear at once. Normal braking still works, but without the anti-skid help in an emergency or on slippery roads.",
+    "why": "Traction and stability control rely on the ABS system's wheel speed sensors. When ABS has a fault, the others switch off too, so several lights appear at once. Most cars are designed to keep basic braking when ABS has a fault, but you lose the anti-skid help in an emergency or on slippery roads. This guide can't check your brakes, so treat any change in the brake pedal as a brake problem.",
     "causes": [
      {
       "name": "Faulty wheel speed sensor or its wiring",
@@ -364,7 +374,7 @@
      },
      {
       "name": "Low brake fluid",
-      "clues": "The brake fluid reservoir is near or below MIN.",
+      "clues": "The brake fluid reservoir is near or below MIN. Low fluid can mean worn pads or a leak, even if you can't see one.",
       "against": ""
      },
      {
@@ -393,7 +403,8 @@
     "now": "Have the codes read within the next few days. Many auto parts stores can read the check engine code for you.",
     "if": [
      "If the check engine light starts flashing or the engine shakes, pull over and stop driving it.",
-     "If power drops or a reduced power message appears, keep trips short and get it in sooner."
+     "If power drops or a reduced power message appears, the car may not accelerate normally in traffic. Avoid highways and busy roads and get it checked before relying on it.",
+     "If the temperature gauge climbs or a red warning light comes on, pull over and turn the engine off."
     ],
     "why": "On many cars, a check engine fault makes the computer turn off traction control, stability control or cruise control as a precaution. Fix the engine fault and the other lights usually go out with it.",
     "causes": [
@@ -433,7 +444,9 @@
     "now": "Check that the battery clamps are tight, then have a shop scan all the computers within the next few days.",
     "if": [
      "If the steering gets heavy, the brakes feel different or the car loses power, stop driving it.",
-     "If it started after a leak, a car wash or heavy rain, mention it. Water in a connector is a common cause."
+     "If it started after a leak, a car wash or heavy rain, mention it. Water in a connector is a common cause.",
+     "If you smell burning or see smoke, turn the car off and get out.",
+     "If a red oil pressure, temperature or brake light comes on, pull over and turn the engine off."
     ],
     "why": "Modern cars connect their computers on a shared network. A low-voltage problem, a bad ground or one failing module can disrupt it, so systems that have nothing in common all report faults at once.",
     "causes": [

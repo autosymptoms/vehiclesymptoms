@@ -21,11 +21,11 @@
   "electric power steering light",
   "wont steer easy power steering light"
  ],
- "intro": "Most newer cars use an electric motor to help you steer, and this light means that system has found a problem. Sometimes it's a simple voltage or reset issue, and sometimes the steering has lost its assist. How the steering feels right now tells us most of what we need to know.",
+ "intro": "Most newer cars use an electric motor to help you steer, and this light means that system has found a problem. Sometimes it's a simple voltage or reset issue, and sometimes the steering has lost its assist. How the steering feels right now is the best clue to how urgent it is.",
  "safety": [
   "If the steering jerks, pulls on its own, or gets stuck, pull over safely and don't drive it.",
   "If the battery light is on too, the car may soon lose power completely. Get off the road while you still can.",
-  "If the steering suddenly gets heavy, grip the wheel firmly with both hands and slow down. You can still steer, it just takes much more effort."
+  "If the steering suddenly gets heavy, grip the wheel firmly with both hands, slow down and steer with steady effort to a safe place to stop."
  ],
  "start": "q_feel",
  "nodes": {
@@ -43,7 +43,7 @@
     },
     {
      "a": "Sometimes heavy, sometimes normal",
-     "go": "r_intermittent"
+     "go": "r_intermittent_heavy"
     },
     {
      "a": "Normal. Only the light is on",
@@ -69,7 +69,7 @@
     },
     {
      "a": "It happened right after a jump start or a battery change",
-     "go": "r_after_battery"
+     "go": "r_after_battery_heavy"
     },
     {
      "a": "None of these. Only the steering light (maybe with the traction light)",
@@ -108,14 +108,14 @@
   },
   "r_charging": {
    "result": {
-    "title": "The charging system is likely failing, and the steering has lost power because of it",
+    "title": "The charging system may be failing, and the steering may have lost power because of it",
     "urgency": "stop",
     "now": "Pull over where it's safe and turn the engine off. Have the car towed or call a mobile mechanic rather than driving on.",
     "if": [
      "If the engine temperature is also climbing, the drive belt may have broken. Don't restart the engine.",
      "If you're in a dangerous spot, turn on your hazard lights and steer firmly to the nearest safe place before stopping."
     ],
-    "why": "When the battery light and the steering light come on together, the car is usually running on battery power alone. The steering motor is one of the first systems to cut out as voltage drops, and the engine may stall soon after.",
+    "why": "When the battery light and the steering light come on together, the car is often running on battery power alone. The steering motor is one of the first systems to cut out as voltage drops, and the engine may stall soon after.",
     "causes": [
      {
       "name": "Alternator not charging",
@@ -149,12 +149,13 @@
   },
   "r_overheat": {
    "result": {
-    "title": "The steering motor probably got hot and is protecting itself",
-    "urgency": "diy",
-    "now": "Park, turn the engine off, and let the car sit for 10 to 15 minutes without turning the wheel. Then restart and check whether the steering feels normal.",
+    "title": "The steering motor may have got hot and be protecting itself",
+    "urgency": "stop",
+    "now": "Park, turn the engine off, and let the car sit for 10 to 15 minutes without turning the wheel. Then restart and, while still parked, check whether the steering feels normal. Don't drive it while the steering is heavy.",
     "if": [
-     "If the steering is back to normal and the light is off, it was most likely heat protection. Avoid holding the wheel at full lock while stopped.",
-     "If the light stays on or the steering is still heavy after cooling down, treat it as a steering fault and get it checked within a few days."
+     "If the steering is back to normal and the light is off, heat protection is a likely explanation. Mention it at your next service, avoid holding the wheel at full lock while stopped, and have it checked if it happens again.",
+     "If the light stays on or the steering is still heavy after cooling down, treat it as a steering fault. Don't drive it. Have it towed or have a mobile mechanic come to you.",
+     "If the battery light comes on too, or the dash lights look dim, the cause may be electrical rather than heat."
     ],
     "why": "Many electric steering systems cut back their help when the motor gets hot from a lot of turning while the car is barely moving. Once it cools, the assist normally returns on its own.",
     "causes": [
@@ -176,7 +177,7 @@
     ],
     "confirm": {
      "you": [
-      "Let it cool and test the steering slowly in a parking lot.",
+      "Let it cool, then check the steering while parked with the engine running.",
       "Note how often it happens and what you were doing."
      ],
      "shop": [
@@ -194,8 +195,8 @@
     "now": "Make sure the battery clamps are tight. Then, parked with the engine running, turn the wheel slowly all the way left, all the way right, and back to center, and restart the car.",
     "if": [
      "If your owner's manual lists a steering reset step, follow that instead. It varies by car.",
-     "If the light stays on after a reset and a short drive, the steering sensor may need to be calibrated with a scan tool at a shop.",
-     "If the steering stays heavy, don't rely on the car until it's checked."
+     "If the steering feels normal but the light stays on after the reset, the steering angle sensor may need to be calibrated with a scan tool. Ask a shop before relying on the car.",
+     "If the steering is heavy, jerks or pulls, don't drive it until it's checked."
     ],
     "why": "Low voltage or a lost connection can make the steering computer store a fault or forget where center is. After a jump start or new battery, some cars need a simple reset or a short drive before the light goes out.",
     "causes": [
@@ -230,14 +231,14 @@
   },
   "r_assist_lost": {
    "result": {
-    "title": "The power steering has shut off because of a fault",
-    "urgency": "soon",
-    "now": "Find a safe place to stop, turn the car off for a minute and restart it. If the steering is still heavy, have it towed or drive only a short, slow trip with both hands on the wheel.",
+    "title": "The power steering assist may have shut off because of a fault",
+    "urgency": "stop",
+    "now": "Find a safe place to stop, turn the car off for a minute and restart it. If the steering is still heavy, don't drive it. Have it towed or have a mobile mechanic come to you.",
     "if": [
      "If you can't comfortably steer at parking speeds, don't drive it. Have it towed.",
-     "If the steering returns to normal after a restart, still get the codes read soon. The fault is stored and will likely come back."
+     "If the steering returns to normal after a restart, still have the codes read before relying on the car. The fault is stored and may come back without warning."
     ],
-    "why": "When the steering system detects a fault, it switches the motor off so it can't steer the car the wrong way. You keep a normal mechanical link to the wheels, but turning takes much more effort, especially when parking.",
+    "why": "When the steering system detects a fault, it switches the motor off so it can't steer the car the wrong way. In most cars the wheel is still mechanically connected to the wheels, but turning takes much more effort, especially when parking.",
     "causes": [
      {
       "name": "Steering torque or angle sensor fault",
@@ -309,12 +310,12 @@
   },
   "r_intermittent": {
    "result": {
-    "title": "An on-and-off steering fault, often from low voltage or a loose connection",
+    "title": "An on-and-off steering fault, often linked to low voltage or a loose connection",
     "urgency": "soon",
     "now": "Check that the battery clamps are tight, then get the battery, charging system and steering codes checked within the next few days.",
     "if": [
-     "If the steering goes heavy at speed or in the middle of a turn, stop driving it until it's fixed.",
-     "If the battery light also flickers, the alternator is the more likely cause."
+     "If the steering goes heavy at any point, especially at speed or in a turn, stop driving it until it's checked.",
+     "If the battery light also flickers, mention it. The charging system becomes a likely suspect."
     ],
     "why": "Electric steering needs steady voltage and good connections. A weak battery, a loose cable or a tired motor can make the assist drop out and come back. It usually gets worse over time.",
     "causes": [
@@ -355,7 +356,7 @@
     "now": "Get the steering codes read within the next few days. Until then, keep both hands on the wheel and be ready for the steering to get heavier.",
     "if": [
      "If the steering becomes heavy, jerky or pulls by itself, stop driving it.",
-     "If the light came on after a curb hit or alignment work, mention that. The steering angle sensor may just need to be recalibrated."
+     "If the light came on after a curb hit or alignment work, mention that. The steering angle sensor may need to be recalibrated, and a shop will usually also check for bent steering parts."
     ],
     "why": "The light means the system found a problem, even if it's still giving you help. Some faults only reduce assist under certain conditions, and the assist can switch off without much warning.",
     "causes": [
@@ -418,6 +419,88 @@
      "shop": [
       "Steering system code scan",
       "Battery and charging test"
+     ]
+    }
+   }
+  },
+  "r_after_battery_heavy": {
+   "result": {
+    "title": "Heavy steering after battery work. Try a reset, but don't drive it heavy",
+    "urgency": "stop",
+    "now": "Don't drive it while the steering is heavy. Make sure the battery clamps are tight. Then, parked with the engine running, turn the wheel slowly all the way left, all the way right, and back to center, and restart the car. If the steering is still heavy, have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If your owner's manual lists a steering reset step, follow that instead. It varies by car.",
+     "If the battery light is on or the dash lights look dim, the battery may still be too low to power the steering. Have the battery and charging system tested.",
+     "If the steering is back to normal but the light stays on, the steering angle sensor may need to be calibrated with a scan tool. Ask a shop before relying on the car."
+    ],
+    "why": "Low voltage or a lost connection can make the steering computer store a fault or forget where center is. After a jump start or new battery, some cars need a simple reset or a short drive before the light goes out.",
+    "causes": [
+     {
+      "name": "Steering angle sensor lost its calibration",
+      "clues": "The light came on right after the battery was disconnected or replaced.",
+      "against": ""
+     },
+     {
+      "name": "Battery still low after a jump start",
+      "clues": "The battery went flat recently and hasn't been fully recharged.",
+      "against": ""
+     },
+     {
+      "name": "Loose battery clamp",
+      "clues": "A clamp that moves when you twist it by hand.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that the battery clamps are tight.",
+      "Try the slow lock-to-lock steering reset and restart."
+     ],
+     "shop": [
+      "Steering angle sensor calibration",
+      "Battery and charging test",
+      "Steering system code scan"
+     ]
+    }
+   }
+  },
+  "r_intermittent_heavy": {
+   "result": {
+    "title": "Steering assist that comes and goes. Get it checked before relying on it",
+    "urgency": "stop",
+    "now": "Avoid driving it until it's checked, because the assist can drop out in the middle of a turn. Check that the battery clamps are tight. A mobile mechanic can test the battery, charging system and steering codes where the car sits, or have it towed.",
+    "if": [
+     "If the steering jerks, pulls by itself or sticks, don't drive it.",
+     "If the battery light also flickers, or the lights dim at idle, mention it. The charging system becomes a likely suspect."
+    ],
+    "why": "Electric steering needs steady voltage and good connections. A weak battery, a loose cable or a tired motor can make the assist drop out and come back. Sudden heavy steering is hard to react to, and the fault usually gets worse over time.",
+    "causes": [
+     {
+      "name": "Weak battery or charging problem",
+      "clues": "Slow cranking, dim lights at idle, or a battery older than 4–5 years.",
+      "against": ""
+     },
+     {
+      "name": "Loose or corroded connection",
+      "clues": "It happens over bumps or after rain.",
+      "against": ""
+     },
+     {
+      "name": "Steering motor or module starting to fail",
+      "clues": "The battery tests fine but the problem keeps coming back.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the battery clamps.",
+      "Note when it happens: cold starts, bumps, rain, or after long drives."
+     ],
+     "shop": [
+      "Battery load test",
+      "Alternator output test",
+      "Steering system code scan",
+      "Wiring and ground inspection"
      ]
     }
    }

@@ -45,68 +45,101 @@ function forIssue(i){
 }
 
 // ---- guided flow on /symptoms/<id>/ ----
+const ASK=["Can I get a written estimate before any work starts?","Is there a charge to diagnose it, and does it count toward the repair?","Will you call me before doing anything that isn't on the estimate?","What warranty comes with the parts and labor? Can I have it in writing?","Can I see or keep the old parts?"];
+window.VS_ASK=ASK;
 const J=window.JOURNEY;const root=document.getElementById('guideApp');
 if(J&&root){
   const V=window.VEHICLES||[];
-  let path=[],cur=J.start,veh=null,vyear=null,EMAIL_ON=false;
+  let path=[],cur=J.start,veh=null,vyear=null,EMAIL_ON=false,editingVeh=false,resumed=false;
+  const SK='vs_j_'+J.id;
   fetch('/api/send-summary/').then(r=>r.ok?r.json():{}).then(d=>{EMAIL_ON=!!d.enabled;const eb=document.getElementById('emailbox');if(eb)eb.hidden=!EMAIL_ON}).catch(()=>{});
-  try{const p=new URLSearchParams(location.search);const v=V.find(x=>x.id===p.get('v'));if(v){veh=v;const y=+p.get('y');if(y>=v.years[0]&&y<=v.years[1])vyear=y}}catch(e){}
+  const setVeh=(id,y)=>{const v=V.find(x=>x.id===id);veh=v||null;vyear=v&&y>=v.years[0]&&y<=v.years[1]?+y:null};
+  try{const p=new URLSearchParams(location.search);if(p.get('v'))setVeh(p.get('v'),+p.get('y'));
+    if(!veh){const g=JSON.parse(localStorage.getItem('vs_garage')||'[]');if(g[0])setVeh(g[0].id,g[0].y)}}catch(e){}
+  try{const st=JSON.parse(sessionStorage.getItem(SK)||'null');if(st&&st.path&&st.path.length&&J.nodes[st.cur]){path=st.path;cur=st.cur;if(st.v)setVeh(st.v,st.y);resumed=true}}catch(e){}
+  const save=()=>{try{path.length?sessionStorage.setItem(SK,JSON.stringify({path,cur,v:veh?veh.id:null,y:vyear})):sessionStorage.removeItem(SK)}catch(e){}};
   const node=k=>J.nodes[k];
+  const vname=()=>veh?((vyear?vyear+' ':'')+veh.make+' '+veh.model):'';
+  function vehBar(){
+    if(veh&&!editingVeh)return`<div class="vbar"><span class="vb-l">Your vehicle</span><b>${esc(vname())}</b><button class="linkbtn" id="vChange">Change</button></div>`;
+    return`<div class="vbar edit"><span class="vb-l">Your vehicle <em>(optional)</em></span><div class="picker ymm"><select id="gy" aria-label="Year"></select><select id="gm" aria-label="Make"></select><select id="gv" aria-label="Model"></select></div>
+      <details class="notlisted"><summary>My vehicle isn't listed</summary><p>Our vehicle library covers 100 popular models from 1996 on, and it's still growing. You can keep going without a vehicle: the guide's questions and safety advice apply to any car or truck.</p></details></div>`;
+  }
+  function wireVeh(after){
+    const c=document.getElementById('vChange');if(c)c.onclick=()=>{editingVeh=true;after()};
+    const gy=document.getElementById('gy');if(gy){const pick=window.YMM(gy,document.getElementById('gm'),document.getElementById('gv'),veh?{id:veh.id,year:vyear}:null,()=>{const s=pick.get();if(s.v){veh=s.v;vyear=s.y;editingVeh=false;save();after()}})}
+  }
+  function crumbs(){
+    if(!path.length)return'';
+    return`<div class="answers"><span class="vb-l">Your answers</span>${path.map((p,i)=>`<button class="ans" data-i="${i}" title="Change this answer"><span>${esc(p.q)}</span><b>${esc(p.a)}</b></button>`).join('')}</div>`;
+  }
+  function wireCrumbs(){root.querySelectorAll('.ans').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;cur=path[i].k;path=path.slice(0,i);save();draw()})}
   function draw(){
     const n=node(cur);
+    const top=(resumed&&path.length?`<div class="resumed">Picked up where you left off. <button class="linkbtn" id="fresh">Start fresh</button></div>`:'')+vehBar();
     if(n.q){
-      root.innerHTML=`<div class="flow card"><div class="step-n">Question ${path.length+1}</div><h2 class="fq">${esc(n.q)}</h2>${n.help?`<p class="help">${esc(n.help)}</p>`:''}
+      root.innerHTML=`${top}<div class="flow card"><div class="step-n">Question ${path.length+1}</div>${crumbs()}<h2 class="fq">${esc(n.q)}</h2>${n.help?`<p class="help">${esc(n.help)}</p>`:''}
       <div class="opts">${n.opts.map((o,i)=>`<button class="opt${/not sure/i.test(o.a)?' unsure':''}" data-i="${i}">${esc(o.a)}</button>`).join('')}</div>
       ${path.length?`<div class="flow-nav"><button class="linkbtn" id="back">← Back</button><button class="linkbtn" id="restart">Start over</button></div>`:''}</div>`;
-      root.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const o=n.opts[+b.dataset.i];path.push({k:cur,q:n.q,a:o.a,i:+b.dataset.i});cur=o.go;draw();root.scrollIntoView({behavior:'smooth',block:'start'})});
-    } else drawResult(n.result);
-    const b=document.getElementById('back');if(b)b.onclick=()=>{const p=path.pop();cur=p.k;draw()};
-    const r=document.getElementById('restart');if(r)r.onclick=()=>{path=[];cur=J.start;draw()};
+      root.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const o=n.opts[+b.dataset.i];path.push({k:cur,q:n.q,a:o.a,i:+b.dataset.i});cur=o.go;resumed=false;save();draw();root.scrollIntoView({behavior:'smooth',block:'start'})});
+      wireCrumbs();
+    } else drawResult(n.result,top);
+    wireVeh(draw);
+    const b=document.getElementById('back');if(b)b.onclick=()=>{const p=path.pop();cur=p?p.k:J.start;save();draw()};
+    const r=document.getElementById('restart');if(r)r.onclick=()=>{path=[];cur=J.start;save();draw()};
+    const f=document.getElementById('fresh');if(f)f.onclick=()=>{path=[];cur=J.start;resumed=false;save();draw()};
   }
-  function vehicleMatches(){
-    if(!veh)return'';
-    const list=veh.issues.filter(i=>(!vyear||(vyear>=i.y[0]&&vyear<=i.y[1]))&&J.issueMatch.words.some(w=>new RegExp('\\b'+w.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).test((i.t+' '+i.sym).toLowerCase())));
-    const nm=(vyear?vyear+' ':'')+veh.make+' '+veh.model;
-    if(!list.length)return`<p class="muted">No documented problem on the ${esc(nm)} matches this symptom, so the general guidance above applies. <a href="/vehicles/${veh.id}/${vyear?vyear+'/':''}">See all known ${esc(nm)} problems →</a></p>`;
-    return`<p class="muted">Documented problems on the ${esc(nm)} that can cause symptoms like this. They're known patterns, not a diagnosis of your car.</p>${list.slice(0,4).map(i=>`<div class="mini"><b>${esc(i.t)}</b> <span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><div>${esc(i.sym)}</div></div>`).join('')}<a href="/vehicles/${veh.id}/${vyear?vyear+'/':''}">All known ${esc(nm)} problems →</a>`;
+  const rx=w=>new RegExp('\\b'+w.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+  function matches(){if(!veh)return[];return veh.issues.filter(i=>(!vyear||(vyear>=i.y[0]&&vyear<=i.y[1]))&&J.issueMatch.words.some(w=>rx(w).test((i.t+' '+i.sym).toLowerCase())))}
+  const money=n=>'$'+n.toLocaleString('en-US');
+  function vehicleSection(){
+    if(!veh)return`<p class="muted">Add your year, make and model at the top to see documented problems and typical repair costs for your vehicle.</p>`;
+    const list=matches(),nm=vname(),link=`/vehicles/${veh.id}/${vyear?vyear+'/':''}`;
+    if(!list.length)return`<p class="muted">We haven't documented a problem on the ${esc(nm)} that matches this symptom. That doesn't rule anything out; the general guidance above applies. <a href="${link}">See what we've documented for the ${esc(nm)} →</a></p>`;
+    return`<p class="muted">Documented problems on the ${esc(nm)} that can cause symptoms like this. They're known patterns to discuss with your shop, not a diagnosis of your car.</p>${list.slice(0,4).map(i=>`<div class="mini"><b>${esc(i.t)}</b> <span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><div>${esc(i.sym)}</div>${i.cost?(i.cost.free?`<div class="mcost">Repair: no charge under recall</div>`:`<div class="mcost">Typical repair (${esc(i.cost.job)}): <b>${money(i.cost.lo)}–${money(i.cost.hi)}</b>${i.cost.recall?' · may be covered by a recall or extended warranty':''}</div>`):`<div class="mcost muted">No reliable cost range on file for this one yet.</div>`}</div>`).join('')}<p class="fine">Costs are U.S. national averages (parts plus standard labor at $120–$160 an hour), researched November 2026. Diagnosis is usually charged separately. Not a quote.</p><a href="${link}">Everything we've documented for the ${esc(nm)} →</a>`;
   }
   function summary(r){
-    const nm=veh?((vyear?vyear+' ':'')+veh.make+' '+veh.model):'(add year, make and model)';
-    return['SUMMARY FOR MY MECHANIC — from VehicleSymptoms.com',
-      'Vehicle: '+nm,'Main concern: '+J.title,'What I noticed:',...path.map(p=>'  - '+p.q+' → '+p.a),
-      'Guide suggested: '+r.title+' ('+URG[r.urgency].label+')',
-      'Possible causes to check: '+r.causes.map(c=>c.name).join('; '),
-      'Tests the guide lists for a shop: '+r.confirm.shop.join('; '),
+    const nm=veh?vname():'(add year, make and model)';
+    return['SUMMARY FOR MY MECHANIC (from VehicleSymptoms.com)',
+      'Not a confirmed diagnosis: please test before replacing parts.','',
+      'Vehicle: '+nm,'Main concern: '+J.title,'What I noticed:',...path.map(p=>'  - '+p.q+' → '+p.a),'',
+      'How urgent the guide rated it: '+URG[r.urgency].label,
+      ...(r.if.length?['Warning signs to watch for:',...r.if.map(x=>'  - '+x)]:[]),
+      'Possible causes the guide listed: '+r.causes.map(c=>c.name).join('; '),
+      'Tests a shop usually does: '+r.confirm.shop.join('; '),'',
       'Date: '+new Date().toLocaleDateString()].join('\n');
   }
-  function drawResult(r){
+  function drawResult(r,top){
     const u=URG[r.urgency];
-    root.innerHTML=`<div class="result card">
+    root.innerHTML=`${top}<div class="result card">
       <div class="urg ${u.cls}"><span>${esc(u.label)}</span></div>
       <h2 class="rt">${esc(r.title)}</h2>
-      <section class="rsec"><h3>What to do now</h3><p>${esc(r.now)}</p>${r.if.length?`<ul class="ifs">${r.if.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</section>
-      <section class="rsec"><h3>Why</h3><p>${esc(r.why)}</p></section>
-      <section class="rsec"><h3>Possible causes</h3>${r.causes.map(c=>`<div class="cause"><b>${esc(c.name)}</b>${c.clues?`<div><span class="lbl2">Points here:</span> ${esc(c.clues)}</div>`:''}${c.against?`<div><span class="lbl2">Less likely if:</span> ${esc(c.against)}</div>`:''}</div>`).join('')}</section>
-      <section class="rsec two"><div><h3>You can check</h3><ul>${r.confirm.you.map(x=>`<li>${esc(x)}</li>`).join('')||'<li>Nothing safe to check yourself. Leave it to a technician.</li>'}</ul></div><div><h3>Your shop will test</h3><ul>${r.confirm.shop.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></section>
-      <section class="rsec"><h3>Make it specific to your vehicle</h3><div class="picker ymm"><select id="gy" aria-label="Year"></select><select id="gm" aria-label="Make"></select><select id="gv" aria-label="Model"></select></div><div id="gvm" style="margin-top:10px">${vehicleMatches()}</div></section>
+      <section class="rsec"><h3>What to do next</h3><p>${esc(r.now)}</p>${r.if.length?`<ul class="ifs">${r.if.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</section>
+      <section class="rsec"><h3>Possible causes</h3><p class="muted" style="margin:0 0 8px">Directions for testing, not confirmed failures.</p>${r.causes.map(c=>`<div class="cause"><b>${esc(c.name)}</b>${c.clues?`<div><span class="lbl2">Points here:</span> ${esc(c.clues)}</div>`:''}${c.against?`<div><span class="lbl2">Less likely if:</span> ${esc(c.against)}</div>`:''}</div>`).join('')}</section>
+      <details class="rmore"><summary>Why this happens</summary><p>${esc(r.why)}</p></details>
+      <details class="rmore"><summary>What you can check, and what a shop will test</summary><div class="two"><div><h4>You can check</h4><ul>${r.confirm.you.map(x=>`<li>${esc(x)}</li>`).join('')||'<li>Nothing safe to check yourself. Leave it to a technician.</li>'}</ul></div><div><h4>A shop will usually test</h4><ul>${r.confirm.shop.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div></details>
+      <details class="rmore"${veh?' open':''}><summary>${veh?'Known problems and repair costs for your '+esc(vname()):'Known problems and repair costs for your vehicle'}</summary><div id="gvm">${vehicleSection()}</div></details>
+      <details class="rmore"><summary>Questions to ask before you approve a repair</summary><ul class="dots">${ASK.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="fine">Based on the U.S. Federal Trade Commission's auto repair tips. <a href="/price-check/${veh?'?v='+veh.id+(vyear?'&y='+vyear:''):''}">Got a quote? Check if it's fair →</a></p></details>
       <section class="rsec"><h3>Summary for your mechanic</h3><pre class="summary" id="sum">${esc(summary(r))}</pre>
         <div class="row-btns"><button class="btn sm" id="copy">Copy summary</button><button class="btn ghost sm" id="print">Print</button><span id="copied" class="muted"></span></div></section>
       <section class="rsec emailbox" id="emailbox" ${EMAIL_ON?'':'hidden'}><h3>Email this to yourself</h3><p class="muted" style="margin:0 0 10px">Get this result and your mechanic summary in your inbox, so it's handy at the shop.</p>
         <form id="emailForm" class="emailform" autocomplete="on"><input type="email" id="emailIn" placeholder="you@example.com" aria-label="Your email" required><input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true"><button class="btn sm" type="submit">Send it</button></form>
         <div id="emailMsg" class="muted" role="status"></div><p class="fine">We only use your email for what you ask. <a href="/privacy/">Privacy</a></p></section>
+      ${crumbs()}
       <div class="flow-nav"><button class="linkbtn" id="back">← Change my last answer</button><button class="linkbtn" id="restart">Start over</button></div>
     </div>`;
-    const pick=window.YMM(document.getElementById('gy'),document.getElementById('gm'),document.getElementById('gv'),veh?{id:veh.id,year:vyear}:null,()=>{
-      const s=pick.get();veh=s.v;vyear=s.v?s.y:null;document.getElementById('gvm').innerHTML=vehicleMatches();document.getElementById('sum').textContent=summary(r)});
+    wireCrumbs();
     document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(summary(r));document.getElementById('copied').textContent='Copied'}catch(e){document.getElementById('copied').textContent='Select the text above and copy it'}};
-    document.getElementById('print').onclick=()=>{try{window.print()}catch(e){}};
+    document.getElementById('print').onclick=()=>{root.querySelectorAll('details.rmore').forEach(d=>d.open=true);try{window.print()}catch(e){}};
     const ef=document.getElementById('emailForm');if(ef)ef.onsubmit=async e=>{e.preventDefault();const m=document.getElementById('emailMsg'),btn=ef.querySelector('button');btn.disabled=true;m.textContent='Sending…';
       try{const rs=await fetch('/api/send-summary/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:document.getElementById('emailIn').value,website:document.getElementById('hp').value,guide:J.id,answers:path.map(p=>p.i),vehicle:veh?veh.id:'',year:vyear||''})});
         const d=await rs.json().catch(()=>({}));if(rs.ok){m.textContent='Sent! Check your inbox (and spam folder, just in case).';ef.reset()}else{m.textContent=(d.error||'Could not send right now. (code '+rs.status+')')+(d.detail?' — '+d.detail:'');btn.disabled=false}}catch(err){m.textContent='Could not send right now. (code browser)';btn.disabled=false}};
-    const b=document.getElementById('back');b.onclick=()=>{const p=path.pop();cur=p?p.k:J.start;draw()};
-    document.getElementById('restart').onclick=()=>{path=[];cur=J.start;draw()};
   }
   draw();
+  const ensure=()=>{if(veh&&!veh._full&&window.VS_LOAD)window.VS_LOAD(veh.id).then(()=>{const g=document.getElementById('gvm');if(g)g.innerHTML=vehicleSection()})};ensure();
+  const _sv=save;
+  document.addEventListener('click',e=>{if(e.target&&e.target.closest&&e.target.closest('#guideApp'))setTimeout(ensure,50)},true);
+  document.addEventListener('change',()=>setTimeout(ensure,50),true);
 }
 
 // ---- /symptoms/ hub ----

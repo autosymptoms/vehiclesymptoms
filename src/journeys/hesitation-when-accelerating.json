@@ -111,7 +111,7 @@
   },
   "r_severe_misfire": {
    "result": {
-    "title": "The engine is misfiring badly enough to cause damage",
+    "title": "The engine may be misfiring badly enough to cause damage",
     "urgency": "stop",
     "now": "Pull over when it's safe and turn the engine off. Have the car towed or call a mobile mechanic.",
     "if": [
@@ -191,12 +191,13 @@
    "result": {
     "title": "This sounds more like the transmission slipping than an engine hesitation",
     "urgency": "soon",
-    "now": "Drive gently and only short distances, and have the transmission checked within the next few days.",
+    "now": "Keep trips short and gentle, avoid highways and heavy traffic, and have the transmission checked within the next few days.",
     "if": [
      "If the car stops moving, won't go into gear, or you smell burning, stop driving it and have it towed.",
-     "If you can check the transmission fluid and it's low, topping it up with the correct type may help until it's inspected."
+     "If you can check the transmission fluid and it's low, topping it up with the correct type may help until it's inspected.",
+     "If a transmission temperature or warning light comes on, pull over when it's safe and have it towed."
     ],
-    "why": "When the engine speeds up but the car doesn't, the power isn't getting through the transmission. That's different from an engine hesitation, where the revs themselves stumble. Slipping causes heat and wear, so it tends to get worse quickly.",
+    "why": "When the engine speeds up but the car doesn't, the power isn't getting through the transmission. That's different from an engine hesitation, where the revs themselves stumble. Slipping causes heat and wear, so it can get worse quickly.",
     "causes": [
      {
       "name": "Low or worn transmission fluid",
@@ -229,12 +230,13 @@
   },
   "r_cold_hesitation": {
    "result": {
-    "title": "Cold-only hesitation often points to a sensor or a small air leak",
+    "title": "Cold-only hesitation can point to a sensor or a small air leak",
     "urgency": "check",
     "now": "Give the engine 30 seconds or so after starting on cold mornings, and book a check when convenient.",
     "if": [
      "If it starts hesitating when warm too, or the check engine light comes on, get it checked sooner.",
-     "If the temperature gauge acts oddly, mention it to the shop. It points toward the coolant temperature sensor."
+     "If the temperature gauge acts oddly, mention it to the shop. It points toward the coolant temperature sensor.",
+     "If the check engine light starts flashing or you smell raw fuel, pull over when it's safe and turn the engine off."
     ],
     "why": "A cold engine needs a richer fuel mix. If a sensor tells the computer the engine is warmer than it is, or extra air is leaking in, the mix is too lean until the engine warms up and the stumble goes away.",
     "causes": [
@@ -269,12 +271,13 @@
   },
   "r_air_sensor": {
    "result": {
-    "title": "A dead spot off the line usually means an air-measuring sensor or dirty throttle",
+    "title": "A dead spot off the line often comes from an air-measuring sensor or a dirty throttle",
     "urgency": "check",
     "now": "Book a check when convenient. If the check engine light is on, having the code read first gives the shop a head start.",
     "if": [
      "If the dead spot makes it hard to pull out into traffic safely, get it checked within a few days and leave extra room until then.",
-     "If the check engine light starts flashing, pull over and stop driving."
+     "If the check engine light starts flashing, pull over and stop driving.",
+     "If you smell raw fuel, pull over, turn the engine off and step away from the car."
     ],
     "why": "The engine computer decides how much fuel to add based on how much air is coming in and how far you've pressed the pedal. If the sensor that measures air is dirty, or the throttle is gummed up, the fuel mix is wrong for a moment and the engine stumbles before catching up.",
     "causes": [
@@ -315,7 +318,7 @@
   },
   "r_wet_weather": {
    "result": {
-    "title": "Hesitation in damp weather usually means spark is leaking from worn ignition parts",
+    "title": "Hesitation in damp weather often means spark is leaking from worn ignition parts",
     "urgency": "check",
     "now": "Book a check of the ignition system when convenient, ideally soon after it happens so the shop can see it.",
     "if": [
@@ -360,9 +363,10 @@
     "now": "Check your receipt to make sure you got the right fuel grade, then drive gently and top up with fresh fuel from a busy station.",
     "if": [
      "If you put diesel in a gas car (or gas in a diesel), stop driving it right away. The tank will need to be drained.",
-     "If the hesitation doesn't improve after a fresh tank, or the check engine light comes on, book a check."
+     "If the hesitation doesn't improve after a fresh tank, or the check engine light comes on, book a check.",
+     "If the check engine light flashes, the engine shakes hard or it stalls, pull over when it's safe and have it towed."
     ],
-    "why": "Fuel contaminated with water or dirt, or a lower octane than your engine needs, can cause stumbling and pinging under acceleration. When the problem starts right after a fill-up, the fuel is the most likely link.",
+    "why": "Fuel contaminated with water or dirt, or a lower octane than your engine needs, can cause stumbling and pinging under acceleration. When the problem starts right after a fill-up, the fuel is a likely link.",
     "causes": [
      {
       "name": "Contaminated fuel",
@@ -400,7 +404,9 @@
     "now": "Get it checked within the next few days. Until then, avoid hard acceleration and long highway trips.",
     "if": [
      "If the engine cuts out or stalls while driving, stop driving it and have it towed.",
-     "If the check engine light comes on, have the code read. It often points straight to the fuel system."
+     "If the check engine light comes on, have the code read. It can help point the shop toward the right system.",
+     "If the check engine light starts flashing, pull over when it's safe and turn the engine off.",
+     "If you smell raw fuel, pull over, turn the engine off and step away from the car."
     ],
     "why": "Pressing the gas hard needs much more fuel than cruising. A weak fuel pump or clogged filter can keep up at light throttle, but runs short when you ask for power, so the car bogs down. This usually gets worse over time.",
     "causes": [
@@ -436,12 +442,13 @@
   },
   "r_load_misfire": {
    "result": {
-    "title": "Most likely a misfire under load from worn spark plugs or a weak ignition coil",
+    "title": "Possibly a misfire under load, from worn spark plugs or a weak ignition coil",
     "urgency": "soon",
     "now": "Have the ignition system checked within the next few days, and avoid hard acceleration until then.",
     "if": [
      "If the check engine light starts flashing, pull over and stop driving.",
-     "If the plugs are overdue for replacement, changing them is often the fix."
+     "If the plugs are overdue, mention it. A shop will usually check misfire data and inspect the plugs and coils before deciding what to replace.",
+     "If you smell raw fuel or burning, pull over when it's safe and turn the engine off."
     ],
     "why": "Under heavy throttle, the cylinders are packed with more air and fuel, and it takes a stronger spark to light them. Worn plugs or a weakening coil can manage at light throttle but miss under load, which feels like a jerk or stumble. Driving on a misfire can damage the catalytic converter.",
     "causes": [
@@ -477,14 +484,15 @@
   },
   "r_exhaust_restriction": {
    "result": {
-    "title": "The exhaust may be partly blocked, often by a clogged catalytic converter",
+    "title": "The exhaust may be partly blocked, sometimes by a clogged catalytic converter",
     "urgency": "soon",
     "now": "Get it checked within the next few days, and keep trips short and gentle until then.",
     "if": [
      "If you see a red glow under the car or smell burning, pull over, turn the engine off and step away.",
-     "If the power loss gets steadily worse, stop driving it and have it towed."
+     "If the power loss gets steadily worse, stop driving it and have it towed.",
+     "If the check engine light starts flashing, pull over when it's safe and turn the engine off."
     ],
-    "why": "An engine has to breathe out as well as in. If the catalytic converter is clogged, exhaust can't escape fast enough and the engine feels choked when you ask for power. A rotten egg smell or a rattle from the converter are common clues.",
+    "why": "An engine has to breathe out as well as in. If the catalytic converter is clogged, exhaust can't escape fast enough and the engine feels choked when you ask for power. A rotten egg smell or a rattle from the converter are common clues. A shop will usually test exhaust back-pressure before replacing a converter, and look for what caused it to clog.",
     "causes": [
      {
       "name": "Clogged catalytic converter",
@@ -522,7 +530,8 @@
     "now": "Have the check engine codes read (many parts stores do this free), then book a check and describe exactly when the hesitation happens.",
     "if": [
      "If the check engine light starts flashing or the engine shakes hard, pull over and stop driving.",
-     "If the hesitation makes it hard to merge or pull out safely, get it checked within a few days."
+     "If the hesitation makes it hard to merge or pull out safely, get it checked within a few days.",
+     "If you smell raw fuel, pull over, turn the engine off and step away from the car."
     ],
     "why": "Hesitation can come from ignition, fuel, air sensors or the exhaust. Stored codes and a note of when it happens (cold or warm, light or heavy throttle, after fueling) narrow it down much faster than parts swapping.",
     "causes": [

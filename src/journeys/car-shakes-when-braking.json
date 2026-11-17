@@ -20,7 +20,7 @@
   "brakes shaking",
   "wheel shakes when i hit the brakes"
  ],
- "intro": "A shake or pulse when you brake usually comes from the brake rotors no longer being perfectly even. That's common and not an emergency on its own, but a shake that comes with a soft pedal, grinding or a burning smell is a different story. Answer the questions below to see how urgent yours is and what's most likely behind it.",
+ "intro": "A shake or pulse when you brake often comes from the brake rotors no longer being perfectly even. That's common, but it is still a brake problem worth having checked, and a shake that comes with a soft pedal, grinding or a burning smell needs attention right away. Answer the questions below to see how urgent yours may be and what could be behind it.",
  "safety": [
   "If the brake pedal feels soft, sinks toward the floor, or the red brake warning light comes on, stop driving and get help.",
   "If you smell burning or see smoke from a wheel, pull over safely and let the brakes cool. Don't keep driving.",
@@ -107,10 +107,12 @@
     "urgency": "stop",
     "now": "Park the car and have it towed to a shop, or have a mobile mechanic come to you.",
     "if": [
-     "If the red brake warning light is on or the brake fluid is low, that adds to the evidence of a leak. Don't top it off and drive.",
-     "If the car pulls hard to one side, a caliper or brake hose on one side may be stuck or failing."
+     "If the red brake warning light is on or the brake fluid is low, that adds to the evidence of a leak or worn brakes. Don't top it off and drive.",
+     "Not finding a leak doesn't mean the brakes are safe. Fluid can leak inside the system or somewhere you can't see.",
+     "If the car pulls hard to one side, a caliper or brake hose on one side may be stuck or failing.",
+     "If you smell burning or see smoke from a wheel, keep away from it until it cools."
     ],
-    "why": "A soft or sinking pedal means the brakes may not have enough hydraulic pressure to stop the car, and a hard pull means one side is braking much more than the other. Either can get worse without warning, so the car shouldn't be driven until it's inspected.",
+    "why": "A soft or sinking pedal can mean the brakes don't have enough hydraulic pressure to stop the car, and a hard pull can mean one side is braking much more than the other. Either can get worse without warning, so the car shouldn't be driven until it's inspected.",
     "causes": [
      {
       "name": "Brake fluid leak",
@@ -144,17 +146,18 @@
   },
   "r_grinding": {
    "result": {
-    "title": "The brake pads are likely worn down to metal",
+    "title": "The brake pads may be worn down to metal",
     "urgency": "stop",
-    "now": "Avoid driving the car. Have it towed or have a mobile mechanic replace the brakes where it's parked.",
+    "now": "Avoid driving the car. Have it towed, or have a mobile mechanic inspect the brakes where it's parked.",
     "if": [
-     "If the grinding only happened once after the car sat in the rain, it may have been surface rust that wore off. If it keeps happening, have the brakes inspected before driving further.",
-     "If the brake pedal also feels soft or the car pulls hard, don't drive it at all."
+     "If the grinding only happened once after the car sat in the rain, it may have been surface rust. If it happens again, or you're unsure, have the brakes inspected before driving further.",
+     "If the brake pedal also feels soft or sinks, the red brake light is on, or the car pulls hard, don't drive it at all.",
+     "If you smell burning or see smoke from a wheel, keep away from it until it cools."
     ],
-    "why": "Grinding when braking usually means the pad material is gone and metal is scraping the rotor. That reduces braking power and quickly gouges the rotor, which causes shaking. The longer it goes, the worse and more costly the damage.",
+    "why": "Grinding when braking often means the pad material is gone and metal is scraping the rotor. That can reduce braking power and quickly gouges the rotor, which causes shaking. The longer it goes, the worse and more costly the damage. A shop will measure the pads and rotors to confirm what is worn.",
     "causes": [
      {
-      "name": "Brake pads worn through",
+      "name": "Brake pads worn down",
       "clues": "A squeal for weeks before the grinding started, or a long time since the last brake job.",
       "against": ""
      },
@@ -188,9 +191,10 @@
     "now": "Pull over safely and let the brakes cool. Then have the car towed or have a mobile mechanic check it.",
     "if": [
      "If you see flames or heavy smoke, get away from the car and call for help.",
-     "If the smell happened once after a long downhill stretch and the brakes feel normal after cooling, have them inspected soon anyway."
+     "If the pedal feels soft, sinks, or braking takes much more force, don't drive it. Overheated brakes can fade.",
+     "Even if the smell happened once after a long downhill stretch and goes away after cooling, have the brakes inspected before driving far. A brake that overheats once can do it again."
     ],
-    "why": "A burning smell or one very hot wheel means a brake isn't releasing fully. The constant rubbing overheats the pad and rotor, which causes shaking and can fade the brakes or, in rare cases, start a fire.",
+    "why": "A burning smell or one very hot wheel can mean a brake isn't releasing fully. The constant rubbing overheats the pad and rotor, which causes shaking and can fade the brakes or, in rare cases, start a fire.",
     "causes": [
      {
       "name": "Sticking or seized caliper",
@@ -223,14 +227,15 @@
   },
   "r_rotors": {
    "result": {
-    "title": "The front brake rotors are most likely uneven, often called warped",
+    "title": "The front brake rotors may be uneven, often called warped",
     "urgency": "soon",
     "now": "Have the brakes inspected within the next few days. Until then, allow extra stopping distance and avoid hard braking from high speed.",
     "if": [
-     "If the shaking gets suddenly worse, or the pedal starts feeling soft, stop driving and have it towed.",
-     "If the pads are also low, the shop will usually replace or resurface the rotors at the same time."
+     "If the shaking gets suddenly worse, or the pedal starts feeling soft or sinking, stop driving and have it towed.",
+     "If you hear grinding, smell burning, or the red brake warning light comes on, stop driving and have it towed.",
+     "If the pads are also low, the shop will usually measure the rotors to decide whether they can be resurfaced or need replacing."
     ],
-    "why": "When the brake rotor's surface becomes uneven, the pads grab harder on some spots than others as it spins. You feel that as a pulse in the pedal or a shake in the steering wheel, usually worst when slowing from higher speeds. It's common and fixable, and the brakes still work, but it tends to get worse and wears the pads unevenly.",
+    "why": "When the brake rotor's surface becomes uneven, the pads grab harder on some spots than others as it spins. You feel that as a pulse in the pedal or a shake in the steering wheel, usually worst when slowing from higher speeds. It's common and fixable, but it tends to get worse, can lengthen stopping distances and wears the pads unevenly. A shop will usually measure the rotors and check the calipers before deciding on a repair.",
     "causes": [
      {
       "name": "Uneven rotor thickness or pad deposits",
@@ -264,11 +269,12 @@
   },
   "r_rear_brakes": {
    "result": {
-    "title": "The rear rotors or brake drums are likely uneven",
-    "urgency": "check",
-    "now": "Book a brake inspection when convenient. Mention that you feel it in the seat rather than the steering wheel.",
+    "title": "The rear rotors or brake drums may be uneven",
+    "urgency": "soon",
+    "now": "Have the brakes inspected within the next few days. Mention that you feel it in the seat rather than the steering wheel. Allow extra stopping distance until then.",
     "if": [
-     "If the pedal starts to feel soft, or you hear grinding, stop driving and have it towed.",
+     "If the pedal starts to feel soft or sinks, or you hear grinding, stop driving and have it towed.",
+     "If you smell burning, see smoke from a rear wheel, or the red brake warning light comes on, stop driving and have it checked before driving further.",
      "If the parking brake also feels weak or grabby, ask the shop to check it at the same time."
     ],
     "why": "Rear brake problems don't usually reach the steering wheel, so you feel them in the seat or the whole car instead. Rear rotors can become uneven like the fronts, and drum brakes can go slightly out of round.",
@@ -308,9 +314,10 @@
     "now": "Get the front suspension, tires and brakes inspected within the next few days. Drive gently and avoid highways until then.",
     "if": [
      "If you see a bulge on a tire, or the steering suddenly feels much looser, don't drive it. Use the spare or have it towed.",
+     "If the brake pedal feels soft or sinks, or the red brake light comes on, stop driving and have it towed.",
      "If the shake only happens when braking, the rotors are the more likely cause."
     ],
-    "why": "Braking shifts the car's weight forward and puts extra load on the front suspension. Worn joints, bushings or a damaged tire that cause a mild shake normally can get much worse when you brake, and loose steering parts are a safety risk.",
+    "why": "Braking shifts the car's weight forward and puts extra load on the front suspension. Worn joints, bushings or a damaged tire that cause a mild shake normally can feel much worse when you brake, and loose steering parts are a safety risk. A shop will usually inspect the suspension, tires and brakes together to find which is responsible.",
     "causes": [
      {
       "name": "Worn control arm bushings or ball joints",
@@ -342,14 +349,15 @@
   },
   "r_after_service": {
    "result": {
-    "title": "Something from the recent work may not be right",
+    "title": "It may be related to the recent work",
     "urgency": "soon",
-    "now": "Go back to the shop that did the work within a day or two and ask them to check the wheel lug nuts, rotors and balance.",
+    "now": "Go back to the shop that did the work within a day or two. Let them know what you feel and ask them to check the wheel lug nuts, rotors and balance. Shops want to hear about this and it's usually a quick check.",
     "if": [
      "If you hear clicking or clunking from a wheel, or feel a wobble, stop driving. A wheel may be loose. Have it towed.",
+     "If the brake pedal feels soft or sinks, or you smell burning, stop driving and have it checked before going further.",
      "If it was a brake job, new pads sometimes need a proper break-in. Ask the shop if that was done."
     ],
-    "why": "Lug nuts that weren't tightened evenly can distort a rotor and cause a shake under braking. New rotors can also have a slight runout, or a tire may have lost a balance weight.",
+    "why": "Lug nuts that aren't tightened evenly can distort a rotor and cause a shake under braking. New rotors can also have a slight runout, or a tire may have lost a balance weight. These are common and a shop can check them quickly.",
     "causes": [
      {
       "name": "Uneven or loose lug nuts",

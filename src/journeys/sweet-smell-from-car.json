@@ -20,7 +20,7 @@
   "smells like antifreeze but no leak",
   "sweet smelling exhaust"
  ],
- "intro": "A sweet, syrup-like smell almost always means engine coolant (antifreeze) is leaking somewhere. Where you smell it, and what the temperature gauge is doing, tells you how serious it is. Answer the questions below to find the likely source and the safest next step.",
+ "intro": "A sweet, syrup-like smell usually means engine coolant (antifreeze) is leaking somewhere. Where you smell it, and what the temperature gauge is doing, helps show how serious it may be. Answer the questions below to narrow down the likely source and the safest next step.",
  "safety": [
   "If the temperature gauge is in the red, a temperature warning light is on, or steam is coming from under the hood, pull over safely and turn the engine off.",
   "Never open the radiator or coolant cap while the engine is hot. Hot coolant can spray out and burn you.",
@@ -135,14 +135,15 @@
   },
   "r_overheating": {
    "result": {
-    "title": "The engine is losing coolant and overheating",
+    "title": "The engine may be losing coolant and overheating",
     "urgency": "stop",
     "now": "Pull over as soon as it's safe and turn off the engine. Let it cool for at least 30 minutes, then have it towed or call a mobile mechanic.",
     "if": [
      "If the gauge only crept up a little and dropped back once you stopped, check the coolant level once the engine is cold. Still have it towed or checked where it sits rather than driving on.",
-     "If you see coolant pouring out or a burst hose, don't add coolant and restart. The engine will overheat again quickly."
+     "If you see coolant pouring out or a burst hose, don't add coolant and restart. The engine will overheat again quickly.",
+     "If you see flames, or smoke from under the hood turns dark and thick, get everyone away from the car and call 911."
     ],
-    "why": "A sweet smell plus a high temperature reading means coolant is escaping and the engine can't shed its heat. Driving an overheating engine even a few more miles can warp or crack major parts, turning a hose or radiator repair into an engine replacement.",
+    "why": "A sweet smell plus a high temperature reading usually means coolant is escaping and the engine can't shed its heat. Driving an overheating engine even a few more miles can warp or crack major parts, turning a hose or radiator repair into a much bigger engine repair.",
     "causes": [
      {
       "name": "Burst or leaking coolant hose",
@@ -175,14 +176,14 @@
   },
   "r_head_gasket": {
    "result": {
-    "title": "Coolant is likely leaking inside the engine and being burned",
+    "title": "Coolant may be leaking inside the engine and being burned",
     "urgency": "stop",
     "now": "Park the car and don't run the engine. Have it towed to a shop or have a mobile mechanic diagnose it.",
     "if": [
-     "If the coolant tank is nearly empty, that confirms coolant is being lost fast. Running the engine risks overheating and serious damage.",
-     "If the oil on the dipstick looks milky or like chocolate milk, coolant is mixing with the oil. Don't start the engine."
+     "If the coolant tank is nearly empty, coolant is likely being lost fast. Running the engine risks overheating and serious damage.",
+     "If the oil on the dipstick looks milky or like chocolate milk, coolant may be mixing with the oil. Don't start the engine."
     ],
-    "why": "Thick, sweet-smelling white smoke means coolant is getting into the cylinders and burning off. That usually comes from a failed head gasket or a cracked part, and it gets worse quickly. Coolant in the oil can wreck the engine bearings.",
+    "why": "Thick, sweet-smelling white smoke usually means coolant is getting into the cylinders and burning off. A failed head gasket is the most common reason, but a cracked part or a leaking intake gasket can do the same, which is why a shop will usually run a block test and pressure test before deciding on a repair. Coolant in the oil can wreck the engine bearings.",
     "causes": [
      {
       "name": "Blown head gasket",
@@ -217,13 +218,14 @@
    "result": {
     "title": "A small amount of coolant may be getting into the engine",
     "urgency": "soon",
-    "now": "Check the coolant level when the engine is cold, top it up with the type in your owner's manual, and get it checked within a few days.",
+    "now": "Check the coolant level when the engine is cold. If it's between MIN and MAX, top it up with the type in your owner's manual and get it checked within a few days. If the tank is empty or well below MIN, or the oil on the dipstick looks milky, have it inspected before driving.",
     "if": [
      "If the smoke gets thicker or keeps coming once the engine is warm, stop driving and have it towed.",
-     "If the temperature gauge rises at all, pull over and turn the engine off.",
+     "If the temperature gauge rises at all, a temperature warning light comes on, or the heater suddenly blows cold, pull over and turn the engine off.",
+     "If the check engine light flashes or the engine starts running rough, pull over and turn it off.",
      "If the coolant level stays full for a week and the smoke stops, it may have been normal condensation. Still mention it at your next service."
     ],
-    "why": "Light, sweet-smelling smoke at startup can mean a small internal coolant leak that seeps in while the car sits. These leaks almost always grow, and catching one early can prevent overheating and bigger engine damage.",
+    "why": "Light, sweet-smelling smoke at startup can mean a small internal coolant leak that seeps in while the car sits. These leaks tend to grow, and catching one early can prevent overheating and bigger engine damage.",
     "causes": [
      {
       "name": "Early head gasket leak",
@@ -256,15 +258,16 @@
   },
   "r_heater_core": {
    "result": {
-    "title": "The heater core is probably leaking coolant into the cabin",
+    "title": "The heater core may be leaking coolant into the cabin",
     "urgency": "soon",
-    "now": "Check the coolant level when the engine is cold and top it up if needed, then book a repair within a few days.",
+    "now": "Check the coolant level when the engine is cold. If it's only a little low, top it up and book a repair within a few days. If the tank is empty or well below MIN, have it inspected before driving.",
     "if": [
      "If the windshield fogs up so you can't see, pull over. Use the A/C with the defroster to clear it, and don't drive until you can see clearly.",
      "If the temperature gauge starts to climb, pull over and turn off the engine.",
+     "If the heater suddenly blows cold or you see steam from the vents or under the hood, pull over and turn off the engine.",
      "If kids or pets ride in the car, keep them away from the wet carpet. Coolant is poisonous."
     ],
-    "why": "The heater core is a small radiator behind the dashboard that heats the cabin with hot coolant. When it leaks, coolant vapor comes out of the vents, leaving a sweet smell and a greasy film on the glass, and liquid can soak the passenger-side carpet.",
+    "why": "The heater core is a small radiator behind the dashboard that heats the cabin with hot coolant. When it leaks, coolant vapor can come out of the vents, leaving a sweet smell and a greasy film on the glass, and liquid can soak the passenger-side carpet. A shop will usually pressure test the system to confirm it's the heater core and not a hose behind the engine.",
     "causes": [
      {
       "name": "Leaking heater core",
@@ -297,14 +300,15 @@
   },
   "r_low_coolant": {
    "result": {
-    "title": "The coolant is probably low from a leak",
-    "urgency": "soon",
-    "now": "With the engine cold, check the coolant tank and top it up with the type listed in your owner's manual. Get the leak found within a few days.",
+    "title": "The coolant may be very low from a leak. Don't keep driving",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and turn off the engine. Once it's fully cold, check the coolant tank. Even if a top-up brings the heat back, have the leak found before relying on the car. If the tank is empty, have it towed or call a mobile mechanic.",
     "if": [
-     "If the temperature gauge rises while driving, pull over and turn off the engine.",
-     "If the tank is empty or keeps dropping quickly, don't drive it. Have it towed or call a mobile mechanic."
+     "If the temperature gauge is high, a temperature warning light is on, or you see steam, keep the engine off and let it cool before doing anything else.",
+     "If the gauge reads normal, don't rely on it. When coolant is very low, the sensor can read normal even though the engine is hot.",
+     "If you see white, sweet-smelling smoke from the exhaust or the oil looks milky, don't restart the engine."
     ],
-    "why": "When the heater blows cold and you smell coolant, the level has likely dropped so far that hot coolant isn't reaching the heater. The same low level means the engine is close to overheating.",
+    "why": "When the heater blows cold and you smell coolant, the level may have dropped so far that hot coolant isn't reaching the heater. The same low level can leave the engine close to overheating, even before the gauge shows it.",
     "causes": [
      {
       "name": "External coolant leak (hose, radiator, water pump)",
@@ -337,15 +341,16 @@
   },
   "r_external_leak": {
    "result": {
-    "title": "Coolant is leaking from the engine's cooling system",
+    "title": "Coolant appears to be leaking from the engine's cooling system",
     "urgency": "soon",
-    "now": "Check and top up the coolant when the engine is cold, keep an eye on the temperature gauge, and have the leak repaired within a few days.",
+    "now": "Check the coolant level when the engine is cold. If it's between MIN and MAX, top it up, keep an eye on the temperature gauge and have the leak repaired within a few days. If the tank is empty or well below MIN, have it inspected before driving.",
     "if": [
      "If the drip is steady or forms a puddle bigger than your hand overnight, have it towed rather than driving it.",
      "If the temperature gauge rises, pull over and turn off the engine.",
+     "If the heater suddenly blows cold or you see steam from under the hood, pull over and turn off the engine.",
      "Clean up the puddle. Coolant tastes sweet to pets and children and is poisonous."
     ],
-    "why": "A colorful, slimy drip under the front of the car is coolant. Small leaks often show up as a sweet smell when coolant drips onto hot engine parts. Leaks tend to grow, and running low on coolant leads to overheating.",
+    "why": "A colorful, slimy drip under the front of the car is usually coolant. Small leaks often show up as a sweet smell when coolant drips onto hot engine parts. Leaks tend to grow, and running low on coolant leads to overheating.",
     "causes": [
      {
       "name": "Leaking radiator or radiator hose",
@@ -378,14 +383,15 @@
   },
   "r_seep_hot_engine": {
    "result": {
-    "title": "A small coolant seep is likely burning off on hot engine parts",
+    "title": "A small coolant seep may be burning off on hot engine parts",
     "urgency": "check",
-    "now": "Check the coolant level when the engine is cold, top it up if it's low, and book a cooling system check when convenient.",
+    "now": "Check the coolant level when the engine is cold and top it up if it's a little low, then book a cooling system check when convenient. If the tank is empty or well below MIN, have it checked before driving.",
     "if": [
      "If the coolant level drops noticeably in a week, get it checked within a few days.",
-     "If the temperature gauge ever climbs above normal, pull over and turn off the engine."
+     "If the temperature gauge ever climbs above normal, a temperature warning light comes on, or the heater suddenly blows cold, pull over and turn off the engine.",
+     "If you see steam from under the hood or white, sweet-smelling smoke from the exhaust, stop driving and have it checked."
     ],
-    "why": "A tiny leak may not drip to the ground at all. Instead, the coolant lands on the hot engine or exhaust and evaporates, which is why you smell it after driving. Clear water dripping after A/C use is normal and isn't the source.",
+    "why": "A tiny leak may not drip to the ground at all. Instead, the coolant lands on the hot engine or exhaust and evaporates, which is why you smell it after driving. Clear water dripping after A/C use is usually normal condensation and isn't the source of the smell.",
     "causes": [
      {
       "name": "Seeping hose connection or clamp",
@@ -417,11 +423,12 @@
   },
   "r_general_coolant": {
    "result": {
-    "title": "A coolant leak is the most likely cause. Check the level first",
+    "title": "A coolant leak is a likely cause. Check the level first",
     "urgency": "soon",
-    "now": "With the engine cold, check the coolant tank level and top it up if it's low. Watch the temperature gauge and have the leak found within a few days.",
+    "now": "With the engine cold, check the coolant tank level. If it's a little low, top it up, watch the temperature gauge and have the leak found within a few days. If the tank is empty or well below MIN, have it inspected before driving.",
     "if": [
-     "If the temperature gauge rises or you see steam, pull over and turn off the engine.",
+     "If the temperature gauge rises, a temperature warning light comes on, the heater suddenly blows cold, or you see steam, pull over and turn off the engine.",
+     "If you see thick white, sweet-smelling smoke from the exhaust, or the oil on the dipstick looks milky, don't drive. Have it inspected.",
      "If the level is fine and stays steady for a week, the smell may be from something else, such as a spilled drink. Mention it at your next service anyway."
     ],
     "why": "Engine coolant is the most common source of a sweet smell from a car. It can leak inside the engine, behind the dash or from the hoses and radiator. Checking the level is the quickest way to know whether coolant is actually going missing.",

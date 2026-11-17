@@ -79,17 +79,17 @@
   },
   "r_flashing": {
    "result": {
-    "title": "A serious misfire is sending unburned fuel into the exhaust",
+    "title": "A serious misfire may be sending unburned fuel into the exhaust",
     "urgency": "stop",
     "now": "Slow down, pull over when it's safe and turn off the engine. Don't drive it further. Have it towed or call a mobile mechanic.",
     "if": [
      "If you smell something very hot or see a glow under the car, step away from the car. An overheated catalytic converter can start a fire on dry grass.",
      "If the light stops flashing after a restart, the problem is still there. Have it checked before driving."
     ],
-    "why": "A flashing check engine light means one or more cylinders isn't firing. The fuel sent to that cylinder goes straight into the exhaust, which makes black smoke and can overheat and ruin the catalytic converter.",
+    "why": "A flashing check engine light usually means one or more cylinders isn't firing properly. The fuel sent to that cylinder goes straight into the exhaust, which makes black smoke and can overheat and ruin the catalytic converter.",
     "causes": [
      {
-      "name": "Failed ignition coil or spark plug",
+      "name": "Ignition coil or spark plug problem",
       "clues": "The shaking is steady, and it got worse in rain or under load.",
       "against": ""
      },
@@ -158,8 +158,10 @@
    "result": {
     "title": "A brief puff on a diesel under hard throttle can be normal",
     "urgency": "diy",
-    "now": "Check that the engine air filter is clean. If the puffs are small and the engine runs well, just keep an eye on it.",
+    "now": "Check that the engine air filter is clean. If the puffs are small, the engine runs normally and no warning lights are on, keep an eye on it and mention it at your next service.",
     "if": [
+     "If the check engine light starts flashing or the engine shakes, pull over when it's safe and turn off the engine. Don't drive on until it's checked.",
+     "If you smell raw fuel or see fuel dripping, turn off the engine, step away and don't drive it until it's checked.",
      "If the smoke is heavy, lasts more than a moment, or comes with less power, have it checked.",
      "If the engine has been modified or tuned, extra smoke may come from the tune itself. It can still wear parts faster."
     ],
@@ -196,27 +198,28 @@
   },
   "r_sensor": {
    "result": {
-    "title": "A sensor or fuel control problem is likely making it run rich",
+    "title": "A sensor or fuel control problem may be making it run rich",
     "urgency": "soon",
     "now": "Have the codes read within a few days. Many auto parts stores will scan them for free, which gives the shop a head start.",
     "if": [
-     "If the light starts flashing or the engine shakes, pull over and turn off the engine.",
-     "If you smell raw fuel, stop driving it."
+     "If the check engine light starts flashing or the engine shakes, pull over when it's safe and turn off the engine. Don't drive on until it's checked.",
+     "If you smell raw fuel or see fuel dripping, turn off the engine, step away and don't drive it until it's checked.",
+     "If the smoke gets heavier or the engine starts running rough, get it checked sooner."
     ],
     "why": "The engine computer decides how much fuel to add based on its sensors. If one reports the wrong airflow, temperature or oxygen level, the computer can add too much fuel. That shows up as black smoke, a fuel smell and poor mileage, and can damage the catalytic converter over time.",
     "causes": [
      {
-      "name": "Faulty mass airflow (MAF) sensor",
+      "name": "Mass airflow (MAF) sensor reading wrong",
       "clues": "Hesitation, rough idle, or a dirty or recently disturbed air filter box.",
       "against": ""
      },
      {
-      "name": "Faulty oxygen sensor",
+      "name": "Oxygen sensor reading wrong",
       "clues": "Poor mileage and a sulfur or fuel smell.",
       "against": ""
      },
      {
-      "name": "Faulty coolant temperature sensor",
+      "name": "Coolant temperature sensor reading wrong",
       "clues": "Black smoke mostly when warm, or the temperature gauge acts oddly.",
       "against": ""
      },
@@ -235,24 +238,25 @@
       "Code scan with live sensor data",
       "Fuel trim analysis",
       "MAF and oxygen sensor tests",
-      "Fuel pressure test"
+      "Fuel pressure test",
+      "A shop will usually compare live sensor readings and check for air or vacuum leaks before replacing a sensor"
      ]
     }
    }
   },
   "r_ignition_injectors": {
    "result": {
-    "title": "Weak spark or leaky injectors are likely leaving fuel unburned",
+    "title": "Weak spark or leaky injectors are common reasons fuel goes unburned",
     "urgency": "soon",
     "now": "Have it checked within a few days. Drive gently and avoid long trips until then.",
     "if": [
-     "If the check engine light starts flashing, pull over and turn off the engine.",
-     "If you smell raw fuel, stop driving it and have it towed."
+     "If the check engine light starts flashing or the engine shakes, pull over when it's safe and turn off the engine. Don't drive on until it's checked.",
+     "If you smell raw fuel or see fuel dripping, turn off the engine, step away and don't drive it until it's checked."
     ],
     "why": "When a cylinder doesn't burn its fuel completely, the leftover fuel comes out as black smoke. Worn spark plugs, weak coils or injectors that drip instead of spraying are common reasons. Left alone, it can damage the catalytic converter.",
     "causes": [
      {
-      "name": "Worn spark plugs or failing ignition coil",
+      "name": "Worn spark plugs or an ignition coil problem",
       "clues": "Rough idle, stumbling under load, and plugs that are overdue.",
       "against": ""
      },
@@ -283,12 +287,14 @@
   },
   "r_diesel_heavy": {
    "result": {
-    "title": "A diesel with heavy black smoke and low power likely has an air, boost or injector problem",
+    "title": "A diesel with heavy black smoke and low power may have an air, boost or injector problem",
     "urgency": "soon",
     "now": "Check the engine air filter and have the engine checked within a few days. Avoid towing or heavy loads until then.",
     "if": [
+     "If the check engine light starts flashing or the engine shakes, pull over when it's safe and turn off the engine. Don't drive on until it's checked.",
      "If a warning light about the particulate filter or reduced power comes on, have it checked promptly.",
-     "If power drops suddenly with a loud whine, pull over and turn off the engine. The turbocharger may be failing."
+     "If power drops suddenly with a loud whine, pull over and turn off the engine. The turbocharger may be failing.",
+     "If you smell raw fuel or see smoke from under the hood rather than the tailpipe, turn off the engine and don't drive it until it's checked."
     ],
     "why": "A diesel needs plenty of air to burn its fuel cleanly. If the turbo isn't building boost, the air filter is clogged, or an injector is spraying too much, there's extra fuel with nothing to burn it, which makes black smoke and cuts power.",
     "causes": [
@@ -333,8 +339,10 @@
     "urgency": "diy",
     "now": "Check the engine air filter. If it's dark and clogged with dirt or debris, replace it.",
     "if": [
+     "If the check engine light starts flashing or the engine shakes, pull over when it's safe and turn off the engine. Don't drive on until it's checked.",
+     "If you smell raw fuel or see fuel dripping, turn off the engine, step away and don't drive it until it's checked.",
      "If a new filter doesn't clear up the smoke, have the codes read and the engine checked.",
-     "If the check engine light comes on or the engine runs rough, get it checked within a few days."
+     "If a steady check engine light comes on or the engine runs rough, get it checked within a few days."
     ],
     "why": "An engine needs the right mix of air and fuel. A badly clogged air filter can restrict airflow, which is most noticeable on older engines and diesels. It's an easy, inexpensive thing to rule out first.",
     "causes": [
@@ -363,17 +371,18 @@
   },
   "r_rich_general": {
    "result": {
-    "title": "The engine is running rich. A shop can pinpoint why with a scan",
+    "title": "The engine may be running rich. A code scan and fuel trim test are the place to start",
     "urgency": "check",
     "now": "Check the engine air filter, then book a check and ask for a code scan and fuel trim test.",
     "if": [
-     "If the check engine light comes on or starts flashing, get it checked sooner.",
-     "If you notice a raw fuel smell, stop driving it."
+     "If the check engine light starts flashing or the engine shakes, pull over when it's safe and turn off the engine. Don't drive on until it's checked.",
+     "If a steady check engine light comes on, get it checked sooner.",
+     "If you smell raw fuel or see fuel dripping, turn off the engine, step away and don't drive it until it's checked."
     ],
-    "why": "Black smoke always means too much fuel for the amount of air. Even without warning lights, it hurts fuel economy and can foul spark plugs and damage the catalytic converter over time.",
+    "why": "Black smoke usually means too much fuel for the amount of air. Even without warning lights, it hurts fuel economy and can foul spark plugs and damage the catalytic converter over time.",
     "causes": [
      {
-      "name": "Faulty sensor (MAF, oxygen or coolant temperature)",
+      "name": "Sensor reading wrong (MAF, oxygen or coolant temperature)",
       "clues": "Poor mileage and a fuel smell.",
       "against": ""
      },

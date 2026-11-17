@@ -138,7 +138,7 @@
   "common": true,
   "plain": "The transmission computer sees hydraulic pressure lower than it should be. Low pressure lets clutches slip and can quickly damage the transmission.",
   "sys": "Transmission",
-  "sev": "soon",
+  "sev": "stop",
   "symptoms": [
    "Slipping or delayed shifts",
    "Check engine light on",
@@ -188,7 +188,9 @@
   "src": [
    "https://www.carwhere.com/obd-codes/p0868",
    "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
-  ]
+  ],
+  "drive": "Limit driving. Low transmission fluid pressure can burn up clutches quickly, so check for leaks and low fluid. If it slips, is slow to go into gear, runs hot or goes into limp mode, stop driving and have it towed or checked right away instead of pushing on.",
+  "test_first": "Check fluid level and look for leaks, then measure actual line pressure with a gauge and compare it to the sensor reading before replacing the sensor, pump or valve body."
  },
  {
   "code": "P0869",
@@ -936,7 +938,9 @@
   ],
   "examples": [
    "Often set on Chrysler and Dodge vehicles after a weak battery, dead battery or jump start"
-  ]
+  ],
+  "drive": "Often drivable with care to a shop soon, but low voltage to the transmission computer can leave it in one gear and may mean the battery or charging system is failing. If other warnings appear, it cranks slowly or lights dim, it could stall or not restart, so go straight to a shop.",
+  "test_first": "Test the battery and charging system, then check the transmission computer's power feed, fuses, relay and ground connections for voltage drop before replacing the module."
  },
  {
   "code": "P0883",
@@ -1614,7 +1618,9 @@
   "common": false,
   "src": [
    "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
-  ]
+  ],
+  "drive": "No. Two gears engaged at once can bind or jerk the drivetrain, which may cause a sudden slowdown or loss of control. If it happened while driving, pull over safely and have it towed. Don't keep driving to see if it happens again.",
+  "test_first": "Read all transmission codes, check fluid level and condition, and test shift solenoids, valve body operation and speed sensor data before deciding on internal repair."
  },
  {
   "code": "P0894",
@@ -1673,7 +1679,9 @@
    "https://repairpal.com/OBD-II-Code-P0894",
    "https://www.carwhere.com/obd-codes/p0894",
    "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
-  ]
+  ],
+  "drive": "Drive as little as possible. If the engine revs rise without the car speeding up, the transmission is slipping, which builds heat and wears clutches fast. Avoid highways and towing, and if it slips badly, smells burnt or goes into limp mode, have it towed.",
+  "test_first": "Check fluid level, color and smell, read any solenoid or sensor codes, and check line pressure and speed sensor data before deciding the transmission needs a rebuild."
  },
  {
   "code": "P0895",

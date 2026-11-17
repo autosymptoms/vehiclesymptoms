@@ -98,17 +98,18 @@
   },
   "r_alternator": {
    "result": {
-    "title": "The alternator probably isn't recharging the battery",
+    "title": "The alternator may not be recharging the battery",
     "urgency": "soon",
     "now": "Get the charging system tested within the next day or two. Most auto parts stores can test it in the parking lot. Avoid long trips and night driving until then.",
     "if": [
      "If the battery light is on and the headlights, wipers or gauges start acting up, don't keep driving. The car is running on what's left in the battery and may shut off. Pull over somewhere safe and call for a tow.",
+     "If the temperature gauge rises or the steering suddenly gets heavy, the drive belt may have come off. Pull over, switch off the engine and have it towed.",
      "If you smell burning or hear a loud squeal from the engine, the drive belt may have slipped or broken. Stop and have it towed."
     ],
-    "why": "While the engine runs, the alternator powers the car and recharges the battery. If it stops charging, the car slowly drains the battery until it dies, often while you're driving. A new battery won't fix it and will go flat too.",
+    "why": "While the engine runs, the alternator powers the car and recharges the battery. If it stops charging, the car slowly drains the battery until it dies, often while you're driving. A new battery alone won't fix that and will go flat too, which is why a charging test comes first.",
     "causes": [
      {
-      "name": "Failing alternator",
+      "name": "Alternator not charging",
       "clues": "The battery light flickers or stays on, the headlights dim at idle, or there's a whining noise.",
       "against": ""
      },
@@ -178,12 +179,12 @@
   },
   "r_old_battery": {
    "result": {
-    "title": "The battery is likely worn out and can't hold a charge",
+    "title": "The battery may be worn out and unable to hold a charge",
     "urgency": "diy",
     "now": "Have the battery and charging system tested. Most auto parts stores do this free. If the battery fails, replace it with one that matches your car's specs.",
     "if": [
      "If the battery tests good, ask for a charging test and a parasitic draw test so you're not left guessing.",
-     "If a new battery also goes flat within weeks, the problem is the charging system or a drain, not the battery."
+     "If a new battery also goes flat within weeks, that points to the charging system or a drain rather than the battery."
     ],
     "why": "As batteries age, they lose the ability to store power. One that's several years old may start the car fine in warm weather, then die after a cold night or a day of sitting.",
     "causes": [
@@ -257,11 +258,11 @@
   },
   "r_light_left_on": {
    "result": {
-    "title": "A light that stays on is draining the battery",
+    "title": "A light that stays on may be draining the battery",
     "urgency": "diy",
     "now": "Find the light that stays on and make sure its door, lid or switch is closing it off. Then charge the battery or drive for at least 30 minutes.",
     "if": [
-     "If the light won't turn off even when the door or lid is closed, the switch is faulty. Pull its bulb or have the switch replaced.",
+     "If the light won't turn off even when the door or lid is closed, its switch or wiring may be at fault. Removing that bulb stops the drain until a shop can check the switch.",
      "If you can't find anything left on, have a shop do a parasitic draw test."
     ],
     "why": "A small bulb left on can flatten a battery overnight. Trunk, glove box and under-hood lights are easy to miss because you can't see them with everything closed.",
@@ -301,7 +302,7 @@
     "now": "Unplug or switch off the new accessory for a few nights. If the battery stops dying, have it rewired properly.",
     "if": [
      "If it still dies with the accessory unplugged, have a parasitic draw test done.",
-     "If you notice a hot wire or a burning smell near the accessory, disconnect it and have it checked before using the car."
+     "If you notice a hot wire, a burning smell or smoke near the accessory, don't use the car. If it's safe to do so, disconnect the accessory, and have the wiring checked before driving."
     ],
     "why": "Dash cams with parking mode, remote starters, alarms and stereos are common causes of drain when they're wired to stay on all the time. The timing of the problem is a strong clue.",
     "causes": [
@@ -413,17 +414,17 @@
   },
   "r_parasitic": {
    "result": {
-    "title": "Something is likely draining the battery while the car is off",
+    "title": "Something may be draining the battery while the car is off",
     "urgency": "check",
     "now": "Have the battery tested first. If it's healthy, book a parasitic draw test so a shop can find what's staying on.",
     "if": [
      "If the battery fails the test, replace it, then watch whether the problem comes back.",
-     "If you smell burning or a wire feels hot, disconnect the battery and have it checked before using the car."
+     "If you smell burning, a wire feels hot, or you see smoke, step away from the car and call for help if it gets worse. Don't use the car until the wiring is checked."
     ],
-    "why": "When a fairly new battery dies after a night or two, something is usually staying powered after the car shuts down. A shop measures the drain with the car off and pulls fuses one at a time to find the circuit.",
+    "why": "When a fairly new battery dies after a night or two, something is often staying powered after the car shuts down. A shop measures the drain with the car off and checks circuits one at a time to find it.",
     "causes": [
      {
-      "name": "A module or relay not shutting off",
+      "name": "A module or relay that may not be shutting off",
       "clues": "Odd behavior like a fan, radio or light running after the car is off.",
       "against": ""
      },

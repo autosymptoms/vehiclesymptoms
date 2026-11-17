@@ -2,7 +2,7 @@
  "id": "engine-sputtering-misfire",
  "title": "Engine sputters or misfires",
  "h1": "Why is my engine sputtering or misfiring while driving?",
- "metaDesc": "Engine sputtering or misfiring? Answer a few questions to see if it's spark plugs, a coil, fuel or something serious, and whether it's safe to keep driving.",
+ "metaDesc": "Engine sputtering or misfiring? Answer a few questions to see if it's spark plugs, a coil, fuel or something serious, and when to stop driving.",
  "group": "drive",
  "cat": "Driving",
  "synonyms": [
@@ -113,14 +113,15 @@
   },
   "r_severe_misfire": {
    "result": {
-    "title": "A severe misfire is happening. Stop driving to avoid damage",
+    "title": "A severe misfire may be happening. Stop driving to avoid damage",
     "urgency": "stop",
     "now": "Pull over when it's safe and turn the engine off. Have the car towed or call a mobile mechanic.",
     "if": [
      "If you can't stop right away, ease off the gas, avoid hard acceleration and get off the road as soon as it's safe.",
-     "If you see smoke, smell burning, or notice a glow under the car, get everyone out and away from the vehicle."
+     "If you see smoke, smell burning, or notice a glow under the car, get everyone out and away from the vehicle.",
+     "If the temperature gauge is high or the oil pressure light is on, don't restart the engine."
     ],
-    "why": "A flashing check engine light means misfires are severe enough to send unburned fuel into the exhaust. That fuel burns inside the catalytic converter and can overheat it, destroying it and creating a fire risk. Violent shaking means at least one cylinder has stopped working.",
+    "why": "A flashing check engine light means misfires are severe enough to send unburned fuel into the exhaust. That fuel burns inside the catalytic converter and can overheat it, destroying it and creating a fire risk. Violent shaking usually means at least one cylinder has stopped working.",
     "causes": [
      {
       "name": "Failed ignition coil or spark plug",
@@ -156,7 +157,7 @@
     "now": "Pull over, turn the engine off and step away from the car. Have it towed.",
     "if": [
      "If you see fuel dripping or pooling, move well away and call for help. Don't let anyone smoke nearby.",
-     "If the smell was brief and only right after refueling, check the fuel cap. If the smell returns while the engine runs, have it towed."
+     "If the smell was brief and only right after refueling, a loose fuel cap is possible. But with the engine sputtering too, still have it checked before driving."
     ],
     "why": "Sputtering together with a strong fuel smell can mean fuel is leaking onto the engine, or an injector is dumping too much fuel into a cylinder. Either way, raw fuel near hot engine and exhaust parts is a fire risk.",
     "causes": [
@@ -230,14 +231,16 @@
   },
   "r_constant_misfire": {
    "result": {
-    "title": "One cylinder has likely dropped out, most often from a bad coil or plug",
+    "title": "One cylinder may not be firing, often from a coil or plug problem",
     "urgency": "soon",
     "now": "Have it checked within the next few days. Keep trips short and gentle until then.",
     "if": [
      "If the check engine light starts flashing or the shaking gets much worse, pull over and stop driving.",
-     "If there's a ticking or tapping noise with the misfire, mention it. It may point to a valve or mechanical problem."
+     "If there's a ticking or tapping noise with the misfire, mention it. It may point to a valve or mechanical problem.",
+     "If you smell raw fuel or burning, see smoke, or the temperature gauge rises, pull over and turn the engine off.",
+     "If the engine nearly stalls or cuts out, stop driving it and have it checked."
     ],
-    "why": "A steady miss you can feel even at idle usually means one cylinder isn't firing at all. The most common reason is a failed ignition coil or spark plug. Driving on it for long wastes fuel and can damage the catalytic converter.",
+    "why": "A steady miss you can feel even at idle usually means one cylinder isn't firing at all. Common reasons are a failed ignition coil or spark plug, and a shop will usually read the code and swap the coil between cylinders to confirm before replacing parts. Driving on it for long wastes fuel and can damage the catalytic converter.",
     "causes": [
      {
       "name": "Failed ignition coil",
@@ -275,12 +278,13 @@
   },
   "r_plugs_coils": {
    "result": {
-    "title": "Most likely worn spark plugs or a weakening ignition coil",
+    "title": "Possibly worn spark plugs or a weakening ignition coil",
     "urgency": "soon",
     "now": "Have the ignition system checked within the next few days, and avoid hard acceleration until then.",
     "if": [
-     "If the plugs are overdue, replacing them is often the fix.",
-     "If the check engine light starts flashing, pull over and stop driving."
+     "If the plugs are overdue, new plugs are a common fix, but have the codes read and the coils checked too so the right part gets replaced.",
+     "If the check engine light starts flashing, pull over and stop driving.",
+     "If you smell raw fuel or the engine nearly stalls, stop driving it and have it checked."
     ],
     "why": "Under load, the engine needs a stronger spark to light the fuel. Worn plugs or a tired coil can get by at idle but miss when you accelerate, which feels like sputtering or jerking. Misfires that are left alone tend to get worse.",
     "causes": [
@@ -315,7 +319,7 @@
   },
   "r_wet_cold": {
    "result": {
-    "title": "Damp or cold-start misfires usually point to worn ignition parts",
+    "title": "Damp or cold-start misfires often point to worn ignition parts",
     "urgency": "check",
     "now": "Book an ignition system check when convenient. Try to bring it in on a damp day or for a cold start so the shop can see it happen.",
     "if": [
@@ -359,9 +363,10 @@
     "now": "Have it checked within the next few days. Avoid long trips and highways until then.",
     "if": [
      "If it stalls while driving, stop driving it and have it towed. Losing power in traffic is dangerous.",
-     "If the check engine light comes on, have the code read. A lean code points toward fuel or air problems."
+     "If the check engine light comes on, have the code read. A lean code points toward fuel or air problems.",
+     "If you smell raw fuel, pull over, turn the engine off and step away from the car."
     ],
-    "why": "Sputtering that comes and goes, or that's worse when you need more power, often means fuel supply is falling short. A weak pump or clogged filter may keep up at light throttle and then run short when demand rises. Left alone, it can leave you stranded.",
+    "why": "Sputtering that comes and goes, or that's worse when you need more power, can mean fuel supply is falling short. A weak pump or clogged filter may keep up at light throttle and then run short when demand rises. Left alone, it can leave you stranded. A shop will usually test fuel pressure and volume before replacing the pump.",
     "causes": [
      {
       "name": "Weak or failing fuel pump",
@@ -398,8 +403,9 @@
     "urgency": "diy",
     "now": "Keep the tank at least a quarter full and see if the sputtering stops.",
     "if": [
-     "If it still sputters with a fuller tank, the fuel pump or filter likely needs checking. Book a check within a few days.",
-     "If it stalls while driving, stop driving it and have it checked before using it again."
+     "If it still sputters with a fuller tank, the fuel pump or filter may need checking. Book a check within a few days.",
+     "If it stalls while driving, stop driving it and have it checked before using it again.",
+     "If you smell raw fuel, turn the engine off and have it checked before driving."
     ],
     "why": "On turns, hills or hard braking, fuel sloshes away from the pump's pickup when the tank is low, and the engine briefly runs short. A pump that's getting weak shows this sooner. Keeping more fuel in the tank also helps the pump stay cool.",
     "causes": [
@@ -438,9 +444,10 @@
     "now": "Check your receipt for the right fuel grade, drive gently, and refill with fresh fuel from a busy station once the tank is low.",
     "if": [
      "If you put diesel in a gas car (or gas in a diesel), stop driving it right away. The tank will need to be drained.",
-     "If the sputtering doesn't improve after fresh fuel, or the check engine light starts flashing, have it checked."
+     "If the sputtering doesn't improve after fresh fuel, have it checked. If the check engine light starts flashing, pull over and stop driving.",
+     "If you smell raw fuel or the engine shakes hard, pull over and stop driving."
     ],
-    "why": "Water or dirt in the fuel, or the wrong fuel type, makes the engine run rough and sputter. When the problem starts right after filling up, the fuel is the most likely link.",
+    "why": "Water or dirt in the fuel, or the wrong fuel type, makes the engine run rough and sputter. When the problem starts right after filling up, the fuel is a likely link.",
     "causes": [
      {
       "name": "Water or contamination in the fuel",
@@ -477,13 +484,14 @@
     "now": "Have the check engine codes read (many parts stores do this free), then book a check soon and describe when the sputtering happens.",
     "if": [
      "If the check engine light starts flashing or the engine shakes hard, pull over and stop driving.",
-     "If it sputters at idle all the time or nearly stalls, get it checked within a few days."
+     "If it sputters at idle all the time or nearly stalls, get it checked within a few days.",
+     "If you smell raw fuel, see smoke or the temperature gauge rises, pull over and turn the engine off."
     ],
     "why": "Misfires come from spark, fuel or compression problems. Stored codes often name the cylinder involved, which narrows it down quickly. A note of when it happens helps the shop find the cause without guessing.",
     "causes": [
      {
       "name": "Ignition problem (plugs, coils, wires)",
-      "clues": "The most common cause of misfires.",
+      "clues": "A common cause of misfires.",
       "against": ""
      },
      {

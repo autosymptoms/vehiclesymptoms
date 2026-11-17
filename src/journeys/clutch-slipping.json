@@ -117,14 +117,15 @@
   },
   "r_clutch_gone": {
    "result": {
-    "title": "The clutch has worn out or failed and can't move the car",
+    "title": "The clutch may have failed or lost its grip and can't move the car",
     "urgency": "stop",
     "now": "Don't drive it. Have it towed to a shop or call a mobile mechanic.",
     "if": [
-     "If the clutch pedal also feels soft or goes to the floor, check the clutch fluid reservoir. A hydraulic leak can cause the same symptom.",
-     "If you're in traffic, turn on your hazard lights and get to the shoulder if you can roll there safely."
+     "If the clutch pedal also feels soft or goes to the floor, a hydraulic leak can cause the same symptom. On cars where the clutch shares the brake fluid reservoir, treat a low level as a possible brake problem too.",
+     "If you're in traffic, turn on your hazard lights and get to the shoulder if you can roll there safely.",
+     "If you smell burning or see smoke from under the car, turn the engine off and let everything cool. Don't keep trying to get it moving."
     ],
-    "why": "When the car barely moves even though the engine revs, the clutch can no longer grip. Trying to drive like this overheats what's left of the clutch and can damage the flywheel, and the car may not be able to keep up with traffic.",
+    "why": "When the car barely moves even though the engine revs, the clutch usually isn't gripping. Trying to drive like this overheats what's left of the clutch and can damage the flywheel, and the car may not be able to keep up with traffic.",
     "causes": [
      {
       "name": "Clutch disc worn down to the end of its life",
@@ -144,7 +145,7 @@
     ],
     "confirm": {
      "you": [
-      "Check the clutch fluid reservoir level (on many cars it shares the brake fluid reservoir)."
+      "From the parked car, check the clutch fluid reservoir level (on many cars it shares the brake fluid reservoir)."
      ],
      "shop": [
       "Clutch hydraulic system inspection",
@@ -156,14 +157,16 @@
   },
   "r_worn_disc": {
    "result": {
-    "title": "The clutch disc is most likely worn out",
+    "title": "The clutch disc may be worn",
     "urgency": "soon",
     "now": "Get the clutch checked within the next few days. Until then, drive gently, avoid hard acceleration and hills, and keep your foot off the clutch pedal except when shifting.",
     "if": [
      "If the car starts to struggle to move or you smell burning often, stop driving it and have it towed.",
-     "If you tow a trailer, don't until the clutch is fixed."
+     "If you tow a trailer, don't until the clutch is fixed.",
+     "If you see smoke from under the car or the burning smell is strong, stop as soon as it's safe and let it cool before going anywhere.",
+     "If the clutch pedal goes soft, sinks or stays on the floor, don't drive it. You may not be able to shift or stop smoothly."
     ],
-    "why": "The clutch disc has friction material that wears down with use, just like brake pads. As it thins, the clutch grips with less force, so it slips first under heavy load and later all the time. A worn disc doesn't recover, and slipping heats and damages the flywheel.",
+    "why": "The clutch disc has friction material that wears down with use, just like brake pads. As it thins, the clutch grips with less force, so it slips first under heavy load and later all the time. A worn disc doesn't recover, and ongoing slipping heats and can damage the flywheel. A shop will usually do a slip test and check the pedal free play and hydraulics before recommending a new clutch, since those can cause the same symptom.",
     "causes": [
      {
       "name": "Normal wear of the clutch disc",
@@ -196,14 +199,16 @@
   },
   "r_overheated": {
    "result": {
-    "title": "The clutch probably overheated from heavy use",
+    "title": "The clutch may have overheated from heavy use",
     "urgency": "check",
     "now": "Let the clutch cool for at least 30 minutes, then drive gently and see whether the slipping has stopped. Book a check when convenient.",
     "if": [
      "If it keeps slipping after it has cooled down, the clutch is likely damaged. Get it checked within a few days.",
-     "If you see smoke from under the car, stop and let it cool before going any further."
+     "If you see smoke from under the car, or the burning smell is very strong, turn the engine off and let it cool before going any further.",
+     "If the car struggles to get moving after the clutch has cooled, don't drive it. Have it checked where it is or towed.",
+     "If the clutch pedal feels soft, sinks or stays down, don't drive it."
     ],
-    "why": "Towing, repeated hill starts and hard launches make the clutch slip on purpose, which creates a lot of heat. A hot clutch grips less and gives off a sharp burning smell. One episode may do little harm, but repeated overheating wears it out fast.",
+    "why": "Towing, repeated hill starts and hard launches make the clutch slip on purpose, which creates a lot of heat. A hot clutch grips less and gives off a sharp burning smell. A single episode doesn't always leave lasting damage, but you can't tell that from the driver's seat, and repeated overheating wears a clutch out fast.",
     "causes": [
      {
       "name": "Clutch overheated from heavy use",
@@ -237,12 +242,13 @@
    "result": {
     "title": "A clutch hydraulic problem may be keeping the clutch from fully engaging",
     "urgency": "soon",
-    "now": "Check the clutch fluid reservoir and look for leaks near the pedal and transmission. Have the system checked within the next few days.",
+    "now": "Check the clutch fluid reservoir and look for leaks near the pedal and transmission. Have the system checked within the next few days, or before driving at all if the reservoir is shared with the brakes and it's low.",
     "if": [
      "If the pedal goes to the floor and stays there, don't drive it. You may not be able to shift. Have it towed.",
-     "If the clutch fluid shares the brake reservoir and it's low, have the brakes checked too."
+     "If the clutch shares the brake fluid reservoir and the level is low, don't just top it up and carry on. Have the brakes and clutch inspected before driving further, even if you can't see a leak.",
+     "If the brake pedal also feels soft, sinks, or the brake warning light is on, stop driving and have it towed. A shared reservoir means a leak can affect both."
     ],
-    "why": "Most clutches are worked by fluid pressure, like brakes. If the master or slave cylinder is sticking, or the fluid is low or contaminated, the clutch can stay partly released, so it slips even though the disc itself may be fine.",
+    "why": "Most clutches are worked by fluid pressure, like brakes. If the master or slave cylinder is sticking, or the fluid is low or contaminated, the clutch can stay partly released, so it slips even though the disc itself may be fine. A shop will usually check the hydraulics before replacing the clutch.",
     "causes": [
      {
       "name": "Sticking or leaking slave cylinder",
@@ -279,8 +285,9 @@
     "urgency": "check",
     "now": "Have the clutch adjustment checked when convenient. Until then, avoid hard acceleration and keep your foot off the pedal while driving.",
     "if": [
-     "If the slipping gets worse or you smell burning, get it checked within a few days.",
-     "If your car has a hydraulic clutch with no adjuster, a sticking hydraulic part is more likely."
+     "If the slipping gets worse or you smell burning, get it checked within a few days, and don't drive it if the car struggles to move.",
+     "If your car has a hydraulic clutch with no adjuster, a sticking hydraulic part is more likely.",
+     "If you see smoke from under the car or the clutch pedal stays on the floor, stop driving it."
     ],
     "why": "The clutch needs a little slack at the top of the pedal so it can clamp fully when released. If a clutch cable is too tight, or the pedal doesn't come all the way up, the clutch stays partly released and slips under load.",
     "causes": [
@@ -320,9 +327,10 @@
     "now": "Check the engine oil level and top it up if needed, then have the leak and clutch checked within the next few days.",
     "if": [
      "If the oil level is well below the low mark or the oil pressure light comes on, don't drive it.",
-     "If the leak is heavy, keep trips short and check the oil level each time."
+     "If the leak is heavy, with oil dripping steadily or puddling, don't drive it until it's checked. Oil on hot parts can catch fire and the engine can run low.",
+     "If you see smoke from under the car or smell burning oil, turn the engine off. Oil dripping onto hot exhaust parts can be a fire risk."
     ],
-    "why": "The clutch sits right next to the rear engine seal and the transmission input seal. If either leaks, oil can soak the clutch disc, which then slips and often chatters. Cleaning rarely fixes an oil-soaked disc, so the leak and the clutch are usually repaired together.",
+    "why": "The clutch sits right next to the rear engine seal and the transmission input seal. If either leaks, oil can soak the clutch disc, which then slips and often chatters. A shop will usually confirm where the oil is coming from before quoting. If the disc is soaked, cleaning rarely fixes it, so the leak and the clutch are often repaired together.",
     "causes": [
      {
       "name": "Leaking rear main engine seal",
@@ -360,7 +368,8 @@
     "now": "Contact the shop that did the work and have them check it within the next few days. Drive gently until then.",
     "if": [
      "If the slipping is slight and the clutch is only a few hundred miles old, the shop may advise a short break-in period of easy driving.",
-     "If the slipping is getting worse, stop driving it hard and get it checked right away to avoid ruining the new parts."
+     "If the slipping is getting worse, stop driving it hard and get it checked right away to avoid ruining the new parts.",
+     "If you smell burning, see smoke or the pedal goes to the floor, stop driving and call the shop that did the work."
     ],
     "why": "New clutches need correct adjustment and clean, oil-free parts. A pedal or hydraulic system that isn't set up right, oil on the new disc, or a flywheel that wasn't resurfaced or replaced can all cause slipping soon after a repair.",
     "causes": [
@@ -400,7 +409,8 @@
     "now": "Book a check for low engine power when convenient, and mention any warning lights or other symptoms.",
     "if": [
      "If the check engine light is flashing or the engine shakes, don't drive it. Have it checked right away.",
-     "If a wheel feels hot or smells of burning after a drive, a brake may be dragging. Get it checked soon."
+     "If a wheel smokes, smells of burning or is much hotter than the others after a drive, a brake may be dragging. Don't keep driving; let it cool and have it checked before driving further.",
+     "If the temperature gauge climbs toward red or a red warning light comes on, pull over and turn the engine off."
     ],
     "why": "A slipping clutch shows up as revs rising faster than speed. If they rise together and the car still feels sluggish, the engine isn't making full power or something is holding the car back.",
     "causes": [
@@ -440,7 +450,8 @@
     "now": "Book a clutch check when convenient and describe when the problem happens: which gear, uphill or flat, and how the pedal feels.",
     "if": [
      "If the car struggles to get moving or you smell burning, stop driving and get it checked right away.",
-     "If the pedal feels soft or sinks, check the clutch fluid reservoir."
+     "If the pedal feels soft or sinks, check the clutch fluid reservoir. If it's low and shared with the brakes, have it inspected before driving further.",
+     "If the clutch pedal goes to the floor and stays there, don't drive it."
     ],
     "why": "Clutch slip, low engine power and dragging brakes can all feel like the car isn't pulling. A technician can do a quick slip test and road test to tell them apart.",
     "causes": [

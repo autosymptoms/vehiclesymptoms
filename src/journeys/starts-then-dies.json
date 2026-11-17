@@ -128,7 +128,8 @@
     "now": "Park it and have it towed to a shop, or have a mobile mechanic come to you.",
     "if": [
      "If a warning light came on before it stalled, write down which one. It helps the shop.",
-     "If it restarts after cooling down, still don't rely on it. Parts that fail when hot often get worse."
+     "If it restarts after cooling down, still don't rely on it. Parts that fail when hot often get worse.",
+     "If you smell raw fuel, stop trying to start it and keep sparks and flames away."
     ],
     "why": "When the engine dies on the road, power steering and brake assist go with it, making the car much harder to steer and stop. The same fault that kills it at startup is now happening at speed.",
     "causes": [
@@ -163,14 +164,14 @@
   },
   "r_immobilizer": {
    "result": {
-    "title": "The anti-theft system is likely shutting the engine off",
+    "title": "The anti-theft system may be shutting the engine off",
     "urgency": "diy",
     "now": "Try your spare key. For push-button start, hold the key fob right against the Start button, or put it where your owner's manual says, while you press Start.",
     "if": [
-     "If the spare works, replace the battery in your main key or fob, or have the key checked.",
+     "If the spare works, try a new battery in your main key or fob, or have the key checked.",
      "If neither key works, a dealer or locksmith with the right equipment may need to check or reprogram the key."
     ],
-    "why": "Many cars let the engine fire for a second or two and then cut fuel if they don't recognize the key. A flashing key or security light right when it dies is the giveaway.",
+    "why": "Many cars let the engine fire for a second or two and then cut fuel if they don't recognize the key. A flashing key or security light right when it dies is a strong clue.",
     "causes": [
      {
       "name": "Weak key fob battery",
@@ -208,7 +209,7 @@
     "if": [
      "If fuel is dripping or pooling, move people away from the car and call the fire department."
     ],
-    "why": "A raw fuel smell or wet spot means fuel is getting somewhere it shouldn't. A leak can also drop fuel pressure, which makes the engine die, and fuel near hot parts is a fire risk.",
+    "why": "A raw fuel smell or wet spot often means fuel is getting somewhere it shouldn't. A leak can also drop fuel pressure, which makes the engine die, and fuel near hot parts is a fire risk.",
     "causes": [
      {
       "name": "Leaking fuel line or fitting",
@@ -245,7 +246,9 @@
     "now": "If the tank is low, add several gallons and try again. If it started right after a fill-up, note where you bought the fuel and book a check.",
     "if": [
      "If it still starts and dies with plenty of fuel, the fuel pump or filter may be weak. Have it checked before driving any distance.",
-     "If it started after filling up and the car has a diesel engine, make sure diesel, not gasoline, went in. If the wrong fuel went in, don't start it again and have it towed."
+     "If it started after filling up and the car has a diesel engine, make sure diesel, not gasoline, went in. If the wrong fuel went in, don't start it again and have it towed.",
+     "If it stalls while driving, including when slowing down or coming to a stop, don't drive it until it's checked. Steering and braking get much heavier when the engine dies.",
+     "If you smell raw fuel, stop trying to start it and keep sparks and flames away."
     ],
     "why": "An engine can start on the fuel already in the lines and then die when the supply can't keep up. A nearly empty tank, a weak pump or water or the wrong fuel in the tank can all do this.",
     "causes": [
@@ -280,14 +283,15 @@
   },
   "r_idle_air": {
    "result": {
-    "title": "The engine isn't getting enough air to idle on its own",
+    "title": "The engine may not be getting enough air to idle on its own",
     "urgency": "check",
-    "now": "Keep a light foot on the gas for a few seconds after starting until it settles, and book a check when convenient.",
+    "now": "Book a check soon. If you need to restart it, a light foot on the gas for a few seconds may help it settle, but don't rely on that if it's dying at stops.",
     "if": [
-     "If it starts dying at stops or when slowing down, get it checked sooner. Stalling in traffic is risky.",
-     "If the check engine light comes on, have the codes read."
+     "If it stalls while driving, including when slowing down or coming to a stop, don't drive it until it's checked. Steering and braking get much heavier when the engine dies.",
+     "If the check engine light comes on, have the codes read.",
+     "If you smell raw fuel, stop trying to start it and keep sparks and flames away."
     ],
-    "why": "When a little gas pedal keeps it running, the engine needs more air at idle than it's getting. Carbon buildup in the throttle body or a sticking idle control part is the usual reason.",
+    "why": "When a little gas pedal keeps it running, the engine may need more air at idle than it's getting. Carbon buildup in the throttle body or a sticking idle control part are common reasons, and a shop will usually check the codes and idle data before cleaning or replacing parts.",
     "causes": [
      {
       "name": "Dirty throttle body",
@@ -325,7 +329,8 @@
     "now": "Start the car and let it idle with everything off (A/C, lights, radio) for about 10 minutes. Check your owner's manual for an idle relearn procedure.",
     "if": [
      "If it still won't stay running after that, a shop can run the idle relearn with a scan tool.",
-     "If the battery terminals were disturbed, make sure both clamps are tight."
+     "If the battery terminals were disturbed, make sure both clamps are tight.",
+     "If it stalls while driving, including when slowing down or coming to a stop, don't drive it until it's checked. Steering and braking get much heavier when the engine dies."
     ],
     "why": "On many cars, disconnecting the battery erases the learned idle settings. Until the computer relearns them, the engine may start and then stumble or die.",
     "causes": [
@@ -354,14 +359,15 @@
   },
   "r_sensor": {
    "result": {
-    "title": "A sensor or engine fault is likely. The stored code is the best clue",
+    "title": "A sensor or engine fault is possible. The stored code is the best clue",
     "urgency": "check",
     "now": "Have the trouble codes read. Many parts stores do this free, or book a shop check soon.",
     "if": [
-     "If the check engine light is flashing, don't drive it. That signals a serious misfire that can damage the catalytic converter.",
-     "If it stalls while driving, don't drive it until it's fixed."
+     "If the check engine light is flashing, don't drive it. That usually signals a serious misfire that can damage the catalytic converter.",
+     "If it stalls while driving, including when slowing down or coming to a stop, don't drive it until it's checked. Steering and braking get much heavier when the engine dies.",
+     "If you smell raw fuel, stop trying to start it and keep sparks and flames away."
     ],
-    "why": "The engine computer relies on sensors to set fuel and air at startup. If one reads wrong, the engine can fire up and then die, and the computer usually stores a code that points to the problem.",
+    "why": "The engine computer relies on sensors to set fuel and air at startup. If one reads wrong, the engine can fire up and then die, and the computer often stores a code that points a shop toward what to test.",
     "causes": [
      {
       "name": "Mass airflow sensor fault",
@@ -397,7 +403,8 @@
     "urgency": "check",
     "now": "Let it idle for 30 seconds before driving off on cold mornings, and book a check when convenient.",
     "if": [
-     "If it starts stalling when warm too, or the check engine light comes on, get it checked sooner."
+     "If it starts stalling when warm too, or the check engine light comes on, get it checked sooner.",
+     "If it stalls while driving, including when slowing down or coming to a stop, don't drive it until it's checked. Steering and braking get much heavier when the engine dies."
     ],
     "why": "A cold engine needs extra fuel and a higher idle. If the coolant temperature sensor gives the computer the wrong reading, or the idle system is dirty, the engine can die until it warms up.",
     "causes": [
@@ -432,11 +439,12 @@
   },
   "r_vacuum_leak": {
    "result": {
-    "title": "A vacuum leak is likely letting in extra air",
+    "title": "A vacuum leak may be letting in extra air",
     "urgency": "check",
     "now": "Book a check when convenient. Mention the hissing or surging idle so the shop can test for leaks.",
     "if": [
-     "If the check engine light starts flashing or the car stalls while driving, stop driving it.",
+     "If the check engine light starts flashing, stop driving it.",
+     "If it stalls while driving, including when slowing down or coming to a stop, don't drive it until it's checked. Steering and braking get much heavier when the engine dies.",
      "If a hose has visibly popped off, a shop can often fix it quickly."
     ],
     "why": "The engine computer measures the air coming in and adds fuel to match. A cracked hose or leaking gasket lets in air it doesn't know about, so the mixture runs too lean to idle and the engine surges or dies.",
@@ -473,9 +481,10 @@
    "result": {
     "title": "The idle may be too low to handle extra load",
     "urgency": "check",
-    "now": "Keep your foot lightly on the gas when you shift into gear until it's checked, and book an inspection.",
+    "now": "Book an inspection soon. Until it's checked, keep your foot lightly on the gas when you shift into gear.",
     "if": [
-     "If it stalls while driving or in traffic, don't drive it until it's fixed."
+     "If it stalls while driving, including when slowing down or coming to a stop, don't drive it until it's checked. Steering and braking get much heavier when the engine dies.",
+     "If you smell raw fuel, stop trying to start it and keep sparks and flames away."
     ],
     "why": "Shifting into gear or turning on the A/C adds load to the engine. If the idle control can't raise engine speed to match, the engine stumbles and dies.",
     "causes": [
@@ -513,8 +522,8 @@
     "urgency": "check",
     "now": "Have the trouble codes read, then book a check. Until then, avoid relying on the car for important trips.",
     "if": [
-     "If it stalls while driving, don't drive it until it's fixed.",
-     "If you smell fuel, stop trying to start it."
+     "If it stalls while driving, including when slowing down or coming to a stop, don't drive it until it's checked. Steering and braking get much heavier when the engine dies.",
+     "If you smell raw fuel, stop trying to start it and keep sparks and flames away."
     ],
     "why": "Starting and then dying means the battery and starter are doing their job, but fuel, air or the security system isn't keeping the engine running. A few quick tests usually separate these.",
     "causes": [

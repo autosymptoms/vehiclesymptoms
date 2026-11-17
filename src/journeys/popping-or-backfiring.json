@@ -21,7 +21,7 @@
   "backfireing",
   "car makes gunshot sound"
  ],
- "intro": "A pop or bang from the engine or tailpipe usually means fuel is burning somewhere it shouldn't, either in the intake or in the exhaust. When it happens and what comes with it tells you whether it's a harmless crackle, a leak, or a misfire that can damage expensive parts. Answer the questions below to find the most likely cause and how soon to act.",
+ "intro": "A pop or bang from the engine or tailpipe usually means fuel is burning somewhere it shouldn't, either in the intake or in the exhaust. When it happens and what comes with it helps show whether it's likely an expected crackle, a leak, or a misfire that can damage expensive parts. Answer the questions below to see the likely possibilities and how soon to act.",
  "safety": [
   "If the check engine light is flashing, pull over safely and turn off the engine. A severe misfire can overheat the catalytic converter.",
   "If you see smoke or flames from under the car or the tailpipe, pull over, turn off the engine and get away from the car.",
@@ -113,14 +113,15 @@
   },
   "r_misfire_flashing": {
    "result": {
-    "title": "A severe misfire is likely, and it can damage the catalytic converter",
+    "title": "A severe misfire is possible, and it can damage the catalytic converter",
     "urgency": "stop",
     "now": "Pull over safely and turn off the engine. Have the car towed or call a mobile mechanic.",
     "if": [
-     "If the light stops flashing after a restart, don't count on it. The misfire is still there and needs to be checked before you drive any distance.",
-     "If you see smoke or smell burning from under the car, get away from the car and call for help."
+     "If the light stops flashing after a restart, don't count on it. The misfire may still be there and needs to be checked before you drive it again.",
+     "If you see smoke or smell burning from under the car, get away from the car and call for help.",
+     "If you smell raw fuel, keep sparks and flames away and don't restart it."
     ],
-    "why": "A flashing check engine light means one or more cylinders aren't firing. Unburned fuel goes into the exhaust, where it pops and burns inside the catalytic converter. That can overheat and ruin the converter quickly and, in rare cases, start a fire.",
+    "why": "A flashing check engine light usually means one or more cylinders aren't firing properly. Unburned fuel goes into the exhaust, where it pops and burns inside the catalytic converter. That can overheat and ruin the converter quickly and, in rare cases, start a fire.",
     "causes": [
      {
       "name": "Failed ignition coil or spark plug",
@@ -153,14 +154,15 @@
   },
   "r_misfire": {
    "result": {
-    "title": "Most likely a misfire from a worn ignition part",
+    "title": "Possibly a misfire, often from a worn ignition part",
     "urgency": "soon",
     "now": "Have the engine scanned for codes within the next few days. Until then, keep trips short and avoid hard acceleration.",
     "if": [
      "If the check engine light starts flashing or the engine shakes hard, pull over and turn it off. Don't keep driving it.",
-     "If the spark plugs are past their service interval, mention it. They're a common cause and part of normal maintenance."
+     "If the spark plugs are past their service interval, mention it. They're a common cause and part of normal maintenance.",
+     "If you smell raw fuel, see smoke, or smell burning from under the car, pull over and turn the engine off."
     ],
-    "why": "When a cylinder doesn't fire properly, its unburned fuel can ignite later in the exhaust and make a pop. A rough-running engine or a steady check engine light along with popping almost always points to a misfire.",
+    "why": "When a cylinder doesn't fire properly, its unburned fuel can ignite later in the exhaust and make a pop. A rough-running engine or a steady check engine light along with popping often points to a misfire.",
     "causes": [
      {
       "name": "Worn spark plugs",
@@ -194,10 +196,11 @@
   },
   "r_intake_backfire": {
    "result": {
-    "title": "A backfire into the intake usually means the engine is running too lean",
+    "title": "A backfire into the intake often means the engine is running too lean",
     "urgency": "soon",
     "now": "Have it checked within the next few days. Avoid hard acceleration until then, since that's when intake backfires happen most.",
     "if": [
+     "If you see flames or smoke from under the hood, turn the engine off, get everyone out and call 911.",
      "If there's a loud bang and the engine then won't start or runs very badly, don't keep cranking it. The timing belt or chain may have slipped. Have it towed.",
      "If the check engine light starts flashing, pull over and turn off the engine."
     ],
@@ -235,7 +238,7 @@
   },
   "r_exhaust_leak": {
    "result": {
-    "title": "Probably an exhaust leak letting air in and causing pops",
+    "title": "Possibly an exhaust leak letting air in and causing pops",
     "urgency": "check",
     "now": "Book an exhaust inspection. Mention that it pops when you let off the gas.",
     "if": [
@@ -275,14 +278,15 @@
   },
   "r_rich": {
    "result": {
-    "title": "The engine is likely getting too much fuel",
-    "urgency": "soon",
-    "now": "Get it checked within the next few days. Keep trips short until then, and don't let it idle for long periods.",
+    "title": "The engine may be getting too much fuel",
+    "urgency": "stop",
+    "now": "Turn the engine off. Without restarting it, look and smell for fuel around the engine and under the car. Don't drive it until it's been checked. A strong fuel smell can mean a leak or a stuck injector, which is a fire risk. A mobile mechanic or a tow is the safest option.",
     "if": [
-     "If the fuel smell is strong or you see fuel dripping, don't drive it. Have it towed.",
-     "If the check engine light starts flashing, pull over and turn off the engine."
+     "If fuel is dripping or pooling, move away from the car and call for help.",
+     "If the check engine light starts flashing, pull over and turn off the engine.",
+     "If there's only black smoke and no fuel smell at all, tell the shop. That points more toward a sensor or mixture problem, but it still needs a code scan before more driving."
     ],
-    "why": "Extra fuel that doesn't burn in the engine can ignite in the hot exhaust and pop. It also wastes fuel and can overheat and damage the catalytic converter over time.",
+    "why": "Extra fuel that doesn't burn in the engine can ignite in the hot exhaust and pop. It also wastes fuel and can overheat and damage the catalytic converter. If you can smell raw fuel, fuel may also be leaking where it can reach hot parts.",
     "causes": [
      {
       "name": "Leaking or stuck-open fuel injector",
@@ -317,7 +321,7 @@
    "result": {
     "title": "Crackling on deceleration is normal for some sporty exhausts and tunes",
     "urgency": "diy",
-    "now": "Check whether your model or its tune is known to crackle when you let off the gas. If it's always done this and nothing else has changed, it's likely by design.",
+    "now": "Check whether your model or its tune is known to crackle when you let off the gas. If it's always done this and nothing else has changed, it may be by design. A shop familiar with your model can confirm it.",
     "if": [
      "If the popping is new, getting louder, or comes with a check engine light or rough running, have it checked.",
      "If you smell exhaust inside the car, stop driving it until the exhaust is inspected."
@@ -361,7 +365,7 @@
      "If the check engine light starts flashing or the engine shakes hard, pull over and turn it off.",
      "If you smell fuel or exhaust inside the car, stop driving it until it's checked."
     ],
-    "why": "Popping can come from a misfire, an exhaust leak or a fuel mixture problem. A code scan and a quick look at the exhaust usually tell them apart in minutes, and catching a misfire early protects the catalytic converter.",
+    "why": "Popping can come from a misfire, an exhaust leak or a fuel mixture problem. A code scan and a quick look at the exhaust usually help tell them apart quickly, and catching a misfire early protects the catalytic converter.",
     "causes": [
      {
       "name": "Misfire",

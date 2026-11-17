@@ -21,7 +21,7 @@
   "gas milage bad",
   "worse mpg in winter"
  ],
- "intro": "Lower fuel economy is often harmless, like cold weather or low tires. A sudden drop that comes with other signs can point to a dragging brake, a fuel leak or an engine problem that will get worse. Answer a few questions to see which applies to you.",
+ "intro": "Lower fuel economy often has a simple cause, like cold weather or low tires. A sudden drop that comes with other signs can point to a dragging brake, a fuel leak or an engine problem that will get worse. Answer a few questions to see which applies to you.",
  "safety": [
   "If you smell raw fuel, stop driving, turn the engine off and keep sparks and flames away.",
   "If the check engine light is flashing and the engine shakes, pull over and stop. Driving on can overheat and damage the catalytic converter.",
@@ -91,14 +91,15 @@
   },
   "r_misfire": {
    "result": {
-    "title": "The engine is likely misfiring, which wastes fuel and can damage the exhaust",
+    "title": "The engine may be misfiring, which wastes fuel and can damage the exhaust",
     "urgency": "stop",
     "now": "Pull over when it's safe and turn the engine off. Have the car towed or have a mobile mechanic come to you.",
     "if": [
-     "If the light stops flashing and stays on steadily, it's less urgent, but still have it checked within a day or two.",
-     "If you see smoke or smell burning from under the car, step away from it. An overheated catalytic converter can get extremely hot."
+     "If the light stops flashing after a restart, don't count on it. The misfire may come back, so have it checked before driving further.",
+     "If you see smoke or smell burning from under the car, step away from it. An overheated catalytic converter can get extremely hot.",
+     "If you smell raw fuel, keep sparks and flames away and don't restart the engine."
     ],
-    "why": "A flashing check engine light means the engine is misfiring badly. Unburned fuel goes out the exhaust, which is why mileage drops, and it can overheat and ruin the catalytic converter. Stopping early can prevent a much bigger repair.",
+    "why": "A flashing check engine light usually means the engine is misfiring badly. Unburned fuel goes out the exhaust, which is why mileage drops, and it can overheat and ruin the catalytic converter. Stopping early can prevent a much bigger repair.",
     "causes": [
      {
       "name": "Worn spark plug or failed ignition coil",
@@ -136,7 +137,7 @@
     "now": "Turn the engine off and keep flames and sparks away. Look for wet spots or drips under the car, then have it towed.",
     "if": [
      "If fuel is dripping or pooling, move away from the car and call for help.",
-     "If the smell is only near the gas cap right after filling up and then goes away, a loose or damaged cap is possible. Have it checked if the smell comes back."
+     "If the smell was only near the gas cap right after filling up and is now completely gone, a loose or damaged cap is possible. Tighten it, but let a shop confirm that's all it is before relying on the car."
     ],
     "why": "You should never smell raw gasoline strongly around a car. A leaking fuel line, injector seal or tank can waste fuel quickly, which shows up as worse mileage, and it's a fire risk.",
     "causes": [
@@ -176,12 +177,13 @@
   },
   "r_dragging_brake": {
    "result": {
-    "title": "A brake that isn't releasing is likely dragging the car",
-    "urgency": "soon",
-    "now": "Make sure the parking brake is fully released, then have the brakes checked within a day or two.",
+    "title": "A brake may not be releasing and could be dragging the car",
+    "urgency": "stop",
+    "now": "Pull over when it's safe, make sure the parking brake is fully released, and let the brakes cool. Don't drive it until the brakes have been checked. A brake that keeps dragging can overheat and lose stopping power. A mobile mechanic or a tow is the safest option.",
     "if": [
-     "If a wheel is smoking or too hot to go near, don't drive it. Let it cool and have it towed.",
-     "If the car pulls to one side or the brake pedal feels different, get it checked before driving any further."
+     "If a wheel is smoking or too hot to go near, keep everyone away from it until it cools. If you see flames, call 911.",
+     "If the car pulls to one side, the brake pedal feels soft or sinks, or the brake warning light is on, don't drive it.",
+     "If the parking brake was partly on and releasing it stops the drag, the brakes may still have been overheated. Have them checked before relying on them."
     ],
     "why": "A brake caliper or parking brake that doesn't fully release keeps rubbing, which wastes fuel and creates heat. Left alone, it can overheat the brakes, wear them out fast and weaken your stopping power.",
     "causes": [
@@ -216,12 +218,13 @@
   },
   "r_cel_steady": {
    "result": {
-    "title": "A sensor or engine fault is likely making the engine use extra fuel",
+    "title": "A sensor or engine fault may be making the engine use extra fuel",
     "urgency": "check",
-    "now": "Have the trouble codes read. Many auto parts stores do it free, and the code shows which sensor or system to look at.",
+    "now": "Have the trouble codes read. Many auto parts stores do it free, and the code points to the system to test. It doesn't by itself prove which part has failed.",
     "if": [
      "If the light starts flashing or the engine runs rough, pull over and stop.",
-     "If the gas cap was loose, tighten it. The light may go off on its own after several days of driving."
+     "If the gas cap was loose, tighten it. The light may go off on its own after several days of driving.",
+     "If you smell raw fuel, turn the engine off and keep sparks and flames away."
     ],
     "why": "The engine computer uses sensors to decide how much fuel to add. When one reads wrong, the engine can run rich (with too much fuel), which costs mileage, and the computer usually turns on the check engine light. The code tells you where to start.",
     "causes": [
@@ -261,7 +264,7 @@
   },
   "r_seasonal": {
    "result": {
-    "title": "Cold weather and short trips are probably the main reason",
+    "title": "Cold weather and short trips may be the main reason",
     "urgency": "diy",
     "now": "Check your tire pressure, since cold weather lowers it, and combine short errands into one trip where you can.",
     "if": [
@@ -304,12 +307,13 @@
   },
   "r_tires": {
    "result": {
-    "title": "Low tire pressure is likely costing you fuel",
+    "title": "Low tire pressure may be costing you fuel",
     "urgency": "diy",
     "now": "Check all four tires with a gauge when they're cold, and fill them to the pressure on the sticker inside the driver's door.",
     "if": [
      "If one tire keeps losing air, have it checked for a puncture or a leaking valve.",
-     "If the tire pressure light stays on after filling, have the tires and their sensors checked."
+     "If the tire pressure light stays on after filling, have the tires and their sensors checked.",
+     "If a tire is very low, bulging or damaged, don't drive on it. Use the spare or call for help."
     ],
     "why": "Underinflated tires flex more and roll with more resistance, so the engine works harder to keep the car moving. They also wear faster and grip less. It's the easiest mileage problem to fix.",
     "causes": [
@@ -343,7 +347,7 @@
   },
   "r_change": {
    "result": {
-    "title": "A recent change is likely the reason",
+    "title": "A recent change may be the reason",
     "urgency": "diy",
     "now": "Think about what changed around the time the mileage dropped, and undo it where you can, like removing an empty roof rack or extra weight.",
     "if": [
@@ -427,12 +431,13 @@
   },
   "r_engine": {
    "result": {
-    "title": "An engine performance problem is likely making it work harder",
+    "title": "An engine performance problem may be making it work harder",
     "urgency": "soon",
     "now": "Have the engine checked in the next few days, including a code scan even if the check engine light isn't on.",
     "if": [
-     "If the check engine light starts flashing, pull over and stop.",
-     "If the car struggles badly uphill or the exhaust smells like rotten eggs, a blocked catalytic converter is possible. Get it checked sooner."
+     "If the check engine light starts flashing, pull over and turn the engine off.",
+     "If the car struggles badly uphill or the exhaust smells like rotten eggs, a blocked catalytic converter is possible. Get it checked sooner.",
+     "If you smell raw fuel, see smoke, or smell burning from under the car, pull over and turn the engine off."
     ],
     "why": "An engine that's down on power has to work harder to do the same job, so it uses more fuel. Worn spark plugs, a dirty airflow sensor or a partly blocked exhaust are common reasons, and they usually get worse over time.",
     "causes": [
@@ -477,7 +482,8 @@
     "now": "Check tire pressure, then measure your mileage by hand over the next full tank to confirm the drop.",
     "if": [
      "If the drop is large and sudden, or another symptom shows up, have it checked sooner.",
-     "If the check engine light comes on, get the codes read."
+     "If the check engine light comes on, get the codes read.",
+     "If you smell raw fuel or burning from a wheel, stop driving and have it checked first."
     ],
     "why": "Mileage naturally varies with weather, traffic, fuel and driving style, and dash readouts can be off. A measured drop that sticks around usually comes from tires, brakes, sensors or engine wear, and a shop can check those quickly.",
     "causes": [

@@ -78,19 +78,21 @@
   },
   "r_condensation": {
    "result": {
-    "title": "This is most likely normal water vapor, not a problem",
+    "title": "This sounds like normal water vapor",
     "urgency": "diy",
-    "now": "Watch the exhaust after the engine has fully warmed up. If the vapor is gone by then, no action is needed.",
+    "now": "Watch the exhaust after the engine has fully warmed up. If the vapor is gone by then, it's usually just condensation. Keep an eye on the coolant level for the next few weeks to be sure.",
     "if": [
      "If the white smoke is still there after a 15–20 minute drive, or gets thicker, check the coolant level when the engine is cold.",
-     "If you're adding coolant regularly, have the cooling system checked soon even if the smoke looks light."
+     "If you're adding coolant regularly, have the cooling system checked soon even if the smoke looks light.",
+     "If the temperature gauge rises above normal or a temperature warning comes on, pull over and turn off the engine.",
+     "If the smoke smells sweet, or the check engine light flashes, have it checked before driving further."
     ],
     "why": "Burning fuel makes water. On cold or damp days, that water condenses in a cold exhaust and comes out as white vapor until the system heats up. It's most noticeable on short trips and in winter.",
     "causes": [
      {
       "name": "Normal condensation in the exhaust",
       "clues": "Cold or humid weather, thin vapor that fades within a few minutes, and sometimes a few drops of water from the tailpipe.",
-      "against": "If it stays thick after the engine is warm, condensation is unlikely."
+      "against": "If it stays thick after the engine is warm, condensation is less likely."
      },
      {
       "name": "Small coolant leak into the engine (early stage)",
@@ -118,7 +120,7 @@
      "If you see steam or smoke from under the hood, step away from the car and don't open the hood until it has cooled.",
      "If the engine cools down and the gauge looks normal, it still needs to be checked before you drive it. Restarting can make the damage worse."
     ],
-    "why": "Thick white smoke together with a high temperature reading usually means coolant is leaking into the engine and the engine is losing its ability to cool itself. Driving an overheating engine can warp or crack major parts very quickly.",
+    "why": "Thick white smoke together with a high temperature reading often means coolant is leaking into the engine and the engine is losing its ability to cool itself. Driving an overheating engine can warp or crack major parts very quickly. A shop will usually pressure-test the cooling system and test for combustion gases before deciding on a repair.",
     "causes": [
      {
       "name": "Blown head gasket",
@@ -149,14 +151,15 @@
   },
   "r_coolant_burning": {
    "result": {
-    "title": "Coolant is likely leaking into the engine and being burned",
+    "title": "Coolant may be leaking into the engine and being burned",
     "urgency": "stop",
     "now": "Don't drive it. Have it towed to a shop and ask for a cooling system pressure test and a combustion gas test.",
     "if": [
      "If you're stranded somewhere unsafe, call roadside assistance rather than driving on it.",
-     "If the oil on the dipstick looks milky or like chocolate milk, coolant is mixing with the oil. Don't start the engine again."
+     "If the oil on the dipstick looks milky or like chocolate milk, coolant may be mixing with the oil. Don't start the engine again.",
+     "If the temperature gauge rose while you were driving, tell the shop. They may want to check for overheating damage."
     ],
-    "why": "Steady white smoke with a sweet smell and a dropping coolant level means coolant is getting into the cylinders. Each drive loses more coolant, which can lead to overheating, and coolant in the oil can quickly ruin the engine's bearings.",
+    "why": "Steady white smoke with a sweet smell and a dropping coolant level often means coolant is getting into the cylinders. Each drive loses more coolant, which can lead to overheating, and coolant in the oil can quickly ruin the engine's bearings.",
     "causes": [
      {
       "name": "Blown head gasket",
@@ -190,14 +193,15 @@
   },
   "r_no_coolant_loss": {
    "result": {
-    "title": "Probably heavy condensation, but worth a check if it continues",
+    "title": "Could be heavy condensation, but worth a check if it continues",
     "urgency": "check",
     "now": "Keep an eye on the coolant level each week and book a check if the smoke doesn't clear up after longer drives.",
     "if": [
      "If the coolant level starts dropping or the smoke starts smelling sweet, stop driving it and have it towed.",
-     "If the temperature gauge rises above normal, pull over and turn off the engine."
+     "If the temperature gauge rises above normal, pull over and turn off the engine.",
+     "If the check engine light flashes or the engine runs rough, pull over and turn the engine off."
     ],
-    "why": "With no coolant loss and no sweet smell, a serious coolant leak is unlikely. Lots of short trips in cold or humid weather can keep the exhaust from ever fully drying out, so vapor lasts longer than you'd expect.",
+    "why": "With no coolant loss and no sweet smell, a serious coolant leak is less likely. Lots of short trips in cold or humid weather can keep the exhaust from ever fully drying out, so vapor lasts longer than you'd expect.",
     "causes": [
      {
       "name": "Heavy condensation from short trips",
@@ -230,14 +234,15 @@
   },
   "r_check_coolant": {
    "result": {
-    "title": "Check the coolant level before driving much further",
-    "urgency": "soon",
-    "now": "Let the engine cool completely, then check the coolant reservoir and the oil dipstick. Get it checked within a few days.",
+    "title": "Check the coolant and oil before driving it again",
+    "urgency": "stop",
+    "now": "Avoid driving it until you've checked. Once the engine is completely cool, check the coolant reservoir and the oil dipstick. If the coolant is low, the oil looks milky, or you can't check, have it towed or ask a mobile mechanic to look at it.",
     "if": [
-     "If the coolant is low or the oil looks milky, don't drive it. Have it towed.",
-     "If the temperature gauge rises above normal at any point, pull over and turn off the engine."
+     "If the coolant is low or the oil looks milky, don't start it again. Have it towed.",
+     "If the temperature gauge rises above normal at any point, pull over and turn off the engine.",
+     "If the coolant is full and steady, the oil looks normal and there's no sweet smell, it may be heavy condensation. Still book a check within a few days and watch the temperature gauge."
     ],
-    "why": "Thick white smoke after warm-up is most often coolant being burned, and the coolant level is the quickest clue. Until you know, keep driving to a minimum so a coolant leak doesn't turn into an overheated engine.",
+    "why": "Thick white smoke after warm-up is often coolant being burned, and the coolant level is the quickest clue. Until you know, it's safest not to drive it, so a coolant leak doesn't turn into an overheated engine.",
     "causes": [
      {
       "name": "Coolant leaking into the engine",
@@ -270,14 +275,15 @@
   },
   "r_oil": {
    "result": {
-    "title": "Grayish smoke with a burnt oil smell usually means oil is being burned",
+    "title": "Grayish smoke with a burnt oil smell often means oil is being burned",
     "urgency": "soon",
     "now": "Check the oil level on the dipstick and top it up if it's low. Have the engine checked within a few days.",
     "if": [
-     "If the oil warning light comes on or the engine starts knocking, pull over and turn off the engine.",
-     "If the smoke is coming from under the hood rather than the tailpipe, oil may be leaking onto the hot exhaust. Have that checked promptly because it can catch fire."
+     "If the oil warning light comes on or the engine starts knocking, pull over and turn off the engine. Don't restart it.",
+     "If the smoke is coming from under the hood rather than the tailpipe, pull over, turn the engine off and step away. Oil on the hot exhaust can catch fire. Have it inspected before driving again.",
+     "If the oil level was very low, or the check engine light is flashing, have it checked before driving further."
     ],
-    "why": "Burning oil often looks blue-gray, but in some light it looks whitish. The burnt oil smell is the giveaway. Oil can get into the cylinders past worn seals or rings, or through a turbocharger or a faulty PCV valve.",
+    "why": "Burning oil often looks blue-gray, but in some light it looks whitish. The burnt oil smell is a strong clue. Oil can get into the cylinders past worn seals or rings, or through a turbocharger or a faulty PCV valve.",
     "causes": [
      {
       "name": "Worn valve stem seals or piston rings",
@@ -316,7 +322,8 @@
     "now": "Wait for the glow plug light to go out before starting, and book a check if the smoke is heavy or lasts more than a few minutes.",
     "if": [
      "If the smoke continues once fully warm, or the coolant level drops, have it checked within a few days.",
-     "If the engine is hard to start, runs rough, or the check engine light is on, get it checked soon."
+     "If the engine is hard to start, runs rough, or the check engine light is on, get it checked soon.",
+     "If the smoke smells sweet or the temperature gauge rises, pull over and turn off the engine."
     ],
     "why": "A diesel relies on heat from compression to ignite its fuel. When the engine is cold, some fuel may not burn fully and comes out as white smoke. Weak glow plugs or worn injectors make this worse.",
     "causes": [

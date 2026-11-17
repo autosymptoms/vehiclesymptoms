@@ -100,14 +100,15 @@
   },
   "r_clutch_hydraulics": {
    "result": {
-    "title": "The clutch hydraulic system has likely lost pressure",
+    "title": "The clutch hydraulic system may have lost pressure",
     "urgency": "stop",
     "now": "Pull over safely and turn the engine off. Don't drive it, because you may not be able to shift or stop the car from creeping. Have it towed or call a mobile mechanic.",
     "if": [
      "If the brake pedal also feels soft, the shared fluid reservoir may be low. Don't move the car at all.",
-     "If pumping the clutch pedal a few times brings it back, that confirms a leak or air in the system. It still needs fixing before you drive."
+     "If pumping the clutch pedal a few times brings it back, that points to a leak or air in the system. It still needs fixing before you drive.",
+     "If the shared fluid reservoir is low but you can't see a leak, don't top it up and drive. Have it inspected first, because the brakes may be affected too."
     ],
-    "why": "Most manual cars use fluid to push the clutch apart when you press the pedal. If fluid leaks out or a seal fails, the pedal sinks and the clutch stays partly engaged, so the gears grind and the car may not stop pulling in gear.",
+    "why": "Most manual cars use fluid to push the clutch apart when you press the pedal. If fluid leaks out or a seal fails, the pedal can sink and the clutch stays partly engaged, so the gears grind and the car may not stop pulling in gear.",
     "causes": [
      {
       "name": "Failing clutch master cylinder",
@@ -140,12 +141,13 @@
   },
   "r_clutch_drag": {
    "result": {
-    "title": "The clutch probably isn't fully releasing",
+    "title": "The clutch may not be fully releasing",
     "urgency": "soon",
     "now": "Check that the floor mat isn't stopping the clutch pedal from reaching the floor, then get the clutch checked within the next few days.",
     "if": [
      "If the pedal starts feeling soft or sinking, or you can't get into gear at all, don't drive it. Have it towed.",
-     "If it only happened after a recent clutch repair, the adjustment or bleeding may need to be redone."
+     "If it only happened after a recent clutch repair, the adjustment or bleeding may need to be redone.",
+     "If the brake pedal also feels soft or sinks, or the shared brake and clutch fluid reservoir is low, don't drive it. Have it inspected first."
     ],
     "why": "When you press the pedal, the clutch should fully disconnect the engine from the gearbox. If it doesn't release all the way, the gears are still being turned while you try to shift, so they grind in every gear, even from a stop.",
     "causes": [
@@ -219,14 +221,14 @@
   },
   "r_synchro_wear": {
    "result": {
-    "title": "A worn synchronizer for that gear is the most likely cause",
+    "title": "A worn synchronizer for that gear is a common cause",
     "urgency": "check",
     "now": "Shift more slowly into that gear and pause briefly in neutral. Book a transmission check when convenient, and ask for the gear oil to be checked.",
     "if": [
      "If it starts grinding even on slow shifts, or more gears start grinding, get it checked within a few days.",
      "If the car pops out of gear, don't rely on it on hills or in traffic and get it checked soon."
     ],
-    "why": "Each forward gear has a synchronizer that matches speeds before the gear engages. When one wears, it can't keep up with quick shifts, so that gear grinds while the others are fine. It gets worse with time, but slowing your shifts reduces further wear.",
+    "why": "Each forward gear has a synchronizer that matches speeds before the gear engages. When one wears, it may not keep up with quick shifts, so that gear grinds while the others are fine. It gets worse with time, but slowing your shifts reduces further wear.",
     "causes": [
      {
       "name": "Worn synchronizer ring",
@@ -259,14 +261,15 @@
   },
   "r_synchro_advanced": {
    "result": {
-    "title": "The synchronizer or gear is likely badly worn",
+    "title": "The synchronizer or gear may be badly worn",
     "urgency": "soon",
     "now": "Avoid that gear where you can, and get the transmission checked within the next few days.",
     "if": [
      "If more gears start grinding, or there's a whine or metallic noise while driving, stop driving it and have it towed.",
-     "If the gear oil is low or has metal flakes in it, the transmission may need major repair."
+     "If the gear oil is low or has metal flakes in it, there may be internal wear. A shop will usually check the oil and the clutch release before recommending gearbox repair.",
+     "If the car pops out of gear, don't rely on it on hills or in traffic."
     ],
-    "why": "Grinding even when you shift slowly with the clutch fully down means the gearbox can no longer match speeds for that gear. Continued grinding chips the gear teeth and can spread damage through the transmission.",
+    "why": "Grinding even when you shift slowly with the clutch fully down can mean the gearbox can no longer match speeds for that gear. Continued grinding chips the gear teeth and can spread damage through the transmission.",
     "causes": [
      {
       "name": "Badly worn synchronizer",
@@ -303,7 +306,8 @@
     "now": "Book a check when convenient, and ask for the gear oil level and type to be checked against your owner's manual.",
     "if": [
      "If you see a leak under the gearbox, get it checked within a few days. Low oil wears the gearbox quickly.",
-     "If it keeps grinding after it's fully warm, a worn synchronizer is more likely."
+     "If it keeps grinding after it's fully warm, a worn synchronizer is more likely.",
+     "If more gears start grinding, or you hear a whine or metallic noise while driving, get it checked within a few days."
     ],
     "why": "Synchronizers rely on the right gear oil to grip and match speeds. Oil that's low, old or too thick makes shifting stiff and grindy when cold, and it usually improves as the oil warms and thins.",
     "causes": [
@@ -338,14 +342,15 @@
   },
   "r_pops_out": {
    "result": {
-    "title": "Worn parts inside the gearbox or a loose mount are letting it slip out of gear",
+    "title": "Worn parts inside the gearbox or a loose mount may be letting it slip out of gear",
     "urgency": "soon",
     "now": "Get the transmission checked within the next few days. Until then, avoid using that gear on hills or in heavy traffic where you can.",
     "if": [
      "If it pops out of gear often, or you can't keep it in gear, don't drive it. Have it towed.",
-     "If you also hear a clunk when accelerating or letting off, worn engine or transmission mounts may be part of the problem."
+     "If you also hear a clunk when accelerating or letting off, worn engine or transmission mounts may be part of the problem.",
+     "If it pops out of gear on a hill or in traffic, use the brakes and parking brake to hold the car before reselecting a gear."
     ],
-    "why": "A gear that grinds going in and then jumps out on its own usually has worn engagement parts. Losing drive unexpectedly is a safety problem in traffic or on a slope, and the wear tends to get worse.",
+    "why": "A gear that grinds going in and then jumps out on its own often has worn engagement parts. Losing drive unexpectedly is a safety problem in traffic or on a slope, and the wear tends to get worse.",
     "causes": [
      {
       "name": "Worn shift sleeve, gear teeth or synchronizer",
@@ -382,7 +387,8 @@
     "now": "Book a check when convenient. Note which gears grind and when, and shift gently until it's looked at.",
     "if": [
      "If the clutch pedal goes soft or sinks, or you can't get into gear, don't drive it. Have it towed.",
-     "If the car pops out of gear, get it checked within a few days."
+     "If the car pops out of gear, get it checked within a few days.",
+     "If the brake pedal also feels soft or sinks, don't drive it. On many cars the clutch and brakes share a fluid reservoir."
     ],
     "why": "Grinding when shifting comes from either the clutch not fully releasing or wear inside the gearbox. A technician can tell them apart quickly by checking the clutch release and the gear oil.",
     "causes": [

@@ -20,7 +20,7 @@
   "powersteering leak",
   "power stearing fluid leak"
  ],
- "intro": "Power steering fluid is a thin oil, usually red, pink, amber or clear, that helps you turn the wheel. A small seep can wait a little, but a fast leak can leave the steering heavy and wreck the pump. Answer a few questions and we'll tell you how urgent it is and where it's most likely coming from.",
+ "intro": "Power steering fluid is a thin oil, usually red, pink, amber or clear, that helps you turn the wheel. A small seep can wait a little, but a fast leak can leave the steering heavy and wreck the pump. Answer a few questions to help judge how urgent it is and where it may be coming from.",
  "safety": [
   "If the steering suddenly becomes very heavy while driving, slow down gently, hold the wheel firmly with both hands and pull over when it's safe.",
   "If you see smoke or smell burning oil from under the hood, pull over, turn off the engine and step away from the car.",
@@ -121,12 +121,13 @@
   },
   "r_hard_steering": {
    "result": {
-    "title": "The system has likely lost enough fluid or pressure to stop assisting",
+    "title": "The system may have lost enough fluid or pressure to stop assisting",
     "urgency": "stop",
     "now": "Park it and don't drive it until it's repaired. Have it towed or have a mobile mechanic come to you.",
     "if": [
      "If the reservoir is nearly empty, topping it up won't fix the leak, and the steering can go heavy again without warning.",
-     "If the belt is broken or missing, other parts it drives, like the alternator or water pump, may also have stopped working."
+     "If the belt is broken or missing, other parts it drives, like the alternator or water pump, may also have stopped working.",
+     "If the battery light comes on or the temperature gauge climbs, the drive belt may be broken. Keep the engine off."
     ],
     "why": "Heavy steering means the pump is no longer giving you assist. That makes the car hard to control in a turn or an emergency, and running the pump without enough fluid quickly damages it.",
     "causes": [
@@ -208,12 +209,14 @@
   },
   "r_whine_low": {
    "result": {
-    "title": "A whine when turning usually means the fluid is low",
+    "title": "A whine when turning often means the fluid is low",
     "urgency": "soon",
     "now": "With the engine off, check the power steering fluid level and add the type listed in your owner's manual if it's low. Then have the leak found within a few days.",
     "if": [
-     "If the steering starts to feel heavy, stop driving it and have it towed.",
-     "If the level is full and it still whines, the pump or belt may be wearing out. Book a check."
+     "If the steering starts to feel heavy, stiff or jerky, stop driving it and have it towed.",
+     "If the level is full and it still whines, the pump or belt may be wearing out. Book a check.",
+     "If the reservoir was empty or nearly empty, have it checked before driving further. The pump may have been running dry.",
+     "If you smell burning oil or see smoke from under the hood, pull over and turn the engine off."
     ],
     "why": "When fluid runs low, the pump draws in air, which makes a whine or groan, especially at full lock. If you keep driving that way, the pump wears out quickly.",
     "causes": [
@@ -248,12 +251,13 @@
   },
   "r_hose_seep": {
    "result": {
-    "title": "A hose or fitting near the reservoir or pump is likely seeping",
+    "title": "A hose or fitting near the reservoir or pump may be seeping",
     "urgency": "check",
     "now": "Wipe the area clean, check the fluid level, and book a check. Look again in a day or two to see where fresh fluid appears.",
     "if": [
      "If the level drops noticeably or you see drips on the ground, get it checked within a few days.",
-     "If the hose is near the exhaust and you smell burning, don't drive it until it's fixed."
+     "If the hose is near the exhaust and you smell burning, don't drive it until it's fixed.",
+     "If the steering whines, feels heavy or the level drops below the minimum mark, have it checked before driving further."
     ],
     "why": "Rubber hoses and their clamps harden with age and start to seep where they connect. A seep is slow, but it tends to get worse and leaves the system low over time.",
     "causes": [
@@ -288,12 +292,13 @@
   },
   "r_rack_leak": {
    "result": {
-    "title": "The steering rack or its seals are probably leaking",
+    "title": "The steering rack or its seals may be leaking",
     "urgency": "soon",
     "now": "Check the fluid level and top it up if needed, then have the steering rack looked at within a few days.",
     "if": [
-     "If the steering feels heavy, notchy or loose, stop driving it and have it towed.",
-     "If the rubber boots behind the wheels are full of fluid or torn, mention it to the shop. Dirt getting in speeds up wear."
+     "If the steering feels heavy, notchy or loose, clunks, or the wheel is off-center when driving straight, stop driving it and have it towed.",
+     "If the rubber boots behind the wheels are full of fluid or torn, mention it to the shop. Dirt getting in speeds up wear.",
+     "If the level is below the minimum mark again after topping up, don't drive it until it's been checked."
     ],
     "why": "The steering rack sits between the front wheels and has seals at each end. When they wear, fluid collects in the rubber boots or drips near the wheels. Rack leaks usually get worse and can let the system run low.",
     "causes": [
@@ -328,14 +333,15 @@
   },
   "r_slow_seep": {
    "result": {
-    "title": "A slow power steering seep, most likely from a hose or seal",
+    "title": "A slow power steering seep, often from a hose or seal",
     "urgency": "check",
     "now": "Check the fluid level weekly and top it up as needed with the type in your owner's manual. Book a check to find the source.",
     "if": [
      "If the spot gets bigger or the level drops faster, get it checked within a few days.",
-     "If the steering starts to whine or feel heavy, have it looked at right away."
+     "If the steering starts to whine or feel heavy, have it checked before driving further.",
+     "If you smell burning oil or see smoke from under the hood, pull over and turn the engine off."
     ],
-    "why": "A coin-size spot means the system is losing a little fluid, not a lot. That isn't an emergency, but low fluid wears out the pump, and seeps rarely stop on their own.",
+    "why": "A coin-size spot usually means a slow loss of fluid. Low fluid still wears out the pump and can make the steering heavy, and seeps rarely stop on their own.",
     "causes": [
      {
       "name": "Aging hose or clamp",
@@ -367,12 +373,12 @@
   },
   "r_fast_leak": {
    "result": {
-    "title": "An active leak, likely a hose, the pump or the steering rack",
-    "urgency": "soon",
-    "now": "Top up the fluid to the full mark with the type in your owner's manual, keep trips short, and get it checked within a few days.",
+    "title": "An active leak, possibly a hose, the pump or the steering rack",
+    "urgency": "stop",
+    "now": "Avoid driving it until the leak has been found. A leak this size can leave the steering heavy with little warning. With the engine off, top up to the full mark with the type in your owner's manual to protect the pump, and have a mobile mechanic look at it or have it towed.",
     "if": [
-     "If the level drops a lot after one short trip, don't drive it. Have it towed.",
-     "If the steering whines or feels heavier, stop driving it."
+     "If fluid is dripping onto the exhaust, or you see smoke or smell burning oil, keep everyone away from the car until it cools.",
+     "If the steering whines, feels heavier or jerks, don't drive it."
     ],
     "why": "A plate-size puddle or a level that drops in days means the system will run low soon. Once it's low, the steering gets heavy and the pump can be damaged.",
     "causes": [
@@ -407,13 +413,13 @@
   },
   "r_major_leak": {
    "result": {
-    "title": "A major leak, most likely a burst hose or a failed seal",
+    "title": "A major leak, often a burst hose or a failed seal",
     "urgency": "stop",
     "now": "Don't drive it. Have it towed or have a mobile mechanic come to you.",
     "if": [
      "If fluid is getting onto the exhaust or you see smoke, keep everyone away from the car until it cools."
     ],
-    "why": "At this rate the system will run dry within minutes of driving. You'd lose steering assist, the pump would be damaged, and fluid spraying onto hot parts is a fire risk.",
+    "why": "At this rate the system can run dry within minutes of driving. You'd lose steering assist, the pump would be damaged, and fluid spraying onto hot parts is a fire risk.",
     "causes": [
      {
       "name": "Burst or cracked high-pressure hose",
@@ -435,7 +441,7 @@
      "you": [],
      "shop": [
       "Leak inspection",
-      "Hose and fitting replacement as needed",
+      "Pressure test to confirm which hose, fitting or seal is leaking",
       "Pump check after the repair"
      ]
     }
@@ -448,7 +454,8 @@
     "now": "Dab a drop on white paper and note the color, then check your engine oil, coolant, brake and transmission fluid levels.",
     "if": [
      "If the brake fluid level is low, don't drive it until it's checked. Brake fluid leaks can cause brake failure.",
-     "If the fluid is green, orange or pink and smells sweet, it's likely coolant. Watch your temperature gauge."
+     "If the fluid is green, orange or pink and smells sweet, it may be coolant. Watch your temperature gauge, and if it climbs toward hot, pull over and turn the engine off.",
+     "If you smell fuel, don't start the engine. Keep sparks and flames away."
     ],
     "why": "Power steering fluid can look like transmission fluid or light oil. If its reservoir stays full, something else is leaking, and a few quick checks usually show what.",
     "causes": [
@@ -492,9 +499,10 @@
     "now": "Dab a drop on white paper and note the color, then check your engine oil, coolant, brake and transmission fluid levels.",
     "if": [
      "If the brake fluid level is low, don't drive it until it's checked.",
-     "If the steering feels heavy and a steering warning light is on, have it checked before driving. Electric steering can fail without any leak."
+     "If the steering feels heavy and a steering warning light is on, have it checked before driving. Electric steering can fail without any leak.",
+     "If the fluid is green, orange or pink and smells sweet, it may be coolant. Watch your temperature gauge."
     ],
-    "why": "Electric power steering uses a motor instead of fluid, so it can't leak. The fluid you're seeing is coming from another system.",
+    "why": "Electric power steering uses a motor instead of fluid, so it has no power steering fluid to leak. The fluid you're seeing is coming from another system.",
     "causes": [
      {
       "name": "Engine oil",
@@ -530,6 +538,7 @@
     "urgency": "diy",
     "now": "With the engine off, check the power steering reservoir level and note where it sits. Put cardboard under the front of the car overnight.",
     "if": [
+     "If the reservoir is empty or nearly empty, don't drive it until it's been checked.",
      "If the level is low and you see drips by morning, get it checked within a few days.",
      "If the steering whines or feels heavy, have it checked before driving further."
     ],
@@ -565,14 +574,14 @@
   },
   "r_unsure": {
    "result": {
-    "title": "Not sure what's leaking? A quick shop check will sort it out",
+    "title": "Not sure what's leaking? A shop check can identify it",
     "urgency": "check",
     "now": "Put white paper or cardboard under the car overnight and note the color and spot, then book a leak check.",
     "if": [
      "If the steering feels heavy, the brake pedal feels soft or the temperature gauge rises, don't drive it. Have it towed.",
      "If the puddle grows quickly, get it checked within a day or two."
     ],
-    "why": "Several fluids look alike, and some cars don't use power steering fluid at all. The color, the location and which level is dropping usually tell a technician what's leaking in a few minutes.",
+    "why": "Several fluids look alike, and some cars don't use power steering fluid at all. The color, the location and which level is dropping usually help a technician identify what's leaking quickly.",
     "causes": [
      {
       "name": "Power steering fluid",

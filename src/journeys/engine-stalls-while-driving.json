@@ -2,7 +2,7 @@
  "id": "engine-stalls-while-driving",
  "title": "Engine stalls while driving",
  "h1": "Why does my car shut off while driving?",
- "metaDesc": "Engine stalled or shut off while driving? Answer a few quick questions to narrow down fuel, electrical or sensor causes, and whether it's safe to drive.",
+ "metaDesc": "Engine stalled or shut off while driving? Answer a few quick questions to narrow down fuel, electrical or sensor causes, and what to do before driving again.",
  "group": "start",
  "cat": "Starting Problems",
  "synonyms": [
@@ -23,7 +23,7 @@
  ],
  "intro": "When the engine shuts off while you're moving, you lose power steering and most of your brake assist, so this is a safety problem even if it restarts. What you noticed right before it died is the best clue. Answer the questions below to narrow it down and see what to do next.",
  "safety": [
-  "If the engine dies, keep steering and press the brake firmly. Both still work, but take much more effort.",
+  "If the engine dies, keep steering and press the brake firmly. Steering and braking can take much more force than usual.",
   "If the temperature gauge is in the red, you see steam, or the oil light came on, don't restart it.",
   "If you smell raw fuel or see smoke, get everyone out and away from the car.",
   "If it stalls once, don't rely on it in traffic or on the highway until it's diagnosed."
@@ -120,12 +120,13 @@
   },
   "r_overheat": {
    "result": {
-    "title": "The engine overheated and may have shut down to protect itself",
+    "title": "The engine may have overheated and shut down",
     "urgency": "stop",
     "now": "Don't restart it. Let it cool for at least 30 minutes with the hood closed, then have it towed or call a mobile mechanic.",
     "if": [
-     "If you see coolant leaking or the reservoir is empty once cool, there's a leak or a failed hose.",
-     "Never open the radiator cap on a hot engine. Hot coolant can spray out."
+     "If you see coolant leaking or the reservoir is empty once cool, a leak or failed hose is likely. Mention it when you call.",
+     "Never open the radiator cap on a hot engine. Hot coolant can spray out.",
+     "If the oil pressure light came on or the engine knocked, tell the shop. Don't restart it."
     ],
     "why": "An engine that gets hot enough to stall can warp or crack parts. Restarting it, or driving even a short distance, can turn a hose or thermostat repair into a major engine repair.",
     "causes": [
@@ -199,14 +200,15 @@
   },
   "r_charging": {
    "result": {
-    "title": "The charging system likely failed and the battery ran down",
+    "title": "The charging system may have failed and let the battery run down",
     "urgency": "stop",
     "now": "Don't count on it restarting and running. Have it towed to a shop or call a mobile mechanic.",
     "if": [
      "If a jump gets it running, it will likely die again within minutes. Don't drive it in traffic.",
-     "If you smelled burning rubber or heard a squeal first, the drive belt may have broken."
+     "If you smelled burning rubber or heard a squeal first, the drive belt may have broken.",
+     "If you smell burning or see smoke from under the hood, get everyone out and away from the car."
     ],
-    "why": "If the alternator stops charging, the car runs on the battery alone. Lights dim, gauges act up, and then the engine shuts off once the battery is too low to keep it running.",
+    "why": "If the alternator stops charging, the car runs on the battery alone. Lights dim, gauges act up, and then the engine shuts off once the battery is too low to keep it running. A shop will usually test the alternator, belt and cables before replacing anything.",
     "causes": [
      {
       "name": "Failed alternator",
@@ -280,14 +282,16 @@
   },
   "r_out_of_fuel": {
    "result": {
-    "title": "It most likely ran out of fuel",
+    "title": "It may have run out of fuel",
     "urgency": "diy",
     "now": "Get somewhere safe, add a few gallons of fuel, and try to restart. It may need several tries of a few seconds each to refill the fuel lines.",
     "if": [
      "If it still won't start after adding fuel, the fuel pump may have been damaged. Have it towed.",
-     "If the gauge showed fuel left when it died, have the gauge checked so it doesn't happen again."
+     "If the gauge showed fuel left when it died, have the gauge checked so it doesn't happen again.",
+     "If it stalls again with fuel in the tank, don't rely on it in traffic. Have it checked before driving again.",
+     "If you smell raw fuel, don't try to restart it."
     ],
-    "why": "Sputtering and surging before a stall is classic fuel starvation. When the tank is low, hard turns, hills or braking can slosh fuel away from the pickup and the engine starves.",
+    "why": "Sputtering and surging before a stall is a common sign of fuel starvation. When the tank is low, hard turns, hills or braking can slosh fuel away from the pickup and the engine starves.",
     "causes": [
      {
       "name": "Out of fuel",
@@ -319,14 +323,14 @@
   },
   "r_fuel_delivery": {
    "result": {
-    "title": "Likely a fuel delivery problem or a severe misfire",
+    "title": "Possibly a fuel delivery problem or a severe misfire",
     "urgency": "stop",
     "now": "Don't drive it until it's checked. Have it towed or call a mobile mechanic who can scan for trouble codes.",
     "if": [
      "If the check engine light was flashing, the catalytic converter can be damaged by running it. Don't keep trying to drive it.",
      "If you smell raw fuel, keep sparks and flames away and don't restart it."
     ],
-    "why": "Sputtering, surging or losing power before a stall means the engine wasn't getting enough fuel or wasn't burning it properly. A weak fuel pump, a clogged filter or a bad sensor are common causes, and they tend to get worse.",
+    "why": "Sputtering, surging or losing power before a stall usually means the engine wasn't getting enough fuel or wasn't burning it properly. A weak fuel pump, a clogged filter or a bad sensor are common causes, and they tend to get worse. A shop will usually check codes and fuel pressure before replacing the pump.",
     "causes": [
      {
       "name": "Weak fuel pump or clogged fuel filter",
@@ -359,14 +363,14 @@
   },
   "r_restarts": {
    "result": {
-    "title": "A failing sensor or electrical connection is likely cutting the engine",
+    "title": "A failing sensor or electrical connection may be cutting the engine",
     "urgency": "stop",
     "now": "Don't rely on it until it's diagnosed. Have it towed or have a mobile mechanic scan for trouble codes, even if no warning light is on.",
     "if": [
      "If you're stuck somewhere unsafe and it restarts, move it only as far as a safe spot, then call for a tow.",
-     "If it only restarts after cooling down, tell the shop. That pattern points strongly to a heat-sensitive sensor."
+     "If it only restarts after cooling down, tell the shop. That pattern often points to a heat-sensitive sensor."
     ],
-    "why": "An engine that cuts out instantly with no sputter has usually lost spark or the signal that controls it. A crankshaft position sensor that fails when hot is a classic cause. These problems come and go, so it may run fine for days before cutting out again.",
+    "why": "An engine that cuts out instantly with no sputter has usually lost spark or the signal that controls it. A crankshaft position sensor that fails when hot is a common cause, and a shop will usually check codes and the sensor signal before replacing it. These problems come and go, so it may run fine for days before cutting out again.",
     "causes": [
      {
       "name": "Failing crankshaft or camshaft position sensor",
@@ -399,14 +403,15 @@
   },
   "r_no_restart": {
    "result": {
-    "title": "A failed fuel pump or crankshaft sensor is likely",
+    "title": "A failed fuel pump or crankshaft sensor is possible",
     "urgency": "stop",
     "now": "Stop cranking it. Have the car towed to a shop.",
     "if": [
      "If a key or security light is flashing, try your spare key. The anti-theft system can block the engine from running.",
-     "If it restarts after sitting, don't count on it. These parts often fail completely soon after."
+     "If it restarts after sitting, don't count on it. These parts often fail completely soon after.",
+     "If you smell raw fuel, stop cranking and keep away from the car."
     ],
-    "why": "If the engine cranks normally but won't fire after dying on the road, it has lost fuel or spark completely. A fuel pump that stopped running and a crankshaft sensor that stopped reporting are the usual causes.",
+    "why": "If the engine cranks normally but won't fire after dying on the road, it has usually lost fuel or spark. A fuel pump that stopped running and a crankshaft sensor that stopped reporting are common causes, and a shop will usually check fuses, relays and codes first.",
     "causes": [
      {
       "name": "Failed fuel pump",
@@ -439,14 +444,14 @@
   },
   "r_power_loss": {
    "result": {
-    "title": "The car lost all electrical power, likely at the battery connection",
+    "title": "The car lost electrical power, possibly at the battery connection",
     "urgency": "stop",
     "now": "Get to safety, then check whether a battery cable is loose or has come off. If you can't fix it on the spot, have it towed.",
     "if": [
      "If tightening a loose clamp brings everything back, have the cables and fuses checked before you rely on the car again.",
      "If you smell burning, don't touch the wiring. Step away and call for help."
     ],
-    "why": "When the engine and dash both go dead at once, the car has lost its main power. A loose or corroded battery cable is the most common cause. A blown main fuse or a failed ignition switch can do the same.",
+    "why": "When the engine and dash both go dead at once, the car has lost its main power. A loose or corroded battery cable is a common cause. A blown main fuse or a failed ignition switch can do the same.",
     "causes": [
      {
       "name": "Loose or corroded battery cable",

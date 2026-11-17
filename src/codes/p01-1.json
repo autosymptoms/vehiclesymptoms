@@ -1,777 +1,1930 @@
 [
-  {
-    "code": "P0100",
-    "title": "Mass or Volume Air Flow Sensor \"A\" Circuit",
-    "plain": "The engine computer has lost a usable signal from the mass air flow (MAF) sensor, which measures how much air is entering the engine. Without it, the computer has to guess how much fuel to add.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Rough idle or stalling", "Hesitation when accelerating", "Worse fuel economy"],
-    "causes": [
-      {"name": "Unplugged, loose or corroded MAF sensor connector", "how": "common"},
-      {"name": "Failed mass air flow sensor", "how": "common"},
-      {"name": "Damaged wiring between the sensor and the engine computer", "how": "possible"},
-      {"name": "Blown fuse or bad power or ground to the sensor", "how": "possible"}
-    ],
-    "checks": ["Make sure the MAF connector is fully plugged in and the pins are clean", "Look over the wiring near the air box for chafing or damage", "Check the sensor's power, ground and signal with a meter before replacing it"],
-    "fix": "Usually a connector or wiring repair, or a new mass air flow sensor if the sensor itself has failed.",
-    "cost": {"job": "Replace mass air flow sensor", "parts": [60, 350], "hours": [0.2, 0.8]},
-    "guide": "rough-idle-shaking",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+ {
+  "code": "P0100",
+  "title": "Mass or Volume Air Flow Sensor \"A\" Circuit",
+  "plain": "The engine computer has lost a usable signal from the mass air flow (MAF) sensor, which measures how much air is entering the engine. Without it, the computer has to guess how much fuel to add.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or stalling",
+   "Hesitation when accelerating",
+   "Worse fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded MAF sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed mass air flow sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring between the sensor and the engine computer",
+    "how": "possible"
+   },
+   {
+    "name": "Blown fuse or bad power or ground to the sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure the MAF connector is fully plugged in and the pins are clean",
+   "Look over the wiring near the air box for chafing or damage",
+   "Check the sensor's power, ground and signal with a meter before replacing it"
+  ],
+  "fix": "Usually a connector or wiring repair, or a new mass air flow sensor if the sensor itself has failed.",
+  "cost": {
+   "job": "Replace mass air flow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.2,
+    0.8
+   ]
   },
-  {
-    "code": "P0101",
-    "title": "Mass or Volume Air Flow Sensor \"A\" Circuit Range/Performance",
-    "plain": "The air flow sensor is working, but its readings don't match what the computer expects for the engine's speed and load. Most often the sensor is dirty or air is sneaking in around it.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": true,
-    "symptoms": ["Check engine light on", "Hesitation or stumble when accelerating", "Rough or unsteady idle", "Lower fuel economy"],
-    "causes": [
-      {"name": "Dirty or contaminated MAF sensor element", "how": "common"},
-      {"name": "Air leak between the MAF sensor and the throttle body", "how": "common"},
-      {"name": "Clogged or poorly fitted air filter", "how": "possible"},
-      {"name": "Failing mass air flow sensor", "how": "possible"},
-      {"name": "Vacuum leak or stuck-open PCV valve", "how": "possible"}
-    ],
-    "checks": ["Inspect the intake tube and clamps between the air box and throttle body for cracks or loose fittings", "Check the air filter and clean the MAF sensor with MAF-safe cleaner", "Compare live MAF readings at idle and at higher rpm against the expected values"],
-    "fix": "Often fixed by cleaning the MAF sensor and sealing intake air leaks; replace the sensor if readings stay wrong.",
-    "cost": {"job": "Replace mass air flow sensor", "parts": [60, 350], "hours": [0.2, 0.8]},
-    "examples": ["Often follows the use of an over-oiled aftermarket air filter that coats the sensor"],
-    "guide": "hesitation-when-accelerating",
-    "src": ["https://www.samarins.com/diagnose/p0101.html", "https://torquemech.com/obd/p0101"]
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "You can often drive gently to a shop, but it may run poorly. If the engine stalls, hesitates badly when pulling out or merging, or blows black smoke, keep trips short and avoid highways; a stall makes steering and braking much harder. Get it checked in the next few days.",
+  "test_first": "Check that the MAF connector is seated and clean, test power, ground and signal wiring, and look for air leaks after the sensor before replacing the MAF."
+ },
+ {
+  "code": "P0101",
+  "title": "Mass or Volume Air Flow Sensor \"A\" Circuit Range/Performance",
+  "plain": "The air flow sensor is working, but its readings don't match what the computer expects for the engine's speed and load. Most often the sensor is dirty or air is sneaking in around it.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation or stumble when accelerating",
+   "Rough or unsteady idle",
+   "Lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Dirty or contaminated MAF sensor element",
+    "how": "common"
+   },
+   {
+    "name": "Air leak between the MAF sensor and the throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Clogged or poorly fitted air filter",
+    "how": "possible"
+   },
+   {
+    "name": "Failing mass air flow sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Vacuum leak or stuck-open PCV valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the intake tube and clamps between the air box and throttle body for cracks or loose fittings",
+   "Check the air filter and clean the MAF sensor with MAF-safe cleaner",
+   "Compare live MAF readings at idle and at higher rpm against the expected values"
+  ],
+  "fix": "Often fixed by cleaning the MAF sensor and sealing intake air leaks; replace the sensor if readings stay wrong.",
+  "cost": {
+   "job": "Replace mass air flow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.2,
+    0.8
+   ]
   },
-  {
-    "code": "P0102",
-    "title": "Mass or Volume Air Flow Sensor \"A\" Circuit Low",
-    "plain": "The air flow sensor's signal is lower than it should ever be, as if almost no air were entering the engine. This usually points to a wiring or connector problem, or a failed sensor.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Rough idle or stalling", "Hard starting", "Weak acceleration"],
-    "causes": [
-      {"name": "Loose, unplugged or corroded MAF connector", "how": "common"},
-      {"name": "Failed mass air flow sensor", "how": "common"},
-      {"name": "Open or shorted signal wire", "how": "possible"},
-      {"name": "Large air leak after the sensor", "how": "possible"}
-    ],
-    "checks": ["Check that the MAF connector is seated and the pins are clean", "Inspect the wiring harness near the air box", "Measure the sensor's power, ground and signal voltage"],
-    "fix": "Repair the connector or wiring, or replace the mass air flow sensor.",
-    "cost": {"job": "Replace mass air flow sensor", "parts": [60, 350], "hours": [0.2, 0.8]},
-    "guide": "rough-idle-shaking",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "examples": [
+   "Often follows the use of an over-oiled aftermarket air filter that coats the sensor"
+  ],
+  "guide": "hesitation-when-accelerating",
+  "src": [
+   "https://www.samarins.com/diagnose/p0101.html",
+   "https://torquemech.com/obd/p0101"
+  ],
+  "drive": "Usually drivable for now, but hesitation can be risky when merging or crossing traffic. Get it checked within a week or two. If it stalls, stumbles badly, runs very rough, or the check engine light starts flashing, get it looked at right away.",
+  "test_first": "Inspect the air filter and intake duct for leaks, compare MAF readings to expected values at idle and under load, and smoke test for vacuum leaks before replacing the MAF."
+ },
+ {
+  "code": "P0102",
+  "title": "Mass or Volume Air Flow Sensor \"A\" Circuit Low",
+  "plain": "The air flow sensor's signal is lower than it should ever be, as if almost no air were entering the engine. This usually points to a wiring or connector problem, or a failed sensor.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or stalling",
+   "Hard starting",
+   "Weak acceleration"
+  ],
+  "causes": [
+   {
+    "name": "Loose, unplugged or corroded MAF connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed mass air flow sensor",
+    "how": "common"
+   },
+   {
+    "name": "Open or shorted signal wire",
+    "how": "possible"
+   },
+   {
+    "name": "Large air leak after the sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the MAF connector is seated and the pins are clean",
+   "Inspect the wiring harness near the air box",
+   "Measure the sensor's power, ground and signal voltage"
+  ],
+  "fix": "Repair the connector or wiring, or replace the mass air flow sensor.",
+  "cost": {
+   "job": "Replace mass air flow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.2,
+    0.8
+   ]
   },
-  {
-    "code": "P0103",
-    "title": "Mass or Volume Air Flow Sensor \"A\" Circuit High",
-    "plain": "The air flow sensor's signal is higher than it should ever be, as if a huge amount of air were rushing in. This is usually an electrical fault in the sensor or its wiring.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Rough running or black smoke", "Stalling or hesitation", "Poor fuel economy"],
-    "causes": [
-      {"name": "Failed mass air flow sensor", "how": "common"},
-      {"name": "Signal wire shorted to a voltage source", "how": "common"},
-      {"name": "Poor ground at the sensor", "how": "possible"},
-      {"name": "Wiring routed too close to ignition parts or the alternator", "how": "possible"}
-    ],
-    "checks": ["Inspect the MAF wiring for rubbed-through or melted spots", "Check the sensor ground connection", "Compare the signal voltage with the engine off and at idle"],
-    "fix": "Repair the shorted wiring or replace the mass air flow sensor.",
-    "cost": {"job": "Replace mass air flow sensor", "parts": [60, 350], "hours": [0.2, 0.8]},
-    "guide": "black-smoke-from-exhaust",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "You can often drive gently to a shop, but it may run poorly. If the engine stalls, hesitates badly when pulling out or merging, or blows black smoke, keep trips short and avoid highways; a stall makes steering and braking much harder. Get it checked in the next few days.",
+  "test_first": "Check that the MAF connector is seated and clean, test power, ground and signal wiring, and look for air leaks after the sensor before replacing the MAF."
+ },
+ {
+  "code": "P0103",
+  "title": "Mass or Volume Air Flow Sensor \"A\" Circuit High",
+  "plain": "The air flow sensor's signal is higher than it should ever be, as if a huge amount of air were rushing in. This is usually an electrical fault in the sensor or its wiring.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running or black smoke",
+   "Stalling or hesitation",
+   "Poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Failed mass air flow sensor",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to a voltage source",
+    "how": "common"
+   },
+   {
+    "name": "Poor ground at the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring routed too close to ignition parts or the alternator",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the MAF wiring for rubbed-through or melted spots",
+   "Check the sensor ground connection",
+   "Compare the signal voltage with the engine off and at idle"
+  ],
+  "fix": "Repair the shorted wiring or replace the mass air flow sensor.",
+  "cost": {
+   "job": "Replace mass air flow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.2,
+    0.8
+   ]
   },
-  {
-    "code": "P0104",
-    "title": "Mass or Volume Air Flow Sensor \"A\" Circuit Intermittent/Erratic",
-    "plain": "The air flow sensor's signal keeps cutting out or jumping around. That usually means a loose connection or a sensor that is starting to fail.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": false,
-    "symptoms": ["Check engine light on", "Occasional stumble, surge or stall", "Problem may come and go with bumps or temperature"],
-    "causes": [
-      {"name": "Loose or corroded MAF connector", "how": "common"},
-      {"name": "Intermittent break in the wiring", "how": "common"},
-      {"name": "Failing mass air flow sensor", "how": "possible"}
-    ],
-    "checks": ["Wiggle the MAF connector and wiring with the engine running and watch for a stumble", "Inspect the connector pins for corrosion or spread terminals"],
-    "fix": "Repair the loose connection or wiring; replace the sensor if the signal still drops out.",
-    "cost": {"job": "Replace mass air flow sensor", "parts": [60, 350], "hours": [0.2, 0.8]},
-    "guide": "engine-stalls-while-driving",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  "guide": "black-smoke-from-exhaust",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "You can often drive gently to a shop, but it may run poorly. If the engine stalls, hesitates badly when pulling out or merging, or blows black smoke, keep trips short and avoid highways; a stall makes steering and braking much harder. Get it checked in the next few days.",
+  "test_first": "Check MAF power, ground and signal voltage with the engine running, and look for wiring routed near ignition parts or the alternator before replacing the sensor."
+ },
+ {
+  "code": "P0104",
+  "title": "Mass or Volume Air Flow Sensor \"A\" Circuit Intermittent/Erratic",
+  "plain": "The air flow sensor's signal keeps cutting out or jumping around. That usually means a loose connection or a sensor that is starting to fail.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Occasional stumble, surge or stall",
+   "Problem may come and go with bumps or temperature"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded MAF connector",
+    "how": "common"
+   },
+   {
+    "name": "Intermittent break in the wiring",
+    "how": "common"
+   },
+   {
+    "name": "Failing mass air flow sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the MAF connector and wiring with the engine running and watch for a stumble",
+   "Inspect the connector pins for corrosion or spread terminals"
+  ],
+  "fix": "Repair the loose connection or wiring; replace the sensor if the signal still drops out.",
+  "cost": {
+   "job": "Replace mass air flow sensor",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.2,
+    0.8
+   ]
   },
-  {
-    "code": "P0105",
-    "title": "Manifold Absolute Pressure/Barometric Pressure Circuit",
-    "plain": "There's an electrical problem with the MAP sensor, which measures the pressure (vacuum) inside the intake manifold. The computer uses it to judge engine load and fuel needs.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": false,
-    "symptoms": ["Check engine light on", "Rough idle or hesitation", "Poor fuel economy"],
-    "causes": [
-      {"name": "Damaged or unplugged MAP sensor connector", "how": "common"},
-      {"name": "Failed MAP sensor", "how": "common"},
-      {"name": "Open or shorted wiring to the sensor", "how": "possible"}
-    ],
-    "checks": ["Check the MAP sensor connector and wiring", "Measure the sensor's reference voltage, ground and signal"],
-    "fix": "Repair the wiring or connector, or replace the MAP sensor.",
-    "cost": {"job": "Replace MAP sensor", "parts": [25, 150], "hours": [0.2, 1.0]},
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "engine-stalls-while-driving",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P0105",
+  "title": "Manifold Absolute Pressure/Barometric Pressure Circuit",
+  "plain": "There's an electrical problem with the MAP sensor, which measures the pressure (vacuum) inside the intake manifold. The computer uses it to judge engine load and fuel needs.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation",
+   "Poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Damaged or unplugged MAP sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed MAP sensor",
+    "how": "common"
+   },
+   {
+    "name": "Open or shorted wiring to the sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the MAP sensor connector and wiring",
+   "Measure the sensor's reference voltage, ground and signal"
+  ],
+  "fix": "Repair the wiring or connector, or replace the MAP sensor.",
+  "cost": {
+   "job": "Replace MAP sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.2,
+    1.0
+   ]
   },
-  {
-    "code": "P0106",
-    "title": "Manifold Absolute Pressure/Barometric Pressure Circuit Range/Performance",
-    "plain": "The MAP sensor's reading doesn't make sense for how the engine is running. Often a cracked vacuum hose, a leak, or a lazy sensor is to blame.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": true,
-    "symptoms": ["Check engine light on", "Rough idle", "Hesitation or weak acceleration", "Worse fuel economy"],
-    "causes": [
-      {"name": "Cracked or disconnected vacuum hose to the MAP sensor", "how": "common"},
-      {"name": "Faulty MAP sensor", "how": "common"},
-      {"name": "Intake vacuum leak", "how": "possible"},
-      {"name": "Engine mechanical problem causing low vacuum", "how": "possible"},
-      {"name": "Corroded connector or poor ground", "how": "possible"}
-    ],
-    "checks": ["Inspect the MAP sensor hose, seal or grommet for cracks", "Compare the MAP reading with key on, engine off to the local barometric pressure", "Check engine vacuum with a gauge"],
-    "fix": "Fix the vacuum hose or leak; replace the MAP sensor if its readings are still off.",
-    "cost": {"job": "Replace MAP sensor", "parts": [25, 150], "hours": [0.2, 1.0]},
-    "examples": ["A cracked vacuum hose or worn sensor seal is a frequent trigger on older trucks"],
-    "guide": "rough-idle-shaking",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ]
+ },
+ {
+  "code": "P0106",
+  "title": "Manifold Absolute Pressure/Barometric Pressure Circuit Range/Performance",
+  "plain": "The MAP sensor's reading doesn't make sense for how the engine is running. Often a cracked vacuum hose, a leak, or a lazy sensor is to blame.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle",
+   "Hesitation or weak acceleration",
+   "Worse fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Cracked or disconnected vacuum hose to the MAP sensor",
+    "how": "common"
+   },
+   {
+    "name": "Faulty MAP sensor",
+    "how": "common"
+   },
+   {
+    "name": "Intake vacuum leak",
+    "how": "possible"
+   },
+   {
+    "name": "Engine mechanical problem causing low vacuum",
+    "how": "possible"
+   },
+   {
+    "name": "Corroded connector or poor ground",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the MAP sensor hose, seal or grommet for cracks",
+   "Compare the MAP reading with key on, engine off to the local barometric pressure",
+   "Check engine vacuum with a gauge"
+  ],
+  "fix": "Fix the vacuum hose or leak; replace the MAP sensor if its readings are still off.",
+  "cost": {
+   "job": "Replace MAP sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.2,
+    1.0
+   ]
   },
-  {
-    "code": "P0107",
-    "title": "Manifold Absolute Pressure/Barometric Pressure Circuit Low",
-    "plain": "The MAP sensor signal is lower than its normal range, which usually means a broken wire, a bad connection or a failed sensor.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Hard starting or stalling", "Hesitation or lack of power", "Rough idle"],
-    "causes": [
-      {"name": "Unplugged or corroded MAP sensor connector", "how": "common"},
-      {"name": "Failed MAP sensor", "how": "common"},
-      {"name": "Open or grounded signal wire, or lost 5-volt reference", "how": "possible"},
-      {"name": "Engine computer fault", "how": "possible"}
-    ],
-    "checks": ["Check the MAP connector and look for damaged wiring", "Confirm the sensor has its 5-volt reference and a good ground", "Look for other codes that share the same 5-volt reference circuit"],
-    "fix": "Repair the connector or wiring, or replace the MAP sensor.",
-    "cost": {"job": "Replace MAP sensor", "parts": [25, 150], "hours": [0.2, 1.0]},
-    "guide": "hard-to-start-when-cold",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "examples": [
+   "A cracked vacuum hose or worn sensor seal is a frequent trigger on older trucks"
+  ],
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Usually drivable for now, but hesitation can be risky when merging or crossing traffic. Get it checked within a week or two. If it stalls, stumbles badly, runs very rough, or the check engine light starts flashing, get it looked at right away.",
+  "test_first": "Inspect the MAP vacuum hose, compare the MAP reading to barometric pressure with the key on and engine off, and check engine vacuum with a gauge before replacing the sensor."
+ },
+ {
+  "code": "P0107",
+  "title": "Manifold Absolute Pressure/Barometric Pressure Circuit Low",
+  "plain": "The MAP sensor signal is lower than its normal range, which usually means a broken wire, a bad connection or a failed sensor.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling",
+   "Hesitation or lack of power",
+   "Rough idle"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged or corroded MAP sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed MAP sensor",
+    "how": "common"
+   },
+   {
+    "name": "Open or grounded signal wire, or lost 5-volt reference",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the MAP connector and look for damaged wiring",
+   "Confirm the sensor has its 5-volt reference and a good ground",
+   "Look for other codes that share the same 5-volt reference circuit"
+  ],
+  "fix": "Repair the connector or wiring, or replace the MAP sensor.",
+  "cost": {
+   "job": "Replace MAP sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.2,
+    1.0
+   ]
   },
-  {
-    "code": "P0108",
-    "title": "Manifold Absolute Pressure/Barometric Pressure Circuit High",
-    "plain": "The MAP sensor signal is higher than its normal range. This often comes from a vacuum hose that has come off, a wiring short, or a failed sensor.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Rough running or black smoke", "Poor fuel economy", "Hesitation"],
-    "causes": [
-      {"name": "Disconnected or split vacuum hose to the MAP sensor", "how": "common"},
-      {"name": "Failed MAP sensor", "how": "common"},
-      {"name": "Signal wire shorted to voltage or open ground", "how": "possible"},
-      {"name": "Very low engine vacuum from a mechanical problem", "how": "possible"}
-    ],
-    "checks": ["Check the vacuum supply to the MAP sensor", "Inspect the sensor wiring and ground", "Check engine vacuum with a gauge"],
-    "fix": "Reconnect or replace the vacuum hose, repair wiring, or replace the MAP sensor.",
-    "cost": {"job": "Replace MAP sensor", "parts": [25, 150], "hours": [0.2, 1.0]},
-    "guide": "black-smoke-from-exhaust",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "You can often drive gently to a shop, but it may run poorly. If the engine stalls, hesitates badly when pulling out or merging, or blows black smoke, keep trips short and avoid highways; a stall makes steering and braking much harder. Get it checked in the next few days.",
+  "test_first": "Check the MAP connector, 5-volt reference, ground and signal wires before replacing the sensor; a lost reference can also affect other sensors on the same circuit."
+ },
+ {
+  "code": "P0108",
+  "title": "Manifold Absolute Pressure/Barometric Pressure Circuit High",
+  "plain": "The MAP sensor signal is higher than its normal range. This often comes from a vacuum hose that has come off, a wiring short, or a failed sensor.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running or black smoke",
+   "Poor fuel economy",
+   "Hesitation"
+  ],
+  "causes": [
+   {
+    "name": "Disconnected or split vacuum hose to the MAP sensor",
+    "how": "common"
+   },
+   {
+    "name": "Failed MAP sensor",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to voltage or open ground",
+    "how": "possible"
+   },
+   {
+    "name": "Very low engine vacuum from a mechanical problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the vacuum supply to the MAP sensor",
+   "Inspect the sensor wiring and ground",
+   "Check engine vacuum with a gauge"
+  ],
+  "fix": "Reconnect or replace the vacuum hose, repair wiring, or replace the MAP sensor.",
+  "cost": {
+   "job": "Replace MAP sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.2,
+    1.0
+   ]
   },
-  {
-    "code": "P0109",
-    "title": "Manifold Absolute Pressure/Barometric Pressure Circuit Intermittent",
-    "plain": "The MAP sensor signal is dropping out or jumping around now and then, usually from a loose connection or a failing sensor.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": false,
-    "symptoms": ["Check engine light on", "Occasional stumble or hesitation", "Problem comes and goes"],
-    "causes": [
-      {"name": "Loose or corroded MAP connector", "how": "common"},
-      {"name": "Intermittent break in the wiring", "how": "common"},
-      {"name": "Failing MAP sensor", "how": "possible"}
-    ],
-    "checks": ["Wiggle-test the MAP connector and harness while watching the live reading", "Inspect the vacuum hose for cracks that open up when warm"],
-    "fix": "Repair the loose connection or wiring; replace the MAP sensor if the signal still drops out.",
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  "guide": "black-smoke-from-exhaust",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "You can often drive gently to a shop, but it may run poorly. If the engine stalls, hesitates badly when pulling out or merging, or blows black smoke, keep trips short and avoid highways; a stall makes steering and braking much harder. Get it checked in the next few days.",
+  "test_first": "Check the MAP vacuum hose, sensor ground and signal wire, and measure actual engine vacuum with a gauge before replacing the sensor."
+ },
+ {
+  "code": "P0109",
+  "title": "Manifold Absolute Pressure/Barometric Pressure Circuit Intermittent",
+  "plain": "The MAP sensor signal is dropping out or jumping around now and then, usually from a loose connection or a failing sensor.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Occasional stumble or hesitation",
+   "Problem comes and goes"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded MAP connector",
+    "how": "common"
+   },
+   {
+    "name": "Intermittent break in the wiring",
+    "how": "common"
+   },
+   {
+    "name": "Failing MAP sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the MAP connector and harness while watching the live reading",
+   "Inspect the vacuum hose for cracks that open up when warm"
+  ],
+  "fix": "Repair the loose connection or wiring; replace the MAP sensor if the signal still drops out.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P010A",
+  "title": "Mass or Volume Air Flow Sensor \"B\" Circuit",
+  "plain": "Some engines use two air flow sensors. This code means the computer has lost a usable signal from the second one, called sensor B.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running or hesitation",
+   "Possible reduced power"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged or corroded sensor B connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed air flow sensor B",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring to the sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Find which sensor is B for your engine and check its connector",
+   "Test the sensor's power, ground and signal"
+  ],
+  "fix": "Repair the connector or wiring, or replace air flow sensor B.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P010B",
+  "title": "Mass or Volume Air Flow Sensor \"B\" Circuit Range/Performance",
+  "plain": "The second air flow sensor (sensor B) is sending readings that don't fit how the engine is running, often because it is dirty or there's an air leak.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation or uneven power",
+   "Lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Dirty air flow sensor B",
+    "how": "common"
+   },
+   {
+    "name": "Air leak in the intake ducting after the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Failing air flow sensor B",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the intake ducting for cracks and loose clamps",
+   "Clean the sensor with MAF-safe cleaner and recheck readings"
+  ],
+  "fix": "Clean the sensor and seal any air leaks; replace the sensor if readings stay wrong.",
+  "guide": "hesitation-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P010C",
+  "title": "Mass or Volume Air Flow Sensor \"B\" Circuit Low",
+  "plain": "The signal from the second air flow sensor (sensor B) is lower than it should ever be, usually from a wiring problem or a failed sensor.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running or stalling",
+   "Weak acceleration"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed air flow sensor B",
+    "how": "common"
+   },
+   {
+    "name": "Open or grounded signal wire",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor connector and wiring",
+   "Measure the sensor's power, ground and signal"
+  ],
+  "fix": "Repair the wiring or connector, or replace air flow sensor B.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P010D",
+  "title": "Mass or Volume Air Flow Sensor \"B\" Circuit High",
+  "plain": "The signal from the second air flow sensor (sensor B) is higher than it should ever be, usually from a short in the wiring or a failed sensor.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running",
+   "Poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Failed air flow sensor B",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to voltage",
+    "how": "common"
+   },
+   {
+    "name": "Poor sensor ground",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring for rubbed-through spots",
+   "Check the sensor ground and signal voltage"
+  ],
+  "fix": "Repair the shorted wiring or replace air flow sensor B.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P010E",
+  "title": "Mass or Volume Air Flow Sensor \"B\" Circuit Intermittent/Erratic",
+  "plain": "The signal from the second air flow sensor (sensor B) keeps dropping out or jumping around, usually from a loose connection.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Occasional stumble or surge"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Intermittent wiring fault",
+    "how": "common"
+   },
+   {
+    "name": "Failing air flow sensor B",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the connector and harness while watching the live reading",
+   "Inspect the connector pins for corrosion"
+  ],
+  "fix": "Repair the loose connection or wiring; replace the sensor if the signal still drops out.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P010F",
+  "title": "Mass or Volume Air Flow Sensor A/B Correlation",
+  "plain": "On engines with two air flow sensors, the two readings should agree. This code means they disagree by more than the computer allows.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible hesitation or uneven running"
+  ],
+  "causes": [
+   {
+    "name": "One air flow sensor dirty or failing",
+    "how": "common"
+   },
+   {
+    "name": "Air leak in one side of the intake",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem on one sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare live readings from both sensors",
+   "Inspect both intake paths for leaks or blockages"
+  ],
+  "fix": "Clean or replace the sensor that reads wrong, and fix any intake leak.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P0110",
+  "title": "Intake Air Temperature Sensor 1 Circuit (Bank 1)",
+  "plain": "There's an electrical problem with the intake air temperature sensor, which tells the computer how cold or warm the incoming air is so it can adjust fuel.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in how the car drives",
+   "Possible hard starting in cold weather",
+   "Slightly worse fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed intake air temperature sensor (often built into the MAF)",
+    "how": "common"
+   },
+   {
+    "name": "Open or shorted wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor connector, which may be on the air box or MAF sensor",
+   "Read the live intake air temperature; it should be close to outside air on a cold engine",
+   "Check the wiring for damage"
+  ],
+  "fix": "Repair the connector or wiring, or replace the intake air temperature sensor (or MAF sensor if it is built in).",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.2,
+    0.5
+   ]
   },
-  {
-    "code": "P010A",
-    "title": "Mass or Volume Air Flow Sensor \"B\" Circuit",
-    "plain": "Some engines use two air flow sensors. This code means the computer has lost a usable signal from the second one, called sensor B.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": false,
-    "symptoms": ["Check engine light on", "Rough running or hesitation", "Possible reduced power"],
-    "causes": [
-      {"name": "Unplugged or corroded sensor B connector", "how": "common"},
-      {"name": "Failed air flow sensor B", "how": "common"},
-      {"name": "Damaged wiring to the sensor", "how": "possible"}
-    ],
-    "checks": ["Find which sensor is B for your engine and check its connector", "Test the sensor's power, ground and signal"],
-    "fix": "Repair the connector or wiring, or replace air flow sensor B.",
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Usually you can keep driving and schedule a repair. The car may start harder in cold weather or use a bit more fuel. If it starts running rough, hesitating or stalling, or other codes show up, get it checked sooner.",
+  "test_first": "Compare the intake air temperature reading to outside air on a cold engine, and check the connector and wiring for opens or shorts. The sensor may be built into the MAF."
+ },
+ {
+  "code": "P0111",
+  "title": "Intake Air Temperature Sensor 1 Circuit Range/Performance (Bank 1)",
+  "plain": "The intake air temperature reading doesn't make sense, such as not changing as the engine warms or not matching other temperature sensors after the car sits.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "Possible slight drop in fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty intake air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "common"
+   },
+   {
+    "name": "Sensor mounted wrong or out of the air stream",
+    "how": "possible"
+   },
+   {
+    "name": "High resistance in the wiring",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "After the car sits overnight, compare the intake air and coolant temperature readings; they should be close",
+   "Inspect the connector for corrosion",
+   "Make sure the sensor is seated in the intake properly"
+  ],
+  "fix": "Usually a new intake air temperature sensor, or a MAF sensor where the two are combined.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.2,
+    0.5
+   ]
   },
-  {
-    "code": "P010B",
-    "title": "Mass or Volume Air Flow Sensor \"B\" Circuit Range/Performance",
-    "plain": "The second air flow sensor (sensor B) is sending readings that don't fit how the engine is running, often because it is dirty or there's an air leak.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": false,
-    "symptoms": ["Check engine light on", "Hesitation or uneven power", "Lower fuel economy"],
-    "causes": [
-      {"name": "Dirty air flow sensor B", "how": "common"},
-      {"name": "Air leak in the intake ducting after the sensor", "how": "common"},
-      {"name": "Failing air flow sensor B", "how": "possible"}
-    ],
-    "checks": ["Inspect the intake ducting for cracks and loose clamps", "Clean the sensor with MAF-safe cleaner and recheck readings"],
-    "fix": "Clean the sensor and seal any air leaks; replace the sensor if readings stay wrong.",
-    "guide": "hesitation-when-accelerating",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Usually you can keep driving and schedule a repair. The car may start harder in cold weather or use a bit more fuel. If it starts running rough, hesitating or stalling, or other codes show up, get it checked sooner.",
+  "test_first": "Compare the intake air temperature reading to outside air on a cold engine, confirm the sensor is mounted in the air stream, and check connector and wiring resistance."
+ },
+ {
+  "code": "P0112",
+  "title": "Intake Air Temperature Sensor 1 Circuit Low (Bank 1)",
+  "plain": "The intake air temperature sensor is reporting an impossibly hot reading. That usually means its circuit is shorted or the sensor has failed.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Possible hard starting when cold",
+   "Slight hesitation or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Failed intake air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read the live intake air temperature; a reading far above outside air on a cold engine points to a short",
+   "Unplug the sensor and see if the reading drops to a very cold value",
+   "Inspect the wiring for pinched or rubbed spots"
+  ],
+  "fix": "Repair the shorted wiring or replace the intake air temperature sensor.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.2,
+    0.5
+   ]
   },
-  {
-    "code": "P010C",
-    "title": "Mass or Volume Air Flow Sensor \"B\" Circuit Low",
-    "plain": "The signal from the second air flow sensor (sensor B) is lower than it should ever be, usually from a wiring problem or a failed sensor.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": false,
-    "symptoms": ["Check engine light on", "Rough running or stalling", "Weak acceleration"],
-    "causes": [
-      {"name": "Unplugged or corroded connector", "how": "common"},
-      {"name": "Failed air flow sensor B", "how": "common"},
-      {"name": "Open or grounded signal wire", "how": "possible"}
-    ],
-    "checks": ["Check the sensor connector and wiring", "Measure the sensor's power, ground and signal"],
-    "fix": "Repair the wiring or connector, or replace air flow sensor B.",
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Usually you can keep driving and schedule a repair. The car may start harder in cold weather or use a bit more fuel. If it starts running rough, hesitating or stalling, or other codes show up, get it checked sooner.",
+  "test_first": "Compare the intake air temperature reading to outside air on a cold engine, and check the connector and wiring for opens or shorts. The sensor may be built into the MAF."
+ },
+ {
+  "code": "P0113",
+  "title": "Intake Air Temperature Sensor 1 Circuit High (Bank 1)",
+  "plain": "The intake air temperature sensor is reporting an impossibly cold reading. Most often the sensor is unplugged, a wire is broken, or the sensor has failed.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in drivability",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Sensor or MAF connector left unplugged or loose",
+    "how": "common"
+   },
+   {
+    "name": "Failed intake air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken signal or ground wire",
+    "how": "possible"
+   },
+   {
+    "name": "Corroded connector pins",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure the sensor is plugged in, especially after an air filter change",
+   "Read the live temperature; a reading near minus 40 points to an open circuit",
+   "Check the wiring and connector for damage or corrosion"
+  ],
+  "fix": "Plug in or repair the connector or wiring; replace the sensor if it reads wrong with good wiring.",
+  "cost": {
+   "job": "Replace intake air temperature sensor",
+   "parts": [
+    15,
+    80
+   ],
+   "hours": [
+    0.2,
+    0.5
+   ]
   },
-  {
-    "code": "P010D",
-    "title": "Mass or Volume Air Flow Sensor \"B\" Circuit High",
-    "plain": "The signal from the second air flow sensor (sensor B) is higher than it should ever be, usually from a short in the wiring or a failed sensor.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": false,
-    "symptoms": ["Check engine light on", "Rough running", "Poor fuel economy"],
-    "causes": [
-      {"name": "Failed air flow sensor B", "how": "common"},
-      {"name": "Signal wire shorted to voltage", "how": "common"},
-      {"name": "Poor sensor ground", "how": "possible"}
-    ],
-    "checks": ["Inspect the wiring for rubbed-through spots", "Check the sensor ground and signal voltage"],
-    "fix": "Repair the shorted wiring or replace air flow sensor B.",
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  "examples": [
+   "Often appears right after an air filter change when the sensor or MAF plug is left loose"
+  ],
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Usually you can keep driving and schedule a repair. The car may start harder in cold weather or use a bit more fuel. If it starts running rough, hesitating or stalling, or other codes show up, get it checked sooner.",
+  "test_first": "Compare the intake air temperature reading to outside air on a cold engine, and check the connector and wiring for opens or shorts. The sensor may be built into the MAF."
+ },
+ {
+  "code": "P0114",
+  "title": "Intake Air Temperature Sensor 1 Circuit Intermittent/Erratic (Bank 1)",
+  "plain": "The intake air temperature reading is jumping around or cutting out, usually from a loose connection or a sensor that's failing.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in drivability",
+   "Code may come and go"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Intermittent wiring break",
+    "how": "common"
+   },
+   {
+    "name": "Failing intake air temperature sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle-test the connector and wiring while watching the live reading",
+   "Inspect the connector pins for corrosion"
+  ],
+  "fix": "Repair the loose connection or wiring; replace the sensor if the reading still jumps.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ]
+ },
+ {
+  "code": "P0115",
+  "title": "Engine Coolant Temperature Sensor 1 Circuit",
+  "plain": "There's an electrical problem with the coolant temperature sensor, which tells the computer how warm the engine is. It affects fuel mixture, idle and often the cooling fans.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or rough running when cold",
+   "Temperature gauge reading wrong or not moving",
+   "Cooling fans may run all the time"
+  ],
+  "causes": [
+   {
+    "name": "Failed coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Open or shorted wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level first",
+   "Inspect the sensor connector and wiring",
+   "Compare the live coolant temperature reading with the actual engine temperature"
+  ],
+  "fix": "Usually a new coolant temperature sensor or a connector repair.",
+  "cost": {
+   "job": "Replace coolant temperature sensor",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1.2
+   ]
   },
-  {
-    "code": "P010E",
-    "title": "Mass or Volume Air Flow Sensor \"B\" Circuit Intermittent/Erratic",
-    "plain": "The signal from the second air flow sensor (sensor B) keeps dropping out or jumping around, usually from a loose connection.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": false,
-    "symptoms": ["Check engine light on", "Occasional stumble or surge"],
-    "causes": [
-      {"name": "Loose or corroded connector", "how": "common"},
-      {"name": "Intermittent wiring fault", "how": "common"},
-      {"name": "Failing air flow sensor B", "how": "possible"}
-    ],
-    "checks": ["Wiggle-test the connector and harness while watching the live reading", "Inspect the connector pins for corrosion"],
-    "fix": "Repair the loose connection or wiring; replace the sensor if the signal still drops out.",
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Watch for real overheating, since this code can make the gauge read wrong. If you see steam, smell coolant, the gauge reads high or the cooling fans aren't running, pull over and shut it off. Check the coolant level when the engine is cold. Otherwise get it to a shop soon.",
+  "test_first": "Compare the coolant temperature reading to actual engine temperature with an infrared thermometer, check coolant level, and test the connector and wiring before replacing the sensor."
+ },
+ {
+  "code": "P0116",
+  "title": "Engine Coolant Temperature Sensor 1 Circuit Range/Performance",
+  "plain": "The coolant temperature reading doesn't make sense, such as warming too slowly, jumping suddenly, or not matching other temperature sensors after the car sits overnight.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge may read oddly",
+   "Possible poor fuel economy",
+   "Heater may be slow to warm up"
+  ],
+  "causes": [
+   {
+    "name": "Faulty coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Thermostat stuck open",
+    "how": "common"
+   },
+   {
+    "name": "Low coolant or air pocket at the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Corroded connector or high wiring resistance",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level and bleed air from the system",
+   "Compare the coolant and intake air readings after the car sits overnight",
+   "Watch the coolant temperature as the engine warms to see if it climbs steadily"
+  ],
+  "fix": "Usually a new coolant temperature sensor; replace the thermostat if the engine is slow to warm.",
+  "cost": {
+   "job": "Replace coolant temperature sensor",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1.2
+   ]
   },
-  {
-    "code": "P010F",
-    "title": "Mass or Volume Air Flow Sensor A/B Correlation",
-    "plain": "On engines with two air flow sensors, the two readings should agree. This code means they disagree by more than the computer allows.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": false,
-    "symptoms": ["Check engine light on", "Possible hesitation or uneven running"],
-    "causes": [
-      {"name": "One air flow sensor dirty or failing", "how": "common"},
-      {"name": "Air leak in one side of the intake", "how": "common"},
-      {"name": "Wiring or connector problem on one sensor", "how": "possible"}
-    ],
-    "checks": ["Compare live readings from both sensors", "Inspect both intake paths for leaks or blockages"],
-    "fix": "Clean or replace the sensor that reads wrong, and fix any intake leak.",
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Usually drivable, but the temperature gauge may not be reliable. Check the coolant level when the engine is cold. If you see steam, smell coolant, the heater blows cold, or the fans stop working, pull over and shut it off. Otherwise get it checked within a week or two.",
+  "test_first": "Check coolant level and for air pockets, compare the sensor reading to actual temperature and other temperature sensors, and confirm the thermostat works before replacing the sensor."
+ },
+ {
+  "code": "P0117",
+  "title": "Engine Coolant Temperature Sensor 1 Circuit Low",
+  "plain": "The coolant temperature sensor is reporting an impossibly hot engine. That usually means a shorted wire or failed sensor, but make sure the engine isn't really overheating.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fans running constantly",
+   "Hard starting or rough running when cold",
+   "Temperature gauge may read high"
+  ],
+  "causes": [
+   {
+    "name": "Failed coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Engine actually overheating",
+    "how": "possible"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Confirm the engine is not really overheating and coolant is full",
+   "Unplug the sensor and see if the reading drops to a very cold value",
+   "Inspect the wiring for pinched or melted spots"
+  ],
+  "fix": "Repair the shorted wiring or replace the coolant temperature sensor.",
+  "cost": {
+   "job": "Replace coolant temperature sensor",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1.2
+   ]
   },
-  {
-    "code": "P0110",
-    "title": "Intake Air Temperature Sensor 1 Circuit (Bank 1)",
-    "plain": "There's an electrical problem with the intake air temperature sensor, which tells the computer how cold or warm the incoming air is so it can adjust fuel.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": true,
-    "symptoms": ["Check engine light on", "Usually little change in how the car drives", "Possible hard starting in cold weather", "Slightly worse fuel economy"],
-    "causes": [
-      {"name": "Unplugged or corroded sensor connector", "how": "common"},
-      {"name": "Failed intake air temperature sensor (often built into the MAF)", "how": "common"},
-      {"name": "Open or shorted wiring", "how": "possible"},
-      {"name": "Engine computer fault", "how": "possible"}
-    ],
-    "checks": ["Check the sensor connector, which may be on the air box or MAF sensor", "Read the live intake air temperature; it should be close to outside air on a cold engine", "Check the wiring for damage"],
-    "fix": "Repair the connector or wiring, or replace the intake air temperature sensor (or MAF sensor if it is built in).",
-    "cost": {"job": "Replace intake air temperature sensor", "parts": [15, 80], "hours": [0.2, 0.5]},
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "engine-overheating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "This code can come from a real overheat, so take it seriously. If the gauge reads high, you see steam or smell coolant, pull over and shut it off. Check the coolant level when the engine is cold. If the temperature looks normal and it runs well, get it to a shop soon.",
+  "test_first": "Confirm the engine isn't actually overheating, compare the sensor reading to actual temperature, and check the signal wire for a short to ground before replacing the sensor."
+ },
+ {
+  "code": "P0118",
+  "title": "Engine Coolant Temperature Sensor 1 Circuit High",
+  "plain": "The coolant temperature sensor is reporting an impossibly cold engine, usually because it's unplugged, a wire is broken, or the sensor has failed. The fans may not come on when needed.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge stays low or reads cold",
+   "Black smoke or rich running",
+   "Cooling fans may run all the time or not at all"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged or corroded sensor connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken signal or ground wire",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the sensor connector is fully plugged in and not corroded",
+   "Read the live coolant temperature; a reading near minus 40 points to an open circuit",
+   "Inspect the wiring along the engine for breaks"
+  ],
+  "fix": "Repair the connector or wiring, or replace the coolant temperature sensor.",
+  "cost": {
+   "job": "Replace coolant temperature sensor",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.3,
+    1.2
+   ]
   },
-  {
-    "code": "P0111",
-    "title": "Intake Air Temperature Sensor 1 Circuit Range/Performance (Bank 1)",
-    "plain": "The intake air temperature reading doesn't make sense, such as not changing as the engine warms or not matching other temperature sensors after the car sits.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": true,
-    "symptoms": ["Check engine light on", "Usually no change in how the car drives", "Possible slight drop in fuel economy"],
-    "causes": [
-      {"name": "Faulty intake air temperature sensor", "how": "common"},
-      {"name": "Corroded or loose connector", "how": "common"},
-      {"name": "Sensor mounted wrong or out of the air stream", "how": "possible"},
-      {"name": "High resistance in the wiring", "how": "possible"}
-    ],
-    "checks": ["After the car sits overnight, compare the intake air and coolant temperature readings; they should be close", "Inspect the connector for corrosion", "Make sure the sensor is seated in the intake properly"],
-    "fix": "Usually a new intake air temperature sensor, or a MAF sensor where the two are combined.",
-    "cost": {"job": "Replace intake air temperature sensor", "parts": [15, 80], "hours": [0.2, 0.5]},
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Watch for real overheating, since this code can make the gauge read wrong. If you see steam, smell coolant, the gauge reads high or the cooling fans aren't running, pull over and shut it off. Check the coolant level when the engine is cold. Otherwise get it to a shop soon.",
+  "test_first": "Compare the coolant temperature reading to actual engine temperature with an infrared thermometer, check coolant level, and test the connector and wiring before replacing the sensor."
+ },
+ {
+  "code": "P0119",
+  "title": "Engine Coolant Temperature Sensor 1 Circuit Intermittent/Erratic",
+  "plain": "The coolant temperature reading is jumping around or cutting out, usually from a loose connection, a failing sensor, or air in the cooling system.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge jumping around",
+   "Cooling fans switching on and off oddly"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Failing coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Low coolant or air pocket at the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Intermittent wiring break",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level and bleed air from the system",
+   "Wiggle-test the connector while watching the live reading"
+  ],
+  "fix": "Top up and bleed the coolant, repair the connection, or replace the sensor.",
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ]
+ },
+ {
+  "code": "P011A",
+  "title": "Engine Coolant Temperature Sensor 1/2 Correlation",
+  "plain": "Engines with two coolant temperature sensors expect them to read about the same. This code means the two readings disagree by too much.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge may read oddly",
+   "Usually no change in drivability"
+  ],
+  "causes": [
+   {
+    "name": "One coolant temperature sensor reading wrong",
+    "how": "common"
+   },
+   {
+    "name": "Low coolant or air trapped near one sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector or high wiring resistance",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level and bleed the system",
+   "Compare both sensor readings on a cold engine after the car sits"
+  ],
+  "fix": "Replace the sensor that reads out of line, or fix the coolant level or wiring problem.",
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P011B",
+  "title": "Engine Coolant Temperature/Intake Air Temperature Correlation",
+  "plain": "After the car sits long enough to cool down, the coolant and intake air temperatures should be nearly the same. This code means they don't agree.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in drivability"
+  ],
+  "causes": [
+   {
+    "name": "Faulty coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Faulty intake air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Block heater use before starting",
+    "how": "possible"
+   },
+   {
+    "name": "Corroded connector or wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "After an overnight cool-down, compare the coolant and intake air readings to the actual outside temperature",
+   "Ask whether a block heater was plugged in before the code set"
+  ],
+  "fix": "Replace whichever sensor reads out of line with the real temperature.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P011C",
+  "title": "Charge Air Temperature/Intake Air Temperature Correlation (Bank 1)",
+  "plain": "On turbocharged or supercharged engines, the temperature of the boosted air and the incoming air should agree when the engine is cold. This code means they don't.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in drivability",
+   "Possible reduced power in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Faulty charge air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Faulty intake air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector or wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare both temperature readings after an overnight cool-down",
+   "Inspect both sensor connectors for oil or corrosion"
+  ],
+  "fix": "Replace the sensor that reads out of line, or repair the wiring.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P011D",
+  "title": "Charge Air Temperature/Intake Air Temperature Correlation (Bank 2)",
+  "plain": "Same as P011C but for bank 2: on a boosted engine, the charge air and intake air temperatures disagree when they should match.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in drivability"
+  ],
+  "causes": [
+   {
+    "name": "Faulty charge air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Faulty intake air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector or wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare both temperature readings after an overnight cool-down",
+   "Inspect both sensor connectors for oil or corrosion"
+  ],
+  "fix": "Replace the sensor that reads out of line, or repair the wiring.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ },
+ {
+  "code": "P0120",
+  "title": "Throttle/Pedal Position Sensor/Switch \"A\" Circuit",
+  "plain": "There's an electrical problem with throttle position sensor A, which tells the computer how far the throttle is open. Many cars go into a reduced-power mode to stay safe.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Hesitation or surging",
+   "Rough or high idle"
+  ],
+  "causes": [
+   {
+    "name": "Faulty throttle position sensor or throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Open or shorted wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle body connector and wiring",
+   "Watch the live throttle position reading while slowly pressing the pedal; it should rise smoothly",
+   "Check for related throttle or pedal codes"
+  ],
+  "fix": "Repair the wiring or connector, or replace the throttle position sensor (on most newer cars, the whole throttle body).",
+  "cost": {
+   "job": "Replace throttle position sensor or throttle body",
+   "parts": [
+    30,
+    550
+   ],
+   "hours": [
+    0.3,
+    1.5
+   ]
   },
-  {
-    "code": "P0112",
-    "title": "Intake Air Temperature Sensor 1 Circuit Low (Bank 1)",
-    "plain": "The intake air temperature sensor is reporting an impossibly hot reading. That usually means its circuit is shorted or the sensor has failed.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": true,
-    "symptoms": ["Check engine light on", "Possible hard starting when cold", "Slight hesitation or lower fuel economy"],
-    "causes": [
-      {"name": "Failed intake air temperature sensor", "how": "common"},
-      {"name": "Signal wire shorted to ground", "how": "common"},
-      {"name": "Damaged connector", "how": "possible"},
-      {"name": "Engine computer fault", "how": "possible"}
-    ],
-    "checks": ["Read the live intake air temperature; a reading far above outside air on a cold engine points to a short", "Unplug the sensor and see if the reading drops to a very cold value", "Inspect the wiring for pinched or rubbed spots"],
-    "fix": "Repair the shorted wiring or replace the intake air temperature sensor.",
-    "cost": {"job": "Replace intake air temperature sensor", "parts": [15, 80], "hours": [0.2, 0.5]},
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Limit driving. Throttle sensor faults can cause sudden reduced power, surging, a high idle or stalling, which is dangerous in traffic or when merging. If the car won't accelerate properly, surges on its own or stalls, don't drive it in traffic; have it towed or move it only a short distance.",
+  "test_first": "Check the throttle body and pedal sensor connectors, 5-volt reference and ground, and compare sensor readings as the throttle moves before replacing the throttle body or pedal."
+ },
+ {
+  "code": "P0121",
+  "title": "Throttle/Pedal Position Sensor/Switch \"A\" Circuit Range/Performance",
+  "plain": "The throttle position sensor's reading doesn't line up with what the engine is doing, such as not matching air flow or the second throttle sensor. It often points to a worn sensor.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation or stumble on acceleration",
+   "Reduced power mode",
+   "Erratic idle or shifting"
+  ],
+  "causes": [
+   {
+    "name": "Worn throttle position sensor with a dead spot",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or sticking throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Air flow or MAP sensor reading wrong",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch the live throttle reading while slowly pressing the pedal and look for dropouts",
+   "Inspect and clean the throttle body",
+   "Check the connector for corrosion"
+  ],
+  "fix": "Usually a new throttle position sensor, or the throttle body on cars where the sensor is built in.",
+  "cost": {
+   "job": "Replace throttle position sensor or throttle body",
+   "parts": [
+    30,
+    550
+   ],
+   "hours": [
+    0.3,
+    1.5
+   ]
   },
-  {
-    "code": "P0113",
-    "title": "Intake Air Temperature Sensor 1 Circuit High (Bank 1)",
-    "plain": "The intake air temperature sensor is reporting an impossibly cold reading. Most often the sensor is unplugged, a wire is broken, or the sensor has failed.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": true,
-    "symptoms": ["Check engine light on", "Usually little change in drivability", "Possible rough running or lower fuel economy"],
-    "causes": [
-      {"name": "Sensor or MAF connector left unplugged or loose", "how": "common"},
-      {"name": "Failed intake air temperature sensor", "how": "common"},
-      {"name": "Broken signal or ground wire", "how": "possible"},
-      {"name": "Corroded connector pins", "how": "possible"}
-    ],
-    "checks": ["Make sure the sensor is plugged in, especially after an air filter change", "Read the live temperature; a reading near minus 40 points to an open circuit", "Check the wiring and connector for damage or corrosion"],
-    "fix": "Plug in or repair the connector or wiring; replace the sensor if it reads wrong with good wiring.",
-    "cost": {"job": "Replace intake air temperature sensor", "parts": [15, 80], "hours": [0.2, 0.5]},
-    "examples": ["Often appears right after an air filter change when the sensor or MAF plug is left loose"],
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "hesitation-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Limit driving. Throttle sensor faults can cause sudden reduced power, surging, a high idle or stalling, which is dangerous in traffic or when merging. If the car won't accelerate properly, surges on its own or stalls, don't drive it in traffic; have it towed or move it only a short distance.",
+  "test_first": "Clean and inspect the throttle body, watch the throttle sensor signal for dead spots while sweeping it, and check MAF and MAP readings before replacing the throttle body."
+ },
+ {
+  "code": "P0122",
+  "title": "Throttle/Pedal Position Sensor/Switch \"A\" Circuit Low",
+  "plain": "Throttle position sensor A is sending a signal that is lower than normal, usually from a wiring fault, a bad connection or a failed sensor. The car may limit power.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Stalling or hesitation",
+   "Idle may be high or unsteady"
+  ],
+  "causes": [
+   {
+    "name": "Failed throttle position sensor or throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire open or shorted to ground",
+    "how": "possible"
+   },
+   {
+    "name": "Lost 5-volt reference from the engine computer",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the throttle body connector and wiring",
+   "Measure the 5-volt reference, ground and signal at the sensor",
+   "Look for other codes sharing the same 5-volt reference"
+  ],
+  "fix": "Repair the wiring or connector, or replace the throttle position sensor or throttle body.",
+  "cost": {
+   "job": "Replace throttle position sensor or throttle body",
+   "parts": [
+    30,
+    550
+   ],
+   "hours": [
+    0.3,
+    1.5
+   ]
   },
-  {
-    "code": "P0114",
-    "title": "Intake Air Temperature Sensor 1 Circuit Intermittent/Erratic (Bank 1)",
-    "plain": "The intake air temperature reading is jumping around or cutting out, usually from a loose connection or a sensor that's failing.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": false,
-    "symptoms": ["Check engine light on", "Usually no change in drivability", "Code may come and go"],
-    "causes": [
-      {"name": "Loose or corroded connector", "how": "common"},
-      {"name": "Intermittent wiring break", "how": "common"},
-      {"name": "Failing intake air temperature sensor", "how": "possible"}
-    ],
-    "checks": ["Wiggle-test the connector and wiring while watching the live reading", "Inspect the connector pins for corrosion"],
-    "fix": "Repair the loose connection or wiring; replace the sensor if the reading still jumps.",
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Limit driving. Throttle sensor faults can cause sudden reduced power, surging, a high idle or stalling, which is dangerous in traffic or when merging. If the car won't accelerate properly, surges on its own or stalls, don't drive it in traffic; have it towed or move it only a short distance.",
+  "test_first": "Check the throttle body and pedal sensor connectors, 5-volt reference and ground, and compare sensor readings as the throttle moves before replacing the throttle body or pedal."
+ },
+ {
+  "code": "P0123",
+  "title": "Throttle/Pedal Position Sensor/Switch \"A\" Circuit High",
+  "plain": "Throttle position sensor A is sending a signal that is higher than normal, usually from a short in the wiring, a bad ground or a failed sensor. The car may limit power.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "High or surging idle",
+   "Hesitation or poor shifting"
+  ],
+  "causes": [
+   {
+    "name": "Failed throttle position sensor or throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Open sensor ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to voltage",
+    "how": "possible"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the throttle body connector and wiring",
+   "Check the sensor ground and signal voltage at closed throttle",
+   "Watch the live reading while slowly pressing the pedal"
+  ],
+  "fix": "Repair the wiring or ground, or replace the throttle position sensor or throttle body.",
+  "cost": {
+   "job": "Replace throttle position sensor or throttle body",
+   "parts": [
+    30,
+    550
+   ],
+   "hours": [
+    0.3,
+    1.5
+   ]
   },
-  {
-    "code": "P0115",
-    "title": "Engine Coolant Temperature Sensor 1 Circuit",
-    "plain": "There's an electrical problem with the coolant temperature sensor, which tells the computer how warm the engine is. It affects fuel mixture, idle and often the cooling fans.",
-    "sys": "Cooling",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Hard starting or rough running when cold", "Temperature gauge reading wrong or not moving", "Cooling fans may run all the time"],
-    "causes": [
-      {"name": "Failed coolant temperature sensor", "how": "common"},
-      {"name": "Unplugged or corroded sensor connector", "how": "common"},
-      {"name": "Open or shorted wiring", "how": "possible"},
-      {"name": "Engine computer fault", "how": "possible"}
-    ],
-    "checks": ["Check the coolant level first", "Inspect the sensor connector and wiring", "Compare the live coolant temperature reading with the actual engine temperature"],
-    "fix": "Usually a new coolant temperature sensor or a connector repair.",
-    "cost": {"job": "Replace coolant temperature sensor", "parts": [15, 90], "hours": [0.3, 1.2]},
-    "guide": "temperature-gauge-fluctuating",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Limit driving. Throttle sensor faults can cause sudden reduced power, surging, a high idle or stalling, which is dangerous in traffic or when merging. If the car won't accelerate properly, surges on its own or stalls, don't drive it in traffic; have it towed or move it only a short distance.",
+  "test_first": "Check the throttle body and pedal sensor connectors, 5-volt reference and ground, and compare sensor readings as the throttle moves before replacing the throttle body or pedal."
+ },
+ {
+  "code": "P0124",
+  "title": "Throttle/Pedal Position Sensor/Switch \"A\" Circuit Intermittent",
+  "plain": "Throttle position sensor A's signal keeps dropping out or jumping, usually from a worn sensor or a loose connection.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Occasional stumble, surge or hesitation",
+   "Possible reduced power mode"
+  ],
+  "causes": [
+   {
+    "name": "Worn throttle position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Intermittent wiring break",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Watch the live throttle reading while slowly pressing the pedal and look for spikes or drops",
+   "Wiggle-test the connector and wiring"
+  ],
+  "fix": "Repair the connection, or replace the throttle position sensor or throttle body.",
+  "guide": "hesitation-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ]
+ },
+ {
+  "code": "P0125",
+  "title": "Insufficient Coolant Temperature for Closed Loop Fuel Control",
+  "plain": "The engine is taking too long to warm up enough for the computer to start fine-tuning the fuel mixture. A thermostat stuck open is the usual cause.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge slow to rise or stays low",
+   "Heater slow to blow warm air",
+   "Lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Thermostat stuck open or opening too early",
+    "how": "common"
+   },
+   {
+    "name": "Faulty coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Low coolant level",
+    "how": "possible"
+   },
+   {
+    "name": "Cooling fan running all the time",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level",
+   "Watch the coolant temperature as the engine warms; it should reach normal within about 10 to 15 minutes",
+   "Check whether the cooling fan is running on a cold engine"
+  ],
+  "fix": "Usually a new thermostat; replace the coolant temperature sensor if it reads wrong.",
+  "cost": {
+   "job": "Replace thermostat",
+   "parts": [
+    15,
+    120
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
   },
-  {
-    "code": "P0116",
-    "title": "Engine Coolant Temperature Sensor 1 Circuit Range/Performance",
-    "plain": "The coolant temperature reading doesn't make sense, such as warming too slowly, jumping suddenly, or not matching other temperature sensors after the car sits overnight.",
-    "sys": "Cooling",
-    "sev": "check",
-    "common": true,
-    "symptoms": ["Check engine light on", "Temperature gauge may read oddly", "Possible poor fuel economy", "Heater may be slow to warm up"],
-    "causes": [
-      {"name": "Faulty coolant temperature sensor", "how": "common"},
-      {"name": "Thermostat stuck open", "how": "common"},
-      {"name": "Low coolant or air pocket at the sensor", "how": "possible"},
-      {"name": "Corroded connector or high wiring resistance", "how": "possible"}
-    ],
-    "checks": ["Check the coolant level and bleed air from the system", "Compare the coolant and intake air readings after the car sits overnight", "Watch the coolant temperature as the engine warms to see if it climbs steadily"],
-    "fix": "Usually a new coolant temperature sensor; replace the thermostat if the engine is slow to warm.",
-    "cost": {"job": "Replace coolant temperature sensor", "parts": [15, 90], "hours": [0.3, 1.2]},
-    "guide": "temperature-gauge-fluctuating",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "heater-blowing-cold-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ],
+  "drive": "Usually drivable. The engine is running cooler than it should, so expect weak heat and slightly worse fuel economy. In cold weather a weak defroster can block your view, so get it fixed before winter. If the gauge ever reads high or you see steam, pull over and shut it off.",
+  "test_first": "Check coolant level, compare the coolant sensor reading to actual engine temperature, watch how long warm-up takes, and confirm the fan isn't stuck on before replacing the thermostat."
+ },
+ {
+  "code": "P0126",
+  "title": "Insufficient Coolant Temperature for Stable Operation",
+  "plain": "The engine isn't staying warm enough for steady, efficient running. Most often the thermostat is stuck open or the coolant temperature sensor is reading low.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge reads low",
+   "Weak cabin heat"
+  ],
+  "causes": [
+   {
+    "name": "Thermostat stuck open",
+    "how": "common"
+   },
+   {
+    "name": "Faulty coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Low coolant level",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level",
+   "Watch the coolant temperature during a drive to see if it stays below normal"
+  ],
+  "fix": "Usually a new thermostat; replace the coolant temperature sensor if it reads wrong.",
+  "cost": {
+   "job": "Replace thermostat",
+   "parts": [
+    15,
+    120
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
   },
-  {
-    "code": "P0117",
-    "title": "Engine Coolant Temperature Sensor 1 Circuit Low",
-    "plain": "The coolant temperature sensor is reporting an impossibly hot engine. That usually means a shorted wire or failed sensor, but make sure the engine isn't really overheating.",
-    "sys": "Cooling",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Cooling fans running constantly", "Hard starting or rough running when cold", "Temperature gauge may read high"],
-    "causes": [
-      {"name": "Failed coolant temperature sensor", "how": "common"},
-      {"name": "Signal wire shorted to ground", "how": "common"},
-      {"name": "Engine actually overheating", "how": "possible"},
-      {"name": "Damaged connector", "how": "possible"}
-    ],
-    "checks": ["Confirm the engine is not really overheating and coolant is full", "Unplug the sensor and see if the reading drops to a very cold value", "Inspect the wiring for pinched or melted spots"],
-    "fix": "Repair the shorted wiring or replace the coolant temperature sensor.",
-    "cost": {"job": "Replace coolant temperature sensor", "parts": [15, 90], "hours": [0.3, 1.2]},
-    "guide": "engine-overheating",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
+  "guide": "heater-blowing-cold-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ]
+ },
+ {
+  "code": "P0127",
+  "title": "Intake Air Temperature Too High",
+  "plain": "The air going into the engine is hotter than expected. This often shows up on turbocharged or supercharged engines when the intercooler isn't cooling the air well.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power, especially when hot",
+   "Possible spark knock or pinging"
+  ],
+  "causes": [
+   {
+    "name": "Intercooler not cooling (failed pump, low coolant or blocked fins)",
+    "how": "common"
+   },
+   {
+    "name": "Faulty intake air temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector fault",
+    "how": "possible"
+   },
+   {
+    "name": "Hot air being drawn in from a damaged intake duct",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the intake air reading to outside temperature on a cold engine",
+   "On boosted engines, check the intercooler, its coolant level and pump"
+  ],
+  "fix": "Repair the intercooler system or air duct, or replace the intake air temperature sensor.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/",
+   "https://www.aa1car.com/trouble-codes/codes_199.htm"
+  ]
+ },
+ {
+  "code": "P0128",
+  "title": "Coolant Thermostat (Coolant Temperature Below Thermostat Regulating Temperature)",
+  "plain": "The engine is taking too long to reach its normal operating temperature. In most cases the thermostat is stuck partly open and letting coolant cool the engine too soon.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Temperature gauge reads lower than usual",
+   "Heater blows lukewarm air",
+   "Slightly worse fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Thermostat stuck open or opening too early",
+    "how": "common"
+   },
+   {
+    "name": "Faulty coolant temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Low coolant level",
+    "how": "possible"
+   },
+   {
+    "name": "Cooling fan stuck on",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector fault at the temperature sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the coolant level when the engine is cold",
+   "Watch the live coolant temperature on a drive to see if it reaches normal",
+   "Check whether the cooling fan runs when the engine is cold"
+  ],
+  "fix": "Usually a new thermostat with fresh coolant; replace the coolant temperature sensor if it reads wrong.",
+  "cost": {
+   "job": "Replace thermostat",
+   "parts": [
+    15,
+    120
+   ],
+   "hours": [
+    0.8,
+    2.5
+   ]
   },
-  {
-    "code": "P0118",
-    "title": "Engine Coolant Temperature Sensor 1 Circuit High",
-    "plain": "The coolant temperature sensor is reporting an impossibly cold engine, usually because it's unplugged, a wire is broken, or the sensor has failed. The fans may not come on when needed.",
-    "sys": "Cooling",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Temperature gauge stays low or reads cold", "Black smoke or rich running", "Cooling fans may run all the time or not at all"],
-    "causes": [
-      {"name": "Unplugged or corroded sensor connector", "how": "common"},
-      {"name": "Failed coolant temperature sensor", "how": "common"},
-      {"name": "Broken signal or ground wire", "how": "possible"},
-      {"name": "Engine computer fault", "how": "possible"}
-    ],
-    "checks": ["Check that the sensor connector is fully plugged in and not corroded", "Read the live coolant temperature; a reading near minus 40 points to an open circuit", "Inspect the wiring along the engine for breaks"],
-    "fix": "Repair the connector or wiring, or replace the coolant temperature sensor.",
-    "cost": {"job": "Replace coolant temperature sensor", "parts": [15, 90], "hours": [0.3, 1.2]},
-    "guide": "temperature-gauge-fluctuating",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
-  },
-  {
-    "code": "P0119",
-    "title": "Engine Coolant Temperature Sensor 1 Circuit Intermittent/Erratic",
-    "plain": "The coolant temperature reading is jumping around or cutting out, usually from a loose connection, a failing sensor, or air in the cooling system.",
-    "sys": "Cooling",
-    "sev": "soon",
-    "common": false,
-    "symptoms": ["Check engine light on", "Temperature gauge jumping around", "Cooling fans switching on and off oddly"],
-    "causes": [
-      {"name": "Loose or corroded connector", "how": "common"},
-      {"name": "Failing coolant temperature sensor", "how": "common"},
-      {"name": "Low coolant or air pocket at the sensor", "how": "possible"},
-      {"name": "Intermittent wiring break", "how": "possible"}
-    ],
-    "checks": ["Check the coolant level and bleed air from the system", "Wiggle-test the connector while watching the live reading"],
-    "fix": "Top up and bleed the coolant, repair the connection, or replace the sensor.",
-    "guide": "temperature-gauge-fluctuating",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
-  },
-  {
-    "code": "P011A",
-    "title": "Engine Coolant Temperature Sensor 1/2 Correlation",
-    "plain": "Engines with two coolant temperature sensors expect them to read about the same. This code means the two readings disagree by too much.",
-    "sys": "Cooling",
-    "sev": "check",
-    "common": false,
-    "symptoms": ["Check engine light on", "Temperature gauge may read oddly", "Usually no change in drivability"],
-    "causes": [
-      {"name": "One coolant temperature sensor reading wrong", "how": "common"},
-      {"name": "Low coolant or air trapped near one sensor", "how": "common"},
-      {"name": "Corroded connector or high wiring resistance", "how": "possible"}
-    ],
-    "checks": ["Check the coolant level and bleed the system", "Compare both sensor readings on a cold engine after the car sits"],
-    "fix": "Replace the sensor that reads out of line, or fix the coolant level or wiring problem.",
-    "guide": "temperature-gauge-fluctuating",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
-  },
-  {
-    "code": "P011B",
-    "title": "Engine Coolant Temperature/Intake Air Temperature Correlation",
-    "plain": "After the car sits long enough to cool down, the coolant and intake air temperatures should be nearly the same. This code means they don't agree.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": false,
-    "symptoms": ["Check engine light on", "Usually no change in drivability"],
-    "causes": [
-      {"name": "Faulty coolant temperature sensor", "how": "common"},
-      {"name": "Faulty intake air temperature sensor", "how": "common"},
-      {"name": "Block heater use before starting", "how": "possible"},
-      {"name": "Corroded connector or wiring fault", "how": "possible"}
-    ],
-    "checks": ["After an overnight cool-down, compare the coolant and intake air readings to the actual outside temperature", "Ask whether a block heater was plugged in before the code set"],
-    "fix": "Replace whichever sensor reads out of line with the real temperature.",
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
-  },
-  {
-    "code": "P011C",
-    "title": "Charge Air Temperature/Intake Air Temperature Correlation (Bank 1)",
-    "plain": "On turbocharged or supercharged engines, the temperature of the boosted air and the incoming air should agree when the engine is cold. This code means they don't.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": false,
-    "symptoms": ["Check engine light on", "Usually no change in drivability", "Possible reduced power in some cases"],
-    "causes": [
-      {"name": "Faulty charge air temperature sensor", "how": "common"},
-      {"name": "Faulty intake air temperature sensor", "how": "common"},
-      {"name": "Corroded connector or wiring fault", "how": "possible"}
-    ],
-    "checks": ["Compare both temperature readings after an overnight cool-down", "Inspect both sensor connectors for oil or corrosion"],
-    "fix": "Replace the sensor that reads out of line, or repair the wiring.",
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
-  },
-  {
-    "code": "P011D",
-    "title": "Charge Air Temperature/Intake Air Temperature Correlation (Bank 2)",
-    "plain": "Same as P011C but for bank 2: on a boosted engine, the charge air and intake air temperatures disagree when they should match.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": false,
-    "symptoms": ["Check engine light on", "Usually no change in drivability"],
-    "causes": [
-      {"name": "Faulty charge air temperature sensor", "how": "common"},
-      {"name": "Faulty intake air temperature sensor", "how": "common"},
-      {"name": "Corroded connector or wiring fault", "how": "possible"}
-    ],
-    "checks": ["Compare both temperature readings after an overnight cool-down", "Inspect both sensor connectors for oil or corrosion"],
-    "fix": "Replace the sensor that reads out of line, or repair the wiring.",
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
-  },
-  {
-    "code": "P0120",
-    "title": "Throttle/Pedal Position Sensor/Switch \"A\" Circuit",
-    "plain": "There's an electrical problem with throttle position sensor A, which tells the computer how far the throttle is open. Many cars go into a reduced-power mode to stay safe.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Reduced power or limp mode", "Hesitation or surging", "Rough or high idle"],
-    "causes": [
-      {"name": "Faulty throttle position sensor or throttle body", "how": "common"},
-      {"name": "Loose or corroded connector", "how": "common"},
-      {"name": "Open or shorted wiring", "how": "possible"},
-      {"name": "Engine computer fault", "how": "possible"}
-    ],
-    "checks": ["Inspect the throttle body connector and wiring", "Watch the live throttle position reading while slowly pressing the pedal; it should rise smoothly", "Check for related throttle or pedal codes"],
-    "fix": "Repair the wiring or connector, or replace the throttle position sensor (on most newer cars, the whole throttle body).",
-    "cost": {"job": "Replace throttle position sensor or throttle body", "parts": [30, 550], "hours": [0.3, 1.5]},
-    "guide": "reduced-engine-power-warning",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
-  },
-  {
-    "code": "P0121",
-    "title": "Throttle/Pedal Position Sensor/Switch \"A\" Circuit Range/Performance",
-    "plain": "The throttle position sensor's reading doesn't line up with what the engine is doing, such as not matching air flow or the second throttle sensor. It often points to a worn sensor.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Hesitation or stumble on acceleration", "Reduced power mode", "Erratic idle or shifting"],
-    "causes": [
-      {"name": "Worn throttle position sensor with a dead spot", "how": "common"},
-      {"name": "Dirty or sticking throttle body", "how": "common"},
-      {"name": "Corroded connector", "how": "possible"},
-      {"name": "Air flow or MAP sensor reading wrong", "how": "possible"}
-    ],
-    "checks": ["Watch the live throttle reading while slowly pressing the pedal and look for dropouts", "Inspect and clean the throttle body", "Check the connector for corrosion"],
-    "fix": "Usually a new throttle position sensor, or the throttle body on cars where the sensor is built in.",
-    "cost": {"job": "Replace throttle position sensor or throttle body", "parts": [30, 550], "hours": [0.3, 1.5]},
-    "guide": "hesitation-when-accelerating",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
-  },
-  {
-    "code": "P0122",
-    "title": "Throttle/Pedal Position Sensor/Switch \"A\" Circuit Low",
-    "plain": "Throttle position sensor A is sending a signal that is lower than normal, usually from a wiring fault, a bad connection or a failed sensor. The car may limit power.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Reduced power or limp mode", "Stalling or hesitation", "Idle may be high or unsteady"],
-    "causes": [
-      {"name": "Failed throttle position sensor or throttle body", "how": "common"},
-      {"name": "Unplugged or corroded connector", "how": "common"},
-      {"name": "Signal wire open or shorted to ground", "how": "possible"},
-      {"name": "Lost 5-volt reference from the engine computer", "how": "possible"}
-    ],
-    "checks": ["Check the throttle body connector and wiring", "Measure the 5-volt reference, ground and signal at the sensor", "Look for other codes sharing the same 5-volt reference"],
-    "fix": "Repair the wiring or connector, or replace the throttle position sensor or throttle body.",
-    "cost": {"job": "Replace throttle position sensor or throttle body", "parts": [30, 550], "hours": [0.3, 1.5]},
-    "guide": "reduced-engine-power-warning",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
-  },
-  {
-    "code": "P0123",
-    "title": "Throttle/Pedal Position Sensor/Switch \"A\" Circuit High",
-    "plain": "Throttle position sensor A is sending a signal that is higher than normal, usually from a short in the wiring, a bad ground or a failed sensor. The car may limit power.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": true,
-    "symptoms": ["Check engine light on", "Reduced power or limp mode", "High or surging idle", "Hesitation or poor shifting"],
-    "causes": [
-      {"name": "Failed throttle position sensor or throttle body", "how": "common"},
-      {"name": "Open sensor ground wire", "how": "common"},
-      {"name": "Signal wire shorted to voltage", "how": "possible"},
-      {"name": "Corroded connector", "how": "possible"}
-    ],
-    "checks": ["Inspect the throttle body connector and wiring", "Check the sensor ground and signal voltage at closed throttle", "Watch the live reading while slowly pressing the pedal"],
-    "fix": "Repair the wiring or ground, or replace the throttle position sensor or throttle body.",
-    "cost": {"job": "Replace throttle position sensor or throttle body", "parts": [30, 550], "hours": [0.3, 1.5]},
-    "guide": "reduced-engine-power-warning",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
-  },
-  {
-    "code": "P0124",
-    "title": "Throttle/Pedal Position Sensor/Switch \"A\" Circuit Intermittent",
-    "plain": "Throttle position sensor A's signal keeps dropping out or jumping, usually from a worn sensor or a loose connection.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": false,
-    "symptoms": ["Check engine light on", "Occasional stumble, surge or hesitation", "Possible reduced power mode"],
-    "causes": [
-      {"name": "Worn throttle position sensor", "how": "common"},
-      {"name": "Loose or corroded connector", "how": "common"},
-      {"name": "Intermittent wiring break", "how": "possible"}
-    ],
-    "checks": ["Watch the live throttle reading while slowly pressing the pedal and look for spikes or drops", "Wiggle-test the connector and wiring"],
-    "fix": "Repair the connection, or replace the throttle position sensor or throttle body.",
-    "guide": "hesitation-when-accelerating",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
-  },
-  {
-    "code": "P0125",
-    "title": "Insufficient Coolant Temperature for Closed Loop Fuel Control",
-    "plain": "The engine is taking too long to warm up enough for the computer to start fine-tuning the fuel mixture. A thermostat stuck open is the usual cause.",
-    "sys": "Cooling",
-    "sev": "check",
-    "common": true,
-    "symptoms": ["Check engine light on", "Temperature gauge slow to rise or stays low", "Heater slow to blow warm air", "Lower fuel economy"],
-    "causes": [
-      {"name": "Thermostat stuck open or opening too early", "how": "common"},
-      {"name": "Faulty coolant temperature sensor", "how": "common"},
-      {"name": "Low coolant level", "how": "possible"},
-      {"name": "Cooling fan running all the time", "how": "possible"}
-    ],
-    "checks": ["Check the coolant level", "Watch the coolant temperature as the engine warms; it should reach normal within about 10 to 15 minutes", "Check whether the cooling fan is running on a cold engine"],
-    "fix": "Usually a new thermostat; replace the coolant temperature sensor if it reads wrong.",
-    "cost": {"job": "Replace thermostat", "parts": [15, 120], "hours": [0.8, 2.5]},
-    "guide": "heater-blowing-cold-air",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
-  },
-  {
-    "code": "P0126",
-    "title": "Insufficient Coolant Temperature for Stable Operation",
-    "plain": "The engine isn't staying warm enough for steady, efficient running. Most often the thermostat is stuck open or the coolant temperature sensor is reading low.",
-    "sys": "Cooling",
-    "sev": "check",
-    "common": false,
-    "symptoms": ["Check engine light on", "Temperature gauge reads low", "Weak cabin heat"],
-    "causes": [
-      {"name": "Thermostat stuck open", "how": "common"},
-      {"name": "Faulty coolant temperature sensor", "how": "common"},
-      {"name": "Low coolant level", "how": "possible"}
-    ],
-    "checks": ["Check the coolant level", "Watch the coolant temperature during a drive to see if it stays below normal"],
-    "fix": "Usually a new thermostat; replace the coolant temperature sensor if it reads wrong.",
-    "cost": {"job": "Replace thermostat", "parts": [15, 120], "hours": [0.8, 2.5]},
-    "guide": "heater-blowing-cold-air",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
-  },
-  {
-    "code": "P0127",
-    "title": "Intake Air Temperature Too High",
-    "plain": "The air going into the engine is hotter than expected. This often shows up on turbocharged or supercharged engines when the intercooler isn't cooling the air well.",
-    "sys": "Fuel and air",
-    "sev": "soon",
-    "common": false,
-    "symptoms": ["Check engine light on", "Reduced power, especially when hot", "Possible spark knock or pinging"],
-    "causes": [
-      {"name": "Intercooler not cooling (failed pump, low coolant or blocked fins)", "how": "common"},
-      {"name": "Faulty intake air temperature sensor", "how": "common"},
-      {"name": "Wiring or connector fault", "how": "possible"},
-      {"name": "Hot air being drawn in from a damaged intake duct", "how": "possible"}
-    ],
-    "checks": ["Compare the intake air reading to outside temperature on a cold engine", "On boosted engines, check the intercooler, its coolant level and pump"],
-    "fix": "Repair the intercooler system or air duct, or replace the intake air temperature sensor.",
-    "guide": "loss-of-power-when-accelerating",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/", "https://www.aa1car.com/trouble-codes/codes_199.htm"]
-  },
-  {
-    "code": "P0128",
-    "title": "Coolant Thermostat (Coolant Temperature Below Thermostat Regulating Temperature)",
-    "plain": "The engine is taking too long to reach its normal operating temperature. In most cases the thermostat is stuck partly open and letting coolant cool the engine too soon.",
-    "sys": "Cooling",
-    "sev": "check",
-    "common": true,
-    "symptoms": ["Check engine light on", "Temperature gauge reads lower than usual", "Heater blows lukewarm air", "Slightly worse fuel economy"],
-    "causes": [
-      {"name": "Thermostat stuck open or opening too early", "how": "common"},
-      {"name": "Faulty coolant temperature sensor", "how": "common"},
-      {"name": "Low coolant level", "how": "possible"},
-      {"name": "Cooling fan stuck on", "how": "possible"},
-      {"name": "Wiring or connector fault at the temperature sensor", "how": "possible"}
-    ],
-    "checks": ["Check the coolant level when the engine is cold", "Watch the live coolant temperature on a drive to see if it reaches normal", "Check whether the cooling fan runs when the engine is cold"],
-    "fix": "Usually a new thermostat with fresh coolant; replace the coolant temperature sensor if it reads wrong.",
-    "cost": {"job": "Replace thermostat", "parts": [15, 120], "hours": [0.8, 2.5]},
-    "examples": ["Often shows up in cold weather as an aging thermostat starts sticking partly open"],
-    "guide": "heater-blowing-cold-air",
-    "src": ["https://www.samarins.com/diagnose/p0128.html", "https://www.kbb.com/obd-ii/p0128"]
-  },
-  {
-    "code": "P0129",
-    "title": "Barometric Pressure Too Low",
-    "plain": "The computer is seeing an outside air pressure reading that's lower than it should be. This usually means the barometric or MAP sensor is reading wrong.",
-    "sys": "Fuel and air",
-    "sev": "check",
-    "common": false,
-    "symptoms": ["Check engine light on", "Usually little change in drivability", "Possible hesitation or rough running"],
-    "causes": [
-      {"name": "Faulty barometric or MAP sensor", "how": "common"},
-      {"name": "Wiring or connector fault", "how": "possible"},
-      {"name": "Blocked or leaking sensor hose", "how": "possible"}
-    ],
-    "checks": ["Compare the barometric reading with key on, engine off to the actual local air pressure", "Inspect the sensor connector, wiring and any hose"],
-    "fix": "Usually a new barometric or MAP sensor, or a wiring repair.",
-    "guide": "check-engine-light-on",
-    "src": ["https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"]
-  }
+  "examples": [
+   "Often shows up in cold weather as an aging thermostat starts sticking partly open"
+  ],
+  "guide": "heater-blowing-cold-air",
+  "src": [
+   "https://www.samarins.com/diagnose/p0128.html",
+   "https://www.kbb.com/obd-ii/p0128"
+  ],
+  "drive": "Usually drivable. The engine is running cooler than it should, so expect weak heat and slightly worse fuel economy. In cold weather a weak defroster can block your view, so get it fixed before winter. If the gauge ever reads high or you see steam, pull over and shut it off.",
+  "test_first": "Check coolant level, compare the coolant sensor reading to actual engine temperature, watch how long warm-up takes, and confirm the fan isn't stuck on before replacing the thermostat."
+ },
+ {
+  "code": "P0129",
+  "title": "Barometric Pressure Too Low",
+  "plain": "The computer is seeing an outside air pressure reading that's lower than it should be. This usually means the barometric or MAP sensor is reading wrong.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in drivability",
+   "Possible hesitation or rough running"
+  ],
+  "causes": [
+   {
+    "name": "Faulty barometric or MAP sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector fault",
+    "how": "possible"
+   },
+   {
+    "name": "Blocked or leaking sensor hose",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the barometric reading with key on, engine off to the actual local air pressure",
+   "Inspect the sensor connector, wiring and any hose"
+  ],
+  "fix": "Usually a new barometric or MAP sensor, or a wiring repair.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-code-list-p0100-p0199/"
+  ]
+ }
 ]

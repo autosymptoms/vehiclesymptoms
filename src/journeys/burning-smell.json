@@ -2,7 +2,7 @@
  "id": "burning-smell",
  "title": "Burning smell",
  "h1": "Why does my car smell like something is burning?",
- "metaDesc": "Burning smell from your car? Answer a few quick questions to find the likely cause, whether it's safe to keep going, and what to tell your mechanic.",
+ "metaDesc": "Burning smell from your car? Answer a few quick questions to see possible causes, how urgent it may be, and what to tell your mechanic.",
  "group": "leaksmell",
  "cat": "Smells",
  "synonyms": [
@@ -21,7 +21,7 @@
   "burning smell from wheel",
   "burning smell when i accelerate"
  ],
- "intro": "A burning smell can be as harmless as dust on the heater or as serious as an electrical fault. The type of smell and whether there's smoke tell you which. Answer a few questions to find out how urgent it is and what's most likely burning.",
+ "intro": "A burning smell can be as minor as dust on the heater or as serious as an electrical fault. The type of smell and whether there's smoke give strong clues. Answer a few questions to see how urgent it may be and what might be burning.",
  "safety": [
   "If you see smoke or flames, pull over, turn off the engine, get everyone out and move well away from the car. Call 911 if there are flames.",
   "If you smell burning plastic or hot wiring, pull over and turn off the engine.",
@@ -138,9 +138,10 @@
     "now": "Pull over, turn off the engine, get everyone out and stand well away. Don't open the hood if you see flames. Call 911 for flames, otherwise have the car towed.",
     "if": [
      "If the smoke stops once the engine is off and you can see it was oil or coolant on a hot part, it still needs repair before the car is used again.",
-     "If the smoke is at a wheel, the brake may be stuck on. Don't touch the wheel. It can be extremely hot."
+     "If the smoke is at a wheel, the brake may be stuck on. Don't touch the wheel. It can be extremely hot.",
+     "If the brake pedal felt soft or the car was harder to stop, tell the tow driver and the shop."
     ],
-    "why": "Smoke means oil, coolant, plastic or a brake part is burning or boiling. Any of those can turn into a fire, and it's impossible to tell how bad it is while driving.",
+    "why": "Smoke usually means oil, coolant, plastic or a brake part is burning or boiling. Any of those can turn into a fire, and it's impossible to tell how bad it is while driving.",
     "causes": [
      {
       "name": "Oil or fluid leaking onto the exhaust",
@@ -180,9 +181,10 @@
     "now": "Pull over safely and turn off the engine. Don't drive it. Have it towed or have a mobile mechanic come to you.",
     "if": [
      "If the oil pressure light was on, don't restart the engine. It can be destroyed within minutes without oil pressure.",
-     "Never open the radiator or coolant cap while the engine is hot."
+     "Never open the radiator or coolant cap while the engine is hot.",
+     "If you see steam or smoke from under the hood, step away from the car and don't open the hood until it has cooled."
     ],
-    "why": "A burning smell with a high temperature reading or a red warning light means the engine is in trouble right now. Overheating and low oil pressure both cause serious damage quickly.",
+    "why": "A burning smell with a high temperature reading or a red warning light can mean the engine is in trouble right now. Overheating and low oil pressure both cause serious damage quickly.",
     "causes": [
      {
       "name": "Coolant leak and overheating",
@@ -214,15 +216,16 @@
   },
   "r_oil": {
    "result": {
-    "title": "Oil is probably dripping onto the hot exhaust",
+    "title": "Oil may be dripping onto the hot exhaust",
     "urgency": "soon",
     "now": "With the engine off and on level ground, check the oil level and top it up if needed. Get the leak checked within a few days.",
     "if": [
      "If you see smoke from under the hood, pull over and turn off the engine.",
      "If the oil is below the lowest mark on the dipstick, don't drive it until it's topped up.",
-     "If the car just had an oil change, a little spilled oil may be burning off. That should fade within a couple of days."
+     "If the car just had an oil change, a little spilled oil may be burning off. That often fades within a few drives. If it doesn't, have the shop that did the work recheck it.",
+     "If the oil pressure light comes on or the temperature gauge rises, pull over and turn off the engine."
     ],
-    "why": "The most common burning oil smell comes from a small leak above the exhaust. The oil cooks on hot metal and the smell comes into the cabin through the vents. It's usually a gasket, and it can get worse.",
+    "why": "A burning oil smell often comes from a small leak above the exhaust. The oil cooks on hot metal and the smell comes into the cabin through the vents. A gasket is a common source, and leaks tend to get worse. A shop will usually confirm the source before replacing anything.",
     "causes": [
      {
       "name": "Leaking valve cover gasket",
@@ -259,9 +262,9 @@
     "now": "Pull over, turn off the engine and don't drive it. Have it towed or have a mobile mechanic check it.",
     "if": [
      "If you see smoke or flames, get everyone out and away from the car and call 911.",
-     "If the smell came from a plastic bag stuck on the exhaust and it's gone once removed, the car can be checked when convenient."
+     "If you find a plastic bag stuck on the exhaust and the smell is completely gone once it's removed (with everything cool), an electrical fault is less likely. If the smell returns, have the car checked before driving it."
     ],
-    "why": "Burning plastic or hot wiring usually means a wire, connector or electrical part is overheating. That can melt insulation and start a fire, so it's not something to drive on.",
+    "why": "Burning plastic or hot wiring can mean a wire, connector or electrical part is overheating. That can melt insulation and start a fire, so it's not something to drive on.",
     "causes": [
      {
       "name": "Shorted or overheating wiring",
@@ -298,12 +301,13 @@
   },
   "r_coolant": {
    "result": {
-    "title": "A sweet smell usually means a coolant leak",
+    "title": "A sweet smell often points to a coolant leak",
     "urgency": "soon",
     "now": "Check the coolant overflow tank level when the engine is cold, top it up if needed, and get it checked within a few days. Watch your temperature gauge.",
     "if": [
      "If the temperature gauge rises above normal, pull over and turn off the engine.",
-     "If the smell is strong inside the car or the windshield fogs with a greasy film, the heater core may be leaking. Keep the windows cracked."
+     "If the smell is strong inside the car or the windshield fogs with a greasy film, the heater core may be leaking. Keep the windows cracked, and don't drive if the windshield fogs and won't clear.",
+     "If you see steam from under the hood, or the coolant level drops again quickly after topping up, don't drive it until it's checked."
     ],
     "why": "Coolant has a sweet, syrupy smell when it hits hot engine parts. Even a small leak can drain the system over time and lead to overheating.",
     "causes": [
@@ -337,12 +341,13 @@
   },
   "r_clutch": {
    "result": {
-    "title": "The clutch is overheating, often from slipping or riding it",
+    "title": "The clutch may be overheating, often from slipping or riding it",
     "urgency": "check",
     "now": "Take your foot fully off the clutch pedal while driving and avoid slipping it on hills. Book a check if the smell comes back without heavy use.",
     "if": [
      "If the engine revs rise but the car doesn't speed up, the clutch is slipping. Get it checked within a few days.",
-     "If the smell came from one hard hill start or getting unstuck, let it cool. It may be a one-off."
+     "If the smell came from one hard hill start or getting unstuck, let it cool. It may be a one-off.",
+     "If you see smoke from under the car or it won't move in gear, stop and have it towed."
     ],
     "why": "A clutch works by friction. Slipping it, riding the pedal or a worn clutch makes heat, and the friction material gives off a sharp burnt smell.",
     "causes": [
@@ -364,7 +369,7 @@
     ],
     "confirm": {
      "you": [
-      "In a high gear at low speed, press the gas firmly. If the revs jump but the car doesn't speed up, the clutch is slipping."
+      "On a quiet, safe road, in a high gear at low speed, press the gas firmly once. If the revs jump but the car doesn't speed up, the clutch is slipping. Don't repeat it, since each try adds heat."
      ],
      "shop": [
       "Clutch slip test",
@@ -376,12 +381,13 @@
   },
   "r_brake_drag": {
    "result": {
-    "title": "A brake is probably stuck on and dragging",
+    "title": "A brake may be stuck on and dragging",
     "urgency": "stop",
     "now": "Pull over and let it cool. Don't touch the wheel. Have it towed or have a mobile mechanic come to you.",
     "if": [
-     "If the parking brake was left on, release it and let the brakes cool. If the smell and pull go away completely, book a check soon to make sure nothing was damaged.",
-     "If you see smoke at the wheel, stand well back."
+     "If the parking brake was left on, release it and let the brakes cool. Even if the smell and pull go away, overheated brakes can be weakened, so have them checked before relying on the car.",
+     "If you see smoke at the wheel, stand well back.",
+     "If the brake pedal feels soft, sinks, or the red brake light is on, don't move the car."
     ],
     "why": "When a brake doesn't release, it keeps rubbing and gets extremely hot. That can make the brakes fade, damage the parts, and in bad cases start a fire.",
     "causes": [
@@ -415,14 +421,15 @@
   },
   "r_brakes_hot": {
    "result": {
-    "title": "Your brakes are overheated from heavy use",
+    "title": "Your brakes may have overheated from heavy use",
     "urgency": "diy",
     "now": "Pull over somewhere safe and let the brakes cool for 15–30 minutes. On long downhills, shift to a lower gear so the engine helps slow the car.",
     "if": [
-     "If the pedal felt soft or the brakes faded, have them checked before driving further.",
-     "If the smell comes back during normal driving, a brake may be dragging. Get it checked soon."
+     "If the pedal felt soft, sank, or the brakes faded, don't drive on after they cool. Have them checked before driving further.",
+     "If the smell comes back during normal driving, a brake may be dragging. Get it checked soon.",
+     "If you see smoke from a wheel, one wheel stays much hotter than the others, or the car pulls to one side, a brake may be dragging. Don't drive further until it's checked."
     ],
-    "why": "Long downhill braking or towing can heat brake pads past their comfort zone, and they give off a sharp smell. It often goes away once they cool, but very hot brakes don't stop as well.",
+    "why": "Long downhill braking or towing can heat brake pads past their comfort zone, and they give off a sharp smell. It often goes away once they cool, but very hot brakes don't stop as well, and repeated overheating can damage the pads, rotors and fluid.",
     "causes": [
      {
       "name": "Brakes overheated on a long descent or while towing",
@@ -442,7 +449,7 @@
     ],
     "confirm": {
      "you": [
-      "Once cool, press the pedal to check it feels firm.",
+      "Once cool, press the pedal. If it feels soft or sinks, don't drive it. A firm pedal is a good sign, but it isn't proof the brakes weren't damaged.",
       "After a normal drive, carefully hold your hand near each wheel (without touching) to see if one is much hotter."
      ],
      "shop": [
@@ -454,14 +461,14 @@
   },
   "r_belt": {
    "result": {
-    "title": "A slipping drive belt is likely causing the burning rubber smell",
+    "title": "A slipping drive belt may be causing the burning rubber smell",
     "urgency": "soon",
     "now": "With the engine off, look at the belt for cracks, glazing or fraying, and get it checked within a few days.",
     "if": [
-     "If the battery light comes on, the steering gets heavy or the temperature rises, pull over. The belt may have broken.",
-     "If the belt is visibly frayed or missing pieces, don't drive it until it's replaced."
+     "If the battery light comes on, the steering gets heavy or the temperature rises, pull over and turn off the engine. The belt may have broken. Have it towed.",
+     "If the belt is visibly frayed or missing pieces, don't drive it until it's checked."
     ],
-    "why": "The drive belt runs the alternator, power steering and often the water pump. When it slips on a pulley it heats up and smells like burning rubber. A stuck pulley or a weak tensioner is often behind it.",
+    "why": "The drive belt runs the alternator, power steering and often the water pump. When it slips on a pulley it heats up and smells like burning rubber. A stuck pulley or a weak tensioner is often behind it, so a shop will usually check those before replacing the belt.",
     "causes": [
      {
       "name": "Worn or loose drive belt",
@@ -497,7 +504,8 @@
     "now": "Once the car has cooled for at least 30 minutes, look under the car along the exhaust for a plastic bag, leaves or other debris and carefully remove it.",
     "if": [
      "If you can't reach it or it's melted on, have a shop remove it.",
-     "If the smell continues with nothing stuck there, book a check."
+     "If the smell continues with nothing stuck there, get it checked within a few days.",
+     "If you see smoke or flames, keep everyone away from the car. Call 911 for flames."
     ],
     "why": "Plastic bags, road debris and leaves can wrap around the exhaust and melt or smolder. It smells alarming, but once it's removed the smell usually goes away.",
     "causes": [
@@ -529,14 +537,15 @@
   },
   "r_heater_dust": {
    "result": {
-    "title": "It's most likely dust burning off the heater",
+    "title": "It may be dust burning off the heater",
     "urgency": "diy",
-    "now": "Run the heat on high for a few minutes with a window cracked. The smell should fade quickly.",
+    "now": "Run the heat on high for a few minutes with a window cracked. If it's dust, the smell usually fades within minutes.",
     "if": [
      "If the smell lasts more than a day or two of use, or smells like plastic, have the blower motor and wiring checked.",
-     "If the smell is sweet or the windshield fogs, it may be a heater core leak. Check your coolant level."
+     "If the smell is sweet or the windshield fogs, it may be a heater core leak. Check your coolant level.",
+     "If you see smoke from the vents or dash, pull over, turn off the engine and get out."
     ],
-    "why": "Dust settles on the heating parts over the summer. The first few times you use the heat, it burns off with a brief, dusty burning smell that's harmless.",
+    "why": "Dust settles on the heating parts over the summer. The first few times you use the heat, it can burn off with a brief, dusty smell. That's common and normally fades quickly.",
     "causes": [
      {
       "name": "Dust on the heater parts",

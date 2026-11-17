@@ -20,7 +20,7 @@
   "flashing check engin light",
   "engine light flickering"
  ],
- "intro": "A flashing check engine light is the engine computer's most urgent warning. It almost always means the engine is misfiring badly enough to damage the catalytic converter, and in the worst cases overheat the exhaust. Answer a few questions to see what's likely going on and what to do right now.",
+ "intro": "A flashing check engine light is the engine computer's most urgent warning. It usually means the engine is misfiring badly enough to damage the catalytic converter, and in the worst cases overheat the exhaust. Answer a few questions to see what's likely going on and what to do right now.",
  "safety": [
   "If the light is flashing and the engine is shaking, pull over as soon as it's safe and turn the engine off.",
   "If you smell raw fuel or burning, or see smoke from under the car or hood, turn the engine off and get everyone away from the car.",
@@ -115,14 +115,15 @@
   },
   "r_severe_misfire": {
    "result": {
-    "title": "The engine is misfiring badly. Stop driving it now",
+    "title": "The engine may be misfiring badly. Stop driving it now",
     "urgency": "stop",
     "now": "Pull over where it's safe, turn off the engine, and have the car towed or call a mobile mechanic.",
     "if": [
      "If you're on a highway, get to the shoulder or the next safe exit with gentle throttle and your hazard lights on, then turn the engine off.",
-     "If you smell fuel or burning, or see smoke, step away from the car and call for help."
+     "If you smell fuel or burning, or see smoke, step away from the car and call for help.",
+     "If the temperature gauge climbs toward red or a red warning light comes on, pull over and turn the engine off."
     ],
-    "why": "A flashing light with shaking means one or more cylinders aren't firing. Unburned fuel pours into the exhaust and burns in the catalytic converter, which can overheat it within minutes. Every mile you drive raises the repair bill and the fire risk.",
+    "why": "A flashing light with shaking usually means one or more cylinders aren't firing. Unburned fuel goes into the exhaust and burns in the catalytic converter, which can overheat it within minutes. Every mile you drive raises the repair bill and the fire risk. A shop will check misfire data by cylinder and test the coil, plug and injector before replacing anything.",
     "causes": [
      {
       "name": "Failed ignition coil",
@@ -161,12 +162,13 @@
   },
   "r_flashing_smooth": {
    "result": {
-    "title": "A misfire is happening even if you can't feel it. Don't keep driving",
+    "title": "A misfire may be happening even if you can't feel it. Don't keep driving",
     "urgency": "stop",
     "now": "Pull over where it's safe and turn off the engine. Have the car towed or call a mobile mechanic.",
     "if": [
      "If you're in heavy traffic, ease off the gas, avoid hard acceleration, and get off the road at the first safe spot.",
-     "If the light goes steady after a restart, the fault is still stored. Have the code read before driving any distance."
+     "If the light goes steady after a restart, the fault is still stored. Have the code read before driving any distance.",
+     "If you smell raw fuel or burning, or see smoke, pull over, turn the engine off and get everyone away from the car."
     ],
     "why": "The computer flashes the light when it counts enough misfires to risk overheating the catalytic converter. A misfire on one cylinder isn't always easy to feel, especially at steady speed, but the damage to the converter still happens.",
     "causes": [
@@ -242,10 +244,10 @@
     "urgency": "stop",
     "now": "Pull over, turn off the engine, and have the car towed. Don't open the radiator cap while the engine is hot.",
     "if": [
-     "If you see white, sweet-smelling smoke from the exhaust, mention it to the shop. It points strongly to coolant burning in the engine.",
+     "If you see white, sweet-smelling smoke from the exhaust, mention it to the shop. It can point to coolant burning in the engine.",
      "If the coolant level is low once it's fully cool, don't top it up and restart to test it."
     ],
-    "why": "A misfire together with overheating or coolant loss often means coolant is leaking into a cylinder, usually through a failed head gasket. Coolant doesn't burn, so that cylinder misfires. Driving on it can warp the engine and cause major damage.",
+    "why": "A misfire together with overheating or coolant loss can mean coolant is leaking into a cylinder, for example through a failed head gasket. Coolant doesn't burn, so that cylinder misfires. Driving on it can warp the engine and cause major damage. A shop will pressure-test the cooling system and test for combustion gases before deciding what has failed.",
     "causes": [
      {
       "name": "Failed head gasket",
@@ -283,7 +285,8 @@
     "now": "Pull over where it's safe, turn off the engine, and have the car towed. Tell the shop where and when you filled up.",
     "if": [
      "If you think the wrong fuel went in (like diesel in a gas car), don't restart it. The tank may need draining.",
-     "If it happened when the tank was nearly empty, add fuel, but still have it checked before driving."
+     "If it happened when the tank was nearly empty, add fuel, but still have it checked before driving.",
+     "If you smell raw fuel or burning, or see smoke, pull over, turn the engine off and get everyone away from the car."
     ],
     "why": "Water in the fuel, the wrong fuel, or a fuel pump struggling on an almost-empty tank can all leave the engine without the right mixture. That causes misfires across several cylinders at once, which flashes the light.",
     "causes": [
@@ -318,14 +321,16 @@
   },
   "r_load_misfire": {
    "result": {
-    "title": "Likely a weak ignition coil or worn spark plugs",
+    "title": "Possibly a weak ignition coil or worn spark plugs",
     "urgency": "soon",
     "now": "Get it checked within a few days. Until then, drive gently, avoid hard acceleration and steep hills, and don't tow or haul anything.",
     "if": [
      "If the light flashes again or the car shakes, pull over and turn the engine off.",
-     "If it's happening more often, stop driving it and have it checked right away."
+     "If it's happening more often, stop driving it and have it checked right away.",
+     "If you smell raw fuel or burning, or see smoke, pull over, turn the engine off and get everyone away from the car.",
+     "If the temperature gauge climbs toward red or a red warning light comes on, pull over and turn the engine off."
     ],
-    "why": "Spark plugs and coils need more energy to fire when the engine is working hard. A weak coil or worn plug can cope at light throttle but misfire under load. These are common, fairly simple repairs if they're done before the catalytic converter is damaged.",
+    "why": "Spark plugs and coils need more energy to fire when the engine is working hard. A weak coil or worn plug can cope at light throttle but misfire under load. A shop will usually swap or test the coil and inspect the plugs to confirm which one is at fault, and the repair is often fairly simple if it's done before the catalytic converter is damaged.",
     "causes": [
      {
       "name": "Weak ignition coil",
@@ -358,14 +363,15 @@
   },
   "r_cold_misfire": {
    "result": {
-    "title": "A cold-start misfire is likely a coil, plug or injector starting to fail",
+    "title": "A cold-start misfire may be a coil, plug or injector starting to fail",
     "urgency": "soon",
     "now": "Get it checked within a few days. On cold mornings, let it idle until it runs smoothly before driving off.",
     "if": [
      "If the light flashes while you're driving, pull over and turn the engine off.",
-     "If you notice coolant loss or white exhaust smoke at startup, have it checked right away."
+     "If you notice coolant loss or white exhaust smoke at startup, have it checked right away.",
+     "If you smell raw fuel or burning, or see smoke, pull over, turn the engine off and get everyone away from the car."
     ],
-    "why": "A cold engine is harder to fire, so a weak coil, worn plug or leaky injector often shows up there first. A misfire that only happens cold and then clears up is an early warning that usually gets worse.",
+    "why": "A cold engine is harder to fire, so a weak coil, worn plug or leaky injector often shows up there first. A misfire that only happens cold and then clears up is an early warning that often gets worse. The stored code and a few tests will show which part is involved.",
     "causes": [
      {
       "name": "Weak ignition coil or worn spark plug",
@@ -403,9 +409,11 @@
     "now": "Have the stored code read within a few days. Drive gently and keep trips short until then.",
     "if": [
      "If the light flashes again, pull over and turn the engine off.",
-     "If the light is now steady, follow the same plan: get the code read soon."
+     "If the light is now steady, follow the same plan: get the code read soon.",
+     "If you smell raw fuel or burning, or see smoke, pull over, turn the engine off and get everyone away from the car.",
+     "If the temperature gauge climbs toward red or a red warning light comes on, pull over and turn the engine off."
     ],
-    "why": "The computer stores a misfire code even after the light stops flashing. A one-time flash often comes from a part that's starting to fail, and it's far cheaper to fix now than after it damages the catalytic converter.",
+    "why": "The computer stores a misfire code even after the light stops flashing. A one-time flash often comes from a part that's starting to fail, and it's usually much cheaper to fix now than after it damages the catalytic converter.",
     "causes": [
      {
       "name": "Ignition coil or spark plug starting to fail",
@@ -443,9 +451,10 @@
     "now": "When it's safe, watch the light for 10 seconds with the engine running. If it blinks, pull over and turn the engine off. If it's steady, have the code read within a few days.",
     "if": [
      "If the light blinks at any point, treat it as urgent: pull over, turn the engine off and have it towed.",
-     "If it's steady and the car drives normally, it's usually less urgent, but still get the code read."
+     "If it's steady and the car drives normally, it's usually less urgent, but still get the code read.",
+     "If you smell raw fuel or burning, or see smoke, pull over, turn the engine off and get everyone away from the car."
     ],
-    "why": "A flashing light and a steady light mean very different things. Flashing means a misfire that can damage the catalytic converter right now. Steady means a fault worth checking but usually not an emergency.",
+    "why": "A flashing light and a steady light mean very different things. Flashing means a misfire that can damage the catalytic converter right now. Steady means a fault worth checking, which is usually not an emergency unless the car runs poorly or other warning lights come on.",
     "causes": [
      {
       "name": "Misfire",

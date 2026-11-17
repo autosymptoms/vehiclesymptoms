@@ -21,7 +21,7 @@
   "rear end whine",
   "whining noise from engine when revving"
  ],
- "intro": "A whine that rises as you accelerate usually comes from something spinning fast: a belt-driven part on the engine, the transmission, or the differential. A simple test in Park tells you which side of the car to look at. Answer the questions below to find the most likely cause and how urgent it is.",
+ "intro": "A whine that rises as you accelerate usually comes from something spinning fast: a belt-driven part on the engine, the transmission, or the differential. A simple test in Park helps separate engine-driven parts from the drivetrain. Answer the questions below to narrow down likely causes and how urgent it is.",
  "safety": [
   "If the temperature gauge goes into the red or you see steam, pull over and shut the engine off.",
   "If the engine revs but the car doesn't speed up, or it slips out of gear, stop driving as soon as it's safe.",
@@ -125,9 +125,10 @@
     "now": "Pull over when it's safe and check under the car for red or pink fluid. Have it towed or call a mobile mechanic rather than driving further.",
     "if": [
      "If you find the transmission fluid is low on a car with a dipstick, adding the correct fluid may help, but have it checked before relying on it.",
-     "If the car won't move at all, turn on your hazard lights and call roadside assistance."
+     "If the car won't move at all, turn on your hazard lights and call roadside assistance.",
+     "If you smell burning or see smoke, pull over, turn the engine off and step away from the car."
     ],
-    "why": "A whine together with revs that climb without the car speeding up usually means the transmission isn't gripping properly. Low fluid is a common reason. Continuing to drive can overheat and destroy the transmission, and it can lose drive without warning.",
+    "why": "A whine together with revs that climb without the car speeding up often means the transmission isn't gripping properly. Low fluid is a common reason. Continuing to drive can overheat and destroy the transmission, and it can lose drive without warning.",
     "causes": [
      {
       "name": "Low transmission fluid from a leak",
@@ -165,7 +166,9 @@
     "now": "Pull over as soon as it's safe and shut the engine off. Once it cools, check whether the belt is still in place, then have the car towed or call a mobile mechanic rather than driving on.",
     "if": [
      "If the temperature gauge went into the red, don't restart the engine. Overheating can seriously damage it.",
-     "If you see coolant leaking from the front of the engine, the water pump may have failed."
+     "If you see coolant leaking from the front of the engine, the water pump may have failed.",
+     "If the steering went heavy, expect it to take much more effort until the car is stopped. Slow down gradually and steer gently.",
+     "If you smell burning or see smoke, pull over, turn the engine off and step away from the car."
     ],
     "why": "On many engines one belt drives the water pump, power steering pump and alternator. A whining bearing that seizes, or a belt that slips or breaks, can make the engine overheat and the steering go heavy within minutes.",
     "causes": [
@@ -200,12 +203,13 @@
   },
   "r_alternator": {
    "result": {
-    "title": "The alternator is the most likely source",
+    "title": "The alternator or charging system may be the source",
     "urgency": "soon",
-    "now": "Have the battery and charging system tested within a few days. Many auto parts stores do this free. Avoid long trips and night driving until then.",
+    "now": "Have the battery and charging system tested within a few days. Many auto parts stores can run this test. Avoid long trips and night driving until then.",
     "if": [
-     "If the battery light comes on and stays on, head straight to a shop. The car may only run for a short time on battery power.",
-     "If you smell burning or the engine bay smells hot, pull over and shut the engine off."
+     "If the battery light comes on and stays on, avoid driving any distance. The car may stall once the battery runs down, and steering and braking can then take much more effort. Have it checked as soon as you can, or towed if you're not close.",
+     "If you smell burning or the engine bay smells hot, pull over and shut the engine off.",
+     "If the temperature gauge rises or the steering suddenly gets heavy, the drive belt may have come off. Pull over and turn the engine off."
     ],
     "why": "The alternator spins fast and makes electricity as you drive. A worn bearing whines, and a failing internal part can make an electrical whine that rises with engine speed. If it stops charging, the car runs on the battery until it goes flat.",
     "causes": [
@@ -221,7 +225,7 @@
      },
      {
       "name": "Worn idler or tensioner pulley",
-      "clues": "The whine is from the belt area but not directly at the alternator.",
+      "clues": "The whine is from the belt area but not directly at the alternator. A shop will usually listen with a stethoscope or spin the pulleys by hand before replacing the alternator.",
       "against": ""
      }
     ],
@@ -240,15 +244,16 @@
   },
   "r_power_steering": {
    "result": {
-    "title": "Low power steering fluid or a worn pump is likely",
+    "title": "Low power steering fluid or a worn pump may be the cause",
     "urgency": "diy",
     "now": "With the engine off, check the power steering fluid level against the marks on the reservoir, and top it up with the fluid type in your owner's manual if it's low.",
     "if": [
      "If the fluid was low, look for a leak and have it checked within a few days. Fluid doesn't get used up on its own.",
-     "If the whine stays after topping up, or the steering feels heavy or jerky, book a check.",
-     "If your car has electric power steering with no fluid reservoir, a whine needs a shop to check it."
+     "If the whine stays after topping up, book a check. If the steering feels heavy or jerky, have it checked before driving further.",
+     "If your car has electric power steering with no fluid reservoir, a whine needs a shop to check it.",
+     "If fluid is dripping near the exhaust, or you smell burning, pull over and turn the engine off. Power steering fluid can catch fire on hot parts."
     ],
-    "why": "A hydraulic power steering pump works hardest when you turn the wheel, so a whine that rises when steering points to it. Low fluid makes the pump suck in air and whine, and a worn pump whines even when full.",
+    "why": "A hydraulic power steering pump works hardest when you turn the wheel, so a whine that rises when steering often points to it. Low fluid makes the pump suck in air and whine, and a worn pump whines even when full.",
     "causes": [
      {
       "name": "Low power steering fluid",
@@ -287,7 +292,8 @@
     "if": [
      "If you see blue or gray smoke from the exhaust, or the oil level drops, get it checked within a few days.",
      "If the engine loses power or a warning light comes on, get it checked soon.",
-     "If there's a grinding or scraping sound from the turbo, stop driving and have it towed."
+     "If there's a grinding or scraping sound from the turbo, stop driving and have it towed.",
+     "If you see heavy smoke or the oil warning light comes on, pull over and turn the engine off."
     ],
     "why": "Turbochargers spin very fast and naturally make a light whistle when they build boost. A loud siren-like whine that's new can mean worn turbo bearings or a boost leak from a loose or split hose.",
     "causes": [
@@ -322,14 +328,15 @@
   },
   "r_belt_pulley": {
    "result": {
-    "title": "Most likely a worn pulley bearing or another belt-driven part",
+    "title": "Often a worn pulley bearing or another belt-driven part",
     "urgency": "check",
     "now": "Book a check within the next week or two. With the engine off, look at the belt for cracks or glazing.",
     "if": [
      "If the noise gets much louder, turns into a grind, or the battery light comes on, get it checked within a few days.",
-     "If the belt breaks, the engine can overheat and the steering can go heavy. Pull over right away if that happens."
+     "If the belt breaks, the engine can overheat and the steering can go heavy. Pull over right away if that happens.",
+     "If you smell burning rubber or see smoke from the engine bay, pull over and turn the engine off."
     ],
-    "why": "The front of the engine has several pulleys turned by one or more belts. When a pulley bearing wears, it whines in step with engine speed, in Park or driving. Catching it early can prevent a broken belt.",
+    "why": "The front of the engine has several pulleys turned by one or more belts. When a pulley bearing wears, it whines in step with engine speed, in Park or driving. Catching it early can prevent a broken belt. A shop will usually check each pulley with the belt off before deciding which part to replace.",
     "causes": [
      {
       "name": "Worn idler or tensioner pulley",
@@ -362,14 +369,15 @@
   },
   "r_transmission_whine": {
    "result": {
-    "title": "The transmission is a likely source of the whine",
+    "title": "The transmission may be the source of the whine",
     "urgency": "soon",
     "now": "Have the transmission fluid level and condition checked within a few days. Avoid towing or heavy loads until then.",
     "if": [
      "If the transmission starts slipping, shifting harshly or a warning light comes on, stop driving and have it towed.",
-     "If you see red or pink fluid under the car, mention it. A leak can quickly lead to low fluid."
+     "If you see red or pink fluid under the car, mention it. A leak can quickly lead to low fluid.",
+     "If you smell burning or see smoke, pull over, turn the engine off and step away from the car."
     ],
-    "why": "A whine that changes when the transmission shifts is coming from inside it. Low or worn-out fluid is a common cause and is much cheaper to fix early. Worn bearings, a torque converter or a CVT belt can also whine.",
+    "why": "A whine that changes when the transmission shifts is likely coming from inside it. Low or worn-out fluid is a common cause and is much cheaper to fix early. Worn bearings, a torque converter or a CVT belt can also whine.",
     "causes": [
      {
       "name": "Low or old transmission fluid",
@@ -402,12 +410,13 @@
   },
   "r_differential": {
    "result": {
-    "title": "Worn differential gears or bearings are likely",
+    "title": "The differential may be the source, from low fluid or wear",
     "urgency": "soon",
     "now": "Have the differential fluid checked within a few days, and avoid towing or heavy loads until then.",
     "if": [
      "If the whine becomes a grind or clunk, or you see gear oil leaking near the axle, stop driving and have it towed.",
-     "If the fluid is low, topping it up may quiet it, but worn parts may still need repair."
+     "If the fluid is low, topping it up may quiet it. A shop will usually check the fluid for metal before deciding whether parts are worn.",
+     "If you feel a new vibration, or smell hot gear oil or burning near the rear axle, pull over and have it checked before driving further."
     ],
     "why": "The differential sends power to the drive wheels through a set of gears in thick gear oil. Worn gears or bearings, or low oil, make a whine that rises with road speed and changes when you switch between accelerating and coasting.",
     "causes": [
@@ -444,10 +453,11 @@
    "result": {
     "title": "A faint whine is often normal in electric and hybrid cars",
     "urgency": "diy",
-    "now": "Notice whether the sound is the same as it has always been. A smooth, faint whine that rises with speed is the normal sound of the electric motor and its gears.",
+    "now": "Notice whether the sound is the same as it has always been. A smooth, faint whine that rises with speed is typical of the electric motor and its gears.",
     "if": [
      "If the whine gets louder, changes in tone, or comes with a warning light or vibration, book a check with a shop that works on hybrids or EVs.",
-     "If you hear grinding or clunking, get it checked within a few days."
+     "If you hear grinding or clunking, get it checked within a few days.",
+     "If a red warning light comes on, power drops suddenly, or you smell burning, pull over when it's safe, turn the car off and contact a shop or roadside assistance before driving further."
     ],
     "why": "Electric motors and their reduction gears spin very fast and make a light whine, which you notice more because there's no engine noise to cover it. Some cars also play an artificial sound at low speed so pedestrians can hear them.",
     "causes": [
@@ -485,9 +495,10 @@
     "now": "Book a road test and inspection within the next week or two. Tell the shop the whine only happens while driving, not when revving in Park.",
     "if": [
      "If the transmission starts slipping or shifting oddly, get it checked within a few days.",
-     "If you hear grinding or feel a new vibration, get it checked soon."
+     "If you hear grinding or feel a new vibration, get it checked soon.",
+     "If you smell burning, see smoke, a warning light comes on or the car loses drive, pull over and have it towed."
     ],
-    "why": "A whine that only happens while moving comes from something that turns with the wheels or carries power to them: the transmission, the differential, or a wheel bearing. A technician can tell them apart quickly on a road test.",
+    "why": "A whine that only happens while moving comes from something that turns with the wheels or carries power to them: the transmission, the differential, or a wheel bearing. A technician can usually tell them apart on a road test.",
     "causes": [
      {
       "name": "Transmission noise",

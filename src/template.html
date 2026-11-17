@@ -30,7 +30,7 @@
       <a href="/price-check/">Price check</a>
       <a href="/#vehicle" id="navMy">My vehicle</a>
     </nav>
-    <a class="btn hcta" href="/#top">Find <span class="hm">my </span>problem</a>
+    <a class="btn hcta" href="/#top">Get <span class="hm">free </span>help</a>
     <a class="home-btn" href="/" aria-label="Home"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg><span>Home</span></a>
     <button class="menu-btn" id="menuBtn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
@@ -43,12 +43,12 @@
     <div class="hero-main">
       <a class="mybar" id="myBar" href="#vehicle"><span class="mb-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17l1.5-5h9L18 17M7.5 12 9 8h6l1.5 4"/><circle cx="8" cy="17.5" r="1.5"/><circle cx="16" cy="17.5" r="1.5"/></svg></span><span id="myBarTxt"><b>Start with your vehicle</b> Year, make and model</span><span class="mb-go">›</span></a>
       <p class="eyebrow">Free help from people who fix cars</p>
-      <h1>Know what's wrong with your car <em>before you pay for it.</em></h1>
-      <p class="sub">Tell us what your car is doing in your own words. In about a minute you'll know how urgent it is, what it's most likely to be, what it usually costs, and exactly what to tell your mechanic.</p>
+      <h1>Understand what your car <em>may be telling you.</em></h1>
+      <p class="sub">Get free, clear guidance on what to check, how urgent it may be, what repairs typically cost, and what to ask your mechanic. Start by telling us what's happening.</p>
       <div class="search">
         <form id="helpForm" autocomplete="off">
-          <input id="helpInput" type="search" placeholder="Example: shakes when I brake" aria-label="What is your car doing?">
-          <button class="btn" type="submit">Find out what's wrong</button>
+          <input id="helpInput" type="search" placeholder="Example: shakes when I brake" aria-label="What's happening with your car?">
+          <button class="btn" type="submit">Help me understand my car</button>
         </form>
         <div class="results" id="helpResults"></div>
         <p class="sc-label">Or tap what's happening:</p>
@@ -80,6 +80,7 @@
           <select id="pickModel" aria-label="Model" disabled></select>
           <button class="btn" id="pickGo" type="submit" disabled>Show my vehicle</button>
         </form>
+        <details class="vin-d"><summary>My vehicle isn't listed</summary><p class="note">Our library covers 100 popular models from 1996 on and is still growing. Everything else on the site works for any car or truck: start with what your car is doing.</p></details>
         <details class="vin-d"><summary>Or use your VIN</summary>
           <form id="vinForm"><input id="vinInput" maxlength="17" placeholder="17-character VIN" aria-label="VIN"><button class="btn" type="submit">Decode</button></form>
           <p class="note">On the driver's door sticker or the dash at the base of the windshield. Decoded with the free NHTSA database; we don't store it.</p>
@@ -101,11 +102,11 @@
   <section class="pains">
     <div class="wrap">
       <h2>Car trouble shouldn't feel like a gamble.</h2>
-      <p class="lead">A new noise or a warning light leaves you with three questions, and usually no one to answer them honestly.</p>
+      <p class="lead">A new noise or a warning light usually leaves you with three questions.</p>
       <div class="pain-grid">
         <div class="pain"><span class="pi">?</span><h3>"Is it safe to drive?"</h3><p>Some problems can wait a month. Some mean pull over now. Guessing wrong costs money, or worse.</p></div>
         <div class="pain"><span class="pi">$</span><h3>"What's this going to cost me?"</h3><p>Walking in blind is how a small repair turns into a surprise bill.</p></div>
-        <div class="pain"><span class="pi">!</span><h3>"Am I being told the truth?"</h3><p>When you don't understand the problem, it's hard to know if the fix makes sense.</p></div>
+        <div class="pain"><span class="pi">!</span><h3>"What should I ask the shop?"</h3><p>When you understand the problem, it's easier to talk it through with a good shop and agree on the right fix.</p></div>
       </div>
     </div>
   </section>
@@ -115,12 +116,12 @@
       <div>
         <p class="eyebrow">Why we built this</p>
         <h2>We fix cars for a living. You deserve to understand yours.</h2>
-        <p class="lead">Every day we see drivers who waited too long, or paid for parts they didn't need, because nobody explained what was going on. VehicleSymptoms.com is the free, plain-English help we wish every driver had.</p>
+        <p class="lead">Every day we see drivers who waited too long, or felt lost at the counter, because nobody had time to explain what was going on. VehicleSymptoms.com is the free, plain-English help we wish every driver had.</p>
       </div>
       <ul class="auth">
         <li><b>Written by people who fix cars</b><span>Every guide is built from real shop experience, not copied from forums.</span></li>
         <li><b>Checked against the record</b><span>Recalls, service bulletins and repair records for your exact model and year.</span></li>
-        <li><b>Honest about urgency</b><span>We tell you when it can wait, and when it can't.</span></li>
+        <li><b>Honest about what we don't know</b><span>A website can't inspect your car. We point you to what to check and what a shop should test, not a final diagnosis.</span></li>
       </ul>
     </div>
   </section>
@@ -130,7 +131,7 @@
       <h2>Three steps to a clear answer</h2>
       <div class="plan">
         <div class="pstep"><span class="pn">1</span><h3>Tell us what it's doing</h3><p>Type it in your own words, or pick your year, make and model.</p></div>
-        <div class="pstep"><span class="pn">2</span><h3>Get a straight answer</h3><p>How urgent it is, the most likely causes, and what repairs usually cost for your vehicle.</p></div>
+        <div class="pstep"><span class="pn">2</span><h3>Get clear guidance</h3><p>How urgent it may be, the possible causes, and what repairs typically cost for your vehicle.</p></div>
         <div class="pstep"><span class="pn">3</span><h3>Walk into the shop prepared</h3><p>Take a ready-made summary to your mechanic, so you know what to ask and what to expect.</p></div>
       </div>
       <p class="plan-cta"><a class="btn" href="#top" id="planCta">Start with what your car is doing</a></p>
@@ -147,8 +148,8 @@
     <div class="wrap">
       <h2>What changes when you know</h2>
       <div class="compare">
-        <div class="col without"><h3>Guessing</h3><ul><li>Worrying every time you start the car</li><li>Driving on a problem that should have stopped you</li><li>Saying yes to a repair you don't understand</li><li>A surprise bill at the counter</li></ul></div>
-        <div class="col with"><h3>Knowing</h3><ul><li>You know if it's safe to drive today</li><li>You fix small problems before they get big</li><li>You know what to ask your mechanic</li><li>You have a fair idea of the cost before you go</li></ul></div>
+        <div class="col without"><h3>Guessing</h3><ul><li>Worrying every time you start the car</li><li>Driving on a problem that should have stopped you</li><li>Approving a repair you don't understand</li><li>A surprise bill at the counter</li></ul></div>
+        <div class="col with"><h3>Knowing</h3><ul><li>You know if it's safe to drive today</li><li>You fix small problems before they get big</li><li>You can talk it through with your mechanic</li><li>You have a fair idea of the cost before you go</li></ul></div>
       </div>
     </div>
   </section>
@@ -166,8 +167,8 @@
 
   <section class="final-cta">
     <div class="wrap">
-      <h2>Stop guessing. Find out what your car is telling you.</h2>
-      <a class="btn" href="#top" id="finalCta">Find out what's wrong</a>
+      <h2>Understand your car. Walk into the shop prepared.</h2>
+      <a class="btn" href="#top" id="finalCta">Help me understand my car</a>
       <p class="trust-mini">A guide, not a diagnosis. If a red warning light is flashing, you smell burning or fuel, or the brakes or steering feel wrong, pull over safely and get help.</p>
     </div>
   </section>

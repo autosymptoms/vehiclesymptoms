@@ -21,7 +21,7 @@
   "car feels heavy and slow",
   "limp mode"
  ],
- "intro": "When a car feels weak, the cause can be the engine, the transmission, or even a brake that won't let go. Warning lights, sounds and how the engine revs give strong clues. Answer the questions below to see the most likely cause and whether it's safe to keep using the car.",
+ "intro": "When a car feels weak, the cause can be the engine, the transmission, or even a brake that won't let go. Warning lights, sounds and how the engine revs give useful clues. Answer the questions below to see likely causes and how urgently to act.",
  "safety": [
   "If the check engine light is flashing and the engine shakes, pull over and turn off the engine.",
   "If the temperature gauge is in the red, pull over and turn off the engine.",
@@ -95,14 +95,14 @@
   },
   "r_misfire_flashing": {
    "result": {
-    "title": "A severe misfire is likely robbing the engine of power",
+    "title": "A severe misfire may be robbing the engine of power",
     "urgency": "stop",
     "now": "Pull over when it's safe and turn off the engine. Don't drive it further. Have it towed or call a mobile mechanic.",
     "if": [
      "If you smell something very hot or see smoke under the car, step away. An overheated catalytic converter can set dry grass on fire.",
      "If the light stops flashing after a restart, the fault is still there. Have it checked before driving."
     ],
-    "why": "A flashing check engine light means one or more cylinders isn't firing properly. The engine loses power, and unburned fuel goes into the exhaust, where it can overheat and destroy the catalytic converter.",
+    "why": "A flashing check engine light usually means one or more cylinders isn't firing properly. The engine loses power, and unburned fuel goes into the exhaust, where it can overheat and destroy the catalytic converter.",
     "causes": [
      {
       "name": "Failed ignition coil or spark plug",
@@ -138,7 +138,8 @@
     "now": "Pull over as soon as it's safe and turn off the engine. Don't drive it further. Have it towed.",
     "if": [
      "If you see steam or smoke from under the hood, step away and don't open the hood until it cools.",
-     "Never open the radiator or coolant cap on a hot engine."
+     "Never open the radiator or coolant cap on a hot engine.",
+     "If the oil pressure light comes on or the engine knocks, turn it off immediately and don't restart it."
     ],
     "why": "Many cars cut power when the engine gets too hot to protect it. An overheating engine can warp or crack major parts quickly, so it's not worth risking even a short drive.",
     "causes": [
@@ -170,12 +171,13 @@
   },
   "r_dragging_brakes": {
    "result": {
-    "title": "A brake is likely stuck on and holding the car back",
+    "title": "A brake may be stuck on and holding the car back",
     "urgency": "stop",
     "now": "Pull over somewhere safe, turn off the engine and let the brakes cool. Don't drive it further. Have it towed or call a mobile mechanic.",
     "if": [
-     "If the parking brake was partly on, release it fully and let the wheels cool. If the car then rolls freely and the smell is gone, have the brakes checked within a few days.",
-     "If there's smoke or flames, get everyone away from the car and call 911."
+     "If the parking brake was partly on, release it fully and let the wheels cool. Brakes that got hot enough to smell can be weaker afterward, so have them checked before relying on the car. If the pedal feels soft or sinks, don't drive it.",
+     "If there's smoke or flames, get everyone away from the car and call 911.",
+     "If the brake warning light is on or you see fluid near a wheel, don't drive it."
     ],
     "why": "A brake that won't release fights the engine every time you accelerate, which feels like a loss of power. It also builds up heat fast, which can boil the brake fluid and leave you with weak brakes.",
     "causes": [
@@ -210,14 +212,15 @@
   },
   "r_limp_mode": {
    "result": {
-    "title": "The car has gone into limp mode to protect itself",
+    "title": "The car may have gone into limp mode to protect itself",
     "urgency": "soon",
     "now": "Get off busy roads safely and have the codes read within a day. If you must move the car, keep it to short, low-speed trips.",
     "if": [
      "If the check engine light is flashing, the temperature is high, or the transmission won't shift, stop driving and have it towed.",
-     "If you can't keep up with traffic, don't drive it on highways. Call roadside assistance instead."
+     "If you can't keep up with traffic, don't drive it on highways. Call roadside assistance instead.",
+     "If a red warning light comes on, such as oil pressure or temperature, pull over when it's safe and turn the engine off."
     ],
-    "why": "When the engine or transmission computer sees a serious fault, it limits power or locks the transmission in one gear. This protects parts from damage, but it also makes the car slow and unsafe in fast traffic. The stored codes point to the cause.",
+    "why": "When the engine or transmission computer sees a serious fault, it limits power or locks the transmission in one gear. This protects parts from damage, but it also makes the car slow and unsafe in fast traffic. The stored codes help point a shop toward the cause.",
     "causes": [
      {
       "name": "Electronic throttle or accelerator pedal sensor fault",
@@ -250,12 +253,13 @@
   },
   "r_slipping": {
    "result": {
-    "title": "The transmission or clutch is likely slipping",
+    "title": "The transmission or clutch may be slipping",
     "urgency": "soon",
     "now": "Have it checked within a few days. Until then, accelerate gently, avoid highways and heavy loads, and check the transmission fluid if your car has a dipstick.",
     "if": [
      "If the car won't move in gear, or you smell burning fluid, stop driving it and have it towed.",
-     "If the slipping gets worse quickly, don't wait. It can leave you stuck in traffic."
+     "If the slipping gets worse quickly, don't wait. It can leave you stuck in traffic.",
+     "If a transmission temperature or warning light comes on, pull over when it's safe and have it towed."
     ],
     "why": "When the engine revs climb but the car doesn't speed up, power isn't getting through to the wheels. In an automatic that usually points to low or worn fluid or worn internal parts. In a manual, the clutch is the usual cause.",
     "causes": [
@@ -291,14 +295,15 @@
   },
   "r_cel_steady": {
    "result": {
-    "title": "An engine sensor or fuel problem is likely cutting power",
+    "title": "An engine sensor or fuel problem may be cutting power",
     "urgency": "soon",
     "now": "Have the codes read within a few days. Many auto parts stores do this free, which gives the shop a head start.",
     "if": [
      "If the light starts flashing or the engine shakes, pull over and turn off the engine.",
-     "If you can't keep up with traffic safely, stay off highways until it's fixed."
+     "If you can't keep up with traffic safely, stay off highways until it's fixed.",
+     "If you smell raw fuel, pull over, turn the engine off and step away from the car."
     ],
-    "why": "A steady check engine light with low power means the engine computer has spotted a fault that affects how much air or fuel the engine gets. The stored code narrows it down quickly.",
+    "why": "A steady check engine light with low power means the engine computer has spotted a fault, often one that affects how much air or fuel the engine gets. The stored code points a shop to the right system, and testing then confirms which part is at fault.",
     "causes": [
      {
       "name": "Faulty mass airflow (MAF) or oxygen sensor",
@@ -337,14 +342,15 @@
   },
   "r_fuel_ignition": {
    "result": {
-    "title": "A fuel delivery or ignition problem is likely",
+    "title": "A fuel delivery or ignition problem is possible",
     "urgency": "soon",
     "now": "Have it checked within a few days. Drive gently, and keep the tank above a quarter full until then.",
     "if": [
      "If the check engine light starts flashing, pull over and turn off the engine.",
-     "If it stalls or cuts out while driving, don't drive it. Have it towed."
+     "If it stalls or cuts out while driving, don't drive it. Have it towed.",
+     "If you smell raw fuel, pull over, turn the engine off and step away from the car."
     ],
-    "why": "Sputtering or jerking when you press the gas means the engine isn't getting a steady supply of fuel or spark when it needs more. Worn spark plugs, weak coils and fuel supply problems are the usual causes.",
+    "why": "Sputtering or jerking when you press the gas means the engine isn't getting a steady supply of fuel or spark when it needs more. Worn spark plugs, weak coils and fuel supply problems are common causes.",
     "causes": [
      {
       "name": "Worn spark plugs or failing ignition coil",
@@ -388,9 +394,9 @@
     "now": "Have the exhaust checked within a few days. Avoid long highway drives and steep climbs until then.",
     "if": [
      "If you see a red glow under the car or smell something very hot, pull over and turn off the engine away from dry grass.",
-     "If the check engine light is flashing, stop driving. A misfire is likely damaging the converter."
+     "If the check engine light is flashing, stop driving. A misfire may be damaging the converter."
     ],
-    "why": "The engine has to push its exhaust out. If the catalytic converter is clogged or melted inside, the exhaust backs up and the engine loses power, most noticeably at higher speeds and uphill. A converter usually fails because of another problem, like a misfire or burning oil.",
+    "why": "The engine has to push its exhaust out. If the catalytic converter is clogged or melted inside, the exhaust backs up and the engine loses power, most noticeably at higher speeds and uphill. A converter usually fails because of another problem, like a misfire or burning oil, so a shop will normally test back-pressure and look for that root cause before replacing it.",
     "causes": [
      {
       "name": "Clogged or melted catalytic converter",
@@ -424,12 +430,13 @@
   },
   "r_turbo_boost": {
    "result": {
-    "title": "A boost leak or turbocharger problem is likely",
+    "title": "A boost leak or turbocharger problem is possible",
     "urgency": "soon",
     "now": "Have the turbo and intake hoses checked within a few days. Drive gently and avoid hard acceleration until then.",
     "if": [
      "If you hear a loud whine or siren-like noise, or see blue smoke, pull over and turn off the engine. Have it towed.",
-     "If the oil level is dropping, don't keep driving it until it's checked."
+     "If the oil level is dropping, don't keep driving it until it's checked.",
+     "If the oil pressure light comes on, turn the engine off as soon as it's safe and don't restart it."
     ],
     "why": "A turbocharger pushes extra air into the engine. If a hose has split or come loose, or the turbo itself is worn, that air escapes with a hiss or whoosh and the engine loses much of its power.",
     "causes": [
@@ -465,12 +472,13 @@
   },
   "r_gradual": {
    "result": {
-    "title": "Overdue maintenance is the most likely cause of slow, gradual power loss",
+    "title": "Wear and overdue maintenance are common causes of slow, gradual power loss",
     "urgency": "check",
     "now": "Check the engine air filter and when the spark plugs were last changed, then book a check when convenient.",
     "if": [
      "If a check engine light comes on, have the codes read.",
-     "If it suddenly gets worse, sputters, or struggles to keep up with traffic, get it checked within a few days."
+     "If it suddenly gets worse, sputters, or struggles to keep up with traffic, get it checked within a few days.",
+     "If the check engine light flashes or you smell burning, pull over when it's safe and turn the engine off."
     ],
     "why": "Power that slips away over months usually comes from wear rather than a sudden failure. A dirty air filter, worn plugs, dirty injectors or a clogged fuel filter each take a little off, and together they add up.",
     "causes": [

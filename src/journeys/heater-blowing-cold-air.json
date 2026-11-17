@@ -116,14 +116,16 @@
   },
   "r_overheat_no_heat": {
    "result": {
-    "title": "The engine is running hot and coolant isn't reaching the heater",
+    "title": "The engine may be running hot, with coolant not reaching the heater",
     "urgency": "stop",
     "now": "Pull over somewhere safe, turn the engine off and let it cool for at least 30 minutes. Then have it towed or call a mobile mechanic.",
     "if": [
      "If you can't pull over right away, turn the A/C off and keep the heater on full hot. Even a little heat it gives off helps the engine.",
-     "If the oil pressure light comes on or the engine knocks, shut it off immediately."
+     "If the oil pressure light comes on or the engine knocks, shut it off immediately.",
+     "If you see steam or smoke, step away from the car and don't open the hood until it has cooled.",
+     "Don't add coolant and carry on to see if it settles. An engine that has overheated needs checking before it's used again."
     ],
-    "why": "A cold heater combined with a high temperature gauge is a classic sign that coolant is very low or isn't circulating. The heater core goes cold first because it sits at the end of the line. Without enough coolant, the engine can overheat badly in minutes.",
+    "why": "A cold heater combined with a high temperature gauge is a common sign that coolant is very low or isn't circulating. The heater core goes cold first because it sits at the end of the line. Without enough coolant, the engine can overheat badly in minutes.",
     "causes": [
      {
       "name": "Very low coolant from a leak",
@@ -161,12 +163,13 @@
   },
   "r_thermostat_open": {
    "result": {
-    "title": "The thermostat is probably stuck open, so the engine never fully warms up",
+    "title": "The thermostat may be stuck open, so the engine never fully warms up",
     "urgency": "check",
-    "now": "Book a thermostat replacement when convenient. Until then, make sure your windshield can still be cleared before you drive.",
+    "now": "Book a check when convenient. A shop will usually confirm with live temperature data before replacing the thermostat. Until then, make sure your windshield can still be cleared before you drive.",
     "if": [
      "If the windshield won't defrost, don't drive until it's clear. Get it fixed sooner in cold weather.",
-     "If the gauge reads low but the engine actually feels hot, the temperature sensor or gauge may be at fault instead."
+     "If the gauge reads low but the engine actually feels hot, the temperature sensor or gauge may be at fault instead.",
+     "If the gauge ever swings high or a temperature warning comes on, pull over when it's safe and turn the engine off."
     ],
     "why": "The thermostat keeps coolant in the engine until it reaches working temperature. If it's stuck open, coolant flows through the radiator all the time, so the engine stays cool and so does your heater, especially on the highway and in cold weather. It also hurts fuel economy.",
     "causes": [
@@ -206,9 +209,10 @@
     "if": [
      "If the level was low, the coolant went somewhere. Have the leak found within a few days.",
      "If the temperature gauge rises above normal, pull over and turn the engine off.",
-     "If the coolant is full and the heat is still cold, a blend door or clogged heater core is more likely."
+     "If the coolant is full and the heat is still cold, a blend door or clogged heater core is more likely.",
+     "If you see steam, smell coolant inside the car or the windshield fogs with a greasy film, don't keep driving. Have it checked first."
     ],
-    "why": "Low coolant is the most common reason a heater goes cold, because the heater core is one of the first places to lose hot coolant when the level drops. It's quick and safe to check when the engine is cold.",
+    "why": "Low coolant is one of the most common reasons a heater goes cold, because the heater core is one of the first places to lose hot coolant when the level drops. It's quick and safe to check when the engine is cold.",
     "causes": [
      {
       "name": "Low coolant",
@@ -240,7 +244,7 @@
   },
   "r_heater_core_leak": {
    "result": {
-    "title": "The heater core is likely leaking inside the car",
+    "title": "The heater core may be leaking inside the car",
     "urgency": "soon",
     "now": "Top up the coolant when the engine is cold, and get the heater core checked within the next few days.",
     "if": [
@@ -281,13 +285,14 @@
   },
   "r_low_coolant": {
    "result": {
-    "title": "Low coolant is the likely reason there's no heat",
+    "title": "Low coolant is a likely reason there's no heat",
     "urgency": "soon",
-    "now": "With the engine cold, top up the overflow tank to MAX with the right coolant, then have the leak found within the next few days.",
+    "now": "With the engine cold, top up the overflow tank to MAX with the right coolant, then have the leak found within the next few days. Until then, keep trips short and watch the temperature gauge.",
     "if": [
      "If the temperature gauge rises above normal, pull over and turn the engine off.",
      "If the level drops again within a day or two, have it towed rather than keep driving.",
-     "If you see white sweet-smelling exhaust smoke or milky oil, don't drive it."
+     "If you see white sweet-smelling exhaust smoke or milky oil, don't drive it.",
+     "If the overflow tank was completely empty, the engine itself may be low too. Have it checked before driving rather than just refilling the tank."
     ],
     "why": "When coolant is low, the heater core loses its supply of hot coolant first, so a cold heater is often the earliest warning. The engine can overheat next, so the leak needs finding.",
     "causes": [
@@ -322,12 +327,13 @@
   },
   "r_air_pocket": {
    "result": {
-    "title": "Air is probably trapped in the cooling system",
+    "title": "Air may be trapped in the cooling system",
     "urgency": "soon",
     "now": "Have the shop that did the work bleed the air out of the cooling system within the next few days. Watch the temperature gauge closely until then.",
     "if": [
      "If the gauge rises above normal, pull over and turn the engine off.",
-     "If you hear gurgling behind the dash, that's a sign of trapped air."
+     "If you hear gurgling behind the dash, that's a sign of trapped air.",
+     "If you see steam or the coolant level keeps dropping, stop driving it and have it checked."
     ],
     "why": "After coolant is drained or refilled, air can get trapped in the high points of the system, including the heater core. The air blocks hot coolant from reaching the heater, and a large air pocket can also cause overheating.",
     "causes": [
@@ -366,7 +372,8 @@
     "now": "Check the coolant level when cold, and get the cooling system checked within the next few days.",
     "if": [
      "If the temperature gauge rises at idle too, avoid traffic and pull over and turn the engine off if it nears the red.",
-     "If you hear grinding near the engine belt, the water pump may be failing. Don't drive it."
+     "If you hear grinding near the engine belt, the water pump may be failing. Don't drive it.",
+     "If you see steam or smell coolant, pull over when it's safe and turn the engine off."
     ],
     "why": "At idle, the water pump turns slowly and pushes less coolant. If the coolant is slightly low, there's an air pocket, or the pump or heater core is partly restricted, there isn't enough flow to keep the heater warm until the engine speeds up.",
     "causes": [
@@ -401,7 +408,7 @@
   },
   "r_blend_door": {
    "result": {
-    "title": "A blend door or its motor is likely stuck",
+    "title": "A blend door or its motor may be stuck",
     "urgency": "check",
     "now": "Try switching the climate control off and on, or turning the car off for a few minutes, then book a check when convenient.",
     "if": [
@@ -472,8 +479,8 @@
      ],
      "shop": [
       "Heater hose temperature comparison",
-      "Heater core flush",
-      "Blend door and HVAC actuator test"
+      "Blend door and HVAC actuator test",
+      "Heater core flush, if testing shows the core is restricted"
      ]
     }
    }
@@ -485,9 +492,10 @@
     "now": "Check the coolant level when the engine is cold and book a check when convenient. Make sure you can clear the windshield before driving.",
     "if": [
      "If the temperature gauge rises above normal, pull over and turn the engine off.",
-     "If you notice a sweet smell inside or a damp passenger floor, get it checked within a few days."
+     "If you notice a sweet smell inside or a damp passenger floor, get it checked within a few days.",
+     "If you see steam, pull over when it's safe and turn the engine off."
     ],
-    "why": "If the engine warms up normally and the coolant is full, the cause is usually inside the heating system, like a stuck door or a clogged heater core. A shop can quickly tell which by feeling the heater hoses and testing the controls.",
+    "why": "If the engine warms up normally and the coolant is full, the cause is usually inside the heating system, like a stuck door or a clogged heater core. A shop can usually tell which by feeling the heater hoses and testing the controls.",
     "causes": [
      {
       "name": "Blend door problem",

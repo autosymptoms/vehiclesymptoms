@@ -128,12 +128,13 @@
   },
   "r_flat_tire": {
    "result": {
-    "title": "A flat or very low tire is pulling the car",
+    "title": "A flat or very low tire is likely pulling the car",
     "urgency": "stop",
     "now": "Pull over somewhere safe and stop. Put on the spare or call roadside assistance.",
     "if": [
-     "If the tire is only somewhat low and you're near a safe spot, you can add air there, then have it checked for a leak.",
-     "If the spare is a small temporary one, follow the speed and distance limits printed on it."
+     "If the tire is only somewhat low, has no visible damage, and you have a portable pump with you, inflating it where you are may be an option. Have it checked for a leak right away. Don't drive on a tire that's flat, has a bulge or keeps losing air.",
+     "If the spare is a small temporary one, follow the speed and distance limits printed on it.",
+     "If you hear a bang or clunk, or a corner still sits low after the tire is fixed, have the suspension checked before driving."
     ],
     "why": "A tire that's lost a lot of air drags on that side and pulls the car toward it. Driving on it can destroy the tire, damage the wheel and make the car harder to control.",
     "causes": [
@@ -175,7 +176,7 @@
      "If a tire is touching the body or a broken spring is pressing against it, don't move the car at all.",
      "If the steering wheel is now badly off-center, that's another sign something is bent or broken."
     ],
-    "why": "A sudden hard pull with a bang, or a corner that sits low, points to a broken coil spring, a broken or bent control arm, or a failed ball joint. These parts hold the wheel in place, so a failure can affect steering and braking.",
+    "why": "A sudden hard pull with a bang, or a corner that sits low, can point to a broken coil spring, a broken or bent control arm, or a failed ball joint. These parts hold the wheel in place, so a failure can affect steering and braking.",
     "causes": [
      {
       "name": "Broken coil spring",
@@ -207,14 +208,15 @@
   },
   "r_dragging_brake": {
    "result": {
-    "title": "A brake is probably sticking on that side",
-    "urgency": "soon",
-    "now": "Park and let the brakes cool. Get the brakes checked within a day or two, and keep any driving short and gentle until then.",
+    "title": "A brake may be sticking on that side",
+    "urgency": "stop",
+    "now": "Pull over somewhere safe and let the brakes cool. Don't touch the wheel. Don't drive further until the brakes are checked. Have it towed or call a mobile mechanic.",
     "if": [
-     "If you see smoke, or the burning smell comes back quickly, don't drive it. Have it towed.",
-     "If the brake pedal feels soft or goes lower than usual, stop driving and have it towed."
+     "If you see smoke from a wheel, keep everyone clear and let it cool. Call 911 if you see flames.",
+     "If the brake pedal feels soft or goes lower than usual, or the red brake light comes on, don't move the car.",
+     "If the parking brake was partly on, release it fully and let everything cool. Overheated brakes can still be weakened, so have them checked before relying on the car."
     ],
-    "why": "When a brake caliper or hose doesn't release fully, that wheel keeps braking lightly. The car pulls toward that side, the wheel gets very hot, and the brakes can overheat and stop working as well as they should.",
+    "why": "When a brake caliper or hose doesn't release fully, that wheel keeps braking lightly. The car pulls toward that side, the wheel gets very hot, and the brakes can overheat and stop working as well as they should. A shop will usually check the slide pins, piston and hose before deciding what to replace.",
     "causes": [
      {
       "name": "Sticking brake caliper",
@@ -234,7 +236,7 @@
     ],
     "confirm": {
      "you": [
-      "After a short drive, carefully hold your hand near (not on) each wheel to compare heat.",
+      "After it has cooled, carefully hold your hand near (not on) each wheel to compare heat. Don't drive just to test it.",
       "Make sure the parking brake is fully released."
      ],
      "shop": [
@@ -249,12 +251,13 @@
    "result": {
     "title": "A hit to a wheel may have knocked the alignment out or bent a part",
     "urgency": "soon",
-    "now": "Have the alignment and front suspension inspected within the next few days. Drive gently until then.",
+    "now": "Have the alignment and front suspension inspected within the next few days. Drive gently until then. If you have to fight the steering wheel to stay in your lane, don't drive it; have it towed.",
     "if": [
      "If the pull gets stronger, the steering wheel is badly off-center, or you hear clunking, stop driving and have it towed.",
-     "If a tire has a bulge or a wheel is dented, don't drive on it. Put on the spare."
+     "If a tire has a bulge or a wheel is dented, don't drive on it. Put on the spare.",
+     "If you notice a burning smell or one wheel much hotter than the others, pull over and let it cool. Don't drive further until the brakes are checked."
     ],
-    "why": "A pothole, curb or accident can shift the alignment or bend a tie rod, control arm or wheel. Even a small bend can make the car pull and wear the tires quickly. Bent parts need replacing, not just an alignment.",
+    "why": "A pothole, curb or accident can shift the alignment or bend a tie rod, control arm or wheel. Even a small bend can make the car pull and wear the tires quickly. If a part is bent, an alignment alone won't fix it, so a good shop will check for bent parts as part of the alignment.",
     "causes": [
      {
       "name": "Alignment knocked out",
@@ -289,10 +292,11 @@
    "result": {
     "title": "A pull when braking usually means one brake is working harder than the other",
     "urgency": "soon",
-    "now": "Have the brakes inspected within the next few days.",
+    "now": "Have the brakes inspected within the next few days. Until then, brake early and gently, and leave extra following distance.",
     "if": [
      "If the pedal feels soft or sinks, or you see fluid near a wheel, stop driving and have it towed.",
-     "If the pull is strong enough to move you out of your lane, don't drive it until it's fixed."
+     "If the pull is strong enough to move you out of your lane, don't drive it until it's fixed.",
+     "If you smell burning, hear grinding, or the red brake light comes on, stop driving and have it towed."
     ],
     "why": "When the brakes on one side grip harder or the other side grips less, the car turns toward the stronger side every time you stop. It can come from a sticking caliper, contaminated pads or a worn suspension part that shifts under braking.",
     "causes": [
@@ -368,7 +372,7 @@
    "result": {
     "title": "This may be the slope of the road, not the car",
     "urgency": "diy",
-    "now": "Test on a flat, empty parking lot. Drive straight slowly and loosen your grip on the wheel for a moment. If the car stays straight, the road slope is the likely cause.",
+    "now": "Test on a flat, empty parking lot. Drive straight slowly and loosen your grip on the wheel for a moment. If the car stays straight there, the road slope is a possible cause.",
     "if": [
      "If the car drifts on a flat lot too, check the tire pressures and book an alignment check.",
      "If the steering wheel is off-center when driving straight, have the alignment checked."
@@ -404,12 +408,13 @@
   },
   "r_low_tire": {
    "result": {
-    "title": "A low tire is the most likely reason it's pulling",
+    "title": "A low tire may be why it's pulling",
     "urgency": "diy",
     "now": "Inflate all four tires to the pressure on the driver's door jamb sticker, then see if the pull goes away.",
     "if": [
      "If the same tire is low again within a few days, have it checked for a leak.",
-     "If the pressures are right and it still pulls, book an alignment check."
+     "If the pressures are right and it still pulls, book an alignment check.",
+     "If the tire has a bulge, cut or nail in it, don't drive on it. Put on the spare or call roadside assistance."
     ],
     "why": "A tire with less air has more drag and a slightly smaller rolling size, so the car pulls toward that side. It's the simplest cause to rule out and the cheapest to fix.",
     "causes": [
@@ -447,10 +452,10 @@
     "urgency": "check",
     "now": "Go back to the tire shop and ask them to swap the two front tires side to side and check the alignment.",
     "if": [
-     "If the pull switches to the other side after the swap, one tire is the cause and should be replaced.",
+     "If the pull switches to the other side after the swap, one tire is likely the cause. The tire shop can advise on replacing it.",
      "If the pull stays the same after the swap, the alignment is the more likely problem."
     ],
-    "why": "Some tires are built slightly unevenly inside, which makes them roll toward one side. This is called tire pull or radial pull. It shows up right after tires are installed or moved, and swapping the front tires is a simple way to prove it.",
+    "why": "Some tires are built slightly unevenly inside, which makes them roll toward one side. This is called tire pull or radial pull. It shows up right after tires are installed or moved, and swapping the front tires is a simple way to check for it.",
     "causes": [
      {
       "name": "Tire with built-in pull (radial pull)",
@@ -482,14 +487,15 @@
   },
   "r_worn_parts": {
    "result": {
-    "title": "Worn steering or suspension parts are likely letting a wheel shift",
+    "title": "Worn steering or suspension parts may be letting a wheel shift",
     "urgency": "soon",
     "now": "Have the steering and front suspension inspected within the next few days. Drive gently until then.",
     "if": [
      "If the steering suddenly feels much looser or the car is hard to keep in its lane, stop driving and have it towed.",
-     "If parts are replaced, have an alignment done afterward."
+     "If parts are replaced, have an alignment done afterward.",
+     "If you hear a loud clunk followed by a change in steering, or a corner sits lower, pull over and have it towed."
     ],
-    "why": "When tie rods, ball joints or bushings wear, the wheel can move out of position as you drive. That causes a pull that may come and go, along with clunks and uneven tire wear.",
+    "why": "When tie rods, ball joints or bushings wear, the wheel can move out of position as you drive. That causes a pull that may come and go, along with clunks and uneven tire wear. A shop will usually check each joint for play on a lift before deciding which part needs replacing.",
     "causes": [
      {
       "name": "Worn control arm bushings",
@@ -522,12 +528,13 @@
   },
   "r_alignment": {
    "result": {
-    "title": "Wheel alignment is the most likely cause of a steady pull",
+    "title": "Wheel alignment is a common cause of a steady pull",
     "urgency": "check",
     "now": "Check all four tire pressures first. If they're correct, book an alignment check.",
     "if": [
      "If the tires are wearing on one edge, get the alignment done soon to avoid ruining them.",
-     "If the pull suddenly gets stronger, or you notice a burning smell or clunking, get it checked within a day or two."
+     "If the pull suddenly gets stronger or you hear clunking, get it checked within a day or two.",
+     "If you notice a burning smell or one wheel much hotter than the others, a brake may be dragging. Pull over, let it cool, and don't drive further until it's checked."
     ],
     "why": "Alignment is the angle of the wheels. It slowly drifts out with normal wear, bumps and potholes, and when the angles differ side to side the car pulls. Uneven tire wear and an off-center steering wheel often come along with it.",
     "causes": [

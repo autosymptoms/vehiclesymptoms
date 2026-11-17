@@ -20,7 +20,7 @@
   "turbo smoking",
   "car smoking from tailpipe"
  ],
- "intro": "Blue or blue-gray smoke from the tailpipe almost always means engine oil is getting into the cylinders and burning. When you see it and how fast the oil level drops tell you how serious it is. Answer the questions below to see the likely cause and what to do next.",
+ "intro": "Blue or blue-gray smoke from the tailpipe usually means engine oil is getting into the cylinders and burning. When you see it and how fast the oil level drops help show how serious it is. Answer the questions below to see possible causes and what to do next.",
  "safety": [
   "If the oil pressure light comes on or the engine starts knocking, pull over and turn off the engine right away.",
   "If heavy smoke is coming from under the hood rather than the tailpipe, pull over, turn off the engine and step away.",
@@ -142,14 +142,16 @@
   },
   "r_valve_seals": {
    "result": {
-    "title": "Worn valve stem seals are the most likely cause",
+    "title": "Worn valve stem seals are a common cause",
     "urgency": "check",
     "now": "Check the oil level every couple of weeks and top it up as needed. Book a check when convenient.",
     "if": [
      "If the puff gets bigger, or you start adding oil often, have it checked sooner.",
-     "If the check engine light comes on or the engine starts misfiring, get it checked within a few days."
+     "If the oil pressure light comes on or the engine starts knocking, pull over and turn off the engine right away. Have it towed.",
+     "If the check engine light starts flashing or the engine shakes, pull over when it's safe and turn off the engine. Don't drive on until it's checked.",
+     "If a steady check engine light comes on, get it checked within a few days."
     ],
-    "why": "Valve stem seals keep oil from running down into the cylinders. When they harden with age, oil seeps past while the car sits, then burns off in a puff of smoke on startup. It's common on higher-mileage engines and usually gets worse slowly.",
+    "why": "Valve stem seals keep oil from running down into the cylinders. When they harden with age, oil can seep past while the car sits, then burn off in a puff of smoke on startup. It's common on higher-mileage engines and usually gets worse slowly. A compression or leak-down test helps the shop tell seals from rings.",
     "causes": [
      {
       "name": "Worn valve stem seals or valve guides",
@@ -182,12 +184,13 @@
   },
   "r_rings": {
    "result": {
-    "title": "Oil is likely getting past worn piston rings",
+    "title": "Oil may be getting past worn piston rings",
     "urgency": "check",
     "now": "Check the oil level weekly and top it up so it never runs low. Book an engine check when convenient.",
     "if": [
      "If you're adding more than a quart every 1,000 miles or so, get it checked soon.",
-     "If the oil light comes on or the engine knocks, pull over and turn off the engine."
+     "If the oil pressure light comes on or the engine starts knocking, pull over and turn off the engine right away. Have it towed.",
+     "If the check engine light starts flashing or the engine shakes, pull over when it's safe and turn off the engine. Don't drive on until it's checked."
     ],
     "why": "Piston rings seal the gap between the pistons and the cylinder walls. When they wear or stick, oil gets into the combustion chamber and burns, especially under load when you press the gas. Some engines are known for this.",
     "causes": [
@@ -199,7 +202,7 @@
      {
       "name": "Faulty PCV valve",
       "clues": "Oil in the air intake, or a whistling noise.",
-      "against": "An easier fix, so worth ruling out first."
+      "against": "An easier fix, so a shop will usually rule it out first."
      },
      {
       "name": "Leaking turbocharger seals",
@@ -227,7 +230,8 @@
     "now": "Check the oil level and top it up if needed. Have the turbo inspected within a few days, and avoid hard acceleration until then.",
     "if": [
      "If you hear a loud whine or siren-like noise, or lose power suddenly, pull over and turn off the engine. Have it towed.",
-     "If the oil level drops quickly, don't keep driving it until it's checked."
+     "If the oil level drops quickly, don't keep driving it until it's checked.",
+     "If the oil pressure light comes on or the engine starts knocking, pull over and turn off the engine right away. Have it towed."
     ],
     "why": "A turbocharger spins very fast and is lubricated by engine oil. When its seals or bearings wear, oil leaks into the intake or exhaust and burns, mostly when the turbo is working hard. A failing turbo can get worse suddenly.",
     "causes": [
@@ -256,7 +260,8 @@
       "Turbocharger shaft play inspection",
       "Intake and intercooler check for oil",
       "PCV system check",
-      "Code scan"
+      "Code scan",
+      "A shop will usually check the PCV system and turbo oil drain before replacing the turbo"
      ]
     }
    }
@@ -265,12 +270,14 @@
    "result": {
     "title": "There may be too much oil, or some was spilled during the oil change",
     "urgency": "diy",
-    "now": "Check the oil level on level ground with the engine off. If it's well over the full mark, have the extra drained before driving much.",
+    "now": "Check the oil level on level ground with the engine off. If it's well over the full mark, have the extra drained before you drive it.",
     "if": [
-     "If the level is correct and the smoke stops within a day or two of driving, it was likely spilled oil burning off.",
-     "If the smoke continues and the level is correct, have it checked."
+     "If smoke comes from under the hood or under the car rather than the tailpipe, oil may be dripping onto the hot exhaust. Pull over, turn off the engine and don't drive it until it's checked.",
+     "If the level is correct and the smoke fades within a day or two of driving, spilled oil burning off is the likely reason.",
+     "If the smoke continues and the level is correct, have it checked.",
+     "If the oil pressure light comes on or the engine starts knocking, pull over and turn off the engine right away. Have it towed."
     ],
-    "why": "Too much oil can get whipped up by the spinning crankshaft and pushed into the intake, where it burns. Oil spilled on the engine or exhaust during a change can also smoke for a short while. Both are easy to sort out.",
+    "why": "Too much oil can get whipped up by the spinning crankshaft and pushed into the intake, where it burns. Oil spilled on the engine or exhaust during a change can also smoke for a short while. Both are usually simple to sort out once the cause is confirmed.",
     "causes": [
      {
       "name": "Oil overfilled",
@@ -304,10 +311,10 @@
    "result": {
     "title": "The engine is dangerously low on oil",
     "urgency": "stop",
-    "now": "Don't start the engine until you've added oil to the full mark. If the oil light was on or the engine knocked, have it towed instead of starting it.",
+    "now": "Don't drive it, and don't start the engine with the oil this low. If the oil light was on or the engine knocked, have it towed instead of starting it.",
     "if": [
-     "If you add oil and the engine runs quietly with no oil light, have it checked within a day or two to find out where the oil is going.",
-     "If it takes several quarts to reach the full mark, look for a major leak before starting it."
+     "If you top it up to the full mark and the engine starts quietly with no oil light, call a shop before you drive it. They can tell you whether to bring it in or have it towed, and find out where the oil is going.",
+     "If it takes several quarts to reach the full mark, look for a major leak and don't start it until it's checked."
     ],
     "why": "An engine that's burning oil can use it faster than you'd expect. Once the level is very low, the engine's moving parts can lose lubrication and wear out or seize quickly.",
     "causes": [
@@ -346,8 +353,10 @@
     "urgency": "soon",
     "now": "Top up the oil to the full mark and have the engine checked within a few days. Check the oil before every longer drive until then.",
     "if": [
-     "If the oil light comes on or the engine starts knocking, pull over and turn off the engine.",
-     "If the check engine light comes on, mention it to the shop. Burning oil can foul spark plugs and damage the catalytic converter."
+     "If the oil pressure light comes on or the engine starts knocking, pull over and turn off the engine right away. Have it towed.",
+     "If the check engine light starts flashing or the engine shakes, pull over when it's safe and turn off the engine. Don't drive on until it's checked.",
+     "If a steady check engine light comes on, mention it to the shop. Burning oil can foul spark plugs and damage the catalytic converter.",
+     "If the oil level drops below the add mark between checks, don't drive it until it's been checked."
     ],
     "why": "Smoke all the time plus a dropping oil level means oil is reaching the cylinders steadily. The engine can run low on oil without warning, and burning oil also wears out spark plugs and the catalytic converter over time.",
     "causes": [
@@ -362,7 +371,7 @@
       "against": ""
      },
      {
-      "name": "Faulty PCV valve or turbocharger",
+      "name": "PCV valve or turbocharger problem",
       "clues": "Oil in the intake, or a turbo engine with smoke under boost.",
       "against": ""
      }
@@ -383,17 +392,18 @@
   },
   "r_minor": {
    "result": {
-    "title": "A small amount of oil burning or a PCV problem is likely",
+    "title": "A small amount of oil burning or a PCV problem are possible causes",
     "urgency": "check",
     "now": "Keep checking the oil level every week or two, and book a check when convenient.",
     "if": [
      "If the oil level starts dropping, have it checked sooner.",
-     "If the smoke seems to come from under the car or hood rather than the tailpipe, look for an oil leak dripping onto the exhaust and have it fixed promptly."
+     "If smoke comes from under the hood or under the car rather than the tailpipe, oil may be dripping onto the hot exhaust. Pull over, turn off the engine and don't drive it until it's checked.",
+     "If the oil pressure light comes on or the engine starts knocking, pull over and turn off the engine right away. Have it towed."
     ],
     "why": "If the oil level stays steady, the engine isn't burning much yet. A sticking PCV valve can pull a little oil into the intake, and early seal wear can cause light smoke before oil use becomes noticeable.",
     "causes": [
      {
-      "name": "Faulty PCV valve",
+      "name": "PCV valve sticking",
       "clues": "Oil residue in the air intake hose, or a rough idle.",
       "against": ""
      },

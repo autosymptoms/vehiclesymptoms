@@ -120,14 +120,15 @@
   },
   "r_normal_blink": {
    "result": {
-    "title": "A security light that blinks while the car is parked is normal",
+    "title": "A security light that blinks while the car is parked is usually normal",
     "urgency": "diy",
-    "now": "Nothing to fix. The blinking shows the anti-theft system is armed. It should go out a few seconds after you turn the key to ON or press Start.",
+    "now": "If the light goes out a few seconds after you turn the key to ON or press Start, and the car starts and runs, this is usually just the anti-theft system showing it's armed. Your owner's manual will confirm how the light should behave on your car.",
     "if": [
      "If the light stays on or flashes fast with the engine running, have the anti-theft system checked when convenient.",
-     "If the car later cranks but won't start while the light flashes, start this guide again."
+     "If the car later cranks but won't start while the light flashes, start this guide again.",
+     "If the engine ever shuts off by itself while you're driving, avoid driving the car until it's checked. Steering and braking take much more effort with the engine off."
     ],
-    "why": "Many cars blink the security light when they're off to show the immobilizer is armed and to discourage thieves. The light draws almost no power. It only points to a problem when it stays on or flashes while you're trying to start or drive.",
+    "why": "Many cars blink the security light when they're off to show the immobilizer is armed and to discourage thieves. The light is designed to draw very little power. It only points to a problem when it stays on or flashes while you're trying to start or drive.",
     "causes": [
      {
       "name": "Normal anti-theft indicator",
@@ -153,10 +154,11 @@
   },
   "r_low_battery": {
    "result": {
-    "title": "A weak car battery is likely confusing the anti-theft system",
+    "title": "A weak car battery may be confusing the anti-theft system",
     "urgency": "diy",
     "now": "Check that the battery clamps are tight and clean, then try a jump start or a battery booster.",
     "if": [
+     "If the battery is swollen, cracked, leaking, hissing or smells of rotten eggs, don't jump-start it. Keep sparks away and call roadside assistance.",
      "If it starts with a jump, have the battery and charging system tested soon so it doesn't happen again.",
      "If it still won't start with good power and the security light keeps flashing, try your spare key next."
     ],
@@ -194,14 +196,15 @@
   },
   "r_try_basics": {
    "result": {
-    "title": "The car probably isn't reading your key. Try the simple fixes first",
+    "title": "The car may not be reading your key. Try the simple fixes first",
     "urgency": "diy",
     "now": "Take other keys and key cards off the ring, then try again. For push-button start, hold the fob right against the Start button, or where your owner's manual shows, while you press Start.",
     "if": [
-     "If your spare key works, the main key or its fob battery is the problem.",
-     "If nothing works and you're stuck, call roadside assistance. A dealer or automotive locksmith can read the immobilizer and fix key problems."
+     "If your spare key works, the main key or its fob battery is the likely problem.",
+     "If nothing works and you're stuck, call roadside assistance. A dealer or automotive locksmith can read the immobilizer and help with key problems.",
+     "If you smell raw fuel after several tries, stop cranking and keep sparks and flames away."
     ],
-    "why": "A flashing security light while the engine won't run means the immobilizer is blocking the start because it didn't get a valid signal from the key. Often the cause is simple: a weak fob battery, interference from other keys or cards, or the key not being where the reader expects it.",
+    "why": "A flashing security light while the engine won't run usually means the immobilizer is blocking the start because it didn't get a valid signal from the key. Often the cause is simple: a weak fob battery, interference from other keys or cards, or the key not being where the reader expects it.",
     "causes": [
      {
       "name": "Dead or weak key fob battery",
@@ -235,14 +238,14 @@
   },
   "r_main_key": {
    "result": {
-    "title": "Your main key is the problem, most often a weak fob battery",
+    "title": "Your main key is the likely problem, often a weak fob battery",
     "urgency": "diy",
     "now": "Use the spare for now and replace the battery in your main key fob.",
     "if": [
-     "If a fresh fob battery doesn't fix it, the chip inside the key may be damaged. A dealer or automotive locksmith can test it and program a new key.",
+     "If a fresh fob battery doesn't fix it, the chip inside the key may be damaged. A dealer or automotive locksmith can test it before programming a new key.",
      "If you're down to one working key, get a replacement made soon. Losing your only key costs more and can strand you."
     ],
-    "why": "If the spare starts the car, the car's anti-theft system is working. The fault is in the main key: either the fob battery is too weak, or the small chip that identifies the key has been damaged.",
+    "why": "If the spare starts the car, the car's anti-theft system is probably working, and the fault is most likely in the main key: either the fob battery is too weak, or the small chip that identifies the key has been damaged.",
     "causes": [
      {
       "name": "Weak key fob battery",
@@ -252,7 +255,7 @@
      {
       "name": "Damaged key chip (transponder)",
       "clues": "The key was dropped, crushed or went through the wash.",
-      "against": "If a new fob battery fixes it, the chip is fine."
+      "against": "If a new fob battery fixes it, the chip is probably fine."
      },
      {
       "name": "Key lost its programming",
@@ -279,7 +282,7 @@
     "now": "Check that the battery clamps are tight, then look up the security or immobilizer relearn steps in your owner's manual. Some cars need the key left in ON for several minutes until the security light stops flashing.",
     "if": [
      "If the relearn steps work, have the battery and charging system tested soon.",
-     "If the light keeps flashing after the relearn and a good battery, the car will need a dealer or automotive locksmith with a scan tool."
+     "If the light keeps flashing after the relearn and a good battery, a dealer or automotive locksmith can check it with a scan tool."
     ],
     "why": "A dead battery, a jump start or a battery swap can briefly confuse the car's computers. Some models need a short relearn routine before they accept the key again. A loose clamp after battery work can also leave the system with too little voltage to read the key.",
     "causes": [
@@ -354,12 +357,13 @@
   },
   "r_ignition_or_aftermarket": {
    "result": {
-    "title": "A worn ignition reader or an add-on alarm is likely blocking the start",
+    "title": "A worn ignition reader or an add-on alarm may be blocking the start",
     "urgency": "check",
     "now": "Try both keys again while gently wiggling the key in the ignition. If it still won't start, call a mobile mechanic or have it towed to a shop.",
     "if": [
      "If an add-on remote starter or alarm was installed recently, have the installer check it first.",
-     "If the key won't turn at all, don't force it. A broken key in the ignition makes the repair harder."
+     "If the key won't turn at all, don't force it. A broken key in the ignition makes the repair harder.",
+     "If the engine ever shuts off by itself while you're driving, avoid driving the car until it's checked. Steering and braking take much more effort with the engine off."
     ],
     "why": "The ring around the ignition reads the chip in your key. If the ignition is worn or the reader is loose, it can lose the signal. Add-on remote starters and alarms tap into the same wiring and can block the start if they fail or were installed poorly.",
     "causes": [
@@ -394,14 +398,15 @@
   },
   "r_immobilizer_fault": {
    "result": {
-    "title": "The anti-theft system itself likely has a fault",
+    "title": "The anti-theft system itself may have a fault",
     "urgency": "check",
     "now": "Call a mobile mechanic or automotive locksmith, or have the car towed to a dealer or shop that can read immobilizer codes.",
     "if": [
      "If the car starts after sitting for a while, don't count on it. Get it checked before you need it.",
-     "If you smell fuel after repeated tries, stop cranking and keep flames away."
+     "If you smell fuel after repeated tries, stop cranking and keep flames away.",
+     "If the engine ever shuts off by itself while you're driving, avoid driving the car until it's checked. Steering and braking take much more effort with the engine off."
     ],
-    "why": "When neither key works and the battery is strong, the problem is usually in the immobilizer system: the key reader, the wiring, or the module that approves the key. These need a scan tool to diagnose, so repeated cranking won't help.",
+    "why": "When neither key works and the battery is strong, the problem is often in the immobilizer system: the key reader, the wiring, or the module that approves the key. These need a scan tool to diagnose, so repeated cranking won't help.",
     "causes": [
      {
       "name": "Key reader or antenna fault",

@@ -20,9 +20,9 @@
   "low power steering fluid noise",
   "whinning when turning"
  ],
- "intro": "A whine that rises when you turn the wheel almost always comes from the power steering system. Often it's simply low fluid from a slow leak, which is easy to check. But if the steering is also getting heavy, you could lose power assist. These questions help you sort out which it is.",
+ "intro": "A whine that rises when you turn the wheel usually comes from the power steering system. Often it's simply low fluid from a slow leak, which is easy to check. But if the steering is also getting heavy, you could lose power assist. These questions help you sort out which it is.",
  "safety": [
-  "If the steering suddenly becomes very hard to turn, slow down and pull over carefully. You can still steer, but it takes much more effort.",
+  "If the steering suddenly becomes very hard to turn, slow down and pull over carefully. Expect steering to take much more effort than usual.",
   "If the battery or temperature light comes on along with the whine, the engine belt may have broken. Pull over and turn the engine off.",
   "If you see smoke or smell burning fluid under the hood, turn the engine off and step away."
  ],
@@ -117,14 +117,15 @@
   },
   "r_steering_heavy": {
    "result": {
-    "title": "The power steering has likely lost its assist",
+    "title": "The power steering may have lost its assist",
     "urgency": "stop",
     "now": "Pull over safely and turn the engine off. With the engine off, look for a broken or missing belt and for fluid leaks, then have it towed or call a mobile mechanic.",
     "if": [
-     "If the battery or temperature light also came on, the main engine belt has probably broken. Don't restart the engine.",
-     "If the fluid reservoir is empty, don't just refill it and carry on. A pump run dry can fail completely, and the leak needs to be found."
+     "If the battery or temperature light also came on, the main engine belt may have broken. Don't restart the engine.",
+     "If the fluid reservoir is empty, don't just refill it and carry on. A pump run dry can fail completely, and the leak needs to be found.",
+     "If you smell burning or see smoke, step away from the car."
     ],
-    "why": "A whine that turns into suddenly heavy steering means the system has stopped helping you steer. The car can still be steered, but it takes a lot of effort, which is risky in an emergency. On many cars the same belt also drives the alternator and water pump.",
+    "why": "A whine that turns into suddenly heavy steering usually means the system has stopped helping you steer. Steering then takes a lot of effort, which is risky in an emergency. On many cars the same belt also drives the alternator and water pump.",
     "causes": [
      {
       "name": "Power steering fluid has leaked out",
@@ -160,9 +161,9 @@
    "result": {
     "title": "The electric power steering has detected a fault",
     "urgency": "soon",
-    "now": "Once parked safely, turn the car off for a minute and restart it. If the light stays on, get it checked within the next few days and avoid highway driving until then.",
+    "now": "Once parked safely, turn the car off for a minute and restart it. If the light stays on, have it checked within the next few days and avoid highways and fast traffic until then. The assist can drop out without warning, so be ready for the steering to need more effort.",
     "if": [
-     "If the steering becomes very heavy, don't drive it. Have it towed.",
+     "If the steering is heavy, or the steering warning light is red, don't drive it. Have it towed or checked where it's parked.",
      "If the battery light is also on or the car has been slow to start, the battery or charging system may be the root cause. Electric steering needs steady voltage."
     ],
     "why": "Electric steering uses a motor to help you turn the wheel. When the computer finds a problem, it turns on the warning light and may reduce or switch off the assist. A whine can come from the motor working harder than it should.",
@@ -198,12 +199,13 @@
   },
   "r_low_fluid": {
    "result": {
-    "title": "Low power steering fluid, probably from a leak",
+    "title": "Low power steering fluid, which usually means a leak",
     "urgency": "soon",
     "now": "Top up the reservoir to the correct mark using the fluid type listed in your owner's manual or on the cap. Then get the leak found within the next few days.",
     "if": [
      "If the whine goes away after topping up, keep checking the level every few days. If it drops again, the leak needs fixing soon.",
-     "If the steering gets heavy or the reservoir empties quickly, don't drive it. Have it towed."
+     "If the steering gets heavy or the reservoir empties quickly, don't drive it. Have it towed.",
+     "If fluid is dripping near the exhaust, or you smell burning, pull over and turn the engine off. Power steering fluid can catch fire on hot parts."
     ],
     "why": "Power steering fluid works in a closed loop, so a low level means it's leaking somewhere. When the pump runs short of fluid it pulls in air and whines, and running it low for long can wear out the pump.",
     "causes": [
@@ -238,14 +240,14 @@
   },
   "r_air_or_old_fluid": {
    "result": {
-    "title": "Air in the system or worn-out fluid is likely",
+    "title": "Air in the system or worn-out fluid may be the cause",
     "urgency": "check",
     "now": "Book a power steering check when convenient. Ask for the system to be inspected and the fluid flushed or bled if needed.",
     "if": [
      "If the fluid level starts dropping, look for a leak and get it checked within a few days.",
-     "If the steering feels heavy or jerky, get it checked soon."
+     "If the steering feels heavy or jerky, have it checked before driving further."
     ],
-    "why": "Foamy fluid means air is getting into the system, often through a loose hose clamp or a seal on the pump's supply side. Very dark, burnt-smelling fluid has broken down and doesn't protect the pump well. Both can cause a whine.",
+    "why": "Foamy fluid usually means air is getting into the system, often through a loose hose clamp or a seal on the pump's supply side. Very dark, burnt-smelling fluid has broken down and doesn't protect the pump well. Both can cause a whine.",
     "causes": [
      {
       "name": "Air in the system",
@@ -282,8 +284,9 @@
     "urgency": "check",
     "now": "Book a check when convenient, and mention whether the noise happens when parked, at low speed, or only at full lock.",
     "if": [
-     "If the steering becomes heavier or a steering warning light comes on, get it checked within a few days.",
-     "If the battery light comes on or the car has been slow to start, have the battery and charging system tested. Low voltage can affect electric steering."
+     "If a steering warning light comes on or the steering gradually gets heavier, get it checked within a few days.",
+     "If the battery light comes on or the car has been slow to start, have the battery and charging system tested. Low voltage can affect electric steering.",
+     "If the steering suddenly becomes very hard to turn, pull over when it's safe and have it towed."
     ],
     "why": "Electric power steering uses a motor instead of a fluid pump. A light whir when turning slowly or while parked can be normal. A whine that's loud or getting louder can mean a worn motor, gear or a nearby part like the alternator.",
     "causes": [
@@ -318,12 +321,13 @@
   },
   "r_full_lock": {
    "result": {
-    "title": "A whine at full lock is usually normal pressure relief",
+    "title": "A brief whine at full lock is often normal pressure relief",
     "urgency": "diy",
     "now": "Avoid holding the wheel turned all the way to one side for more than a few seconds. Back it off slightly once you reach the stop.",
     "if": [
      "If the whine is loud even when you're not at full lock, or the steering gets heavier, check the fluid level and book a check.",
-     "If your car has a reservoir, make sure the fluid is at the right level, because low fluid makes this whine louder."
+     "If your car has a reservoir, make sure the fluid is at the right level, because low fluid makes this whine louder.",
+     "If the steering feels heavy or jerky, or you smell burning fluid, have it checked before driving further."
     ],
     "why": "When the wheel is turned all the way, a hydraulic system hits its maximum pressure and a relief valve opens, which makes a whine. That's normal for a moment, but holding it there heats the fluid and wears the pump.",
     "causes": [
@@ -357,12 +361,13 @@
   },
   "r_cold": {
    "result": {
-    "title": "Thick cold fluid or an aging pump is the likely cause",
+    "title": "Thick cold fluid or an aging pump are common causes",
     "urgency": "check",
     "now": "Let the engine idle for a minute on cold mornings before turning the wheel hard, and book a check when convenient.",
     "if": [
      "If the whine starts lasting after the car is warm, get it checked within a few days.",
-     "If the steering is heavy when cold, check the fluid level and type."
+     "If the steering is heavy when cold, check the fluid level and type.",
+     "If the steering suddenly becomes very hard to turn, pull over when it's safe and have it towed."
     ],
     "why": "Power steering fluid gets thicker in the cold, so the pump works harder until it warms up. Old fluid or a pump that's starting to wear makes this worse, and the whine is often an early sign.",
     "causes": [
@@ -396,14 +401,15 @@
   },
   "r_pump_wear": {
    "result": {
-    "title": "The power steering pump is likely wearing out",
+    "title": "The power steering pump may be wearing out",
     "urgency": "soon",
     "now": "Check the fluid level if your car has a reservoir, then get the steering checked within the next few days.",
     "if": [
      "If the steering becomes heavy or jerky, don't drive it. Have it towed.",
-     "If the fluid is low, top it up and look for a leak. The pump may be fine and simply running short of fluid."
+     "If the fluid is low, top it up and look for a leak. The pump may be fine and simply running short of fluid.",
+     "If you smell burning fluid or see smoke from the engine bay, pull over and turn the engine off."
     ],
-    "why": "A whine that gets louder month by month usually means the pump's internal parts or bearing are wearing. Pumps often give plenty of warning, but when they fail the steering suddenly gets heavy.",
+    "why": "A whine that gets louder month by month often means the pump's internal parts or bearing are wearing. Pumps often give plenty of warning, but when they fail the steering suddenly gets heavy. A shop will usually check the fluid and pressure-test the pump before replacing it.",
     "causes": [
      {
       "name": "Worn power steering pump",
@@ -436,14 +442,14 @@
   },
   "r_belt": {
    "result": {
-    "title": "The engine drive belt is probably slipping",
+    "title": "The engine drive belt may be slipping",
     "urgency": "check",
     "now": "Book a belt check when convenient. With the engine off, you can look at the belt for cracks, glazing or fraying.",
     "if": [
-     "If the battery or temperature light comes on, or the squeal suddenly stops along with heavy steering, pull over. The belt may have broken.",
-     "If the belt looks badly cracked or frayed, get it replaced within a few days."
+     "If the battery or temperature light comes on, or the squeal suddenly stops along with heavy steering, pull over and turn the engine off. The belt may have broken.",
+     "If the belt looks badly cracked or frayed, have it checked within a few days."
     ],
-    "why": "Turning the wheel puts extra load on the power steering pump, and a worn or loose belt can slip and squeal under that load. The same belt often runs the alternator and water pump, so it's worth replacing before it breaks.",
+    "why": "Turning the wheel puts extra load on the power steering pump, and a worn or loose belt can slip and squeal under that load. The same belt often runs the alternator and water pump, so it's worth having the belt and tensioner checked before it breaks.",
     "causes": [
      {
       "name": "Worn or glazed drive belt",
@@ -482,7 +488,7 @@
      "If the steering gets heavier or a steering warning light comes on, get it checked within a few days.",
      "If the steering suddenly becomes very hard to turn, pull over and have it towed."
     ],
-    "why": "A whine when steering nearly always comes from the power steering system or the belt that drives it. A technician can check the fluid, pump and belt quickly.",
+    "why": "A whine when steering usually comes from the power steering system or the belt that drives it. A technician can check the fluid, pump and belt quickly.",
     "causes": [
      {
       "name": "Low power steering fluid",

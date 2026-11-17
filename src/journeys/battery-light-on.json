@@ -80,7 +80,7 @@
   },
   "r_belt": {
    "result": {
-    "title": "The engine's drive belt has likely broken or slipped off",
+    "title": "The engine's drive belt may have broken or slipped off",
     "urgency": "stop",
     "now": "Pull over where it's safe and turn off the engine. Once it's off, look at the front of the engine for a missing or shredded belt, and have the car towed.",
     "if": [
@@ -197,17 +197,18 @@
   },
   "r_alternator": {
    "result": {
-    "title": "The alternator has most likely stopped charging",
+    "title": "The alternator may have stopped charging",
     "urgency": "soon",
     "now": "Avoid driving until the charging system is tested. If you must move the car, turn off the A/C, fan, radio and heated seats, and go straight to a shop without shutting off the engine on the way.",
     "if": [
      "If the lights dim, the gauges act up or the engine stumbles, get off the road right away.",
+     "If the temperature gauge rises or the steering suddenly gets heavy, the drive belt may have come off. Pull over, switch off the engine and have it towed.",
      "If the car is at home, a battery and alternator test before your next trip can save you from being stranded."
     ],
     "why": "With the light on steadily, the car is running on stored battery power only. How long that lasts depends on the battery and how much you have switched on. The car may also not restart once you turn it off.",
     "causes": [
      {
-      "name": "Worn-out alternator",
+      "name": "Alternator wearing out",
       "clues": "A whining noise that rises with engine speed, or headlights that dim at idle.",
       "against": ""
      },
@@ -238,14 +239,15 @@
   },
   "r_flicker": {
    "result": {
-    "title": "The charging system is weak or has a loose connection",
+    "title": "The charging system may be weak or have a loose connection",
     "urgency": "soon",
     "now": "Have the battery and charging system tested within a few days. Keep electrical loads light until then.",
     "if": [
      "If the light starts staying on, or the lights dim while driving, treat it as urgent and keep trips as short as possible.",
-     "If you hear a squeal when the light flickers, the belt is likely slipping."
+     "If the temperature gauge rises or the steering suddenly gets heavy, the drive belt may have come off. Pull over, switch off the engine and have it towed.",
+     "If you hear a squeal when the light flickers, the belt may be slipping."
     ],
-    "why": "A light that flickers or comes on only at idle means the charging output is borderline. The alternator may be wearing out, the belt may be slipping, or a connection may be loose. These usually get worse over time.",
+    "why": "A light that flickers or comes on only at idle often means the charging output is borderline. The alternator may be wearing out, the belt may be slipping, or a connection may be loose. These usually get worse over time.",
     "causes": [
      {
       "name": "Alternator starting to fail",
@@ -278,12 +280,13 @@
   },
   "r_after_battery_work": {
    "result": {
-    "title": "A loose connection or a deeply drained battery is likely",
+    "title": "A loose connection or a deeply drained battery are common causes",
     "urgency": "diy",
     "now": "With the engine off, check that both battery clamps are tight and clean, and that no cable was knocked loose during the jump or battery swap.",
     "if": [
-     "If the clamps were loose and the light goes out after tightening, you're likely done. Have the charging system tested if it comes back.",
-     "If the light stays on with tight clamps, have the battery and alternator tested soon. A dead battery can hide an alternator that's failing."
+     "If the clamps were loose and the light goes out after tightening, that was probably the cause. Have the charging system tested if the light comes back.",
+     "If the light stays on with tight clamps, have the battery and alternator tested soon. A dead battery can hide an alternator that's failing.",
+     "If the temperature gauge rises or the steering suddenly gets heavy, the drive belt may have come off. Pull over, switch off the engine and have it towed."
     ],
     "why": "Battery work often leaves a clamp slightly loose. A badly drained battery can also strain the charging system after a jump. Sometimes the battery went dead in the first place because the alternator was already failing.",
     "causes": [
@@ -333,7 +336,7 @@
       "against": ""
      },
      {
-      "name": "Faulty DC-to-DC converter",
+      "name": "DC-to-DC converter not charging",
       "clues": "A new 12-volt battery doesn't make the light go away.",
       "against": ""
      },
@@ -358,11 +361,11 @@
   },
   "r_general": {
    "result": {
-    "title": "The charging system likely isn't keeping the battery charged",
+    "title": "The charging system may not be keeping the battery charged",
     "urgency": "soon",
     "now": "Keep driving to a minimum and have the battery and alternator tested within a day or two. Many auto parts stores test them free.",
     "if": [
-     "If the lights dim, the car stumbles or the temperature gauge rises, get off the road and turn the engine off.",
+     "If the lights dim, the car stumbles, the steering gets heavy or the temperature gauge rises, get off the road and turn the engine off.",
      "If the car won't restart after you turn it off, have it towed rather than relying on repeated jump starts."
     ],
     "why": "The battery light means the car isn't getting the charge it needs. The most common causes are a failing alternator, a belt problem, or a loose cable, and all three can leave you stranded once the battery runs down.",

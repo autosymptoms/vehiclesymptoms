@@ -20,7 +20,7 @@
   "lights flicker and battery light on",
   "headlights brighten when i rev"
  ],
- "intro": "Your lights are a good window into your car's electrical system. Dimming or flickering can be as simple as an old bulb or as serious as an alternator that's about to stop charging. Answer a few questions and we'll tell you which, and how soon to act.",
+ "intro": "Your lights are a good window into your car's electrical system. Dimming or flickering can be as simple as an old bulb or as serious as an alternator that's about to stop charging. Answer a few questions to narrow down which it might be, and how soon to act.",
  "safety": [
   "If the lights keep getting dimmer while you drive, especially at night, pull over somewhere safe before the car loses power.",
   "If you smell burning plastic or see smoke from the dash or under the hood, pull over, turn off the engine and step away from the car.",
@@ -106,12 +106,13 @@
   },
   "r_charging_failing": {
    "result": {
-    "title": "The alternator has likely stopped charging and the car is running on battery",
+    "title": "The alternator may have stopped charging, leaving the car running on the battery",
     "urgency": "stop",
     "now": "Pull over somewhere safe and turn the engine off. Have it towed or call roadside assistance. It may not restart, and the lights could fail.",
     "if": [
      "If you can't stop right away, turn off everything you don't need (radio, A/C, heated seats, rear defrost) to stretch the battery until you can pull over.",
-     "If you hear a squeal or the temperature gauge rises too, the belt may have broken. Turn off the engine as soon as you're safely stopped."
+     "If you hear a squeal or the temperature gauge rises too, the belt may have broken. Turn off the engine as soon as you're safely stopped.",
+     "If you smell burning or see smoke from under the hood or the dash, turn the engine off and step away from the car."
     ],
     "why": "With the battery light on and lights fading, the battery is being drained instead of recharged. Once it runs low, the engine can shut off, and power steering, lights and wipers can all fail with it.",
     "causes": [
@@ -145,12 +146,14 @@
   },
   "r_battery_light": {
    "result": {
-    "title": "The charging system has a problem. Get it tested right away",
+    "title": "The charging system may have a problem. Get it tested right away",
     "urgency": "soon",
-    "now": "Have the battery and alternator tested as soon as you can, ideally today. Many auto parts stores test them free. Turn off electrical extras and avoid driving at night or far from help until then.",
+    "now": "Have the battery and alternator tested as soon as you can, ideally today. Many auto parts stores test them free. Before driving, look at whether the engine belt is still in place (engine off). Until it's tested, turn off electrical extras and avoid driving at night, on highways or far from help.",
     "if": [
      "If the lights start dimming or the gauges act up, pull over and have it towed.",
-     "If the light only flickered once and went out, it can be a loose connection. Still have the system tested."
+     "If the light only flickered once and went out, it can be a loose connection. Still have the system tested.",
+     "If the steering suddenly feels heavy, the temperature gauge rises or you hear a loud squeal, pull over when it's safe and turn the engine off. The belt may have failed.",
+     "If you smell burning or see smoke, turn the engine off and step away from the car."
     ],
     "why": "The battery light means the car's computer sees that the system isn't charging properly. The car can run for a while on the battery alone, but how long is hard to predict.",
     "causes": [
@@ -190,7 +193,8 @@
     "now": "Have the battery and charging system tested when convenient. Most auto parts stores do this free.",
     "if": [
      "If the battery light comes on or the car becomes slow to start, get it tested within a few days.",
-     "If it's slight and only happens with many accessories on, it can be normal on some cars. A test will tell you."
+     "If it's slight and only happens with many accessories on, it can be normal on some cars. A test will tell you.",
+     "If you smell burning or the lights keep getting dimmer while driving, pull over when it's safe and have it towed."
     ],
     "why": "At idle, the alternator spins slowest and makes the least power. A healthy one still keeps up. If the lights dim noticeably at idle and brighten when you rev, the alternator or belt may not be keeping up with demand.",
     "causes": [
@@ -224,14 +228,15 @@
   },
   "r_alternator_pulse": {
    "result": {
-    "title": "A pulsing flicker often points to a failing alternator",
+    "title": "A pulsing flicker can point to a failing alternator",
     "urgency": "soon",
     "now": "Get the charging system tested within the next few days. Keep trips short and avoid night driving if you can.",
     "if": [
      "If the battery light comes on or the lights start getting dimmer, pull over and have it towed.",
-     "If the flicker changes when you wiggle the battery cables (engine off), a loose connection is more likely."
+     "If the flicker changes when you wiggle the battery cables (engine off), a loose connection is more likely.",
+     "If you smell burning or the alternator area feels very hot, turn the engine off and have it checked before driving."
     ],
-    "why": "An alternator should give a steady voltage. When parts inside it wear out, the voltage pulses, and you see that as flickering lights that follow engine speed. It often gets worse until the alternator stops charging.",
+    "why": "An alternator should give a steady voltage. When parts inside it wear out, the voltage pulses, and you see that as flickering lights that follow engine speed. If the alternator is the cause, it often gets worse until it stops charging, so it's worth testing rather than waiting.",
     "causes": [
      {
       "name": "Failing alternator voltage regulator or diodes",
@@ -263,7 +268,7 @@
   },
   "r_loose_connection": {
    "result": {
-    "title": "A loose connection or failing headlight switch is likely",
+    "title": "A loose connection or worn headlight switch is a common cause",
     "urgency": "check",
     "now": "Check that the battery cables are tight and clean, then book an electrical check when convenient.",
     "if": [
@@ -308,9 +313,10 @@
     "now": "Put the original-type bulbs back in and see if the flicker stops.",
     "if": [
      "If the flicker stops with the original bulbs, the new ones weren't a match for your car's lighting system.",
-     "If it still flickers with the original bulbs, have the wiring and switch checked."
+     "If it still flickers with the original bulbs, have the wiring and switch checked.",
+     "If a bulb connector looks melted or browned, or you smell hot plastic, stop using those lights and have the wiring checked before driving at night."
     ],
-    "why": "Many cars check headlight bulbs by sending small pulses of power through them. Some LED and HID bulbs react to that with flicker, or set off a bulb-out warning. The bulb, not the car, is usually the problem.",
+    "why": "Many cars check headlight bulbs by sending small pulses of power through them. Some LED and HID bulbs react to that with flicker, or set off a bulb-out warning. In that case the bulb, rather than the car, is often the issue.",
     "causes": [
      {
       "name": "Bulb not compatible with the car's bulb-check system",
@@ -347,7 +353,8 @@
     "now": "Check that the battery terminals are tight and clean, and have the battery and charging system tested when convenient.",
     "if": [
      "If the dip is getting bigger or the battery light flickers with it, get it tested within a few days.",
-     "If the engine stumbles or nearly stalls when the dip happens, get it checked within a day or two."
+     "If the engine stumbles or nearly stalls when the dip happens, get it checked within a day or two.",
+     "If the engine actually stalls, stop driving it until it's checked. Steering and braking take much more effort with the engine off."
     ],
     "why": "Big electrical loads, like the A/C fan or power windows, briefly pull extra power. A quick, small dip is normal on many cars. A deep or long dip means the battery, alternator or a connection is struggling to keep up.",
     "causes": [
@@ -382,14 +389,15 @@
   },
   "r_one_light": {
    "result": {
-    "title": "Usually a bulb on its way out, or a loose bulb connector",
+    "title": "Often a bulb on its way out, or a loose bulb connector",
     "urgency": "diy",
-    "now": "Check that the bulb's plug is firmly connected and replace the bulb. It's often best to replace both sides so they match.",
+    "now": "Check that the bulb's plug is firmly connected, then try a new bulb. It's often best to replace both sides so they match.",
     "if": [
      "If the new bulb also flickers or is dim, check the connector for melting or browning and have the wiring checked.",
-     "If the headlight is completely out, get it fixed promptly. Driving with one headlight is unsafe at night and can get you a ticket."
+     "If the headlight is completely out, get it fixed promptly. Driving with one headlight is unsafe at night and can get you a ticket.",
+     "If the connector or housing smells burnt, stop using that light and have the wiring checked."
     ],
-    "why": "When only one light is affected, the problem is almost always at that light: the bulb, its plug or its ground. Bulbs often dim or flicker before they burn out.",
+    "why": "When only one light is affected, the problem is usually at that light: the bulb, its plug or its ground. Bulbs often dim or flicker before they burn out.",
     "causes": [
      {
       "name": "Aging bulb",
@@ -421,12 +429,13 @@
   },
   "r_both_dim": {
    "result": {
-    "title": "Hazy lenses or aging bulbs are the most common reason",
+    "title": "Hazy lenses or aging bulbs are common reasons",
     "urgency": "diy",
-    "now": "Look at the headlight lenses. If they're yellow or cloudy, clean or restore them. If they're clear, replace both bulbs.",
+    "now": "Look at the headlight lenses. If they're yellow or cloudy, clean or restore them. If they're clear and the dash lights look normal, try new bulbs on both sides.",
     "if": [
      "If the dash lights are dim too, or the battery is slow to start the car, have the charging system tested.",
-     "If it's hard to see the road at night, fix it before driving after dark."
+     "If it's hard to see the road at night, fix it before driving after dark.",
+     "If the lights get dimmer while you drive or the battery light comes on, pull over when it's safe and have the charging system checked before driving further."
     ],
     "why": "Plastic headlight lenses yellow and cloud with age and sun, which blocks a lot of light. Bulbs also lose brightness over time. Both happen slowly, so you may not notice until it's quite bad.",
     "causes": [
@@ -461,14 +470,14 @@
   },
   "r_weak_battery": {
    "result": {
-    "title": "The battery is likely weak or not fully charged",
+    "title": "The battery may be weak or not fully charged",
     "urgency": "diy",
     "now": "Check that the battery terminals are tight and clean, then have the battery tested. Many auto parts stores do it free.",
     "if": [
      "If the car cranks slowly or won't start, try a jump start and get the battery and alternator tested soon.",
      "If the lights also dim while driving, the alternator may be the problem. Get it tested within a few days."
     ],
-    "why": "With the engine off, the lights run only on the battery. If they're dim then but bright once the engine is running, the battery is likely low or worn out.",
+    "why": "With the engine off, the lights run only on the battery. If they're dim then but bright once the engine is running, a low or worn battery is a common reason.",
     "causes": [
      {
       "name": "Aging or weak battery",
@@ -506,9 +515,10 @@
     "now": "Check that the battery terminals are tight and clean, then have the battery and charging system tested when convenient.",
     "if": [
      "If the battery light comes on or the lights keep getting dimmer, pull over and have it towed.",
-     "If only one light is affected, it's most likely the bulb or its connector."
+     "If only one light is affected, the bulb or its connector is a common cause.",
+     "If you smell burning or see smoke, turn the engine off and step away from the car."
     ],
-    "why": "Most dim or flickering light problems come from the battery, alternator, a loose connection or the bulbs themselves. A quick charging system test rules out the more serious causes.",
+    "why": "Most dim or flickering light problems come from the battery, alternator, a loose connection or the bulbs themselves. A charging system test is a quick way to check for the more serious causes first.",
     "causes": [
      {
       "name": "Charging system problem",

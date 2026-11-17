@@ -20,7 +20,7 @@
   "coolant or water leak",
   "ac dripping water under car"
  ],
- "intro": "Most of the time, clear water dripping under a car is normal condensation from the A/C or the exhaust. But coolant can look a lot like water, and a coolant leak can lead to overheating. A few quick questions will tell you which one you're dealing with and what to do.",
+ "intro": "Most of the time, clear water dripping under a car is normal condensation from the A/C or the exhaust. But coolant can look a lot like water, and a coolant leak can lead to overheating. A few quick questions will help you narrow down which one you're dealing with and what to do.",
  "safety": [
   "If the temperature gauge is in the red or you see steam from under the hood, pull over and turn off the engine.",
   "Never open the radiator or coolant cap while the engine is hot. The coolant is under pressure and can scald you.",
@@ -156,14 +156,15 @@
   },
   "r_overheating": {
    "result": {
-    "title": "The engine is overheating, and the liquid is probably coolant",
+    "title": "The engine may be overheating, and the liquid may be coolant",
     "urgency": "stop",
     "now": "Pull over safely, turn off the engine and don't drive it. Have it towed or have a mobile mechanic come to you.",
     "if": [
      "If you see steam, stay back and don't open the hood until it stops.",
-     "If you're still moving and need a few seconds to reach a safe place to stop, turn the heater on full blast. It pulls some heat away from the engine."
+     "If you're still moving and need a few seconds to reach a safe place to stop, turn the heater on full blast. It pulls some heat away from the engine.",
+     "If you see smoke rather than steam, or smell fuel or burning, move away from the car."
     ],
-    "why": "A high temperature reading along with dripping liquid usually means coolant is escaping. Driving an overheating engine can warp or crack expensive parts within minutes.",
+    "why": "A high temperature reading along with dripping liquid often means coolant is escaping. Driving an overheating engine can warp or crack expensive parts within minutes.",
     "causes": [
      {
       "name": "Leaking radiator or hose",
@@ -200,12 +201,13 @@
   },
   "r_ac_condensation": {
    "result": {
-    "title": "This is almost certainly normal A/C condensation",
+    "title": "This sounds like normal A/C condensation",
     "urgency": "diy",
-    "now": "Nothing to fix. Watch the temperature gauge and glance at the coolant tank once in a while to be sure.",
+    "now": "Clear, odorless water here is usually normal and needs no repair. To be sure, check the coolant tank when the engine is cold over the next week and keep an eye on the temperature gauge.",
     "if": [
-     "If the passenger floor gets wet inside the car, the A/C drain is probably blocked. Get it cleared.",
-     "If the A/C stops dripping on a hot, humid day but runs cold, the drain may be clogging. Watch for a damp carpet."
+     "If the passenger floor gets wet inside the car, the A/C drain may be blocked. Get it cleared.",
+     "If the A/C stops dripping on a hot, humid day but runs cold, the drain may be clogging. Watch for a damp carpet.",
+     "If the coolant level drops, the drip turns colored or sweet-smelling, or the temperature gauge rises, have the cooling system checked."
     ],
     "why": "The A/C pulls moisture out of the cabin air, and it drains out through a small tube under the car, usually near the front passenger footwell. On hot, humid days it can leave a surprisingly big puddle of plain water.",
     "causes": [
@@ -235,10 +237,11 @@
    "result": {
     "title": "Water from the tailpipe is usually normal condensation",
     "urgency": "diy",
-    "now": "No action needed. Keep an eye on your coolant level and the temperature gauge for the next few weeks.",
+    "now": "This is usually normal. Keep an eye on your coolant level and the temperature gauge for the next few weeks to be sure.",
     "if": [
      "If the white smoke doesn't clear after the engine is fully warm, or it smells sweet, have the cooling system checked soon.",
-     "If the coolant level keeps dropping with no visible leak, get it checked within a few days."
+     "If the coolant level keeps dropping with no visible leak, get it checked within a few days.",
+     "If the temperature gauge rises above normal, or you see steam, pull over and turn off the engine."
     ],
     "why": "Burning fuel makes water vapor. On cold starts and short trips it condenses inside the exhaust and drips out the tailpipe. Once the exhaust heats up, it should dry out.",
     "causes": [
@@ -250,7 +253,7 @@
      {
       "name": "Coolant getting into the engine",
       "clues": "Thick white smoke that stays when warm, a sweet smell, and a dropping coolant level.",
-      "against": "If the coolant level stays steady, this is unlikely."
+      "against": "If the coolant level stays steady, this is less likely."
      }
     ],
     "confirm": {
@@ -272,9 +275,9 @@
     "now": "Stop driving it. Once the engine is cold, check the coolant tank level, then have it towed or have a mobile mechanic check it.",
     "if": [
      "If the temperature gauge rises at all, shut the engine off right away.",
-     "If the engine oil on the dipstick looks milky, like chocolate milk, coolant is mixing with the oil. Don't start it again."
+     "If the engine oil on the dipstick looks milky, like chocolate milk, coolant may be mixing with the oil. Don't start it again."
     ],
-    "why": "Thick, sweet-smelling white smoke that doesn't clear means coolant is getting into the cylinders and burning. That usually points to a head gasket or cracked part, and driving on it can overheat the engine and cause major damage.",
+    "why": "Thick, sweet-smelling white smoke that doesn't clear often means coolant is getting into the cylinders and burning. That can point to a head gasket or cracked part, which a shop will confirm with tests before any repair, and driving on it can overheat the engine and cause major damage.",
     "causes": [
      {
       "name": "Blown head gasket",
@@ -307,12 +310,13 @@
   },
   "r_clear_water": {
    "result": {
-    "title": "Clear, odorless water is most likely condensation or rain runoff",
+    "title": "Clear, odorless water is often condensation or rain runoff",
     "urgency": "diy",
-    "now": "Check the coolant tank level when the engine is cold. If it's between the marks, this water is very likely harmless.",
+    "now": "Check the coolant tank level when the engine is cold. If it's between the marks and stays there over the next few days, this water is most often condensation or runoff.",
     "if": [
      "If the coolant level drops over the next week, the drip may be watered-down coolant. Have the cooling system checked.",
-     "If water also shows up inside the car, check our guide to water leaking inside the car."
+     "If water also shows up inside the car, check our guide to water leaking inside the car.",
+     "If the temperature gauge rises above normal, or you see steam, pull over and turn off the engine."
     ],
     "why": "Plain water with no color, smell or slickness is usually A/C condensation or rain and wash water dripping off the body. Coolant mixed with a lot of water can look clear, though, so the coolant level is the real test.",
     "causes": [
@@ -345,11 +349,11 @@
   },
   "r_washer_fluid": {
    "result": {
-    "title": "It's most likely windshield washer fluid",
+    "title": "It looks like windshield washer fluid",
     "urgency": "diy",
     "now": "Check the washer fluid tank and its hoses for cracks or a loose connection. Refill it and see if the level drops.",
     "if": [
-     "If the washer fluid empties quickly, the tank, pump or a hose is likely cracked. Get it fixed so you're not left without washers in bad weather.",
+     "If the washer fluid empties quickly, the tank, pump or a hose may be cracked. Get it fixed so you're not left without washers in bad weather.",
      "If the fluid looks green or orange and smells sweet rather than like glass cleaner, it may be coolant. Check the coolant level."
     ],
     "why": "Washer fluid is usually bright blue and smells like glass cleaner. Its tank sits near the front of the car, and cracked tanks or loose hoses are common.",
@@ -384,13 +388,16 @@
   "r_not_water": {
    "result": {
     "title": "If it's oily, it isn't water. Another fluid is leaking",
-    "urgency": "check",
-    "now": "Note the color on the paper towel, then check your engine oil, brake fluid, transmission and power steering fluid levels.",
+    "urgency": "soon",
+    "now": "Note the color on the paper towel and where it drips, then check your engine oil, brake fluid, transmission and power steering fluid levels. Have the leak identified within a day or two.",
     "if": [
+     "If the drip is near a wheel, or it's clear to yellowish and slick, it could be brake fluid. Don't drive it until it's been inspected, even if the brake fluid level looks OK.",
      "If the brake fluid level is low or the brake pedal feels soft, don't drive it. Have it towed.",
-     "If it's leaking fast enough to leave a puddle bigger than a plate overnight, get it checked within a day or two."
+     "If you can't tell what it is, or it leaves a puddle bigger than a plate overnight, have it inspected before driving much.",
+     "If it smells like gasoline, don't start the engine. Keep sparks and flames away and have it towed.",
+     "If a warning light comes on or the steering feels heavy, pull over and have it checked before driving further."
     ],
-    "why": "Water doesn't feel slick. An oily liquid means engine oil, transmission fluid, power steering fluid or brake fluid. The color and where it drips usually tell you which.",
+    "why": "Water doesn't feel slick. An oily liquid means engine oil, transmission fluid, power steering fluid or brake fluid. The color and where it drips help narrow it down, and a shop can confirm it.",
     "causes": [
      {
       "name": "Engine oil",
@@ -427,9 +434,10 @@
     "now": "When the engine is cold, look at the coolant overflow tank and note where the level sits. Check it again in a few days.",
     "if": [
      "If the level drops, have the cooling system checked within a few days.",
-     "If the temperature gauge ever climbs above normal, pull over and turn off the engine."
+     "If the temperature gauge ever climbs above normal, pull over and turn off the engine.",
+     "If you see steam or smell something sweet, stop the engine and have it checked before driving further."
     ],
-    "why": "Most clear drips are harmless condensation, but a slow coolant leak can look similar. A dropping coolant level is the simplest way to tell them apart.",
+    "why": "Most clear drips turn out to be condensation, but a slow coolant leak can look similar. A dropping coolant level is the simplest way to tell them apart.",
     "causes": [
      {
       "name": "A/C or exhaust condensation",
@@ -455,14 +463,15 @@
   },
   "r_coolant_seep": {
    "result": {
-    "title": "A small coolant seep, most likely from a hose, clamp or the radiator",
+    "title": "This sounds like a small coolant seep, often from a hose, clamp or the radiator",
     "urgency": "check",
     "now": "Check the coolant level when cold every few days, top it up with the type in your owner's manual if needed, and book a check.",
     "if": [
      "If the level keeps dropping or the drips get bigger, get it checked within a few days.",
-     "If the temperature gauge rises above normal, pull over and turn off the engine."
+     "If the temperature gauge rises above normal, pull over and turn off the engine.",
+     "If you see steam, white smoke from the exhaust, or smell coolant inside the car, have it checked before driving further."
     ],
-    "why": "A few drops with a steady level means a slow seep. It's not urgent yet, but cooling system leaks tend to grow, and running low on coolant leads to overheating.",
+    "why": "A few drops with a steady level means a slow seep. If the level holds steady it can usually wait for a booked check, but cooling system leaks tend to grow, and running low on coolant leads to overheating.",
     "causes": [
      {
       "name": "Loose clamp or aging hose",
@@ -494,12 +503,12 @@
   },
   "r_coolant_leak": {
    "result": {
-    "title": "An active coolant leak that needs fixing soon",
+    "title": "An active coolant leak that needs checking soon",
     "urgency": "soon",
-    "now": "When the engine is cold, top up the coolant to the full mark with the type in your owner's manual and get it checked within a few days. Keep trips short and watch the gauge.",
+    "now": "When the engine is cold, top up the coolant to the full mark with the type in your owner's manual. Limit driving to what's necessary, watch the temperature gauge closely, and get it checked within a few days. If you can't top it up, don't drive it.",
     "if": [
-     "If the temperature gauge rises above normal, pull over and turn off the engine.",
-     "If the level drops a lot after one short trip, don't drive it. Have it towed."
+     "If the temperature gauge rises above normal or you see steam, pull over and turn off the engine. Don't restart it.",
+     "If the level drops a lot after one short trip, or you see a stream rather than drips, don't drive it. Have it towed."
     ],
     "why": "A steady drip or a low tank means the engine is losing coolant faster than is safe. Without enough coolant it will overheat, which can cause serious engine damage.",
     "causes": [
@@ -538,7 +547,8 @@
     "urgency": "stop",
     "now": "Don't drive it. Have it towed or have a mobile mechanic come to you.",
     "if": [
-     "If you see steam, stay back and don't open the hood or the coolant cap until it has fully cooled."
+     "If you see steam, stay back and don't open the hood or the coolant cap until it has fully cooled.",
+     "If the temperature gauge was in the red before you stopped, tell the shop. They may want to check for overheating damage."
     ],
     "why": "With coolant pouring out or the tank empty, the engine has nothing to carry heat away. Running it, even briefly, risks warping or cracking engine parts.",
     "causes": [

@@ -122,12 +122,13 @@
   },
   "r_active_leak": {
    "result": {
-    "title": "Fuel is leaking from the car. This is a fire risk",
+    "title": "Fuel may be leaking from the car. This is a fire risk",
     "urgency": "stop",
     "now": "Don't start the engine. Keep sparks, cigarettes and flames away, and have the car towed to a shop.",
     "if": [
      "If the car is in a garage, open the garage door to air it out, but don't run the engine or flip electrical switches nearby.",
-     "If the leak is large or fuel is spreading, move everyone away and call 911."
+     "If the leak is large or fuel is spreading, move everyone away and call 911.",
+     "If you see smoke or flames, get everyone away from the car and call 911."
     ],
     "why": "Liquid gasoline gives off vapor that can ignite from a spark or a hot exhaust. A leak that drips while parked will usually get worse when the fuel system is under pressure with the engine running.",
     "causes": [
@@ -159,14 +160,15 @@
   },
   "r_cabin_fuel": {
    "result": {
-    "title": "Fuel vapor is getting into the cabin, likely from a leak",
+    "title": "Fuel vapor is getting into the cabin, possibly from a leak",
     "urgency": "stop",
     "now": "Pull over as soon as it's safe, turn off the engine, get out and open the doors. Have the car towed or call a mobile mechanic.",
     "if": [
-     "If you're carrying a gas can or gas-powered equipment, check it for leaks first. If that's the source, remove it and air the car out.",
-     "If anyone feels dizzy, sick or has a headache, get them into fresh air and seek medical help if it doesn't clear quickly."
+     "If you're carrying a gas can or gas-powered equipment, check it for leaks first. If that's the source, remove it and air the car out. If the smell doesn't fully clear, don't drive it until it's checked.",
+     "If anyone feels dizzy, sick or has a headache, get them into fresh air and seek medical help if it doesn't clear quickly.",
+     "If you see smoke or flames, get everyone away from the car and call 911."
     ],
-    "why": "A strong gas smell inside means fuel vapor is building up where you're breathing and close to electrical parts. The usual source is a leak in the engine bay that gets pulled in through the vents, or a leak near the fuel pump access under the rear seat.",
+    "why": "A strong gas smell inside means fuel vapor is building up where you're breathing and close to electrical parts. Common sources are a leak in the engine bay that gets pulled in through the vents, or a leak near the fuel pump access under the rear seat.",
     "causes": [
      {
       "name": "Leaking fuel injector seal or fuel line in the engine bay",
@@ -198,12 +200,13 @@
   },
   "r_gas_cap": {
    "result": {
-    "title": "A loose or worn gas cap is the most likely cause",
+    "title": "A loose or worn gas cap is a common cause",
     "urgency": "diy",
     "now": "Take the gas cap off and put it back on until it clicks. Check the rubber seal for cracks and replace the cap if it's damaged.",
     "if": [
      "If the check engine light came on, it can take several days of driving to turn off after the cap is fixed.",
-     "If the smell or the light continues after a week with a good cap, have the fuel vapor (EVAP) system checked."
+     "If the smell or the light continues after a week with a good cap, have the fuel vapor (EVAP) system checked.",
+     "If the smell is strong inside the car, or you see drips or a wet spot under it, don't drive it. Have it checked first."
     ],
     "why": "The gas cap seals in fuel vapor. If it isn't tight or its seal is worn, vapor escapes and you smell gas around the car, and the car's leak check may turn on the check engine light. Capless fillers can be blocked open by dirt in the same way.",
     "causes": [
@@ -239,12 +242,13 @@
   },
   "r_spilled": {
    "result": {
-    "title": "Spilled fuel is likely the source",
+    "title": "Spilled fuel may be the source",
     "urgency": "diy",
-    "now": "Wipe off any fuel on the paint, wash it off shoes or clothes, and air the car out. The smell should fade within a few hours.",
+    "now": "Wipe off any fuel on the paint, wash it off shoes or clothes, and air the car out. If spilled fuel is the cause, the smell usually fades within a few hours.",
     "if": [
      "If the smell is still strong the next day, look under the car for wet spots and have it checked if you find any.",
-     "If fuel soaked into the carpet, clean it right away and keep the windows open. Don't smoke in the car."
+     "If fuel soaked into the carpet, clean it right away and keep the windows open. Don't smoke in the car.",
+     "If anyone feels dizzy, sick or gets a headache from the smell, get them into fresh air and air the car out before driving it."
     ],
     "why": "Even a small splash of gasoline smells strong until it evaporates. Fuel on shoes, clothes or the car's paint near the filler can make it seem like the car is leaking.",
     "causes": [
@@ -261,7 +265,7 @@
      {
       "name": "A fuel leak instead",
       "clues": "The smell doesn't fade, or there are wet spots under the car.",
-      "against": "If it fades within a few hours, a leak is unlikely."
+      "against": "If it fades within a few hours, a leak is less likely."
      }
     ],
     "confirm": {
@@ -282,8 +286,8 @@
     "urgency": "check",
     "now": "Fill slowly with the nozzle on its lowest setting, stop at the first click, and book a check of the fuel vapor (EVAP) system when convenient.",
     "if": [
-     "If fuel overflows from the filler or drips under the car, have it checked within a few days.",
-     "If the gas smell is strong when driving, pull over and stop driving it."
+     "If fuel spits back out of the filler, stop filling and wipe up the spill. If fuel drips under the car when you're not filling up, don't start it. Have it towed.",
+     "If the gas smell is strong inside the car while driving, pull over, turn off the engine and air it out. Don't drive it until it's checked."
     ],
     "why": "As fuel goes in, the air and vapor in the tank must escape through the vapor system. If a vent valve or the charcoal canister is clogged, the vapor can't get out, so the pump keeps shutting off and fuel can spit back out of the filler.",
     "causes": [
@@ -318,14 +322,15 @@
   },
   "r_filler_tank_leak": {
    "result": {
-    "title": "The fuel filler neck or tank may be leaking",
-    "urgency": "soon",
-    "now": "Avoid filling the tank more than half full, keep the car parked outdoors, and have it checked within a few days.",
+    "title": "The fuel filler neck or tank may be leaking. This can be a fire risk",
+    "urgency": "stop",
+    "now": "Avoid driving the car until the leak is found. Park it outdoors away from buildings, keep sparks and flames away, and have a mobile mechanic inspect it or have it towed to a shop.",
     "if": [
-     "If fuel drips or forms a wet spot under the car, don't drive it. Have it towed.",
-     "If the smell gets strong inside the car, stop driving and air it out."
+     "If fuel is dripping or pooling, move everyone away and call the fire department.",
+     "Don't fill the tank again until it's been checked. A fuller tank can push more fuel out of a damaged filler or fitting.",
+     "If you see smoke or flames, get everyone away from the car and call 911."
     ],
-    "why": "A smell that lingers long after filling usually means fuel or vapor is escaping near the top of the tank or from the filler pipe. These leaks often show up only when the tank is full, because that's when fuel reaches the damaged spot.",
+    "why": "A smell that lingers long after filling can mean fuel or vapor is escaping near the top of the tank or from the filler pipe. These leaks often show up only when the tank is full, because that's when fuel reaches the damaged spot.",
     "causes": [
      {
       "name": "Rusted or cracked filler neck",
@@ -357,12 +362,13 @@
   },
   "r_evap_leak": {
    "result": {
-    "title": "The fuel vapor (EVAP) system probably has a leak",
+    "title": "The fuel vapor (EVAP) system may have a leak",
     "urgency": "soon",
     "now": "Check that the gas cap clicks tight, then have the check engine code read and the car checked within a few days.",
     "if": [
      "If you see liquid fuel dripping, don't drive it. Have it towed.",
-     "If the light is flashing or the engine runs rough, pull over and turn it off."
+     "If the light is flashing or the engine runs rough, pull over and turn it off.",
+     "If the smell gets strong, especially inside the car, pull over, turn off the engine and air it out. Don't drive it until it's checked."
     ],
     "why": "Cars trap gas vapor from the tank in a charcoal canister and burn it in the engine later. If a hose, valve or seal in that system leaks, vapor escapes and the car's self-test turns on the check engine light. A code scan narrows down which part.",
     "causes": [
@@ -402,7 +408,8 @@
     "now": "Note how long the smell lasts after starting and mention it at your next service, or book a check when convenient if it's getting stronger.",
     "if": [
      "If the smell lasts after the engine warms up, or you see black smoke, have it checked within a few days.",
-     "If the check engine light comes on or the engine runs rough, get it checked soon."
+     "If the check engine light comes on or the engine runs rough, get it checked soon.",
+     "If you smell raw fuel under the hood or under the car, not just at the tailpipe, don't drive it until it's checked."
     ],
     "why": "A cold engine needs extra fuel, and the catalytic converter doesn't clean the exhaust until it heats up. That can leave a faint gas smell at the tailpipe for a minute or two. If the engine keeps running rich once warm, something is off with the fuel mixture.",
     "causes": [
@@ -437,14 +444,15 @@
   },
   "r_small_leak": {
    "result": {
-    "title": "There may be a small fuel or vapor leak. Have it found soon",
-    "urgency": "soon",
-    "now": "Park outdoors, keep flames and sparks away, and have the fuel system inspected within a few days.",
+    "title": "There may be a small fuel or vapor leak. Have it found before driving",
+    "urgency": "stop",
+    "now": "Avoid driving the car until the source is found. Park it outdoors away from buildings, keep sparks and flames away, and have a mobile mechanic inspect it or have it towed to a shop.",
     "if": [
-     "If you find drips or wet spots, or the smell gets stronger, don't drive it. Have it towed.",
-     "If the smell gets into the cabin while driving, pull over, turn off the engine and air it out."
+     "If you find drips or wet spots, keep everyone away from the car and keep flames and sparks away.",
+     "If the smell is strong inside the car, open the doors and air it out without starting the engine.",
+     "If you see smoke or flames, get everyone away from the car and call 911."
     ],
-    "why": "A gas smell with no visible puddle often comes from a small seep that evaporates before it drips, or from a vapor hose. Small fuel leaks rarely fix themselves and can grow, so it's worth finding the source early.",
+    "why": "A gas smell with no visible puddle can come from a small seep that evaporates before it drips, or from a vapor hose. Small fuel leaks rarely fix themselves and can grow, and not seeing a drip doesn't rule out fuel reaching hot engine parts.",
     "causes": [
      {
       "name": "Fuel injector seal or fuel rail seep",

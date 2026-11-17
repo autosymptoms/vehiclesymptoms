@@ -21,9 +21,9 @@
   "steering tight and hard",
   "eps light and heavy steering"
  ],
- "intro": "Power steering is what makes the wheel easy to turn. When it suddenly feels heavy, the assist has usually dropped out, and how it happened tells you a lot about why. Answer the questions below to find the likely cause and whether the car is safe to keep using.",
+ "intro": "Power steering is what makes the wheel easy to turn. When it suddenly feels heavy, the assist has usually dropped out, and how it happened tells you a lot about why. Answer the questions below to narrow down possible causes and how urgently to get it looked at.",
  "safety": [
-  "If the steering suddenly goes heavy while driving, grip the wheel firmly with both hands, slow down gradually, and pull over when it's safe. You can still steer, it just takes much more effort.",
+  "If the steering suddenly goes heavy while driving, grip the wheel firmly with both hands, slow down gradually, and pull over when it's safe. Steering usually still works without assist, but it can take much more effort.",
   "If the temperature gauge climbs toward the red at the same time, pull over and turn off the engine. A broken belt can stop the cooling system too.",
   "If you smell burning fluid or see smoke from under the hood, turn off the engine and step away from the car."
  ],
@@ -146,11 +146,11 @@
   },
   "r_engine_off": {
    "result": {
-    "title": "The engine stopping cut your power steering. The stall is the real problem",
+    "title": "The engine stopping cut your power steering. The stall is likely the main problem",
     "urgency": "stop",
     "now": "Get the car somewhere safe and don't use it until the stalling is diagnosed. Have it towed or call a mobile mechanic.",
     "if": [
-     "If it restarts and the steering feels normal again, that confirms the steering itself is fine, but the stalling still makes the car unsafe in traffic.",
+     "If it restarts and the steering feels normal again, the stall is the more likely cause, but have both checked. The stalling alone makes the car unsafe in traffic.",
      "If it won't restart, follow our car won't start guide while you wait for help."
     ],
     "why": "Power steering only works while the engine is running (or, on electric systems, while the car is fully on). When the engine dies, steering and brakes both get much heavier. Fixing the stall fixes the steering.",
@@ -186,12 +186,13 @@
   },
   "r_belt": {
    "result": {
-    "title": "The accessory belt has probably slipped off or broken",
+    "title": "The accessory belt may have slipped off or broken",
     "urgency": "stop",
     "now": "Turn off the engine and don't run it again until the belt is checked. Have it towed or call a mobile mechanic.",
     "if": [
-     "If the temperature gauge was rising, the belt likely drives the water pump too. Running the engine could overheat it badly.",
-     "If the belt is in place but badly glazed or cracked and squealing, it may be slipping. It still needs replacing before the car is used."
+     "If the temperature gauge was rising, the belt may drive the water pump too. Running the engine could overheat it badly.",
+     "If the belt is in place but badly glazed or cracked and squealing, it may be slipping. Have it checked before the car is used; a shop will usually check the tensioner and pulleys at the same time.",
+     "If you smell burning rubber or see smoke from the front of the engine, turn it off and step away from the car."
     ],
     "why": "On many cars one belt drives the power steering pump, the alternator and often the water pump. When it breaks, you lose steering assist, the battery stops charging, and the engine can overheat within minutes.",
     "causes": [
@@ -225,12 +226,13 @@
   },
   "r_eps_fault": {
    "result": {
-    "title": "The electric power steering system has likely shut off its assist",
+    "title": "The electric power steering system may have shut off its assist",
     "urgency": "stop",
     "now": "Once you're safely parked, turn the car off for a minute and restart. If the warning stays on or the steering is still heavy, have it towed or call a mobile mechanic.",
     "if": [
      "If the warning clears after a restart and steering feels normal, don't assume it's fixed. Have the stored fault code read before relying on the car.",
-     "If the battery light is also on, low voltage may be shutting the steering off. The charging system needs checking."
+     "If the battery light is also on, low voltage may be shutting the steering off. The charging system needs checking.",
+     "If the assist drops out again while you're driving, grip the wheel firmly, slow down gradually and pull over when it's safe."
     ],
     "why": "Electric power steering uses a motor to help you turn. When it detects a fault or low voltage, it shuts the assist off, and the wheel suddenly takes much more effort. It can come back and fail again without warning.",
     "causes": [
@@ -265,14 +267,15 @@
   },
   "r_fluid_leak": {
    "result": {
-    "title": "Low power steering fluid from a leak is the likely cause",
-    "urgency": "soon",
-    "now": "Don't drive it until you've topped up the reservoir with the fluid type in your owner's manual. If steering then feels normal, get the leak fixed within a few days.",
+    "title": "Low power steering fluid from a leak is a possible cause",
+    "urgency": "stop",
+    "now": "Don't use the car until the leak has been looked at. Topping up with the fluid type in your owner's manual may bring the assist back for a while, but a leak big enough to drop the assist suddenly can do it again. Have it towed or call a mobile mechanic.",
     "if": [
-     "If the level drops again after a short trip, or you see fluid spraying or smoke, don't drive it. Have it towed.",
-     "If the pump whines loudly even after topping up, it may already be damaged. Get it checked within a day or two."
+     "If you see fluid spraying, smell burning fluid or see smoke from under the hood, turn off the engine and step away from the car.",
+     "If the pump whines loudly even after topping up, it may already be damaged. Tell the shop.",
+     "If the steering ever binds or catches as you turn, keep the car parked."
     ],
-    "why": "The power steering pump needs fluid to create pressure. When the level drops, assist fades, and running the pump low can damage it. Topping up can buy time, but a leak always comes back.",
+    "why": "The power steering pump needs fluid to create pressure. When the level drops, assist fades, and running the pump low can damage it. Topping up can buy time, but a leak usually comes back, and power steering fluid dripping onto hot engine parts can burn.",
     "causes": [
      {
       "name": "Leaking power steering hose",
@@ -305,14 +308,14 @@
   },
   "r_pump_or_rack": {
    "result": {
-    "title": "The power steering pump or steering rack has likely stopped working",
+    "title": "The power steering pump, belt or steering rack may not be providing assist",
     "urgency": "stop",
     "now": "Don't use the car until it's diagnosed. Have it towed or call a mobile mechanic.",
     "if": [
-     "If the belt at the front of the engine is missing or loose, the belt is the problem, not the pump.",
-     "If the steering also binds or catches, it's a more serious steering fault. Keep the car parked."
+     "If the belt at the front of the engine is missing or loose, the belt is the more likely cause. Tell the shop what you saw.",
+     "If the steering also binds or catches, it may be a more serious steering fault. Keep the car parked."
     ],
-    "why": "If the fluid is full but the assist suddenly disappeared, the pump isn't making pressure or the rack isn't using it. You can still steer, but much more effort is needed, which is dangerous in an emergency move.",
+    "why": "If the fluid is full but the assist suddenly disappeared, the pump may not be making pressure or the rack may not be using it. Steering usually still works, but it takes much more effort, which is dangerous in an emergency move.",
     "causes": [
      {
       "name": "Failed power steering pump",
@@ -348,8 +351,8 @@
     "urgency": "stop",
     "now": "Keep the car parked and have it towed or call a mobile mechanic to find the cause.",
     "if": [
-     "If the temperature gauge rose or the battery light came on, a broken belt is likely. Don't run the engine.",
-     "If a restart brings the steering back to normal, still have the fault diagnosed. It is likely to happen again."
+     "If the temperature gauge rose or the battery light came on, a broken belt is a strong possibility. Don't run the engine.",
+     "If a restart brings the steering back to normal, still have the fault diagnosed. It may happen again."
     ],
     "why": "When steering assist drops out suddenly, the cause is usually a failure, not wear, and it can happen again at a bad moment. Without assist, quick steering moves take much more strength.",
     "causes": [
@@ -384,14 +387,15 @@
   },
   "r_pump_low_fluid": {
    "result": {
-    "title": "A whining pump usually means low fluid or a pump that's wearing out",
+    "title": "A whining pump often means low fluid or a pump that's wearing out",
     "urgency": "soon",
-    "now": "Check the power steering fluid level and top it up with the type in your owner's manual. Have the system checked within a few days.",
+    "now": "Check the power steering fluid level with the engine off. If it's low, top it up with the type in your owner's manual and have the system checked within a few days. If the reservoir is empty, have it inspected before driving.",
     "if": [
-     "If the fluid was low, there's a leak. Find it before the pump is damaged.",
-     "If the steering suddenly gets much heavier, stop driving and have it towed."
+     "If the fluid was low, there may be a leak. Ask the shop to find it before the pump is damaged.",
+     "If the steering suddenly gets much heavier, binds, or a steering warning light comes on, stop driving and have it towed.",
+     "If you see fluid spraying or smell burning fluid, turn off the engine and step away from the car."
     ],
-    "why": "A whine or groan when turning means the pump is struggling, often because it's drawing in air from low fluid. Left alone, it can wear out the pump and leave you with no assist.",
+    "why": "A whine or groan when turning often means the pump is struggling, sometimes because it's drawing in air from low fluid. Left alone, it can wear out the pump and leave you with no assist.",
     "causes": [
      {
       "name": "Low power steering fluid",
@@ -429,9 +433,10 @@
     "now": "Check the tire pressures when cold and set them to the numbers on the driver's door jamb sticker.",
     "if": [
      "If a tire keeps losing air, have it repaired soon.",
-     "If steering is still heavy with correct pressures, have the steering system checked."
+     "If steering is still heavy with correct pressures, have the steering system checked.",
+     "If the steering suddenly becomes much heavier, binds, or a steering warning light comes on, stop driving and have it checked before going further."
     ],
-    "why": "Underinflated tires put more rubber on the road, which makes the wheel harder to turn, especially when parking. It's quick to check and fix.",
+    "why": "Underinflated tires put more rubber on the road, which makes the wheel harder to turn, especially when parking. Pressure is quick to check, but it may not be the only cause.",
     "causes": [
      {
       "name": "Low tire pressure",
@@ -468,9 +473,10 @@
     "now": "Have the front suspension and steering inspected within the next few days.",
     "if": [
      "If you hear a loud clunk and the steering suddenly feels loose or different, stop driving it and have it towed. A failing ball joint can let a wheel collapse.",
-     "If the noise only happens on cold mornings and goes away, it may be strut mounts. Still have it checked."
+     "If the noise only happens on cold mornings and goes away, it may be strut mounts. Still have it checked.",
+     "If the steering binds, sticks at certain points or doesn't return to center, keep the car parked until it's inspected."
     ],
-    "why": "Ball joints, tie rod ends and strut mounts let the wheels turn smoothly. When they wear out or lose their grease, they bind and creak, which makes steering feel stiff and can lead to a part failing.",
+    "why": "Ball joints, tie rod ends and strut mounts let the wheels turn smoothly. When they wear out or lose their grease, they can bind and creak, which makes steering feel stiff and can lead to a part failing. A shop will usually check for play in each joint before deciding which part needs work.",
     "causes": [
      {
       "name": "Worn or dry ball joints",
@@ -502,14 +508,15 @@
   },
   "r_rack_or_front_end": {
    "result": {
-    "title": "The power steering system or front end is likely wearing",
+    "title": "Wear in the power steering system or front end is a possible cause",
     "urgency": "check",
     "now": "Check the tire pressures and power steering fluid (if your car has it), then book a steering inspection.",
     "if": [
      "If the steering suddenly becomes much heavier or a steering warning light comes on, stop driving and have it towed.",
-     "If you start to hear whining or clunking, get it checked within a few days."
+     "If you start to hear whining or clunking, get it checked within a few days.",
+     "If the steering binds, sticks or feels loose, stop driving and have it inspected first."
     ],
-    "why": "Steering that slowly gets heavier usually comes from wear rather than a sudden failure: low tire pressure, a tired pump, worn joints or a steering rack losing efficiency. A shop can narrow it down quickly.",
+    "why": "Steering that slowly gets heavier often comes from wear rather than a sudden failure: low tire pressure, a tired pump, worn joints or a steering rack losing efficiency. A shop can test each of these to narrow it down.",
     "causes": [
      {
       "name": "Low tire pressure",
@@ -583,7 +590,8 @@
     "now": "Check the power steering fluid level and color if your car has a reservoir, and book a check when convenient.",
     "if": [
      "If the stiffness lasts longer each day or you hear whining, get it checked within a few days.",
-     "If a steering warning light comes on, have it checked before driving further."
+     "If a steering warning light comes on, have it checked before driving further.",
+     "If the steering stays heavy after the engine is warm, or it binds or suddenly gets heavier while driving, stop and have it checked before driving further."
     ],
     "why": "Power steering fluid thickens in the cold. Old or low fluid, or a pump that's wearing, may not keep up until things warm up. On electric systems, a weak battery on cold mornings can do the same.",
     "causes": [

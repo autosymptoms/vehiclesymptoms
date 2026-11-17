@@ -20,7 +20,7 @@
   "brake light flashing on dash",
   "is it safe to drive with brake light on"
  ],
- "intro": "The red BRAKE light (often the word BRAKE or an exclamation mark in a circle) is one of the most important lights on the dash. Sometimes it's just the parking brake, but it can also mean low brake fluid or a fault in the braking system. A few quick checks tell you which.",
+ "intro": "The red BRAKE light (often the word BRAKE or an exclamation mark in a circle) is one of the most important lights on the dash. Sometimes it's just the parking brake, but it can also mean low brake fluid or a fault in the braking system. A few quick checks help narrow down which, but only an inspection can confirm it.",
  "safety": [
   "If the brake pedal feels soft, sinks toward the floor, or the car is slow to stop, pull over safely and don't drive on.",
   "If you see clear to brownish oily fluid near a wheel or under the car by the pedal area, don't drive it.",
@@ -123,14 +123,14 @@
   },
   "r_hydraulic": {
    "result": {
-    "title": "The brakes are losing pressure. This is a safety problem",
+    "title": "The brakes may be losing pressure. This is a safety problem",
     "urgency": "stop",
     "now": "Don't drive it. Have the car towed or have a mobile mechanic inspect the brakes where it is.",
     "if": [
      "If you're on the road now, slow down gently, shift to a lower gear, and use the parking brake gradually if the pedal won't stop you. Pull over somewhere safe.",
      "If you see fluid dripping, tell the tow or repair service so they bring the right parts."
     ],
-    "why": "A red brake light with a soft or sinking pedal means the hydraulic system can't build normal pressure. That usually comes from a fluid leak or a failing master cylinder, and braking can get worse without warning.",
+    "why": "A red brake light with a soft or sinking pedal usually means the hydraulic system can't build normal pressure. That often comes from a fluid leak or a master cylinder problem, and braking can get worse without warning.",
     "causes": [
      {
       "name": "Brake fluid leak",
@@ -138,7 +138,7 @@
       "against": ""
      },
      {
-      "name": "Failing master cylinder",
+      "name": "Master cylinder problem",
       "clues": "The pedal slowly sinks under steady pressure with no visible leak.",
       "against": ""
      },
@@ -161,12 +161,13 @@
   },
   "r_parking_brake": {
    "result": {
-    "title": "Most likely the parking brake isn't fully released",
+    "title": "Often this is a parking brake that isn't fully released",
     "urgency": "diy",
     "now": "Release the parking brake all the way. Push a lever fully down, press a foot pedal to release it, or press the electric button with your foot on the brake. Then check that the light goes out.",
     "if": [
      "If the light stays on with the parking brake fully off, check the brake fluid level next.",
-     "If you drove a long way with the parking brake on and smell burning, let the rear brakes cool and have them checked soon."
+     "If you drove a long way with the parking brake on and smell burning or see smoke from a rear wheel, pull over, let the brakes cool, and have them checked before driving further.",
+     "If the pedal feels soft or sinks, the car is slow to stop or pulls to one side, or you smell burning from a wheel, don't drive it until the brakes are checked."
     ],
     "why": "The same red light shows when the parking brake is on, and a lever pulled up just one click can be enough to turn it on. It's the most common reason for this light and the simplest to fix.",
     "causes": [
@@ -176,7 +177,7 @@
       "against": "If it stays on with the brake fully released, look elsewhere."
      },
      {
-      "name": "Sticky parking brake switch",
+      "name": "Parking brake switch sticking",
       "clues": "The light flickers when you jiggle the lever or pedal.",
       "against": ""
      },
@@ -200,14 +201,15 @@
   },
   "r_epb_fault": {
    "result": {
-    "title": "The electric parking brake has a fault",
+    "title": "The electric parking brake may have a fault",
     "urgency": "soon",
     "now": "Get the electric parking brake checked within a few days. When you park, use Park (or leave it in gear on a manual) and turn the wheels toward the curb on a slope.",
     "if": [
-     "If the parking brake won't release, or the car feels like it's dragging, don't drive it. Have it towed or call a mobile mechanic.",
-     "If the light came on right after a battery was replaced or jumped, restart the car once. Some systems need a moment to reset."
+     "If the parking brake won't release, the car feels like it's dragging, or you smell burning from a rear wheel, don't drive it. Have it towed or call a mobile mechanic.",
+     "If the light came on right after a battery was replaced or jumped, restart the car once. Some systems need a moment to reset.",
+     "If the pedal feels soft or sinks, the car is slow to stop or pulls to one side, or you smell burning from a wheel, don't drive it until the brakes are checked."
     ],
-    "why": "Cars with a parking brake button often flash the red brake light or show a message when the electric parking brake has a fault. The regular brakes usually still work, but the parking brake may not hold the car or may not release properly.",
+    "why": "Cars with a parking brake button often flash the red brake light or show a message when the electric parking brake has a fault. The regular brakes work separately, but the parking brake may not hold the car or may not release properly, so have the whole brake system checked.",
     "causes": [
      {
       "name": "Parking brake motor or caliper fault",
@@ -240,13 +242,13 @@
   },
   "r_leak": {
    "result": {
-    "title": "Brake fluid is leaking. The brakes could fail",
+    "title": "Brake fluid may be leaking. The brakes could fail",
     "urgency": "stop",
     "now": "Don't drive it, even after topping up the fluid. Have it towed or have a mobile mechanic come to you.",
     "if": [
      "If you must move the car a few feet out of danger, do it very slowly and test the brakes first."
     ],
-    "why": "Low fluid plus a visible leak means the brake system is losing the fluid it needs to stop the car. Topping it up only hides the problem, and the leak can get worse suddenly.",
+    "why": "Low fluid plus a visible leak usually means the brake system is losing the fluid it needs to stop the car. Topping it up only hides the problem, and the leak can get worse suddenly.",
     "causes": [
      {
       "name": "Leaking brake hose or line",
@@ -276,14 +278,15 @@
   },
   "r_low_fluid": {
    "result": {
-    "title": "Brake fluid is low, often from worn brake pads or a slow leak",
-    "urgency": "soon",
-    "now": "Top up to the MAX mark with the fluid type printed on the cap, then have the brakes inspected within a day or two. Drive gently and only as far as you need.",
+    "title": "Brake fluid is low with no visible leak. Get the brakes inspected before driving",
+    "urgency": "stop",
+    "now": "Don't drive it until the brakes are inspected, even if the pedal feels normal. A mobile mechanic can come to you, or have it towed. Topping it up isn't a fix: low fluid can come from a leak you can't see or from badly worn pads.",
     "if": [
-     "If the level drops again, or the pedal starts to feel soft, stop driving it and have it towed.",
-     "If you don't have the right fluid type, don't guess. Have a shop top it up and inspect the brakes."
+     "If you have to move the car a few feet out of danger, do it very slowly and test the brakes first.",
+     "If the inspection finds worn pads and no leak, the shop will usually replace the pads and then set the fluid to the right level.",
+     "If you top it up, use only the fluid type printed on the cap, and still have the brakes inspected before driving."
     ],
-    "why": "Brake fluid doesn't get used up. The level falls slowly as brake pads wear, so a low level often means the pads are thin. If the pads look fine, the fluid is going somewhere and there's a leak to find.",
+    "why": "Brake fluid doesn't get used up. The level falls slowly as brake pads wear, so a low level can mean the pads are thin. It can also mean fluid is escaping somewhere that's hard to see, such as inside a wheel or at the back of the engine bay. A website can't tell those apart, so it's safest to have it checked before the car is used.",
     "causes": [
      {
       "name": "Worn brake pads",
@@ -296,14 +299,14 @@
       "against": ""
      },
      {
-      "name": "Worn master cylinder seals",
+      "name": "Master cylinder seals leaking",
       "clues": "Dampness around the reservoir or behind the engine bay.",
       "against": ""
      }
     ],
     "confirm": {
      "you": [
-      "Mark today's fluid level and check it again in a few days.",
+      "Look at the inside of each tire and under the car near the pedal area for wet, oily spots.",
       "Look through the wheel spokes at the brake pad thickness if you can see it."
      ],
      "shop": [
@@ -354,22 +357,23 @@
   },
   "r_switch": {
    "result": {
-    "title": "Likely a faulty fluid level sensor or parking brake switch",
+    "title": "A fluid level sensor or parking brake switch may be giving a false signal",
     "urgency": "soon",
-    "now": "Have the brake system checked within a few days. Pay close attention to how the brakes feel until then.",
+    "now": "Before you drive, press the brake pedal firmly with the engine running. If it's firm and high, have the brake system checked within a few days. If it's soft or sinks, don't drive it.",
     "if": [
-     "If the pedal feels soft, the fluid level drops, or the car is slow to stop, stop driving it.",
-     "If jiggling the parking brake makes the light flicker, the switch is the likely cause."
+     "If the pedal feels soft or sinks, the car is slow to stop or pulls to one side, or you smell burning from a wheel, don't drive it until the brakes are checked.",
+     "If jiggling the parking brake makes the light flicker, the switch may be the cause. Mention that to the shop.",
+     "If the amber ABS light comes on as well, or the fluid level drops toward MIN, don't drive it until the brakes are checked."
     ],
-    "why": "With the parking brake off, normal fluid and a normal pedal, the brake system itself is probably fine. The light may be getting a false signal from a stuck fluid level float or a worn parking brake switch. A shop should still confirm that before you ignore it.",
+    "why": "With the parking brake off, fluid between the marks and a normal pedal, the light may be getting a false signal from a stuck fluid level float or a worn parking brake switch. A red brake light can also report other brake faults, so a shop should confirm the cause rather than assuming it's the switch.",
     "causes": [
      {
-      "name": "Faulty parking brake switch",
+      "name": "Parking brake switch sticking",
       "clues": "The light flickers when you move the lever or pedal.",
       "against": ""
      },
      {
-      "name": "Faulty brake fluid level sensor",
+      "name": "Brake fluid level sensor sticking",
       "clues": "Fluid is near the MIN mark, or the light flickers on turns or bumps.",
       "against": ""
      },
@@ -398,7 +402,7 @@
     "urgency": "stop",
     "now": "Don't drive it until the brake fluid and brakes are checked. If you can't check them yourself, have it towed or ask a mobile mechanic to come to you.",
     "if": [
-     "If someone can show you the fluid level and it's between MIN and MAX with a normal pedal, the cause is likely less urgent. Have it checked within a few days."
+     "If someone can show you the fluid level and it's between MIN and MAX with a firm pedal, the cause may be less urgent. Have it checked within a few days, and don't drive it if the pedal changes."
     ],
     "why": "With the parking brake off, the red light usually means low brake fluid or a brake system fault. Without knowing the fluid level, there's no safe way to rule out a problem that affects stopping.",
     "causes": [

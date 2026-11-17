@@ -20,7 +20,7 @@
   "is it safe to drive with abs light on",
   "abs sensor light"
  ],
- "intro": "The ABS light means the anti-lock part of your brakes has switched itself off because it found a fault. Your normal brakes usually still work, but the wheels can lock up in a hard stop. What else is on the dash and how the pedal feels decide how urgent it is.",
+ "intro": "The ABS light means the anti-lock part of your brakes has switched itself off because it found a fault. Normal braking is designed to keep working without ABS, but the wheels can lock up in a hard stop, and a website can't check the rest of the brake system for you. What else is on the dash and how the pedal feels decide how urgent it is.",
  "safety": [
   "If the red BRAKE light is on together with the ABS light, don't drive the car until it's checked.",
   "If the brake pedal feels soft, sinks toward the floor, or the car takes longer to stop, pull over safely and don't drive on.",
@@ -100,7 +100,8 @@
     "now": "Don't drive it. Check the brake fluid level if you can, then have the car towed or call a mobile mechanic.",
     "if": [
      "If the brake fluid is below the MIN line, there may be a leak. Don't just top it up and go.",
-     "If the parking brake was partly on and both lights go out when you fully release it, have the ABS checked soon instead."
+     "If the parking brake was partly on and both lights go out when you fully release it, have the brakes and ABS checked soon. Driving with the parking brake on can overheat the rear brakes.",
+     "If you smell burning or see smoke from a wheel, keep clear of it and let it cool. Tell the tow driver or mechanic."
     ],
     "why": "The red brake light warns about the main braking system, not just the anti-lock part. When both are on, the system that balances braking between front and rear wheels may also be off, or fluid may be low. The rear wheels can lock and the car can spin in a hard stop.",
     "causes": [
@@ -110,7 +111,7 @@
       "against": "A full reservoir makes this less likely."
      },
      {
-      "name": "ABS module or wheel speed sensor fault that also disables front-to-rear brake balance",
+      "name": "ABS module or wheel speed sensor fault that can also switch off front-to-rear brake balance",
       "clues": "Fluid level is normal and the pedal feels normal.",
       "against": ""
      },
@@ -142,7 +143,7 @@
      "If you're on the road now, slow down gently, use a lower gear, and pull over somewhere safe.",
      "If you see fluid near a wheel or under the car by the pedal area, mention it when you call for help."
     ],
-    "why": "The ABS light alone usually leaves normal braking intact. A pedal that feels soft or sinks points to air in the lines, a fluid leak or a failing master cylinder, and the brakes can get worse quickly.",
+    "why": "With an ABS fault alone, normal braking is designed to keep working. A pedal that feels soft or sinks is different: it can point to air in the lines, a fluid leak or a master cylinder problem, and the brakes can get worse quickly.",
     "causes": [
      {
       "name": "Brake fluid leak",
@@ -150,7 +151,7 @@
       "against": ""
      },
      {
-      "name": "Failing master cylinder",
+      "name": "Master cylinder problem",
       "clues": "The pedal slowly sinks under steady pressure, but no leak is visible.",
       "against": ""
      },
@@ -167,7 +168,7 @@
      ],
      "shop": [
       "Brake system inspection for leaks",
-      "Master cylinder test",
+      "Master cylinder test (a shop will usually rule out leaks and air before replacing it)",
       "Brake bleed and ABS code scan"
      ]
     }
@@ -177,9 +178,10 @@
    "result": {
     "title": "Low battery voltage can set the ABS light. It may clear on its own",
     "urgency": "diy",
-    "now": "Make sure the battery clamps are tight, then turn the car off for a minute, restart it and drive a short distance. Many cars turn the light off once they see the wheels moving normally.",
+    "now": "Make sure the battery clamps are tight, then turn the car off for a minute and restart it. Many cars turn the light off after a short, gentle drive once they see the wheels moving normally. Until it goes out, anti-lock braking is off, so leave extra stopping distance.",
     "if": [
-     "If the light stays on after a few drives, get the ABS codes read. A stored fault may need clearing, or a sensor may really have failed.",
+     "If the red BRAKE light comes on, or the brake pedal feels soft or sinks, stop driving and get the brakes checked before going further.",
+     "If the light stays on after a few drives, get the ABS codes read. A stored fault may need clearing, or a sensor or its wiring may need testing.",
      "If the battery keeps going low, have the battery and alternator tested. The ABS light can keep coming back until that's fixed."
     ],
     "why": "The ABS system checks itself every time you start the car. If the voltage dips during a weak start or a jump, it can log a fault and switch off as a precaution. Once the power is steady, it often passes its self-check again.",
@@ -214,12 +216,13 @@
   },
   "r_sensor_damaged": {
    "result": {
-    "title": "A wheel speed sensor or its wire was likely disturbed or damaged",
+    "title": "A wheel speed sensor or its wire may have been disturbed or damaged",
     "urgency": "soon",
     "now": "Get the ABS codes read within the next few days. If the light came on right after a repair, go back to the shop that did the work.",
     "if": [
-     "If the brake pedal starts to feel different or the red BRAKE light comes on, stop driving it.",
-     "Until it's fixed, leave extra stopping distance and brake earlier, especially in rain or snow."
+     "If the brake pedal starts to feel different (soft, sinking or pulling to one side) or the red BRAKE light comes on, stop driving it and have it checked where it is.",
+     "Until it's fixed, leave extra stopping distance and brake earlier, especially in rain or snow.",
+     "If you smell burning or feel heat from one wheel after recent brake work, a brake may be dragging. Pull over safely, let it cool, and call the shop before driving further."
     ],
     "why": "Each wheel has a sensor that tells the ABS how fast it is turning. Brake, hub or suspension work can leave a sensor unplugged or a wire stretched, and a hard pothole can crack the sensor or the toothed ring it reads.",
     "causes": [
@@ -253,10 +256,11 @@
   },
   "r_sensor_intermittent": {
    "result": {
-    "title": "An on-and-off ABS light usually points to a wheel speed sensor or its wiring",
+    "title": "An on-and-off ABS light often points to a wheel speed sensor or its wiring",
     "urgency": "check",
     "now": "Book an ABS check when convenient, and ask the shop to read the stored codes even if the light is off that day.",
     "if": [
+     "If the red BRAKE light comes on, or the brake pedal feels soft or sinks, stop driving it and get the brakes checked before going further.",
      "If the light starts staying on, or it's winter and the roads are slick, get it checked within a few days.",
      "If the brake pedal pulses or grinds during gentle stops on dry roads, the ABS may be acting when it shouldn't. Get it checked soon."
     ],
@@ -298,19 +302,20 @@
     "now": "Get the ABS codes read within the next few days. Until then, leave extra following distance and brake earlier.",
     "if": [
      "If the red BRAKE light comes on, or the pedal feels soft or sinks, stop driving it.",
+     "If the brake fluid is below the MIN line, don't drive it until the brakes are inspected, even if you can't see a leak. Low fluid can mean a leak or badly worn pads.",
      "If you're facing rain, snow or ice, get it checked before you drive in those conditions."
     ],
-    "why": "A steady ABS light means the system found a fault and turned anti-lock braking off. Normal braking usually still works, but the wheels can lock and skid in a hard stop. An ABS code scan points straight to the part at fault.",
+    "why": "A steady ABS light means the system found a fault and turned anti-lock braking off. Normal braking is designed to keep working without it, but the wheels can lock and skid in a hard stop. An ABS code scan tells the shop which wheel or circuit to test first.",
     "causes": [
      {
-      "name": "Faulty wheel speed sensor",
+      "name": "Wheel speed sensor or its wiring",
       "clues": "The most common cause. The traction or stability light is often on too.",
       "against": ""
      },
      {
       "name": "Low brake fluid",
       "clues": "Fluid near or below the MIN line. Some cars turn on the ABS light for this.",
-      "against": "A full reservoir rules this out."
+      "against": "A full reservoir makes this less likely."
      },
      {
       "name": "ABS module, pump or fuse problem",

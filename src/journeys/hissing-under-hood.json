@@ -21,7 +21,7 @@
   "hissing and steam from hood",
   "car hisses after shut off"
  ],
- "intro": "A hiss from under the hood is air, steam or gas escaping somewhere. Sometimes it's harmless, like the cooling system settling after you park. Other times it's a coolant leak about to cause overheating. A few questions will tell you which, and how quickly to act.",
+ "intro": "A hiss from under the hood is air, steam or gas escaping somewhere. Sometimes it's harmless, like the cooling system settling after you park. Other times it's a coolant leak about to cause overheating. A few questions can help you narrow down which, and how quickly to act.",
  "safety": [
   "If you see steam or the temperature gauge is in the red, pull over and turn the engine off.",
   "Never open the radiator or coolant cap on a hot engine. Hot coolant can spray out and burn you.",
@@ -138,18 +138,19 @@
     },
     {
      "a": "I'm not sure",
-     "go": "r_normal_after_off"
+     "go": "r_unsure"
     }
    ]
   },
   "r_overheating": {
    "result": {
-    "title": "The engine is overheating or close to it, and coolant is escaping as steam",
+    "title": "The engine may be overheating, with coolant escaping as steam",
     "urgency": "stop",
     "now": "Pull over somewhere safe, turn the engine off and let it cool for at least 30 minutes. Don't open the coolant cap. Plan on a tow or a mobile mechanic.",
     "if": [
      "If the gauge went into the red, don't restart it even after adding coolant. Running an overheated engine can warp or crack expensive parts.",
-     "If the gauge only rose a little and the engine is now cool, you can check the coolant level in the reservoir, but still have the leak found before relying on the car."
+     "If the gauge only rose a little and the engine is now cool, you can check the coolant level in the reservoir, but still have the leak found before relying on the car.",
+     "If the oil pressure light comes on or the engine knocks, turn it off immediately and don't restart it."
     ],
     "why": "Hissing with steam or a high temperature reading means coolant is boiling or spraying out under pressure. Without enough coolant the engine heats up fast, and driving further risks serious engine damage.",
     "causes": [
@@ -262,14 +263,15 @@
   },
   "r_brake_booster": {
    "result": {
-    "title": "Likely a leak in the brake booster or its vacuum hose",
-    "urgency": "soon",
-    "now": "Press the brake pedal firmly and notice whether it feels harder than usual. Get the brakes checked within the next few days, and leave extra stopping distance until then.",
+    "title": "Possibly a leak in the brake booster or its vacuum hose",
+    "urgency": "stop",
+    "now": "Braking may take much more force than usual. If you're on the road, press the pedal firmly, leave plenty of room and pull over when it's safe. Have the brakes checked before using the car again, either by a mobile mechanic or with a tow.",
     "if": [
-     "If the brake pedal becomes very hard to press or the car is harder to stop, don't drive it. Have it towed.",
-     "If the engine also idles rough when you press the brake, the leak is larger. Get it checked right away."
+     "If the pedal sinks toward the floor, feels soft, or the brake warning light comes on, don't drive it at all. That points to a hydraulic problem, not just the booster.",
+     "If the engine also idles rough or stalls when you press the brake, the leak may be large. Don't drive it.",
+     "If you smell burning or see brake fluid near the pedal or the master cylinder, don't drive it."
     ],
-    "why": "The brake booster uses engine vacuum to make the pedal easy to press. A hiss when you press or release the pedal usually means air is leaking into it. The brakes still work, but you may need much more force to stop.",
+    "why": "The brake booster uses engine vacuum to make the pedal easy to press. A hiss when you press or release the pedal often means air is leaking into the booster or its hose. If the booster loses its assist, the pedal gets hard and the car takes much longer to stop, and that can happen without warning.",
     "causes": [
      {
       "name": "Leaking brake booster diaphragm",
@@ -302,12 +304,13 @@
   },
   "r_vacuum_leak": {
    "result": {
-    "title": "A vacuum leak is the most likely cause",
+    "title": "A vacuum leak is a likely cause",
     "urgency": "soon",
     "now": "Get it checked within the next few days. A smoke test at a shop usually finds the leak quickly.",
     "if": [
      "If the check engine light starts flashing or the engine shakes badly, stop driving and have it towed.",
-     "If it stalls while you're driving, don't keep driving it. Losing power in traffic is dangerous."
+     "If it stalls while you're driving, don't keep driving it. Losing power in traffic is dangerous.",
+     "If the brake pedal feels harder than usual, stop driving and have it checked. A vacuum leak can also weaken the brake booster."
     ],
     "why": "The engine draws air through a network of rubber hoses and seals. When one cracks or comes loose, air rushes in with a hiss, and the extra air throws off the fuel mixture. That causes a rough idle, stalling and a check engine light.",
     "causes": [
@@ -342,14 +345,15 @@
   },
   "r_vacuum_minor": {
    "result": {
-    "title": "Probably a small vacuum or air intake leak",
+    "title": "Possibly a small vacuum or air intake leak",
     "urgency": "check",
     "now": "Book a check when convenient, and mention that the hiss is there while the engine runs.",
     "if": [
      "If a rough idle, stalling or a check engine light shows up, get it checked within a few days.",
-     "If the temperature gauge starts rising or you notice a sweet smell, treat it as a coolant leak and pull over."
+     "If the temperature gauge starts rising or you notice a sweet smell, treat it as a coolant leak and pull over.",
+     "If the brake pedal starts feeling harder than usual, stop driving and have it checked."
     ],
-    "why": "A steady hiss with the engine running well usually means a small air leak that the engine is still compensating for. These tend to grow over time and can eventually cause rough running or poor fuel economy.",
+    "why": "A steady hiss with the engine running well often means a small air leak that the engine is still compensating for. These tend to grow over time and can eventually cause rough running or poor fuel economy.",
     "causes": [
      {
       "name": "Small vacuum hose leak",
@@ -382,12 +386,13 @@
   },
   "r_coolant_leak": {
    "result": {
-    "title": "Likely a coolant leak",
+    "title": "Possibly a coolant leak",
     "urgency": "soon",
     "now": "When the engine is fully cool, check the coolant reservoir and top it up to the marked level if it's low. Get the leak found within the next few days, and watch the temperature gauge closely until then.",
     "if": [
      "If the temperature gauge rises above normal or you see steam, pull over, turn the engine off and don't drive it further.",
-     "If you're adding coolant every few days, have it checked right away. A bigger failure may be close."
+     "If you're adding coolant every few days, have it checked right away. A bigger failure may be close.",
+     "If you smell coolant inside the car or the windshield fogs with a greasy film, get it checked before driving further."
     ],
     "why": "The cooling system runs under pressure, so a small crack or loose clamp can let coolant hiss out as it heats up. A slow leak can turn into overheating with little warning.",
     "causes": [
@@ -422,7 +427,7 @@
   },
   "r_ac": {
    "result": {
-    "title": "Probably the A/C system, which often hisses normally",
+    "title": "Possibly the A/C system, which can hiss normally",
     "urgency": "diy",
     "now": "Notice whether the A/C still blows cold. A brief hiss from the dash or under the hood right after you switch the A/C off is normal pressure settling.",
     "if": [
@@ -461,14 +466,15 @@
   },
   "r_normal_after_off": {
    "result": {
-    "title": "A short hiss after you park is often normal, but check the coolant",
+    "title": "A short hiss after you park can be normal, but check the coolant",
     "urgency": "diy",
     "now": "Next time the engine is fully cool, check that the coolant reservoir is between the marks and look under the front of the car for drips.",
     "if": [
      "If the coolant is low or you see drips, have the cooling system checked within a few days.",
-     "If the hiss gets louder, lasts longer, or the temperature gauge reads higher than usual, get it checked soon."
+     "If the hiss gets louder, lasts longer, or the temperature gauge reads higher than usual, get it checked soon.",
+     "If you see steam or smell burning, turn the engine off and step away from the car."
     ],
-    "why": "After you shut the engine off, hot coolant, the exhaust and the A/C system all settle, which can make soft hissing or ticking sounds for a minute or two. As long as the coolant level holds steady and there's no smell, that's usually nothing to worry about.",
+    "why": "After you shut the engine off, hot coolant, the exhaust and the A/C system all settle, which can make soft hissing or ticking sounds for a minute or two. If the coolant level holds steady over the next week or so, with no smell or drips, normal settling is the likely explanation. Checking the level is how you tell.",
     "causes": [
      {
       "name": "Cooling system or A/C settling after shutdown",
@@ -507,7 +513,7 @@
      "If you see steam, smoke or the gauge rising, pull over, turn the engine off and don't drive it further.",
      "If you smell fuel, don't start the engine. Have it towed."
     ],
-    "why": "The most common hissing that leads to real damage is coolant escaping, because it can lead to overheating. Checking the coolant level and the gauge rules that in or out quickly.",
+    "why": "The most common hissing that leads to real damage is coolant escaping, because it can lead to overheating. Checking the coolant level and the gauge helps rule that in or out.",
     "causes": [
      {
       "name": "Coolant leak",
@@ -545,9 +551,9 @@
     "now": "Book a check when convenient. Note when the hiss happens and record a short video with sound to show the technician.",
     "if": [
      "If you see steam, the temperature gauge rises, or you smell fuel or burning, pull over and turn the engine off.",
-     "If the brake pedal starts feeling hard or the engine runs rough, get it checked within a few days."
+     "If the brake pedal starts feeling hard, stop driving and have the brakes checked. If the engine runs rough, get it checked within a few days."
     ],
-    "why": "Hissing can come from the cooling system, a vacuum leak, the brake booster or the A/C. Without knowing when it happens, a technician can sort it out quickly with a pressure test and a smoke test.",
+    "why": "Hissing can come from the cooling system, a vacuum leak, the brake booster or the A/C. If you can't tell when it happens, a technician can usually track it down with a pressure test and a smoke test.",
     "causes": [
      {
       "name": "Vacuum leak",

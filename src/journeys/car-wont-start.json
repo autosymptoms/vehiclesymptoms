@@ -20,7 +20,7 @@
   "push button start not working",
   "starts then dies"
  ],
- "intro": "When a car won't start, what you hear and see in the first few seconds tells you a lot. A dead battery, a failing starter and a fuel or ignition problem each behave differently. Answer the questions below and we'll point you to the most likely cause and the safest next step.",
+ "intro": "When a car won't start, what you hear and see in the first few seconds tells you a lot. A dead battery, a failing starter and a fuel or ignition problem each behave differently. Answer the questions below and we'll point you toward the likely causes and the safest next step.",
  "safety": [
   "If you smell raw fuel, stop trying to start it and keep sparks and flames away.",
   "If you see smoke or smell burning plastic from under the hood, stop trying and step away from the car.",
@@ -150,19 +150,20 @@
   },
   "r_dead_battery": {
    "result": {
-    "title": "The battery is most likely completely drained or disconnected",
+    "title": "The battery may be completely drained or disconnected",
     "urgency": "diy",
     "now": "Check that the battery cables are tight and free of crusty white or green buildup, then try a jump start or a battery booster.",
     "if": [
      "If a jump start works, drive for at least 30 minutes or have the battery and charging system tested soon, because it may die again.",
-     "If nothing at all happens even with a good jump, a main fuse, the ignition switch or a cable may have failed. Have it towed to a shop."
+     "If nothing at all happens even with a good jump, a main fuse, the ignition switch or a cable may have failed. Have it towed to a shop.",
+     "If the battery is swollen, cracked, leaking, very hot or smells like rotten eggs, don't jump-start or charge it. Keep sparks away and have it checked."
     ],
-    "why": "With no sound and no dash lights, there's essentially no electrical power reaching the car. That almost always comes from a dead battery, a loose or corroded battery cable, or occasionally a blown main fuse.",
+    "why": "With no sound and no dash lights, there's essentially no electrical power reaching the car. That most often comes from a dead battery or a loose or corroded battery cable, and occasionally a blown main fuse. A battery test will confirm whether the battery itself is worn out or just drained.",
     "causes": [
      {
       "name": "Dead or drained battery",
       "clues": "Lights left on, a car that sat for weeks, a battery older than 4–5 years, or very cold weather.",
-      "against": "If the dash lights come on brightly, the battery is probably fine."
+      "against": "If the dash lights come on brightly, the battery is less likely to be the main problem."
      },
      {
       "name": "Loose or corroded battery cable",
@@ -192,12 +193,13 @@
   },
   "r_weak_battery": {
    "result": {
-    "title": "Rapid clicking usually means the battery is too weak to turn the starter",
+    "title": "Rapid clicking often means the battery is too weak to turn the starter",
     "urgency": "diy",
     "now": "Try a jump start or a battery booster. Before you do, check that the battery clamps are tight and clean.",
     "if": [
      "If it starts with a jump, have the battery and alternator tested soon. Most auto parts stores do this free.",
-     "If it still only clicks with a good jump, the battery cables or the starter are the more likely problem."
+     "If it still only clicks with a good jump, the battery cables or the starter are the more likely problem.",
+     "If the battery is swollen, cracked, leaking, very hot or smells like rotten eggs, don't jump-start or charge it. Keep sparks away and have it checked."
     ],
     "why": "The starter needs a big burst of power. A weak battery has enough to light the dash and make the starter's switch click, but not enough to spin the engine, so you hear rapid clicking as it tries over and over.",
     "causes": [
@@ -237,10 +239,11 @@
     "urgency": "soon",
     "now": "Keep the engine running for a while or drive it at least 30 minutes, then get the battery and charging system tested within the next few days.",
     "if": [
-     "If the battery warning light comes on while driving, head straight to a shop. The alternator may not be charging, and the car could die on the road.",
+     "If the battery warning light comes on while driving, head to a shop as soon as you safely can. The alternator may not be charging, and the car could die on the road.",
+     "If the battery light comes on and the temperature gauge starts climbing, pull over and turn the engine off. On many cars one belt drives both the alternator and the water pump.",
      "If it was a one-time mistake, like lights left on, a test will tell you if the battery recovered."
     ],
-    "why": "A jump start fixing it confirms the battery didn't have enough charge. The question is why: an aging battery, an alternator that isn't recharging it, or something draining it while the car is parked.",
+    "why": "A jump start fixing it suggests the battery didn't have enough charge. The question is why: an aging battery, an alternator that isn't recharging it, or something draining it while the car is parked. A battery and charging test will usually show which before anything is replaced.",
     "causes": [
      {
       "name": "Aging battery",
@@ -273,14 +276,15 @@
   },
   "r_cables_starter": {
    "result": {
-    "title": "Likely a bad battery connection or a failing starter",
+    "title": "Possibly a bad battery connection or a failing starter",
     "urgency": "check",
     "now": "Check that the battery clamps are tight and clean. If they are and a jump doesn't help, have the car towed or have a mobile mechanic come to you.",
     "if": [
      "If cleaning or tightening the cables fixes it, have the cables checked for hidden corrosion soon.",
-     "If you're stuck somewhere unsafe, call roadside assistance rather than repeatedly cranking."
+     "If you're stuck somewhere unsafe, call roadside assistance rather than repeatedly cranking.",
+     "If a battery cable is hot to the touch, or you smell burning or see smoke, stop trying to start it and step away."
     ],
-    "why": "When even a good jump only produces clicking, enough power isn't reaching the starter motor. That points to a poor connection somewhere in the heavy cables, or to a starter that's worn out.",
+    "why": "When even a good jump only produces clicking, enough power isn't reaching the starter motor. That can point to a poor connection somewhere in the heavy cables, or to a starter that's worn out. A voltage-drop test usually tells the two apart before any part is replaced.",
     "causes": [
      {
       "name": "Loose or corroded battery cable or ground strap",
@@ -313,14 +317,15 @@
   },
   "r_starter": {
    "result": {
-    "title": "Most likely the starter, or a poor connection to it",
+    "title": "Possibly the starter, or a poor connection to it",
     "urgency": "check",
     "now": "Make sure the car is fully in Park (or press the clutch on a manual) and try again. If it still only clicks once, the car will need a tow or a mobile mechanic.",
     "if": [
      "If it starts in Neutral but not Park, the gear-position (neutral safety) switch may be the problem.",
-     "If it starts after a few tries, get the starter checked soon. It will likely get worse."
+     "If it starts after a few tries, get the starter checked soon. It may get worse.",
+     "If you smell burning or see smoke from under the hood, stop trying and step away from the car."
     ],
-    "why": "Bright dash lights mean the battery has power. One loud click usually means the starter's switch (solenoid) is getting the signal but the motor isn't turning, which points to a worn starter or a bad connection to it.",
+    "why": "Bright dash lights mean the battery has some power. One loud click often means the starter's switch (solenoid) is getting the signal but the motor isn't turning, which points to a worn starter or a bad connection to it. A shop will usually test the cables and connections before replacing the starter.",
     "causes": [
      {
       "name": "Worn starter motor or solenoid",
@@ -358,7 +363,8 @@
     "now": "Add a few gallons of fuel and try again. On a slope, the engine may not be able to pick up the last bit of fuel in the tank.",
     "if": [
      "If it starts after adding fuel, but the gauge showed fuel left, have the fuel gauge checked so it doesn't leave you stranded.",
-     "If it still cranks without starting after adding fuel, the fuel pump may have failed. Have it towed."
+     "If it still cranks without starting after adding fuel, the fuel pump may have failed. Have it towed.",
+     "If you smell raw fuel after adding fuel or cranking, stop and look for a leak. Don't keep trying to start it."
     ],
     "why": "An engine that cranks normally but never fires usually isn't getting fuel or spark. A low tank is the simplest explanation, and fuel gauges can read wrong.",
     "causes": [
@@ -392,14 +398,14 @@
   },
   "r_immobilizer": {
    "result": {
-    "title": "The anti-theft system probably isn't recognizing your key",
+    "title": "The anti-theft system may not be recognizing your key",
     "urgency": "diy",
     "now": "Try your spare key. For push-button start, hold the key fob right against the Start button, or put it where your owner's manual says, while you press Start.",
     "if": [
      "If the spare works, replace the battery in your main key fob or have the key checked.",
      "If neither key works, the car may need a dealer or locksmith with the right equipment to reprogram the key."
     ],
-    "why": "A flashing key or security light means the car's immobilizer is blocking fuel or ignition because it can't read a valid key. The engine will crank but won't run until it recognizes one.",
+    "why": "A flashing key or security light usually means the car's immobilizer is blocking fuel or ignition because it can't read a valid key. The engine will crank but won't run until it recognizes one.",
     "causes": [
      {
       "name": "Dead key fob battery",
@@ -435,10 +441,11 @@
     "urgency": "stop",
     "now": "Stop cranking. Look under the car and around the engine for wet spots or dripping fuel. If you see any, don't try to start it again and have it towed.",
     "if": [
-     "If there's no visible leak, wait 15–20 minutes, then press the gas pedal fully to the floor and hold it while you crank for up to 10 seconds. On most fuel-injected cars this cuts fuel to help clear a flooded engine.",
-     "If it still won't start, or the smell is strong or getting stronger, have it towed."
+     "If there's no visible leak, open the hood and wait 15–20 minutes. Only if the smell has faded, try once: press the gas pedal fully to the floor and hold it while you crank for up to 10 seconds. On most fuel-injected cars this cuts fuel to help clear a flooded engine.",
+     "Not seeing a leak doesn't prove there isn't one. If the smell stays strong, comes back or gets stronger, don't crank again. Have it towed.",
+     "If it still won't start after that one try, have it towed."
     ],
-    "why": "A strong fuel smell after cranking means fuel is reaching the engine but not burning, which can flood it. It can also mean a leak, which is a fire risk.",
+    "why": "A strong fuel smell after cranking can mean fuel is reaching the engine but not burning, which can flood it. It can also mean a leak, which is a fire risk.",
     "causes": [
      {
       "name": "Flooded engine",
@@ -471,13 +478,15 @@
   },
   "r_fuel_or_crank_sensor": {
    "result": {
-    "title": "A fuel pump or crankshaft sensor failure is likely",
+    "title": "The fuel pump or a crankshaft sensor may have failed",
     "urgency": "stop",
     "now": "Don't keep cranking it. Have the car towed to a shop.",
     "if": [
-     "If it restarts after cooling down for 30 minutes or more, don't count on it. These parts often fail completely soon after, so get it checked before driving any distance."
+     "If it restarts after cooling down for 30 minutes or more, don't count on it. These parts can fail completely soon after, so get it checked before driving any distance.",
+     "If you heard a loud bang, rattling or knocking, or the temperature gauge was in the red before it died, don't try to restart it. Tell the shop.",
+     "If the engine sounds different when cranking, such as faster or more even than usual, stop cranking. A broken timing belt can do this."
     ],
-    "why": "An engine that shuts off while driving and won't restart has lost fuel or spark completely. The usual causes are a fuel pump that's stopped working or a crankshaft position sensor, the part that tells the engine computer when to fire.",
+    "why": "An engine that shuts off while driving and won't restart has usually lost fuel or spark. Common causes include a fuel pump that's stopped working or a crankshaft position sensor, the part that tells the engine computer when to fire. A shop will test fuel pressure and check for codes before replacing either.",
     "causes": [
      {
       "name": "Failed fuel pump",
@@ -493,6 +502,11 @@
       "name": "Fuel pump relay or fuse",
       "clues": "It died suddenly. These are cheap to check first.",
       "against": ""
+     },
+     {
+      "name": "Broken timing belt or chain",
+      "clues": "The engine cranks faster or sounds different than usual, and it died suddenly.",
+      "against": "Less common than a fuel or sensor fault."
      }
     ],
     "confirm": {
@@ -503,21 +517,23 @@
      "shop": [
       "Fuel pressure test",
       "Scan for crank and cam sensor codes",
-      "Fuel pump relay and fuse check"
+      "Fuel pump relay and fuse check",
+      "Timing belt or chain check if the cranking sounds unusual"
      ]
     }
    }
   },
   "r_no_fire": {
    "result": {
-    "title": "The engine isn't getting fuel or spark. A shop needs to test it",
+    "title": "The engine may not be getting fuel or spark. A shop can test it",
     "urgency": "check",
     "now": "Try once or twice more, each time for no more than 10 seconds. If it doesn't fire, have the car towed or call a mobile mechanic.",
     "if": [
      "If you smell fuel or see a leak, stop trying and keep flames away.",
-     "If a check engine light is on, a code reader can give the shop a head start."
+     "If a check engine light is on, a code reader can give the shop a head start.",
+     "If the cranking sounds faster, uneven or different than usual, stop trying. A broken timing belt can do this and more cranking won't help."
     ],
-    "why": "A normal crank means the battery and starter are working. The engine needs fuel, spark and air at the right time to run, so one of those is missing. Telling which one takes a few quick tests.",
+    "why": "A normal crank suggests the battery and starter are working. The engine needs fuel, spark and air at the right time to run, so one of those is likely missing. Telling which one takes a few quick tests.",
     "causes": [
      {
       "name": "Fuel delivery problem (pump, relay, filter)",
@@ -554,7 +570,8 @@
     "urgency": "check",
     "now": "Look for a flashing key or security light right after it stalls, and try the spare key. If that doesn't help, have the car checked before relying on it.",
     "if": [
-     "If it stalls while you're driving, not just at startup, don't drive it. Losing power steering and brake assist in traffic is dangerous."
+     "If it stalls while you're driving, not just at startup, don't drive it. When the engine stalls, steering and braking can take much more force, which is dangerous in traffic.",
+     "If you smell fuel, stop trying to start it and look for a leak."
     ],
     "why": "When a car fires up and dies within seconds, the security system is often letting it start and then cutting fuel because it doesn't recognize the key. If the key is fine, the idle control or fuel delivery may not be keeping it running.",
     "causes": [
@@ -591,11 +608,12 @@
    "result": {
     "title": "Cold-start stalling often points to idle control or a sensor reading wrong",
     "urgency": "check",
-    "now": "Let it idle for 30 seconds before driving off on cold mornings, and book a check when convenient.",
+    "now": "Let it idle for 30 seconds before driving off on cold mornings, and book a check.",
     "if": [
-     "If the check engine light comes on or it starts stalling when warm too, get it checked sooner."
+     "If the check engine light comes on or it starts stalling when warm too, get it checked sooner.",
+     "If it stalls while you're moving, pull over when it is safe and don't drive it until it's checked. Steering and braking can take much more force when the engine stalls."
     ],
-    "why": "A cold engine needs extra fuel and a higher idle. If a temperature sensor gives the computer the wrong reading, or the idle system is dirty, the engine can die until it warms up.",
+    "why": "A cold engine needs extra fuel and a higher idle. If a temperature sensor gives the computer the wrong reading, or the idle system is dirty, the engine can die until it warms up. Live sensor data at a shop usually shows which.",
     "causes": [
      {
       "name": "Dirty throttle body or idle control valve",
@@ -629,10 +647,11 @@
   "r_idle_load": {
    "result": {
     "title": "The idle may be too low to handle extra load",
-    "urgency": "check",
-    "now": "Keep your foot lightly on the gas when you shift into gear until it's checked, and book an inspection.",
+    "urgency": "soon",
+    "now": "Get it checked within the next few days. Don't hold the gas to keep it running while you shift into gear, because the car can lurch.",
     "if": [
-     "If it stalls while driving or in traffic, don't drive it until it's fixed."
+     "If it stalls while driving or as you come to a stop, don't drive it until it's checked. Steering and braking can take much more force when the engine stalls.",
+     "If the check engine light comes on or flashes, have the code read before driving further."
     ],
     "why": "Shifting into gear or turning on the A/C adds load to the engine. If the idle control can't raise the engine speed to match, the engine stumbles and dies.",
     "causes": [

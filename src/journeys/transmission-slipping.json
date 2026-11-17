@@ -131,7 +131,8 @@
     "now": "Don't try to force it by revving the engine. Put it in Park, turn it off and have the car towed.",
     "if": [
      "If you're stuck in a lane, turn on your hazard lights and call for help from a safe place.",
-     "If there's red or pink fluid under the car, a major leak is the likely cause. Mention it when you call."
+     "If there's red or pink fluid under the car, a leak may be the cause. Mention it when you call.",
+     "If you smell burning or see smoke, turn the engine off and step away from the car."
     ],
     "why": "When the engine runs but the car barely moves, the transmission isn't holding. Revving it harder makes the slipping parts even hotter and can turn a repair into a full replacement.",
     "causes": [
@@ -170,7 +171,8 @@
     "now": "Pull over when it's safe, turn the engine off and have the car towed.",
     "if": [
      "If you see smoke, step away from the car. Fluid dripping on the exhaust can catch fire.",
-     "If the leak is just a few drops and there's no burning smell, you can check the level with the engine cold, but still have it inspected before driving it."
+     "If the leak is only a few drops and there's no burning smell, still have it inspected before driving it. Note the color and size of the drips for the shop.",
+     "If there are flames, or the smoke keeps growing, move well away from the car and call 911."
     ],
     "why": "Transmission fluid cools and lubricates the transmission and gives it the pressure to hold each gear. A leak lowers that pressure and causes slipping, and a burning smell means fluid or parts are overheating. Both cause fast, expensive wear.",
     "causes": [
@@ -204,14 +206,15 @@
   },
   "r_overheat_light": {
    "result": {
-    "title": "The transmission is overheating or has detected a fault",
+    "title": "The transmission may be overheating or has detected a fault",
     "urgency": "stop",
     "now": "Pull over when it's safe, put it in Park and let it cool. Then have it towed or call a mobile mechanic.",
     "if": [
      "If the light goes off after cooling, it still needs checking before you rely on it. Slipping and overheating feed each other.",
-     "If you smell burning or see smoke, turn the engine off and step away from the car."
+     "If you smell burning or see smoke, turn the engine off and step away from the car.",
+     "If the engine temperature gauge is high too, don't restart the engine. Have it towed."
     ],
-    "why": "Transmission fluid breaks down quickly when it gets too hot, which leads to more slipping and more heat. A warning light plus slipping means the transmission is already protecting itself or warning you that damage is likely.",
+    "why": "Transmission fluid breaks down quickly when it gets too hot, which leads to more slipping and more heat. A warning light plus slipping means the transmission is already protecting itself or warning you that damage is possible.",
     "causes": [
      {
       "name": "Low fluid",
@@ -243,14 +246,15 @@
   },
   "r_clutch": {
    "result": {
-    "title": "On a manual, this is most likely a worn clutch",
+    "title": "On a manual, the clutch is the first thing to check",
     "urgency": "soon",
     "now": "Have the clutch checked within the next few days. Until then, drive gently and avoid hard acceleration in high gears.",
     "if": [
-     "If the clutch pedal feels soft, sinks or stays down, have it checked right away. It could be a hydraulic leak.",
-     "If you smell burning, pull over and let it cool. Slipping that bad means the clutch is close to failing."
+     "If the clutch pedal feels soft, sinks or stays down, don't rely on the car. You may not be able to shift or take it out of gear. Have it checked before driving further.",
+     "If you smell burning, pull over and let it cool. Slipping that bad can mean the clutch is close to failing, so have it checked before driving further.",
+     "If the car won't move in gear, or you can't get it into gear, have it towed."
     ],
-    "why": "A clutch grips the engine to the transmission. When it wears thin, or gets oil on it, it can't hold full power, so the revs jump without more speed. It's usually most noticeable in higher gears and going uphill.",
+    "why": "A clutch grips the engine to the transmission. When it wears thin, or gets oil on it, it may not hold full power, so the revs jump without more speed. It's usually most noticeable in higher gears and going uphill.",
     "causes": [
      {
       "name": "Worn clutch disc",
@@ -283,14 +287,15 @@
   },
   "r_low_fluid": {
    "result": {
-    "title": "Low transmission fluid is the likely cause, and there's probably a leak",
+    "title": "Low transmission fluid may be causing the slip, and a leak is likely",
     "urgency": "soon",
-    "now": "Top up with the exact fluid type listed in your owner's manual, then have the leak found within the next few days.",
+    "now": "If your car has a dipstick, top up with the exact fluid type listed in your owner's manual, following its check procedure and not overfilling. Then have the leak found within the next few days. If you're unsure of the fluid type or procedure, let a shop do it.",
     "if": [
-     "If the slipping continues after topping up, keep trips short and have it checked sooner.",
-     "If the level drops again quickly, or you see drips, stop using the car until the leak is fixed."
+     "If it still slips after topping up, avoid driving it until it's checked. Each slip adds heat and wear.",
+     "If the level drops again quickly, or you see drips, stop using the car until the leak is fixed.",
+     "If the car loses drive, you smell burning, see smoke, or a transmission warning light comes on, pull over when it's safe, turn the engine off and have it towed."
     ],
-    "why": "An automatic transmission uses fluid pressure to hold each gear. When the level is low, pressure drops and the clutches inside slip. Fluid doesn't get used up like fuel, so a low level almost always means a leak.",
+    "why": "An automatic transmission uses fluid pressure to hold each gear. When the level is low, pressure drops and the clutches inside slip. Fluid doesn't get used up like fuel, so a low level usually means a leak.",
     "causes": [
      {
       "name": "Leaking pan gasket or seal",
@@ -323,14 +328,14 @@
   },
   "r_burnt_fluid": {
    "result": {
-    "title": "Burnt fluid means the transmission has been overheating and may be worn inside",
+    "title": "Burnt-smelling fluid suggests the transmission has been running hot and may be worn inside",
     "urgency": "soon",
     "now": "Have the transmission inspected within the next few days. Keep trips short and gentle until then.",
     "if": [
-     "If the slipping gets worse or a warning light comes on, stop driving it and have it towed.",
-     "If the shop finds metal particles or a lot of debris in the pan, expect a bigger repair rather than a simple fluid change."
+     "If the slipping gets worse, you smell burning, or a warning light comes on, stop driving it and have it towed.",
+     "If the shop finds metal particles or a lot of debris in the pan, a bigger repair is more likely than a simple fluid change. Ask them to show you what they found."
     ],
-    "why": "Dark, burnt-smelling fluid has been overheated, often by the very slipping you're feeling. Overheated fluid protects poorly, so wear speeds up. A shop can tell from the fluid and pan whether a service may help or whether there's internal damage.",
+    "why": "Dark, burnt-smelling fluid has usually been overheated, often by the very slipping you're feeling. Overheated fluid protects poorly, so wear speeds up. A shop can tell from the fluid and pan whether a service may help or whether there's internal damage.",
     "causes": [
      {
       "name": "Worn clutches inside the transmission",
@@ -362,14 +367,15 @@
   },
   "r_cold_slip": {
    "result": {
-    "title": "Slipping only when cold often means early wear or hardened internal seals",
+    "title": "Slipping only when cold can point to early wear or hardened internal seals",
     "urgency": "check",
     "now": "Let the car warm up for a minute or two before driving off, go easy until it's warm, and book a transmission check when convenient.",
     "if": [
      "If it starts slipping when warm too, get it checked within a few days.",
-     "If the fluid level turns out to be low, top it up with the correct type and look for a leak."
+     "If the fluid level turns out to be low, top it up with the correct type and look for a leak.",
+     "If the car loses drive, you smell burning, see smoke, or a transmission warning light comes on, pull over when it's safe, turn the engine off and have it towed."
     ],
-    "why": "Cold fluid is thicker, and rubber seals inside the transmission shrink and harden with age. Worn seals can leak pressure when cold, so a gear doesn't fully grip until things warm up and expand. It usually gets worse over time.",
+    "why": "Cold fluid is thicker, and rubber seals inside the transmission shrink and harden with age. Worn seals can leak pressure when cold, so a gear doesn't fully grip until things warm up and expand. It tends to get worse over time, so it's worth having it looked at before it does.",
     "causes": [
      {
       "name": "Hardened or worn internal seals",
@@ -401,12 +407,13 @@
   },
   "r_hot_slip": {
    "result": {
-    "title": "Slipping when hot points to worn parts or fluid that's breaking down",
+    "title": "Slipping when hot can point to worn parts or fluid that's breaking down",
     "urgency": "soon",
     "now": "Have the transmission checked within the next few days. Until then, avoid towing, long highway runs and heavy traffic when you can.",
     "if": [
      "If a transmission temperature warning comes on, pull over and let it cool, then have it towed or checked by a mobile mechanic.",
-     "If you smell burning, stop driving it."
+     "If you smell burning or see smoke, pull over, turn the engine off and have it towed.",
+     "If the car loses drive or the slipping gets suddenly worse, stop driving it and have it towed."
     ],
     "why": "As fluid heats up it gets thinner, and worn parts that seal fine when cold start leaking pressure. Heat also breaks the fluid down further. Slipping when hot tends to make the transmission run even hotter, so it can get worse quickly.",
     "causes": [
@@ -440,14 +447,15 @@
   },
   "r_one_shift": {
    "result": {
-    "title": "Slipping on one shift points to a shift solenoid or the clutch for that gear",
+    "title": "Slipping on one shift is often traced to a shift solenoid or the clutch for that gear",
     "urgency": "soon",
     "now": "Have the transmission checked within the next few days, and note exactly which shift slips so you can tell the shop.",
     "if": [
      "If the check engine or transmission light comes on, have the codes read right away. They often name the solenoid involved.",
-     "If the car gets stuck in one gear, keep speeds low and get it to a shop or have it towed."
+     "If the car gets stuck in one gear, avoid highways and fast traffic and have it towed or checked as soon as you can.",
+     "If the car loses drive, you smell burning, see smoke, or a transmission warning light comes on, pull over when it's safe, turn the engine off and have it towed."
     ],
-    "why": "Each gear change is controlled by an electric solenoid that sends fluid to a set of clutches. If one solenoid sticks, or one clutch pack wears, you get slipping on that shift only while the others feel normal.",
+    "why": "Each gear change is controlled by an electric solenoid that sends fluid to a set of clutches. If one solenoid sticks, or one clutch pack wears, you get slipping on that shift only while the others feel normal. A shop will usually test the solenoid and read live data before deciding whether the problem is electrical or inside the transmission.",
     "causes": [
      {
       "name": "Sticking or failing shift solenoid",
@@ -485,9 +493,10 @@
     "now": "Have it checked within the next few days. Keep highway trips short until then.",
     "if": [
      "If you also feel a shudder like driving over rumble strips at steady speed, mention it. That's a common sign of a lockup problem.",
-     "If a check engine light comes on, have the code read. Lockup faults usually set a code."
+     "If a check engine light comes on, have the code read. Lockup faults usually set a code.",
+     "If the car loses drive, you smell burning, see smoke, or a transmission warning light comes on, pull over when it's safe, turn the engine off and have it towed."
     ],
-    "why": "At cruising speed, an automatic locks the torque converter so the engine and transmission turn together. If that lockup clutch slips, the revs creep up a few hundred without any gear change and fuel economy drops.",
+    "why": "At cruising speed, an automatic locks the torque converter so the engine and transmission turn together. If that lockup clutch slips, or isn't being told to lock, the revs creep up a few hundred without any gear change and fuel economy drops.",
     "causes": [
      {
       "name": "Worn torque converter lockup clutch",
@@ -523,8 +532,9 @@
     "urgency": "soon",
     "now": "Have the codes read within the next few days. Many parts stores read engine codes free, but transmission codes may need a shop scan tool.",
     "if": [
-     "If the car is stuck in one gear or feels very sluggish, it may be in a protective \"limp\" mode. Keep speeds low and get it checked right away.",
-     "If the code points to a sensor or wiring, the fix may be much simpler than a rebuild."
+     "If the car is stuck in one gear or feels very sluggish, it may be in a protective \"limp\" mode. Avoid highways and fast traffic, and get it checked right away.",
+     "A code points a shop toward a circuit or system, not always to a failed part. A shop will usually test the sensor, solenoid and wiring before replacing anything, and the fix may turn out simpler than a rebuild.",
+     "If the car loses drive, you smell burning, see smoke, or a transmission warning light comes on, pull over when it's safe, turn the engine off and have it towed."
     ],
     "why": "Modern automatics are computer-controlled. A bad speed sensor, solenoid or wiring problem can make the transmission shift wrong or slip, and the computer usually stores a code. Reading it first avoids guessing.",
     "causes": [
@@ -562,8 +572,8 @@
     "urgency": "soon",
     "now": "Book a transmission check within the next few days, and keep trips short and gentle until then.",
     "if": [
-     "If the car loses drive, you smell burning, or a warning light comes on, stop driving and have it towed.",
-     "If you can check the fluid and it's low, top it up with the correct type."
+     "If the car loses drive, you smell burning, see smoke, or a warning light comes on, pull over when it's safe, turn the engine off and have it towed.",
+     "If you can check the fluid and it's low, top it up with the correct type, then still have it checked. Low fluid usually means a leak."
     ],
     "why": "Slipping almost never fixes itself, and each slip adds heat and wear. Catching it early gives you the best chance that a fluid service, solenoid or seal repair fixes it rather than a rebuild.",
     "causes": [

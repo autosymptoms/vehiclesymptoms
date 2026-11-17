@@ -19,7 +19,7 @@
   "temp gauge goes to cold while driving",
   "temperature gauge goes up then back to normal"
  ],
- "intro": "Once the engine is warm, most temperature gauges sit still near the middle. A needle that climbs and falls is telling you something about coolant flow, the thermostat, the fan or the sensor itself. How it moves, and what the heater does at the same time, usually points to the cause.",
+ "intro": "Once the engine is warm, most temperature gauges sit still near the middle. A needle that climbs and falls can point to a problem with coolant flow, the thermostat, the fan or the sensor itself. How it moves, and what the heater does at the same time, helps narrow down the likely causes.",
  "safety": [
   "If the gauge reaches the red, a temperature warning comes on, or you see steam, pull over safely and turn the engine off.",
   "Never open the radiator cap or coolant tank cap on a hot engine. Hot coolant under pressure can cause serious burns.",
@@ -116,14 +116,15 @@
   },
   "r_overheat_stop": {
    "result": {
-    "title": "It's actually overheating. Stop and let it cool",
+    "title": "Treat this as real overheating. Stop and let it cool",
     "urgency": "stop",
     "now": "Pull over somewhere safe, turn the engine off and let it cool for at least 30 minutes. Then have it towed or call a mobile mechanic.",
     "if": [
      "If you can't pull over right away, turn the A/C off and the heater on full hot with the fan on high to pull some heat away.",
-     "If the oil pressure light comes on or the engine knocks, shut it off immediately."
+     "If the oil pressure light comes on or the engine knocks, shut it off immediately.",
+     "If you see flames, or smoke from under the hood turns dark and thick, get everyone away from the car and call 911."
     ],
-    "why": "A gauge that reaches the red or a temperature warning means the engine is really overheating, even if it drops back later. Each episode can damage the head gasket or cylinder head, so it's not worth chancing another one.",
+    "why": "A gauge that reaches the red or a temperature warning should be treated as real overheating, even if it drops back later. Each episode can damage the head gasket or cylinder head, so it's not worth chancing another one.",
     "causes": [
      {
       "name": "Low coolant from a leak",
@@ -156,14 +157,15 @@
   },
   "r_fan": {
    "result": {
-    "title": "The cooling fan likely isn't keeping up at idle",
+    "title": "The cooling fan may not be keeping up at idle",
     "urgency": "soon",
-    "now": "Get the radiator fan checked within the next few days, and avoid long idling and stop-and-go traffic until then.",
+    "now": "Check the coolant level once the engine is cold, then get the radiator fan checked within the next few days. Avoid long idling and stop-and-go traffic until then.",
     "if": [
-     "If the gauge climbs toward the red while stopped, pull over and turn the engine off.",
-     "If the coolant tank is low, top it up when cold. Low coolant makes this worse."
+     "If the gauge climbs toward the red, a temperature warning comes on, or you see steam, pull over and turn the engine off.",
+     "If the heater blows cold while the gauge is high, coolant may be low or not circulating. Pull over and let the engine cool.",
+     "If the coolant tank is low, top it up when cold. Low coolant makes this worse, and an empty tank means have it checked before driving."
     ],
-    "why": "At speed, moving air cools the radiator. When you're stopped, the fan has to do that job. A gauge that climbs only at a standstill and drops when you move points to a fan that isn't running or isn't running hard enough.",
+    "why": "At speed, moving air cools the radiator. When you're stopped, the fan has to do that job. A gauge that climbs only at a standstill and drops when you move often points to a fan that isn't running or isn't running hard enough. A shop will usually test the fan, relay and fuse before replacing the motor.",
     "causes": [
      {
       "name": "Fan motor, relay or fuse fault",
@@ -195,14 +197,15 @@
   },
   "r_thermostat_open": {
    "result": {
-    "title": "The thermostat is probably stuck open",
+    "title": "The thermostat may be stuck open",
     "urgency": "check",
-    "now": "Book a thermostat check when convenient. It isn't an emergency, but it's worth fixing before winter.",
+    "now": "Book a thermostat check when convenient. This pattern usually isn't urgent, but it's worth fixing before winter.",
     "if": [
      "If the check engine light comes on, that's often the computer noticing the engine is warming up too slowly.",
-     "If the gauge ever goes above normal instead of below, follow the overheating advice and get it checked sooner."
+     "If the gauge ever goes above normal instead of below, a temperature warning comes on, or you see steam, pull over and turn the engine off, then follow the overheating advice.",
+     "If the gauge reading doesn't match the heater (for example the gauge reads cold but the heat is very hot, or the reverse), have the sensor checked too."
     ],
-    "why": "The thermostat holds coolant in the engine until it warms up. If it stays open, cold air rushing through the radiator at speed overcools the engine, so the gauge sags on the highway and rises again when you slow down. It usually means weak heat and worse fuel economy rather than damage.",
+    "why": "The thermostat holds coolant in the engine until it warms up. If it stays open, cold air rushing through the radiator at speed overcools the engine, so the gauge sags on the highway and rises again when you slow down. This pattern more often shows up as weak heat and worse fuel economy than as overheating. A shop will usually confirm with live temperature data before replacing the thermostat.",
     "causes": [
      {
       "name": "Thermostat stuck open",
@@ -235,14 +238,15 @@
   },
   "r_gauge_sensor": {
    "result": {
-    "title": "Probably a sensor, wiring or gauge fault rather than real overheating",
+    "title": "A sensor, wiring or gauge fault is possible, but rule out real overheating first",
     "urgency": "check",
-    "now": "Book a check of the temperature sensor and gauge wiring. Until it's fixed, use other signs, like heater output and any warning lights, to judge the engine's temperature.",
+    "now": "With the engine cold, check the coolant level first. Low coolant can also make the needle jump, because air pockets form around the sensor. If the level is fine, book a check of the temperature sensor and gauge wiring, and until then use other signs, like heater output and any warning lights, to judge the engine's temperature.",
     "if": [
      "If a temperature warning comes on, you see steam, or the heater suddenly blows cold, treat it as real overheating. Pull over and turn the engine off.",
+     "If the coolant level is below MIN or the tank is empty, don't drive it. Have the cooling system checked first.",
      "If other gauges or lights flicker too, the problem may be a loose ground or the instrument cluster."
     ],
-    "why": "Real engine temperature changes slowly, because there's a lot of coolant to heat up or cool down. A needle that jumps instantly between hot and cold is almost always a bad signal from the sensor, its connector or the gauge.",
+    "why": "Real engine temperature usually changes slowly, because there's a lot of coolant to heat up or cool down. A needle that jumps instantly between hot and cold more often comes from a bad signal from the sensor, its connector or the gauge, but very low coolant can cause the same jumps. A shop will usually compare live sensor data with the gauge before replacing anything.",
     "causes": [
      {
       "name": "Faulty coolant temperature sensor",
@@ -277,12 +281,13 @@
    "result": {
     "title": "The thermostat or radiator may not be keeping the temperature steady",
     "urgency": "soon",
-    "now": "Get the cooling system checked within the next few days, and watch the gauge closely until then.",
+    "now": "Check the coolant level once the engine is cold, then get the cooling system checked within the next few days. Watch the gauge closely until then.",
     "if": [
-     "If the gauge ever reaches the red, pull over and turn the engine off.",
-     "If it happens mostly in traffic, the cooling fan is the more likely cause."
+     "If the gauge ever reaches the red, a temperature warning comes on, or you see steam, pull over and turn the engine off.",
+     "If the heater suddenly blows cold while the gauge is high, pull over and let the engine cool.",
+     "If it happens mostly in traffic, the cooling fan is a more likely cause."
     ],
-    "why": "If the heater stays hot, coolant is reaching it and the level is probably fine. A gauge that drifts above normal and back usually means the thermostat is opening late or sticking, or the radiator can't shed heat fast enough.",
+    "why": "If the heater stays hot, coolant is probably reaching it, though the level is still worth checking. A gauge that drifts above normal and back often means the thermostat is opening late or sticking, or the radiator can't shed heat fast enough.",
     "causes": [
      {
       "name": "Thermostat sticking or opening late",
@@ -316,14 +321,15 @@
   },
   "r_low_coolant": {
    "result": {
-    "title": "Low coolant is letting the temperature swing",
-    "urgency": "soon",
-    "now": "With the engine cold, top up the overflow tank to MAX with the coolant listed in your owner's manual, then get the leak found within the next few days.",
+    "title": "Low coolant may be letting the temperature swing. Don't keep driving",
+    "urgency": "stop",
+    "now": "Keep the engine off until it's fully cold. Topping up to MAX with the coolant listed in your owner's manual may steady the gauge for a while, but with the heater going cold the engine is close to overheating, so have the leak found before relying on the car. If the tank was empty, have it towed or call a mobile mechanic.",
     "if": [
-     "If the gauge reaches the red or the heater goes cold again, pull over and turn the engine off.",
-     "If the level drops again within a day or two, stop driving it and have it towed."
+     "If the gauge reaches the red, a temperature warning comes on, or you see steam, pull over and turn the engine off.",
+     "If you see white, sweet-smelling exhaust smoke or the oil looks milky, don't start the engine.",
+     "If the level drops again soon after a top-up, the leak is significant. Don't drive it."
     ],
-    "why": "When coolant is low, air pockets form around the temperature sensor and in the heater. The gauge swings as hot coolant and air pass by, and the heater goes cold. It's an early warning that the engine is close to overheating.",
+    "why": "When coolant is low, air pockets can form around the temperature sensor and in the heater. The gauge swings as hot coolant and air pass by, and the heater goes cold. It's an early warning that the engine is close to overheating, and the gauge may not show how hot it really is.",
     "causes": [
      {
       "name": "External leak",
@@ -343,7 +349,7 @@
     ],
     "confirm": {
      "you": [
-      "Top up and mark the level, then check it each morning.",
+      "Once the engine is cold, mark the level on the tank so the shop can see how fast it drops.",
       "Look under the car and on the passenger floor for wet spots."
      ],
      "shop": [
@@ -395,14 +401,15 @@
   },
   "r_air_or_pump": {
    "result": {
-    "title": "Coolant isn't circulating well: trapped air or a weak water pump",
+    "title": "Coolant may not be circulating well: trapped air or a weak water pump",
     "urgency": "stop",
     "now": "Don't drive it until the cooling system has been bled and the water pump checked. Have it towed or have a mobile mechanic come to you.",
     "if": [
-     "If coolant was changed or added recently, trapped air is the most likely cause, and a shop can usually bleed it out quickly.",
-     "If you hear grinding near the engine belt or see coolant dripping there, the water pump is the likely culprit."
+     "If coolant was changed or added recently, trapped air is a likely cause, and a shop can usually bleed it out.",
+     "If you hear grinding near the engine belt or see coolant dripping there, mention it. The water pump is worth checking first.",
+     "If the gauge reaches the red or you see steam, keep the engine off and let it cool."
     ],
-    "why": "If the coolant is full but the heater goes cold when the gauge rises, coolant isn't flowing through the engine properly. Air trapped after a repair or coolant change is a common cause, and a worn water pump is the other. Either can tip into real overheating with little warning.",
+    "why": "If the coolant is full but the heater goes cold when the gauge rises, coolant may not be flowing through the engine properly. Air trapped after a repair or coolant change is a common cause, and a worn water pump is another. Either can tip into real overheating with little warning.",
     "causes": [
      {
       "name": "Air trapped in the system",
@@ -438,13 +445,14 @@
    "result": {
     "title": "Check the coolant level first",
     "urgency": "diy",
-    "now": "With the engine fully cold, check the overflow tank. If it's below MIN, top it up to MAX with the coolant type in your owner's manual.",
+    "now": "With the engine fully cold, check the overflow tank. If it's a little below MIN, top it up to MAX with the coolant type in your owner's manual. If it's empty, don't drive it until the cooling system has been checked.",
     "if": [
-     "If it was low, look for a leak and have it checked soon. It will happen again.",
+     "If it was low, there may be a leak. Have it checked soon. It's likely to happen again.",
      "If the coolant is full and the gauge keeps rising above normal, get the cooling system checked within a few days.",
-     "If the gauge reaches the red at any point, pull over and turn the engine off."
+     "If the heater blows cold when the gauge rises, coolant may not be reaching it. Pull over, let the engine cool and have it checked before driving further.",
+     "If the gauge reaches the red, a temperature warning comes on, or you see steam, pull over and turn the engine off."
     ],
-    "why": "Low coolant is one of the most common reasons a gauge swings, especially if the heater also goes cold when the needle rises. Checking the level when cold is safe, quick, and tells you which direction to go next.",
+    "why": "Low coolant is one of the most common reasons a gauge swings, especially if the heater also goes cold when the needle rises. Checking the level when cold is safe, quick, and helps decide what to look at next.",
     "causes": [
      {
       "name": "Low coolant",
@@ -481,9 +489,10 @@
     "now": "Check the coolant level when the engine is cold and book a cooling system check. Note when the gauge moves so you can tell the shop.",
     "if": [
      "If the gauge reaches the red, a temperature warning comes on, or you see steam, pull over and turn the engine off.",
-     "If the coolant is low, top it up and get it checked within a few days."
+     "If the heater blows cold when the gauge rises, pull over and let the engine cool before going further.",
+     "If the coolant is low, top it up and get it checked within a few days. If the tank is empty, have it checked before driving."
     ],
-    "why": "A gauge that moves around can be anything from a harmless sensor fault to an early sign of overheating. Without clearer signs, a quick check of the coolant and a shop scan is the safest way to find out which.",
+    "why": "A gauge that moves around can be anything from a sensor fault to an early sign of overheating. Without clearer signs, a quick check of the coolant and a shop scan is the safest way to find out which.",
     "causes": [
      {
       "name": "Thermostat problem",

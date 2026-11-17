@@ -101,9 +101,10 @@
     "now": "Put the car in Park, set the parking brake and turn the engine off. Have it towed to a shop.",
     "if": [
      "If you're in traffic, turn on your hazard lights and let the car roll to the shoulder if you can.",
-     "If you find a large puddle of red fluid under the car, tell the tow company and the shop. A leak may be the whole problem."
+     "If you find a large puddle of red fluid under the car, tell the tow company and the shop. A leak may be the whole problem.",
+     "If you smell burning or see smoke, turn the engine off and step away from the car."
     ],
-    "why": "When the engine revs but the car won't move, the transmission isn't connecting the engine to the wheels. Running it like this can turn a smaller problem, like low fluid, into a ruined transmission.",
+    "why": "When the engine revs but the car won't move, the transmission isn't connecting the engine to the wheels. Running it like this can turn a smaller problem, like low fluid, into a much bigger repair.",
     "causes": [
      {
       "name": "Very low transmission fluid from a leak",
@@ -141,7 +142,9 @@
     "urgency": "stop",
     "now": "Pull over where it's safe, turn the engine off and get out of the car if you see smoke. Have it towed.",
     "if": [
-     "If there are flames or the smoke keeps growing, move well away and call 911."
+     "If there are flames or the smoke keeps growing, move well away and call 911.",
+     "Don't open the hood if you see flames. Let the fire service deal with it.",
+     "If the smell fades once it cools, it still needs a leak inspection before you drive it again."
     ],
     "why": "Transmission fluid burns and smokes when it hits the exhaust or gets far too hot. Either way, the transmission is losing fluid or being damaged, and leaking fluid near hot parts is a fire risk.",
     "causes": [
@@ -174,14 +177,15 @@
   },
   "r_limp_mode": {
    "result": {
-    "title": "The transmission is likely in backup (limp) mode because of a fault",
+    "title": "The transmission may be in backup (limp) mode because of a fault",
     "urgency": "soon",
-    "now": "Get off busy roads and highways. Drive only a short, slow distance to a shop if it's close. If it isn't, have it towed.",
+    "now": "Get off busy roads and highways as soon as it's safe. Have it towed, or if a shop is very close, ask them whether it's reasonable to bring it in at low speed.",
     "if": [
-     "If it starts slipping, smells burnt or won't move, stop and have it towed.",
-     "If turning the car off and back on makes it shift normally, the fault is still stored. Get it scanned within a few days."
+     "If it starts slipping, smells burnt, shows smoke or won't move, stop and have it towed.",
+     "If turning the car off and back on makes it shift normally, the fault is still stored and can return without warning. Get it scanned within a few days and avoid highways until then.",
+     "If the engine temperature gauge is high or the check engine light is flashing, pull over and turn the engine off."
     ],
-    "why": "When the transmission computer sees a problem, it often locks the transmission in one gear to protect it. That's why the car feels sluggish and won't shift up. The stored code usually points straight to the cause.",
+    "why": "When the transmission computer sees a problem, it often locks the transmission in one gear to protect it. That's why the car feels sluggish and won't shift up. The stored code points the shop to the right area to test.",
     "causes": [
      {
       "name": "Shift solenoid or speed sensor fault",
@@ -215,12 +219,13 @@
   },
   "r_temp_load": {
    "result": {
-    "title": "The transmission fluid got too hot from the extra work",
-    "urgency": "soon",
-    "now": "Pull over where it's safe, shift into Park and let the engine idle until the warning goes out. Follow your owner's manual if it says otherwise.",
+    "title": "The transmission fluid may have got too hot from the extra work",
+    "urgency": "stop",
+    "now": "Pull over where it's safe, shift into Park and let the engine idle until the warning goes out, unless your owner's manual says to do something different. Don't continue towing or carrying the heavy load until the transmission has been checked.",
     "if": [
      "If the warning doesn't go out after 15–20 minutes, or comes back soon after, have it towed.",
-     "If it happens again under the same load, have the fluid and cooling checked. You may be near the limit of what the car is built to tow or carry."
+     "If it happens again under the same load, have the fluid and cooling checked. You may be near the limit of what the car is built to tow or carry.",
+     "If you smell burning, see smoke, the car slips or the engine temperature gauge is high too, turn the engine off and have it towed."
     ],
     "why": "Towing, heavy loads, long climbs and slow traffic in the heat all make the transmission work harder and heat its fluid. Idling in Park lets the fluid circulate and cool. Very hot fluid wears out quickly, so it's worth having it checked afterward.",
     "causes": [
@@ -255,14 +260,15 @@
   },
   "r_temp_no_load": {
    "result": {
-    "title": "The transmission is running hot without a good reason",
-    "urgency": "soon",
-    "now": "Pull over where it's safe, shift into Park and let it idle until the warning goes out. Then get the transmission checked within the next few days.",
+    "title": "The transmission may be running hot without an obvious reason",
+    "urgency": "stop",
+    "now": "Pull over where it's safe, shift into Park and let it idle until the warning goes out. Have the transmission checked before relying on the car, and have it towed if the warning comes back.",
     "if": [
      "If the warning comes back on a normal drive, have it towed instead of driving it again.",
-     "If the car slips, shifts harshly or smells burnt, stop driving it."
+     "If the car slips, shifts harshly, smells burnt or you see smoke, turn the engine off and have it towed.",
+     "If the engine temperature gauge is high too, turn the engine off and don't restart it."
     ],
-    "why": "Normal driving shouldn't overheat a healthy transmission. When it does, the fluid is usually low or worn out, the cooler is blocked, or the transmission is slipping inside and making extra heat.",
+    "why": "Normal driving shouldn't overheat a healthy transmission. When it does, common causes are fluid that's low or worn out, the cooler is blocked, or the transmission is slipping inside and making extra heat.",
     "causes": [
      {
       "name": "Low transmission fluid",
@@ -282,7 +288,7 @@
      {
       "name": "Faulty temperature sensor",
       "clues": "The warning comes on right after a cold start.",
-      "against": "If the car shifts and drives perfectly, a sensor fault is more likely than real overheating."
+      "against": "If the car shifts and drives perfectly, a sensor fault becomes more likely, but a shop should confirm the real temperature with a scan tool before you rely on that."
      }
     ],
     "confirm": {
@@ -301,11 +307,13 @@
   },
   "r_engine_hot": {
    "result": {
-    "title": "The engine is overheating and taking the transmission with it",
+    "title": "The engine may be overheating and heating the transmission too",
     "urgency": "stop",
     "now": "Pull over where it's safe and turn the engine off. Don't open the radiator cap while it's hot. Have it towed or call a mobile mechanic.",
     "if": [
-     "If you see steam or smell sweet coolant, stay away from the hood until it cools."
+     "If you see steam or smell sweet coolant, stay away from the hood until it cools.",
+     "If the temperature gauge was in the red, don't restart the engine to \"get it home\". Overheating can damage the engine quickly.",
+     "If you smell burning or see smoke rather than steam, step away from the car."
     ],
     "why": "On many cars, the transmission fluid is cooled by the engine's radiator. When the engine overheats, the transmission does too. The engine problem is the one to deal with first.",
     "causes": [
@@ -339,10 +347,11 @@
     "urgency": "soon",
     "now": "Have the transmission codes read within the next few days. Until then, drive gently and avoid towing or heavy loads.",
     "if": [
-     "If the car starts slipping, shifting harshly or gets stuck in one gear, keep trips short and get it in sooner.",
-     "If the light is flashing and the car won't shift at all, have it towed."
+     "If the car starts slipping, shifting harshly or gets stuck in one gear, avoid highways and get it checked right away rather than waiting.",
+     "If the light is flashing and the car won't shift at all, have it towed.",
+     "If you smell burning, see smoke or the engine temperature gauge is high, pull over, turn the engine off and have it towed."
     ],
-    "why": "This light means the transmission computer has stored a fault, even if you can't feel a problem yet. Faults caught early are often a sensor, solenoid or low fluid. Driving on them can lead to bigger damage.",
+    "why": "This light means the transmission computer has stored a fault, even if you can't feel a problem yet. Faults caught early are often a sensor, solenoid or low fluid, and a shop will usually test those before suggesting bigger repairs. Driving on them can lead to bigger damage.",
     "causes": [
      {
       "name": "Speed sensor or shift solenoid fault",
@@ -379,7 +388,8 @@
     "urgency": "soon",
     "now": "Look up the light in your owner's manual. If it's a temperature warning, pull over and let it idle in Park until it goes out. Either way, get the codes read within a few days.",
     "if": [
-     "If the car slips, won't shift or smells burnt, stop driving it and have it towed."
+     "If the car slips, won't shift, smells burnt or you see smoke, stop driving it and have it towed.",
+     "If the engine temperature gauge is high as well, turn the engine off and don't restart it."
     ],
     "why": "Transmission warnings cover overheating and electrical faults, and they're handled differently. Your owner's manual will tell you which one you're seeing, and a scan will show why.",
     "causes": [

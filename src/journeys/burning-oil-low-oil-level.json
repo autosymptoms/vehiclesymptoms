@@ -100,12 +100,14 @@
   },
   "r_critically_low": {
    "result": {
-    "title": "The engine is dangerously low on oil",
+    "title": "The engine may be dangerously low on oil",
     "urgency": "stop",
     "now": "Shut the engine off and don't run it until you've added the correct oil to the full mark. If the oil pressure light stays on after that, have it towed.",
     "if": [
      "If the engine was knocking or ticking loudly before you stopped, have it towed even after adding oil. There may already be damage.",
-     "If the oil pressure light goes off and the engine sounds normal after topping up, the immediate danger has passed. Have it checked within a few days to find out where the oil went."
+     "If the oil pressure light came on while the engine was running, have the engine checked before driving it again, even if the light goes off after topping up. Low oil pressure can damage the engine before any noise shows up.",
+     "If the oil light never came on and the dipstick now reads full, topping up is the first step, but it isn't proof the engine is unharmed. Call a shop to find where the oil went, and check the level before every start until then.",
+     "If you see smoke from under the hood, or the temperature gauge is high, don't restart the engine."
     ],
     "why": "Oil protects every moving part of the engine. When there's too little, oil pressure drops and metal parts start grinding against each other. Running the engine like this for even a short time can ruin it.",
     "causes": [
@@ -121,7 +123,7 @@
      },
      {
       "name": "Oil pump or pressure problem",
-      "clues": "The oil pressure light is on even though the dipstick shows full.",
+      "clues": "The oil pressure light is on even though the dipstick shows full. A shop will usually test oil pressure with a gauge before replacing a sensor or pump.",
       "against": ""
      }
     ],
@@ -146,7 +148,8 @@
     "if": [
      "If the oil is below the low mark, add the oil type listed in your owner's manual a little at a time until it reaches the full mark.",
      "If you find yourself adding oil more than once between oil changes, have it checked to find out where it's going.",
-     "If the oil pressure light comes on at any point, stop driving and shut the engine off."
+     "If the oil pressure light comes on at any point, stop driving and shut the engine off.",
+     "If the engine knocks or ticks loudly, don't drive it until it's checked."
     ],
     "why": "Readings taken on a slope or right after shutdown can look lower than the real level. A correct reading tells you whether there's really a problem, and how fast the oil is going down.",
     "causes": [
@@ -180,15 +183,16 @@
   },
   "r_leak": {
    "result": {
-    "title": "The engine is most likely leaking oil",
+    "title": "The engine may be leaking oil",
     "urgency": "check",
     "now": "Keep the oil topped up to the full mark, check it every time you fill up with fuel, and book a leak inspection when convenient.",
     "if": [
      "If the drips are bigger than a coin each day or form a puddle, get it checked within a few days.",
-     "If oil is dripping onto the exhaust and you smell burning, have it checked soon. Hot exhaust can ignite oil.",
-     "If the oil level drops below the low mark between checks, stop driving and add oil before going further."
+     "If you smell burning oil or see smoke from under the hood, don't keep driving. Oil on a hot exhaust can catch fire. Pull over, turn off the engine and have it checked before driving further.",
+     "If the oil level drops below the low mark between checks, stop driving and add oil before going further.",
+     "If the oil pressure light comes on, pull over and shut the engine off right away."
     ],
-    "why": "Oil spots under the car or wet, grimy areas on the engine mean oil is escaping from a gasket or seal. Small leaks are common on older engines, but they get worse over time and can leave the engine low on oil.",
+    "why": "Oil spots under the car or wet, grimy areas on the engine usually mean oil is escaping from a gasket or seal. Small leaks are common on older engines, but they tend to get worse and can leave the engine low on oil. A shop will usually clean the area or use dye to find the exact source before replacing a gasket.",
     "causes": [
      {
       "name": "Leaking valve cover gasket",
@@ -226,14 +230,16 @@
   },
   "r_leak_hot": {
    "result": {
-    "title": "Oil is likely leaking onto hot engine or exhaust parts",
-    "urgency": "soon",
-    "now": "Check the oil level, keep it topped up, and have the leak fixed within the next few days. Keep trips short until then.",
+    "title": "Oil may be leaking onto hot engine or exhaust parts",
+    "urgency": "stop",
+    "now": "Don't drive it until the source is found. Let the engine cool fully, check the oil level, then have it towed or ask a mobile mechanic to look at it.",
     "if": [
      "If you see more than light wisps of smoke, or any flames, pull over, shut the engine off and get everyone out.",
-     "If the smell is strong inside the cabin, open the windows and get it checked sooner."
+     "If the smell is strong inside the cabin, open the windows and keep the engine off until it's checked.",
+     "If the smell started right after an oil change and you see no smoke, spilled oil burning off is possible. Call the shop that did the change and have them check it before you rely on the car.",
+     "If the oil pressure light comes on or the oil is below the low mark, don't start the engine."
     ],
-    "why": "A burning oil smell or light smoke from under the hood usually means oil is dripping onto the hot exhaust manifold or engine. It's often a valve cover gasket. Besides losing oil, it's a fire risk if the leak gets worse.",
+    "why": "A burning oil smell or light smoke from under the hood often means oil is dripping onto the hot exhaust manifold or engine. A valve cover gasket is a common source. Besides losing oil, it's a fire risk, and there's no way to tell from the driver's seat how much is reaching the exhaust.",
     "causes": [
      {
       "name": "Leaking valve cover gasket",
@@ -271,9 +277,10 @@
     "now": "Stop driving it. Check the oil and coolant levels with the engine cold, and have it towed or call a mobile mechanic.",
     "if": [
      "If the temperature gauge has been climbing, don't start the engine again until it's been checked.",
-     "If the oil on the dipstick looks milky or like light-brown chocolate milk, coolant is getting into the oil too."
+     "If the oil on the dipstick looks milky or like light-brown chocolate milk, coolant is getting into the oil too.",
+     "If you see steam or white smoke from under the hood or the tailpipe, keep the engine off."
     ],
-    "why": "Oil and coolant run in separate passages and should never mix. An oily film in the coolant usually means a failed head gasket or oil cooler. Mixed fluids lose their ability to lubricate and cool, and driving on can cause overheating and serious engine damage.",
+    "why": "Oil and coolant run in separate passages and should never mix. An oily film in the coolant often points to a failed head gasket or oil cooler. Mixed fluids lose their ability to lubricate and cool, and driving on can cause overheating and serious engine damage. A shop will usually pressure test the cooling system before deciding what needs repair.",
     "causes": [
      {
       "name": "Blown head gasket",
@@ -306,13 +313,14 @@
   },
   "r_hidden_burning": {
    "result": {
-    "title": "The engine is likely burning oil slowly inside",
+    "title": "The engine may be burning oil slowly inside",
     "urgency": "check",
     "now": "Keep the oil at the full mark, write down the mileage each time you add oil, and book a check when convenient.",
     "if": [
      "If you're adding about a quart every 1,000 miles or more, that's at the high end of what most engines should use. Get it checked sooner.",
      "If the check engine light comes on or the engine starts to misfire, oil may be fouling the spark plugs. Have it checked soon.",
-     "If your engine has a known oil-consumption problem, ask the dealer about recalls or service bulletins."
+     "If your engine has a known oil-consumption problem, ask the dealer about recalls or service bulletins.",
+     "If the oil pressure light comes on or the engine starts knocking, pull over and shut it off right away."
     ],
     "why": "Many engines use some oil between changes, and burning a small amount may produce no smoke you can see. Worn piston rings, worn valve seals or a clogged crankcase ventilation (PCV) valve can raise oil use gradually. Keeping a log tells the shop whether it's normal or getting worse.",
     "causes": [
@@ -354,14 +362,15 @@
   },
   "r_valve_seals": {
    "result": {
-    "title": "Worn valve stem seals are the most likely cause",
+    "title": "Worn valve stem seals are a likely cause",
     "urgency": "check",
     "now": "Keep the oil topped up, note how often you add it, and book a check when convenient.",
     "if": [
      "If the smoke starts showing up while driving too, the piston rings may also be worn. Get it checked sooner.",
-     "If the engine misfires or the check engine light comes on, have it checked within a few days."
+     "If the engine misfires or the check engine light comes on, have it checked within a few days.",
+     "If the oil pressure light comes on, pull over and shut the engine off right away."
     ],
-    "why": "Valve stem seals keep oil from running down into the cylinders. When they harden with age, oil seeps in while the car sits, and burns off as a puff of blue smoke at startup. It's usually a slow problem, not an emergency.",
+    "why": "Valve stem seals keep oil from running down into the cylinders. When they harden with age, oil seeps in while the car sits, and burns off as a puff of blue smoke at startup. It usually develops slowly, but the oil level still needs watching, because running low on oil is what damages engines. A shop will usually do a consumption test before recommending seal work.",
     "causes": [
      {
       "name": "Worn or hardened valve stem seals",
@@ -394,14 +403,15 @@
   },
   "r_rings": {
    "result": {
-    "title": "Worn piston rings or a ventilation problem is likely",
+    "title": "Worn piston rings or a ventilation problem are possible",
     "urgency": "soon",
     "now": "Check the oil level every time you fill up with fuel, keep it at the full mark, and have the engine checked within the next few days.",
     "if": [
      "If the smoke is heavy or the oil drops fast enough to need oil every few days, don't drive it until it's checked.",
-     "If the check engine light flashes or the engine shakes, stop driving it. Oil may be fouling the spark plugs and damaging the catalytic converter."
+     "If the check engine light flashes or the engine shakes, stop driving it. Oil may be fouling the spark plugs and damaging the catalytic converter.",
+     "If the oil pressure light comes on or the engine starts knocking, pull over and shut it off right away."
     ],
-    "why": "Steady blue smoke while driving means oil is getting into the cylinders and burning, usually past worn piston rings. A clogged ventilation (PCV) valve can push oil into the intake and cause the same symptom, and it's a much simpler fix, so it should be checked first.",
+    "why": "Steady blue smoke while driving usually means oil is getting into the cylinders and burning. Worn piston rings are one cause. A clogged ventilation (PCV) valve can push oil into the intake and cause the same symptom, and it's a much simpler fix, so a shop will usually check it before any engine work.",
     "causes": [
      {
       "name": "Clogged PCV valve or crankcase ventilation problem",
@@ -440,9 +450,10 @@
     "now": "Check and top up the oil, then have the turbo checked within the next few days. Drive gently and avoid hard acceleration until then.",
     "if": [
      "If the smoke is heavy, the whining turns into a grinding or siren-like noise, or power drops suddenly, stop driving and have it towed.",
-     "If the engine revs up on its own and won't shut off, get away from the vehicle and call for help."
+     "If the engine revs up on its own and won't shut off, get away from the vehicle and call for help.",
+     "If the oil pressure light comes on, pull over and shut the engine off right away."
     ],
-    "why": "A turbo spins very fast on a thin film of engine oil. When its seals or bearings wear, oil can be pushed into the intake or exhaust and burned, which shows up as blue smoke under boost. A failing turbo can come apart and damage the engine.",
+    "why": "A turbo spins very fast on a thin film of engine oil. When its seals or bearings wear, oil can be pushed into the intake or exhaust and burned, which shows up as blue smoke under boost. A failing turbo can come apart and damage the engine. A shop will usually check the oil return line and ventilation system before replacing the turbo.",
     "causes": [
      {
       "name": "Worn turbocharger seals or bearings",
@@ -480,7 +491,8 @@
     "now": "Top up the oil to the full mark, check it every time you fill up with fuel, and book an inspection when convenient.",
     "if": [
      "If the oil drops below the low mark between checks, get it checked within a few days.",
-     "If the oil pressure light comes on, pull over and shut the engine off right away."
+     "If the oil pressure light comes on, pull over and shut the engine off right away.",
+     "If you see smoke from under the hood or the engine starts knocking, pull over and shut it off."
     ],
     "why": "Oil only goes two places: out through a leak or into the engine where it burns. A shop can quickly look for leaks and test whether the engine is burning oil. Your record of how often you add oil helps them a lot.",
     "causes": [

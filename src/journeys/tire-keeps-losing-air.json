@@ -21,7 +21,7 @@
   "flat tire keeps coming back",
   "tire pressure light keeps coming on"
  ],
- "intro": "A tire that needs air every few days almost always has a small leak: a nail in the tread, a leaky valve, or a poor seal where the tire meets the wheel. Damage to the sidewall is the exception, and that one isn't safe to drive on. Answer a few questions to find the likely cause and the right fix.",
+ "intro": "A tire that needs air every few days usually has a small leak: a nail in the tread, a leaky valve, or a poor seal where the tire meets the wheel. Damage to the sidewall is the exception, and that one isn't safe to drive on. Answer a few questions to narrow down the likely cause and what to ask the tire shop.",
  "safety": [
   "If you see a bulge, bubble, deep cut or cords showing on a tire, don't drive on it. Put on the spare or call roadside help.",
   "Don't drive on a tire that's flat or badly low. It can overheat and fail, and it ruins the tire.",
@@ -87,8 +87,9 @@
     "urgency": "stop",
     "now": "Don't drive on it. Put on the spare or call roadside assistance. If you have a portable inflator, you can try adding air where the car is parked.",
     "if": [
-     "If it holds air after inflating, have it repaired or inspected the same day and check the pressure again before every trip.",
-     "If it won't hold air or you see sidewall damage, use the spare and have the tire replaced."
+     "If it holds air after inflating, it still needs inspecting the same day. A tire that was driven on while flat or very low can be damaged inside where you can't see it, so the spare is the safer choice for getting it there.",
+     "If it won't hold air or you see sidewall damage, use the spare and have the tire replaced.",
+     "If the tire shakes, thumps or loses air again quickly after inflating, don't drive on it."
     ],
     "why": "A very low tire flexes too much, builds heat and can come apart. It also makes steering and braking less predictable. Even a short drive on a flat can ruin a tire that could have been repaired.",
     "causes": [
@@ -123,14 +124,14 @@
   },
   "r_sidewall": {
    "result": {
-    "title": "Sidewall damage means the tire needs replacing",
+    "title": "Sidewall damage usually means the tire needs replacing",
     "urgency": "stop",
     "now": "Don't drive on this tire. Put on the spare or call roadside assistance, then have the tire replaced.",
     "if": [
      "If the spare is a small temporary one, follow the speed and distance limits printed on it.",
      "If the wheel is also bent or cracked, have it checked when the tire is replaced."
     ],
-    "why": "A bulge means the cords inside the tire are broken and only the rubber is holding the air. Cuts and cracks in the sidewall can't be safely repaired. The tire can burst without warning.",
+    "why": "A bulge usually means the cords inside the tire are broken and only the rubber is holding the air. Cuts and cracks in the sidewall generally can't be safely repaired. The tire can burst without warning.",
     "causes": [
      {
       "name": "Impact damage from a pothole or curb",
@@ -165,9 +166,11 @@
     "now": "Check all four tires when they're cold (before driving) and fill them to the pressure on the driver's door sticker.",
     "if": [
      "If one tire keeps dropping faster than the others, it probably has its own leak. Go back and check it with soapy water.",
-     "If the tire pressure light stays on after filling all tires correctly, have the sensors checked."
+     "If the tire pressure light stays on after filling all tires correctly, have the sensors checked.",
+     "If any tire looks squashed, or you see a bulge, cut or cords, don't drive on it. Put on the spare or call roadside help.",
+     "If you feel a shake, thump or pull while driving, slow down gently, pull over and check the tires."
     ],
-    "why": "Air contracts as it cools, so pressure drops when the temperature falls, by about 1 psi for every 10 degrees Fahrenheit. All the tires drop together, and it often turns on the tire pressure light on the first cold morning.",
+    "why": "Air contracts as it cools, so pressure drops when the temperature falls, by about 1 psi for every 10 degrees Fahrenheit. All the tires drop together, and it often turns on the tire pressure light on the first cold morning. A leak in one tire can hide behind this, so it's worth comparing the tires a week later.",
     "causes": [
      {
       "name": "Normal pressure drop with colder weather",
@@ -193,12 +196,13 @@
   },
   "r_puncture": {
    "result": {
-    "title": "A puncture in the tread is causing the leak",
+    "title": "A puncture in the tread is a likely source of the leak",
     "urgency": "soon",
-    "now": "Leave the object in place and have the tire repaired within a few days. Check and top up the pressure before each drive until then.",
+    "now": "Leave the object in place and have the tire inspected and repaired within a few days. Check and set the pressure before each drive until then.",
     "if": [
-     "If the hole is near the edge of the tread or on the sidewall, it usually can't be repaired safely and the tire should be replaced.",
-     "If the tire loses air quickly or goes flat, use the spare instead of driving on it."
+     "If the hole is near the edge of the tread or on the sidewall, a shop will usually say it can't be repaired safely and recommend a new tire.",
+     "If the tire loses air quickly or goes flat, use the spare instead of driving on it.",
+     "If you feel a vibration or thump, or see a bulge, stop and put on the spare."
     ],
     "why": "Nails and screws often seal themselves partly, so air leaks out slowly instead of all at once. The safe fix is to take the tire off the wheel and repair it from the inside with a patch and plug, so the shop can also check for hidden damage.",
     "causes": [
@@ -228,14 +232,15 @@
   },
   "r_valve": {
    "result": {
-    "title": "The valve stem is leaking",
+    "title": "The valve stem appears to be leaking",
     "urgency": "diy",
     "now": "Make sure the valve cap is on. If you have a valve core tool, snug the core gently, then test again with soapy water.",
     "if": [
      "If it still bubbles, or the rubber stem is cracked, have the valve stem replaced soon.",
-     "If your car has tire pressure sensors in the valve, a shop should replace the seal or valve so the sensor isn't damaged."
+     "If your car has tire pressure sensors in the valve, a shop should replace the seal or valve so the sensor isn't damaged.",
+     "If the tire is losing air quickly or is low by the time you next drive, put on the spare or have it fixed before driving."
     ],
-    "why": "The small spring valve inside the stem can loosen or get dirt in it, and rubber stems crack with age. Air slowly seeps out even though the tire itself is fine.",
+    "why": "The small spring valve inside the stem can loosen or get dirt in it, and rubber stems crack with age. Air can then seep out slowly even when the tire itself isn't damaged.",
     "causes": [
      {
       "name": "Loose or dirty valve core",
@@ -267,14 +272,15 @@
   },
   "r_bead_leak": {
    "result": {
-    "title": "Air is likely leaking where the tire seals against the wheel",
+    "title": "Air may be leaking where the tire seals against the wheel",
     "urgency": "check",
-    "now": "Keep the pressure topped up, and book a tire shop visit to have the tire taken off and the wheel edge cleaned and resealed.",
+    "now": "Check and set the pressure before each drive, and book a tire shop visit to have the tire taken off and the wheel edge cleaned and resealed.",
     "if": [
-     "If the wheel is bent or cracked from a pothole, it may need repair or replacement. A bent wheel can also cause a vibration.",
-     "If the leak gets fast enough that the tire goes flat overnight, use the spare."
+     "If you see a crack in the wheel, or bubbles from the wheel itself, use the spare until it's inspected.",
+     "If the wheel is bent from a pothole, it may need repair or replacement. A bent wheel can also cause a vibration.",
+     "If the leak gets fast enough that the tire goes flat overnight, or you feel a new vibration or thump, use the spare."
     ],
-    "why": "The tire seals against a smooth lip on the wheel. Corrosion, dirt or a bend from an impact can break that seal so air seeps out slowly. It's common on older aluminum wheels and in places where roads are salted.",
+    "why": "The tire seals against a smooth lip on the wheel. Corrosion, dirt or a bend from an impact can break that seal so air seeps out slowly. It's common on older aluminum wheels and in places where roads are salted. A shop will usually test the wheel in water and check it for bends and cracks before deciding whether it can be resealed.",
     "causes": [
      {
       "name": "Corrosion on the wheel's sealing edge",
@@ -312,7 +318,8 @@
     "now": "Have the tire inspected within a few days and ask the shop to check the old repair from the inside.",
     "if": [
      "If the old repair is a plug pushed in from the outside only, ask about a proper inside repair or a new tire.",
-     "If the repair is near the edge of the tread or the tire was driven on flat, it will likely need replacing."
+     "If the repair is near the edge of the tread or the tire was driven on flat, a shop will often recommend replacing it.",
+     "If the tire goes low quickly, shakes or thumps, or you see a bulge, use the spare instead of driving on it."
     ],
     "why": "A plug put in from the outside, without a patch on the inside, can work loose over time. Shops also find that a tire driven while low may have hidden inner damage that makes a new repair unsafe.",
     "causes": [
@@ -345,7 +352,8 @@
     "now": "Check the pressure before each drive and book a tire shop to find the leak. Note how many pounds it loses per day.",
     "if": [
      "If it starts going low overnight or faster, get it in sooner and use the spare if needed.",
-     "If the tire pressure light flashes for a minute and then stays on, the system itself may have a fault."
+     "If the tire pressure light flashes for a minute and then stays on, the system itself may have a fault.",
+     "If you see a bulge, cut or cords, or feel a vibration or thump, don't drive on the tire. Use the spare."
     ],
     "why": "Many leaks are tiny: a small object hidden in a tread groove, a pinhole, or corrosion under the wheel edge. A shop can dunk the wheel in water to find exactly where air is escaping.",
     "causes": [

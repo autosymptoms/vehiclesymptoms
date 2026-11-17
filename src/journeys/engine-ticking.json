@@ -133,10 +133,12 @@
     "urgency": "stop",
     "now": "Pull over as soon as it's safe, shut the engine off and check the oil level. Don't restart it until you know the oil is full. If the light stays on with full oil, have it towed.",
     "if": [
-     "If the oil was very low, adding oil may turn the light off. Even so, have it checked soon, because running low on oil can damage the engine.",
-     "If the ticking turns into a knock, don't restart the engine at all."
+     "If the oil was very low and adding oil turns the light off, have it checked before relying on the car again. Running low on oil can damage the engine, and the oil went somewhere.",
+     "If the ticking turns into a knock, don't restart the engine at all.",
+     "If the light stays on or flickers after the oil reads full, don't restart the engine.",
+     "If you see smoke or smell burning oil from under the hood, keep away from the engine and let it cool."
     ],
-    "why": "The oil pressure light means oil isn't being pushed through the engine with enough force. Ticking along with it usually means the top of the engine is running short of oil. Driving like this can destroy the engine in minutes.",
+    "why": "The oil pressure light means oil isn't being pushed through the engine with enough force. Ticking along with it can mean the top of the engine is running short of oil. Running the engine like this can damage it within minutes.",
     "causes": [
      {
       "name": "Very low oil level",
@@ -144,14 +146,14 @@
       "against": "If the dipstick reads full, low oil isn't the cause."
      },
      {
-      "name": "Failing oil pump or clogged oil pickup",
+      "name": "Oil pump or oil pickup problem",
       "clues": "The oil is full but the light stays on, especially at idle when warm.",
       "against": ""
      },
      {
-      "name": "Faulty oil pressure sensor",
+      "name": "Oil pressure sensor or wiring fault",
       "clues": "The light flickers but the engine sounds normal apart from the tick.",
-      "against": "Don't assume it's just the sensor until a shop confirms it."
+      "against": "A shop will usually confirm the real oil pressure with a gauge before blaming the sensor."
      }
     ],
     "confirm": {
@@ -162,7 +164,7 @@
      "shop": [
       "Mechanical oil pressure test with a gauge",
       "Oil pressure sensor check",
-      "Oil pickup and pump inspection if pressure is low"
+      "Oil pickup and pump inspection if measured pressure is low"
      ]
     }
    }
@@ -174,9 +176,10 @@
     "now": "Stop driving and shut the engine off. Check the oil level, then have the car towed or have a mobile mechanic listen to it.",
     "if": [
      "If the oil is very low, add oil, but don't run the engine to \"test\" it. A shop should listen first.",
-     "If the knock is only a light pinging when you accelerate hard, it may be fuel knock instead. See the engine knocking guide."
+     "If the knock is only a light pinging when you accelerate hard, it may be fuel knock instead. See the engine knocking guide.",
+     "If the oil pressure light came on before or with the knock, mention it to the shop."
     ],
-    "why": "A tick is usually a small part at the top of the engine. A heavy knock that grows with engine speed often comes from worn bearings deep in the engine. Running it can turn a repairable problem into a destroyed engine.",
+    "why": "A tick is usually a small part at the top of the engine. A heavy knock that grows with engine speed can come from worn bearings deep in the engine. Running it can turn a repairable problem into a destroyed engine.",
     "causes": [
      {
       "name": "Worn connecting rod bearing (rod knock)",
@@ -209,14 +212,15 @@
   },
   "r_flashing_cel": {
    "result": {
-    "title": "A misfire is likely, and a flashing light means it's severe",
+    "title": "A severe misfire is possible. A flashing light is a serious warning",
     "urgency": "stop",
     "now": "Slow down and pull over when it's safe. Have the car towed or call a mobile mechanic rather than driving on.",
     "if": [
-     "If the light stops flashing and stays steady, the misfire may have eased, but still get it checked within a few days.",
-     "If you smell fuel or see smoke, turn the engine off and step away from the car."
+     "If the light stops flashing and stays steady, the misfire may have eased, but have it checked before driving any distance. If it starts flashing again, stop.",
+     "If you smell fuel or see smoke, turn the engine off and step away from the car.",
+     "If the temperature gauge climbs toward red, turn the engine off."
     ],
-    "why": "A flashing check engine light means the engine is misfiring badly enough to send unburned fuel into the exhaust. That can overheat and ruin the catalytic converter. A loose spark plug or ignition problem can also make a ticking or puffing sound.",
+    "why": "A flashing check engine light usually means the engine is misfiring badly enough to send unburned fuel into the exhaust. That can overheat and ruin the catalytic converter. A loose spark plug or ignition problem can also make a ticking or puffing sound.",
     "causes": [
      {
       "name": "Loose or cracked spark plug",
@@ -249,15 +253,17 @@
   },
   "r_low_oil": {
    "result": {
-    "title": "Low oil is the most likely reason for the ticking",
+    "title": "Low oil is a likely reason for the ticking",
     "urgency": "soon",
     "now": "Add the oil type listed in your owner's manual until the dipstick reads full, then listen again with the engine warm. Get the car checked within a few days to find out where the oil is going.",
     "if": [
      "If the oil pressure light comes on at any point, shut the engine off and don't drive it.",
-     "If the ticking stays after topping up and driving a few miles, have the valvetrain checked. Running low may have worn something.",
-     "If you need to add more than a quart between oil changes, the engine is leaking or burning oil."
+     "If the ticking turns into a deeper knock, stop driving and shut the engine off.",
+     "If the ticking doesn't fade after topping up, limit driving and get it checked soon. Running low may have worn something.",
+     "If you need to add more than a quart between oil changes, the engine is leaking or burning oil.",
+     "If the level drops noticeably within a day, or you see smoke or smell burning oil, don't keep driving it. Have it checked first."
     ],
-    "why": "The top of the engine is the last place oil reaches. When the level is low, parts like lifters and rocker arms don't get enough oil and start to tick. Topping up often quiets it, but low oil means it's leaking or burning somewhere.",
+    "why": "The top of the engine is the last place oil reaches. When the level is low, parts like lifters and rocker arms don't get enough oil and start to tick. Topping up often quiets it, but low oil usually means it's leaking or burning somewhere.",
     "causes": [
      {
       "name": "Oil leak",
@@ -297,7 +303,8 @@
     "if": [
      "If the oil was low and the ticking goes away after topping up, find out where the oil is going within a few days.",
      "If the oil is full and the ticking continues, book a check so a technician can pinpoint the source.",
-     "If the oil pressure light comes on, shut the engine off and don't drive it."
+     "If the oil pressure light comes on, shut the engine off and don't drive it.",
+     "If the ticking turns into a deep knock, or the check engine light flashes, stop driving and shut the engine off."
     ],
     "why": "Low oil is one of the most common causes of engine ticking, and also the one that can do the most damage if ignored. It takes two minutes to check and tells you whether this is urgent.",
     "causes": [
@@ -331,12 +338,13 @@
   },
   "r_cold_start_tick": {
    "result": {
-    "title": "A tick that fades as the engine warms is usually lifters or a small exhaust leak",
+    "title": "A tick that fades as the engine warms is often lifters or a small exhaust leak",
     "urgency": "check",
     "now": "Let the engine idle for 30 seconds or so after a cold start before driving off, and book a check when convenient.",
     "if": [
      "If the ticking starts lasting longer or happens when warm too, get it checked sooner.",
-     "If you smell exhaust inside the car, get it checked right away. Exhaust fumes in the cabin are dangerous."
+     "If you smell exhaust inside the car, get it checked right away. Exhaust fumes in the cabin are dangerous.",
+     "If the oil pressure light comes on or the tick turns into a knock, shut the engine off and don't drive it."
     ],
     "why": "Hydraulic lifters can lose some oil overnight and tick until oil pressure fills them back up. A cracked exhaust manifold or leaking gasket can also tick when cold, then go quiet as the metal heats up and expands to seal the gap.",
     "causes": [
@@ -373,12 +381,13 @@
    "result": {
     "title": "This may be normal fuel injector or fuel pump ticking",
     "urgency": "diy",
-    "now": "Check that the oil is full, then listen with the hood open. A steady, light, fast tick that hasn't changed over time is often the normal sound of the fuel injectors.",
+    "now": "Check that the oil is full, then listen with the hood open. A steady, light, fast tick that hasn't changed over time is often the normal sound of the fuel injectors. A technician can confirm this by listening at your next service.",
     "if": [
      "If the tick gets louder, changes in sound, or comes with a check engine light or rough running, book a check.",
-     "If you're not sure what's normal for your car, ask a shop to listen to it at your next service."
+     "If you're not sure what's normal for your car, ask a shop to listen to it at your next service.",
+     "If the oil pressure light comes on, or the tick turns into a knock, shut the engine off and don't drive it."
     ],
-    "why": "Fuel injectors open and close many times a second, and many engines, especially direct-injection ones, make a light ticking sound that's part of normal operation. Some emissions valves click softly too. A noise that's always been there and hasn't changed is usually not a problem.",
+    "why": "Fuel injectors open and close many times a second, and many engines, especially direct-injection ones, make a light ticking sound that's part of normal operation. Some emissions valves click softly too. A noise that's always been there and hasn't changed is less likely to be a new fault, but only someone listening to the car can confirm it.",
     "causes": [
      {
       "name": "Normal fuel injector noise",
@@ -410,14 +419,15 @@
   },
   "r_exhaust_leak": {
    "result": {
-    "title": "An exhaust leak near the engine is likely",
+    "title": "An exhaust leak near the engine is possible",
     "urgency": "soon",
-    "now": "Get it checked within a few days. Until then, drive with the windows cracked open and avoid long trips.",
+    "now": "Get it checked within a few days. Until then, keep trips short. If you notice any exhaust smell inside the car, don't keep driving it.",
     "if": [
      "If you smell exhaust inside the car, or anyone feels dizzy, gets a headache or feels sick, stop driving and get to fresh air. Have it towed.",
-     "If the check engine light comes on, mention it to the shop. A leak can affect the oxygen sensor readings."
+     "If the check engine light comes on, mention it to the shop. A leak can affect the oxygen sensor readings.",
+     "If the tick turns into a knock or the oil pressure light comes on, shut the engine off."
     ],
-    "why": "A crack in the exhaust manifold or a leaking gasket lets exhaust puff out each time a cylinder fires, which sounds like a ticking that speeds up with the engine. It often gets louder under load. Exhaust leaks near the engine can let fumes into the cabin.",
+    "why": "A crack in the exhaust manifold or a leaking gasket lets exhaust puff out each time a cylinder fires, which can sound like a ticking that speeds up with the engine. It often gets louder under load. Exhaust leaks near the engine can let fumes into the cabin.",
     "causes": [
      {
       "name": "Leaking exhaust manifold gasket",
@@ -455,7 +465,8 @@
     "now": "Get the codes read and the engine checked within a few days. Avoid hard acceleration and long trips until then.",
     "if": [
      "If the check engine light starts flashing, slow down and stop driving as soon as it's safe.",
-     "If you smell fuel, stop driving and have it towed."
+     "If you smell fuel, stop driving and have it towed.",
+     "If the engine shakes hard or loses power, pull over when it's safe and have it checked before driving further."
     ],
     "why": "A spark plug that's loose or has a cracked insulator can let combustion gas escape, making a sharp ticking or puffing sound along with a misfire. A steady check engine light with rough running points to the ignition system.",
     "causes": [
@@ -490,14 +501,15 @@
   },
   "r_valvetrain": {
    "result": {
-    "title": "Most likely a noisy lifter or valves that need adjusting",
+    "title": "Possibly a noisy lifter or valves that need adjusting",
     "urgency": "check",
     "now": "Keep the oil topped up and on schedule, and book a check when convenient so a technician can pinpoint the source.",
     "if": [
      "If the ticking gets louder quickly or turns into a knock, stop driving and have it checked right away.",
-     "If the oil pressure light comes on, shut the engine off and don't drive it."
+     "If the oil pressure light comes on, shut the engine off and don't drive it.",
+     "If the check engine light starts flashing, slow down and stop as soon as it's safe."
     ],
-    "why": "A steady tick from the top of the engine that follows engine speed usually comes from the valvetrain, the parts that open and close the valves. A worn or sticky lifter, or valves that are out of adjustment, tap with every turn of the engine.",
+    "why": "A steady tick from the top of the engine that follows engine speed often comes from the valvetrain, the parts that open and close the valves. A worn or sticky lifter, or valves that are out of adjustment, tap with every turn of the engine.",
     "causes": [
      {
       "name": "Sticky or worn hydraulic lifter",
@@ -530,13 +542,14 @@
   },
   "r_not_engine": {
    "result": {
-    "title": "A tick that follows road speed is probably a tire, wheel or brake, not the engine",
+    "title": "A tick that follows road speed is more likely a tire, wheel or brake than the engine",
     "urgency": "check",
     "now": "Park and look closely at each tire for a nail, screw or stone stuck in the tread, and check the tire pressures.",
     "if": [
      "If you find a nail or screw, have the tire repaired or replaced soon, and don't pull it out yourself unless you're ready to fit the spare.",
      "If the clicking is loudest when turning, it may be a worn CV joint. See the clicking when turning guide.",
-     "If a tire is losing air or a wheel feels wobbly, don't drive on it. Fit the spare or call roadside assistance."
+     "If a tire is losing air or a wheel feels wobbly, don't drive on it. Fit the spare or call roadside assistance.",
+     "If the noise changes when you brake, or braking feels different, have the brakes checked before driving further."
     ],
     "why": "If the ticking keeps going when you coast in Neutral and speeds up with road speed, it isn't coming from the engine. Something turning with the wheels is making it, and the most common culprit is something stuck in a tire.",
     "causes": [

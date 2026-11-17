@@ -24,7 +24,7 @@
  "intro": "Your brakes use engine vacuum, a pump or an electric unit to multiply the force of your foot. When that help (the brake booster) stops working, the pedal turns hard and the car takes much more effort to stop. A hard pedal can also be normal with the engine off. A few questions will tell you which, and how urgent it is.",
  "safety": [
   "If you have to press with all your strength to slow down, pull over when it's safe and stop driving.",
-  "If the engine stalls while you're driving, the brakes still work but need much more force. Press firmly and steadily rather than pumping.",
+  "If the engine stalls while you're driving, braking may take much more force. Press firmly and steadily rather than pumping, and get it checked before driving further.",
   "If the steering also becomes very heavy, pull over and stop."
  ],
  "start": "q_severity",
@@ -103,14 +103,15 @@
   },
   "r_engine_off": {
    "result": {
-    "title": "A hard pedal with the engine off is normal",
+    "title": "A hard pedal with the engine off is usually normal",
     "urgency": "diy",
     "now": "Start the engine with your foot on the brake. The pedal should drop slightly and then feel normal.",
     "if": [
      "If the pedal doesn't drop when the engine starts, the brake booster or its vacuum supply may have a problem. Have the brakes checked within a few days.",
-     "If the pedal is still hard once the engine is running, treat it as a brake fault and don't drive until it's checked."
+     "If the pedal is still hard once the engine is running, treat it as a brake fault and don't drive until it's checked.",
+     "If the pedal sinks toward the floor with the engine running, or the red brake light is on, don't drive it."
     ],
-    "why": "The brake booster stores enough vacuum for one or two assisted presses after the engine stops. Once that's used up, the pedal feels hard until the engine runs again. That's how the system is designed, not a fault.",
+    "why": "The brake booster stores enough vacuum for one or two assisted presses after the engine stops. Once that's used up, the pedal feels hard until the engine runs again. That's how most systems are designed to work.",
     "causes": [
      {
       "name": "Normal booster behavior with the engine off",
@@ -135,13 +136,15 @@
   },
   "r_stalled": {
    "result": {
-    "title": "The engine shutting off took away your brake assist",
+    "title": "The engine shutting off may have taken away your brake assist",
     "urgency": "stop",
     "now": "Once you're safely stopped, set the parking brake and don't drive it. Have it towed or have a mobile mechanic find out why the engine stalled.",
     "if": [
-     "If it restarts and the pedal feels normal again, the brakes are probably fine, but an engine that stalls while driving isn't safe. Get it checked before driving any distance."
+     "If it restarts and the pedal feels normal again, an engine that stalls while driving still isn't safe. Have it checked before driving any distance.",
+     "If the pedal stays hard with the engine running, or sinks, or the red brake light is on, don't drive it.",
+     "If the temperature gauge was high or you saw steam before it stalled, don't restart it."
     ],
-    "why": "Most brake boosters rely on the running engine. When the engine dies, you get one or two assisted presses, then the pedal turns hard. The brakes still work, but you need much more force, and steering assist may be lost too. The real problem to fix is the stall.",
+    "why": "Most brake boosters rely on the running engine. When the engine dies, you may get one or two assisted presses, then the pedal turns hard and braking takes much more force. Steering assist may be lost too. The stall is the problem to find, and the brakes should be checked along with it.",
     "causes": [
      {
       "name": "Fuel or ignition problem",
@@ -175,14 +178,15 @@
   },
   "r_no_assist": {
    "result": {
-    "title": "Your brakes have likely lost their power assist",
+    "title": "Your brakes may have lost their power assist",
     "urgency": "stop",
     "now": "Pull over when it's safe and stop driving. Have it towed or have a mobile mechanic come to you.",
     "if": [
      "If you hear a loud hiss when you press the pedal, tell the shop. It points to a torn booster or a disconnected vacuum hose.",
-     "If a brake system warning message is on (common on hybrids and electric cars), have it towed to a shop equipped for your model."
+     "If a brake system warning message is on (common on hybrids and electric cars), have it towed to a shop equipped for your model.",
+     "If the pedal sinks toward the floor or the red brake light is on, don't move the car at all."
     ],
-    "why": "With working assist, light pressure stops the car. Without it, you need far more force and the stopping distance grows, which is dangerous in an emergency stop. The usual causes are a failed booster, a cracked or disconnected vacuum hose, or loss of whatever powers the booster.",
+    "why": "With working assist, light pressure stops the car. Without it, you need far more force and the stopping distance grows, which is dangerous in an emergency stop. Common causes are a failed booster, a cracked or disconnected vacuum hose, or loss of whatever powers the booster.",
     "causes": [
      {
       "name": "Cracked or disconnected vacuum hose",
@@ -220,14 +224,14 @@
   },
   "r_vacuum_leak": {
    "result": {
-    "title": "A vacuum leak at the brake booster or its hose is likely",
-    "urgency": "soon",
-    "now": "Have the brakes checked in the next day or two. Until then, drive gently and leave extra stopping distance.",
+    "title": "A vacuum leak at the brake booster or its hose is possible",
+    "urgency": "stop",
+    "now": "Avoid driving it until the brakes are inspected. Have a mobile mechanic check it where it's parked, or have it towed to a shop.",
     "if": [
-     "If the pedal becomes very hard or the car is much harder to stop, stop driving and have it towed.",
-     "If the check engine light is on or the idle is rough, a leaking vacuum hose is even more likely."
+     "If the pedal becomes very hard, sinks, or the red brake light comes on, don't move the car at all.",
+     "If the check engine light is on or the idle is rough, a leaking vacuum hose is more likely. Tell the shop."
     ],
-    "why": "The booster uses vacuum from the engine. A hiss when you press the pedal means air is leaking in, either through a torn diaphragm inside the booster or a cracked hose or check valve. The leak reduces the assist and can also upset the engine's idle.",
+    "why": "The booster uses vacuum from the engine. A hiss when you press the pedal often means air is leaking in, either through a torn diaphragm inside the booster or a cracked hose or check valve. The leak reduces the assist and can also upset the engine's idle. A torn booster can get worse without warning.",
     "causes": [
      {
       "name": "Torn booster diaphragm",
@@ -260,11 +264,12 @@
   },
   "r_hydroboost": {
    "result": {
-    "title": "The power steering pump or drive belt likely failed, taking brake assist with it",
+    "title": "The power steering pump or drive belt may have stopped working, taking brake assist with it",
     "urgency": "stop",
     "now": "Pull over when it's safe and stop driving. Have it towed.",
     "if": [
-     "If the battery light is on or the temperature gauge is climbing, a broken drive belt is very likely. Turn the engine off and don't restart it."
+     "If the battery light is on or the temperature gauge is climbing, a broken drive belt is likely. Turn the engine off and don't restart it.",
+     "If you see power steering fluid leaking or smell burning fluid, keep away from hot parts and tell the shop."
     ],
     "why": "Some trucks, vans and diesel vehicles use a hydraulic brake booster powered by the power steering pump instead of engine vacuum. If the pump stops working, the steering and the brakes both get much heavier at once. On many engines, a broken belt also stops the alternator and water pump.",
     "causes": [
@@ -299,14 +304,14 @@
   },
   "r_booster_weak": {
    "result": {
-    "title": "The brake booster is likely losing some of its assist",
-    "urgency": "soon",
-    "now": "Have the brakes checked within a day or two. Until then, drive gently and leave extra stopping distance.",
+    "title": "The brake booster may be losing some of its assist",
+    "urgency": "stop",
+    "now": "Avoid driving it until the brakes are inspected. Have a mobile mechanic check it where it's parked, or have it towed to a shop.",
     "if": [
-     "If the pedal gets harder or the car is noticeably harder to stop, stop driving and have it towed.",
+     "If the pedal gets harder, sinks, or the red brake light comes on, don't move the car at all.",
      "If it's hard mainly on the first press after the car has been parked, the check valve may be leaking vacuum. Mention that to the shop."
     ],
-    "why": "When the pedal is stiffer than usual but the car still stops with extra effort, the booster is usually giving only part of its normal help. Common reasons are a weak booster, a leaking check valve or hose, or low engine vacuum. It usually gets worse over time.",
+    "why": "When the pedal is stiffer than usual but the car still stops with extra effort, the booster may be giving only part of its normal help. Common reasons are a weak booster, a leaking check valve or hose, or low engine vacuum. It can get worse over time, sometimes suddenly.",
     "causes": [
      {
       "name": "Weak brake booster",
@@ -338,14 +343,15 @@
   },
   "r_new_brakes": {
    "result": {
-    "title": "New pads may not be bedded in yet, or something wasn't right with the job",
-    "urgency": "soon",
-    "now": "Call the shop that did the work and take it back within a day or two. Leave extra stopping distance until then.",
+    "title": "New pads may not be bedded in yet, or the brakes need a recheck",
+    "urgency": "stop",
+    "now": "Before driving further, call the shop that did the work, describe what you notice, and ask them to recheck it. Many shops can come to you or arrange to bring the car in.",
     "if": [
      "If it's much harder to stop than before the work, don't drive it. Ask the shop to check it right away.",
-     "If braking improves steadily over the first few drives, the pads were likely just bedding in. Still mention it to the shop."
+     "If the shop tells you it's normal bedding-in for the pads they fitted, follow their bedding-in steps and have it rechecked if it isn't clearly better within a few drives.",
+     "If the pedal sinks or feels soft, or the red brake light comes on, don't drive it."
     ],
-    "why": "New pads and rotors need a number of moderate stops to lay down a thin layer of pad material on the rotor, called bedding in. Until then they can grip less. If it doesn't improve, the pads may be the wrong type, contaminated during the job, or a caliper may not be working properly.",
+    "why": "New pads and rotors need a number of moderate stops to lay down a thin layer of pad material on the rotor, called bedding in. Until then they can grip less. A shop will usually check pad seating, the calipers and the brake fluid before deciding anything needs to change.",
     "causes": [
      {
       "name": "Pads not bedded in yet",
@@ -358,7 +364,7 @@
       "against": ""
      },
      {
-      "name": "Wrong pads, or a caliper not working",
+      "name": "Pad type or a caliper that isn't working properly",
       "clues": "The car pulls to one side, or it's no better after several days.",
       "against": ""
      }
@@ -377,14 +383,16 @@
   },
   "r_fade": {
    "result": {
-    "title": "The brakes probably overheated and lost grip (brake fade)",
-    "urgency": "soon",
-    "now": "Pull over somewhere safe and let the brakes cool for at least 30 minutes before you go on.",
+    "title": "The brakes may have overheated and lost grip (brake fade)",
+    "urgency": "stop",
+    "now": "Pull over somewhere safe, set the parking brake and let the brakes cool for at least 30 minutes. Have the brakes checked before relying on them again.",
     "if": [
-     "If braking doesn't return to normal once the brakes are cool, don't drive it. Have it towed.",
-     "On long downhills, shift to a lower gear so the engine helps slow the car, instead of riding the brakes."
+     "If braking doesn't feel normal once the brakes are cool, or the pedal is soft, don't drive it. Have it towed.",
+     "Before moving the car again, call a shop or roadside assistance and describe what happened. If the brakes feel weak, soft or smell hot again at any point, stop and get help.",
+     "On long downhills, shift to a lower gear so the engine helps slow the car, instead of riding the brakes.",
+     "If you see smoke from a wheel, keep away from it until it cools."
     ],
-    "why": "Brake pads can only absorb so much heat. Constant or repeated braking, especially downhill or with a heavy load, overheats them so they grip less, and you often smell burning. They usually recover once cool, but severe overheating can glaze the pads and damage the rotors.",
+    "why": "Brake pads can only absorb so much heat. Constant or repeated braking, especially downhill or with a heavy load, overheats them so they grip less, and you often smell burning. They often recover once cool, but severe overheating can glaze the pads and damage the rotors, and very hot brakes can also boil the brake fluid.",
     "causes": [
      {
       "name": "Overheated pads",
@@ -416,14 +424,14 @@
   },
   "r_caliper": {
    "result": {
-    "title": "A stuck caliper or a problem on one side of the brakes is likely",
-    "urgency": "soon",
-    "now": "Have the brakes checked within a day or two, and leave extra stopping distance until then.",
+    "title": "A stuck caliper or a problem on one side of the brakes is possible",
+    "urgency": "stop",
+    "now": "Avoid driving it until the brakes are inspected. Have a mobile mechanic check it where it's parked, or have it towed to a shop.",
     "if": [
-     "If the pull is strong or getting worse, or a wheel smokes or smells burning, stop driving and have it towed.",
-     "If you see fluid at one wheel, don't drive it."
+     "If a wheel smokes or smells burning, keep away from it and let it cool.",
+     "If you see fluid at one wheel, or the pedal feels soft or sinks, don't move the car at all."
     ],
-    "why": "When one side does less of the braking, the car stops less effectively and pulls toward the side that's working. A stuck caliper, a collapsed brake hose, or contaminated pads on one side are the usual causes.",
+    "why": "When one side does less of the braking, the car stops less effectively and pulls toward the side that's working. A stuck caliper, a collapsed brake hose, or contaminated pads on one side are common causes.",
     "causes": [
      {
       "name": "Seized caliper or slide pins",
@@ -456,13 +464,14 @@
   },
   "r_contaminated": {
    "result": {
-    "title": "Oil or brake fluid has probably soaked the brakes on that wheel",
+    "title": "Oil or brake fluid may have soaked the brakes on that wheel",
     "urgency": "stop",
-    "now": "Don't drive it. Have it towed so the leak can be found and the brakes on that axle replaced.",
+    "now": "Don't drive it. Have it towed so a shop can find the leak and check the brakes on that axle.",
     "if": [
-     "If it's brake fluid, the leak can also make the pedal soft or turn on the red brake light. Tell the shop what you've noticed."
+     "If it's brake fluid, the leak can also make the pedal soft or turn on the red brake light. Tell the shop what you've noticed.",
+     "If you see smoke or smell burning from that wheel, keep away from it and let it cool."
     ],
-    "why": "Brake pads lose much of their grip when oil, grease or brake fluid soaks into them, and it can't be reliably cleaned off. Fluid on a wheel also means something is leaking, and it may be the brake system itself.",
+    "why": "Brake pads lose much of their grip when oil, grease or brake fluid soaks into them, and it usually can't be reliably cleaned off, so a shop will often recommend new pads once the leak is confirmed. Fluid on a wheel also means something is leaking, and it may be the brake system itself.",
     "causes": [
      {
       "name": "Leaking brake caliper or wheel cylinder",
@@ -487,7 +496,7 @@
      ],
      "shop": [
       "Brake and leak inspection",
-      "Pad and rotor replacement on the affected axle",
+      "Pad and rotor condition check on the affected axle",
       "Seal or caliper repair"
      ]
     }
@@ -495,14 +504,15 @@
   },
   "r_weak_general": {
    "result": {
-    "title": "Your brakes are likely worn and need an inspection soon",
-    "urgency": "soon",
-    "now": "Have the brakes inspected in the next day or two. Until then, drive gently and leave extra stopping distance.",
+    "title": "Your brakes may be worn or not working fully. Have them inspected before driving",
+    "urgency": "stop",
+    "now": "Avoid driving it until the brakes are inspected. Have a mobile mechanic check it where it's parked, or have it towed to a shop.",
     "if": [
-     "If the pedal gets hard to press, sinks, or the red brake light comes on, stop driving and have it towed.",
-     "If you hear grinding when braking, the pads may be worn down to metal. Get it checked right away."
+     "If the pedal gets hard to press, sinks, or the red brake light comes on, don't move the car at all.",
+     "If you hear grinding when braking, the pads may be worn down to metal. Tell the shop.",
+     "If you smell burning or see smoke from a wheel, keep away from it and let it cool."
     ],
-    "why": "When the pedal feels normal but the car takes longer to stop, the problem is usually at the wheels: worn or glazed pads, worn rotors, or a caliper that isn't working well. Worn tires can also lengthen stops. These get worse with time and can lead to bigger repairs.",
+    "why": "When the pedal feels normal but the car takes longer to stop, the problem is often at the wheels: worn or glazed pads, worn rotors, or a caliper that isn't working well. Worn tires can also lengthen stops. These get worse with time and can lead to bigger repairs.",
     "causes": [
      {
       "name": "Worn pads or rotors",

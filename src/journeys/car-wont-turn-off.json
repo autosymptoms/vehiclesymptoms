@@ -21,7 +21,7 @@
   "fan running after car is off",
   "car still running with key out"
  ],
- "intro": "An engine that won't shut off can be anything from a harmless cooling fan to a shifter that isn't quite in Park to an electrical fault that keeps the engine powered. What you see and hear right after you switch off narrows it down quickly. Answer the questions below for the likely cause and the safest next step.",
+ "intro": "An engine that won't shut off can be anything from a normal cooling fan to a shifter that isn't quite in Park to an electrical fault that keeps the engine powered. What you see and hear right after you switch off narrows it down quickly. Answer the questions below for possible causes and the safest next step.",
  "safety": [
   "If the engine won't stop in a garage, open the garage door and get everyone out. Exhaust fumes can build up quickly.",
   "If the engine revs higher and higher on its own, get people away from the vehicle and call for help.",
@@ -135,15 +135,16 @@
   },
   "r_ignition_switch": {
    "result": {
-    "title": "An electrical fault is likely keeping the engine powered",
+    "title": "An electrical fault may be keeping the engine powered",
     "urgency": "stop",
     "now": "Don't drive it. Put it in Park with the parking brake on, turn the key to ON and back to OFF firmly, and if it keeps running, call roadside assistance or a mobile mechanic.",
     "if": [
      "If you're comfortable with the fuse box, pulling the fuel pump fuse or relay (shown in the owner's manual) will usually make the engine stall within a few seconds.",
      "If it's a manual, you can stall it: with the parking brake on and your foot hard on the brake, put it in a high gear and release the clutch.",
-     "If it's in a closed space, open the doors or garage door right away and get everyone out."
+     "If it's in a closed space, open the doors or garage door right away and get everyone out.",
+     "If you smell burning plastic or see smoke from the dash, steering column or fuse box, get out, step away and call for help."
     ],
-    "why": "On a modern car, turning the key off cuts power to the fuel and ignition systems. If the engine keeps running normally, something is still feeding that power, usually a worn ignition switch or a relay stuck closed. Until it's fixed, you can't count on being able to shut the engine off.",
+    "why": "On a modern car, turning the key off cuts power to the fuel and ignition systems. If the engine keeps running normally, something is still feeding that power, often a worn ignition switch or a relay stuck closed. A shop will test the switch, relays and wiring to find which. Until it's fixed, you can't count on being able to shut the engine off.",
     "causes": [
      {
       "name": "Worn or faulty ignition switch",
@@ -181,9 +182,10 @@
     "now": "Make sure the idle isn't set too high, and book a tune-up check when convenient.",
     "if": [
      "If it happens mainly after hard driving on hot days, let it idle for 30 seconds before switching off.",
-     "If the engine also pings or knocks under load, get it checked sooner, because the same hot spots can damage the engine."
+     "If the engine also pings or knocks under load, get it checked sooner, because the same hot spots can damage the engine.",
+     "If the temperature gauge is high or in the red, or you smell fuel, don't drive it until it's checked."
     ],
-    "why": "On carbureted engines, fuel can keep getting pulled in after the ignition is off. Hot carbon deposits or a high idle can then ignite it, so the engine chugs on unevenly for a few seconds. It's common on older vehicles and is usually fixed with adjustments and cleaning.",
+    "why": "On carbureted engines, fuel can keep getting pulled in after the ignition is off. Hot carbon deposits or a high idle can then ignite it, so the engine chugs on unevenly for a few seconds. It's common on older vehicles and is often fixed with adjustments and cleaning once a shop checks the idle and timing.",
     "causes": [
      {
       "name": "Idle speed set too high",
@@ -221,13 +223,15 @@
   },
   "r_runon_overheat": {
    "result": {
-    "title": "The engine is overheating, which is making it run on",
+    "title": "Overheating may be making the engine run on",
     "urgency": "stop",
     "now": "Switch the engine off, let it cool completely, and don't drive it until the overheating is fixed. Have it towed or call a mobile mechanic.",
     "if": [
-     "If you see steam or coolant leaking, stay away from the radiator cap. It can spray scalding coolant."
+     "If you see steam or coolant leaking, stay away from the radiator cap. It can spray scalding coolant.",
+     "If the coolant is low, don't just top it up and drive. The reason it went low and overheated needs to be found first.",
+     "If you hear knocking, or see smoke or a red oil pressure light, don't restart the engine."
     ],
-    "why": "An overheating engine has hot spots that can ignite fuel even after the ignition is off. The run-on is a symptom; the overheating is the real danger, and it can warp or crack engine parts.",
+    "why": "An overheating engine has hot spots that can ignite fuel even after the ignition is off. The run-on is a symptom; the overheating is the bigger danger, and it can warp or crack engine parts.",
     "causes": [
      {
       "name": "Low coolant or a cooling system leak",
@@ -260,14 +264,15 @@
   },
   "r_shutdown_shudder": {
    "result": {
-    "title": "A shake at shutdown on a modern car usually points to engine mounts",
+    "title": "A shake at shutdown on a modern car often points to engine mounts",
     "urgency": "check",
     "now": "Book a check when convenient and mention exactly when the shake happens.",
     "if": [
-     "If you also feel a clunk when shifting into gear or accelerating, worn engine mounts are even more likely. Get them checked sooner.",
-     "If the engine truly keeps running after the key is off, or you smell fuel, don't drive it and have it checked right away."
+     "If you also feel a clunk when shifting into gear or accelerating, worn engine mounts are more likely. Get them checked sooner.",
+     "If the engine truly keeps running after the key is off, or you smell fuel, don't drive it and have it checked right away.",
+     "If the check engine light flashes or the temperature gauge runs high, have it checked before driving further."
     ],
-    "why": "Fuel-injected engines cut fuel the moment you switch off, so true run-on is rare. What feels like run-on is usually the engine rocking as it stops, which worn mounts let you feel more. Less often, a leaking injector lets fuel in after shutdown.",
+    "why": "Fuel-injected engines cut fuel the moment you switch off, so true run-on is rare. What feels like run-on is often the engine rocking as it stops, which worn mounts let you feel more. Less often, a leaking injector lets fuel in after shutdown. A shop will usually inspect the mounts and check for codes before deciding.",
     "causes": [
      {
       "name": "Worn engine or transmission mounts",
@@ -344,7 +349,7 @@
     "urgency": "check",
     "now": "Press and hold the Start/Stop button for a few seconds. That shuts off most cars even when a quick press doesn't. Book a check when convenient.",
     "if": [
-     "If holding the button doesn't shut it off, don't leave it running. Call roadside assistance or a mobile mechanic.",
+     "If holding the button doesn't shut it off, don't leave it running and don't drive it. Call roadside assistance or a mobile mechanic.",
      "If the key fob battery is weak, replace it. Some cars act oddly when they can't read the fob."
     ],
     "why": "Push-button systems use a switch and a computer to decide when to shut down. A sticky button, a weak fob battery or a module fault can stop a short press from working, while a long press often overrides it.",
@@ -381,14 +386,15 @@
   },
   "r_fan_normal": {
    "result": {
-    "title": "It's probably the cooling fan or pump finishing its job",
+    "title": "This sounds like the cooling fan or a pump finishing its job",
     "urgency": "diy",
     "now": "Wait up to several minutes. On many cars the radiator fan or an electric coolant pump runs after shutdown to cool the engine, then turns off by itself.",
     "if": [
      "If the fan keeps running for a long time or the battery goes flat overnight, have the fan relay checked.",
-     "If you see steam or smell coolant, the engine may be overheating. Have it checked before driving again."
+     "If you see steam or smell coolant, or the temperature gauge was high before you switched off, the engine may be overheating. Have it checked before driving again.",
+     "If you smell burning or see smoke, step away from the car."
     ],
-    "why": "Fans and some pumps are controlled separately from the engine and can keep running after a hot drive, especially in warm weather or after towing. This is normal design and doesn't mean the engine is still on.",
+    "why": "Fans and some pumps are controlled separately from the engine and can keep running after a hot drive, especially in warm weather or after towing. This is normal on many cars. A tachometer reading of zero and no exhaust from the tailpipe confirm the engine itself is off.",
     "causes": [
      {
       "name": "Normal after-run cooling",
@@ -425,7 +431,8 @@
     "now": "Get everyone away from the vehicle. If it's a manual and you can do it safely, hold the brakes hard, put it in the highest gear and release the clutch to stall the engine.",
     "if": [
      "If there's fire or heavy smoke, move well away and call 911.",
-     "If the engine stops, don't restart it. Have it towed to a shop."
+     "If the engine stops, don't restart it. Have it towed to a shop.",
+     "Don't reach into the engine bay or try to block the air intake by hand. The engine can pull in loose items and the parts are very hot."
     ],
     "why": "A diesel engine can keep running and speeding up on fuel it isn't supposed to get, most often engine oil. The key can't shut off that fuel supply, and the engine can overspeed until it fails badly.",
     "causes": [
@@ -462,7 +469,7 @@
     "now": "After switching off, watch the tachometer and check for exhaust at the tailpipe. Then book a check and tell the shop what you saw.",
     "if": [
      "If the engine clearly keeps running with the key off, don't drive it. Call roadside assistance or a mobile mechanic.",
-     "If it's just a fan or whirring noise that stops within several minutes, that's usually normal."
+     "If it's just a fan or whirring noise that stops within several minutes, that's often normal. Mention it to the shop if the temperature gauge has been running high."
     ],
     "why": "A fan running after shutdown, an engine that coughs briefly and an engine that won't stop at all have very different causes and urgency. A quick look at the gauges and the tailpipe tells them apart.",
     "causes": [

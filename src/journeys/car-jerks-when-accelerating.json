@@ -21,7 +21,7 @@
   "car shudders at 40 mph",
   "car jerks and check engine light flashing"
  ],
- "intro": "A jerk or buck when you press the gas usually comes from the engine stumbling, the transmission shifting badly, or worn parts letting the engine rock. When it happens and what the dash shows are the best clues. Answer a few questions and we'll point you to the likely cause and how soon to deal with it.",
+ "intro": "A jerk or buck when you press the gas usually comes from the engine stumbling, the transmission shifting badly, or worn parts letting the engine rock. When it happens and what the dash shows are the best clues. Answer a few questions to see the likely causes and how soon to deal with it.",
  "safety": [
   "If the check engine light is flashing and the car is shaking, pull over and stop driving it.",
   "If you smell fuel or see smoke, pull over, turn the engine off and get away from the car.",
@@ -104,14 +104,15 @@
   },
   "r_severe_misfire": {
    "result": {
-    "title": "The engine is misfiring badly enough to cause damage",
+    "title": "The engine may be misfiring badly enough to cause damage",
     "urgency": "stop",
     "now": "Pull over when it's safe and turn the engine off. Have the car towed or call a mobile mechanic instead of continuing on.",
     "if": [
      "If the light stops flashing after a restart, don't trust it. The fault is still there, so get it checked before using the car.",
-     "If you smell fuel or see smoke, step away from the car and call for help."
+     "If you smell fuel or see smoke, step away from the car and call for help.",
+     "If the temperature gauge is high or the oil pressure light is on, don't restart the engine."
     ],
-    "why": "A flashing check engine light means the engine computer has detected misfires severe enough to damage the catalytic converter. Unburned fuel goes into the exhaust and can overheat it. The jerking you feel is cylinders cutting in and out.",
+    "why": "A flashing check engine light usually means the engine computer has detected misfires severe enough to damage the catalytic converter. Unburned fuel goes into the exhaust and can overheat it. The jerking you feel is likely cylinders cutting in and out.",
     "causes": [
      {
       "name": "Failed ignition coil or spark plug",
@@ -125,7 +126,7 @@
      },
      {
       "name": "Internal engine problem, such as low compression",
-      "clues": "Ticking or knocking, oil or coolant loss, or a misfire that stays after ignition parts are replaced.",
+      "clues": "Ticking or knocking, oil or coolant loss, or a misfire that doesn't move when the coil and plug are swapped between cylinders.",
       "against": "Much less common than coil or spark plug problems."
      }
     ],
@@ -150,7 +151,8 @@
     "now": "Have the trouble codes read within the next few days. Many auto parts stores do it free. Drive gently until then and avoid hard acceleration.",
     "if": [
      "If the light starts flashing, pull over and stop driving.",
-     "If the code points to the transmission, keep trips short and get it checked as soon as you can."
+     "If the code points to the transmission, keep trips short and get it checked as soon as you can.",
+     "If the car loses power, starts shaking harder, or you smell fuel, stop driving it and have it towed."
     ],
     "why": "A steady check engine light means the computer has found a fault, but not one it treats as immediately damaging. Jerking with a steady light is often an early misfire, a fuel delivery problem or a sensor giving bad readings. The stored code tells the shop where to start.",
     "causes": [
@@ -185,14 +187,15 @@
   },
   "r_ignition": {
    "result": {
-    "title": "Most likely a misfire from a worn spark plug or ignition coil",
+    "title": "Possibly a misfire from a worn spark plug or ignition coil",
     "urgency": "soon",
     "now": "Book a check within the next few days, and avoid hard acceleration until then.",
     "if": [
      "If the check engine light starts flashing, pull over and stop driving.",
-     "If the spark plugs are past the replacement interval in your owner's manual, tell the shop."
+     "If the spark plugs are past the replacement interval in your owner's manual, tell the shop.",
+     "If the car loses power in traffic or you smell fuel, stop driving it and have it towed."
     ],
-    "why": "When a spark plug or coil is weak, a cylinder can fail to fire just when the engine is working hardest. You feel that as a jerk or buck. Moisture makes weak ignition parts worse, which is why it can be worse on damp days.",
+    "why": "When a spark plug or coil is weak, a cylinder can fail to fire just when the engine is working hardest. You feel that as a jerk or buck. Moisture makes weak ignition parts worse, which is why it can be worse on damp days. A shop will usually find which cylinder is misfiring and swap parts between cylinders to test before replacing anything.",
     "causes": [
      {
       "name": "Worn spark plugs",
@@ -230,9 +233,11 @@
     "now": "Book a check within the next few days. Until then, keep the tank above a quarter full and avoid hard acceleration and long climbs.",
     "if": [
      "If it starts stalling or losing power in traffic, stop driving it and have it towed.",
-     "If it began right after a fill-up, tell the shop. Bad or watery fuel can cause this."
+     "If it began right after a fill-up, tell the shop. Bad or watery fuel can cause this.",
+     "If you smell raw fuel, stop driving it and have it towed. A fuel leak is a fire risk.",
+     "If the check engine light starts flashing, pull over and stop driving."
     ],
-    "why": "When you accelerate hard, the engine needs much more fuel. A weak fuel pump, a clogged filter or dirty injectors may keep up at idle but fall short when you ask for power, so the engine sputters and jerks.",
+    "why": "When you accelerate hard, the engine needs much more fuel. A weak fuel pump, a clogged filter or dirty injectors may keep up at idle but fall short when you ask for power, so the engine sputters and jerks. A shop will usually test fuel pressure and volume before replacing a pump.",
     "causes": [
      {
       "name": "Weak fuel pump",
@@ -275,7 +280,8 @@
     "now": "Book a check when convenient. A shop can find most air leaks quickly with a smoke test.",
     "if": [
      "If the check engine light comes on or the hesitation gets worse, get it checked within a few days.",
-     "If the engine starts stalling at stops, have it looked at before relying on the car."
+     "If the engine starts stalling at stops, have it looked at before relying on the car.",
+     "If the check engine light starts flashing, pull over and stop driving."
     ],
     "why": "The engine computer measures the air coming in to decide how much fuel to add. A cracked vacuum hose lets in air it didn't measure, and a dirty airflow sensor misreads it. Either way the mix comes out wrong, so the car hesitates and then surges.",
     "causes": [
@@ -316,9 +322,10 @@
     "now": "Book a transmission check within the next few days. Until then, accelerate gently and avoid towing or heavy loads.",
     "if": [
      "If the engine revs but the car doesn't speed up, or a transmission warning light comes on, stop driving and have it towed.",
-     "If you see red or pink fluid where you park, tell the shop. Low fluid causes harsh shifts."
+     "If you see red or pink fluid where you park, tell the shop. Low fluid causes harsh shifts.",
+     "If you smell burning from under the car, stop driving and have it checked."
     ],
-    "why": "A jolt right as the gears change means the transmission isn't controlling the shift smoothly. Low or worn-out fluid, a shift control problem or worn internal parts can all cause it. Catching it early often keeps the repair smaller.",
+    "why": "A jolt right as the gears change usually means the transmission isn't controlling the shift smoothly. Low or worn-out fluid, a shift control problem or worn internal parts can all cause it. Catching it early often keeps the repair smaller, and a shop will usually check fluid, codes and software before suggesting major work.",
     "causes": [
      {
       "name": "Low or worn-out transmission fluid",
@@ -352,14 +359,15 @@
   },
   "r_torque_converter": {
    "result": {
-    "title": "Likely torque converter shudder",
+    "title": "This may be torque converter shudder",
     "urgency": "check",
     "now": "Book a transmission check when convenient. Tell the shop it feels like rumble strips at steady, light cruising.",
     "if": [
      "If it gets worse quickly, or you notice slipping or a transmission warning light, get it checked within a few days.",
-     "If you see red or pink fluid under the car, get it checked sooner."
+     "If you see red or pink fluid under the car, get it checked sooner.",
+     "If the check engine light starts flashing, pull over and stop driving. That points to an engine misfire."
     ],
-    "why": "The torque converter connects the engine to an automatic transmission. At steady, light cruising it locks up to save fuel, and if that lockup clutch grabs unevenly, the car shudders as if crossing rumble strips. Worn fluid is a common cause, and it tends to get worse over time.",
+    "why": "The torque converter connects the engine to an automatic transmission. At steady, light cruising it locks up to save fuel, and if that lockup clutch grabs unevenly, the car shudders as if crossing rumble strips. Worn fluid is a common cause, and it tends to get worse over time. A shop will usually check the fluid and any updates or service bulletins before replacing the converter.",
     "causes": [
      {
       "name": "Worn or contaminated transmission fluid",
@@ -392,12 +400,12 @@
   },
   "r_mounts": {
    "result": {
-    "title": "Worn engine mounts or play in the drive axles",
+    "title": "Possibly worn engine mounts or play in the drive axles",
     "urgency": "check",
     "now": "Book a check when convenient, and ask the shop to inspect the engine and transmission mounts and the drive axles.",
     "if": [
      "If you hear a loud bang, or the clunk is getting worse quickly, get it checked within a few days.",
-     "If you also hear clicking when turning sharply, a worn axle joint is likely. Get it checked soon."
+     "If you also hear clicking when turning sharply, a worn axle joint is a possibility. Get it checked soon."
     ],
     "why": "Mounts are rubber blocks that hold the engine and transmission in place. When they wear out, the engine rocks when you get on or off the gas, and you feel it as a clunk or jolt. Worn axle joints can feel very similar.",
     "causes": [
@@ -437,7 +445,8 @@
     "now": "Book a check when convenient. Until then, let the clutch out slowly and smoothly.",
     "if": [
      "If the engine revs but the car doesn't speed up in higher gears, the clutch is slipping. Get it checked within a few days.",
-     "If you smell burning after pulling away, avoid slipping the clutch and get it checked soon."
+     "If you smell burning after pulling away, avoid slipping the clutch and get it checked soon.",
+     "If you see smoke from under the car, stop and have it towed."
     ],
     "why": "When the clutch grabs unevenly as you let it out, the car shudders or bucks. Oil on the clutch, worn clutch parts or weak engine mounts are the usual reasons.",
     "causes": [
@@ -477,7 +486,8 @@
     "now": "Have the codes read and book a check. Tell the shop when the jerk happens: speed, how hard you press the gas, and whether the engine is cold or warm.",
     "if": [
      "If the check engine light starts flashing, pull over and stop driving.",
-     "If the jerking gets worse or the car starts losing power, stop driving it and have it towed."
+     "If the jerking gets worse or the car starts losing power, stop driving it and have it towed.",
+     "If you smell fuel or see smoke, pull over, turn off the engine and get away from the car."
     ],
     "why": "Jerking can come from the engine, the transmission or worn mounts, and they can feel alike from the driver's seat. A code scan plus a short road test usually separates them quickly.",
     "causes": [
