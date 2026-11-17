@@ -46,6 +46,7 @@ const tpl=fs.readFileSync('src/template.html','utf8');
 fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');
 fs.writeFileSync('dist/vehicles.js',data);fs.writeFileSync('dist/guide-index.js',indexJs);
 for(const f of ['app.js','guide.js','site.css'])fs.copyFileSync('src/'+f,'dist/'+f);
+fs.mkdirSync('dist/email',{recursive:true});for(const f of fs.readdirSync('src/email'))fs.copyFileSync('src/email/'+f,'dist/email/'+f);
 const escA=t=>String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 const escH=t=>String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const scripts=['vehicles.js','guide-index.js','guide.js','app.js'].map(f=>f==='vehicles.js'?data:f==='guide-index.js'?indexJs:fs.readFileSync('src/'+f,'utf8'));
