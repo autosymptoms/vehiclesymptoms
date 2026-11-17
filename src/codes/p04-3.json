@@ -1,0 +1,1564 @@
+[
+ {
+  "code": "P0440",
+  "title": "Evaporative Emission Control System",
+  "plain": "The EVAP system traps gasoline vapors from the fuel tank so they do not escape into the air. The computer found a general problem with that system, such as a leak or a valve not working.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "Faint fuel smell in some cases",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Loose, damaged or wrong gas cap",
+    "how": "common"
+   },
+   {
+    "name": "Leaking EVAP hose or charcoal canister",
+    "how": "common"
+   },
+   {
+    "name": "Faulty purge or vent valve",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fuel tank pressure sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Cracked filler neck",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the gas cap clicks tight and its seal is not cracked",
+   "Have a smoke test done to find leaks",
+   "Test the purge and vent valves with a scan tool"
+  ],
+  "fix": "Often a gas cap, purge valve or vent valve; a smoke test pinpoints leaks.",
+  "cost": {
+   "job": "Smoke test and repair EVAP leak",
+   "parts": [
+    10,
+    250
+   ],
+   "hours": [
+    1,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0440",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0441",
+  "title": "Evaporative Emission Control System Incorrect Purge Flow",
+  "plain": "The purge valve lets stored fuel vapors get burned in the engine. The computer sees vapor flow when there should be none, or no flow when there should be some.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hard starting right after refueling if the purge valve sticks open",
+   "Usually no change in driving otherwise"
+  ],
+  "causes": [
+   {
+    "name": "Faulty purge valve (stuck open or closed)",
+    "how": "common"
+   },
+   {
+    "name": "Cracked or disconnected purge hose",
+    "how": "common"
+   },
+   {
+    "name": "Clogged or saturated charcoal canister",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty fuel tank pressure sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring fault at the purge valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the purge valve holds vacuum when off and opens when commanded",
+   "Inspect purge hoses between the engine and canister",
+   "Look for charcoal granules in the purge lines"
+  ],
+  "fix": "Usually a new purge valve; sometimes a hose or charcoal canister.",
+  "cost": {
+   "job": "Replace EVAP purge valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0441",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0442",
+  "title": "Evaporative Emission Control System Leak Detected (small leak)",
+  "plain": "The computer found a small leak in the system that stores fuel vapors, about the size of a pinhole. It is not dangerous but it does let fuel vapor escape.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "Rarely, a faint fuel smell",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Gas cap seal worn or not tightened",
+    "how": "common"
+   },
+   {
+    "name": "Cracked EVAP hose or loose fitting",
+    "how": "common"
+   },
+   {
+    "name": "Leaking purge or vent valve",
+    "how": "common"
+   },
+   {
+    "name": "Leaking charcoal canister",
+    "how": "possible"
+   },
+   {
+    "name": "Rusted or cracked filler neck",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Tighten or replace the gas cap and clear the code",
+   "Have a smoke test done to find the leak",
+   "Inspect hoses near the tank and canister"
+  ],
+  "fix": "Often a gas cap or small hose; a smoke test finds the exact leak.",
+  "cost": {
+   "job": "Smoke test and repair EVAP leak",
+   "parts": [
+    10,
+    250
+   ],
+   "hours": [
+    1,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0442",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0443",
+  "title": "Evaporative Emission Control System Purge Control Valve Circuit",
+  "plain": "The computer found an electrical problem with the purge valve, the part that lets stored fuel vapors be drawn into the engine.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in driving",
+   "Possible rough idle or hard start after refueling"
+  ],
+  "causes": [
+   {
+    "name": "Failed purge valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector at the purge valve",
+    "how": "common"
+   },
+   {
+    "name": "Broken or shorted wiring",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the purge valve resistance",
+   "Check for power at the purge valve connector with the key on",
+   "Inspect wiring near hot engine parts"
+  ],
+  "fix": "Usually a new purge valve or a wiring repair.",
+  "cost": {
+   "job": "Replace EVAP purge valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0443",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0444",
+  "title": "Evaporative Emission Control System Purge Control Valve Circuit Open",
+  "plain": "The computer sees a break in the electrical circuit for the EVAP purge valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed purge valve coil",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or blown fuse",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the purge valve connector and resistance",
+   "Check for power at the connector"
+  ],
+  "fix": "Usually a new purge valve or a wiring repair.",
+  "cost": {
+   "job": "Replace EVAP purge valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0444",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0445",
+  "title": "Evaporative Emission Control System Purge Control Valve Circuit Shorted",
+  "plain": "The computer sees a short in the electrical circuit for the EVAP purge valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Shorted purge valve coil",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to ground or power",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the purge valve resistance against spec",
+   "Inspect wiring for chafing"
+  ],
+  "fix": "Usually a new purge valve or a wiring repair.",
+  "cost": {
+   "job": "Replace EVAP purge valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0445",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0446",
+  "title": "Evaporative Emission Control System Vent Control Circuit",
+  "plain": "The vent valve lets fresh air in and out of the charcoal canister and closes during leak tests. The computer sees a problem with that valve or its circuit.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "Possible trouble filling the tank (pump nozzle clicks off)"
+  ],
+  "causes": [
+   {
+    "name": "Failed or stuck vent valve",
+    "how": "common"
+   },
+   {
+    "name": "Vent valve or filter clogged with dirt, water or bugs",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector at the vent valve",
+    "how": "common"
+   },
+   {
+    "name": "Saturated charcoal canister",
+    "how": "possible"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the vent valve and filter near the tank for dirt or spider webs",
+   "Command the vent valve closed and open with a scan tool",
+   "Check power and ground at the valve connector"
+  ],
+  "fix": "Usually a new vent valve; sometimes a charcoal canister or wiring repair.",
+  "cost": {
+   "job": "Replace EVAP vent valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0446",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0447",
+  "title": "Evaporative Emission Control System Vent Control Circuit Open",
+  "plain": "The computer sees a break in the electrical circuit for the EVAP vent valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed vent valve coil",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or blown fuse",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the vent valve connector, which is often near the fuel tank and exposed to road dirt",
+   "Measure the vent valve resistance"
+  ],
+  "fix": "Usually a new vent valve or a wiring repair.",
+  "cost": {
+   "job": "Replace EVAP vent valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0448",
+  "title": "Evaporative Emission Control System Vent Control Circuit Shorted",
+  "plain": "The computer sees a short in the vent valve circuit, or the vent valve stays closed when it should be open.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible trouble filling the tank",
+   "No change in driving"
+  ],
+  "causes": [
+   {
+    "name": "Failed or stuck-closed vent valve",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to ground or power",
+    "how": "common"
+   },
+   {
+    "name": "Clogged vent filter",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the vent valve resistance",
+   "Check the vent valve and filter for blockage"
+  ],
+  "fix": "Usually a new vent valve or a wiring repair.",
+  "cost": {
+   "job": "Replace EVAP vent valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0448",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0449",
+  "title": "Evaporative Emission Control System Vent Valve/Solenoid Circuit",
+  "plain": "The computer found an electrical problem with the EVAP vent valve, which sits near the fuel tank or charcoal canister.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "Possible trouble filling the tank"
+  ],
+  "causes": [
+   {
+    "name": "Failed vent valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector at the vent valve",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring under the vehicle",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the vent valve connector for corrosion and broken locks",
+   "Measure the solenoid resistance",
+   "Check for power and ground with the key on"
+  ],
+  "fix": "Usually a new vent valve or a connector repair.",
+  "cost": {
+   "job": "Replace EVAP vent valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "examples": [
+   "Frequently seen on GM trucks and SUVs, where the vent valve sits near the fuel tank"
+  ],
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0449",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P044A",
+  "title": "Exhaust Gas Recirculation Sensor \"C\" Circuit",
+  "plain": "The computer sees an electrical problem with a third EGR sensor, used on some engines (mostly diesels) to monitor EGR flow or position.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "EGR may be shut off, raising emissions",
+   "Usually little change in driving"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR sensor \"C\"",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor reference voltage, ground and signal at the connector",
+   "Inspect wiring near hot exhaust parts"
+  ],
+  "fix": "Usually a new sensor or a wiring repair.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P044B",
+  "title": "Exhaust Gas Recirculation Sensor \"C\" Circuit Range/Performance",
+  "plain": "EGR sensor \"C\" is giving readings that do not fit how the engine is running.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "EGR may be shut off, raising emissions",
+   "Usually little change in driving"
+  ],
+  "causes": [
+   {
+    "name": "Failing EGR sensor \"C\"",
+    "how": "common"
+   },
+   {
+    "name": "Clogged sensor port or hose",
+    "how": "common"
+   },
+   {
+    "name": "Sticking EGR valve",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor reference voltage, ground and signal at the connector",
+   "Inspect wiring near hot exhaust parts"
+  ],
+  "fix": "Usually a new sensor; clean any clogged ports.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P044C",
+  "title": "Exhaust Gas Recirculation Sensor \"C\" Circuit Low",
+  "plain": "The EGR sensor \"C\" signal is lower than possible.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "EGR may be shut off, raising emissions",
+   "Usually little change in driving"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR sensor \"C\"",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Damaged connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor reference voltage, ground and signal at the connector",
+   "Inspect wiring near hot exhaust parts"
+  ],
+  "fix": "Replace the sensor or repair the shorted wiring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P044D",
+  "title": "Exhaust Gas Recirculation Sensor \"C\" Circuit High",
+  "plain": "The EGR sensor \"C\" signal is higher than possible, often from an open wire.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "EGR may be shut off, raising emissions",
+   "Usually little change in driving"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR sensor \"C\"",
+    "how": "common"
+   },
+   {
+    "name": "Open or broken wire",
+    "how": "common"
+   },
+   {
+    "name": "Signal shorted to voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor reference voltage, ground and signal at the connector",
+   "Inspect wiring near hot exhaust parts"
+  ],
+  "fix": "Replace the sensor or repair the wiring.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P044E",
+  "title": "Exhaust Gas Recirculation Sensor \"C\" Circuit Intermittent/Erratic",
+  "plain": "The EGR sensor \"C\" signal keeps dropping out or jumping around.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "EGR may be shut off, raising emissions",
+   "Usually little change in driving"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring",
+    "how": "common"
+   },
+   {
+    "name": "Failing sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor reference voltage, ground and signal at the connector",
+   "Inspect wiring near hot exhaust parts"
+  ],
+  "fix": "Repair the wiring or connector, or replace the sensor.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P044F",
+  "title": "Secondary Air Injection System Switching Valve \"A\" Circuit High",
+  "plain": "The control circuit for the valve that lets air pump air into the exhaust is reading higher voltage than expected, usually from an open wire or a bad valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Open wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed switching valve solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the valve resistance and wiring",
+   "Inspect the connector for corrosion or water"
+  ],
+  "fix": "Usually a new switching valve or a wiring repair.",
+  "cost": {
+   "job": "Replace secondary air switching (check) valve",
+   "parts": [
+    60,
+    350
+   ],
+   "hours": [
+    0.5,
+    2
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0450",
+  "title": "Evaporative Emission Control System Pressure Sensor",
+  "plain": "The computer sees a problem with the fuel tank pressure sensor, which it uses to check the fuel vapor system for leaks.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed fuel tank pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Blocked or kinked sensor hose",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the tank pressure reading with the gas cap off (should read near zero)",
+   "Inspect the sensor wiring and connector"
+  ],
+  "fix": "Usually a new fuel tank pressure sensor.",
+  "cost": {
+   "job": "Replace fuel tank pressure sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0450",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0451",
+  "title": "Evaporative Emission Control System Pressure Sensor Range/Performance",
+  "plain": "The fuel tank pressure sensor is giving readings that do not make sense, for example not reading zero with the gas cap off.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed fuel tank pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Overfilling the tank after the pump clicks off",
+    "how": "common"
+   },
+   {
+    "name": "Blocked vent valve or hose",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "Saturated charcoal canister",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the pressure reading with the gas cap off",
+   "Inspect the vent valve and hoses for blockage",
+   "Stop topping off the tank when filling"
+  ],
+  "fix": "Usually a new fuel tank pressure sensor; fix any blocked vent first.",
+  "cost": {
+   "job": "Replace fuel tank pressure sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0451",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0452",
+  "title": "Evaporative Emission Control System Pressure Sensor Low Input",
+  "plain": "The fuel tank pressure sensor signal is lower than it should be, usually from a sensor or wiring fault.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed fuel tank pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blocked or kinked vent line causing vacuum in the tank",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor reading with the gas cap off",
+   "Check reference voltage and ground at the sensor",
+   "Inspect wiring along the tank"
+  ],
+  "fix": "Usually a new fuel tank pressure sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace fuel tank pressure sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0452",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0453",
+  "title": "Evaporative Emission Control System Pressure Sensor High Input",
+  "plain": "The fuel tank pressure sensor signal is higher than it should be, usually from an open wire, a bad sensor or a blocked vent.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "Possible trouble filling the tank"
+  ],
+  "causes": [
+   {
+    "name": "Failed fuel tank pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Open signal or ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Blocked vent valve or vent hose",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Saturated charcoal canister",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the sensor reading with the gas cap off",
+   "Inspect the vent valve and filter for blockage",
+   "Check the sensor ground and wiring"
+  ],
+  "fix": "Usually a new fuel tank pressure sensor, or clearing a blocked vent.",
+  "cost": {
+   "job": "Replace fuel tank pressure sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0453",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0454",
+  "title": "Evaporative Emission Control System Pressure Sensor Intermittent",
+  "plain": "The fuel tank pressure sensor signal is cutting in and out or jumping around.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring near the tank",
+    "how": "common"
+   },
+   {
+    "name": "Failing fuel tank pressure sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness while watching the sensor reading",
+   "Inspect the connector for corrosion"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new sensor.",
+  "cost": {
+   "job": "Replace fuel tank pressure sensor",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.5,
+    2.5
+   ]
+  },
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0454",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0455",
+  "title": "Evaporative Emission Control System Leak Detected (large leak)",
+  "plain": "The computer found a large leak in the system that stores fuel vapors, or no vapor flow at all. A missing or loose gas cap is the classic cause.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Fuel smell around the car in some cases",
+   "No change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Gas cap missing, loose or not sealing",
+    "how": "common"
+   },
+   {
+    "name": "Disconnected or cracked EVAP hose",
+    "how": "common"
+   },
+   {
+    "name": "Purge valve stuck closed or vent valve stuck open",
+    "how": "common"
+   },
+   {
+    "name": "Cracked charcoal canister",
+    "how": "possible"
+   },
+   {
+    "name": "Leaking filler neck",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the gas cap first and make sure it clicks tight",
+   "Have a smoke test done to find the leak",
+   "Test the purge and vent valves"
+  ],
+  "fix": "Often a gas cap or a disconnected hose; otherwise a purge valve, vent valve or canister.",
+  "cost": {
+   "job": "Smoke test and repair EVAP leak",
+   "parts": [
+    10,
+    250
+   ],
+   "hours": [
+    1,
+    2
+   ]
+  },
+  "examples": [
+   "A gas cap left loose after filling up is one of the most common triggers"
+  ],
+  "guide": "gas-smell",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0455",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0456",
+  "title": "Evaporative Emission Control System Leak Detected (very small leak)",
+  "plain": "The computer found a very tiny leak in the fuel vapor system, smaller than a pinhole. It does not affect driving but it does let fuel vapor escape.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Gas cap seal worn or slightly loose",
+    "how": "common"
+   },
+   {
+    "name": "Leaking purge or vent valve",
+    "how": "common"
+   },
+   {
+    "name": "Small crack in an EVAP hose or fitting",
+    "how": "common"
+   },
+   {
+    "name": "Leaking charcoal canister or seal",
+    "how": "possible"
+   },
+   {
+    "name": "Rusted filler neck",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Replace the gas cap if the seal is old and clear the code",
+   "Have a smoke test done to find the leak",
+   "Test the purge and vent valves for leaking"
+  ],
+  "fix": "Often a gas cap, purge valve or vent valve; a smoke test finds the exact leak.",
+  "cost": {
+   "job": "Smoke test and repair EVAP leak",
+   "parts": [
+    10,
+    250
+   ],
+   "hours": [
+    1,
+    2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://2carpros.com/topics/trouble-codes/p-codes-powertrain/p0400-p0499/p0456",
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0457",
+  "title": "Evaporative Emission Control System Leak Detected (fuel cap loose/off)",
+  "plain": "The computer thinks the gas cap is loose or missing because it sees a big vapor leak right after refueling.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Gas cap warning light on some vehicles",
+   "No change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Gas cap left loose or off after fueling",
+    "how": "common"
+   },
+   {
+    "name": "Worn or damaged gas cap seal",
+    "how": "common"
+   },
+   {
+    "name": "Wrong or poor-quality replacement gas cap",
+    "how": "common"
+   },
+   {
+    "name": "Damaged filler neck sealing surface",
+    "how": "possible"
+   },
+   {
+    "name": "EVAP leak elsewhere in the system",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Tighten the gas cap until it clicks",
+   "Inspect the cap seal and filler neck for damage",
+   "Replace the cap if it is old, then drive a few days to see if the light clears"
+  ],
+  "fix": "Usually just tightening or replacing the gas cap.",
+  "cost": {
+   "job": "Replace gas cap",
+   "parts": [
+    10,
+    40
+   ],
+   "hours": [
+    0,
+    0.2
+   ]
+  },
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0458",
+  "title": "Evaporative Emission System Purge Control Valve Circuit Low",
+  "plain": "The circuit for the EVAP purge valve is reading lower voltage than it should, which usually means a short or a failed valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed purge valve",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Open power feed or blown fuse",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for power at the purge valve connector",
+   "Measure the purge valve resistance"
+  ],
+  "fix": "Usually a new purge valve or a wiring repair.",
+  "cost": {
+   "job": "Replace EVAP purge valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P0459",
+  "title": "Evaporative Emission System Purge Control Valve Circuit High",
+  "plain": "The circuit for the EVAP purge valve is reading higher voltage than it should, often from an open circuit or failed valve.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "No change in how the car drives",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed purge valve coil",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the purge valve resistance",
+   "Inspect the connector and wiring"
+  ],
+  "fix": "Usually a new purge valve or a wiring repair.",
+  "cost": {
+   "job": "Replace EVAP purge valve",
+   "parts": [
+    25,
+    150
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P045A",
+  "title": "Exhaust Gas Recirculation \"B\" Control Circuit",
+  "plain": "On engines with a second EGR valve, the computer sees an electrical problem in the circuit that controls it.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power on diesels",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Failed EGR valve \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or connector",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the EGR valve with a scan tool and compare actual position",
+   "Inspect the valve connector, wiring and the valve for carbon or soot"
+  ],
+  "fix": "Usually a new EGR valve \"B\" or a wiring repair.",
+  "cost": {
+   "job": "Replace EGR valve \"B\"",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    3
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P045B",
+  "title": "Exhaust Gas Recirculation \"B\" Control Circuit Range/Performance",
+  "plain": "The second EGR valve is not moving to the position the computer asks for.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power on diesels",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Carbon or soot making the valve stick",
+    "how": "common"
+   },
+   {
+    "name": "Worn EGR valve \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the EGR valve with a scan tool and compare actual position",
+   "Inspect the valve connector, wiring and the valve for carbon or soot"
+  ],
+  "fix": "Usually cleaning or replacing EGR valve \"B\".",
+  "cost": {
+   "job": "Replace EGR valve \"B\"",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    3
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P045C",
+  "title": "Exhaust Gas Recirculation \"B\" Control Circuit Low",
+  "plain": "The control circuit for the second EGR valve is reading lower voltage than expected.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power on diesels",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Wiring shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed EGR valve \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer driver fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the EGR valve with a scan tool and compare actual position",
+   "Inspect the valve connector, wiring and the valve for carbon or soot"
+  ],
+  "fix": "Repair the wiring or replace the valve.",
+  "cost": {
+   "job": "Replace EGR valve \"B\"",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    3
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P045D",
+  "title": "Exhaust Gas Recirculation \"B\" Control Circuit High",
+  "plain": "The control circuit for the second EGR valve is reading higher voltage than expected, often from an open wire.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power on diesels",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Open wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Failed EGR valve \"B\"",
+    "how": "common"
+   },
+   {
+    "name": "Wiring shorted to voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the EGR valve with a scan tool and compare actual position",
+   "Inspect the valve connector, wiring and the valve for carbon or soot"
+  ],
+  "fix": "Repair the wiring or replace the valve.",
+  "cost": {
+   "job": "Replace EGR valve \"B\"",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    3
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P045E",
+  "title": "Exhaust Gas Recirculation \"B\" Control Stuck Open",
+  "plain": "The computer thinks the second EGR valve is stuck open, which can make the engine run rough or lose power.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle, stalling or lack of power",
+   "Black smoke on diesels"
+  ],
+  "causes": [
+   {
+    "name": "Valve stuck open from carbon or soot",
+    "how": "common"
+   },
+   {
+    "name": "Failed EGR valve \"B\" motor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the EGR valve with a scan tool and compare actual position",
+   "Inspect the valve connector, wiring and the valve for carbon or soot"
+  ],
+  "fix": "Usually cleaning or replacing EGR valve \"B\".",
+  "cost": {
+   "job": "Replace EGR valve \"B\"",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    3
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ },
+ {
+  "code": "P045F",
+  "title": "Exhaust Gas Recirculation \"B\" Control Stuck Closed",
+  "plain": "The computer thinks the second EGR valve is stuck closed and cannot open when needed.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power on diesels",
+   "May fail an emissions test"
+  ],
+  "causes": [
+   {
+    "name": "Valve stuck closed from carbon or soot",
+    "how": "common"
+   },
+   {
+    "name": "Failed EGR valve \"B\" motor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Command the EGR valve with a scan tool and compare actual position",
+   "Inspect the valve connector, wiring and the valve for carbon or soot"
+  ],
+  "fix": "Usually cleaning or replacing EGR valve \"B\".",
+  "cost": {
+   "job": "Replace EGR valve \"B\"",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    0.8,
+    3
+   ]
+  },
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0400-p0499/"
+  ]
+ }
+]

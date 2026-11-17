@@ -21,19 +21,36 @@ function url(v,y){return '/vehicles/'+v.id+'/'+(y?y+'/':'')}
 function go(v,y,q){y=clampYear(v,y);location.href=url(v,y)+(q?'?q='+encodeURIComponent(q):'')}
 const state={q:'',tab:'All'};
 // "My car": remember the driver's vehicle in this browser (light convenience only)
-const MY_KEY='vs_mycar';
-function getMy(){try{const m=JSON.parse(localStorage.getItem(MY_KEY)||'null');return m&&V.find(v=>v.id===m.id)?m:null}catch(_){return null}}
-function setMy(id,y){try{localStorage.setItem(MY_KEY,JSON.stringify({id,y:y||null}))}catch(_){}}
-function clearMy(){try{localStorage.removeItem(MY_KEY)}catch(_){}}
+const GKEY='vs_garage',MAXG=6;
+// "My garage": up to 6 vehicles remembered in this browser (light convenience only). First one is the main vehicle.
+function getG(){try{let g=JSON.parse(localStorage.getItem(GKEY)||'null');
+    if(!g){const old=JSON.parse(localStorage.getItem('vs_mycar')||'null');g=old?[old]:[]}
+    return (Array.isArray(g)?g:[]).filter(m=>m&&V.find(v=>v.id===m.id))}catch(_){return []}}
+function saveG(g){try{localStorage.setItem(GKEY,JSON.stringify(g.slice(0,MAXG)));localStorage.removeItem('vs_mycar')}catch(_){}}
+const sameCar=(a,b)=>a.id===b.id&&(a.y||null)===(b.y||null);
+function inG(id,y){return getG().some(m=>sameCar(m,{id,y}))}
+function addG(id,y){const g=getG();if(!g.some(m=>sameCar(m,{id,y})))g.push({id,y:y||null});saveG(g)}
+function removeG(id,y){saveG(getG().filter(m=>!sameCar(m,{id,y})))}
+function getMy(){return getG()[0]||null}
+function setMy(id,y){addG(id,y)}
+const carName=m=>{const v=V.find(x=>x.id===m.id);return (m.y?m.y+' ':'')+v.make+' '+v.model};
+const carUrl=m=>url(V.find(x=>x.id===m.id),m.y);
 function showMy(){
-  const m=getMy(),box=document.getElementById('mycarSaved'),pick=document.getElementById('mycarPick');
-  const nav=document.getElementById('navMy');
-  const mb=document.getElementById('myBar'),mbt=document.getElementById('myBarTxt');
-  if(mb&&!m){mb.href='#vehicle';mbt.innerHTML='<b>Start with your vehicle</b> Year, make and model'}
-  if(m){const v=V.find(x=>x.id===m.id),name=(m.y?m.y+' ':'')+v.make+' '+v.model;if(nav){nav.textContent='My '+name;nav.href=url(v,m.y)}
-    if(mb){mb.href=url(v,m.y);mbt.innerHTML='<b>Your '+esc(name)+'</b> Problems, costs and recalls'}
-    if(box&&pick){box.hidden=false;pick.hidden=true;box.innerHTML=`<div class="mysaved"><p class="eyebrow">Your vehicle</p><a class="big" href="${url(v,m.y)}"><b>${esc(name)}</b><span>Problems, repair costs, upkeep and recalls →</span></a><div class="row2"><a href="/symptoms/">Something wrong? Start here</a><button type="button" id="myChange">Change vehicle</button></div></div>`;
-      document.getElementById('myChange').onclick=()=>{clearMy();box.hidden=true;pick.hidden=false;if(nav){nav.textContent='Your vehicle & VIN';nav.href='/#vehicle'}showMy()}}}
+  const g=getG(),box=document.getElementById('mycarSaved'),pick=document.getElementById('mycarPick');
+  const nav=document.getElementById('navMy'),mb=document.getElementById('myBar'),mbt=document.getElementById('myBarTxt');
+  if(nav){if(!g.length){nav.textContent='Your vehicle & VIN';nav.href='/#vehicle'}else if(g.length===1){nav.textContent='My '+carName(g[0]);nav.href=carUrl(g[0])}else{nav.textContent='My garage ('+g.length+')';nav.href='/#vehicle'}}
+  if(mb){if(!g.length){mb.href='#vehicle';mbt.innerHTML='<b>Start with your vehicle</b> Year, make and model'}
+    else if(g.length===1){mb.href=carUrl(g[0]);mbt.innerHTML='<b>Your '+esc(carName(g[0]))+'</b> Problems, costs and recalls'}
+    else{mb.href='#vehicle';mbt.innerHTML='<b>Your garage</b> '+g.length+' vehicles saved'}}
+  if(!box||!pick)return;
+  if(!g.length){box.hidden=true;pick.hidden=false;return}
+  box.hidden=false;pick.hidden=true;
+  box.innerHTML=`<div class="mysaved"><p class="eyebrow">${g.length>1?'Your garage':'Your vehicle'}</p>
+  ${g.map((m,i)=>`<div class="gcar${i?'':' main'}"><a href="${carUrl(m)}"><b>${esc(carName(m))}</b><span>${i?'Problems, costs and recalls':'Problems, repair costs, upkeep and recalls'} →</span></a><button type="button" class="gx" data-i="${i}" aria-label="Remove ${esc(carName(m))}">✕</button></div>`).join('')}
+  <div class="row2">${g.length<MAXG?'<button type="button" id="gAdd">+ Add another vehicle</button>':'<span></span>'}<a href="/symptoms/">Something wrong? Start here</a></div></div>`;
+  box.querySelectorAll('.gx').forEach(b=>b.onclick=()=>{const m=g[+b.dataset.i];removeG(m.id,m.y);showMy()});
+  const add=document.getElementById('gAdd');if(add)add.onclick=()=>{box.hidden=true;pick.hidden=false;const h=pick.querySelector('h2');if(h)h.textContent='Add another vehicle';
+    if(!pick.querySelector('.gback')){const bk=document.createElement('button');bk.type='button';bk.className='gback';bk.textContent='← Back to my garage';bk.onclick=()=>{showMy()};pick.appendChild(bk)}}
 }
 
 
@@ -86,7 +103,7 @@ function renderVehicle(v,year){
   const general=state.q?searchGuides(state.q,3):[];
   const SR={high:0,med:1,low:2};const sorted=shown.slice().sort((a,b)=>SR[a.sev]-SR[b.sev]);
   el.innerHTML=`<div class="crumb"><a href="/">Home</a> › ${esc(v.make)} › ${esc(v.model)}${year?' › '+year:''}</div>
-  <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div>${year?`<button type="button" class="savecar" id="saveCar" data-id="${v.id}" data-y="${year}">Save as my vehicle</button>`:''}</div><h1>${year?'Your '+esc(name):esc(name)}<span class="h1s">problems, repair costs and recalls</span></h1>
+  <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div>${year?`<button type="button" class="savecar" id="saveCar">+ Save to my garage</button>`:''}</div><h1>${year?'Your '+esc(name):esc(name)}<span class="h1s">problems, repair costs and recalls</span></h1>
   <p class="sub">${year?`Everything we know about the ${esc(name)}: what tends to go wrong, what it costs to fix and keep running, and any safety recalls.`:`Problems reported across ${v.years[0]}–${v.years[1]}. Pick your model year below to see what applies to your vehicle.`}${v.alt?' '+esc(v.alt.replace(/\.$/,''))+'.':''}</p></div>
   <div class="yearbar"><label for="vy" style="color:var(--muted);font-size:14px">Model year</label><select id="vy">${yopts}</select></div>
   ${snapshot(v,year,list,name)}
@@ -98,7 +115,7 @@ function renderVehicle(v,year){
   ${priceGuide(list,name)}
   <div class="livebox" id="nhtsa"><b>Safety recalls${year?' for the '+esc(name):''}</b><br>${year?'Checking the NHTSA recall database…':'Pick a model year to see its safety recalls.'}</div>
   <div class="trust">This page is a general guide based on widely reported problems. Not every vehicle is affected, and it doesn't replace an in-person diagnosis.</div>`;
-  const sc=el.querySelector('#saveCar');if(sc){const m=getMy(),on=()=>{sc.textContent='✓ Saved as my vehicle';sc.classList.add('on')};if(m&&m.id===v.id&&m.y===year)on();sc.onclick=()=>{setMy(v.id,year);on();showMy()}}
+  const sc=el.querySelector('#saveCar');if(sc){const paint=()=>{const on=inG(v.id,year);sc.textContent=on?'✓ In my garage':'+ Save to my garage';sc.classList.toggle('on',on)};paint();sc.onclick=()=>{inG(v.id,year)?removeG(v.id,year):addG(v.id,year);paint();showMy()}}
   el.querySelector('#vy').onchange=e=>{location.href=url(v,+e.target.value||null)};
   loadNhtsa(v,year);
   el.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{state.tab=b.dataset.tab;renderVehicle(v,year)});
@@ -176,5 +193,5 @@ showMy();
   f.onsubmit=e=>{e.preventDefault();run(qi.value)};qi.oninput=()=>{if(qi.value.trim().length>=2&&!/^[pbcu]\d{4}$/i.test(qi.value.trim()))run(qi.value)};
   const q0=new URLSearchParams(location.search).get('q');if(q0){qi.value=q0;run(q0)}})();
 // personal touch on code pages
-(function(){const box=document.getElementById('codeMy');if(!box)return;const m=getMy();if(!m)return;const v=V.find(x=>x.id===m.id);const name=(m.y?m.y+' ':'')+v.make+' '+v.model;
-  box.innerHTML=`<a class="mybar" style="display:flex" href="${url(v,m.y)}"><span id="myBarTxt"><b>Your ${esc(name)}</b> See its known problems, repair costs and recalls</span><span class="mb-go">›</span></a>`})();
+(function(){const box=document.getElementById('codeMy');if(!box)return;const g=getG();if(!g.length)return;
+  box.innerHTML=`<div class="codemy"><span>Your ${g.length>1?'vehicles':'vehicle'}:</span>${g.map(m=>`<a href="${carUrl(m)}">${esc(carName(m))} ›</a>`).join('')}</div>`})();

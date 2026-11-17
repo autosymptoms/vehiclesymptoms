@@ -1,0 +1,1181 @@
+[
+ {
+  "code": "P0520",
+  "title": "Engine Oil Pressure Sensor/Switch Circuit",
+  "plain": "The computer sees a problem in the circuit for the oil pressure sensor, so it can't trust the oil pressure reading.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Oil pressure gauge reads zero, maxed out or jumps around",
+   "Oil pressure light on or flickering",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty oil pressure sensor or switch",
+    "how": "common"
+   },
+   {
+    "name": "Oil-soaked, loose or corroded connector, or damaged wiring",
+    "how": "common"
+   },
+   {
+    "name": "Low oil level or real low oil pressure",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level first",
+   "Confirm real oil pressure with a mechanical gauge",
+   "Inspect the sensor connector and wiring for oil, corrosion or damage"
+  ],
+  "fix": "Usually a new oil pressure sensor or a connector repair, once real oil pressure is confirmed good.",
+  "cost": {
+   "job": "Replace oil pressure sensor",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.4,
+    2
+   ]
+  },
+  "guide": "oil-pressure-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/",
+   "https://www.aa1car.com/trouble-codes/codes_599.htm"
+  ]
+ },
+ {
+  "code": "P0521",
+  "title": "Engine Oil Pressure Sensor/Switch Range/Performance",
+  "plain": "The oil pressure reading doesn't match what the computer expects for the engine speed and temperature.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Oil pressure gauge reads zero, maxed out or jumps around",
+   "Oil pressure light on or flickering",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty oil pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Low oil level or wrong oil viscosity",
+    "how": "common"
+   },
+   {
+    "name": "Worn oil pump or clogged oil pickup screen",
+    "how": "possible"
+   },
+   {
+    "name": "Worn engine bearings",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and that the right oil grade is in the engine",
+   "Confirm real oil pressure with a mechanical gauge",
+   "Compare the sensor reading with the mechanical gauge at idle and higher RPM"
+  ],
+  "fix": "Most often a new oil pressure sensor; if real pressure is low, the oil pump or engine needs attention.",
+  "cost": {
+   "job": "Replace oil pressure sensor",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.4,
+    2
+   ]
+  },
+  "examples": [
+   "Common on GM trucks and SUVs with the 4.8L, 5.3L and 6.0L V8, where the oil pressure sensor often fails"
+  ],
+  "guide": "oil-pressure-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/",
+   "https://www.aa1car.com/trouble-codes/codes_599.htm"
+  ]
+ },
+ {
+  "code": "P0522",
+  "title": "Engine Oil Pressure Sensor/Switch Low Voltage",
+  "plain": "The oil pressure sensor signal voltage is lower than it should ever be, which usually means a wiring short or a failed sensor.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Oil pressure gauge reads zero, maxed out or jumps around",
+   "Oil pressure light on or flickering",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty oil pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Oil-soaked or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Problem with the sensor's reference voltage supply",
+    "how": "possible"
+   },
+   {
+    "name": "Very low real oil pressure",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level first",
+   "Confirm real oil pressure with a mechanical gauge",
+   "Check reference voltage and ground at the sensor connector"
+  ],
+  "fix": "Usually a new oil pressure sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace oil pressure sensor",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.4,
+    2
+   ]
+  },
+  "guide": "oil-pressure-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/",
+   "https://www.aa1car.com/trouble-codes/codes_599.htm"
+  ]
+ },
+ {
+  "code": "P0523",
+  "title": "Engine Oil Pressure Sensor/Switch High Voltage",
+  "plain": "The oil pressure sensor signal voltage is higher than it should ever be, which usually means a broken wire, bad ground or a failed sensor.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Oil pressure gauge reads zero, maxed out or jumps around",
+   "Oil pressure light on or flickering",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty oil pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or poor ground in the sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Signal wire shorted to voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and confirm real oil pressure with a gauge",
+   "Inspect the connector and check ground at the sensor"
+  ],
+  "fix": "Usually a new oil pressure sensor or a wiring repair.",
+  "cost": {
+   "job": "Replace oil pressure sensor",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.4,
+    2
+   ]
+  },
+  "guide": "oil-pressure-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0524",
+  "title": "Engine Oil Pressure Too Low",
+  "plain": "The computer sees engine oil pressure below a safe level. Driving with low oil pressure can destroy an engine quickly.",
+  "sys": "Engine",
+  "sev": "stop",
+  "common": true,
+  "symptoms": [
+   "Oil pressure warning light on",
+   "Low or zero reading on the oil pressure gauge",
+   "Ticking or knocking from the engine",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Low engine oil level",
+    "how": "common"
+   },
+   {
+    "name": "Wrong oil viscosity or badly overdue oil change",
+    "how": "common"
+   },
+   {
+    "name": "Worn oil pump or clogged oil pickup screen",
+    "how": "possible"
+   },
+   {
+    "name": "Worn engine bearings",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty oil pressure sensor giving a false low reading",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Pull over, shut the engine off and check the oil level",
+   "Confirm real oil pressure with a mechanical gauge before driving further",
+   "Check the oil condition and filter for sludge or metal"
+  ],
+  "fix": "Top up or change the oil first; if pressure is truly low, the oil pump or engine bearings need repair. If real pressure is fine, replace the sensor.",
+  "cost": {
+   "job": "Replace oil pressure sensor",
+   "parts": [
+    15,
+    90
+   ],
+   "hours": [
+    0.4,
+    2
+   ]
+  },
+  "guide": "oil-pressure-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/",
+   "https://www.aa1car.com/trouble-codes/codes_599.htm"
+  ]
+ },
+ {
+  "code": "P0525",
+  "title": "Cruise Control Servo Control Circuit Range/Performance",
+  "plain": "The part that works the throttle for cruise control isn't responding the way the computer expects.",
+  "sys": "Speed and idle control",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Cruise control not working or cutting out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cruise control servo or electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or binding cruise cable (older vehicles)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the servo wiring and connector",
+   "Check the cruise cable and throttle for binding"
+  ],
+  "fix": "Usually a cruise servo or throttle body repair, or a wiring fix.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0526",
+  "title": "Fan Speed Sensor Circuit",
+  "plain": "The computer has spotted a problem in the wiring circuit for the cooling fan speed sensor. This part reports how fast the engine cooling fan is spinning.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fan may run constantly or seem weak",
+   "Engine may run warm in traffic"
+  ],
+  "causes": [
+   {
+    "name": "Faulty cooling fan speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or a loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground to the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the cooling fan speed sensor wiring and connector for damage, corrosion or a loose fit",
+   "Check related fuses and confirm power and ground at the sensor"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new cooling fan speed sensor if it tests bad.",
+  "guide": "overheats-only-in-traffic",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0527",
+  "title": "Fan Speed Sensor Circuit Range/Performance",
+  "plain": "The cooling fan speed sensor is sending a reading that doesn't make sense or doesn't match other sensors. This part reports how fast the engine cooling fan is spinning.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fan may run constantly or seem weak",
+   "Engine may run warm in traffic"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or sluggish cooling fan speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Worn or dragging cooling fan or fan clutch",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem skewing the reading",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the cooling fan speed sensor reading on a scan tool with real conditions",
+   "Check the fan and fan clutch for wear, wobble or drag",
+   "Inspect the wiring and connector for damage or corrosion"
+  ],
+  "fix": "Usually a new cooling fan speed sensor or repair of the underlying problem, after ruling out wiring.",
+  "guide": "overheats-only-in-traffic",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0528",
+  "title": "Fan Speed Sensor Circuit No Signal",
+  "plain": "The computer is not getting any signal from the sensor that reports how fast the engine cooling fan is spinning.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fan may run constantly or seem weak",
+   "Engine may run warm in traffic"
+  ],
+  "causes": [
+   {
+    "name": "Broken wire or unplugged connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fan speed sensor",
+    "how": "common"
+   },
+   {
+    "name": "Fan not turning at all (failed fan clutch or motor)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Confirm the fan actually turns when it should",
+   "Inspect the sensor wiring and connector"
+  ],
+  "fix": "Usually a wiring repair or a new fan speed sensor; a new fan clutch or motor if the fan is not turning.",
+  "guide": "overheats-only-in-traffic",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0529",
+  "title": "Fan Speed Sensor Circuit Intermittent",
+  "plain": "The signal from the cooling fan speed sensor keeps cutting in and out or jumping around. This part reports how fast the engine cooling fan is spinning.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Cooling fan may run constantly or seem weak",
+   "Engine may run warm in traffic"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that shorts or opens over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Failing cooling fan speed sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data on a scan tool",
+   "Look for chafed wires near hot or moving parts"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new cooling fan speed sensor if it tests bad.",
+  "guide": "overheats-only-in-traffic",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P052A",
+  "title": "Cold Start \"A\" Camshaft Position Timing Over-Advanced Bank 1",
+  "plain": "Right after a cold start, the \"A\" camshaft on bank 1 was further ahead (advanced) than the computer commanded. This is part of the variable valve timing system.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation right after a cold start",
+   "Possible rattle at startup"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or faulty variable valve timing solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or sticking cam phaser",
+    "how": "possible"
+   },
+   {
+    "name": "Stretched timing chain",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check for other camshaft timing or correlation codes",
+   "Test the timing solenoid and check cam timing on a scan tool"
+  ],
+  "fix": "Often an oil change with the correct oil or a new timing solenoid; a stretched chain or worn phaser needs a timing job.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P052B",
+  "title": "Cold Start \"A\" Camshaft Position Timing Over-Retarded Bank 1",
+  "plain": "Right after a cold start, the \"A\" camshaft on bank 1 was further behind (retarded) than the computer commanded. This is part of the variable valve timing system.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation right after a cold start",
+   "Possible rattle at startup"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or faulty variable valve timing solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or sticking cam phaser",
+    "how": "possible"
+   },
+   {
+    "name": "Stretched timing chain",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check for other camshaft timing or correlation codes",
+   "Test the timing solenoid and check cam timing on a scan tool"
+  ],
+  "fix": "Often an oil change with the correct oil or a new timing solenoid; a stretched chain or worn phaser needs a timing job.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P052C",
+  "title": "Cold Start \"A\" Camshaft Position Timing Over-Advanced Bank 2",
+  "plain": "Right after a cold start, the \"A\" camshaft on bank 2 was further ahead (advanced) than the computer commanded. This is part of the variable valve timing system.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation right after a cold start",
+   "Possible rattle at startup"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or faulty variable valve timing solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or sticking cam phaser",
+    "how": "possible"
+   },
+   {
+    "name": "Stretched timing chain",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check for other camshaft timing or correlation codes",
+   "Test the timing solenoid and check cam timing on a scan tool"
+  ],
+  "fix": "Often an oil change with the correct oil or a new timing solenoid; a stretched chain or worn phaser needs a timing job.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P052D",
+  "title": "Cold Start \"A\" Camshaft Position Timing Over-Retarded Bank 2",
+  "plain": "Right after a cold start, the \"A\" camshaft on bank 2 was further behind (retarded) than the computer commanded. This is part of the variable valve timing system.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or hesitation right after a cold start",
+   "Possible rattle at startup"
+  ],
+  "causes": [
+   {
+    "name": "Low, dirty or wrong-grade engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or faulty variable valve timing solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or sticking cam phaser",
+    "how": "possible"
+   },
+   {
+    "name": "Stretched timing chain",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Check for other camshaft timing or correlation codes",
+   "Test the timing solenoid and check cam timing on a scan tool"
+  ],
+  "fix": "Often an oil change with the correct oil or a new timing solenoid; a stretched chain or worn phaser needs a timing job.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P052E",
+  "title": "Positive Crankcase Ventilation Regulator Valve Performance",
+  "plain": "The valve that controls how much oil vapor is drawn out of the engine's crankcase isn't working as expected.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or whistling noise",
+   "Possible oil leaks or oil consumption"
+  ],
+  "causes": [
+   {
+    "name": "Faulty PCV valve or oil separator",
+    "how": "common"
+   },
+   {
+    "name": "Cracked or disconnected PCV hose",
+    "how": "common"
+   },
+   {
+    "name": "Clogged PCV passages from sludge",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the PCV valve, oil separator and hoses",
+   "Check for vacuum leaks around the valve cover"
+  ],
+  "fix": "Usually a new PCV valve, oil separator or valve cover with built-in PCV.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0530",
+  "title": "A/C Refrigerant Pressure Sensor \"A\" Circuit",
+  "plain": "The computer has spotted a problem in the wiring circuit for the A/C refrigerant pressure sensor. This part tells the computer the pressure in the A/C system.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm or cutting in and out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty A/C refrigerant pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or a loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground to the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the A/C refrigerant pressure sensor wiring and connector for damage, corrosion or a loose fit",
+   "Check related fuses and confirm power and ground at the sensor"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new A/C refrigerant pressure sensor if it tests bad.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0531",
+  "title": "A/C Refrigerant Pressure Sensor \"A\" Circuit Range/Performance",
+  "plain": "The A/C refrigerant pressure sensor is sending a reading that doesn't make sense or doesn't match other sensors. This part tells the computer the pressure in the A/C system.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm or cutting in and out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or sluggish A/C refrigerant pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Refrigerant charge too low or too high",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem skewing the reading",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the A/C refrigerant pressure sensor reading on a scan tool with real conditions",
+   "Check A/C pressures with a gauge set",
+   "Inspect the wiring and connector for damage or corrosion"
+  ],
+  "fix": "Usually a new A/C refrigerant pressure sensor or repair of the underlying problem, after ruling out wiring.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0532",
+  "title": "A/C Refrigerant Pressure Sensor \"A\" Circuit Low",
+  "plain": "The A/C pressure sensor signal is too low. A low reading often means the system is low on refrigerant, but it can also be the sensor or its wiring.",
+  "sys": "Body",
+  "sev": "check",
+  "common": true,
+  "symptoms": [
+   "A/C blowing warm air",
+   "A/C compressor not turning on",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Low refrigerant from a leak",
+    "how": "common"
+   },
+   {
+    "name": "Faulty A/C pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Signal wire shorted to ground or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Problem with the sensor's reference voltage supply",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check A/C system pressures with a gauge set",
+   "Inspect the sensor connector and wiring",
+   "Check reference voltage and ground at the sensor"
+  ],
+  "fix": "Either a new A/C pressure sensor or a leak repair and recharge, depending on what the gauges show.",
+  "cost": {
+   "job": "Replace A/C pressure sensor",
+   "parts": [
+    20,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ]
+  },
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/",
+   "https://www.aa1car.com/trouble-codes/codes_599.htm"
+  ]
+ },
+ {
+  "code": "P0533",
+  "title": "A/C Refrigerant Pressure Sensor \"A\" Circuit High",
+  "plain": "The signal from the A/C refrigerant pressure sensor is higher than it should ever be, which usually points to a broken wire, bad ground or a failed sensor. This part tells the computer the pressure in the A/C system.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm or cutting in and out",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Broken wire or poor ground in the sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Faulty A/C refrigerant pressure sensor",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Signal wire shorted to a voltage source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and connector for broken wires or corrosion",
+   "Check reference voltage and ground at the connector with a meter"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new A/C refrigerant pressure sensor if it tests bad.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0534",
+  "title": "Air Conditioner Refrigerant Charge Loss",
+  "plain": "The computer thinks the A/C system has lost much of its refrigerant, usually from a leak.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm air",
+   "A/C compressor cycling on and off quickly or not running"
+  ],
+  "causes": [
+   {
+    "name": "Refrigerant leak at a hose, seal, condenser or evaporator",
+    "how": "common"
+   },
+   {
+    "name": "Leaking A/C service port",
+    "how": "common"
+   },
+   {
+    "name": "Faulty A/C pressure or temperature sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check A/C pressures with a gauge set",
+   "Leak-test with dye or an electronic detector"
+  ],
+  "fix": "Find and fix the leak, then evacuate and recharge the system.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0535",
+  "title": "A/C Evaporator Temperature Sensor Circuit",
+  "plain": "The computer has spotted a problem in the wiring circuit for the A/C evaporator temperature sensor. This part tells the computer how cold the A/C evaporator is so it does not freeze up.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm or cutting out",
+   "A/C may ice up and lose airflow"
+  ],
+  "causes": [
+   {
+    "name": "Faulty A/C evaporator temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Damaged wiring or a loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or missing power or ground to the sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the A/C evaporator temperature sensor wiring and connector for damage, corrosion or a loose fit",
+   "Check related fuses and confirm power and ground at the sensor"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new A/C evaporator temperature sensor if it tests bad.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0536",
+  "title": "A/C Evaporator Temperature Sensor Circuit Range/Performance",
+  "plain": "The A/C evaporator temperature sensor is sending a reading that doesn't make sense or doesn't match other sensors. This part tells the computer how cold the A/C evaporator is so it does not freeze up.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm or cutting out",
+   "A/C may ice up and lose airflow"
+  ],
+  "causes": [
+   {
+    "name": "Faulty or sluggish A/C evaporator temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem skewing the reading",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Compare the A/C evaporator temperature sensor reading on a scan tool with real conditions",
+   "Inspect the wiring and connector for damage or corrosion"
+  ],
+  "fix": "Usually a new A/C evaporator temperature sensor, after ruling out wiring.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0537",
+  "title": "A/C Evaporator Temperature Sensor Circuit Low",
+  "plain": "The signal from the A/C evaporator temperature sensor is lower than it should ever be, which usually points to a wiring short or a failed sensor. This part tells the computer how cold the A/C evaporator is so it does not freeze up.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm or cutting out",
+   "A/C may ice up and lose airflow"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty A/C evaporator temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Problem with the sensor's reference voltage supply",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and connector for rubbing, damage or corrosion",
+   "Check reference voltage and ground at the connector with a meter"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new A/C evaporator temperature sensor if it tests bad.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0538",
+  "title": "A/C Evaporator Temperature Sensor Circuit High",
+  "plain": "The signal from the A/C evaporator temperature sensor is higher than it should ever be, which usually points to a broken wire, bad ground or a failed sensor. This part tells the computer how cold the A/C evaporator is so it does not freeze up.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm or cutting out",
+   "A/C may ice up and lose airflow"
+  ],
+  "causes": [
+   {
+    "name": "Broken wire or poor ground in the sensor circuit",
+    "how": "common"
+   },
+   {
+    "name": "Faulty A/C evaporator temperature sensor",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged or corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Signal wire shorted to a voltage source",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and connector for broken wires or corrosion",
+   "Check reference voltage and ground at the connector with a meter"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new A/C evaporator temperature sensor if it tests bad.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P0539",
+  "title": "A/C Evaporator Temperature Sensor Circuit Intermittent",
+  "plain": "The signal from the A/C evaporator temperature sensor keeps cutting in and out or jumping around. This part tells the computer how cold the A/C evaporator is so it does not freeze up.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm or cutting out",
+   "A/C may ice up and lose airflow"
+  ],
+  "causes": [
+   {
+    "name": "Loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring that shorts or opens over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Failing A/C evaporator temperature sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the harness and connector while watching live data on a scan tool",
+   "Look for chafed wires near hot or moving parts"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new A/C evaporator temperature sensor if it tests bad.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P053A",
+  "title": "Positive Crankcase Ventilation Heater Control Circuit/Open",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the PCV heater. This part warms the crankcase vent so moisture cannot freeze it shut in cold weather.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "In freezing weather, possible oil leaks from a frozen vent"
+  ],
+  "causes": [
+   {
+    "name": "Faulty PCV heater",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the PCV heater wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the PCV heater with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new PCV heater if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P053B",
+  "title": "Positive Crankcase Ventilation Heater Control Circuit Low",
+  "plain": "The computer sees lower voltage than expected in the circuit that controls the PCV heater, often from a wire shorted to ground. This part warms the crankcase vent so moisture cannot freeze it shut in cold weather.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "In freezing weather, possible oil leaks from a frozen vent"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty PCV heater",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the PCV heater wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the PCV heater with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new PCV heater if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ },
+ {
+  "code": "P053C",
+  "title": "Positive Crankcase Ventilation Heater Control Circuit High",
+  "plain": "The computer sees higher voltage than expected in the circuit that controls the PCV heater, often from a wire shorted to power or a failed part. This part warms the crankcase vent so moisture cannot freeze it shut in cold weather.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives",
+   "In freezing weather, possible oil leaks from a frozen vent"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or shorted PCV heater",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the PCV heater wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the PCV heater with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new PCV heater if it tests bad.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0500-p0599/"
+  ]
+ }
+]
