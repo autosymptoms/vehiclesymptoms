@@ -1,0 +1,1255 @@
+[
+ {
+  "code": "P06A0",
+  "title": "Variable A/C Compressor Control Circuit",
+  "plain": "The computer found a problem, such as a broken connection, in the circuit it uses to control the variable A/C compressor control valve. This part adjusts how hard the A/C compressor works.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm or weak",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Faulty variable A/C compressor control valve",
+    "how": "common"
+   },
+   {
+    "name": "Broken wire or loose or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the variable A/C compressor control valve wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the variable A/C compressor control valve with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new variable A/C compressor control valve if it tests bad.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06A1",
+  "title": "Variable A/C Compressor Control Circuit Low",
+  "plain": "The computer sees lower voltage than expected in the circuit that controls the variable A/C compressor control valve, often from a wire shorted to ground. This part adjusts how hard the A/C compressor works.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm or weak",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Faulty variable A/C compressor control valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the variable A/C compressor control valve wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the variable A/C compressor control valve with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new variable A/C compressor control valve if it tests bad.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06A2",
+  "title": "Variable A/C Compressor Control Circuit High",
+  "plain": "The computer sees higher voltage than expected in the circuit that controls the variable A/C compressor control valve, often from a wire shorted to power or a failed part. This part adjusts how hard the A/C compressor works.",
+  "sys": "Body",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "A/C blowing warm or weak",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Control wire shorted to power",
+    "how": "common"
+   },
+   {
+    "name": "Faulty or shorted variable A/C compressor control valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer driver circuit fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the variable A/C compressor control valve wiring and connector for damage or corrosion",
+   "Check related fuses and relays",
+   "Test the variable A/C compressor control valve with a meter or scan tool and compare with spec"
+  ],
+  "fix": "Usually a wiring or connector repair, or a new variable A/C compressor control valve if it tests bad.",
+  "guide": "ac-blowing-warm-air",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06A3",
+  "title": "Sensor Reference Voltage \"D\" Circuit/Open",
+  "plain": "The computer feeds a steady 5-volt supply to a group of sensors, and supply \"D\" has dropped out or is not reaching the sensors. Several sensors can stop reading correctly at once.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Shorted sensor on the shared 5-volt circuit (such as a throttle, pedal or pressure sensor)",
+    "how": "common"
+   },
+   {
+    "name": "Chafed or damaged wiring shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which other sensor codes set at the same time",
+   "Unplug sensors on that circuit one at a time and watch whether the 5-volt supply comes back",
+   "Inspect the harness for rubbing, melting or water damage"
+  ],
+  "fix": "Usually finding and replacing the sensor that is upsetting the supply, or repairing damaged wiring.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06A4",
+  "title": "Sensor Reference Voltage \"D\" Circuit Low",
+  "plain": "The computer feeds a steady 5-volt supply to a group of sensors, and supply \"D\" is being pulled too low, usually by a short to ground. Several sensors can stop reading correctly at once.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Shorted sensor on the shared 5-volt circuit (such as a throttle, pedal or pressure sensor)",
+    "how": "common"
+   },
+   {
+    "name": "Chafed or damaged wiring shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which other sensor codes set at the same time",
+   "Unplug sensors on that circuit one at a time and watch whether the 5-volt supply comes back",
+   "Inspect the harness for rubbing, melting or water damage"
+  ],
+  "fix": "Usually finding and replacing the sensor that is upsetting the supply, or repairing damaged wiring.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06A5",
+  "title": "Sensor Reference Voltage \"D\" Circuit High",
+  "plain": "The computer feeds a steady 5-volt supply to a group of sensors, and supply \"D\" is too high, usually from a short to another voltage source. Several sensors can stop reading correctly at once.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "5-volt supply wire shorted to a higher voltage",
+    "how": "common"
+   },
+   {
+    "name": "Faulty sensor on the shared circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector letting moisture bridge pins",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which other sensor codes set at the same time",
+   "Unplug sensors on that circuit one at a time and watch whether the 5-volt supply comes back",
+   "Inspect the harness for rubbing, melting or water damage"
+  ],
+  "fix": "Usually finding and replacing the sensor that is upsetting the supply, or repairing damaged wiring.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06A6",
+  "title": "Sensor Reference Voltage \"A\" Circuit Range/Performance",
+  "plain": "The computer feeds a steady 5-volt supply to a group of sensors, and supply \"A\" is drifting outside its normal range. Several sensors can stop reading correctly at once.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Sensor on the shared circuit partly shorted or loading the supply",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which other sensor codes set at the same time",
+   "Unplug sensors on that circuit one at a time and watch whether the 5-volt supply comes back",
+   "Inspect the harness for rubbing, melting or water damage"
+  ],
+  "fix": "Usually finding and replacing the sensor that is upsetting the supply, or repairing damaged wiring.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06A7",
+  "title": "Sensor Reference Voltage \"B\" Circuit Range/Performance",
+  "plain": "The computer feeds a steady 5-volt supply to a group of sensors, and supply \"B\" is drifting outside its normal range. Several sensors can stop reading correctly at once.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Sensor on the shared circuit partly shorted or loading the supply",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which other sensor codes set at the same time",
+   "Unplug sensors on that circuit one at a time and watch whether the 5-volt supply comes back",
+   "Inspect the harness for rubbing, melting or water damage"
+  ],
+  "fix": "Usually finding and replacing the sensor that is upsetting the supply, or repairing damaged wiring.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06A8",
+  "title": "Sensor Reference Voltage \"C\" Circuit Range/Performance",
+  "plain": "The computer feeds a steady 5-volt supply to a group of sensors, and supply \"C\" is drifting outside its normal range. Several sensors can stop reading correctly at once.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Sensor on the shared circuit partly shorted or loading the supply",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which other sensor codes set at the same time",
+   "Unplug sensors on that circuit one at a time and watch whether the 5-volt supply comes back",
+   "Inspect the harness for rubbing, melting or water damage"
+  ],
+  "fix": "Usually finding and replacing the sensor that is upsetting the supply, or repairing damaged wiring.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06A9",
+  "title": "Sensor Reference Voltage \"D\" Circuit Range/Performance",
+  "plain": "The computer feeds a steady 5-volt supply to a group of sensors, and supply \"D\" is drifting outside its normal range. Several sensors can stop reading correctly at once.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Sensor on the shared circuit partly shorted or loading the supply",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which other sensor codes set at the same time",
+   "Unplug sensors on that circuit one at a time and watch whether the 5-volt supply comes back",
+   "Inspect the harness for rubbing, melting or water damage"
+  ],
+  "fix": "Usually finding and replacing the sensor that is upsetting the supply, or repairing damaged wiring.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06AA",
+  "title": "PCM/ECM/TCM Internal Temperature \"B\" Too High",
+  "plain": "A control computer is reporting, from its second internal sensor, that it is running too hot inside.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power, limp mode or stalling",
+   "Possible harsh shifting"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Shorted sensor, solenoid or actuator overloading the computer",
+    "how": "common"
+   },
+   {
+    "name": "Computer mounted near a heat source or blocked cooling",
+    "how": "possible"
+   },
+   {
+    "name": "Low or overheated transmission fluid (computers mounted in the transmission)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any shorted part or heat problem first; otherwise replace and program the computer.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06AB",
+  "title": "PCM/ECM/TCM Internal Temperature Sensor \"B\" Circuit",
+  "plain": "A control computer has a second temperature sensor (\"B\") inside it to protect itself from overheating, and that sensor has a circuit problem.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and computer power and ground circuits",
+   "Check for software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06AC",
+  "title": "PCM/ECM/TCM Internal Temperature Sensor \"B\" Range/Performance",
+  "plain": "A control computer has a second temperature sensor (\"B\") inside it to protect itself from overheating, and that sensor is giving a reading that does not make sense.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and computer power and ground circuits",
+   "Check for software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06AD",
+  "title": "PCM/ECM/TCM Internal Temperature Sensor \"B\" Circuit Low",
+  "plain": "A control computer has a second temperature sensor (\"B\") inside it to protect itself from overheating, and that sensor is reading too low.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and computer power and ground circuits",
+   "Check for software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06AE",
+  "title": "PCM/ECM/TCM Internal Temperature Sensor \"B\" Circuit High",
+  "plain": "A control computer has a second temperature sensor (\"B\") inside it to protect itself from overheating, and that sensor is reading too high.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually no change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and computer power and ground circuits",
+   "Check for software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement.",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06AF",
+  "title": "Torque Management System - Forced Engine Shutdown",
+  "plain": "The computer shut the engine off on purpose as a safety measure because it saw the engine making power that was not requested.",
+  "sys": "Computer",
+  "sev": "stop",
+  "common": false,
+  "symptoms": [
+   "Engine shuts off unexpectedly",
+   "Check engine light on",
+   "Reduced power or limp mode codes stored with it"
+  ],
+  "causes": [
+   {
+    "name": "Faulty accelerator pedal or throttle position sensor signal",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or faulty electronic throttle body",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read all other stored codes, especially throttle and pedal codes",
+   "Inspect the throttle body and its wiring",
+   "Check for software updates or service bulletins"
+  ],
+  "fix": "Repair the throttle, pedal or sensor fault that triggered the shutdown; sometimes a computer update or replacement.",
+  "guide": "engine-stalls-while-driving",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06B0",
+  "title": "Sensor Power Supply \"A\" Circuit/Open",
+  "plain": "The computer powers a group of sensors through supply \"A\", and that supply is missing or broken.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Shorted sensor on the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring or blown fuse",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which sensor codes set at the same time",
+   "Check fuses for the sensor supply",
+   "Unplug sensors on the circuit one at a time to find a short"
+  ],
+  "fix": "Usually replacing a shorted sensor or repairing the wiring or fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06B1",
+  "title": "Sensor Power Supply \"A\" Circuit Low",
+  "plain": "The computer powers a group of sensors through supply \"A\", and that supply is too low, usually from a short to ground.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Shorted sensor on the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring or blown fuse",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which sensor codes set at the same time",
+   "Check fuses for the sensor supply",
+   "Unplug sensors on the circuit one at a time to find a short"
+  ],
+  "fix": "Usually replacing a shorted sensor or repairing the wiring or fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06B2",
+  "title": "Sensor Power Supply \"A\" Circuit High",
+  "plain": "The computer powers a group of sensors through supply \"A\", and that supply is too high, usually from a short to another voltage.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Supply wire shorted to another voltage source",
+    "how": "common"
+   },
+   {
+    "name": "Faulty sensor on the circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which sensor codes set at the same time",
+   "Check fuses for the sensor supply",
+   "Unplug sensors on the circuit one at a time to find a short"
+  ],
+  "fix": "Usually replacing a shorted sensor or repairing the wiring or fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06B3",
+  "title": "Sensor Power Supply \"B\" Circuit/Open",
+  "plain": "The computer powers a group of sensors through supply \"B\", and that supply is missing or broken.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Shorted sensor on the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring or blown fuse",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which sensor codes set at the same time",
+   "Check fuses for the sensor supply",
+   "Unplug sensors on the circuit one at a time to find a short"
+  ],
+  "fix": "Usually replacing a shorted sensor or repairing the wiring or fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06B4",
+  "title": "Sensor Power Supply \"B\" Circuit Low",
+  "plain": "The computer powers a group of sensors through supply \"B\", and that supply is too low, usually from a short to ground.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Shorted sensor on the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Chafed wiring or blown fuse",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or water-damaged connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which sensor codes set at the same time",
+   "Check fuses for the sensor supply",
+   "Unplug sensors on the circuit one at a time to find a short"
+  ],
+  "fix": "Usually replacing a shorted sensor or repairing the wiring or fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06B5",
+  "title": "Sensor Power Supply \"B\" Circuit High",
+  "plain": "The computer powers a group of sensors through supply \"B\", and that supply is too high, usually from a short to another voltage.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Reduced power or limp mode",
+   "Several sensor codes at the same time",
+   "Possible stalling or no start"
+  ],
+  "causes": [
+   {
+    "name": "Supply wire shorted to another voltage source",
+    "how": "common"
+   },
+   {
+    "name": "Faulty sensor on the circuit",
+    "how": "common"
+   },
+   {
+    "name": "Corroded connector",
+    "how": "possible"
+   },
+   {
+    "name": "Computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Note which sensor codes set at the same time",
+   "Check fuses for the sensor supply",
+   "Unplug sensors on the circuit one at a time to find a short"
+  ],
+  "fix": "Usually replacing a shorted sensor or repairing the wiring or fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06B6",
+  "title": "Internal Control Module Knock Sensor Processor 1 Performance",
+  "plain": "The part of the engine computer that listens to the knock sensors (processor 1) failed a self-check.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power or poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Shorted knock sensor or knock sensor wiring",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground connections",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06B7",
+  "title": "Internal Control Module Knock Sensor Processor 2 Performance",
+  "plain": "The part of the engine computer that listens to the knock sensors (processor 2) failed a self-check.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible reduced power or poor fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Shorted knock sensor or knock sensor wiring",
+    "how": "common"
+   },
+   {
+    "name": "Low voltage or poor power and ground connections",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06B8",
+  "title": "Internal Control Module Non-Volatile Random Access Memory (NVRAM) Error",
+  "plain": "The engine computer found an error in the memory that keeps learned settings when the key is off.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Idle or shifting may feel off until the computer relearns"
+  ],
+  "causes": [
+   {
+    "name": "Low battery voltage or poor power or ground connections at the computer",
+    "how": "common"
+   },
+   {
+    "name": "Internal computer fault",
+    "how": "common"
+   },
+   {
+    "name": "Computer software that needs an update or reprogramming",
+    "how": "possible"
+   },
+   {
+    "name": "Water damage or corrosion at the computer connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging system",
+   "Check the computer power and ground circuits and connectors",
+   "Check for manufacturer software updates or service bulletins"
+  ],
+  "fix": "Fix any power or ground problem first; otherwise the computer may need reprogramming or replacement (a new one usually must be programmed to the car).",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06B9",
+  "title": "Cylinder 1 Glow Plug Circuit Range/Performance",
+  "plain": "The glow plug for cylinder 1 is drawing more or less current than the computer expects. Glow plugs heat the cylinders so a diesel engine starts easily in cold weather.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Hard starting in cold weather",
+   "Rough running or white smoke right after a cold start",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Worn or failing glow plug",
+    "how": "common"
+   },
+   {
+    "name": "High resistance from a corroded or loose glow plug connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty glow plug control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the cylinder 1 glow plug resistance and current draw",
+   "Inspect the glow plug connector for corrosion"
+  ],
+  "fix": "Usually a new glow plug or a connector repair.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06BA",
+  "title": "Cylinder 2 Glow Plug Circuit Range/Performance",
+  "plain": "The glow plug for cylinder 2 is drawing more or less current than the computer expects. Glow plugs heat the cylinders so a diesel engine starts easily in cold weather.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Hard starting in cold weather",
+   "Rough running or white smoke right after a cold start",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Worn or failing glow plug",
+    "how": "common"
+   },
+   {
+    "name": "High resistance from a corroded or loose glow plug connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty glow plug control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the cylinder 2 glow plug resistance and current draw",
+   "Inspect the glow plug connector for corrosion"
+  ],
+  "fix": "Usually a new glow plug or a connector repair.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06BB",
+  "title": "Cylinder 3 Glow Plug Circuit Range/Performance",
+  "plain": "The glow plug for cylinder 3 is drawing more or less current than the computer expects. Glow plugs heat the cylinders so a diesel engine starts easily in cold weather.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Hard starting in cold weather",
+   "Rough running or white smoke right after a cold start",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Worn or failing glow plug",
+    "how": "common"
+   },
+   {
+    "name": "High resistance from a corroded or loose glow plug connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty glow plug control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the cylinder 3 glow plug resistance and current draw",
+   "Inspect the glow plug connector for corrosion"
+  ],
+  "fix": "Usually a new glow plug or a connector repair.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06BC",
+  "title": "Cylinder 4 Glow Plug Circuit Range/Performance",
+  "plain": "The glow plug for cylinder 4 is drawing more or less current than the computer expects. Glow plugs heat the cylinders so a diesel engine starts easily in cold weather.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Hard starting in cold weather",
+   "Rough running or white smoke right after a cold start",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Worn or failing glow plug",
+    "how": "common"
+   },
+   {
+    "name": "High resistance from a corroded or loose glow plug connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty glow plug control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the cylinder 4 glow plug resistance and current draw",
+   "Inspect the glow plug connector for corrosion"
+  ],
+  "fix": "Usually a new glow plug or a connector repair.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06BD",
+  "title": "Cylinder 5 Glow Plug Circuit Range/Performance",
+  "plain": "The glow plug for cylinder 5 is drawing more or less current than the computer expects. Glow plugs heat the cylinders so a diesel engine starts easily in cold weather.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Hard starting in cold weather",
+   "Rough running or white smoke right after a cold start",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Worn or failing glow plug",
+    "how": "common"
+   },
+   {
+    "name": "High resistance from a corroded or loose glow plug connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty glow plug control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the cylinder 5 glow plug resistance and current draw",
+   "Inspect the glow plug connector for corrosion"
+  ],
+  "fix": "Usually a new glow plug or a connector repair.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06BE",
+  "title": "Cylinder 6 Glow Plug Circuit Range/Performance",
+  "plain": "The glow plug for cylinder 6 is drawing more or less current than the computer expects. Glow plugs heat the cylinders so a diesel engine starts easily in cold weather.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Hard starting in cold weather",
+   "Rough running or white smoke right after a cold start",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Worn or failing glow plug",
+    "how": "common"
+   },
+   {
+    "name": "High resistance from a corroded or loose glow plug connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty glow plug control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the cylinder 6 glow plug resistance and current draw",
+   "Inspect the glow plug connector for corrosion"
+  ],
+  "fix": "Usually a new glow plug or a connector repair.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ },
+ {
+  "code": "P06BF",
+  "title": "Cylinder 7 Glow Plug Circuit Range/Performance",
+  "plain": "The glow plug for cylinder 7 is drawing more or less current than the computer expects. Glow plugs heat the cylinders so a diesel engine starts easily in cold weather.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Hard starting in cold weather",
+   "Rough running or white smoke right after a cold start",
+   "Check engine light on"
+  ],
+  "causes": [
+   {
+    "name": "Worn or failing glow plug",
+    "how": "common"
+   },
+   {
+    "name": "High resistance from a corroded or loose glow plug connector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty glow plug control module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the cylinder 7 glow plug resistance and current draw",
+   "Inspect the glow plug connector for corrosion"
+  ],
+  "fix": "Usually a new glow plug or a connector repair.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0600-p0699-definitions-and-causes/"
+  ]
+ }
+]

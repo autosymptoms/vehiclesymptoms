@@ -1,0 +1,1256 @@
+[
+ {
+  "code": "P266E",
+  "title": "\"A\" Rocker Arm Actuator Position Sensor Circuit Intermittent/Erratic (Bank 2)",
+  "plain": "The computer is watching the \"A\" rocker arm position sensor (bank 2) and is seeing a signal that cuts in and out. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Loose connector or chafed wire that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Rocker arm actuator position sensor failing on and off",
+    "how": "common"
+   },
+   {
+    "name": "Corrosion inside the connector",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground connection",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the wiring for the \"A\" rocker arm position sensor (bank 2) with the engine running while watching live data",
+   "Check connector pins for corrosion or spread terminals",
+   "Note when it happens (hot, cold, bumps) to narrow it down"
+  ],
+  "fix": "Repair the loose or corroded connection; replace the rocker arm actuator position sensor if the wiring is solid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2670",
+  "title": "Actuator Supply Voltage \"B\" Circuit Low",
+  "plain": "The computer is watching the actuator supply voltage \"B\" circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This is a shared power feed the computer uses to run several actuators, such as solenoids and valves.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Several systems may stop working at once",
+   "Reduced power or limp mode possible"
+  ],
+  "causes": [
+   {
+    "name": "A shorted actuator pulling the supply voltage down",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Wiring short or open in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the actuator supply voltage \"B\" circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Find the shorted actuator or wire on the shared supply and repair it, then replace any blown fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2671",
+  "title": "Actuator Supply Voltage \"B\" Circuit High",
+  "plain": "The computer is watching the actuator supply voltage \"B\" circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This is a shared power feed the computer uses to run several actuators, such as solenoids and valves.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Several systems may stop working at once",
+   "Reduced power or limp mode possible"
+  ],
+  "causes": [
+   {
+    "name": "A shorted actuator pulling the supply voltage down",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Wiring short or open in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the actuator supply voltage \"B\" circuit",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Find the shorted actuator or wire on the shared supply and repair it, then replace any blown fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2672",
+  "title": "Injection Pump Timing Offset",
+  "plain": "On a diesel, the fuel injection pump timing is off from where the computer expects it to be.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting, knocking or smoke",
+   "Loss of power"
+  ],
+  "causes": [
+   {
+    "name": "Injection pump timed incorrectly after service",
+    "how": "common"
+   },
+   {
+    "name": "Worn timing belt or chain, or slipped timing",
+    "how": "common"
+   },
+   {
+    "name": "Faulty pump timing or position sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Worn injection pump",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the pump or timing belt was recently serviced",
+   "Compare actual and desired timing in live data"
+  ],
+  "fix": "Re-time the injection pump; replace the timing parts or pump if worn.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2673",
+  "title": "Injection Pump Timing Calibration Not Learned",
+  "plain": "The diesel injection pump timing has not been calibrated (learned) by the engine computer, often after a part was replaced.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running or smoke possible"
+  ],
+  "causes": [
+   {
+    "name": "Calibration not done after replacing the pump or computer",
+    "how": "common"
+   },
+   {
+    "name": "Relearn procedure interrupted",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Ask whether the pump or engine computer was recently replaced",
+   "Run the timing relearn with a capable scan tool"
+  ],
+  "fix": "Perform the injection pump timing calibration with a scan tool.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2674",
+  "title": "Injection Pump Fuel Calibration Not Learned",
+  "plain": "The diesel injection pump fuel delivery calibration has not been learned by the engine computer.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough running, smoke or reduced power possible"
+  ],
+  "causes": [
+   {
+    "name": "Calibration not done after replacing the pump or computer",
+    "how": "common"
+   },
+   {
+    "name": "Pump calibration data not entered",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Ask whether the injection pump or computer was replaced",
+   "Enter the pump calibration data with a scan tool"
+  ],
+  "fix": "Program the injection pump calibration into the engine computer.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2675",
+  "title": "Air Cleaner Inlet Control Circuit/Open",
+  "plain": "The computer is watching the air cleaner inlet control circuit and sees what looks like a broken or disconnected circuit. Some engines use a flap at the air filter box to switch between cold and warm air or to quiet the intake.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the air intake flap actuator",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the air cleaner inlet control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed air intake flap actuator",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the air cleaner inlet control circuit, checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the air intake flap actuator.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2676",
+  "title": "Air Cleaner Inlet Control Circuit Low",
+  "plain": "The computer is watching the air cleaner inlet control circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. Some engines use a flap at the air filter box to switch between cold and warm air or to quiet the intake.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the air intake flap actuator shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed air intake flap actuator",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the air cleaner inlet control circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the air intake flap actuator.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2677",
+  "title": "Air Cleaner Inlet Control Circuit High",
+  "plain": "The computer is watching the air cleaner inlet control circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. Some engines use a flap at the air filter box to switch between cold and warm air or to quiet the intake.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Usually little change in how the car drives"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the air intake flap actuator shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed air intake flap actuator",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the air cleaner inlet control circuit",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the air intake flap actuator.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2678",
+  "title": "Coolant Degassing Valve Control Circuit/Open",
+  "plain": "The computer is watching the coolant degassing valve control circuit and sees what looks like a broken or disconnected circuit. This valve helps remove air bubbles from the cooling system.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible air pockets or gurgling in the cooling system"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the coolant degassing valve",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the coolant degassing valve control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed coolant degassing valve",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the coolant degassing valve control circuit, checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the coolant degassing valve.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2679",
+  "title": "Coolant Degassing Valve Control Circuit Low",
+  "plain": "The computer is watching the coolant degassing valve control circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This valve helps remove air bubbles from the cooling system.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible air pockets or gurgling in the cooling system"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the coolant degassing valve shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed coolant degassing valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the coolant degassing valve control circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the coolant degassing valve.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2680",
+  "title": "Coolant Degassing Valve Control Circuit High",
+  "plain": "The computer is watching the coolant degassing valve control circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This valve helps remove air bubbles from the cooling system.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible air pockets or gurgling in the cooling system"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the coolant degassing valve shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed coolant degassing valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the coolant degassing valve control circuit",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the coolant degassing valve.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2681",
+  "title": "Engine Coolant Bypass Valve Control Circuit/Open",
+  "plain": "The computer is watching the engine coolant bypass valve control circuit and sees what looks like a broken or disconnected circuit. This valve controls how coolant flows to help the engine warm up quickly and stay at the right temperature.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may warm up slowly or run hot",
+   "Temperature gauge may move around"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the engine coolant bypass valve",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the engine coolant bypass valve control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed engine coolant bypass valve",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the engine coolant bypass valve control circuit, checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the engine coolant bypass valve.",
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2682",
+  "title": "Engine Coolant Bypass Valve Control Circuit Low",
+  "plain": "The computer is watching the engine coolant bypass valve control circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This valve controls how coolant flows to help the engine warm up quickly and stay at the right temperature.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may warm up slowly or run hot",
+   "Temperature gauge may move around"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the engine coolant bypass valve shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed engine coolant bypass valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the engine coolant bypass valve control circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the engine coolant bypass valve.",
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2683",
+  "title": "Engine Coolant Bypass Valve Control Circuit High",
+  "plain": "The computer is watching the engine coolant bypass valve control circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This valve controls how coolant flows to help the engine warm up quickly and stay at the right temperature.",
+  "sys": "Cooling",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may warm up slowly or run hot",
+   "Temperature gauge may move around"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the engine coolant bypass valve shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed engine coolant bypass valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the engine coolant bypass valve control circuit",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the engine coolant bypass valve.",
+  "guide": "temperature-gauge-fluctuating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2684",
+  "title": "Actuator Supply Voltage \"C\" Circuit/Open",
+  "plain": "The computer is watching the actuator supply voltage \"C\" circuit and sees what looks like a broken or disconnected circuit. This is a shared power feed the computer uses to run several actuators, such as solenoids and valves.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Several systems may stop working at once",
+   "Reduced power or limp mode possible"
+  ],
+  "causes": [
+   {
+    "name": "A shorted actuator pulling the supply voltage down",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Wiring short or open in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the actuator supply voltage \"C\" circuit, checking for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Find the shorted actuator or wire on the shared supply and repair it, then replace any blown fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2685",
+  "title": "Actuator Supply Voltage \"C\" Circuit Low",
+  "plain": "The computer is watching the actuator supply voltage \"C\" circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This is a shared power feed the computer uses to run several actuators, such as solenoids and valves.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Several systems may stop working at once",
+   "Reduced power or limp mode possible"
+  ],
+  "causes": [
+   {
+    "name": "A shorted actuator pulling the supply voltage down",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Wiring short or open in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the actuator supply voltage \"C\" circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Find the shorted actuator or wire on the shared supply and repair it, then replace any blown fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2686",
+  "title": "Actuator Supply Voltage \"C\" Circuit High",
+  "plain": "The computer is watching the actuator supply voltage \"C\" circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This is a shared power feed the computer uses to run several actuators, such as solenoids and valves.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Several systems may stop working at once",
+   "Reduced power or limp mode possible"
+  ],
+  "causes": [
+   {
+    "name": "A shorted actuator pulling the supply voltage down",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Wiring short or open in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the actuator supply voltage \"C\" circuit",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Find the shorted actuator or wire on the shared supply and repair it, then replace any blown fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2687",
+  "title": "Fuel Supply Heater Control Circuit/Open",
+  "plain": "The computer is watching the fuel supply heater control circuit and sees what looks like a broken or disconnected circuit. Diesels warm the fuel in cold weather so it does not thicken or gel.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the fuel heater",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the fuel supply heater control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed fuel heater",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the fuel supply heater control circuit, checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the fuel heater.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2688",
+  "title": "Fuel Supply Heater Control Circuit Low",
+  "plain": "The computer is watching the fuel supply heater control circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. Diesels warm the fuel in cold weather so it does not thicken or gel.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the fuel heater shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed fuel heater",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the fuel supply heater control circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the fuel heater.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2689",
+  "title": "Fuel Supply Heater Control Circuit High",
+  "plain": "The computer is watching the fuel supply heater control circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. Diesels warm the fuel in cold weather so it does not thicken or gel.",
+  "sys": "Fuel and air",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling in cold weather"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the fuel heater shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed fuel heater",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the fuel supply heater control circuit",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the fuel heater.",
+  "guide": "hard-to-start-when-cold",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2690",
+  "title": "Cylinder 5 Injector Data Incompatible",
+  "plain": "The engine computer has correction values for the cylinder 5 fuel injector that do not match what it expects. This usually happens after an injector or the computer is replaced and not coded correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or knocking from uneven fueling",
+   "Possible smoke or reduced power"
+  ],
+  "causes": [
+   {
+    "name": "New injector installed without entering its code into the computer",
+    "how": "common"
+   },
+   {
+    "name": "Wrong injector code entered",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer replaced or reprogrammed without injector data",
+    "how": "possible"
+   },
+   {
+    "name": "Incorrect injector part number",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read the code printed on each injector and compare it with what is stored in the computer",
+   "Ask whether injectors or the engine computer were recently replaced"
+  ],
+  "fix": "Program the correct injector codes into the engine computer with a capable scan tool.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2691",
+  "title": "Cylinder 6 Injector Data Incompatible",
+  "plain": "The engine computer has correction values for the cylinder 6 fuel injector that do not match what it expects. This usually happens after an injector or the computer is replaced and not coded correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or knocking from uneven fueling",
+   "Possible smoke or reduced power"
+  ],
+  "causes": [
+   {
+    "name": "New injector installed without entering its code into the computer",
+    "how": "common"
+   },
+   {
+    "name": "Wrong injector code entered",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer replaced or reprogrammed without injector data",
+    "how": "possible"
+   },
+   {
+    "name": "Incorrect injector part number",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read the code printed on each injector and compare it with what is stored in the computer",
+   "Ask whether injectors or the engine computer were recently replaced"
+  ],
+  "fix": "Program the correct injector codes into the engine computer with a capable scan tool.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2692",
+  "title": "Cylinder 7 Injector Data Incompatible",
+  "plain": "The engine computer has correction values for the cylinder 7 fuel injector that do not match what it expects. This usually happens after an injector or the computer is replaced and not coded correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or knocking from uneven fueling",
+   "Possible smoke or reduced power"
+  ],
+  "causes": [
+   {
+    "name": "New injector installed without entering its code into the computer",
+    "how": "common"
+   },
+   {
+    "name": "Wrong injector code entered",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer replaced or reprogrammed without injector data",
+    "how": "possible"
+   },
+   {
+    "name": "Incorrect injector part number",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read the code printed on each injector and compare it with what is stored in the computer",
+   "Ask whether injectors or the engine computer were recently replaced"
+  ],
+  "fix": "Program the correct injector codes into the engine computer with a capable scan tool.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2693",
+  "title": "Cylinder 8 Injector Data Incompatible",
+  "plain": "The engine computer has correction values for the cylinder 8 fuel injector that do not match what it expects. This usually happens after an injector or the computer is replaced and not coded correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or knocking from uneven fueling",
+   "Possible smoke or reduced power"
+  ],
+  "causes": [
+   {
+    "name": "New injector installed without entering its code into the computer",
+    "how": "common"
+   },
+   {
+    "name": "Wrong injector code entered",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer replaced or reprogrammed without injector data",
+    "how": "possible"
+   },
+   {
+    "name": "Incorrect injector part number",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read the code printed on each injector and compare it with what is stored in the computer",
+   "Ask whether injectors or the engine computer were recently replaced"
+  ],
+  "fix": "Program the correct injector codes into the engine computer with a capable scan tool.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2694",
+  "title": "Cylinder 9 Injector Data Incompatible",
+  "plain": "The engine computer has correction values for the cylinder 9 fuel injector that do not match what it expects. This usually happens after an injector or the computer is replaced and not coded correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or knocking from uneven fueling",
+   "Possible smoke or reduced power"
+  ],
+  "causes": [
+   {
+    "name": "New injector installed without entering its code into the computer",
+    "how": "common"
+   },
+   {
+    "name": "Wrong injector code entered",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer replaced or reprogrammed without injector data",
+    "how": "possible"
+   },
+   {
+    "name": "Incorrect injector part number",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read the code printed on each injector and compare it with what is stored in the computer",
+   "Ask whether injectors or the engine computer were recently replaced"
+  ],
+  "fix": "Program the correct injector codes into the engine computer with a capable scan tool.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2695",
+  "title": "Cylinder 10 Injector Data Incompatible",
+  "plain": "The engine computer has correction values for the cylinder 10 fuel injector that do not match what it expects. This usually happens after an injector or the computer is replaced and not coded correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or knocking from uneven fueling",
+   "Possible smoke or reduced power"
+  ],
+  "causes": [
+   {
+    "name": "New injector installed without entering its code into the computer",
+    "how": "common"
+   },
+   {
+    "name": "Wrong injector code entered",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer replaced or reprogrammed without injector data",
+    "how": "possible"
+   },
+   {
+    "name": "Incorrect injector part number",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read the code printed on each injector and compare it with what is stored in the computer",
+   "Ask whether injectors or the engine computer were recently replaced"
+  ],
+  "fix": "Program the correct injector codes into the engine computer with a capable scan tool.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2696",
+  "title": "Injector Data Incompatible",
+  "plain": "The engine computer has correction values for the fuel injectors that do not match what it expects. This usually happens after an injector or the computer is replaced and not coded correctly.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Rough idle or knocking from uneven fueling",
+   "Possible smoke or reduced power"
+  ],
+  "causes": [
+   {
+    "name": "New injector installed without entering its code into the computer",
+    "how": "common"
+   },
+   {
+    "name": "Wrong injector code entered",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer replaced or reprogrammed without injector data",
+    "how": "possible"
+   },
+   {
+    "name": "Incorrect injector part number",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read the code printed on each injector and compare it with what is stored in the computer",
+   "Ask whether injectors or the engine computer were recently replaced"
+  ],
+  "fix": "Program the correct injector codes into the engine computer with a capable scan tool.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2697",
+  "title": "Exhaust Aftertreatment Fuel Injector \"A\" Circuit/Open",
+  "plain": "The computer is watching the exhaust aftertreatment fuel injector and sees what looks like a broken or disconnected circuit. Some diesels spray a little fuel into the exhaust to heat and clean the particulate filter.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Particulate filter cleaning may not happen",
+   "Reduced power if the filter clogs"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the exhaust fuel injector (doser)",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the exhaust aftertreatment fuel injector circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed exhaust fuel injector (doser)",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the exhaust aftertreatment fuel injector, checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the exhaust fuel injector (doser).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2698",
+  "title": "Exhaust Aftertreatment Fuel Injector \"A\" Performance",
+  "plain": "The exhaust aftertreatment fuel injector is not responding the way the computer expects. Some diesels spray a little fuel into the exhaust to heat and clean the particulate filter.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Particulate filter cleaning may not happen",
+   "Reduced power if the filter clogs"
+  ],
+  "causes": [
+   {
+    "name": "Clogged or carbon-fouled exhaust fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Low fuel supply pressure to the injector",
+    "how": "common"
+   },
+   {
+    "name": "Leaking injector or fuel line",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the exhaust aftertreatment fuel injector reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Clean or replace the exhaust fuel injector and check its fuel supply.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2699",
+  "title": "Exhaust Aftertreatment Fuel Injector \"A\" Circuit Low",
+  "plain": "The computer is watching the exhaust aftertreatment fuel injector and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. Some diesels spray a little fuel into the exhaust to heat and clean the particulate filter.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Particulate filter cleaning may not happen",
+   "Reduced power if the filter clogs"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the exhaust fuel injector (doser) shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed exhaust fuel injector (doser)",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the exhaust aftertreatment fuel injector for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the exhaust fuel injector (doser).",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ }
+]

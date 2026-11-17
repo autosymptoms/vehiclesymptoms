@@ -1,0 +1,1311 @@
+[
+ {
+  "code": "P264D",
+  "title": "\"A\" Rocker Arm Actuator Position Sensor Circuit High (Bank 1)",
+  "plain": "The computer is watching the \"A\" rocker arm position sensor (bank 1) and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the \"A\" rocker arm position sensor (bank 1)",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the rocker arm actuator position sensor.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P264E",
+  "title": "\"A\" Rocker Arm Actuator Position Sensor Circuit Intermittent/Erratic (Bank 1)",
+  "plain": "The computer is watching the \"A\" rocker arm position sensor (bank 1) and is seeing a signal that cuts in and out. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Loose connector or chafed wire that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Rocker arm actuator position sensor failing on and off",
+    "how": "common"
+   },
+   {
+    "name": "Corrosion inside the connector",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground connection",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the wiring for the \"A\" rocker arm position sensor (bank 1) with the engine running while watching live data",
+   "Check connector pins for corrosion or spread terminals",
+   "Note when it happens (hot, cold, bumps) to narrow it down"
+  ],
+  "fix": "Repair the loose or corroded connection; replace the rocker arm actuator position sensor if the wiring is solid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2650",
+  "title": "\"B\" Rocker Arm Actuator Control Circuit/Open (Bank 1)",
+  "plain": "The computer is watching the \"B\" rocker arm actuator control circuit (bank 1) and sees what looks like a broken or disconnected circuit. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the \"B\" rocker arm actuator control circuit (bank 1)",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the \"B\" rocker arm actuator control circuit (bank 1), checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2651",
+  "title": "\"B\" Rocker Arm Actuator System Performance/Stuck Off (Bank 1)",
+  "plain": "The \"B\" rocker arm actuator (bank 1) is not responding the way the computer expects. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Engine oil low, dirty or the wrong thickness",
+    "how": "common"
+   },
+   {
+    "name": "Clogged oil screen or filter at the rocker arm solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty oil pressure switch for the rocker system",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking rocker arm locking pins",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition first",
+   "Inspect the screen or filter at the rocker solenoid for debris",
+   "Command the solenoid with a scan tool and check the oil pressure switch reading"
+  ],
+  "fix": "Often fixed with an oil change to the right oil plus a cleaned screen; otherwise replace the solenoid or pressure switch.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2652",
+  "title": "\"B\" Rocker Arm Actuator System Stuck On (Bank 1)",
+  "plain": "The computer thinks the \"B\" rocker arm actuator (bank 1) is stuck on. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Engine oil low, dirty or the wrong thickness",
+    "how": "common"
+   },
+   {
+    "name": "Clogged oil screen or filter at the rocker arm solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty oil pressure switch for the rocker system",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking rocker arm locking pins",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition first",
+   "Inspect the screen or filter at the rocker solenoid for debris",
+   "Command the solenoid with a scan tool and check the oil pressure switch reading"
+  ],
+  "fix": "Often fixed with an oil change to the right oil plus a cleaned screen; otherwise replace the solenoid or pressure switch.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2653",
+  "title": "\"B\" Rocker Arm Actuator Control Circuit Low (Bank 1)",
+  "plain": "The computer is watching the \"B\" rocker arm actuator control circuit (bank 1) and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the rocker arm oil control solenoid shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the \"B\" rocker arm actuator control circuit (bank 1) for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2654",
+  "title": "\"B\" Rocker Arm Actuator Control Circuit High (Bank 1)",
+  "plain": "The computer is watching the \"B\" rocker arm actuator control circuit (bank 1) and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the rocker arm oil control solenoid shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the \"B\" rocker arm actuator control circuit (bank 1)",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2655",
+  "title": "\"A\" Rocker Arm Actuator Control Circuit/Open (Bank 2)",
+  "plain": "The computer is watching the \"A\" rocker arm actuator control circuit (bank 2) and sees what looks like a broken or disconnected circuit. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the \"A\" rocker arm actuator control circuit (bank 2)",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the \"A\" rocker arm actuator control circuit (bank 2), checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2656",
+  "title": "\"A\" Rocker Arm Actuator System Performance/Stuck Off (Bank 2)",
+  "plain": "The \"A\" rocker arm actuator (bank 2) is not responding the way the computer expects. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Engine oil low, dirty or the wrong thickness",
+    "how": "common"
+   },
+   {
+    "name": "Clogged oil screen or filter at the rocker arm solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty oil pressure switch for the rocker system",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking rocker arm locking pins",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition first",
+   "Inspect the screen or filter at the rocker solenoid for debris",
+   "Command the solenoid with a scan tool and check the oil pressure switch reading"
+  ],
+  "fix": "Often fixed with an oil change to the right oil plus a cleaned screen; otherwise replace the solenoid or pressure switch.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2657",
+  "title": "\"A\" Rocker Arm Actuator System Stuck On (Bank 2)",
+  "plain": "The computer thinks the \"A\" rocker arm actuator (bank 2) is stuck on. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Engine oil low, dirty or the wrong thickness",
+    "how": "common"
+   },
+   {
+    "name": "Clogged oil screen or filter at the rocker arm solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty oil pressure switch for the rocker system",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking rocker arm locking pins",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition first",
+   "Inspect the screen or filter at the rocker solenoid for debris",
+   "Command the solenoid with a scan tool and check the oil pressure switch reading"
+  ],
+  "fix": "Often fixed with an oil change to the right oil plus a cleaned screen; otherwise replace the solenoid or pressure switch.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2658",
+  "title": "\"A\" Rocker Arm Actuator Control Circuit Low (Bank 2)",
+  "plain": "The computer is watching the \"A\" rocker arm actuator control circuit (bank 2) and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the rocker arm oil control solenoid shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the \"A\" rocker arm actuator control circuit (bank 2) for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2659",
+  "title": "\"A\" Rocker Arm Actuator Control Circuit High (Bank 2)",
+  "plain": "The computer is watching the \"A\" rocker arm actuator control circuit (bank 2) and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the rocker arm oil control solenoid shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the \"A\" rocker arm actuator control circuit (bank 2)",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P265A",
+  "title": "\"B\" Rocker Arm Actuator Position Sensor Circuit (Bank 1)",
+  "plain": "The computer is watching the \"B\" rocker arm position sensor (bank 1) and has spotted a fault in its circuit. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the \"B\" rocker arm position sensor (bank 1) circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the \"B\" rocker arm position sensor (bank 1), checking for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the rocker arm actuator position sensor.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P265B",
+  "title": "\"B\" Rocker Arm Actuator Position Sensor Circuit Range/Performance (Bank 1)",
+  "plain": "The computer is watching the \"B\" rocker arm position sensor (bank 1) and is getting a signal that does not make sense for current conditions. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the \"B\" rocker arm position sensor (bank 1) reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the rocker arm actuator position sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P265C",
+  "title": "\"B\" Rocker Arm Actuator Position Sensor Circuit Low (Bank 1)",
+  "plain": "The computer is watching the \"B\" rocker arm position sensor (bank 1) and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire in the \"B\" rocker arm position sensor (bank 1) shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the \"B\" rocker arm position sensor (bank 1) for rubbed-through insulation touching metal",
+   "Unplug the rocker arm actuator position sensor and see if the reading changes",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the rocker arm actuator position sensor.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P265D",
+  "title": "\"B\" Rocker Arm Actuator Position Sensor Circuit High (Bank 1)",
+  "plain": "The computer is watching the \"B\" rocker arm position sensor (bank 1) and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the \"B\" rocker arm position sensor (bank 1)",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the rocker arm actuator position sensor.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P265E",
+  "title": "\"B\" Rocker Arm Actuator Position Sensor Circuit Intermittent/Erratic (Bank 1)",
+  "plain": "The computer is watching the \"B\" rocker arm position sensor (bank 1) and is seeing a signal that cuts in and out. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Loose connector or chafed wire that loses contact over bumps",
+    "how": "common"
+   },
+   {
+    "name": "Rocker arm actuator position sensor failing on and off",
+    "how": "common"
+   },
+   {
+    "name": "Corrosion inside the connector",
+    "how": "possible"
+   },
+   {
+    "name": "Poor ground connection",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Wiggle the wiring for the \"B\" rocker arm position sensor (bank 1) with the engine running while watching live data",
+   "Check connector pins for corrosion or spread terminals",
+   "Note when it happens (hot, cold, bumps) to narrow it down"
+  ],
+  "fix": "Repair the loose or corroded connection; replace the rocker arm actuator position sensor if the wiring is solid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2660",
+  "title": "\"B\" Rocker Arm Actuator Control Circuit/Open (Bank 2)",
+  "plain": "The computer is watching the \"B\" rocker arm actuator control circuit (bank 2) and sees what looks like a broken or disconnected circuit. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the \"B\" rocker arm actuator control circuit (bank 2)",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the \"B\" rocker arm actuator control circuit (bank 2), checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2661",
+  "title": "\"B\" Rocker Arm Actuator System Performance/Stuck Off (Bank 2)",
+  "plain": "The \"B\" rocker arm actuator (bank 2) is not responding the way the computer expects. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Engine oil low, dirty or the wrong thickness",
+    "how": "common"
+   },
+   {
+    "name": "Clogged oil screen or filter at the rocker arm solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty oil pressure switch for the rocker system",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking rocker arm locking pins",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition first",
+   "Inspect the screen or filter at the rocker solenoid for debris",
+   "Command the solenoid with a scan tool and check the oil pressure switch reading"
+  ],
+  "fix": "Often fixed with an oil change to the right oil plus a cleaned screen; otherwise replace the solenoid or pressure switch.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2662",
+  "title": "\"B\" Rocker Arm Actuator System Stuck On (Bank 2)",
+  "plain": "The computer thinks the \"B\" rocker arm actuator (bank 2) is stuck on. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Engine oil low, dirty or the wrong thickness",
+    "how": "common"
+   },
+   {
+    "name": "Clogged oil screen or filter at the rocker arm solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Sticking rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty oil pressure switch for the rocker system",
+    "how": "possible"
+   },
+   {
+    "name": "Worn or sticking rocker arm locking pins",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition first",
+   "Inspect the screen or filter at the rocker solenoid for debris",
+   "Command the solenoid with a scan tool and check the oil pressure switch reading"
+  ],
+  "fix": "Often fixed with an oil change to the right oil plus a cleaned screen; otherwise replace the solenoid or pressure switch.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2663",
+  "title": "\"B\" Rocker Arm Actuator Control Circuit Low (Bank 2)",
+  "plain": "The computer is watching the \"B\" rocker arm actuator control circuit (bank 2) and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the rocker arm oil control solenoid shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the \"B\" rocker arm actuator control circuit (bank 2) for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2664",
+  "title": "\"B\" Rocker Arm Actuator Control Circuit High (Bank 2)",
+  "plain": "The computer is watching the \"B\" rocker arm actuator control circuit (bank 2) and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the rocker arm oil control solenoid shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the \"B\" rocker arm actuator control circuit (bank 2)",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2665",
+  "title": "Fuel Shutoff Valve \"B\" Control Circuit/Open",
+  "plain": "The computer is watching the fuel shutoff valve \"B\" control circuit and sees what looks like a broken or disconnected circuit. This valve can stop the flow of fuel, for example on diesel or dual-fuel systems.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start or may stall"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the fuel shutoff valve",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the fuel shutoff valve \"B\" control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed fuel shutoff valve",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the fuel shutoff valve \"B\" control circuit, checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the fuel shutoff valve.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2666",
+  "title": "Fuel Shutoff Valve \"B\" Control Circuit Low",
+  "plain": "The computer is watching the fuel shutoff valve \"B\" control circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This valve can stop the flow of fuel, for example on diesel or dual-fuel systems.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start or may stall"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the fuel shutoff valve shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed fuel shutoff valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the fuel shutoff valve \"B\" control circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the fuel shutoff valve.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2667",
+  "title": "Fuel Shutoff Valve \"B\" Control Circuit High",
+  "plain": "The computer is watching the fuel shutoff valve \"B\" control circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This valve can stop the flow of fuel, for example on diesel or dual-fuel systems.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Engine may not start or may stall"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the fuel shutoff valve shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed fuel shutoff valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the fuel shutoff valve \"B\" control circuit",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the fuel shutoff valve.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2668",
+  "title": "Fuel Mode Indicator Lamp Control Circuit",
+  "plain": "The circuit for the dash light that shows which fuel mode the vehicle is using (for example on flex-fuel or dual-fuel systems) has a fault.",
+  "sys": "Electrical",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Fuel mode light may not work"
+  ],
+  "causes": [
+   {
+    "name": "Faulty indicator lamp",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector fault",
+    "how": "common"
+   },
+   {
+    "name": "Instrument cluster or engine computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the lamp during the key-on bulb check",
+   "Inspect the indicator wiring"
+  ],
+  "fix": "Repair the wiring or the indicator lamp circuit.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2669",
+  "title": "Actuator Supply Voltage \"B\" Circuit/Open",
+  "plain": "The computer is watching the actuator supply voltage \"B\" circuit and sees what looks like a broken or disconnected circuit. This is a shared power feed the computer uses to run several actuators, such as solenoids and valves.",
+  "sys": "Electrical",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Several systems may stop working at once",
+   "Reduced power or limp mode possible"
+  ],
+  "causes": [
+   {
+    "name": "A shorted actuator pulling the supply voltage down",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Wiring short or open in the supply circuit",
+    "how": "common"
+   },
+   {
+    "name": "Engine computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the actuator supply voltage \"B\" circuit, checking for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Find the shorted actuator or wire on the shared supply and repair it, then replace any blown fuse.",
+  "guide": "reduced-engine-power-warning",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P266A",
+  "title": "\"A\" Rocker Arm Actuator Position Sensor Circuit (Bank 2)",
+  "plain": "The computer is watching the \"A\" rocker arm position sensor (bank 2) and has spotted a fault in its circuit. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the \"A\" rocker arm position sensor (bank 2) circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the \"A\" rocker arm position sensor (bank 2), checking for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the rocker arm actuator position sensor.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P266B",
+  "title": "\"A\" Rocker Arm Actuator Position Sensor Circuit Range/Performance (Bank 2)",
+  "plain": "The computer is watching the \"A\" rocker arm position sensor (bank 2) and is getting a signal that does not make sense for current conditions. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the \"A\" rocker arm position sensor (bank 2) reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the rocker arm actuator position sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P266C",
+  "title": "\"A\" Rocker Arm Actuator Position Sensor Circuit Low (Bank 2)",
+  "plain": "The computer is watching the \"A\" rocker arm position sensor (bank 2) and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire in the \"A\" rocker arm position sensor (bank 2) shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the \"A\" rocker arm position sensor (bank 2) for rubbed-through insulation touching metal",
+   "Unplug the rocker arm actuator position sensor and see if the reading changes",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the rocker arm actuator position sensor.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P266D",
+  "title": "\"A\" Rocker Arm Actuator Position Sensor Circuit High (Bank 2)",
+  "plain": "The computer is watching the \"A\" rocker arm position sensor (bank 2) and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the \"A\" rocker arm position sensor (bank 2)",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the rocker arm actuator position sensor.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ }
+]

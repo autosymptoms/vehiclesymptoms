@@ -1,0 +1,1342 @@
+[
+ {
+  "code": "P2622",
+  "title": "Throttle Position Output Circuit High",
+  "plain": "The computer is watching the throttle position output circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The engine computer shares the throttle position with other modules over this line.",
+  "sys": "Computer",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible shifting, idle or gauge problems on systems that use the signal"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector fault between the engine computer and the module receiving the signal",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "common"
+   },
+   {
+    "name": "Fault in the receiving module",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer output fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the throttle position output circuit",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the wiring or connector; module replacement is only needed if the circuit tests good.",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2623",
+  "title": "Injector Control Pressure Regulator Circuit/Open",
+  "plain": "The computer is watching the injection control pressure regulator circuit and sees what looks like a broken or disconnected circuit. On some diesels this valve sets the high oil pressure used to fire the fuel injectors.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or no start",
+   "Loss of power"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the injection control pressure regulator (IPR) valve",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the injection control pressure regulator circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed injection control pressure regulator (IPR) valve",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the injection control pressure regulator circuit, checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the injection control pressure regulator (IPR) valve.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2624",
+  "title": "Injector Control Pressure Regulator Circuit Low",
+  "plain": "The computer is watching the injection control pressure regulator circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. On some diesels this valve sets the high oil pressure used to fire the fuel injectors.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or no start",
+   "Loss of power"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the injection control pressure regulator (IPR) valve shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed injection control pressure regulator (IPR) valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the injection control pressure regulator circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the injection control pressure regulator (IPR) valve.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2625",
+  "title": "Injector Control Pressure Regulator Circuit High",
+  "plain": "The computer is watching the injection control pressure regulator circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. On some diesels this valve sets the high oil pressure used to fire the fuel injectors.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or no start",
+   "Loss of power"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the injection control pressure regulator (IPR) valve shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed injection control pressure regulator (IPR) valve",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the injection control pressure regulator circuit",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the injection control pressure regulator (IPR) valve.",
+  "guide": "car-wont-start",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2626",
+  "title": "O2 Sensor Pumping Current Trim Circuit/Open (Bank 1 Sensor 1)",
+  "plain": "The computer is watching the O2 sensor pumping current trim circuit (bank 1 sensor 1) and sees what looks like a broken or disconnected circuit. This is a calibration circuit inside the front wide-range (air-fuel ratio) oxygen sensor.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the front wide-range oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the O2 sensor pumping current trim circuit (bank 1 sensor 1)",
+    "how": "common"
+   },
+   {
+    "name": "Failed front wide-range oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the O2 sensor pumping current trim circuit (bank 1 sensor 1), checking for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the front wide-range oxygen sensor.",
+  "guide": "poor-gas-mileage",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2627",
+  "title": "O2 Sensor Pumping Current Trim Circuit Low (Bank 1 Sensor 1)",
+  "plain": "The computer is watching the O2 sensor pumping current trim circuit (bank 1 sensor 1) and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This is a calibration circuit inside the front wide-range (air-fuel ratio) oxygen sensor.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire in the O2 sensor pumping current trim circuit (bank 1 sensor 1) shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed front wide-range oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the O2 sensor pumping current trim circuit (bank 1 sensor 1) for rubbed-through insulation touching metal",
+   "Unplug the front wide-range oxygen sensor and see if the reading changes",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the front wide-range oxygen sensor.",
+  "guide": "poor-gas-mileage",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2628",
+  "title": "O2 Sensor Pumping Current Trim Circuit High (Bank 1 Sensor 1)",
+  "plain": "The computer is watching the O2 sensor pumping current trim circuit (bank 1 sensor 1) and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This is a calibration circuit inside the front wide-range (air-fuel ratio) oxygen sensor.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed front wide-range oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the O2 sensor pumping current trim circuit (bank 1 sensor 1)",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the front wide-range oxygen sensor.",
+  "guide": "poor-gas-mileage",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2629",
+  "title": "O2 Sensor Pumping Current Trim Circuit/Open (Bank 2 Sensor 1)",
+  "plain": "The computer is watching the O2 sensor pumping current trim circuit (bank 2 sensor 1) and sees what looks like a broken or disconnected circuit. This is a calibration circuit inside the front wide-range (air-fuel ratio) oxygen sensor.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the front wide-range oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the O2 sensor pumping current trim circuit (bank 2 sensor 1)",
+    "how": "common"
+   },
+   {
+    "name": "Failed front wide-range oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the O2 sensor pumping current trim circuit (bank 2 sensor 1), checking for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the front wide-range oxygen sensor.",
+  "guide": "poor-gas-mileage",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2630",
+  "title": "O2 Sensor Pumping Current Trim Circuit Low (Bank 2 Sensor 1)",
+  "plain": "The computer is watching the O2 sensor pumping current trim circuit (bank 2 sensor 1) and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This is a calibration circuit inside the front wide-range (air-fuel ratio) oxygen sensor.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire in the O2 sensor pumping current trim circuit (bank 2 sensor 1) shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed front wide-range oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the O2 sensor pumping current trim circuit (bank 2 sensor 1) for rubbed-through insulation touching metal",
+   "Unplug the front wide-range oxygen sensor and see if the reading changes",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the front wide-range oxygen sensor.",
+  "guide": "poor-gas-mileage",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2631",
+  "title": "O2 Sensor Pumping Current Trim Circuit High (Bank 2 Sensor 1)",
+  "plain": "The computer is watching the O2 sensor pumping current trim circuit (bank 2 sensor 1) and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This is a calibration circuit inside the front wide-range (air-fuel ratio) oxygen sensor.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Possible rough running or lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "how": "common"
+   },
+   {
+    "name": "Failed front wide-range oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the O2 sensor pumping current trim circuit (bank 2 sensor 1)",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the front wide-range oxygen sensor.",
+  "guide": "poor-gas-mileage",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2632",
+  "title": "Fuel Pump \"B\" Control Circuit/Open",
+  "plain": "The computer is watching the fuel pump \"B\" control circuit and sees what looks like a broken or disconnected circuit. Some vehicles have a second fuel pump, or a pump run by its own control module.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling",
+   "Loss of power under load"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the secondary fuel pump or its driver module",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the fuel pump \"B\" control circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed secondary fuel pump or its driver module",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the fuel pump \"B\" control circuit, checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the secondary fuel pump or its driver module.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2633",
+  "title": "Fuel Pump \"B\" Control Circuit Low",
+  "plain": "The computer is watching the fuel pump \"B\" control circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. Some vehicles have a second fuel pump, or a pump run by its own control module.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling",
+   "Loss of power under load"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the secondary fuel pump or its driver module shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed secondary fuel pump or its driver module",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the fuel pump \"B\" control circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the secondary fuel pump or its driver module.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2634",
+  "title": "Fuel Pump \"B\" Control Circuit High",
+  "plain": "The computer is watching the fuel pump \"B\" control circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. Some vehicles have a second fuel pump, or a pump run by its own control module.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Hard starting or stalling",
+   "Loss of power under load"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the secondary fuel pump or its driver module shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed secondary fuel pump or its driver module",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the fuel pump \"B\" control circuit",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the secondary fuel pump or its driver module.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2635",
+  "title": "Fuel Pump \"A\" Low Flow/Performance",
+  "plain": "The main fuel pump is not delivering as much fuel or pressure as the engine computer expects.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Hesitation or loss of power, especially under load",
+   "Hard starting or long cranking",
+   "Engine may stall"
+  ],
+  "causes": [
+   {
+    "name": "Weak or worn fuel pump",
+    "how": "common"
+   },
+   {
+    "name": "Clogged fuel filter or pump strainer",
+    "how": "common"
+   },
+   {
+    "name": "Poor connection or voltage drop at the pump",
+    "how": "common"
+   },
+   {
+    "name": "Faulty fuel pump driver module or relay",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty fuel pressure sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure fuel pressure and compare it with the maker spec",
+   "Check voltage and ground at the fuel pump connector",
+   "Replace the fuel filter if it is serviceable"
+  ],
+  "fix": "Usually a new fuel pump assembly, after confirming good voltage and a clean filter.",
+  "cost": {
+   "job": "Replace fuel pump module",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    1.5,
+    3.5
+   ]
+  },
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2636",
+  "title": "Fuel Pump \"B\" Low Flow/Performance",
+  "plain": "The second fuel pump (on vehicles that have one) is not delivering the fuel flow or pressure the computer expects.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power under load",
+   "Hard starting or stalling"
+  ],
+  "causes": [
+   {
+    "name": "Weak secondary fuel pump",
+    "how": "common"
+   },
+   {
+    "name": "Clogged filter or strainer",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or voltage drop at the pump",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty fuel pump driver module",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure fuel pressure and flow",
+   "Check voltage and ground at the pump"
+  ],
+  "fix": "Replace the weak pump or clogged filter after checking the wiring.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2637",
+  "title": "Torque Management Feedback Signal \"A\"",
+  "plain": "The computer is watching the torque management feedback signal and has spotted a fault in its circuit. The engine computer uses this signal to report back to other modules (often the transmission) how much torque it is making.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or firm shifts",
+   "Reduced power mode possible"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector fault between the engine and transmission computers",
+    "how": "common"
+   },
+   {
+    "name": "Network communication problem between modules",
+    "how": "common"
+   },
+   {
+    "name": "Module software that needs an update",
+    "how": "possible"
+   },
+   {
+    "name": "Engine or transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the torque management feedback signal, checking for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2638",
+  "title": "Torque Management Feedback Signal \"A\" Range/Performance",
+  "plain": "The computer is watching the torque management feedback signal and is getting a signal that does not make sense for current conditions. The engine computer uses this signal to report back to other modules (often the transmission) how much torque it is making.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or firm shifts",
+   "Reduced power mode possible"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector fault between the engine and transmission computers",
+    "how": "common"
+   },
+   {
+    "name": "Network communication problem between modules",
+    "how": "common"
+   },
+   {
+    "name": "Module software that needs an update",
+    "how": "possible"
+   },
+   {
+    "name": "Engine or transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the torque management feedback signal reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2639",
+  "title": "Torque Management Feedback Signal \"A\" Low",
+  "plain": "The computer is watching the torque management feedback signal and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The engine computer uses this signal to report back to other modules (often the transmission) how much torque it is making.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or firm shifts",
+   "Reduced power mode possible"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector fault between the engine and transmission computers",
+    "how": "common"
+   },
+   {
+    "name": "Network communication problem between modules",
+    "how": "common"
+   },
+   {
+    "name": "Module software that needs an update",
+    "how": "possible"
+   },
+   {
+    "name": "Engine or transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the torque management feedback signal for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2640",
+  "title": "Torque Management Feedback Signal \"A\" High",
+  "plain": "The computer is watching the torque management feedback signal and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The engine computer uses this signal to report back to other modules (often the transmission) how much torque it is making.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or firm shifts",
+   "Reduced power mode possible"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector fault between the engine and transmission computers",
+    "how": "common"
+   },
+   {
+    "name": "Network communication problem between modules",
+    "how": "common"
+   },
+   {
+    "name": "Module software that needs an update",
+    "how": "possible"
+   },
+   {
+    "name": "Engine or transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the torque management feedback signal",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2641",
+  "title": "Torque Management Feedback Signal \"B\"",
+  "plain": "The computer is watching the torque management feedback signal and has spotted a fault in its circuit. The engine computer uses this signal to report back to other modules (often the transmission) how much torque it is making.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or firm shifts",
+   "Reduced power mode possible"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector fault between the engine and transmission computers",
+    "how": "common"
+   },
+   {
+    "name": "Network communication problem between modules",
+    "how": "common"
+   },
+   {
+    "name": "Module software that needs an update",
+    "how": "possible"
+   },
+   {
+    "name": "Engine or transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the torque management feedback signal, checking for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2642",
+  "title": "Torque Management Feedback Signal \"B\" Range/Performance",
+  "plain": "The computer is watching the torque management feedback signal and is getting a signal that does not make sense for current conditions. The engine computer uses this signal to report back to other modules (often the transmission) how much torque it is making.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or firm shifts",
+   "Reduced power mode possible"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector fault between the engine and transmission computers",
+    "how": "common"
+   },
+   {
+    "name": "Network communication problem between modules",
+    "how": "common"
+   },
+   {
+    "name": "Module software that needs an update",
+    "how": "possible"
+   },
+   {
+    "name": "Engine or transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the torque management feedback signal reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2643",
+  "title": "Torque Management Feedback Signal \"B\" Low",
+  "plain": "The computer is watching the torque management feedback signal and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The engine computer uses this signal to report back to other modules (often the transmission) how much torque it is making.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or firm shifts",
+   "Reduced power mode possible"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector fault between the engine and transmission computers",
+    "how": "common"
+   },
+   {
+    "name": "Network communication problem between modules",
+    "how": "common"
+   },
+   {
+    "name": "Module software that needs an update",
+    "how": "possible"
+   },
+   {
+    "name": "Engine or transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the torque management feedback signal for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2644",
+  "title": "Torque Management Feedback Signal \"B\" High",
+  "plain": "The computer is watching the torque management feedback signal and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The engine computer uses this signal to report back to other modules (often the transmission) how much torque it is making.",
+  "sys": "Computer",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Harsh or firm shifts",
+   "Reduced power mode possible"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector fault between the engine and transmission computers",
+    "how": "common"
+   },
+   {
+    "name": "Network communication problem between modules",
+    "how": "common"
+   },
+   {
+    "name": "Module software that needs an update",
+    "how": "possible"
+   },
+   {
+    "name": "Engine or transmission computer fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the torque management feedback signal",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
+  "guide": "harsh-or-hard-shifting",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2645",
+  "title": "\"A\" Rocker Arm Actuator Control Circuit/Open (Bank 1)",
+  "plain": "The computer is watching the \"A\" rocker arm actuator control circuit (bank 1) and sees what looks like a broken or disconnected circuit. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the \"A\" rocker arm actuator control circuit (bank 1)",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or failed relay feeding the circuit",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the \"A\" rocker arm actuator control circuit (bank 1), checking for damage, corrosion or a loose fit",
+   "Check power, ground and resistance of the part with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2646",
+  "title": "\"A\" Rocker Arm Actuator System Performance/Stuck Off (Bank 1)",
+  "plain": "The variable valve lift system (like Honda VTEC) is not switching on when the computer asks, often because of low or dirty oil.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power at higher rpm",
+   "Engine may feel flat above mid-range",
+   "Usually idles normally"
+  ],
+  "causes": [
+   {
+    "name": "Engine oil low, dirty or the wrong thickness",
+    "how": "common"
+   },
+   {
+    "name": "Clogged screen or filter at the rocker arm (VTEC) solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Faulty rocker arm oil pressure switch",
+    "how": "common"
+   },
+   {
+    "name": "Sticking rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Wiring fault at the solenoid or pressure switch",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and change the oil if it is old or the wrong type",
+   "Remove and clean the screen at the solenoid",
+   "Check the oil pressure switch and solenoid operation with a scan tool"
+  ],
+  "fix": "Often fixed with fresh oil of the right type and a clean solenoid screen; otherwise replace the oil pressure switch or solenoid.",
+  "cost": {
+   "job": "Replace VTEC oil pressure switch or solenoid",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "examples": [
+   "Common on Honda Accord, Civic and CR-V engines with VTEC, often when oil is low or overdue"
+  ],
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2647",
+  "title": "\"A\" Rocker Arm Actuator System Stuck On (Bank 1)",
+  "plain": "The variable valve lift system (like Honda VTEC) seems to stay switched on when it should be off.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": true,
+  "symptoms": [
+   "Check engine light on",
+   "Rough or uneven idle",
+   "Possible hesitation at low speed",
+   "Lower fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Faulty rocker arm oil pressure switch",
+    "how": "common"
+   },
+   {
+    "name": "Sticking rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or sludgy engine oil",
+    "how": "common"
+   },
+   {
+    "name": "Wrong oil thickness",
+    "how": "common"
+   },
+   {
+    "name": "Wiring short in the pressure switch circuit",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and condition",
+   "Watch the oil pressure switch reading with the engine idling",
+   "Unplug the solenoid and see if the switch reading changes"
+  ],
+  "fix": "Most often a new oil pressure switch or solenoid, plus an oil change if the oil is dirty.",
+  "cost": {
+   "job": "Replace VTEC oil pressure switch or solenoid",
+   "parts": [
+    40,
+    250
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ]
+  },
+  "examples": [
+   "Seen on Honda and Acura engines with VTEC"
+  ],
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2648",
+  "title": "\"A\" Rocker Arm Actuator Control Circuit Low (Bank 1)",
+  "plain": "The computer is watching the \"A\" rocker arm actuator control circuit (bank 1) and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the rocker arm oil control solenoid shorted to ground",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the \"A\" rocker arm actuator control circuit (bank 1) for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P2649",
+  "title": "\"A\" Rocker Arm Actuator Control Circuit High (Bank 1)",
+  "plain": "The computer is watching the \"A\" rocker arm actuator control circuit (bank 1) and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This oil-operated part switches the valves between low and high lift, like Honda VTEC.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Loss of power, especially at higher rpm",
+   "Rough idle or hesitation in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Control wire to the rocker arm oil control solenoid shorted to voltage or the part open inside",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm oil control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring and ground connection for the \"A\" rocker arm actuator control circuit (bank 1)",
+   "Check for wires melted or rubbed together in the harness",
+   "Measure the circuit with a meter before replacing parts"
+  ],
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the rocker arm oil control solenoid.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P264A",
+  "title": "\"A\" Rocker Arm Actuator Position Sensor Circuit (Bank 1)",
+  "plain": "The computer is watching the \"A\" rocker arm position sensor (bank 1) and has spotted a fault in its circuit. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Unplugged, loose or corroded connector at the rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Broken or chafed wire in the \"A\" rocker arm position sensor (bank 1) circuit",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Missing reference voltage or ground from the computer",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the connector and wiring for the \"A\" rocker arm position sensor (bank 1), checking for damage, corrosion or a loose fit",
+   "Check power, ground and signal with a meter",
+   "Clear the code and see if it comes back"
+  ],
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the rocker arm actuator position sensor.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P264B",
+  "title": "\"A\" Rocker Arm Actuator Position Sensor Circuit Range/Performance (Bank 1)",
+  "plain": "The computer is watching the \"A\" rocker arm position sensor (bank 1) and is getting a signal that does not make sense for current conditions. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Failing or sticking rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "A real problem in the system the part works with",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector with high resistance",
+    "how": "possible"
+   },
+   {
+    "name": "Computer software that needs an update",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for other codes that point to the underlying problem",
+   "Compare the \"A\" rocker arm position sensor (bank 1) reading with expected values in live data",
+   "Inspect the wiring and connector"
+  ],
+  "fix": "Find out whether the rocker arm actuator position sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ },
+ {
+  "code": "P264C",
+  "title": "\"A\" Rocker Arm Actuator Position Sensor Circuit Low (Bank 1)",
+  "plain": "The computer is watching the \"A\" rocker arm position sensor (bank 1) and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This sensor tells the computer which valve lift mode the rocker arms are actually in.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light on",
+   "Variable valve lift may be disabled",
+   "Possible loss of power at higher rpm"
+  ],
+  "causes": [
+   {
+    "name": "Signal wire in the \"A\" rocker arm position sensor (bank 1) shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed rocker arm actuator position sensor",
+    "how": "common"
+   },
+   {
+    "name": "Corroded or loose connector",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Inspect the wiring in the \"A\" rocker arm position sensor (bank 1) for rubbed-through insulation touching metal",
+   "Unplug the rocker arm actuator position sensor and see if the reading changes",
+   "Clear the code and see if it returns right away"
+  ],
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the rocker arm actuator position sensor.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
+  ]
+ }
+]
