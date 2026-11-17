@@ -88,7 +88,7 @@ urls.push(page('/symptoms/','All Car Symptom Guides | VehicleSymptoms.com','Step
 
 // privacy page
 urls.push(page('/privacy/','Privacy | VehicleSymptoms.com','How VehicleSymptoms.com handles your information.',{inner:`<div class="crumb"><a href="/">Home</a> › Privacy</div><div class="ghead"><h1>Privacy</h1><p class="sub">Short version: we collect as little as possible and never sell your information.</p></div>
-<div class="card" style="line-height:1.6"><h3>Email</h3><p>If you ask us to email you a result, we use your address to send it. If you tick the car-care tips box, we may also send occasional tips. Every tips email has an unsubscribe link. If you don't tick the box, we won't send you marketing email. We use a third-party email service (Resend) to deliver messages.</p>
+<div class="card" style="line-height:1.6"><h3>Email</h3><p>If you ask us to email you a result, we use your address to send it. We don't send you marketing email. We use a third-party email service (Resend) to deliver messages.</p>
 <h3>VIN lookups</h3><p>VINs are decoded directly by the U.S. government's free NHTSA database from your browser. We don't store them.</p>
 <h3>Visitor statistics</h3><p>We use Vercel Web Analytics to count page views and visits. It doesn\'t use cookies and doesn\'t identify you personally.</p>
 <h3>Recalls</h3><p>Recall information on vehicle pages comes from NHTSA's public database.</p>
