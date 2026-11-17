@@ -174,3 +174,8 @@ document.getElementById('vinForm').addEventListener('submit',async e=>{
       +row('Model year',yr||'Unknown')+row('Manufacturer',mk||'Unknown')+vinLinks(mk,typeof yr==='number'?yr:null);
   }
 });
+
+// "Describe your problem": routes to the vehicle page if a vehicle is named, otherwise runs symptom search
+(function(){const f=document.getElementById('describeForm');if(!f)return;f.addEventListener('submit',e=>{e.preventDefault();const q=document.getElementById('describeInput').value.trim();if(!q)return;
+  const v=findVehicle(q);if(v){const y=(q.match(/\b(19|20)\d{2}\b/)||[])[0];go(v,y?+y:null,q);return}
+  input.value=q;run(q);document.querySelector('.hero').scrollIntoView({behavior:'smooth'})})})();

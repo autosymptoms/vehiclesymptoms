@@ -24,7 +24,6 @@
       <a href="/#categories">Symptoms</a>
       <a href="/#categories" data-cat="Warning Lights">Warning Lights</a>
       <a href="/#tools">VIN Lookup</a>
-      <a href="/#tools">Ask AI</a>
       <a href="/#about">About</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Menu">Menu</button>
@@ -83,13 +82,10 @@
         <p class="note">Decoded with the free U.S. government (NHTSA) vehicle database. Your VIN isn't stored.</p>
       </div>
       <div class="card">
-        <h3>Ask the AI assistant</h3>
-        <p class="d">Describe what's happening in your own words. It asks follow-up questions to narrow it down.</p>
-        <div class="chat">
-          <div class="bubble u">My 2015 Accord smells sweet and the temp gauge is creeping up</div>
-          <div class="bubble a">A sweet smell plus rising temperature usually points to a coolant leak. Is the coolant reservoir low, and do you see green, orange or pink fluid under the car?</div>
-        </div>
-        <span class="soon">Example conversation — live assistant connects at launch</span>
+        <h3>Describe your problem</h3>
+        <p class="d">Say it in your own words, like you'd tell a mechanic. Include your vehicle if you know it.</p>
+        <form class="vin" id="describeForm" autocomplete="off"><textarea id="describeInput" rows="3" placeholder="Example: my 2015 Accord smells sweet and the temp gauge is creeping up" aria-label="Describe your problem" style="width:100%;background:var(--bg);border:1.5px solid var(--line);border-radius:10px;color:var(--text);font:inherit;font-size:15px;padding:12px;resize:vertical"></textarea>
+        <button class="btn" type="submit" style="margin-top:10px;padding:12px 20px">Help me understand it</button></form>
       </div>
     </div>
   </section>
