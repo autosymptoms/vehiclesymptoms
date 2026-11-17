@@ -33,7 +33,8 @@ function forIssue(i){
 const J=window.JOURNEY;const root=document.getElementById('guideApp');
 if(J&&root){
   const V=window.VEHICLES||[];
-  let path=[],cur=J.start,veh=null,vyear=null;
+  let path=[],cur=J.start,veh=null,vyear=null,EMAIL_ON=false;
+  fetch('/api/send-summary').then(r=>r.ok?r.json():{}).then(d=>{EMAIL_ON=!!d.enabled;const eb=document.getElementById('emailbox');if(eb)eb.hidden=!EMAIL_ON}).catch(()=>{});
   try{const p=new URLSearchParams(location.search);const v=V.find(x=>x.id===p.get('v'));if(v){veh=v;const y=+p.get('y');if(y>=v.years[0]&&y<=v.years[1])vyear=y}}catch(e){}
   const node=k=>J.nodes[k];
   function draw(){
@@ -42,7 +43,7 @@ if(J&&root){
       root.innerHTML=`<div class="flow card"><div class="step-n">Question ${path.length+1}</div><h2 class="fq">${esc(n.q)}</h2>${n.help?`<p class="help">${esc(n.help)}</p>`:''}
       <div class="opts">${n.opts.map((o,i)=>`<button class="opt${/not sure/i.test(o.a)?' unsure':''}" data-i="${i}">${esc(o.a)}</button>`).join('')}</div>
       ${path.length?`<div class="flow-nav"><button class="linkbtn" id="back">← Back</button><button class="linkbtn" id="restart">Start over</button></div>`:''}</div>`;
-      root.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const o=n.opts[+b.dataset.i];path.push({k:cur,q:n.q,a:o.a});cur=o.go;draw();root.scrollIntoView({behavior:'smooth',block:'start'})});
+      root.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const o=n.opts[+b.dataset.i];path.push({k:cur,q:n.q,a:o.a,i:+b.dataset.i});cur=o.go;draw();root.scrollIntoView({behavior:'smooth',block:'start'})});
     } else drawResult(n.result);
     const b=document.getElementById('back');if(b)b.onclick=()=>{const p=path.pop();cur=p.k;draw()};
     const r=document.getElementById('restart');if(r)r.onclick=()=>{path=[];cur=J.start;draw()};
@@ -77,6 +78,10 @@ if(J&&root){
       <section class="rsec"><h3>Make it specific to your vehicle</h3><div class="picker"><select id="gv">${vopts}</select><select id="gy">${yopts}</select></div><div id="gvm" style="margin-top:10px">${vehicleMatches()}</div></section>
       <section class="rsec"><h3>Summary for your mechanic</h3><pre class="summary" id="sum">${esc(summary(r))}</pre>
         <div class="row-btns"><button class="btn sm" id="copy">Copy summary</button><button class="btn ghost sm" id="print">Print</button><span id="copied" class="muted"></span></div></section>
+      <section class="rsec emailbox" id="emailbox" ${EMAIL_ON?'':'hidden'}><h3>Email this to yourself</h3><p class="muted" style="margin:0 0 10px">Get this result and your mechanic summary in your inbox, so it's handy at the shop.</p>
+        <form id="emailForm" class="emailform" autocomplete="on"><input type="email" id="emailIn" placeholder="you@example.com" aria-label="Your email" required><input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true"><button class="btn sm" type="submit">Send it</button></form>
+        <label class="optin"><input type="checkbox" id="optIn"> Also send me occasional car-care tips (unsubscribe anytime)</label>
+        <div id="emailMsg" class="muted" role="status"></div><p class="fine">We only use your email for what you ask. <a href="/privacy/">Privacy</a></p></section>
       <div class="flow-nav"><button class="linkbtn" id="back">← Change my last answer</button><button class="linkbtn" id="restart">Start over</button></div>
     </div>`;
     const gv=document.getElementById('gv'),gy=document.getElementById('gy');
@@ -84,6 +89,9 @@ if(J&&root){
     gy.onchange=()=>{vyear=+gy.value||null;document.getElementById('gvm').innerHTML=vehicleMatches();document.getElementById('sum').textContent=summary(r)};
     document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(summary(r));document.getElementById('copied').textContent='Copied'}catch(e){document.getElementById('copied').textContent='Select the text above and copy it'}};
     document.getElementById('print').onclick=()=>{try{window.print()}catch(e){}};
+    const ef=document.getElementById('emailForm');if(ef)ef.onsubmit=async e=>{e.preventDefault();const m=document.getElementById('emailMsg'),btn=ef.querySelector('button');btn.disabled=true;m.textContent='Sending…';
+      try{const rs=await fetch('/api/send-summary',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:document.getElementById('emailIn').value,optIn:document.getElementById('optIn').checked,website:document.getElementById('hp').value,guide:J.id,answers:path.map(p=>p.i),vehicle:veh?veh.id:'',year:vyear||''})});
+        const d=await rs.json().catch(()=>({}));if(rs.ok){m.textContent='Sent! Check your inbox (and spam folder, just in case).';ef.reset()}else{m.textContent=d.error||'Could not send right now.';btn.disabled=false}}catch(err){m.textContent='Could not send right now.';btn.disabled=false}};
     const b=document.getElementById('back');b.onclick=()=>{const p=path.pop();cur=p?p.k:J.start;draw()};
     document.getElementById('restart').onclick=()=>{path=[];cur=J.start;draw()};
   }
