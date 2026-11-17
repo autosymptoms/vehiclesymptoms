@@ -34,7 +34,7 @@
    }
   ],
   "checks": [
-   "Look over the vacuum reservoir pressure sensor connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the vacuum reservoir pressure sensor, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
@@ -99,7 +99,7 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the vacuum reservoir pressure sensor shorted to ground or open",
+    "name": "Signal wire in the vacuum reservoir pressure sensor shorted to ground or open",
     "how": "common"
    },
    {
@@ -116,9 +116,9 @@
    }
   ],
   "checks": [
-   "Inspect the vacuum reservoir pressure sensor wiring for rubbed-through insulation touching metal",
+   "Inspect the wiring in the vacuum reservoir pressure sensor for rubbed-through insulation touching metal",
    "Unplug the vacuum reservoir pressure sensor and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Clear the code and see if it returns right away"
   ],
   "fix": "Fix any shorted wiring first; if the wiring tests good, replace the vacuum reservoir pressure sensor.",
   "guide": "hard-brake-pedal",
@@ -157,7 +157,7 @@
    }
   ],
   "checks": [
-   "Inspect the vacuum reservoir pressure sensor wiring and ground connection",
+   "Inspect the wiring and ground connection for the vacuum reservoir pressure sensor",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
@@ -198,7 +198,7 @@
    }
   ],
   "checks": [
-   "Wiggle the vacuum reservoir pressure sensor wiring with the engine running while watching live data",
+   "Wiggle the wiring for the vacuum reservoir pressure sensor with the engine running while watching live data",
    "Check connector pins for corrosion or spread terminals",
    "Note when it happens (hot, cold, bumps) to narrow it down"
   ],
@@ -243,7 +243,7 @@
   ],
   "checks": [
    "Confirm the oil level and condition with the dipstick",
-   "Look over the engine oil quality sensor connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the engine oil quality sensor, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
@@ -305,7 +305,7 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the engine oil quality sensor shorted to ground or open",
+    "name": "Signal wire in the engine oil quality sensor shorted to ground or open",
     "how": "common"
    },
    {
@@ -323,9 +323,9 @@
   ],
   "checks": [
    "Confirm the oil level and condition with the dipstick",
-   "Inspect the engine oil quality sensor wiring for rubbed-through insulation touching metal",
+   "Inspect the wiring in the engine oil quality sensor for rubbed-through insulation touching metal",
    "Unplug the engine oil quality sensor and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Clear the code and see if it returns right away"
   ],
   "fix": "Fix any shorted wiring first; if the wiring tests good, replace the engine oil quality sensor.",
   "src": [
@@ -363,7 +363,7 @@
   ],
   "checks": [
    "Confirm the oil level and condition with the dipstick",
-   "Inspect the engine oil quality sensor wiring and ground connection",
+   "Inspect the wiring and ground connection for the engine oil quality sensor",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
@@ -403,7 +403,7 @@
   ],
   "checks": [
    "Confirm the oil level and condition with the dipstick",
-   "Wiggle the engine oil quality sensor wiring with the engine running while watching live data",
+   "Wiggle the wiring for the engine oil quality sensor with the engine running while watching live data",
    "Check connector pins for corrosion or spread terminals",
    "Note when it happens (hot, cold, bumps) to narrow it down"
   ],
@@ -452,7 +452,7 @@
  {
   "code": "P2530",
   "title": "Ignition Switch Run Position Circuit",
-  "plain": "The computer is watching the ignition switch signal and has spotted a fault in its circuit. The computer uses this to know what position the key or start button is in.",
+  "plain": "The computer is watching the ignition switch signal circuit and has spotted a fault in its circuit. The computer uses this to know what position the key or start button is in.",
   "sys": "Electrical",
   "sev": "soon",
   "common": false,
@@ -463,11 +463,7 @@
   ],
   "causes": [
    {
-    "name": "Worn ignition switch",
-    "how": "common"
-   },
-   {
-    "name": "Unplugged, loose or corroded connector at the ignition switch signal",
+    "name": "Unplugged, loose or corroded connector at the ignition switch",
     "how": "common"
    },
    {
@@ -475,20 +471,24 @@
     "how": "common"
    },
    {
-    "name": "Failed ignition switch signal",
+    "name": "Failed ignition switch",
     "how": "common"
    },
    {
     "name": "Missing reference voltage or ground from the computer",
     "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
    }
   ],
   "checks": [
-   "Look over the ignition switch signal connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the ignition switch signal circuit, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the ignition switch signal.",
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the ignition switch.",
   "guide": "car-wont-start",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -497,7 +497,7 @@
  {
   "code": "P2531",
   "title": "Ignition Switch Run Position Circuit Low",
-  "plain": "The computer is watching the ignition switch signal and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The computer uses this to know what position the key or start button is in.",
+  "plain": "The computer is watching the ignition switch signal circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The computer uses this to know what position the key or start button is in.",
   "sys": "Electrical",
   "sev": "soon",
   "common": false,
@@ -508,15 +508,11 @@
   ],
   "causes": [
    {
-    "name": "Worn ignition switch",
+    "name": "Signal wire in the ignition switch signal circuit shorted to ground or open",
     "how": "common"
    },
    {
-    "name": "Signal wire to the ignition switch signal shorted to ground or open",
-    "how": "common"
-   },
-   {
-    "name": "Failed ignition switch signal",
+    "name": "Failed ignition switch",
     "how": "common"
    },
    {
@@ -529,11 +525,11 @@
    }
   ],
   "checks": [
-   "Inspect the ignition switch signal wiring for rubbed-through insulation touching metal",
-   "Unplug the ignition switch signal and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the ignition switch signal circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the ignition switch signal.",
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the ignition switch.",
   "guide": "car-wont-start",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -542,7 +538,7 @@
  {
   "code": "P2532",
   "title": "Ignition Switch Run Position Circuit High",
-  "plain": "The computer is watching the ignition switch signal and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The computer uses this to know what position the key or start button is in.",
+  "plain": "The computer is watching the ignition switch signal circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The computer uses this to know what position the key or start button is in.",
   "sys": "Electrical",
   "sev": "soon",
   "common": false,
@@ -553,15 +549,11 @@
   ],
   "causes": [
    {
-    "name": "Worn ignition switch",
-    "how": "common"
-   },
-   {
     "name": "Signal wire shorted to voltage or a broken ground wire",
     "how": "common"
    },
    {
-    "name": "Failed ignition switch signal",
+    "name": "Failed ignition switch",
     "how": "common"
    },
    {
@@ -574,11 +566,11 @@
    }
   ],
   "checks": [
-   "Inspect the ignition switch signal wiring and ground connection",
+   "Inspect the wiring and ground connection for the ignition switch signal circuit",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the ignition switch signal.",
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the ignition switch.",
   "guide": "car-wont-start",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -587,7 +579,7 @@
  {
   "code": "P2533",
   "title": "Ignition Switch Run/Start Position Circuit",
-  "plain": "The computer is watching the ignition switch signal and has spotted a fault in its circuit. The computer uses this to know what position the key or start button is in.",
+  "plain": "The computer is watching the ignition switch signal circuit and has spotted a fault in its circuit. The computer uses this to know what position the key or start button is in.",
   "sys": "Electrical",
   "sev": "soon",
   "common": false,
@@ -598,11 +590,7 @@
   ],
   "causes": [
    {
-    "name": "Worn ignition switch",
-    "how": "common"
-   },
-   {
-    "name": "Unplugged, loose or corroded connector at the ignition switch signal",
+    "name": "Unplugged, loose or corroded connector at the ignition switch",
     "how": "common"
    },
    {
@@ -610,20 +598,24 @@
     "how": "common"
    },
    {
-    "name": "Failed ignition switch signal",
+    "name": "Failed ignition switch",
     "how": "common"
    },
    {
     "name": "Missing reference voltage or ground from the computer",
     "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
    }
   ],
   "checks": [
-   "Look over the ignition switch signal connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the ignition switch signal circuit, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the ignition switch signal.",
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the ignition switch.",
   "guide": "car-wont-start",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -632,7 +624,7 @@
  {
   "code": "P2534",
   "title": "Ignition Switch Run/Start Position Circuit Low",
-  "plain": "The computer is watching the ignition switch signal and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The computer uses this to know what position the key or start button is in.",
+  "plain": "The computer is watching the ignition switch signal circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The computer uses this to know what position the key or start button is in.",
   "sys": "Electrical",
   "sev": "soon",
   "common": false,
@@ -643,15 +635,11 @@
   ],
   "causes": [
    {
-    "name": "Worn ignition switch",
+    "name": "Signal wire in the ignition switch signal circuit shorted to ground or open",
     "how": "common"
    },
    {
-    "name": "Signal wire to the ignition switch signal shorted to ground or open",
-    "how": "common"
-   },
-   {
-    "name": "Failed ignition switch signal",
+    "name": "Failed ignition switch",
     "how": "common"
    },
    {
@@ -664,11 +652,11 @@
    }
   ],
   "checks": [
-   "Inspect the ignition switch signal wiring for rubbed-through insulation touching metal",
-   "Unplug the ignition switch signal and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the ignition switch signal circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the ignition switch signal.",
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the ignition switch.",
   "guide": "car-wont-start",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -677,7 +665,7 @@
  {
   "code": "P2535",
   "title": "Ignition Switch Run/Start Position Circuit High",
-  "plain": "The computer is watching the ignition switch signal and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The computer uses this to know what position the key or start button is in.",
+  "plain": "The computer is watching the ignition switch signal circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The computer uses this to know what position the key or start button is in.",
   "sys": "Electrical",
   "sev": "soon",
   "common": false,
@@ -688,15 +676,11 @@
   ],
   "causes": [
    {
-    "name": "Worn ignition switch",
-    "how": "common"
-   },
-   {
     "name": "Signal wire shorted to voltage or a broken ground wire",
     "how": "common"
    },
    {
-    "name": "Failed ignition switch signal",
+    "name": "Failed ignition switch",
     "how": "common"
    },
    {
@@ -709,11 +693,11 @@
    }
   ],
   "checks": [
-   "Inspect the ignition switch signal wiring and ground connection",
+   "Inspect the wiring and ground connection for the ignition switch signal circuit",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the ignition switch signal.",
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the ignition switch.",
   "guide": "car-wont-start",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -722,7 +706,7 @@
  {
   "code": "P2536",
   "title": "Ignition Switch Accessory Position Circuit",
-  "plain": "The computer is watching the ignition switch signal and has spotted a fault in its circuit. The computer uses this to know what position the key or start button is in.",
+  "plain": "The computer is watching the ignition switch signal circuit and has spotted a fault in its circuit. The computer uses this to know what position the key or start button is in.",
   "sys": "Electrical",
   "sev": "soon",
   "common": false,
@@ -733,11 +717,7 @@
   ],
   "causes": [
    {
-    "name": "Worn ignition switch",
-    "how": "common"
-   },
-   {
-    "name": "Unplugged, loose or corroded connector at the ignition switch signal",
+    "name": "Unplugged, loose or corroded connector at the ignition switch",
     "how": "common"
    },
    {
@@ -745,20 +725,24 @@
     "how": "common"
    },
    {
-    "name": "Failed ignition switch signal",
+    "name": "Failed ignition switch",
     "how": "common"
    },
    {
     "name": "Missing reference voltage or ground from the computer",
     "how": "possible"
+   },
+   {
+    "name": "Control module fault (rare)",
+    "how": "possible"
    }
   ],
   "checks": [
-   "Look over the ignition switch signal connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the ignition switch signal circuit, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the ignition switch signal.",
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the ignition switch.",
   "guide": "car-wont-start",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -767,7 +751,7 @@
  {
   "code": "P2537",
   "title": "Ignition Switch Accessory Position Circuit Low",
-  "plain": "The computer is watching the ignition switch signal and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The computer uses this to know what position the key or start button is in.",
+  "plain": "The computer is watching the ignition switch signal circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The computer uses this to know what position the key or start button is in.",
   "sys": "Electrical",
   "sev": "soon",
   "common": false,
@@ -778,15 +762,11 @@
   ],
   "causes": [
    {
-    "name": "Worn ignition switch",
+    "name": "Signal wire in the ignition switch signal circuit shorted to ground or open",
     "how": "common"
    },
    {
-    "name": "Signal wire to the ignition switch signal shorted to ground or open",
-    "how": "common"
-   },
-   {
-    "name": "Failed ignition switch signal",
+    "name": "Failed ignition switch",
     "how": "common"
    },
    {
@@ -799,11 +779,11 @@
    }
   ],
   "checks": [
-   "Inspect the ignition switch signal wiring for rubbed-through insulation touching metal",
-   "Unplug the ignition switch signal and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the ignition switch signal circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the ignition switch signal.",
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the ignition switch.",
   "guide": "car-wont-start",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -812,7 +792,7 @@
  {
   "code": "P2538",
   "title": "Ignition Switch Accessory Position Circuit High",
-  "plain": "The computer is watching the ignition switch signal and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The computer uses this to know what position the key or start button is in.",
+  "plain": "The computer is watching the ignition switch signal circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The computer uses this to know what position the key or start button is in.",
   "sys": "Electrical",
   "sev": "soon",
   "common": false,
@@ -823,15 +803,11 @@
   ],
   "causes": [
    {
-    "name": "Worn ignition switch",
-    "how": "common"
-   },
-   {
     "name": "Signal wire shorted to voltage or a broken ground wire",
     "how": "common"
    },
    {
-    "name": "Failed ignition switch signal",
+    "name": "Failed ignition switch",
     "how": "common"
    },
    {
@@ -844,11 +820,11 @@
    }
   ],
   "checks": [
-   "Inspect the ignition switch signal wiring and ground connection",
+   "Inspect the wiring and ground connection for the ignition switch signal circuit",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the ignition switch signal.",
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the ignition switch.",
   "guide": "car-wont-start",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -889,7 +865,7 @@
    }
   ],
   "checks": [
-   "Look over the low-pressure fuel sensor connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the low-pressure fuel sensor, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
@@ -999,7 +975,7 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the low-pressure fuel sensor shorted to ground or open",
+    "name": "Signal wire in the low-pressure fuel sensor shorted to ground or open",
     "how": "common"
    },
    {
@@ -1016,9 +992,9 @@
    }
   ],
   "checks": [
-   "Inspect the low-pressure fuel sensor wiring for rubbed-through insulation touching metal",
+   "Inspect the wiring in the low-pressure fuel sensor for rubbed-through insulation touching metal",
    "Unplug the low-pressure fuel sensor and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Clear the code and see if it returns right away"
   ],
   "fix": "Fix any shorted wiring first; if the wiring tests good, replace the low-pressure fuel sensor.",
   "guide": "loss-of-power-when-accelerating",
@@ -1057,7 +1033,7 @@
    }
   ],
   "checks": [
-   "Inspect the low-pressure fuel sensor wiring and ground connection",
+   "Inspect the wiring and ground connection for the low-pressure fuel sensor",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
@@ -1098,7 +1074,7 @@
    }
   ],
   "checks": [
-   "Wiggle the low-pressure fuel sensor wiring with the engine running while watching live data",
+   "Wiggle the wiring for the low-pressure fuel sensor with the engine running while watching live data",
    "Check connector pins for corrosion or spread terminals",
    "Note when it happens (hot, cold, bumps) to narrow it down"
   ],
@@ -1122,32 +1098,28 @@
   ],
   "causes": [
    {
-    "name": "Unplugged, loose or corroded connector at the torque management request signal",
+    "name": "Wiring or connector fault between the engine and transmission computers",
     "how": "common"
    },
    {
-    "name": "Broken or chafed wire in the torque management request signal circuit",
+    "name": "Network communication problem between modules",
     "how": "common"
    },
    {
-    "name": "Failed torque management request signal",
-    "how": "common"
-   },
-   {
-    "name": "Missing reference voltage or ground from the computer",
+    "name": "Module software that needs an update",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Transmission or engine computer fault",
     "how": "possible"
    }
   ],
   "checks": [
-   "Look over the torque management request signal connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the torque management request signal, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the torque management request signal.",
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
   "guide": "harsh-or-hard-shifting",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -1167,19 +1139,19 @@
   ],
   "causes": [
    {
-    "name": "Failing or sticking torque management request signal",
+    "name": "Wiring or connector fault between the engine and transmission computers",
     "how": "common"
    },
    {
-    "name": "A real problem in the system the part works with",
+    "name": "Network communication problem between modules",
     "how": "common"
    },
    {
-    "name": "Wiring or connector with high resistance",
+    "name": "Module software that needs an update",
     "how": "possible"
    },
    {
-    "name": "Computer software that needs an update",
+    "name": "Transmission or engine computer fault",
     "how": "possible"
    }
   ],
@@ -1188,7 +1160,7 @@
    "Compare the torque management request signal reading with expected values in live data",
    "Inspect the wiring and connector"
   ],
-  "fix": "Find out whether the torque management request signal itself or the system it works with is at fault, then repair or replace as needed.",
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
   "guide": "harsh-or-hard-shifting",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -1208,28 +1180,28 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the torque management request signal shorted to ground or open",
+    "name": "Wiring or connector fault between the engine and transmission computers",
     "how": "common"
    },
    {
-    "name": "Failed torque management request signal",
+    "name": "Network communication problem between modules",
     "how": "common"
    },
    {
-    "name": "Corroded or loose connector",
+    "name": "Module software that needs an update",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Transmission or engine computer fault",
     "how": "possible"
    }
   ],
   "checks": [
-   "Inspect the torque management request signal wiring for rubbed-through insulation touching metal",
-   "Unplug the torque management request signal and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the torque management request signal for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the torque management request signal.",
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
   "guide": "harsh-or-hard-shifting",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -1249,28 +1221,28 @@
   ],
   "causes": [
    {
-    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "name": "Wiring or connector fault between the engine and transmission computers",
     "how": "common"
    },
    {
-    "name": "Failed torque management request signal",
+    "name": "Network communication problem between modules",
     "how": "common"
    },
    {
-    "name": "Corroded or loose connector",
+    "name": "Module software that needs an update",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Transmission or engine computer fault",
     "how": "possible"
    }
   ],
   "checks": [
-   "Inspect the torque management request signal wiring and ground connection",
+   "Inspect the wiring and ground connection for the torque management request signal",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the torque management request signal.",
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
   "guide": "harsh-or-hard-shifting",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -1290,32 +1262,28 @@
   ],
   "causes": [
    {
-    "name": "Unplugged, loose or corroded connector at the torque management request signal",
+    "name": "Wiring or connector fault between the engine and transmission computers",
     "how": "common"
    },
    {
-    "name": "Broken or chafed wire in the torque management request signal circuit",
+    "name": "Network communication problem between modules",
     "how": "common"
    },
    {
-    "name": "Failed torque management request signal",
-    "how": "common"
-   },
-   {
-    "name": "Missing reference voltage or ground from the computer",
+    "name": "Module software that needs an update",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Transmission or engine computer fault",
     "how": "possible"
    }
   ],
   "checks": [
-   "Look over the torque management request signal connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the torque management request signal, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the torque management request signal.",
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
   "guide": "harsh-or-hard-shifting",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"

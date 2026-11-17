@@ -13,19 +13,19 @@
   ],
   "causes": [
    {
-    "name": "Failing or sticking torque management request signal",
+    "name": "Wiring or connector fault between the engine and transmission computers",
     "how": "common"
    },
    {
-    "name": "A real problem in the system the part works with",
+    "name": "Network communication problem between modules",
     "how": "common"
    },
    {
-    "name": "Wiring or connector with high resistance",
+    "name": "Module software that needs an update",
     "how": "possible"
    },
    {
-    "name": "Computer software that needs an update",
+    "name": "Transmission or engine computer fault",
     "how": "possible"
    }
   ],
@@ -34,7 +34,7 @@
    "Compare the torque management request signal reading with expected values in live data",
    "Inspect the wiring and connector"
   ],
-  "fix": "Find out whether the torque management request signal itself or the system it works with is at fault, then repair or replace as needed.",
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
   "guide": "harsh-or-hard-shifting",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -75,7 +75,7 @@
    }
   ],
   "checks": [
-   "Look over the hood switch connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the hood switch, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
@@ -98,28 +98,28 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the torque management request signal shorted to ground or open",
+    "name": "Wiring or connector fault between the engine and transmission computers",
     "how": "common"
    },
    {
-    "name": "Failed torque management request signal",
+    "name": "Network communication problem between modules",
     "how": "common"
    },
    {
-    "name": "Corroded or loose connector",
+    "name": "Module software that needs an update",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Transmission or engine computer fault",
     "how": "possible"
    }
   ],
   "checks": [
-   "Inspect the torque management request signal wiring for rubbed-through insulation touching metal",
-   "Unplug the torque management request signal and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the torque management request signal for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the torque management request signal.",
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
   "guide": "harsh-or-hard-shifting",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -139,28 +139,28 @@
   ],
   "causes": [
    {
-    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "name": "Wiring or connector fault between the engine and transmission computers",
     "how": "common"
    },
    {
-    "name": "Failed torque management request signal",
+    "name": "Network communication problem between modules",
     "how": "common"
    },
    {
-    "name": "Corroded or loose connector",
+    "name": "Module software that needs an update",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Transmission or engine computer fault",
     "how": "possible"
    }
   ],
   "checks": [
-   "Inspect the torque management request signal wiring and ground connection",
+   "Inspect the wiring and ground connection for the torque management request signal",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the torque management request signal.",
+  "fix": "Repair the wiring or network fault, or update the module software as the maker directs.",
   "guide": "harsh-or-hard-shifting",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -180,32 +180,28 @@
   ],
   "causes": [
    {
-    "name": "Unplugged, loose or corroded connector at the throttle/fuel inhibit circuit",
+    "name": "Wiring or connector fault in the inhibit circuit",
     "how": "common"
    },
    {
-    "name": "Broken or chafed wire in the throttle/fuel inhibit circuit circuit",
+    "name": "Fault in the module that sends the inhibit request",
     "how": "common"
    },
    {
-    "name": "Failed throttle/fuel inhibit circuit",
-    "how": "common"
-   },
-   {
-    "name": "Missing reference voltage or ground from the computer",
+    "name": "Aftermarket remote start or alarm wired into the circuit",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Engine computer fault (rare)",
     "how": "possible"
    }
   ],
   "checks": [
-   "Look over the throttle/fuel inhibit circuit connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the throttle/fuel inhibit circuit, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the throttle/fuel inhibit circuit.",
+  "fix": "Repair the inhibit circuit wiring or the module sending the signal; remove faulty aftermarket add-ons.",
   "guide": "reduced-engine-power-warning",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -225,19 +221,19 @@
   ],
   "causes": [
    {
-    "name": "Failing or sticking throttle/fuel inhibit circuit",
+    "name": "Wiring or connector fault in the inhibit circuit",
     "how": "common"
    },
    {
-    "name": "A real problem in the system the part works with",
+    "name": "Fault in the module that sends the inhibit request",
     "how": "common"
    },
    {
-    "name": "Wiring or connector with high resistance",
+    "name": "Aftermarket remote start or alarm wired into the circuit",
     "how": "possible"
    },
    {
-    "name": "Computer software that needs an update",
+    "name": "Engine computer fault (rare)",
     "how": "possible"
    }
   ],
@@ -246,7 +242,7 @@
    "Compare the throttle/fuel inhibit circuit reading with expected values in live data",
    "Inspect the wiring and connector"
   ],
-  "fix": "Find out whether the throttle/fuel inhibit circuit itself or the system it works with is at fault, then repair or replace as needed.",
+  "fix": "Repair the inhibit circuit wiring or the module sending the signal; remove faulty aftermarket add-ons.",
   "guide": "reduced-engine-power-warning",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -266,28 +262,28 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the throttle/fuel inhibit circuit shorted to ground or open",
+    "name": "Wiring or connector fault in the inhibit circuit",
     "how": "common"
    },
    {
-    "name": "Failed throttle/fuel inhibit circuit",
+    "name": "Fault in the module that sends the inhibit request",
     "how": "common"
    },
    {
-    "name": "Corroded or loose connector",
+    "name": "Aftermarket remote start or alarm wired into the circuit",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Engine computer fault (rare)",
     "how": "possible"
    }
   ],
   "checks": [
-   "Inspect the throttle/fuel inhibit circuit wiring for rubbed-through insulation touching metal",
-   "Unplug the throttle/fuel inhibit circuit and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the throttle/fuel inhibit circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the throttle/fuel inhibit circuit.",
+  "fix": "Repair the inhibit circuit wiring or the module sending the signal; remove faulty aftermarket add-ons.",
   "guide": "reduced-engine-power-warning",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -307,28 +303,28 @@
   ],
   "causes": [
    {
-    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "name": "Wiring or connector fault in the inhibit circuit",
     "how": "common"
    },
    {
-    "name": "Failed throttle/fuel inhibit circuit",
+    "name": "Fault in the module that sends the inhibit request",
     "how": "common"
    },
    {
-    "name": "Corroded or loose connector",
+    "name": "Aftermarket remote start or alarm wired into the circuit",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Engine computer fault (rare)",
     "how": "possible"
    }
   ],
   "checks": [
-   "Inspect the throttle/fuel inhibit circuit wiring and ground connection",
+   "Inspect the wiring and ground connection for the throttle/fuel inhibit circuit",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the throttle/fuel inhibit circuit.",
+  "fix": "Repair the inhibit circuit wiring or the module sending the signal; remove faulty aftermarket add-ons.",
   "guide": "reduced-engine-power-warning",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -337,7 +333,7 @@
  {
   "code": "P2556",
   "title": "Engine Coolant Level Sensor/Switch Circuit",
-  "plain": "The computer is watching the engine coolant level sensor and has spotted a fault in its circuit. This sensor warns the computer when the coolant reservoir gets low.",
+  "plain": "The computer is watching the engine coolant level sensor circuit and has spotted a fault in its circuit. This sensor warns the computer when the coolant reservoir gets low.",
   "sys": "Cooling",
   "sev": "soon",
   "common": false,
@@ -352,7 +348,7 @@
     "how": "common"
    },
    {
-    "name": "Unplugged, loose or corroded connector at the engine coolant level sensor",
+    "name": "Unplugged, loose or corroded connector at the coolant level sensor",
     "how": "common"
    },
    {
@@ -360,7 +356,7 @@
     "how": "common"
    },
    {
-    "name": "Failed engine coolant level sensor",
+    "name": "Failed coolant level sensor",
     "how": "common"
    },
    {
@@ -370,11 +366,11 @@
   ],
   "checks": [
    "With the engine cold, check the coolant level first",
-   "Look over the engine coolant level sensor connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the engine coolant level sensor circuit, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the engine coolant level sensor.",
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the coolant level sensor.",
   "guide": "losing-coolant-no-visible-leak",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -383,7 +379,7 @@
  {
   "code": "P2557",
   "title": "Engine Coolant Level Sensor/Switch Circuit Range/Performance",
-  "plain": "The computer is watching the engine coolant level sensor and is getting a signal that does not make sense for current conditions. This sensor warns the computer when the coolant reservoir gets low.",
+  "plain": "The computer is watching the engine coolant level sensor circuit and is getting a signal that does not make sense for current conditions. This sensor warns the computer when the coolant reservoir gets low.",
   "sys": "Cooling",
   "sev": "soon",
   "common": false,
@@ -398,7 +394,7 @@
     "how": "common"
    },
    {
-    "name": "Failing or sticking engine coolant level sensor",
+    "name": "Failing or sticking coolant level sensor",
     "how": "common"
    },
    {
@@ -417,10 +413,10 @@
   "checks": [
    "With the engine cold, check the coolant level first",
    "Check for other codes that point to the underlying problem",
-   "Compare the engine coolant level sensor reading with expected values in live data",
+   "Compare the engine coolant level sensor circuit reading with expected values in live data",
    "Inspect the wiring and connector"
   ],
-  "fix": "Find out whether the engine coolant level sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "fix": "Find out whether the coolant level sensor itself or the system it works with is at fault, then repair or replace as needed.",
   "guide": "losing-coolant-no-visible-leak",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -429,7 +425,7 @@
  {
   "code": "P2558",
   "title": "Engine Coolant Level Sensor/Switch Circuit Low",
-  "plain": "The computer is watching the engine coolant level sensor and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This sensor warns the computer when the coolant reservoir gets low.",
+  "plain": "The computer is watching the engine coolant level sensor circuit and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. This sensor warns the computer when the coolant reservoir gets low.",
   "sys": "Cooling",
   "sev": "soon",
   "common": false,
@@ -444,11 +440,11 @@
     "how": "common"
    },
    {
-    "name": "Signal wire to the engine coolant level sensor shorted to ground or open",
+    "name": "Signal wire in the engine coolant level sensor circuit shorted to ground or open",
     "how": "common"
    },
    {
-    "name": "Failed engine coolant level sensor",
+    "name": "Failed coolant level sensor",
     "how": "common"
    },
    {
@@ -462,11 +458,11 @@
   ],
   "checks": [
    "With the engine cold, check the coolant level first",
-   "Inspect the engine coolant level sensor wiring for rubbed-through insulation touching metal",
-   "Unplug the engine coolant level sensor and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the engine coolant level sensor circuit for rubbed-through insulation touching metal",
+   "Unplug the coolant level sensor and see if the reading changes",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the engine coolant level sensor.",
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the coolant level sensor.",
   "guide": "losing-coolant-no-visible-leak",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -475,7 +471,7 @@
  {
   "code": "P2559",
   "title": "Engine Coolant Level Sensor/Switch Circuit High",
-  "plain": "The computer is watching the engine coolant level sensor and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This sensor warns the computer when the coolant reservoir gets low.",
+  "plain": "The computer is watching the engine coolant level sensor circuit and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. This sensor warns the computer when the coolant reservoir gets low.",
   "sys": "Cooling",
   "sev": "soon",
   "common": false,
@@ -494,7 +490,7 @@
     "how": "common"
    },
    {
-    "name": "Failed engine coolant level sensor",
+    "name": "Failed coolant level sensor",
     "how": "common"
    },
    {
@@ -508,11 +504,11 @@
   ],
   "checks": [
    "With the engine cold, check the coolant level first",
-   "Inspect the engine coolant level sensor wiring and ground connection",
+   "Inspect the wiring and ground connection for the engine coolant level sensor circuit",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the engine coolant level sensor.",
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the coolant level sensor.",
   "guide": "losing-coolant-no-visible-leak",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -532,7 +528,7 @@
   ],
   "causes": [
    {
-    "name": "Failing or sticking A/C request signal",
+    "name": "Failing or sticking climate control switch or module",
     "how": "common"
    },
    {
@@ -553,7 +549,7 @@
    "Compare the A/C request signal reading with expected values in live data",
    "Inspect the wiring and connector"
   ],
-  "fix": "Find out whether the A/C request signal itself or the system it works with is at fault, then repair or replace as needed.",
+  "fix": "Find out whether the climate control switch or module itself or the system it works with is at fault, then repair or replace as needed.",
   "guide": "ac-blowing-warm-air",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -671,7 +667,7 @@
    }
   ],
   "checks": [
-   "Look over the turbocharger boost control position sensor connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the turbocharger boost control position sensor, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
@@ -757,7 +753,7 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the turbocharger boost control position sensor shorted to ground or open",
+    "name": "Signal wire in the turbocharger boost control position sensor shorted to ground or open",
     "how": "common"
    },
    {
@@ -774,9 +770,9 @@
    }
   ],
   "checks": [
-   "Inspect the turbocharger boost control position sensor wiring for rubbed-through insulation touching metal",
+   "Inspect the wiring in the turbocharger boost control position sensor for rubbed-through insulation touching metal",
    "Unplug the turbocharger boost control position sensor and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Clear the code and see if it returns right away"
   ],
   "fix": "Fix any shorted wiring first; if the wiring tests good, replace the turbocharger boost control position sensor.",
   "guide": "loss-of-power-when-accelerating",
@@ -816,7 +812,7 @@
    }
   ],
   "checks": [
-   "Inspect the turbocharger boost control position sensor wiring and ground connection",
+   "Inspect the wiring and ground connection for the turbocharger boost control position sensor",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
@@ -858,7 +854,7 @@
    }
   ],
   "checks": [
-   "Wiggle the turbocharger boost control position sensor wiring with the engine running while watching live data",
+   "Wiggle the wiring for the turbocharger boost control position sensor with the engine running while watching live data",
    "Check connector pins for corrosion or spread terminals",
    "Note when it happens (hot, cold, bumps) to narrow it down"
   ],
@@ -903,7 +899,7 @@
    }
   ],
   "checks": [
-   "Look over the ozone-reducing radiator catalyst temperature sensor connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the ozone-reducing radiator catalyst temperature sensor, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
@@ -964,7 +960,7 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the ozone-reducing radiator catalyst temperature sensor shorted to ground or open",
+    "name": "Signal wire in the ozone-reducing radiator catalyst temperature sensor shorted to ground or open",
     "how": "common"
    },
    {
@@ -981,9 +977,9 @@
    }
   ],
   "checks": [
-   "Inspect the ozone-reducing radiator catalyst temperature sensor wiring for rubbed-through insulation touching metal",
+   "Inspect the wiring in the ozone-reducing radiator catalyst temperature sensor for rubbed-through insulation touching metal",
    "Unplug the ozone-reducing radiator catalyst temperature sensor and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Clear the code and see if it returns right away"
   ],
   "fix": "Fix any shorted wiring first; if the wiring tests good, replace the ozone-reducing radiator catalyst temperature sensor.",
   "src": [
@@ -1004,7 +1000,7 @@
   ],
   "causes": [
    {
-    "name": "Failing or sticking A/C request signal",
+    "name": "Failing or sticking climate control switch or module",
     "how": "common"
    },
    {
@@ -1025,7 +1021,7 @@
    "Compare the A/C request signal reading with expected values in live data",
    "Inspect the wiring and connector"
   ],
-  "fix": "Find out whether the A/C request signal itself or the system it works with is at fault, then repair or replace as needed.",
+  "fix": "Find out whether the climate control switch or module itself or the system it works with is at fault, then repair or replace as needed.",
   "guide": "ac-blowing-warm-air",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -1061,7 +1057,7 @@
    }
   ],
   "checks": [
-   "Inspect the ozone-reducing radiator catalyst temperature sensor wiring and ground connection",
+   "Inspect the wiring and ground connection for the ozone-reducing radiator catalyst temperature sensor",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
@@ -1100,7 +1096,7 @@
    }
   ],
   "checks": [
-   "Wiggle the ozone-reducing radiator catalyst temperature sensor wiring with the engine running while watching live data",
+   "Wiggle the wiring for the ozone-reducing radiator catalyst temperature sensor with the engine running while watching live data",
    "Check connector pins for corrosion or spread terminals",
    "Note when it happens (hot, cold, bumps) to narrow it down"
   ],
@@ -1143,7 +1139,7 @@
    }
   ],
   "checks": [
-   "Look over the ozone-reducing radiator catalyst monitoring sensor connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the ozone-reducing radiator catalyst monitoring sensor, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
@@ -1204,7 +1200,7 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the ozone-reducing radiator catalyst monitoring sensor shorted to ground or open",
+    "name": "Signal wire in the ozone-reducing radiator catalyst monitoring sensor shorted to ground or open",
     "how": "common"
    },
    {
@@ -1221,9 +1217,9 @@
    }
   ],
   "checks": [
-   "Inspect the ozone-reducing radiator catalyst monitoring sensor wiring for rubbed-through insulation touching metal",
+   "Inspect the wiring in the ozone-reducing radiator catalyst monitoring sensor for rubbed-through insulation touching metal",
    "Unplug the ozone-reducing radiator catalyst monitoring sensor and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Clear the code and see if it returns right away"
   ],
   "fix": "Fix any shorted wiring first; if the wiring tests good, replace the ozone-reducing radiator catalyst monitoring sensor.",
   "src": [
@@ -1260,7 +1256,7 @@
    }
   ],
   "checks": [
-   "Inspect the ozone-reducing radiator catalyst monitoring sensor wiring and ground connection",
+   "Inspect the wiring and ground connection for the ozone-reducing radiator catalyst monitoring sensor",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
@@ -1299,7 +1295,7 @@
    }
   ],
   "checks": [
-   "Wiggle the ozone-reducing radiator catalyst monitoring sensor wiring with the engine running while watching live data",
+   "Wiggle the wiring for the ozone-reducing radiator catalyst monitoring sensor with the engine running while watching live data",
    "Check connector pins for corrosion or spread terminals",
    "Note when it happens (hot, cold, bumps) to narrow it down"
   ],

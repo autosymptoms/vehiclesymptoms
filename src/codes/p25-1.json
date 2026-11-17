@@ -13,11 +13,11 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the alternator warning lamp (L-terminal) circuit shorted to ground or open",
+    "name": "Signal wire in the alternator warning lamp (L-terminal) circuit shorted to ground or open",
     "how": "common"
    },
    {
-    "name": "Failed alternator warning lamp (L-terminal) circuit",
+    "name": "Failed alternator",
     "how": "common"
    },
    {
@@ -30,11 +30,11 @@
    }
   ],
   "checks": [
-   "Inspect the alternator warning lamp (L-terminal) circuit wiring for rubbed-through insulation touching metal",
-   "Unplug the alternator warning lamp (L-terminal) circuit and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the alternator warning lamp (L-terminal) circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the alternator warning lamp (L-terminal) circuit.",
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the alternator.",
   "guide": "battery-light-on",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
@@ -59,7 +59,7 @@
     "how": "common"
    },
    {
-    "name": "Failed alternator warning lamp (L-terminal) circuit",
+    "name": "Failed alternator",
     "how": "common"
    },
    {
@@ -72,11 +72,11 @@
    }
   ],
   "checks": [
-   "Inspect the alternator warning lamp (L-terminal) circuit wiring and ground connection",
+   "Inspect the wiring and ground connection for the alternator warning lamp (L-terminal) circuit",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the alternator warning lamp (L-terminal) circuit.",
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the alternator.",
   "guide": "battery-light-on",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
@@ -252,7 +252,7 @@
  {
   "code": "P2505",
   "title": "ECM/PCM Power Input Signal",
-  "plain": "The computer is watching the power feed to the engine computer and has spotted a fault in its circuit. The engine computer needs a steady supply voltage to run everything else correctly.",
+  "plain": "The computer is watching the power supply circuit to the engine computer and has spotted a fault in its circuit. The engine computer needs a steady supply voltage to run everything else correctly.",
   "sys": "Computer",
   "sev": "soon",
   "common": false,
@@ -267,15 +267,15 @@
     "how": "common"
    },
    {
-    "name": "Unplugged, loose or corroded connector at the power feed to the engine computer",
+    "name": "Unplugged, loose or corroded connector at the engine computer power relay",
     "how": "common"
    },
    {
-    "name": "Broken or chafed wire in the power feed to the engine computer circuit",
+    "name": "Broken or chafed wire in the power supply circuit to the engine computer",
     "how": "common"
    },
    {
-    "name": "Failed power feed to the engine computer",
+    "name": "Failed engine computer power relay",
     "how": "common"
    },
    {
@@ -284,11 +284,11 @@
    }
   ],
   "checks": [
-   "Look over the power feed to the engine computer connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the power supply circuit to the engine computer, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the power feed to the engine computer.",
+  "fix": "Fix the battery, cable or wiring fault first; replace the power relay or fuse if bad. The engine computer itself is rarely the cause.",
   "guide": "check-engine-light-on",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -297,7 +297,7 @@
  {
   "code": "P2506",
   "title": "ECM/PCM Power Input Signal Range/Performance",
-  "plain": "The computer is watching the power feed to the engine computer and is getting a signal that does not make sense for current conditions. The engine computer needs a steady supply voltage to run everything else correctly.",
+  "plain": "The computer is watching the power supply circuit to the engine computer and is getting a signal that does not make sense for current conditions. The engine computer needs a steady supply voltage to run everything else correctly.",
   "sys": "Computer",
   "sev": "soon",
   "common": false,
@@ -312,7 +312,7 @@
     "how": "common"
    },
    {
-    "name": "Failing or sticking power feed to the engine computer",
+    "name": "Failing or sticking engine computer power relay",
     "how": "common"
    },
    {
@@ -330,10 +330,10 @@
   ],
   "checks": [
    "Check for other codes that point to the underlying problem",
-   "Compare the power feed to the engine computer reading with expected values in live data",
+   "Compare the power supply circuit to the engine computer reading with expected values in live data",
    "Inspect the wiring and connector"
   ],
-  "fix": "Find out whether the power feed to the engine computer itself or the system it works with is at fault, then repair or replace as needed.",
+  "fix": "Fix the battery, cable or wiring fault first; replace the power relay or fuse if bad. The engine computer itself is rarely the cause.",
   "guide": "check-engine-light-on",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -342,7 +342,7 @@
  {
   "code": "P2507",
   "title": "ECM/PCM Power Input Signal Low",
-  "plain": "The computer is watching the power feed to the engine computer and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The engine computer needs a steady supply voltage to run everything else correctly.",
+  "plain": "The computer is watching the power supply circuit to the engine computer and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. The engine computer needs a steady supply voltage to run everything else correctly.",
   "sys": "Computer",
   "sev": "soon",
   "common": false,
@@ -357,11 +357,11 @@
     "how": "common"
    },
    {
-    "name": "Signal wire to the power feed to the engine computer shorted to ground or open",
+    "name": "Signal wire in the power supply circuit to the engine computer shorted to ground or open",
     "how": "common"
    },
    {
-    "name": "Failed power feed to the engine computer",
+    "name": "Failed engine computer power relay",
     "how": "common"
    },
    {
@@ -374,11 +374,11 @@
    }
   ],
   "checks": [
-   "Inspect the power feed to the engine computer wiring for rubbed-through insulation touching metal",
-   "Unplug the power feed to the engine computer and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the power supply circuit to the engine computer for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the power feed to the engine computer.",
+  "fix": "Fix the battery, cable or wiring fault first; replace the power relay or fuse if bad. The engine computer itself is rarely the cause.",
   "guide": "check-engine-light-on",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -387,7 +387,7 @@
  {
   "code": "P2508",
   "title": "ECM/PCM Power Input Signal High",
-  "plain": "The computer is watching the power feed to the engine computer and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The engine computer needs a steady supply voltage to run everything else correctly.",
+  "plain": "The computer is watching the power supply circuit to the engine computer and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. The engine computer needs a steady supply voltage to run everything else correctly.",
   "sys": "Computer",
   "sev": "soon",
   "common": false,
@@ -406,7 +406,7 @@
     "how": "common"
    },
    {
-    "name": "Failed power feed to the engine computer",
+    "name": "Failed engine computer power relay",
     "how": "common"
    },
    {
@@ -419,11 +419,11 @@
    }
   ],
   "checks": [
-   "Inspect the power feed to the engine computer wiring and ground connection",
+   "Inspect the wiring and ground connection for the power supply circuit to the engine computer",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the power feed to the engine computer.",
+  "fix": "Fix the battery, cable or wiring fault first; replace the power relay or fuse if bad. The engine computer itself is rarely the cause.",
   "guide": "check-engine-light-on",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -432,7 +432,7 @@
  {
   "code": "P2509",
   "title": "ECM/PCM Power Input Signal Intermittent",
-  "plain": "The computer is watching the power feed to the engine computer and is seeing a signal that cuts in and out. The engine computer needs a steady supply voltage to run everything else correctly.",
+  "plain": "The computer is watching the power supply circuit to the engine computer and is seeing a signal that cuts in and out. The engine computer needs a steady supply voltage to run everything else correctly.",
   "sys": "Computer",
   "sev": "soon",
   "common": false,
@@ -451,7 +451,7 @@
     "how": "common"
    },
    {
-    "name": "Power feed to the engine computer failing on and off",
+    "name": "Engine computer power relay failing on and off",
     "how": "common"
    },
    {
@@ -464,11 +464,11 @@
    }
   ],
   "checks": [
-   "Wiggle the power feed to the engine computer wiring with the engine running while watching live data",
+   "Wiggle the wiring for the power supply circuit to the engine computer with the engine running while watching live data",
    "Check connector pins for corrosion or spread terminals",
    "Note when it happens (hot, cold, bumps) to narrow it down"
   ],
-  "fix": "Repair the loose or corroded connection; replace the power feed to the engine computer if the wiring is solid.",
+  "fix": "Fix the battery, cable or wiring fault first; replace the power relay or fuse if bad. The engine computer itself is rarely the cause.",
   "guide": "check-engine-light-on",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -487,7 +487,11 @@
   ],
   "causes": [
    {
-    "name": "Unplugged, loose or corroded connector at the engine oil level sensor",
+    "name": "Oil level actually too low or too high",
+    "how": "common"
+   },
+   {
+    "name": "Unplugged, loose or corroded connector at the oil level sensor",
     "how": "common"
    },
    {
@@ -495,25 +499,21 @@
     "how": "common"
    },
    {
-    "name": "Failed engine oil level sensor",
+    "name": "Failed oil level sensor",
     "how": "common"
    },
    {
     "name": "Missing reference voltage or ground from the computer",
     "how": "possible"
-   },
-   {
-    "name": "Control module fault (rare)",
-    "how": "possible"
    }
   ],
   "checks": [
    "Check the oil level with the dipstick (if equipped) before driving",
-   "Look over the engine oil level sensor connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the engine oil level sensor, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the engine oil level sensor.",
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the oil level sensor.",
   "guide": "burning-oil-low-oil-level",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -532,7 +532,11 @@
   ],
   "causes": [
    {
-    "name": "Failing or sticking engine oil level sensor",
+    "name": "Oil level actually too low or too high",
+    "how": "common"
+   },
+   {
+    "name": "Failing or sticking oil level sensor",
     "how": "common"
    },
    {
@@ -554,7 +558,7 @@
    "Compare the engine oil level sensor reading with expected values in live data",
    "Inspect the wiring and connector"
   ],
-  "fix": "Find out whether the engine oil level sensor itself or the system it works with is at fault, then repair or replace as needed.",
+  "fix": "Find out whether the oil level sensor itself or the system it works with is at fault, then repair or replace as needed.",
   "guide": "burning-oil-low-oil-level",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -573,11 +577,15 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the engine oil level sensor shorted to ground or open",
+    "name": "Oil level actually too low or too high",
     "how": "common"
    },
    {
-    "name": "Failed engine oil level sensor",
+    "name": "Signal wire in the engine oil level sensor shorted to ground or open",
+    "how": "common"
+   },
+   {
+    "name": "Failed oil level sensor",
     "how": "common"
    },
    {
@@ -591,11 +599,11 @@
   ],
   "checks": [
    "Check the oil level with the dipstick (if equipped) before driving",
-   "Inspect the engine oil level sensor wiring for rubbed-through insulation touching metal",
-   "Unplug the engine oil level sensor and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the engine oil level sensor for rubbed-through insulation touching metal",
+   "Unplug the oil level sensor and see if the reading changes",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the engine oil level sensor.",
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the oil level sensor.",
   "guide": "burning-oil-low-oil-level",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -614,11 +622,15 @@
   ],
   "causes": [
    {
+    "name": "Oil level actually too low or too high",
+    "how": "common"
+   },
+   {
     "name": "Signal wire shorted to voltage or a broken ground wire",
     "how": "common"
    },
    {
-    "name": "Failed engine oil level sensor",
+    "name": "Failed oil level sensor",
     "how": "common"
    },
    {
@@ -632,11 +644,11 @@
   ],
   "checks": [
    "Check the oil level with the dipstick (if equipped) before driving",
-   "Inspect the engine oil level sensor wiring and ground connection",
+   "Inspect the wiring and ground connection for the engine oil level sensor",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the engine oil level sensor.",
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the oil level sensor.",
   "guide": "burning-oil-low-oil-level",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -655,11 +667,15 @@
   ],
   "causes": [
    {
+    "name": "Oil level actually too low or too high",
+    "how": "common"
+   },
+   {
     "name": "Loose connector or chafed wire that loses contact over bumps",
     "how": "common"
    },
    {
-    "name": "Engine oil level sensor failing on and off",
+    "name": "Oil level sensor failing on and off",
     "how": "common"
    },
    {
@@ -673,11 +689,11 @@
   ],
   "checks": [
    "Check the oil level with the dipstick (if equipped) before driving",
-   "Wiggle the engine oil level sensor wiring with the engine running while watching live data",
+   "Wiggle the wiring for the engine oil level sensor with the engine running while watching live data",
    "Check connector pins for corrosion or spread terminals",
    "Note when it happens (hot, cold, bumps) to narrow it down"
   ],
-  "fix": "Repair the loose or corroded connection; replace the engine oil level sensor if the wiring is solid.",
+  "fix": "Repair the loose or corroded connection; replace the oil level sensor if the wiring is solid.",
   "guide": "burning-oil-low-oil-level",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -738,7 +754,7 @@
   ],
   "causes": [
    {
-    "name": "Failing or sticking engine computer power relay sense circuit",
+    "name": "Failing or sticking engine computer power relay",
     "how": "common"
    },
    {
@@ -759,7 +775,7 @@
    "Compare the engine computer power relay sense circuit reading with expected values in live data",
    "Inspect the wiring and connector"
   ],
-  "fix": "Find out whether the engine computer power relay sense circuit itself or the system it works with is at fault, then repair or replace as needed.",
+  "fix": "Find out whether the engine computer power relay itself or the system it works with is at fault, then repair or replace as needed.",
   "guide": "car-wont-start",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -783,7 +799,7 @@
     "how": "common"
    },
    {
-    "name": "Engine computer power relay sense circuit failing on and off",
+    "name": "Engine computer power relay failing on and off",
     "how": "common"
    },
    {
@@ -796,11 +812,11 @@
    }
   ],
   "checks": [
-   "Wiggle the engine computer power relay sense circuit wiring with the engine running while watching live data",
+   "Wiggle the wiring for the engine computer power relay sense circuit with the engine running while watching live data",
    "Check connector pins for corrosion or spread terminals",
    "Note when it happens (hot, cold, bumps) to narrow it down"
   ],
-  "fix": "Repair the loose or corroded connection; replace the engine computer power relay sense circuit if the wiring is solid.",
+  "fix": "Repair the loose or corroded connection; replace the engine computer power relay if the wiring is solid.",
   "guide": "car-wont-start",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -819,32 +835,28 @@
   ],
   "causes": [
    {
-    "name": "Unplugged, loose or corroded connector at the event data recorder request circuit",
+    "name": "Wiring or connector fault between the modules",
     "how": "common"
    },
    {
-    "name": "Broken or chafed wire in the event data recorder request circuit circuit",
+    "name": "Loose or corroded connector",
     "how": "common"
    },
    {
-    "name": "Failed event data recorder request circuit",
-    "how": "common"
-   },
-   {
-    "name": "Missing reference voltage or ground from the computer",
+    "name": "Airbag or crash data module fault",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Engine computer fault (rare)",
     "how": "possible"
    }
   ],
   "checks": [
-   "Look over the event data recorder request circuit connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the event data recorder request circuit, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the event data recorder request circuit.",
+  "fix": "Repair the wiring or connector between the modules; module replacement is rarely needed.",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
    "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
@@ -863,28 +875,28 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the event data recorder request circuit shorted to ground or open",
+    "name": "Wiring or connector fault between the modules",
     "how": "common"
    },
    {
-    "name": "Failed event data recorder request circuit",
+    "name": "Loose or corroded connector",
     "how": "common"
    },
    {
-    "name": "Corroded or loose connector",
+    "name": "Airbag or crash data module fault",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Engine computer fault (rare)",
     "how": "possible"
    }
   ],
   "checks": [
-   "Inspect the event data recorder request circuit wiring for rubbed-through insulation touching metal",
-   "Unplug the event data recorder request circuit and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the event data recorder request circuit for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the event data recorder request circuit.",
+  "fix": "Repair the wiring or connector between the modules; module replacement is rarely needed.",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
   ]
@@ -902,28 +914,28 @@
   ],
   "causes": [
    {
-    "name": "Signal wire shorted to voltage or a broken ground wire",
+    "name": "Wiring or connector fault between the modules",
     "how": "common"
    },
    {
-    "name": "Failed event data recorder request circuit",
+    "name": "Loose or corroded connector",
     "how": "common"
    },
    {
-    "name": "Corroded or loose connector",
+    "name": "Airbag or crash data module fault",
     "how": "possible"
    },
    {
-    "name": "Control module fault (rare)",
+    "name": "Engine computer fault (rare)",
     "how": "possible"
    }
   ],
   "checks": [
-   "Inspect the event data recorder request circuit wiring and ground connection",
+   "Inspect the wiring and ground connection for the event data recorder request circuit",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the event data recorder request circuit.",
+  "fix": "Repair the wiring or connector between the modules; module replacement is rarely needed.",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
   ]
@@ -963,7 +975,7 @@
    }
   ],
   "checks": [
-   "Look over the second A/C refrigerant pressure sensor connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the second A/C refrigerant pressure sensor, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
@@ -1028,7 +1040,7 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the second A/C refrigerant pressure sensor shorted to ground or open",
+    "name": "Signal wire in the second A/C refrigerant pressure sensor shorted to ground or open",
     "how": "common"
    },
    {
@@ -1045,9 +1057,9 @@
    }
   ],
   "checks": [
-   "Inspect the second A/C refrigerant pressure sensor wiring for rubbed-through insulation touching metal",
+   "Inspect the wiring in the second A/C refrigerant pressure sensor for rubbed-through insulation touching metal",
    "Unplug the second A/C refrigerant pressure sensor and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Clear the code and see if it returns right away"
   ],
   "fix": "Fix any shorted wiring first; if the wiring tests good, replace the second A/C refrigerant pressure sensor.",
   "guide": "ac-blowing-warm-air",
@@ -1086,7 +1098,7 @@
    }
   ],
   "checks": [
-   "Inspect the second A/C refrigerant pressure sensor wiring and ground connection",
+   "Inspect the wiring and ground connection for the second A/C refrigerant pressure sensor",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
@@ -1110,15 +1122,15 @@
   ],
   "causes": [
    {
-    "name": "Unplugged, loose or corroded connector at the A/C request signal",
+    "name": "Unplugged, loose or corroded connector at the climate control switch or module",
     "how": "common"
    },
    {
-    "name": "Broken or chafed wire in the A/C request signal circuit",
+    "name": "Broken or chafed wire in the A/C request signal",
     "how": "common"
    },
    {
-    "name": "Failed A/C request signal",
+    "name": "Failed climate control switch or module",
     "how": "common"
    },
    {
@@ -1131,11 +1143,11 @@
    }
   ],
   "checks": [
-   "Look over the A/C request signal connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the A/C request signal, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the A/C request signal.",
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the climate control switch or module.",
   "guide": "ac-blowing-warm-air",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -1155,11 +1167,11 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the A/C request signal shorted to ground or open",
+    "name": "Signal wire in the A/C request signal shorted to ground or open",
     "how": "common"
    },
    {
-    "name": "Failed A/C request signal",
+    "name": "Failed climate control switch or module",
     "how": "common"
    },
    {
@@ -1172,11 +1184,11 @@
    }
   ],
   "checks": [
-   "Inspect the A/C request signal wiring for rubbed-through insulation touching metal",
-   "Unplug the A/C request signal and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the A/C request signal for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the A/C request signal.",
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the climate control switch or module.",
   "guide": "ac-blowing-warm-air",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -1200,7 +1212,7 @@
     "how": "common"
    },
    {
-    "name": "Failed A/C request signal",
+    "name": "Failed climate control switch or module",
     "how": "common"
    },
    {
@@ -1213,11 +1225,11 @@
    }
   ],
   "checks": [
-   "Inspect the A/C request signal wiring and ground connection",
+   "Inspect the wiring and ground connection for the A/C request signal",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the A/C request signal.",
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the climate control switch or module.",
   "guide": "ac-blowing-warm-air",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -1237,15 +1249,15 @@
   ],
   "causes": [
    {
-    "name": "Unplugged, loose or corroded connector at the A/C request signal",
+    "name": "Unplugged, loose or corroded connector at the climate control switch or module",
     "how": "common"
    },
    {
-    "name": "Broken or chafed wire in the A/C request signal circuit",
+    "name": "Broken or chafed wire in the A/C request signal",
     "how": "common"
    },
    {
-    "name": "Failed A/C request signal",
+    "name": "Failed climate control switch or module",
     "how": "common"
    },
    {
@@ -1258,11 +1270,11 @@
    }
   ],
   "checks": [
-   "Look over the A/C request signal connector and wiring for damage, corrosion or a loose fit",
+   "Look over the connector and wiring for the A/C request signal, checking for damage, corrosion or a loose fit",
    "Check power, ground and signal with a meter",
    "Clear the code and see if it comes back"
   ],
-  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the A/C request signal.",
+  "fix": "Repair the wiring or connector if it is damaged; otherwise replace the climate control switch or module.",
   "guide": "ac-blowing-warm-air",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -1282,11 +1294,11 @@
   ],
   "causes": [
    {
-    "name": "Signal wire to the A/C request signal shorted to ground or open",
+    "name": "Signal wire in the A/C request signal shorted to ground or open",
     "how": "common"
    },
    {
-    "name": "Failed A/C request signal",
+    "name": "Failed climate control switch or module",
     "how": "common"
    },
    {
@@ -1299,11 +1311,11 @@
    }
   ],
   "checks": [
-   "Inspect the A/C request signal wiring for rubbed-through insulation touching metal",
-   "Unplug the A/C request signal and see if the reading changes",
-   "Check the circuit with a meter before replacing parts"
+   "Inspect the wiring in the A/C request signal for rubbed-through insulation touching metal",
+   "Check the wiring for a short to ground with a meter",
+   "Clear the code and see if it returns right away"
   ],
-  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the A/C request signal.",
+  "fix": "Fix any shorted wiring first; if the wiring tests good, replace the climate control switch or module.",
   "guide": "ac-blowing-warm-air",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
@@ -1327,7 +1339,7 @@
     "how": "common"
    },
    {
-    "name": "Failed A/C request signal",
+    "name": "Failed climate control switch or module",
     "how": "common"
    },
    {
@@ -1340,11 +1352,11 @@
    }
   ],
   "checks": [
-   "Inspect the A/C request signal wiring and ground connection",
+   "Inspect the wiring and ground connection for the A/C request signal",
    "Check for wires melted or rubbed together in the harness",
    "Measure the circuit with a meter before replacing parts"
   ],
-  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the A/C request signal.",
+  "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the climate control switch or module.",
   "guide": "ac-blowing-warm-air",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
