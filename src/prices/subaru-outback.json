@@ -1,83 +1,544 @@
 {
-  "id": "subaru-outback",
-  "items": [
-    {"t":"Head gasket leaks","job":"Replace both head gaskets","parts":[200,500],"hours":[10,14],"recall":false,
-     "note":"Usually includes head machining and a timing belt kit. Cost rises a lot if the engine overheated.",
-     "src":["https://openlaborproject.com/portal/subaru/outback/2002/3.0l-h6/?tab=dtc","https://openlaborproject.com/portal/subaru/outback/2016/2.5l-h4/","https://repairpal.com/problem/subaru/outback/head-gasket-failure-840"]},
-    {"t":"AWD binding in tight turns (automatic)","job":"Replace AWD transfer clutch (duty C) solenoid","parts":[80,250],"hours":[4.0,7.0],"recall":false,
-     "note":"Match all four tires first. If the transfer clutch pack itself is worn, expect much more.",
-     "src":["https://openlaborproject.com/portal/subaru/outback/2002/3.0l-h6/?tab=dtc"]},
-    {"t":"Catalytic converter failure (P0420)","job":"Replace catalytic converter","parts":[200,1900],"hours":[1.0,2.0],"recall":false,
-     "note":"Low end is an aftermarket converter. States with strict emissions rules require costlier approved units.",
-     "src":["https://www.go-parts.com/garage/ps-2000-2004-subaru-outback-catalytic-converter","https://openlaborproject.com/portal/subaru/outback/2002/3.0l-h6/?tab=dtc"]},
-    {"t":"Brake lines can rust through (recall)","job":"Replace rusted rear brake lines and bleed brakes","parts":[60,200],"hours":[2.0,4.0],"recall":true,
-     "note":"Covered by a Subaru recall for affected years. Check your VIN or ask the dealer.",
-     "src":["https://www.yourmechanic.com/estimates/subaru/outback/brake-hose-replacement"]},
-    {"t":"Secondary air pump can stay on and overheat (recall)","job":"Replace secondary air pump and relay","parts":[150,500],"hours":[1.0,1.5],"recall":true,
-     "note":"Covered by a Subaru recall for affected cars. Check your VIN or ask the dealer.",
-     "src":["https://www.repairpal.com/cars/subaru/outback/2009"]},
-    {"t":"CVT cooler hose can crack and leak (recall)","job":"Replace CVT cooler hose and refill fluid","parts":[40,150],"hours":[1.5,3.0],"recall":true,
-     "note":"Covered by a Subaru recall. Check your VIN. If the CVT was run low on fluid, it may need replacing.",
-     "src":["https://openlaborproject.com/portal/subaru/legacy/2015/2.5l-h4/?tab=labor","https://openlaborproject.com/portal/subaru/outback/2016/2.5l-h4/"]},
-    {"t":"CVT shudder, jerking, or stalling","job":"Reprogram CVT computer and change CVT fluid","parts":[80,180],"hours":[1.2,2.0],"recall":true,
-     "note":"Subaru extended CVT coverage on many cars; ask the dealer with your VIN. A valve body or new CVT costs much more.",
-     "src":["https://openlaborproject.com/portal/subaru/outback/2021/2.5l-h4/","https://www.truedelta.com/subaru-outback/transmission-problems-253","https://getjerry.com/car-repair/subaru-transmission-repair-and-replacement-cost"]},
-    {"t":"Wiper motor cover can overheat and melt (recall)","job":"Replace front wiper motor","parts":[80,300],"hours":[0.8,1.5],"recall":true,
-     "note":"Covered by a Subaru recall for affected cars. Check your VIN or ask the dealer.",
-     "src":["https://www.yourmechanic.com/estimates/subaru/outback"]},
-    {"t":"Electronic parking brake may not hold (manual transmission, recall)","job":"Replace electronic parking brake actuator","parts":[250,750],"hours":[1.0,2.0],"recall":true,
-     "note":"Covered by a Subaru recall for affected cars. Check your VIN or ask the dealer.",
-     "src":["https://www.yourmechanic.com/estimates/subaru/outback/emergency-parking-brake-cable-replacement"]},
-    {"t":"Excessive oil consumption","job":"Replace engine short block","parts":[2000,3500],"hours":[12,16],"recall":true,
-     "note":"Subaru extended coverage after an oil use test; ask a dealer with your VIN. Many owners just top off the oil.",
-     "src":["https://openlaborproject.com/portal/subaru/outback/2016/2.5l-h4/","https://openlaborproject.com/portal/subaru/legacy/2015/2.5l-h4/?tab=labor","https://8020automotive.com/the-3-most-common-subaru-fb25-engine-problems/"]},
-    {"t":"Steering column shafts may separate (recall)","job":"Replace intermediate steering shaft","parts":[150,400],"hours":[1.0,2.0],"recall":true,
-     "note":"Covered by a Subaru recall. Check your VIN or ask the dealer.",
-     "src":["https://www.repairpal.com/subaru/outback"]},
-    {"t":"Battery drains while parked","job":"Replace battery and update module software","parts":[130,250],"hours":[0.5,1.5],"recall":true,
-     "note":"A class settlement covered some battery costs; ask a dealer. Finding a separate parasitic drain adds diagnosis time.",
-     "src":["https://repairpal.com/cars/subaru/outback/2018","https://www.repairpal.com/subaru/outback"]},
-    {"t":"Windshield cracks with no clear impact","job":"Replace windshield and recalibrate EyeSight cameras","parts":[300,900],"hours":[2.0,3.0],"recall":true,
-     "note":"A class settlement extended windshield coverage on some years; ask a dealer. Glass may be covered by insurance.",
-     "src":["https://www.torquenews.com/1084/real-cost-replace-your-new-subaru-windshield-eyesight-might-shock-you","https://openlaborproject.com/portal/subaru/outback/2021/2.5l-h4/"]},
-    {"t":"Touchscreen radio freezes or glitches","job":"Update head unit software","parts":[0,0],"hours":[0.5,1.0],"recall":false,
-     "note":"If the head unit itself must be replaced, expect much more.",
-     "src":["https://repairpal.com/cars/subaru/outback/2018"]},
-    {"t":"Transmission oil can leak onto exhaust (recall)","job":"Repair transmission oil leak and top up fluid","parts":[30,120],"hours":[1.0,2.5],"recall":true,
-     "note":"Covered by a Subaru recall for affected cars. Check your VIN or ask the dealer.",
-     "src":["https://openlaborproject.com/portal/subaru/outback/2016/2.5l-h4/"]},
-    {"t":"Steering column may be machined wrong (do-not-drive recall)","job":"Replace steering column","parts":[500,1200],"hours":[1.5,3.0],"recall":true,
-     "note":"Covered by a Subaru recall. Check your VIN right away or ask the dealer.",
-     "src":["https://www.repairpal.com/subaru/outback"]},
-    {"t":"Low-fuel warning light may not come on (recall)","job":"Reprogram instrument cluster software","parts":[0,0],"hours":[0.3,0.8],"recall":true,
-     "note":"Software fix done free under a Subaru recall. Check your VIN or ask the dealer.",
-     "src":["https://repairpal.com/cars/subaru/outback/2018"]},
-    {"t":"Low-pressure fuel pump may fail (recall)","job":"Replace in-tank fuel pump","parts":[200,600],"hours":[1.0,2.0],"recall":true,
-     "note":"Covered by the Denso fuel pump recall. Check your VIN or ask the dealer.",
-     "src":["https://www.yourmechanic.com/estimates/subaru/outback/fuel-pump-replacement","https://openlaborproject.com/portal/subaru/legacy/2015/2.5l-h4/?tab=labor"]},
-    {"t":"CVT drive chain can slip and break (recall)","job":"Reprogram CVT control software","parts":[0,0],"hours":[0.5,1.0],"recall":true,
-     "note":"Done under a Subaru recall; check your VIN. If the chain already failed, the CVT is replaced under the recall.",
-     "src":["https://openlaborproject.com/portal/subaru/outback/2021/2.5l-h4/"]},
-    {"t":"Brake pedal bracket bolt may be loose or missing (recall)","job":"Inspect and install brake pedal bracket bolt","parts":[0,20],"hours":[0.3,0.8],"recall":true,
-     "note":"Covered by a Subaru recall. Check your VIN or ask the dealer.",
-     "src":["https://www.repairpal.com/subaru/outback"]},
-    {"t":"Rearview camera image may drop out (recall)","job":"Reprogram rearview camera software","parts":[0,0],"hours":[0.5,1.0],"recall":true,
-     "note":"Covered by a Subaru recall; some cars get a new module. Check your VIN or ask the dealer.",
-     "src":["https://www.repairpal.com/subaru/outback"]},
-    {"t":"Thermo control valve fault","job":"Replace thermo control valve","parts":[300,490],"hours":[1.0,1.8],"recall":false,
-     "note":"Subaru released an updated valve. Ask the dealer if your car is still under powertrain warranty.",
-     "src":["https://parts.subaru.com/p/Subaru_2019_Crosstrek/Valve-Thermostat-Control/73271080/21319AA010.html","https://carcomplaints.com/Subaru/Outback/2020/tsbs/tsb-09-80-21.shtml"]},
-    {"t":"Passenger occupant sensor may shut off airbag (recall)","job":"Replace passenger seat occupant sensor","parts":[300,700],"hours":[1.5,3.0],"recall":true,
-     "note":"Covered by a Subaru recall. Check your VIN or ask the dealer.",
-     "src":["https://www.repairpal.com/subaru/outback"]},
-    {"t":"Large touchscreen freezes, blanks or reboots","job":"Update infotainment software","parts":[0,0],"hours":[0.5,1.0],"recall":false,
-     "note":"If the head unit itself must be replaced, expect much more.",
-     "src":["https://openlaborproject.com/portal/subaru/outback/2021/2.5l-h4/"]},
-    {"t":"Gear selector cable nut may loosen (recall)","job":"Inspect and tighten shift cable nut","parts":[0,20],"hours":[0.3,0.8],"recall":true,
-     "note":"Covered by a Subaru recall. Check your VIN or ask the dealer.",
-     "src":["https://www.repairpal.com/subaru/outback"]},
-    {"t":"Water in inhibitor switch disables reverse lights and camera (recall)","job":"Replace transmission range (inhibitor) switch","parts":[80,250],"hours":[1.0,2.0],"recall":true,
-     "note":"Covered by a Subaru recall. Check your VIN or ask the dealer.",
-     "src":["https://www.repairpal.com/subaru/outback"]}
-  ]
+ "id": "subaru-outback",
+ "items": [
+  {
+   "t": "Head gasket leaks",
+   "job": "Replace both head gaskets",
+   "parts": [
+    200,
+    500
+   ],
+   "hours": [
+    10,
+    14
+   ],
+   "recall": false,
+   "note": "Usually includes head machining and a timing belt kit. Cost rises a lot if the engine overheated.",
+   "src": [
+    "https://openlaborproject.com/portal/subaru/outback/2002/3.0l-h6/?tab=dtc",
+    "https://openlaborproject.com/portal/subaru/outback/2016/2.5l-h4/",
+    "https://repairpal.com/problem/subaru/outback/head-gasket-failure-840"
+   ]
+  },
+  {
+   "t": "AWD binding in tight turns (automatic)",
+   "job": "Replace AWD transfer clutch (duty C) solenoid",
+   "parts": [
+    80,
+    250
+   ],
+   "hours": [
+    4,
+    7
+   ],
+   "recall": false,
+   "note": "Match all four tires first. If the transfer clutch pack itself is worn, expect much more.",
+   "src": [
+    "https://openlaborproject.com/portal/subaru/outback/2002/3.0l-h6/?tab=dtc"
+   ]
+  },
+  {
+   "t": "Catalytic converter failure (P0420)",
+   "job": "Replace catalytic converter",
+   "parts": [
+    200,
+    1900
+   ],
+   "hours": [
+    1,
+    2
+   ],
+   "recall": false,
+   "note": "Low end is an aftermarket converter. States with strict emissions rules require costlier approved units.",
+   "src": [
+    "https://www.go-parts.com/garage/ps-2000-2004-subaru-outback-catalytic-converter",
+    "https://openlaborproject.com/portal/subaru/outback/2002/3.0l-h6/?tab=dtc"
+   ]
+  },
+  {
+   "t": "Brake lines can rust through (recall)",
+   "job": "Replace rusted rear brake lines and bleed brakes",
+   "parts": [
+    60,
+    200
+   ],
+   "hours": [
+    2,
+    4
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall for affected years. Check your VIN or ask the dealer.",
+   "src": [
+    "https://www.yourmechanic.com/estimates/subaru/outback/brake-hose-replacement"
+   ]
+  },
+  {
+   "t": "Secondary air pump can stay on and overheat (recall)",
+   "job": "Replace secondary air pump and relay",
+   "parts": [
+    150,
+    500
+   ],
+   "hours": [
+    1,
+    1.5
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall for affected cars. Check your VIN or ask the dealer.",
+   "src": [
+    "https://www.repairpal.com/cars/subaru/outback/2009"
+   ]
+  },
+  {
+   "t": "CVT cooler hose can crack and leak (recall)",
+   "job": "Replace CVT cooler hose and refill fluid",
+   "parts": [
+    40,
+    150
+   ],
+   "hours": [
+    1.5,
+    3
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall. Check your VIN. If the CVT was run low on fluid, it may need replacing.",
+   "src": [
+    "https://openlaborproject.com/portal/subaru/legacy/2015/2.5l-h4/?tab=labor",
+    "https://openlaborproject.com/portal/subaru/outback/2016/2.5l-h4/"
+   ]
+  },
+  {
+   "t": "CVT shudder, jerking, or stalling",
+   "job": "Reprogram CVT computer and change CVT fluid",
+   "parts": [
+    80,
+    180
+   ],
+   "hours": [
+    1.2,
+    2
+   ],
+   "recall": true,
+   "note": "Subaru extended CVT coverage on many cars; ask the dealer with your VIN. A valve body or new CVT costs much more.",
+   "src": [
+    "https://openlaborproject.com/portal/subaru/outback/2021/2.5l-h4/",
+    "https://www.truedelta.com/subaru-outback/transmission-problems-253",
+    "https://getjerry.com/car-repair/subaru-transmission-repair-and-replacement-cost"
+   ]
+  },
+  {
+   "t": "Wiper motor cover can overheat and melt (recall)",
+   "job": "Replace front wiper motor",
+   "parts": [
+    80,
+    300
+   ],
+   "hours": [
+    0.8,
+    1.5
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall for affected cars. Check your VIN or ask the dealer.",
+   "src": [
+    "https://www.yourmechanic.com/estimates/subaru/outback"
+   ]
+  },
+  {
+   "t": "Electronic parking brake may not hold (manual transmission, recall)",
+   "job": "Replace electronic parking brake actuator",
+   "parts": [
+    250,
+    750
+   ],
+   "hours": [
+    1,
+    2
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall for affected cars. Check your VIN or ask the dealer.",
+   "src": [
+    "https://www.yourmechanic.com/estimates/subaru/outback/emergency-parking-brake-cable-replacement"
+   ]
+  },
+  {
+   "t": "Excessive oil consumption",
+   "job": "Replace engine short block",
+   "parts": [
+    2000,
+    3500
+   ],
+   "hours": [
+    12,
+    16
+   ],
+   "recall": true,
+   "note": "Subaru extended coverage after an oil use test; ask a dealer with your VIN. Many owners just top off the oil.",
+   "src": [
+    "https://openlaborproject.com/portal/subaru/outback/2016/2.5l-h4/",
+    "https://openlaborproject.com/portal/subaru/legacy/2015/2.5l-h4/?tab=labor",
+    "https://8020automotive.com/the-3-most-common-subaru-fb25-engine-problems/"
+   ]
+  },
+  {
+   "t": "Steering column shafts may separate (recall)",
+   "job": "Replace intermediate steering shaft",
+   "parts": [
+    150,
+    400
+   ],
+   "hours": [
+    1,
+    2
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall. Check your VIN or ask the dealer.",
+   "src": [
+    "https://www.repairpal.com/subaru/outback"
+   ]
+  },
+  {
+   "t": "Battery drains while parked",
+   "job": "Replace battery and update module software",
+   "parts": [
+    130,
+    250
+   ],
+   "hours": [
+    0.5,
+    1.5
+   ],
+   "recall": true,
+   "note": "A class settlement covered some battery costs; ask a dealer. Finding a separate parasitic drain adds diagnosis time.",
+   "src": [
+    "https://repairpal.com/cars/subaru/outback/2018",
+    "https://www.repairpal.com/subaru/outback"
+   ]
+  },
+  {
+   "t": "Windshield cracks with no clear impact",
+   "job": "Replace windshield and recalibrate EyeSight cameras",
+   "parts": [
+    300,
+    900
+   ],
+   "hours": [
+    2,
+    3
+   ],
+   "recall": true,
+   "note": "A class settlement extended windshield coverage on some years; ask a dealer. Glass may be covered by insurance.",
+   "src": [
+    "https://www.torquenews.com/1084/real-cost-replace-your-new-subaru-windshield-eyesight-might-shock-you",
+    "https://openlaborproject.com/portal/subaru/outback/2021/2.5l-h4/"
+   ]
+  },
+  {
+   "t": "Touchscreen radio freezes or glitches",
+   "job": "Update head unit software",
+   "parts": [
+    0,
+    0
+   ],
+   "hours": [
+    0.5,
+    1
+   ],
+   "recall": false,
+   "note": "If the head unit itself must be replaced, expect much more.",
+   "src": [
+    "https://repairpal.com/cars/subaru/outback/2018"
+   ]
+  },
+  {
+   "t": "Transmission oil can leak onto exhaust (recall)",
+   "job": "Repair transmission oil leak and top up fluid",
+   "parts": [
+    30,
+    120
+   ],
+   "hours": [
+    1,
+    2.5
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall for affected cars. Check your VIN or ask the dealer.",
+   "src": [
+    "https://openlaborproject.com/portal/subaru/outback/2016/2.5l-h4/"
+   ]
+  },
+  {
+   "t": "Steering column may be machined wrong (do-not-drive recall)",
+   "job": "Replace steering column",
+   "parts": [
+    500,
+    1200
+   ],
+   "hours": [
+    1.5,
+    3
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall. Check your VIN right away or ask the dealer.",
+   "src": [
+    "https://www.repairpal.com/subaru/outback"
+   ]
+  },
+  {
+   "t": "Low-fuel warning light may not come on (recall)",
+   "job": "Reprogram instrument cluster software",
+   "parts": [
+    0,
+    0
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ],
+   "recall": true,
+   "note": "Software fix done free under a Subaru recall. Check your VIN or ask the dealer.",
+   "src": [
+    "https://repairpal.com/cars/subaru/outback/2018"
+   ]
+  },
+  {
+   "t": "Low-pressure fuel pump may fail (recall)",
+   "job": "Replace in-tank fuel pump",
+   "parts": [
+    200,
+    600
+   ],
+   "hours": [
+    1,
+    2
+   ],
+   "recall": true,
+   "note": "Covered by the Denso fuel pump recall. Check your VIN or ask the dealer.",
+   "src": [
+    "https://www.yourmechanic.com/estimates/subaru/outback/fuel-pump-replacement",
+    "https://openlaborproject.com/portal/subaru/legacy/2015/2.5l-h4/?tab=labor"
+   ]
+  },
+  {
+   "t": "CVT drive chain can slip and break (recall)",
+   "job": "Reprogram CVT control software",
+   "parts": [
+    0,
+    0
+   ],
+   "hours": [
+    0.5,
+    1
+   ],
+   "recall": true,
+   "note": "Done under a Subaru recall; check your VIN. If the chain already failed, the CVT is replaced under the recall.",
+   "src": [
+    "https://openlaborproject.com/portal/subaru/outback/2021/2.5l-h4/"
+   ]
+  },
+  {
+   "t": "Brake pedal bracket bolt may be loose or missing (recall)",
+   "job": "Inspect and install brake pedal bracket bolt",
+   "parts": [
+    0,
+    20
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall. Check your VIN or ask the dealer.",
+   "src": [
+    "https://www.repairpal.com/subaru/outback"
+   ]
+  },
+  {
+   "t": "Rearview camera image may drop out (recall)",
+   "job": "Reprogram rearview camera software",
+   "parts": [
+    0,
+    0
+   ],
+   "hours": [
+    0.5,
+    1
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall; some cars get a new module. Check your VIN or ask the dealer.",
+   "src": [
+    "https://www.repairpal.com/subaru/outback"
+   ]
+  },
+  {
+   "t": "Thermo control valve fault",
+   "job": "Replace thermo control valve",
+   "parts": [
+    300,
+    490
+   ],
+   "hours": [
+    1,
+    1.8
+   ],
+   "recall": false,
+   "note": "Subaru released an updated valve. Ask the dealer if your car is still under powertrain warranty.",
+   "src": [
+    "https://parts.subaru.com/p/Subaru_2019_Crosstrek/Valve-Thermostat-Control/73271080/21319AA010.html",
+    "https://carcomplaints.com/Subaru/Outback/2020/tsbs/tsb-09-80-21.shtml"
+   ]
+  },
+  {
+   "t": "Passenger occupant sensor may shut off airbag (recall)",
+   "job": "Replace passenger seat occupant sensor",
+   "parts": [
+    300,
+    700
+   ],
+   "hours": [
+    1.5,
+    3
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall. Check your VIN or ask the dealer.",
+   "src": [
+    "https://www.repairpal.com/subaru/outback"
+   ]
+  },
+  {
+   "t": "Large touchscreen freezes, blanks or reboots",
+   "job": "Update infotainment software",
+   "parts": [
+    0,
+    0
+   ],
+   "hours": [
+    0.5,
+    1
+   ],
+   "recall": false,
+   "note": "If the head unit itself must be replaced, expect much more.",
+   "src": [
+    "https://openlaborproject.com/portal/subaru/outback/2021/2.5l-h4/"
+   ]
+  },
+  {
+   "t": "Gear selector cable nut may loosen (recall)",
+   "job": "Inspect and tighten shift cable nut",
+   "parts": [
+    0,
+    20
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall. Check your VIN or ask the dealer.",
+   "src": [
+    "https://www.repairpal.com/subaru/outback"
+   ]
+  },
+  {
+   "t": "Water in inhibitor switch disables reverse lights and camera (recall)",
+   "job": "Replace transmission range (inhibitor) switch",
+   "parts": [
+    80,
+    250
+   ],
+   "hours": [
+    1,
+    2
+   ],
+   "recall": true,
+   "note": "Covered by a Subaru recall. Check your VIN or ask the dealer.",
+   "src": [
+    "https://www.repairpal.com/subaru/outback"
+   ]
+  },
+  {
+   "t": "Front coil spring can rust through and break (recall)",
+   "job": "Replace front coil spring and fit spring guards",
+   "parts": [
+    120,
+    420
+   ],
+   "hours": [
+    1.5,
+    3.5
+   ],
+   "recall": true,
+   "note": "Free under recall 01V-216. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/subaru/outback"
+   ]
+  },
+  {
+   "t": "Front suspension bracket welds can crack (recall)",
+   "job": "Inspect and replace front suspension support brackets",
+   "parts": [
+    80,
+    350
+   ],
+   "hours": [
+    1.5,
+    4
+   ],
+   "recall": true,
+   "note": "Free under recall 98V-091. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/subaru/outback"
+   ]
+  },
+  {
+   "t": "Shift lever can break or let the car move unexpectedly (recall)",
+   "job": "Replace automatic transmission shift lever assembly",
+   "parts": [
+    100,
+    360
+   ],
+   "hours": [
+    1,
+    2.5
+   ],
+   "recall": true,
+   "note": "Free under recall 98V-042. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/subaru/outback"
+   ]
+  },
+  {
+   "t": "Throttle may not return fully (recall)",
+   "job": "Inspect and replace throttle body assembly",
+   "parts": [
+    150,
+    520
+   ],
+   "hours": [
+    1,
+    2.5
+   ],
+   "recall": true,
+   "note": "Free under recall 98V-035. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/subaru/outback"
+   ]
+  },
+  {
+   "t": "Driveshaft center support bolts can loosen (recall)",
+   "job": "Clean driveshaft support surfaces and fit new bolts",
+   "parts": [
+    30,
+    160
+   ],
+   "hours": [
+    1,
+    2.5
+   ],
+   "recall": true,
+   "note": "Free under recall 23V-647. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/subaru/outback"
+   ]
+  }
+ ]
 }
