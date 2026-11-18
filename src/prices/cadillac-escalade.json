@@ -1,17 +1,525 @@
 {
-  "id": "cadillac-escalade",
-  "items": [
-    {"t":"ABS light from a failing brake control module","job":"Replace or rebuild ABS electronic brake control module (EBCM)","parts":[150,700],"hours":[1.0,1.8],"recall":false,"note":"Mail-in rebuilt modules cost less than a new one. Includes setup programming at most shops.","src":["https://repairpal.com/estimator/cadillac/escalade/2005/anti-lock-brake-system-inspect-cost","https://repairpal.com/estimator/cadillac/escalade/2003/anti-lock-brake-system-inspect-cost"]},
-    {"t":"Gauge needles sticking or reading wrong","job":"Rebuild instrument cluster (replace gauge stepper motors)","parts":[150,450],"hours":[0.6,1.5],"recall":false,"note":"Mail-in rebuild services are the usual fix and cost less than a new cluster. Expect a few days of downtime.","src":["https://openlaborproject.com/portal/cadillac/escalade/2006/5.3l-v8/","https://www.finditparts.com/products/7063225/dorman-10-0200f"]},
-    {"t":"Ignition lock can bind (recall)","job":"Replace ignition lock housing","parts":[50,200],"hours":[1.0,2.0],"recall":true,"note":"Free under GM's ignition lock recall. Check your VIN or ask a Cadillac dealer.","src":["https://www.truedelta.com/Cadillac-Escalade-recalls-40","https://www.carwhere.com/cadillac/known-issues/escalade"]},
-    {"t":"Cylinder deactivation lifter failure","job":"Replace AFM/DFM lifters and camshaft","parts":[600,1500],"hours":[14.0,20.0],"recall":false,"note":"Caught early, some shops replace only the failed bank's lifters. If the engine is badly damaged, a replacement engine costs much more.","src":["https://thetoolstrunk.com/6-2l-lifter-failure/","https://openlaborproject.com/portal/cadillac/escalade/2016/6.2l-v8/"]},
-    {"t":"Shudder from the 8-speed automatic","job":"Full transmission fluid exchange with updated ATF (per bulletin)","parts":[80,180],"hours":[1.0,1.8],"recall":false,"note":"If the fluid exchange does not cure it, a torque converter replacement costs much more.","src":["https://www.carwhere.com/cadillac/known-issues/escalade","https://openlaborproject.com/portal/cadillac/escalade/2016/6.2l-v8/"]},
-    {"t":"Magnetic Ride shocks leaking","job":"Replace leaking Magnetic Ride shock","parts":[300,900],"hours":[0.8,1.5],"recall":false,"note":"Price is per shock. GM's bulletin says to replace only the failed shock, not pairs.","src":["https://www.carwhere.com/cadillac/known-issues/escalade","https://repairpal.com/cars/cadillac/escalade/2009"]},
-    {"t":"A/C condenser leaking refrigerant","job":"Replace A/C condenser, evacuate and recharge","parts":[150,600],"hours":[1.5,2.5],"recall":true,"note":"GM special coverage covers some VINs for 6 years or 72,000 miles. Check your VIN with a dealer first.","src":["https://www.carwhere.com/cadillac/known-issues/escalade","https://repairpal.com/cars/cadillac/escalade/2009"]},
-    {"t":"Reduced brake assist from vacuum pump (recall)","job":"Replace engine vacuum pump and update brake module software","parts":[150,450],"hours":[1.5,2.5],"recall":true,"note":"The recall reprograms the brake module for free. Check your VIN. A failed pump may still need replacing.","src":["https://repairpal.com/cadillac/escalade/2015/recalls","https://openlaborproject.com/portal/cadillac/escalade/2016/6.2l-v8/"]},
-    {"t":"6.2L rod and crankshaft defect (recall)","job":"Replace engine (6.2L V8) after failed recall inspection","parts":[9000,14000],"hours":[14.0,20.0],"recall":true,"note":"Free under GM's L87 recall. Engines that pass inspection get an oil change and new oil only. Check your VIN.","src":["https://www.carwhere.com/cadillac/known-issues/escalade","https://carcomplaints.com/Cadillac/Escalade/2021/recalls"]},
-    {"t":"Center screen going black","job":"Reset and reprogram video processing module","parts":[0,0],"hours":[0.5,1.0],"recall":false,"note":"Usually a software fix per GM bulletin. If the module itself has failed, replacing it costs more.","src":["https://www.carwhere.com/cadillac/known-issues/escalade"]},
-    {"t":"Rear wheels can lock up (recall)","job":"Reprogram transmission control software","parts":[0,0],"hours":[0.3,0.8],"recall":true,"note":"Free software update under GM's recall. Check your VIN or ask a Cadillac dealer.","src":["https://www.carwhere.com/cadillac/known-issues/escalade","https://carcomplaints.com/Cadillac/Escalade/2021/recalls"]},
-    {"t":"Transfer case missing part (do-not-drive recall)","job":"Inspect transfer case and replace it if needed","parts":[1800,4000],"hours":[3.0,5.0],"recall":true,"note":"Free under GM's do-not-drive recall. Check your VIN and have it towed to the dealer.","src":["https://www.carwhere.com/cadillac/known-issues/escalade"]}
-  ]
+ "id": "cadillac-escalade",
+ "items": [
+  {
+   "t": "ABS light from a failing brake control module",
+   "job": "Replace or rebuild ABS electronic brake control module (EBCM)",
+   "parts": [
+    150,
+    700
+   ],
+   "hours": [
+    1,
+    1.8
+   ],
+   "recall": false,
+   "note": "Mail-in rebuilt modules cost less than a new one. Includes setup programming at most shops.",
+   "src": [
+    "https://repairpal.com/estimator/cadillac/escalade/2005/anti-lock-brake-system-inspect-cost",
+    "https://repairpal.com/estimator/cadillac/escalade/2003/anti-lock-brake-system-inspect-cost"
+   ]
+  },
+  {
+   "t": "Gauge needles sticking or reading wrong",
+   "job": "Rebuild instrument cluster (replace gauge stepper motors)",
+   "parts": [
+    150,
+    450
+   ],
+   "hours": [
+    0.6,
+    1.5
+   ],
+   "recall": false,
+   "note": "Mail-in rebuild services are the usual fix and cost less than a new cluster. Expect a few days of downtime.",
+   "src": [
+    "https://openlaborproject.com/portal/cadillac/escalade/2006/5.3l-v8/",
+    "https://www.finditparts.com/products/7063225/dorman-10-0200f"
+   ]
+  },
+  {
+   "t": "Ignition lock can bind (recall)",
+   "job": "Replace ignition lock housing",
+   "parts": [
+    50,
+    200
+   ],
+   "hours": [
+    1,
+    2
+   ],
+   "recall": true,
+   "note": "Free under GM's ignition lock recall. Check your VIN or ask a Cadillac dealer.",
+   "src": [
+    "https://www.truedelta.com/Cadillac-Escalade-recalls-40",
+    "https://www.carwhere.com/cadillac/known-issues/escalade"
+   ]
+  },
+  {
+   "t": "Cylinder deactivation lifter failure",
+   "job": "Replace AFM/DFM lifters and camshaft",
+   "parts": [
+    600,
+    1500
+   ],
+   "hours": [
+    14,
+    20
+   ],
+   "recall": false,
+   "note": "Caught early, some shops replace only the failed bank's lifters. If the engine is badly damaged, a replacement engine costs much more.",
+   "src": [
+    "https://thetoolstrunk.com/6-2l-lifter-failure/",
+    "https://openlaborproject.com/portal/cadillac/escalade/2016/6.2l-v8/"
+   ]
+  },
+  {
+   "t": "Shudder from the 8-speed automatic",
+   "job": "Full transmission fluid exchange with updated ATF (per bulletin)",
+   "parts": [
+    80,
+    180
+   ],
+   "hours": [
+    1,
+    1.8
+   ],
+   "recall": false,
+   "note": "If the fluid exchange does not cure it, a torque converter replacement costs much more.",
+   "src": [
+    "https://www.carwhere.com/cadillac/known-issues/escalade",
+    "https://openlaborproject.com/portal/cadillac/escalade/2016/6.2l-v8/"
+   ]
+  },
+  {
+   "t": "Magnetic Ride shocks leaking",
+   "job": "Replace leaking Magnetic Ride shock",
+   "parts": [
+    300,
+    900
+   ],
+   "hours": [
+    0.8,
+    1.5
+   ],
+   "recall": false,
+   "note": "Price is per shock. GM's bulletin says to replace only the failed shock, not pairs.",
+   "src": [
+    "https://www.carwhere.com/cadillac/known-issues/escalade",
+    "https://repairpal.com/cars/cadillac/escalade/2009"
+   ]
+  },
+  {
+   "t": "A/C condenser leaking refrigerant",
+   "job": "Replace A/C condenser, evacuate and recharge",
+   "parts": [
+    150,
+    600
+   ],
+   "hours": [
+    1.5,
+    2.5
+   ],
+   "recall": true,
+   "note": "GM special coverage covers some VINs for 6 years or 72,000 miles. Check your VIN with a dealer first.",
+   "src": [
+    "https://www.carwhere.com/cadillac/known-issues/escalade",
+    "https://repairpal.com/cars/cadillac/escalade/2009"
+   ]
+  },
+  {
+   "t": "Reduced brake assist from vacuum pump (recall)",
+   "job": "Replace engine vacuum pump and update brake module software",
+   "parts": [
+    150,
+    450
+   ],
+   "hours": [
+    1.5,
+    2.5
+   ],
+   "recall": true,
+   "note": "The recall reprograms the brake module for free. Check your VIN. A failed pump may still need replacing.",
+   "src": [
+    "https://repairpal.com/cadillac/escalade/2015/recalls",
+    "https://openlaborproject.com/portal/cadillac/escalade/2016/6.2l-v8/"
+   ]
+  },
+  {
+   "t": "6.2L rod and crankshaft defect (recall)",
+   "job": "Replace engine (6.2L V8) after failed recall inspection",
+   "parts": [
+    9000,
+    14000
+   ],
+   "hours": [
+    14,
+    20
+   ],
+   "recall": true,
+   "note": "Free under GM's L87 recall. Engines that pass inspection get an oil change and new oil only. Check your VIN.",
+   "src": [
+    "https://www.carwhere.com/cadillac/known-issues/escalade",
+    "https://carcomplaints.com/Cadillac/Escalade/2021/recalls"
+   ]
+  },
+  {
+   "t": "Center screen going black",
+   "job": "Reset and reprogram video processing module",
+   "parts": [
+    0,
+    0
+   ],
+   "hours": [
+    0.5,
+    1
+   ],
+   "recall": false,
+   "note": "Usually a software fix per GM bulletin. If the module itself has failed, replacing it costs more.",
+   "src": [
+    "https://www.carwhere.com/cadillac/known-issues/escalade"
+   ]
+  },
+  {
+   "t": "Rear wheels can lock up (recall)",
+   "job": "Reprogram transmission control software",
+   "parts": [
+    0,
+    0
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ],
+   "recall": true,
+   "note": "Free software update under GM's recall. Check your VIN or ask a Cadillac dealer.",
+   "src": [
+    "https://www.carwhere.com/cadillac/known-issues/escalade",
+    "https://carcomplaints.com/Cadillac/Escalade/2021/recalls"
+   ]
+  },
+  {
+   "t": "Transfer case missing part (do-not-drive recall)",
+   "job": "Inspect transfer case and replace it if needed",
+   "parts": [
+    1800,
+    4000
+   ],
+   "hours": [
+    3,
+    5
+   ],
+   "recall": true,
+   "note": "Free under GM's do-not-drive recall. Check your VIN and have it towed to the dealer.",
+   "src": [
+    "https://www.carwhere.com/cadillac/known-issues/escalade"
+   ]
+  },
+  {
+   "t": "Battery cable can rub on the steering shaft (recall)",
+   "job": "Secure and inspect battery cable",
+   "parts": [
+    5,
+    120
+   ],
+   "hours": [
+    0.3,
+    1
+   ],
+   "recall": true,
+   "note": "Free under recall 02V-224. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Steering and brake pedal suddenly get heavy (recall)",
+   "job": "Replace hydraulic brake booster (Hydro-Boost)",
+   "parts": [
+    150,
+    450
+   ],
+   "hours": [
+    1.5,
+    2.5
+   ],
+   "recall": true,
+   "note": "Free under recall 04V-045. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Power steering hose can split (recall)",
+   "job": "Replace power steering pressure hose",
+   "parts": [
+    40,
+    150
+   ],
+   "hours": [
+    1,
+    2
+   ],
+   "recall": true,
+   "note": "Free under recall 05V-455. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Heated washer fluid module can overheat (recall)",
+   "job": "Remove heated washer fluid module",
+   "parts": [
+    0,
+    40
+   ],
+   "hours": [
+    0.5,
+    1
+   ],
+   "recall": true,
+   "note": "Free under recall 08V-441. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Fuel pump control module lets water in (recall)",
+   "job": "Replace fuel pump control module",
+   "parts": [
+    80,
+    250
+   ],
+   "hours": [
+    0.7,
+    1.2
+   ],
+   "recall": true,
+   "note": "Free under recall 09V-154. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Rear axle can lock up (recall)",
+   "job": "Inspect rear differential and replace cross pin",
+   "parts": [
+    30,
+    300
+   ],
+   "hours": [
+    1.5,
+    4
+   ],
+   "recall": true,
+   "note": "Free under recall 11V-007. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Shifter can move out of Park on its own (recall)",
+   "job": "Replace park lock cable or steering column lock parts",
+   "parts": [
+    40,
+    300
+   ],
+   "hours": [
+    1,
+    3
+   ],
+   "recall": true,
+   "note": "Free under recall 13V-001. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Chassis control module can short out (recall)",
+   "job": "Replace chassis control module",
+   "parts": [
+    100,
+    300
+   ],
+   "hours": [
+    0.7,
+    1.5
+   ],
+   "recall": true,
+   "note": "Free under recall 14V-614. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Power steering assist cuts out and snaps back (recall)",
+   "job": "Update power steering software",
+   "parts": [
+    0,
+    0
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ],
+   "recall": true,
+   "note": "Free under recall 18V-586. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Front airbags may not deploy (recall)",
+   "job": "Reprogram airbag control module",
+   "parts": [
+    0,
+    0
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ],
+   "recall": true,
+   "note": "Free under recall 16V-651. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Front upper control arm weld can fail (recall)",
+   "job": "Inspect and replace front upper control arms",
+   "parts": [
+    120,
+    500
+   ],
+   "hours": [
+    1,
+    2.5
+   ],
+   "recall": true,
+   "note": "Free under recall 16V-256. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Fuel pump built without a pressure regulator (recall)",
+   "job": "Replace fuel pump module",
+   "parts": [
+    250,
+    600
+   ],
+   "hours": [
+    2,
+    3.5
+   ],
+   "recall": true,
+   "note": "Free under recall 19V-837. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Fuel pump power module can quit (recall)",
+   "job": "Replace fuel pump power control module",
+   "parts": [
+    100,
+    300
+   ],
+   "hours": [
+    0.5,
+    1.2
+   ],
+   "recall": true,
+   "note": "Free under recall 21V-739. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Rear driveshaft can break (recall)",
+   "job": "Replace rear driveshaft",
+   "parts": [
+    400,
+    1100
+   ],
+   "hours": [
+    0.8,
+    1.5
+   ],
+   "recall": true,
+   "note": "Free under recall 22V-036. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Diesel models may have the wrong fuel tank (recall)",
+   "job": "Inspect and replace fuel tank",
+   "parts": [
+    600,
+    1500
+   ],
+   "hours": [
+    2.5,
+    4.5
+   ],
+   "recall": true,
+   "note": "Free under recall 25V-619. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Rear control arm bolts can snap (recall)",
+   "job": "Replace rear control arm bolts and align",
+   "parts": [
+    20,
+    80
+   ],
+   "hours": [
+    1,
+    2
+   ],
+   "recall": true,
+   "note": "Free under recall 23V-642. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "No warning when brake fluid is low (recall)",
+   "job": "Update brake control module software",
+   "parts": [
+    0,
+    0
+   ],
+   "hours": [
+    0.3,
+    0.8
+   ],
+   "recall": true,
+   "note": "Free under recall 24V-674. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  },
+  {
+   "t": "Front wheel hub bolts can loosen (recall)",
+   "job": "Replace front hub bolts",
+   "parts": [
+    20,
+    100
+   ],
+   "hours": [
+    1,
+    2.5
+   ],
+   "recall": true,
+   "note": "Free under recall 26V-304. Check the VIN first.",
+   "src": [
+    "https://www.carwhere.com/recalls/cadillac/escalade"
+   ]
+  }
+ ]
 }

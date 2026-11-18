@@ -95,6 +95,13 @@ function issueCard(i){return `<div class="issue"><div class="meta"><span class="
 function renderVehicle(v,year){
   const el=document.getElementById('vehicleView');
   let list=year?v.issues.filter(i=>year>=i.y[0]&&year<=i.y[1]):v.issues.slice();
+  // Engine choice: engine-only problems show for that engine; everything else shows for every engine.
+  const engs=(v.engines||[]).filter(e=>!year||(year>=e.y[0]&&year<=e.y[1]));
+  let esel='';try{esel=localStorage.getItem('vs_eng_'+v.id)||''}catch(e){}
+  if(!engs.some(e=>e.k===esel))esel='';
+  const allN=list.length;
+  if(esel)list=list.filter(i=>!i.engs||i.engs.includes(esel));
+  const ename=esel?engs.find(e=>e.k===esel).name:'';
   const cats=['All',...new Set(list.map(i=>i.cat))];
   if(!cats.includes(state.tab))state.tab='All';
   const shown=state.tab==='All'?list:list.filter(i=>i.cat===state.tab);
@@ -106,11 +113,11 @@ function renderVehicle(v,year){
   <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div>${year?`<button type="button" class="savecar" id="saveCar">+ Save to my garage</button>`:''}</div><h1>${year?'Your '+esc(name):esc(name)}<span class="h1s">problems, repair costs and recalls</span></h1>
   <p class="sub">${year?`What we've documented about the ${esc(name)}: problems owners and shops report, typical repair and upkeep costs, and safety recalls.`:`Problems reported across ${v.years[0]}–${v.years[1]}. Pick your model year below to see what applies to your vehicle.`}${v.alt?' '+esc(v.alt.replace(/\.$/,''))+'.':''}</p></div>
   <p class="byline">VehicleSymptoms team · Updated November 2026 · <a href="/about/">How we work</a> · <a href="mailto:autosymptoms@gmail.com?subject=${encodeURIComponent('Mistake on '+location.pathname)}">Report a mistake</a></p>
-  <div class="yearbar"><label for="vy" style="color:var(--muted);font-size:14px">Model year</label><select id="vy">${yopts}</select></div>
+  <div class="yearbar"><label for="vy" style="color:var(--muted);font-size:14px">Model year</label><select id="vy">${yopts}</select>${engs.length>1?`<label for="ve" style="color:var(--muted);font-size:14px;margin-left:6px">Engine</label><select id="ve"><option value="">All engines</option>${engs.map(e=>`<option value="${e.k}" ${e.k===esel?'selected':''}>${esc(e.name)}</option>`).join('')}</select>`:''}</div>${engs.length>1&&!esel&&list.some(i=>i.engs)?`<p class="enghint">Pick your engine to hide problems that only affect other engines. Not sure? It is on the sticker under the hood or in the owner's manual.</p>`:''}${esel?`<p class="enghint on">Showing problems for the <b>${esc(ename)}</b> plus everything that applies to every ${esc(v.model)}${allN>list.length?' ('+(allN-list.length)+' other-engine issue'+(allN-list.length>1?'s':'')+' hidden)':''}.</p>`:''}
   ${snapshot(v,year,list,name)}
   ${general.length?`<h2 style="font-size:20px">Walk through your symptom</h2><div class="glist" style="margin:10px 0 26px">${general.map(g=>`<a class="gcard" href="${gurl(g.id)}?v=${v.id}${year?'&y='+year:''}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}</div>`:''}
   <h2 style="font-size:22px">${shown.length?'Known problems'+(year?' for your '+esc(name):''):'We haven\'t documented model-specific issues for this year yet'}</h2>
-  <p class="lead">${list.length?list.length+' documented issue'+(list.length>1?'s':'')+(year?' apply to '+year:' across all years')+', most serious first.':'This is not a reliability rating. We simply haven\'t researched this year in depth yet. If something\'s wrong, start with what the car is doing: our symptom guides work for every vehicle.'}</p>
+  <p class="lead">${list.length?list.length+' documented issue'+(list.length>1?'s':'')+(year?' apply to '+year:' across all years')+(esel?' with the '+esc(ename):'')+', most serious first.':'This is not a reliability rating. We simply haven\'t researched this year in depth yet. If something\'s wrong, start with what the car is doing: our symptom guides work for every vehicle.'}</p>
   ${cats.length>2?`<div class="tabs">${cats.map(c=>`<button class="tab ${c===state.tab?'on':''}" data-tab="${c}">${c}</button>`).join('')}</div>`:''}
   ${sorted.map(i=>issueCard(Object.assign({},i,{_v:v.id,_y:year}))).join('')}
   ${priceGuide(list,name)}
@@ -118,6 +125,7 @@ function renderVehicle(v,year){
   <div class="trust">This page is a general guide based on widely reported problems. Not every vehicle is affected, and it doesn't replace an in-person diagnosis.</div>`;
   const pq=el.querySelector('#pgQuote');if(pq)pq.href='/price-check/?v='+v.id+(year?'&y='+year:'');
   const sc=el.querySelector('#saveCar');if(sc){const paint=()=>{const on=inG(v.id,year);sc.textContent=on?'✓ In my garage':'+ Save to my garage';sc.classList.toggle('on',on)};paint();sc.onclick=()=>{inG(v.id,year)?removeG(v.id,year):addG(v.id,year);paint();showMy()}}
+  {const ve=el.querySelector('#ve');if(ve)ve.onchange=e=>{try{localStorage.setItem('vs_eng_'+v.id,e.target.value)}catch(x){}renderVehicle(v,year)}}
   el.querySelector('#vy').onchange=e=>{location.href=url(v,+e.target.value||null)};
   loadNhtsa(v,year);
   el.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{state.tab=b.dataset.tab;renderVehicle(v,year)});

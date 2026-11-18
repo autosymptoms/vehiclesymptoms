@@ -9,6 +9,56 @@
  "wmi": [
   "1FA"
  ],
+ "engines": [
+  {
+   "k": "3.0-ohv",
+   "name": "3.0L V6 (Vulcan, pushrod)",
+   "y": [
+    1996,
+    2007
+   ]
+  },
+  {
+   "k": "3.0-dohc",
+   "name": "3.0L V6 DOHC (Duratec)",
+   "y": [
+    1996,
+    2005
+   ]
+  },
+  {
+   "k": "3.4-v8",
+   "name": "3.4L V8 (SHO)",
+   "y": [
+    1996,
+    1999
+   ]
+  },
+  {
+   "k": "3.5-v6",
+   "name": "3.5L V6",
+   "y": [
+    2008,
+    2019
+   ]
+  },
+  {
+   "k": "3.5-ecoboost",
+   "name": "3.5L twin-turbo V6 (EcoBoost, SHO)",
+   "y": [
+    2010,
+    2019
+   ]
+  },
+  {
+   "k": "2.0t",
+   "name": "2.0L turbo 4-cylinder (EcoBoost)",
+   "y": [
+    2013,
+    2017
+   ]
+  }
+ ],
  "issues": [
   {
    "y": [
@@ -331,13 +381,16 @@
    "cat": "Starting Problems",
    "sev": "high",
    "t": "Fuel pump can lose power and stall the EcoBoost engine (recall)",
-   "eng": "3.5L EcoBoost",
+   "eng": "3.5L twin-turbo V6 (EcoBoost)",
    "sym": "Hard starting, stumbling, or the engine stalling, sometimes without warning.",
    "why": "A part inside the fuel pump module can overheat and cut power to the pump. Ford recalled SHO and police cars with the 3.5L EcoBoost engine.",
    "next": "Check your VIN for an open recall and get the repair done promptly, since a stall at speed is dangerous.",
    "src": [
     "NHTSA recall 16V621",
     "https://www.carwhere.com/research/reliability/ford/taurus/2013"
+   ],
+   "engs": [
+    "3.5-ecoboost"
    ]
   },
   {
@@ -434,13 +487,16 @@
    "cat": "Smoke",
    "sev": "high",
    "t": "Turbo oil lines can leak (recall)",
-   "eng": "3.5L EcoBoost",
+   "eng": "3.5L twin-turbo V6 (EcoBoost)",
    "sym": "An oil smell, smoke from the engine bay, or oil spots under the car.",
    "why": "The oil supply tubes for the turbochargers on the 3.5L EcoBoost can leak oil onto hot parts. Ford recalled affected cars.",
    "next": "Check your VIN for an open recall. If you see smoke or smell burning oil, pull over and stop the engine.",
    "src": [
     "NHTSA recall 16V925",
     "https://www.carwhere.com/recalls/ford/taurus"
+   ],
+   "engs": [
+    "3.5-ecoboost"
    ]
   },
   {
@@ -509,6 +565,29 @@
    "src": [
     "NHTSA recall 18V141",
     "https://www.carwhere.com/research/reliability/ford/taurus/2017"
+   ]
+  },
+  {
+   "y": [
+    2008,
+    2019
+   ],
+   "sys": "Cooling",
+   "cat": "Leaks",
+   "sev": "high",
+   "t": "Internal water pump leaks and can put coolant in the oil",
+   "eng": "3.5L V6 and 3.5L twin-turbo V6",
+   "engs": [
+    "3.5-v6",
+    "3.5-ecoboost"
+   ],
+   "sym": "Coolant level that keeps dropping, drips or a puddle near the passenger side of the engine, overheating, or milky-looking oil on the dipstick.",
+   "why": "The water pump sits inside the engine behind the timing cover and is driven by the timing chain. When its seal wears, coolant can leak outside or drain into the oil pan, which ruins the bearings if the engine keeps running.",
+   "next": "If coolant is disappearing or the oil looks milky, stop driving and have it inspected. Replacing the pump is a big job, and shops usually renew the timing chain parts at the same time.",
+   "src": [
+    "https://www.carcomplaints.com/Ford/Taurus/2013/cooling_system/water_pump_failure.shtml",
+    "https://bobistheoilguy.com/forums/threads/ford-3-5l-3-7l-water-pump-failures.381699",
+    "https://carcomplaints.com/Ford/Taurus/2016/engine/bad_water_pump_leaks_coolant_into_oil_pan.shtml"
    ]
   }
  ]
