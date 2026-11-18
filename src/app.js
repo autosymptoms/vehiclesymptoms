@@ -16,7 +16,8 @@ function findVehicle(q){const n=norm(q);let best=null,bs=0;
   V.forEach(v=>{const m=norm(v.model),mk=norm(v.make);let sc=0;
     if(n.includes(mk+m))sc=100+m.length;else if(m.length>=4&&n.includes(m))sc=m.length+(n.includes(mk)?50:0);else if(n.includes(mk)&&new RegExp('\\b'+v.model.toLowerCase().replace(/[^a-z0-9]+/g,'\\W*')+'\\b').test(q.toLowerCase()))sc=40;
     if(sc>bs){bs=sc;best=v}});return best}
-function clampYear(v,y){return y&&y>=v.years[0]&&y<=v.years[1]?y:null}
+function soldY(v,y){return y>=v.years[0]&&y<=v.years[1]&&!(v.gaps||[]).some(g=>y>=g[0]&&y<=g[1])}
+function clampYear(v,y){return y&&soldY(v,y)?y:null}
 function url(v,y){return '/vehicles/'+v.id+'/'+(y?y+'/':'')}
 function go(v,y,q){y=clampYear(v,y);location.href=url(v,y)+(q?'?q='+encodeURIComponent(q):'')}
 const state={q:'',tab:'All'};
@@ -105,7 +106,7 @@ function renderVehicle(v,year){
   const cats=['All',...new Set(list.map(i=>i.cat))];
   if(!cats.includes(state.tab))state.tab='All';
   const shown=state.tab==='All'?list:list.filter(i=>i.cat===state.tab);
-  let yopts='<option value="">All years</option>';for(let y=v.years[1];y>=v.years[0];y--)yopts+=`<option ${y===year?'selected':''}>${y}</option>`;
+  let yopts='<option value="">All years</option>';for(let y=v.years[1];y>=v.years[0];y--)if(soldY(v,y))yopts+=`<option ${y===year?'selected':''}>${y}</option>`;
   const name=(year?year+' ':'')+v.make+' '+v.model;
   const general=state.q?searchGuides(state.q,3):[];
   const SR={high:0,med:1,low:2};const sorted=shown.slice().sort((a,b)=>SR[a.sev]-SR[b.sev]);
