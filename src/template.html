@@ -62,7 +62,7 @@
         </div>
         <ul class="proof">
           <li><b>100</b> step-by-step symptom guides</li>
-          <li><b>100</b> popular models, 1996 to 2027</li>
+          <li><b>112</b> popular models, 1996 to 2027</li>
           <li><b>Free</b> VIN and safety recall lookup</li>
           <li><b>No</b> sign-up, ever</li>
         </ul>
@@ -80,7 +80,7 @@
           <select id="pickModel" aria-label="Model" disabled></select>
           <button class="btn" id="pickGo" type="submit" disabled>Show my vehicle</button>
         </form>
-        <details class="vin-d"><summary>My vehicle isn't listed</summary><p class="note">Our library covers 100 popular models from 1996 on and is still growing. Everything else on the site works for any car or truck: start with what your car is doing.</p></details>
+        <details class="vin-d"><summary>My vehicle isn't listed</summary><p class="note">Our library covers 112 popular models from 1996 on and is still growing. Everything else on the site works for any car or truck: start with what your car is doing.</p></details>
         <details class="vin-d"><summary>Or use your VIN</summary>
           <form id="vinForm"><input id="vinInput" maxlength="17" placeholder="17-character VIN" aria-label="VIN"><button class="btn" type="submit">Decode</button></form>
           <p class="note">On the driver's door sticker or the dash at the base of the windshield. Decoded with the free NHTSA database; we don't store it.</p>
@@ -90,6 +90,20 @@
     </aside>
     </div>
   </div>
+
+  <section class="lband"{{HOMEHIDE2}}>
+    <div class="wrap">
+      <div class="lb-head">
+        <div>
+          <p class="eyebrow">What is this light?</p>
+          <h2>A light came on. Here's what it means.</h2>
+          <p class="lead">Tap the symbol that matches your dashboard. Each light tells you how urgent it is, what usually causes it, what you can check yourself and what a repair typically costs.</p>
+        </div>
+        <a class="btn btn-ghost" href="/warning-lights/">See every dashboard light</a>
+      </div>
+      {{LIGHTSROW}}
+    </div>
+  </section>
 
   <section class="tools-sec">
     <div class="wrap tools">
@@ -140,7 +154,7 @@
 
   <section class="browse-sec">
     <div class="wrap">
-      <details class="allm"><summary>Browse all 100 models</summary><div id="mgrid"></div></details>
+      <details class="allm"><summary>Browse all 112 models</summary><div id="mgrid"></div></details>
     </div>
   </section>
 

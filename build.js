@@ -78,8 +78,19 @@ fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');
  fs.mkdirSync('dist/data/v',{recursive:true});for(const v of V)fs.writeFileSync('dist/data/v/'+v.id+'.json',JSON.stringify({issues:v.issues,own:v.own||null,engines:v.engines||[]}));}fs.writeFileSync('dist/guide-index.js',indexJs);
 for(const f of ['app.js','guide.js','site.css'])fs.copyFileSync('src/'+f,'dist/'+f);
 fs.mkdirSync('dist/email',{recursive:true});for(const f of fs.readdirSync('src/email'))fs.copyFileSync('src/email/'+f,'dist/email/'+f);
+// ---------- warning lights data (src/lights.js + optional depth in src/lights-deep.json) ----------
+const LIGHTS=require('./src/lights.js');
+const LDEEP=fs.existsSync('src/lights-deep.json')?JSON.parse(fs.readFileSync('src/lights-deep.json','utf8')):{};
+const LCOL={red:'#FF5A5F',amber:'#FFB020',green:'#34C77B',blue:'#5AB0FF'};
+const LSEV={stop:["Stop driving as soon as it's safe","high"],soon:["Get it checked soon","med"],check:["Check it when you can","info"],info:["Information only","low"]};
+const LCOLNAME={red:'Red: serious, act now',amber:'Amber/yellow: check soon',green:'Green: system on',blue:'Blue: information'};
+const lIcon=(l,size)=>`<svg class="licon" width="${size}" height="${size}" viewBox="0 0 48 48" fill="none" style="color:${LCOL[l.color]}" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${l.icon}</svg>`;
+// the row of most-looked-up lights shown high on the home page
+const ROWIDS=['check-engine-light','oil-pressure-light','engine-temperature-light','battery-light','brake-warning-light','tire-pressure-light','abs-light','airbag-light','service-light','oil-change-light','traction-control-light','master-warning-light'];
 const escA=t=>String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 const escH=t=>String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const LIGHTSROW=(()=>{const pick=ROWIDS.map(id=>LIGHTS.find(l=>l.id===id)).filter(Boolean);
+ return `<div class="lrow">${pick.map(l=>`<a class="lr" href="/warning-lights/${l.id}/">${lIcon(l,38)}<b>${escH(l.name.replace(/ (warning )?light$/i,'').replace(/ \(.*\)$/,''))}</b><span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span></a>`).join('')}<a class="lr lr-all" href="/warning-lights/"><b>All lights</b><span>Red, amber, green and blue</span></a></div>`})();
 const scripts=['vehicles.js','guide-index.js','guide.js','app.js'].map(f=>f==='vehicles.js'?data:f==='guide-index.js'?indexJs:fs.readFileSync('src/'+f,'utf8'));
 
 // one browser instance renders every vehicle page
@@ -91,7 +102,7 @@ const RW=R.window;
 function write(p,html){const f='dist'+p+'index.html';fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,html)}
 function page(p,title,desc,{inner='',pageData='',home=false}={}){
   const h=tpl.replace(/{{TITLE}}/g,escA(title)).replace(/{{DESC}}/g,escA(desc)).replace(/{{CANON}}/g,SITE+p).replace('{{CRED}}',escH(CRED))
-    .replace('{{HOMEHIDE}}',home?'':' style="display:none"').replace('{{VEHSTYLE}}',home?'display:none;':'')
+    .replace('{{HOMEHIDE}}',home?'':' style="display:none"').replace('{{HOMEHIDE2}}',home?'':' style="display:none"').replace('{{LIGHTSROW}}',()=>home?LIGHTSROW:'').replace('{{VEHSTYLE}}',home?'display:none;':'')
     .replace('{{PAGEDATA}}',()=>pageData).replace('{{VEHHTML}}',()=>inner);
   write(p,h);return p;
 }
@@ -173,35 +184,59 @@ if(CODES.length){
 }
 console.log(`${CODES.length} trouble codes`);
 
-// ---------- warning lights (src/lights.js) ----------
-const LIGHTS=require('./src/lights.js');
-const LCOL={red:'#FF5A5F',amber:'#FFB020',green:'#34C77B',blue:'#5AB0FF'};
-const LSEV={stop:["Stop driving as soon as it's safe","high"],soon:["Get it checked soon","med"],check:["Check it when you can","info"],info:["Information only","low"]};
-const LCOLNAME={red:'Red: serious, act now',amber:'Amber/yellow: check soon',green:'Green: system on',blue:'Blue: information'};
-const lIcon=(l,size)=>`<svg class="licon" width="${size}" height="${size}" viewBox="0 0 48 48" fill="none" style="color:${LCOL[l.color]}" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${l.icon}</svg>`;
+// ---------- warning lights: pages (data and helpers are defined above page()) ----------
+const SEE={
+ 'oil-pressure-light':['oil-level-light','oil-change-light'],'oil-level-light':['oil-pressure-light','oil-change-light'],'oil-change-light':['oil-level-light','oil-pressure-light','maintenance-required-light'],
+ 'maintenance-required-light':['oil-change-light','service-light','wrench-light'],'service-light':['maintenance-required-light','oil-change-light','wrench-light'],'wrench-light':['service-light','check-engine-light'],
+ 'brake-warning-light':['parking-brake-light','brake-pad-wear-light','abs-light'],'parking-brake-light':['brake-warning-light','electronic-parking-brake-light'],'electronic-parking-brake-light':['parking-brake-light','brake-warning-light'],'brake-pad-wear-light':['brake-warning-light','abs-light'],
+ 'abs-light':['brake-warning-light','traction-control-light'],'traction-control-light':['stability-control-off-light','slip-indicator-light','esp-bas-light'],'stability-control-off-light':['traction-control-light','slip-indicator-light'],'slip-indicator-light':['traction-control-light','stability-control-off-light'],'esp-bas-light':['traction-control-light','abs-light'],
+ 'check-engine-light':['exhaust-emission-light','wrench-light','epc-light'],'exhaust-emission-light':['check-engine-light','dpf-light'],'epc-light':['check-engine-light','wrench-light'],
+ 'def-light':['dpf-light','water-in-fuel-light'],'dpf-light':['def-light','exhaust-emission-light'],'water-in-fuel-light':['def-light','check-engine-light'],
+ 'engine-temperature-light':['coolant-level-light'],'coolant-level-light':['engine-temperature-light'],
+ 'master-warning-light':['check-engine-light','door-open-light'],'washer-fluid-light':['low-fuel-light'],'key-battery-light':['security-light'],'security-light':['key-battery-light']};
 const codeSet=new Set(CODES.map(c=>c.code));
+const money=n=>'$'+Number(n).toLocaleString('en-US');
+const rngC=(lo,hi)=>lo===0&&hi===0?'No charge':money(lo)+'–'+money(hi);
 for(const l of LIGHTS){const u=LSEV[l.sev];const gs=l.guides.filter(g=>JT[g]).map(g=>JT[g]);const cs=l.codes.filter(c=>codeSet.has(c));
-  const faq=[{q:`What does the ${l.name.toLowerCase()} mean?`,a:l.meaning},{q:`Can I drive with the ${l.name.toLowerCase()} on?`,a:l.drive}];
+  const d=LDEEP[l.id]||{};
+  const faq=[{q:`What does the ${l.name.toLowerCase()} mean?`,a:l.meaning},{q:`Can I drive with the ${l.name.toLowerCase()} on?`,a:l.drive},...(d.faqs||[])];
   const ld='<script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}).replace(/</g,'\\u003c')+'</script>\n';
   const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/warning-lights/">Warning lights</a> › ${escH(l.name)}</div>
 <div class="lhead"><div class="lbig" style="border-color:${LCOL[l.color]}55">${lIcon(l,72)}</div><div><div class="eyebrow">${escH(LCOLNAME[l.color])}</div><h1>${escH(l.name)}</h1>${l.aka.length?`<p class="muted" style="margin:4px 0 0">Also called: ${l.aka.map(escH).join(', ')}</p>`:''}</div></div>
 <div class="urg ${u[1]}"><b>How urgent?</b> ${escH(u[0])}</div>
-${BYLINE('/warning-lights/'+l.id+'/')}<section class="card csec"><h2>What it means</h2><p class="lead2">${escH(l.meaning)}</p></section>
-<section class="card csec drivebox" style="border-left-color:${LCOL[l.color]}"><h2>Can I keep driving?</h2><p>${escH(l.drive)}</p></section>
+${BYLINE('/warning-lights/'+l.id+'/')}<section class="card csec"><h2>What it means</h2><p class="lead2">${escH(l.meaning)}</p>${d.look?`<p class="lmuted">${escH(d.look)}</p>`:''}</section>
+<section class="card csec drivebox" style="border-left-color:${LCOL[l.color]}"><h2>Can I keep driving?</h2><p>${escH(l.drive)}</p>${d.flash?`<p class="lflash"><b>If it's flashing or blinking:</b> ${escH(d.flash)}</p>`:''}</section>
 <div class="cgrid"><section class="card csec"><h2>What to do now</h2><ol class="nums">${l.todo.map(x=>`<li>${escH(x)}</li>`).join('')}</ol></section>
 <section class="card csec"><h2>Common causes</h2><ul class="dots">${l.causes.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section></div>
+${d.diy&&d.diy.length?`<section class="card csec ldiy"><div class="pg-head"><h2>Checks you can do yourself</h2><span class="pg-badge">Safe, no tools in most cases</span></div>
+<p class="pg-sub">Do these with the car parked and the engine off and cool. If anything looks or smells hot, wait.</p>
+${d.diy.map((x,i)=>`<div class="diy"><div class="diy-n">${i+1}</div><div><b>${escH(x.t)}</b><p>${escH(x.how)}</p><span class="diy-m">${escH(x.mins)} · ${escH(x.tools)}</span></div></div>`).join('')}
+<p class="lsoon-note">Step-by-step repair walkthroughs for the fixes below are on the way.</p></section>`:''}
+${d.dont&&d.dont.length?`<section class="card csec ldont"><h2>What not to do</h2><ul class="xs">${d.dont.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section>`:''}
+${d.causes2&&d.causes2.length?`<section class="card csec"><div class="pg-head"><h2>What it usually turns out to be</h2><span class="pg-badge">Averages, not quotes</span></div>
+<p class="pg-sub">Most likely first. Prices are typical US parts-and-labor totals for that repair, not a quote for your vehicle.</p>
+${d.causes2.map(c=>`<div class="c2"><div class="c2-h"><b>${escH(c.name)}</b><span class="c2-p">${rngC(c.lo,c.hi)}</span></div><p><span class="c2-l">How you can tell</span> ${escH(c.tell)}</p><p><span class="c2-l">The repair</span> ${escH(c.fix)}</p></div>`).join('')}
+${d.diag?`<p class="lsoon-note">A shop usually charges ${rngC(d.diag[0],d.diag[1])} just to diagnose this light, and many put that toward the repair.</p>`:''}</section>`:''}
+${d.shop?`<section class="card csec"><h2>What a shop will do</h2><p>${escH(d.shop)}</p></section>`:''}
+${d.reset?`<section class="card csec lreset" id="reset"><h2>How to reset this light</h2><p>${escH(d.reset.how)}</p>${d.reset.note?`<p class="lmuted">${escH(d.reset.note)}</p>`:''}
+${d.reset.real?`<div class="lsoon"><p class="eyebrow">Coming soon</p><b>Reset steps for your exact vehicle</b><p>We're building the button-by-button reset for each year, make and model. Tell us what you drive and it will be here when it's ready.</p><a class="btn btn-ghost" href="/#vehicle">Pick my vehicle</a></div>`:''}</section>`:''}
 ${gs.length?`<section class="csec"><h2 style="font-size:18px">Walk through it step by step</h2><div class="glist">${gs.map(g=>`<a class="gcard" href="/symptoms/${g.id}/"><b>${escH(g.title)}</b><span>${escH(g.h1)}</span></a>`).join('')}</div></section>`:''}
 ${cs.length?`<section class="csec"><h2 style="font-size:18px">Trouble codes often stored with this light</h2><div class="codechips">${cs.map(c=>{const x=CODES.find(y=>y.code===c);return `<a href="/codes/${c.toLowerCase()}/"><b>${c}</b> ${escH(x.title)}</a>`}).join('')}</div></section>`:''}
-<section class="csec"><h2 style="font-size:18px">Common questions</h2>${faq.map(f=>`<details class="faq"><summary>${escH(f.q)}</summary><p>${escH(f.a)}</p></details>`).join('')}</section>
+<section class="csec"><h2 style="font-size:18px">Common questions</h2>${faq.map((f,i)=>`<details class="faq"${i===0?' open':''}><summary>${escH(f.q)}</summary><p>${escH(f.a)}</p></details>`).join('')}</section>
+${d.src&&d.src.length?`<p class="lsrc">Sources: ${d.src.map(s=>`<a href="${escA(s)}" target="_blank" rel="noopener nofollow">${escH(srcLabel(s))}</a>`).join(' · ')}</p>`:''}
+${(SEE[l.id]||[]).length?`<section class="csec"><h2 style="font-size:18px">Not your light? These get mixed up with it</h2><div class="lrow">${(SEE[l.id]||[]).map(x=>LIGHTS.find(y=>y.id===x)).filter(Boolean).map(x=>`<a class="lr" href="/warning-lights/${x.id}/">${lIcon(x,34)}<b>${escH(x.name.replace(/ (warning )?light$/i,''))}</b><span class="lsev ${LSEV[x.sev][1]}">${escH(LSEV[x.sev][0])}</span></a>`).join('')}</div></section>`:''}
 <div class="trust">Symbols vary a little between makes. Your owner's manual shows the exact lights for your vehicle. This is a general guide, not a diagnosis.</div>`;
   urls.push(page('/warning-lights/'+l.id+'/',`${l.name}: What It Means & Can You Drive? | VehicleSymptoms.com`,`${l.meaning} ${l.drive}`.slice(0,165),{inner,pageData:ld}));
 }
 const lcard=l=>`<a class="lcard c-${l.color}" href="/warning-lights/${l.id}/" data-c="${l.color}">${lIcon(l,44)}<b>${escH(l.name.replace(/ \(.*\)$/,''))}</b><span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span></a>`;
 urls.push(page('/warning-lights/','Dashboard Warning Lights: What Each Light Means | VehicleSymptoms.com','Every common dashboard warning light explained: what it means, whether you can keep driving, and what to do now. Red, amber, green and blue lights.',{inner:`<div class="crumb"><a href="/">Home</a> › Warning lights</div>
-<div class="ghead"><div class="eyebrow">Warning lights</div><h1>Which light is on?</h1><p class="sub">Tap the symbol that matches your dashboard. You'll see what it means, whether it's safe to keep driving and what to do now.</p></div>
+<div class="ghead"><div class="eyebrow">Warning lights</div><h1>Which light is on?</h1><p class="sub">Tap the symbol that matches your dashboard. Each light tells you what it means, whether it's safe to keep driving, what you can check yourself, what the repair usually costs and how to reset it when resetting is the right thing to do.</p></div>
 <div class="lkey"><span><i style="background:#FF5A5F"></i>Red: serious, act now</span><span><i style="background:#FFB020"></i>Amber: check soon</span><span><i style="background:#34C77B"></i>Green or blue: information</span></div>
+<div class="codesearch"><input id="lsearch" type="search" placeholder="Search a light by name, like &quot;oil&quot; or &quot;ABS&quot;" aria-label="Search warning lights"></div>
 <div class="lfilter" id="lfilter"><button class="on" data-c="all">All</button><button data-c="red">Red</button><button data-c="amber">Amber</button><button data-c="info">Green / blue</button></div>
-<div class="lgrid" id="lgrid">${LIGHTS.map(lcard).join('')}</div>
+<div class="lgrid" id="lgrid">${[...LIGHTS].sort((a,b)=>{const r={stop:0,soon:1,check:2,info:3};return r[a.sev]-r[b.sev]||a.name.localeCompare(b.name)}).map(lcard).join('')}</div>
+<p class="lnone" id="lnone" hidden>No light matches that. Try a shorter word, or browse the symbols above.</p>
+${LIGHTS.some(l=>(LDEEP[l.id]||{}).reset&&LDEEP[l.id].reset.real)?`<section class="csec"><h2 style="font-size:18px">Service and reminder lights you can reset</h2><p class="pg-sub">These come on by mileage or time, not because something broke. Once the work is done they are meant to be reset.</p><div class="glist">${LIGHTS.filter(l=>(LDEEP[l.id]||{}).reset&&LDEEP[l.id].reset.real).map(l=>`<a class="gcard" href="/warning-lights/${l.id}/#reset"><b>${escH(l.name)}</b><span>How to reset it</span></a>`).join('')}</div></section>`:''}
 <p class="muted" style="margin-top:18px;font-size:14px">Several lights on at once, or the whole dash lit up? See <a href="/symptoms/dashboard-lights-all-on/" style="color:var(--blue2)">all dashboard lights on</a>. Got a code from a scanner? Use <a href="/codes/" style="color:var(--blue2)">Code lookup</a>.</p>`}));
 console.log(`${LIGHTS.length} warning lights`);
 

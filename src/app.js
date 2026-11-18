@@ -208,7 +208,13 @@ showMy();
   box.innerHTML=`<div class="codemy"><span>Your ${g.length>1?'vehicles':'vehicle'}:</span>${g.map(m=>`<a href="${carUrl(m)}">${esc(carName(m))} ›</a>`).join('')}</div>`})();
 // warning light hub filter
 (function(){const f=document.getElementById('lfilter');if(!f)return;f.querySelectorAll('button').forEach(b=>b.onclick=()=>{f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const c=b.dataset.c;
-  document.querySelectorAll('#lgrid .lcard').forEach(a=>{const k=a.dataset.c;a.hidden=!(c==='all'||k===c||(c==='info'&&(k==='green'||k==='blue')))})})})();
+  document.querySelectorAll('#lgrid .lcard').forEach(a=>{const k=a.dataset.c;a.hidden=!(c==='all'||k===c||(c==='info'&&(k==='green'||k==='blue')))});
+  const s=document.getElementById('lsearch');if(s)s.value='';const n=document.getElementById('lnone');if(n)n.hidden=true})})();
+(function(){const s=document.getElementById('lsearch');if(!s)return;
+  s.oninput=()=>{const q=s.value.trim().toLowerCase();let shown=0;
+    document.querySelectorAll('#lgrid .lcard').forEach(a=>{const t=(a.textContent+' '+(a.getAttribute('href')||'')).toLowerCase();const hit=!q||t.includes(q);a.hidden=!hit;if(hit)shown++});
+    const n=document.getElementById('lnone');if(n)n.hidden=!!shown;
+    const f=document.getElementById('lfilter');if(f&&q)f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.c==='all'))}})();
 // "Is my quote fair?" price check
 (function(){const app=document.getElementById('pcApp');if(!app)return;
   const qs=new URLSearchParams(location.search);const g=getG();
