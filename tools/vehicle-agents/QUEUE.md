@@ -193,15 +193,15 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] rivian-r1s-r1t | Rivian R1T / R1S | 2022-present | ev:true
 - [x] isuzu-rodeo | Isuzu Rodeo | 1996-2004 |
 - [~] suzuki-grand-vitara | Suzuki Grand Vitara / Vitara | 1999-2013 | redo: draft had only 2 sourced problems for 2005 (search budget ran out)
-- [ ] land-rover-range-rover-sport | Land Rover Range Rover Sport | 2006-present |
+- [ ] land-rover-range-rover-sport | Land Rover Range Rover Sport | 2006-present | CLAIMED by interactive session 2026-11-19 09:10 ET
 - [~] porsche-cayenne | Porsche Cayenne | 2003-present | redo: draft had no ownership file and only 40% of problems priced (search budget ran out); check 2007 gap
 - [~] genesis-gv70 | Genesis GV70 | 2022-present | redo: draft priced only 9 of 18 problems and had partial maintenance (search budget ran out)
-- [ ] genesis-g70 | Genesis G70 | 2019-present |
+- [ ] genesis-g70 | Genesis G70 | 2019-present | CLAIMED by interactive session 2026-11-19 09:10 ET
 
 ## Rest of each make's US lineup (after "Next"; most common first within each make)
-- [ ] mercedes-benz-glb | Mercedes-Benz GLB | 2020-present |
-- [ ] mercedes-benz-a-class | Mercedes-Benz A-Class | 2019-2022 |
-- [ ] mercedes-benz-cls | Mercedes-Benz CLS | 2006-present |
+- [ ] mercedes-benz-glb | Mercedes-Benz GLB | 2020-present | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] mercedes-benz-a-class | Mercedes-Benz A-Class | 2019-2022 | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] mercedes-benz-cls | Mercedes-Benz CLS | 2006-present | CLAIMED by interactive session 2026-11-19 09:10 ET
 - [~] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | redo: draft priced only 12 of 26 problems (search budget ran out)
 - [~] mercedes-benz-slk-slc | Mercedes-Benz SLK / SLC | 1998-2020 | redo: draft priced only 14 of 27 problems and had empty maintenance (search budget ran out)
 - [~] mercedes-benz-sl | Mercedes-Benz SL | 1996-present | redo: draft had only 2 sourced problems for 2020 (search budget ran out); needs more 2020 sources and repair prices
@@ -210,35 +210,35 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] mercedes-benz-metris | Mercedes-Benz Metris | 2016-2023 |
 - [~] mercedes-benz-eqs | Mercedes-Benz EQS / EQS SUV | 2022-present | ev:true redo: draft had no ownership file (search budget ran out)
 - [~] mercedes-benz-eqe | Mercedes-Benz EQE / EQE SUV | 2023-present | ev:true redo: draft had no ownership file (search budget ran out)
-- [ ] mercedes-benz-eqb | Mercedes-Benz EQB | 2022-present | ev:true
+- [ ] mercedes-benz-eqb | Mercedes-Benz EQB | 2022-present | ev:true CLAIMED by interactive session 2026-11-19 09:10 ET
 - [x] bmw-x7 | BMW X7 | 2019-present |
 - [x] bmw-x4 | BMW X4 | 2015-present |
 - [x] bmw-x2 | BMW X2 | 2018-present |
 - [x] bmw-2-series | BMW 1 / 2 Series | 2008-present |
-- [ ] bmw-z3-z4 | BMW Z3 / Z4 | 1996-present |
-- [ ] bmw-6-8-series | BMW 6 / 8 Series | 2004-present |
-- [ ] bmw-i3 | BMW i3 | 2014-2021 | ev:true (REx option)
-- [ ] bmw-i4 | BMW i4 | 2022-present | ev:true
-- [ ] bmw-ix | BMW iX | 2022-present | ev:true
-- [ ] audi-a5 | Audi A5 / S5 | 2008-present |
-- [ ] audi-q8 | Audi Q8 | 2019-present |
-- [ ] audi-a8 | Audi A8 | 1997-present |
-- [ ] audi-tt | Audi TT | 2000-2023 |
-- [ ] audi-e-tron | Audi e-tron / Q8 e-tron | 2019-present | ev:true
-- [ ] audi-q4-e-tron | Audi Q4 e-tron | 2022-present | ev:true
-- [ ] lexus-lx | Lexus LX | 1996-present |
-- [ ] lexus-rc | Lexus RC | 2015-present |
-- [ ] lexus-ct | Lexus CT 200h | 2011-2017 |
-- [ ] lexus-sc | Lexus SC | 1996-2010 |
-- [ ] lexus-tx | Lexus TX | 2024-present |
-- [ ] toyota-prius-c-v | Toyota Prius c / Prius v | 2012-2019 | if not covered by toyota-prius
-- [ ] toyota-mirai | Toyota Mirai | 2016-present |
-- [ ] honda-s2000 | Honda S2000 | 2000-2009 |
-- [ ] honda-cr-z | Honda CR-Z | 2011-2016 |
-- [ ] honda-clarity | Honda Clarity | 2017-2021 |
-- [ ] acura-zdx | Acura ZDX | 2010-2013, 2024-present |
-- [ ] acura-cl | Acura CL | 1997-2003 |
-- [ ] nissan-nv200 | Nissan NV200 | 2013-2021 |
+- [ ] bmw-z3-z4 | BMW Z3 / Z4 | 1996-present | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] bmw-6-8-series | BMW 6 / 8 Series | 2004-present | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] bmw-i3 | BMW i3 | 2014-2021 | ev:true (REx option) CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] bmw-i4 | BMW i4 | 2022-present | ev:true CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] bmw-ix | BMW iX | 2022-present | ev:true CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] audi-a5 | Audi A5 / S5 | 2008-present | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] audi-q8 | Audi Q8 | 2019-present | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] audi-a8 | Audi A8 | 1997-present | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] audi-tt | Audi TT | 2000-2023 | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] audi-e-tron | Audi e-tron / Q8 e-tron | 2019-present | ev:true CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] audi-q4-e-tron | Audi Q4 e-tron | 2022-present | ev:true CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] lexus-lx | Lexus LX | 1996-present | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] lexus-rc | Lexus RC | 2015-present | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] lexus-ct | Lexus CT 200h | 2011-2017 | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] lexus-sc | Lexus SC | 1996-2010 | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] lexus-tx | Lexus TX | 2024-present | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] toyota-prius-c-v | Toyota Prius c / Prius v | 2012-2019 | if not covered by toyota-prius CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] toyota-mirai | Toyota Mirai | 2016-present | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] honda-s2000 | Honda S2000 | 2000-2009 | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] honda-cr-z | Honda CR-Z | 2011-2016 | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] honda-clarity | Honda Clarity | 2017-2021 | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] acura-zdx | Acura ZDX | 2010-2013, 2024-present | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] acura-cl | Acura CL | 1997-2003 | CLAIMED by interactive session 2026-11-19 09:10 ET
+- [ ] nissan-nv200 | Nissan NV200 | 2013-2021 | CLAIMED by interactive session 2026-11-19 09:10 ET
 - [ ] nissan-nv | Nissan NV Cargo / Passenger | 2012-2021 |
 - [ ] nissan-240sx-300zx | (skip unless time) | |
 - [ ] infiniti-m-q70 | Infiniti M / Q70 | 2003-2019 |
