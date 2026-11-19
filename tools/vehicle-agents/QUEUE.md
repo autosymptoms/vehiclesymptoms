@@ -186,35 +186,35 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] mitsubishi-galant | Mitsubishi Galant | 1996-2012 |
 - [x] mitsubishi-eclipse | Mitsubishi Eclipse | 1996-2012 |
 - [x] mitsubishi-mirage | Mitsubishi Mirage | 1997-2002, 2014-present |
-- [ ] mitsubishi-endeavor | Mitsubishi Endeavor | 2004-2011 | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] tesla-model-s | Tesla Model S | 2012-present | ev:true CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] tesla-model-x | Tesla Model X | 2016-present | ev:true CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] tesla-cybertruck | Tesla Cybertruck | 2024-present | ev:true CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] rivian-r1s-r1t | Rivian R1T / R1S | 2022-present | ev:true CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] isuzu-rodeo | Isuzu Rodeo | 1996-2004 | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] suzuki-grand-vitara | Suzuki Grand Vitara / Vitara | 1999-2013 | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] land-rover-range-rover-sport | Land Rover Range Rover Sport | 2006-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] porsche-cayenne | Porsche Cayenne | 2003-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] genesis-gv70 | Genesis GV70 | 2022-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] genesis-g70 | Genesis G70 | 2019-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
+- [x] mitsubishi-endeavor | Mitsubishi Endeavor | 2004-2011 |
+- [x] tesla-model-s | Tesla Model S | 2012-present | ev:true
+- [x] tesla-model-x | Tesla Model X | 2016-present | ev:true
+- [~] tesla-cybertruck | Tesla Cybertruck | 2024-present | ev:true redo: draft priced only 12 of 26 problems and had empty maintenance (search budget ran out)
+- [x] rivian-r1s-r1t | Rivian R1T / R1S | 2022-present | ev:true
+- [x] isuzu-rodeo | Isuzu Rodeo | 1996-2004 |
+- [~] suzuki-grand-vitara | Suzuki Grand Vitara / Vitara | 1999-2013 | redo: draft had only 2 sourced problems for 2005 (search budget ran out)
+- [ ] land-rover-range-rover-sport | Land Rover Range Rover Sport | 2006-present |
+- [~] porsche-cayenne | Porsche Cayenne | 2003-present | redo: draft had no ownership file and only 40% of problems priced (search budget ran out); check 2007 gap
+- [~] genesis-gv70 | Genesis GV70 | 2022-present | redo: draft priced only 9 of 18 problems and had partial maintenance (search budget ran out)
+- [ ] genesis-g70 | Genesis G70 | 2019-present |
 
 ## Rest of each make's US lineup (after "Next"; most common first within each make)
-- [ ] mercedes-benz-glb | Mercedes-Benz GLB | 2020-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] mercedes-benz-a-class | Mercedes-Benz A-Class | 2019-2022 | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] mercedes-benz-cls | Mercedes-Benz CLS | 2006-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] mercedes-benz-slk-slc | Mercedes-Benz SLK / SLC | 1998-2020 | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] mercedes-benz-sl | Mercedes-Benz SL | 1996-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] mercedes-benz-g-class | Mercedes-Benz G-Class | 2002-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] mercedes-benz-r-class | Mercedes-Benz R-Class | 2006-2012 | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] mercedes-benz-metris | Mercedes-Benz Metris | 2016-2023 | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] mercedes-benz-eqs | Mercedes-Benz EQS / EQS SUV | 2022-present | ev:true CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] mercedes-benz-eqe | Mercedes-Benz EQE / EQE SUV | 2023-present | ev:true CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] mercedes-benz-eqb | Mercedes-Benz EQB | 2022-present | ev:true CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] bmw-x7 | BMW X7 | 2019-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] bmw-x4 | BMW X4 | 2015-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] bmw-x2 | BMW X2 | 2018-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
-- [ ] bmw-2-series | BMW 1 / 2 Series | 2008-present | CLAIMED by scheduled run 2026-11-19 05:20 ET
+- [ ] mercedes-benz-glb | Mercedes-Benz GLB | 2020-present |
+- [ ] mercedes-benz-a-class | Mercedes-Benz A-Class | 2019-2022 |
+- [ ] mercedes-benz-cls | Mercedes-Benz CLS | 2006-present |
+- [~] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | redo: draft priced only 12 of 26 problems (search budget ran out)
+- [~] mercedes-benz-slk-slc | Mercedes-Benz SLK / SLC | 1998-2020 | redo: draft priced only 14 of 27 problems and had empty maintenance (search budget ran out)
+- [~] mercedes-benz-sl | Mercedes-Benz SL | 1996-present | redo: draft had only 2 sourced problems for 2020 (search budget ran out); needs more 2020 sources and repair prices
+- [x] mercedes-benz-g-class | Mercedes-Benz G-Class | 2002-present |
+- [~] mercedes-benz-r-class | Mercedes-Benz R-Class | 2006-2012 | redo: draft priced only 7 of 20 problems (search budget ran out)
+- [x] mercedes-benz-metris | Mercedes-Benz Metris | 2016-2023 |
+- [~] mercedes-benz-eqs | Mercedes-Benz EQS / EQS SUV | 2022-present | ev:true redo: draft had no ownership file (search budget ran out)
+- [~] mercedes-benz-eqe | Mercedes-Benz EQE / EQE SUV | 2023-present | ev:true redo: draft had no ownership file (search budget ran out)
+- [ ] mercedes-benz-eqb | Mercedes-Benz EQB | 2022-present | ev:true
+- [x] bmw-x7 | BMW X7 | 2019-present |
+- [x] bmw-x4 | BMW X4 | 2015-present |
+- [x] bmw-x2 | BMW X2 | 2018-present |
+- [x] bmw-2-series | BMW 1 / 2 Series | 2008-present |
 - [ ] bmw-z3-z4 | BMW Z3 / Z4 | 1996-present |
 - [ ] bmw-6-8-series | BMW 6 / 8 Series | 2004-present |
 - [ ] bmw-i3 | BMW i3 | 2014-2021 | ev:true (REx option)

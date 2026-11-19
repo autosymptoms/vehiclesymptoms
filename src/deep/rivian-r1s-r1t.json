@@ -1,0 +1,485 @@
+{
+ "id": "rivian-r1s-r1t",
+ "make": "Rivian",
+ "model": "R1T / R1S",
+ "years": [
+  2022,
+  2026
+ ],
+ "wmi": [
+  "7FC",
+  "7PD"
+ ],
+ "engines": [
+  {
+   "k": "dual-gen1",
+   "name": "Dual-motor electric (Gen 1)",
+   "y": [
+    2022,
+    2024
+   ]
+  },
+  {
+   "k": "quad-gen1",
+   "name": "Quad-motor electric (Gen 1)",
+   "y": [
+    2022,
+    2024
+   ]
+  },
+  {
+   "k": "dual-gen2",
+   "name": "Dual-motor electric (Gen 2)",
+   "y": [
+    2025,
+    2026
+   ]
+  },
+  {
+   "k": "tri-gen2",
+   "name": "Tri-motor electric (Gen 2)",
+   "y": [
+    2025,
+    2026
+   ]
+  },
+  {
+   "k": "quad-gen2",
+   "name": "Quad-motor electric (Gen 2)",
+   "y": [
+    2025,
+    2026
+   ]
+  }
+ ],
+ "issues": [
+  {
+   "y": [
+    2022,
+    2026
+   ],
+   "sys": "Electrical",
+   "cat": "Starting Problems",
+   "sev": "high",
+   "t": "12V battery warning or dead 12V battery",
+   "sym": "A '12V battery needs service' alert, the vehicle won't wake up or unlock, error messages pile up, or it won't go into drive even though the main battery is charged.",
+   "why": "The small 12V battery runs the computers and locks. Early trucks had a software bug that drained it while parked, and on Gen 2 (2025 and later) vehicles a mounting bracket under the passenger seat can corrode and damage the battery case. Faulty 12V distribution parts have also been replaced.",
+   "next": "Make sure the latest software is installed and contact Rivian service if the alert stays on. Rivian has been replacing 12V batteries and brackets on affected vehicles.",
+   "src": [
+    "https://bgr.com/2100424/rivian-r1-ev-common-problems",
+    "https://insideevs.com/news/658644/rivian-12v-battery-drain-issue-fixed-via-ota-update/",
+    "https://www.rivianforums.com/forum/goto/post?id=473483"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2025
+   ],
+   "sys": "Hybrid/EV",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Drive unit failure and sudden loss of power",
+   "sym": "A critical battery or drive system alert, then the vehicle loses power, sometimes with the rear wheels locking. It usually needs a tow.",
+   "why": "Owners have reported failed rear and front drive units (motor, gearbox and inverter). Causes reported by service include a shorted wiring harness and a coolant gasket leak that damaged the rear inverter.",
+   "next": "If an alert appears, steer to a safe spot right away and call Rivian roadside. Drive units are covered by the 8-year drivetrain warranty.",
+   "src": [
+    "https://www.rivianforums.com/forum/threads/r1t-critical-battery-failure-rear-drive-unit-replacement.23874/",
+    "https://insideevs.com/news/762234/rivian-r1s-gen-2-reliability-issues-7000-miles/",
+    "https://rivianforums.com/forum/goto/post?id=961567"
+   ]
+  },
+  {
+   "y": [
+    2025,
+    2025
+   ],
+   "sys": "Hybrid/EV",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Loss of drive power from high-voltage ground fault (recall)",
+   "sym": "The vehicle may suddenly lose drive power.",
+   "why": "A connection inside the high-voltage distribution box may not have been grounded properly. Recall 25V-537 repairs the ground strap or replaces the battery pack.",
+   "next": "Check your VIN for open recalls in the Rivian app or on NHTSA's site and book the free repair.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://thechargeport.com/ev/rivian-r1t/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2025
+   ],
+   "sys": "Suspension",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Rear toe link joint can separate after service (recall)",
+   "sym": "Clunking from the rear, the vehicle wandering, or in the worst case a rear wheel steering out of line and loss of control.",
+   "why": "Technicians who separated and refitted the rear toe link joint using an older service procedure may not have reassembled it correctly. Recall 26V-003 replaces the bolts, and NHTSA has opened a probe into toe link separation.",
+   "next": "If your vehicle had rear suspension service before March 2025, book the free recall repair now. Get any new rear clunk or wandering checked right away.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://bgr.com/2100424/rivian-r1-ev-common-problems",
+    "https://thechargeport.com/ev/rivian-r1t/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2024
+   ],
+   "sys": "Cooling",
+   "cat": "Leaks",
+   "sev": "med",
+   "t": "Battery coolant leak under the vehicle",
+   "sym": "A puddle of coolant under the vehicle, sometimes followed by warnings or a no-drive condition.",
+   "why": "Coolant circulates through the battery pack and drive units. Owners have reported leaks needing a tow, and one leak at a gasket shorted the rear inverter.",
+   "next": "Don't drive if there's a coolant puddle and a warning. Contact Rivian service and arrange a tow.",
+   "src": [
+    "https://www.rivianforums.com/forum/goto/post?id=463241",
+    "https://www.rivianforums.com/forum/threads/r1t-critical-battery-failure-rear-drive-unit-replacement.23874/"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2026
+   ],
+   "sys": "Safety",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Second-row seat belt retractor bolts may be loose (recall)",
+   "sym": "Usually nothing you can see. In a crash, a rear seat belt might not hold properly.",
+   "why": "Bolts holding the second-row seat belt retractors may not have been tightened properly. Recall 26V-009 inspects and tightens them.",
+   "next": "Book the free inspection. It's quick and protects rear passengers.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://www.cars.com/research/rivian/recalls"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2025
+   ],
+   "sys": "Safety",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Front seat belt anchor bolts may be loose (recall)",
+   "sym": "Usually no symptom. In a crash, a front seat belt anchor might not hold.",
+   "why": "The D-ring bolts that anchor the front seat belts may not have been installed correctly. Recall 25V-370 inspects and secures them.",
+   "next": "Check your VIN and book the free inspection.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://www.cars.com/research/rivian/recalls"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2026
+   ],
+   "sys": "Safety",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "Rearview camera blocked by on-screen alert (recall)",
+   "sym": "When you shift into reverse, a safety message can cover the backup camera picture.",
+   "why": "A software issue let a notification sit on top of the rearview image. Recall 26V-597 fixes it over the air.",
+   "next": "Install the latest software update and look around before backing up.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://www.cars.com/research/rivian/recalls"
+   ]
+  },
+  {
+   "y": [
+    2025,
+    2026
+   ],
+   "sys": "Electrical",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "Front turn signals not flashing (recall)",
+   "sym": "One or both front turn signals stay dark when you signal.",
+   "why": "The front turn signal lamps can fail. Recall 25V-387 and its expansion 26V-508 inspect and replace them.",
+   "next": "Walk around and test both signals. Book the free lamp replacement if one fails.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://www.cars.com/research/rivian/recalls"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2024
+   ],
+   "sys": "Safety",
+   "cat": "Warning Lights",
+   "sev": "high",
+   "t": "Side curtain airbag trim clips damaged after service (recall)",
+   "sym": "No symptom, but if the upper door-pillar trim was removed and reused during service, the side curtain airbag might not deploy correctly.",
+   "why": "Reused B- or C-pillar trim panels may have damaged clips. Recall 24V-408 replaces the trim panels.",
+   "next": "If your vehicle had interior pillar trim removed in service, check for this recall and book it.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://thechargeport.com/ev/rivian-r1t/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2022
+   ],
+   "sys": "Steering",
+   "cat": "Noises",
+   "sev": "high",
+   "t": "Front steering knuckle fastener may be loose (recall)",
+   "sym": "Possible clunking or vague steering from the front; in rare cases the upper control arm could separate from the knuckle.",
+   "why": "The fastener joining the front upper control arm to the steering knuckle may not have been tightened enough. Recall 22V-744 tightens it.",
+   "next": "Confirm the recall was done. Get any new front clunk or loose steering checked right away.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://thechargeport.com/ev/rivian-r1t/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2022
+   ],
+   "sys": "Safety",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Front seat belt anchors not secured to B-pillar (recall)",
+   "sym": "No symptom; a front seat belt might not restrain properly in a crash.",
+   "why": "Front seat belt anchors may not have been fully attached to the B-pillar. Recall 22V-641 inspects and secures them.",
+   "next": "Check your VIN and book the free inspection if it is still open.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://thechargeport.com/ev/rivian-r1t/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2022
+   ],
+   "sys": "Safety",
+   "cat": "Warning Lights",
+   "sev": "high",
+   "t": "Passenger airbag may not switch off correctly (recall)",
+   "sym": "The passenger airbag status light may be wrong, or the airbag might stay on with a child seat or child in the front seat.",
+   "why": "Faults in the passenger occupant sensing system (recall 22V-319, R1T) and the seat belt sensor (recall 23V-109) could misjudge who is sitting there.",
+   "next": "Keep children in the back seat and confirm both recalls were done.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://thechargeport.com/ev/rivian-r1t/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2022
+   ],
+   "sys": "Hybrid/EV",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "Accelerator release not detected in hot cabin (recall)",
+   "sym": "In a very hot cabin, the vehicle might not register that you lifted off the accelerator, so auto-hold or Park may not engage.",
+   "why": "The accelerator pedal sensor could misread in high heat. Recall 23V-883 adds a software update and a free pedal replacement.",
+   "next": "Confirm the update and pedal replacement were done. Always check the vehicle is in Park before getting out.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://thechargeport.com/ev/rivian-r1t/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "HVAC",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "Defroster controls missing after software update (recall)",
+   "sym": "After an update, the windshield defrost and defog controls disappeared from the screen.",
+   "why": "Software release 2023.42.0 knocked out the defroster controls. Rivian pushed a fixed update (recall 23V-783).",
+   "next": "Make sure your software is current. Don't drive if you can't clear the windshield.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://thechargeport.com/ev/rivian-r1t/reliability"
+   ]
+  },
+  {
+   "y": [
+    2025,
+    2025
+   ],
+   "sys": "Electrical",
+   "cat": "Warning Lights",
+   "sev": "med",
+   "t": "Low beams fail to come on in cold weather (recall)",
+   "sym": "On a cold start, the low beam headlights may not turn on.",
+   "why": "Headlight control modules can fail to start up in the cold. Recall 25V-085 replaces them.",
+   "next": "Check your headlights before driving on cold mornings and book the free module replacement.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://www.cars.com/research/rivian/recalls"
+   ]
+  },
+  {
+   "y": [
+    2025,
+    2025
+   ],
+   "sys": "Safety",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "Highway Assist may misread the car ahead (recall)",
+   "sym": "With Hands-Free Highway Assist on, the vehicle may not correctly track the vehicle in front.",
+   "why": "Software before version 2025.18.30 could fail to identify a lead vehicle. Recall 25V-585 fixes it over the air.",
+   "next": "Install the update and stay ready to brake whenever driver assistance is on.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://www.cars.com/research/rivian/recalls"
+   ]
+  },
+  {
+   "y": [
+    2023,
+    2024
+   ],
+   "sys": "Electrical",
+   "cat": "Driving",
+   "sev": "low",
+   "t": "Headlights aimed too low (recall)",
+   "sym": "Headlights light up less of the road ahead than they should at night.",
+   "why": "Headlamps left the factory aimed slightly too low. Recall 24V-367 re-aims them.",
+   "next": "Book the free headlight aim check.",
+   "src": [
+    "https://rivian.com/support/recall-information",
+    "https://thechargeport.com/ev/rivian-r1t/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Electrical",
+   "cat": "Driving",
+   "sev": "low",
+   "t": "R1S backup lights too dim (recall)",
+   "sym": "The reverse lights on the R1S don't light up the area behind it well enough.",
+   "why": "The backup lamps did not meet visibility rules. Recall 23V-233 replaces them.",
+   "next": "Check for the recall if you own a 2022 or 2023 R1S.",
+   "src": [
+    "https://rivian.com/support/recall-information"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2025
+   ],
+   "sys": "Body",
+   "cat": "Leaks",
+   "sev": "med",
+   "t": "Water leaking into the cabin or doors",
+   "sym": "Wet carpet, water inside a door, or drips in the cabin after rain or a wash.",
+   "why": "Seal and fit problems let water in. Owners of both early and Gen 2 vehicles have reported leaks.",
+   "next": "Dry the interior quickly to prevent mold and have Rivian find and reseal the leak under warranty.",
+   "src": [
+    "https://insideevs.com/news/762234/rivian-r1s-gen-2-reliability-issues-7000-miles/",
+    "https://rivianforums.com/forum/goto/post?id=961567"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2025
+   ],
+   "sys": "HVAC",
+   "cat": "Noises",
+   "sev": "low",
+   "t": "Loud humming or vibration from air conditioning",
+   "sym": "A deep hum or vibration through the cabin, often on hot days with A/C on Auto, or a loud heat pump when parked.",
+   "why": "The A/C compressor and heat pump can be loud. Some owners were helped by a compressor replacement or software update; Rivian has called some noise within spec. A full A/C failure has also been reported on a 2025 R1S.",
+   "next": "Note when it happens and ask service to check the compressor. If cooling stops entirely, book a repair.",
+   "src": [
+    "https://bgr.com/2100424/rivian-r1-ev-common-problems",
+    "https://rivianforums.com/forum/goto/post?id=961567",
+    "https://insideevs.com/news/762234/rivian-r1s-gen-2-reliability-issues-7000-miles/"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2025
+   ],
+   "sys": "Suspension",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "Air suspension sagging or height faults",
+   "sym": "One corner sits low after parking, or the vehicle won't change ride height and shows a suspension warning.",
+   "why": "Leaks or faults in the air suspension parts. Owners have reported sagging that needed service.",
+   "next": "Drive gently and book service. Avoid off-road or high speeds if the vehicle sits unevenly.",
+   "src": [
+    "https://rivianforums.com/forum/goto/post?id=961567",
+    "https://www.rivianforums.com/forum/goto/post?id=463241"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2026
+   ],
+   "sys": "Electrical",
+   "cat": "Starting Problems",
+   "sev": "low",
+   "t": "Phone key won't unlock or connect reliably",
+   "sym": "The doors don't unlock when you walk up, the phone key drops its connection, or locking on walk-away doesn't work.",
+   "why": "Bluetooth phone key reliability has been a long-running complaint, and software updates haven't fully fixed it.",
+   "next": "Carry the key card or key fob as a backup. Keep the Rivian app updated and allow it to run in the background.",
+   "src": [
+    "https://bgr.com/2100424/rivian-r1-ev-common-problems",
+    "https://rivianforums.com/forum/goto/post?id=961567"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2024
+   ],
+   "sys": "Body",
+   "cat": "Noises",
+   "sev": "low",
+   "t": "Doors that won't close flush and rattles",
+   "sym": "Doors that must be slammed, a liftgate that sits out on one side, mismatched trim, squeaks and rattles.",
+   "why": "Early production fit and finish issues. Some can be adjusted at a service center.",
+   "next": "List every fit issue and have a service center (not just mobile service) adjust them under warranty.",
+   "src": [
+    "https://www.rivianforums.com/forum/goto/post?id=473483",
+    "https://www.rivianforums.com/forum/goto/post?id=463241",
+    "https://rivianforums.com/forum/goto/post?id=961567"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2025
+   ],
+   "sys": "Body",
+   "cat": "Driving",
+   "sev": "low",
+   "t": "R1T powered tonneau cover jams",
+   "sym": "The power bed cover stops partway or won't open or close.",
+   "why": "Owners report the cover's mechanism jamming.",
+   "next": "Clear any debris from the tracks and contact service if it keeps jamming.",
+   "src": [
+    "https://rivianforums.com/forum/goto/post?id=961567"
+   ]
+  }
+ ]
+}
