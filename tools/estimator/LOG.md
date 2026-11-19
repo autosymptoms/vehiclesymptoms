@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-19 23:26 UTC started
+
 ## Run 2026-11-19 22:25 UTC finished 22:47 UTC (stopped: search budget for the turn used)
 - Totals: 8 agents, 17 files worked (7 finishing, 10 new). Every one of the 42 jobs now has a file: 30 checked `[x]`, 12 held `[~]`. Labor rates untouched (still first pass).
 - Passed this run: brake caliper, heater core, intake manifold gasket, clutch, EGR valve, turbocharger. Still held: blower motor, window regulator, oxygen sensor, engine mount, strut, radiator fan, oil pan gasket, rear main seal, transmission, throttle body, mass air flow sensor, head gasket. Most are held for one missing figure, usually an aftermarket price that no retailer lists for the example vehicle; QUEUE.md records the decision on how to close those.
