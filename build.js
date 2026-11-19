@@ -80,6 +80,7 @@ for(const f of ['app.js','guide.js','site.css'])fs.copyFileSync('src/'+f,'dist/'
 fs.mkdirSync('dist/email',{recursive:true});for(const f of fs.readdirSync('src/email'))fs.copyFileSync('src/email/'+f,'dist/email/'+f);
 // ---------- warning lights data (src/lights.js + optional depth in src/lights-deep.json) ----------
 const LIGHTS=require('./src/lights.js');
+const RESETS=fs.existsSync('src/resets.json')?JSON.parse(fs.readFileSync('src/resets.json','utf8')):{};
 const LDEEP=fs.existsSync('src/lights-deep.json')?JSON.parse(fs.readFileSync('src/lights-deep.json','utf8')):{};
 const LCOL={red:'#FF5A5F',amber:'#FFB020',green:'#34C77B',blue:'#5AB0FF'};
 const LSEV={stop:["Stop driving as soon as it's safe","high"],soon:["Get it checked soon","med"],check:["Check it when you can","info"],info:["Information only","low"]};
@@ -219,7 +220,7 @@ ${d.causes2.map(c=>`<div class="c2"><div class="c2-h"><b>${escH(c.name)}</b><spa
 ${d.diag?`<p class="lsoon-note">A shop usually charges ${rngC(d.diag[0],d.diag[1])} just to diagnose this light, and many put that toward the repair.</p>`:''}</section>`:''}
 ${d.shop?`<section class="card csec"><h2>What a shop will do</h2><p>${escH(d.shop)}</p></section>`:''}
 ${d.reset?`<section class="card csec lreset" id="reset"><h2>How to reset this light</h2><p>${escH(d.reset.how)}</p>${d.reset.note?`<p class="lmuted">${escH(d.reset.note)}</p>`:''}
-${d.reset.real?`<div class="lsoon"><p class="eyebrow">Coming soon</p><b>Reset steps for your exact vehicle</b><p>We're building the button-by-button reset for each year, make and model. Tell us what you drive and it will be here when it's ready.</p><a class="btn btn-ghost" href="/#vehicle">Pick my vehicle</a></div>`:''}</section>`:''}
+${d.reset.real?(Object.keys(RESETS).length&&/oil|service|maint|tire|tyre/i.test(l.id)?`<div class="lsoon"><p class="eyebrow">Step by step</p><b>Pick your make for the button sequence</b><div class="mkrow">${Object.keys(RESETS).sort((a,b)=>RESETS[a].make.localeCompare(RESETS[b].make)).map(m=>`<a href="/warning-lights/reset/${m}/">${escH(RESETS[m].make)}</a>`).join('')}</div><p class="lsoon-note">Exact steps for every single year and model are still being added. If your make isn't here yet, your owner's manual has the sequence.</p></div>`:`<div class="lsoon"><p class="eyebrow">Coming soon</p><b>Reset steps for your exact vehicle</b><p>We're building the button-by-button reset for each year, make and model. Tell us what you drive and it will be here when it's ready.</p><a class="btn btn-ghost" href="/#vehicle">Pick my vehicle</a></div>`):''}</section>`:''}
 ${gs.length?`<section class="csec"><h2 style="font-size:18px">Walk through it step by step</h2><div class="glist">${gs.map(g=>`<a class="gcard" href="/symptoms/${g.id}/"><b>${escH(g.title)}</b><span>${escH(g.h1)}</span></a>`).join('')}</div></section>`:''}
 ${cs.length?`<section class="csec"><h2 style="font-size:18px">Trouble codes often stored with this light</h2><div class="codechips">${cs.map(c=>{const x=CODES.find(y=>y.code===c);return `<a href="/codes/${c.toLowerCase()}/"><b>${c}</b> ${escH(x.title)}</a>`}).join('')}</div></section>`:''}
 <section class="csec"><h2 style="font-size:18px">Common questions</h2>${faq.map((f,i)=>`<details class="faq"${i===0?' open':''}><summary>${escH(f.q)}</summary><p>${escH(f.a)}</p></details>`).join('')}</section>
@@ -236,9 +237,35 @@ urls.push(page('/warning-lights/','Dashboard Warning Lights: What Each Light Mea
 <div class="lfilter" id="lfilter"><button class="on" data-c="all">All</button><button data-c="red">Red</button><button data-c="amber">Amber</button><button data-c="info">Green / blue</button></div>
 <div class="lgrid" id="lgrid">${[...LIGHTS].sort((a,b)=>{const r={stop:0,soon:1,check:2,info:3};return r[a.sev]-r[b.sev]||a.name.localeCompare(b.name)}).map(lcard).join('')}</div>
 <p class="lnone" id="lnone" hidden>No light matches that. Try a shorter word, or browse the symbols above.</p>
-${LIGHTS.some(l=>(LDEEP[l.id]||{}).reset&&LDEEP[l.id].reset.real)?`<section class="csec"><h2 style="font-size:18px">Service and reminder lights you can reset</h2><p class="pg-sub">These come on by mileage or time, not because something broke. Once the work is done they are meant to be reset.</p><div class="glist">${LIGHTS.filter(l=>(LDEEP[l.id]||{}).reset&&LDEEP[l.id].reset.real).map(l=>`<a class="gcard" href="/warning-lights/${l.id}/#reset"><b>${escH(l.name)}</b><span>How to reset it</span></a>`).join('')}</div></section>`:''}
+${LIGHTS.some(l=>(LDEEP[l.id]||{}).reset&&LDEEP[l.id].reset.real)?`<section class="csec"><h2 style="font-size:18px">Service and reminder lights you can reset</h2><p class="pg-sub">These come on by mileage or time, not because something broke. Once the work is done they are meant to be reset. ${Object.keys(RESETS).length?`<a href="/warning-lights/reset/">Reset steps by make</a>.`:''}</p><div class="glist">${LIGHTS.filter(l=>(LDEEP[l.id]||{}).reset&&LDEEP[l.id].reset.real).map(l=>`<a class="gcard" href="/warning-lights/${l.id}/#reset"><b>${escH(l.name)}</b><span>How to reset it</span></a>`).join('')}</div></section>`:''}
 <p class="muted" style="margin-top:18px;font-size:14px">Several lights on at once, or the whole dash lit up? See <a href="/symptoms/dashboard-lights-all-on/" style="color:var(--blue2)">all dashboard lights on</a>. Got a code from a scanner? Use <a href="/codes/" style="color:var(--blue2)">Code lookup</a>.</p>`}));
 console.log(`${LIGHTS.length} warning lights`);
+// ---------- reset pages (src/resets.json) ----------
+if(Object.keys(RESETS).length){
+  const mkeys=Object.keys(RESETS).sort((a,b)=>RESETS[a].make.localeCompare(RESETS[b].make));
+  const varBlock=(s,title)=>s?`<section class="card csec"><h2>${escH(title)}</h2>${s.variants.map((x,i)=>`<div class="rvar"><div class="rv-h"><span class="rv-n">${i+1}</span><b>${escH(x.when)}</b></div><ol class="nums">${x.steps.map(t=>`<li>${escH(t)}</li>`).join('')}</ol>${x.note?`<p class="lmuted">${escH(x.note)}</p>`:''}</div>`).join('')}${s.src&&s.src.length?`<p class="lsrc">Sources: ${s.src.map(u=>`<a href="${escA(u)}" target="_blank" rel="noopener nofollow">${escH(srcLabel(u))}</a>`).join(' · ')}</p>`:''}</section>`:'';
+  for(const m of mkeys){const r=RESETS[m];const models=V.filter(v=>v.make===r.make);
+    const faq=[{q:`How do I reset the oil change light on a ${r.make}?`,a:(r.oil&&r.oil.variants[0]?r.oil.variants[0].steps.join(' '):'')},
+               {q:`How do I reset the tire pressure light on a ${r.make}?`,a:(r.tpms&&r.tpms.variants[0]?r.tpms.variants[0].steps.join(' '):'')}].filter(f=>f.a);
+    const ld='<script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}).replace(/</g,'\\u003c')+'</script>\n';
+    const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/warning-lights/">Warning lights</a> › <a href="/warning-lights/reset/">Reset a light</a> › ${escH(r.make)}</div>
+<div class="ghead"><div class="eyebrow">Reset a reminder light</div><h1>How to reset the oil change and tire pressure lights on a ${escH(r.make)}</h1>
+<p class="sub">These two lights are reminders, not faults. Do the work first, then reset. Everything else on your dash is a warning, and clearing it does not fix anything.</p></div>
+${BYLINE('/warning-lights/reset/'+m+'/')}
+${varBlock(r.oil,'Oil change or maintenance reminder')}
+${varBlock(r.tpms,'Tire pressure (TPMS) light')}
+${r.notes?`<section class="card csec"><h2>Worth knowing on a ${escH(r.make)}</h2><p>${escH(r.notes)}</p></section>`:''}
+<section class="csec"><h2 style="font-size:18px">If the light comes straight back</h2><div class="glist"><a class="gcard" href="/warning-lights/oil-change-light/"><b>Oil change light</b><span>What it means and what it is not</span></a><a class="gcard" href="/warning-lights/tire-pressure-light/"><b>Tire pressure light</b><span>Low air, a leak, or a dead sensor</span></a><a class="gcard" href="/warning-lights/check-engine-light/"><b>Check engine light</b><span>A fault, not a reminder</span></a></div></section>
+${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)} models on the site</h2><div class="mgrid">${models.map(v=>`<a href="/vehicles/${v.id}/">${escH(v.model)}<span>${v.years[0]}–${v.years[1]}</span></a>`).join('')}</div></section>`:''}
+<div class="trust">Button sequences vary by model year and trim. Your owner's manual is the final word for your exact vehicle. If a reminder will not clear after the service, something else is setting it.</div>`;
+    urls.push(page('/warning-lights/reset/'+m+'/',`How to Reset the Oil Change & Tire Pressure Light on a ${r.make} | VehicleSymptoms.com`,`Step-by-step: reset the ${r.make} oil change or maintenance reminder and the tire pressure (TPMS) light, in plain English, free.`.slice(0,165),{inner,pageData:ld}));}
+  urls.push(page('/warning-lights/reset/','How to Reset a Service or Tire Pressure Light | VehicleSymptoms.com','Reset the oil change, maintenance and tire pressure lights by make. Plain-English steps, free, no sign-up.',{inner:`<div class="crumb"><a href="/">Home</a> › <a href="/warning-lights/">Warning lights</a> › Reset a light</div>
+<div class="ghead"><div class="eyebrow">Reset a reminder light</div><h1>Which make are you resetting?</h1><p class="sub">Only reminder lights are meant to be reset: the oil change or maintenance message, and the tire pressure light after you have set the pressures. Do the work first, then reset.</p></div>
+<div class="lrow">${mkeys.map(m=>`<a class="lr lr-all" href="/warning-lights/reset/${m}/"><b>${escH(RESETS[m].make)}</b><span>Oil change · tire pressure</span></a>`).join('')}</div>
+<section class="csec"><h2 style="font-size:18px">Lights you should not just clear</h2><p class="pg-sub">A check engine light, an oil pressure light, a brake light or an airbag light is a fault. Clearing it hides the warning until the fault sets it again.</p><div class="glist">${['check-engine-light','oil-pressure-light','brake-warning-light','airbag-light'].map(id=>{const l=LIGHTS.find(x=>x.id===id);return l?`<a class="gcard" href="/warning-lights/${id}/"><b>${escH(l.name)}</b><span>${escH(LSEV[l.sev][0])}</span></a>`:''}).join('')}</div></section>`}));
+  console.log(`${mkeys.length} reset-by-make pages`);
+}
+
 
 // ---------- "Is my quote fair?" price check ----------
 {const gen=new Map();
