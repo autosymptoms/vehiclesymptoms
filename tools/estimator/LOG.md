@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-19 20:38 UTC started
+
 ## Run 2026-11-19 18:40 UTC finished 20:00 UTC (stopped: web search limit reached)
 - Totals: 12 jobs researched this run (first run): 2 passed review, 10 held `[~]` with partial files saved. State labor rates: first pass saved, held.
 - Batch 2 (spark plugs, A/C compressor, radiator, fuel pump + labor rates): the shared web search budget ran out mid-batch, after which pages not already seen in search results could not be fetched. Job files hold verified labor times only (mostly NHTSA-hosted Toyota/Honda warranty times) with parts and benchmarks null. rates.json: 51 entries, range about $100 (WV) to $175 (CA), versus the live flat $120–$160; all-shop averages, no dealer split.
