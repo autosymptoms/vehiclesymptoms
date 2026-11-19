@@ -1,0 +1,69 @@
+{
+  "job": "Engine or motor mount replacement",
+  "unit": "per mount (one engine mount, the mount named in each example; the other mounts, the transmission mount and any new bolts are not included). Active, hydraulic or electronically controlled mounts cost far more than a plain rubber mount",
+  "classes": {
+    "economy": {
+      "parts": [null, null],
+      "hours": [0.6, 0.7],
+      "example": "2015 Honda Civic Si 2.4L, side (passenger-side) engine mount, Honda part 50820-TR7-305",
+      "parts_src": [],
+      "hours_src": [
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2015/MC-10115164-9999.pdf", "what": "HIGH, the example vehicle: Honda service bulletin 15-009 (January 28, 2015; 2012-15 Civic Si), operation 1121A5 'Replace the side engine mount (includes the test-drive)' 0.7 hr. New mount 50820-TR7-305 plus four new flange bolts and a nut; the bulletin gives no prices. A warranty time is the low end of what a shop bills. This is the Si model; no bulletin time for the 1.8L Civic was found"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10168098-0001.pdf", "what": "LOW, comparable compact car, not a Civic: Mazda bulletin 01-017/19 (2014-2018 Mazda3 2.0L automatic), labor op XXR62ERX, No.3 engine mount remove and replace, 0.6 hr. On the 1.5L Mazda3 (Mexico specification) replacing both the No.3 and No.4 mounts is 1.0-1.1 hr"}
+      ]
+    },
+    "midsize": {
+      "parts": [null, null],
+      "hours": [0.5, 0.6],
+      "example": "2017 Mazda CX-5, No.3 engine mount (Mazda part K1Y0-39-060)",
+      "parts_src": [],
+      "hours_src": [
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10168098-0001.pdf", "what": "HIGH, the example model but not the engine sold in the United States: Mazda bulletin 01-017/19 covers the 2017-2018 CX-5 2.0L automatic (Canadian specification) and 2018-2019 CX-5 2.0L (Mexico specification), labor op XXR62ERX, No.3 engine mount remove and replace, 0.6 hr, part K1Y0-39-060. A warranty time is the low end of what a shop bills"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10169237-9999.pdf", "what": "LOW, comparable compact crossover and a different mount, not a CX-5: FCA bulletin 09-004-19 (2019-2020 Jeep Compass 2.0L/2.4L, Latin America market), labor op 09-40-10-96 'Mount, Engine Rear - Replace' 0.5 hr"}
+      ]
+    },
+    "truck": {
+      "parts": [null, null],
+      "hours": [null, 3.2],
+      "example": "2016 Chevrolet Silverado 1500 5.3L V8, one engine mount (left or right side)",
+      "parts_src": [],
+      "hours_src": [
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10166640-9999.pdf", "what": "HIGH, the example vehicle, but for BOTH mounts, used only as a ceiling for one: GM bulletin 17-NA-166 (2014-2018 Silverado/Sierra, 2015-2019 Tahoe/Suburban/Yukon/Escalade; 4.3L, 5.3L, 6.2L), labor op 4081348 'Engine Mount Replacement - Both Sides' 3.2 hr (pickup V8), 3.1 hr (pickup V6), 3.8 hr (SUV). GM does not state a time for one side, so the low end is null. Same bulletin: 'Engine Mount Shimming Procedure - One Side' 1.5 hr, add 0.5 hr for both sides (a shimming job, not a replacement)"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10186061-9999.pdf", "what": "Later version of the same GM bulletin, extended to 2019-2021 models, with the same times: both sides 3.8 hr (SUV), 3.1 hr (pickup V6), 3.2 hr (pickup V8)"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2016/MC-10119653-9999.pdf", "what": "Cross-check on a heavy-duty pickup, both sides, not used for the range: FCA bulletin (2014-2016 Ram 2500 6.4L), labor op 09-40-10-98 'Engine Mount/support Both Left and Right - Replace' 1.4 hr; parts 68090655AA (right) and 68090658AA (left)"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2022/MC-10216375-9999.pdf", "what": "Cross-check, a different mount, not used for the range: GM bulletin PIP5705 (2019-2020 Silverado 1500 / Sierra 1500 5.3L and 6.2L), labor op 8464270 'Transmission Mount Replacement' 0.5 hr. The transmission mount is a much quicker job than an engine mount on these trucks"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2022/MC-10229821-9999.pdf", "what": "Cross-check on an SUV, both sides, not used for the range: FCA bulletin 09-015-22 (2021-2022 Jeep Grand Cherokee 3.6L), labor op 09-40-10-9A 'Mount, Engine - Replace Both' 3.9 hr"}
+      ]
+    },
+    "luxury": {
+      "parts": [null, null],
+      "hours": [null, 1.1],
+      "example": "2015 Cadillac ATS 3.6L V6, one engine mount (left or right side; GM part 23241845 rear-wheel drive, 23241846 all-wheel drive)",
+      "parts_src": [],
+      "hours_src": [
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2016/SB-10070540-0335.pdf", "what": "HIGH, the example vehicle, but for BOTH mounts, used only as a ceiling for one: GM bulletin PIP5243 (November 2014; 2013-2015 Cadillac ATS sedan and 2015 coupe, 3.6L), labor op 4080758 'Replace Both Left And Right Engine Mounts' 1.1 hr. The bulletin says both mounts are to be replaced as a pair; GM does not state a time for one side, so the low end is null. A warranty time is the low end of what a shop bills"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10177994-0001.pdf", "what": "Cross-check showing how far active mounts on a sports car can go, not used for the range: Porsche campaign WKJ8 (2020 911), 'Replacing engine mounts and retrofitting caps', both dynamic (PADM) engine mounts, 685 TU, or 761 TU with camera and lane-change calibration. TU are Porsche time units, not hours; no conversion source was loaded, so they are not converted. The job includes lowering the engine, draining coolant and removing the rear bumper"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2025/MC-11026092-0001.pdf", "what": "Cross-check on a larger premium SUV, not used for the range: Mazda bulletin (2024-2026 CX-90, 2025-2026 CX-70): replacing the right engine mount stopper rubber alone is 2.3-2.4 hr; the full operation ending in 'replace both engine mounts' is 5.7-5.8 hr"}
+      ]
+    }
+  },
+  "src": [
+    "https://static.nhtsa.gov/odi/tsbs/2015/MC-10115164-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2019/MC-10168098-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2019/MC-10169237-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2019/MC-10166640-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10186061-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2016/MC-10119653-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2022/MC-10216375-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2022/MC-10229821-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2016/SB-10070540-0335.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10177994-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2025/MC-11026092-0001.pdf"
+  ],
+  "benchmarks": [],
+  "live": [180, 925],
+  "finding": "NOT CHECKED: this file holds labor times only, so it can neither confirm nor contradict the live range of $180-$925. The run's shared web-search limit was reached before any parts price or any benchmark could be loaded, so every parts figure is null, there are no benchmarks and no totals can be built. Nothing here should be used to change the live range. What was verified is the labor side, from manufacturer bulletins. One easy-to-reach mount on a small car or crossover is a short job at warranty pace: 0.7 hr for the side mount on a 2012-15 Honda Civic Si, 0.6 hr for the No.3 mount on a Mazda3 or CX-5 2.0L, 0.5 hr for the rear mount on a Jeep Compass. At $120-$160/hr (the national middle labor rate used for these checks) that is about $60-$112 of labor before the part. Engine mounts on body-on-frame trucks and SUVs take much longer: GM allows 3.1-3.2 hr to replace both on a 2014-2018 Silverado/Sierra and 3.8 hr on the SUVs, FCA allows 3.9 hr for both on a 2021-2022 Jeep Grand Cherokee, but only 1.4 hr for both on a Ram 2500 6.4L; 3.2 hr is about $384-$512 of labor. A transmission mount on a 2019-2020 Silverado is 0.5 hr. How solid the labor times are: economy is for the example vehicle (the Si model). Midsize is the right model but an engine not sold in the United States. Truck and luxury are for the example vehicles but for BOTH mounts; no manufacturer states a time for one side, so the low end is null and the high end is a ceiling at warranty pace, not what a shop would bill for one mount. All are warranty times, the low end of what shops bill. No stated time was found for an active or electronically controlled mount on a mainstream car (Honda and Acura V6 models use them); the only active-mount figure found is Porsche's 685-761 time units for both mounts on a 2020 911, which was not converted to hours. Nissan (2019 Altima, 2021-2024 Rogue left mount) and GM (2021 Buick Envision) bulletins name the operation but refer to their flat-rate manuals without printing a time. Still needed before this job can be judged: for each class an OEM list price and an aftermarket price for the named mount, and at least three benchmarks.",
+  "confidence": "low",
+  "checked": "2026-11-19",
+  "extras": "A quote often adds a diagnosis or inspection fee (finding which mount has failed), new one-time-use mount bolts and nuts (the Honda bulletin calls for four new bolts and a nut with one mount), and a second or third mount, since they tend to wear together and some makers replace them only in pairs. Active, hydraulic (fluid-filled) and electronically controlled mounts cost far more than plain rubber ones and may need a separate actuator or vacuum line. On some vehicles the job needs an engine support, removal of the splash shields or exhaust parts, or a wheel alignment if the subframe is loosened. Also shop supplies and sales tax."
+}

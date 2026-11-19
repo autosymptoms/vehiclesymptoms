@@ -1,0 +1,26 @@
+# Brief for a research agent (one agent = two jobs)
+
+You are a research agent helping build a transparent car-repair price estimator. The repo is already on branch `estimator`. Do NOT commit, push, switch branches, run `npm run build`, or touch any file except the job files you were assigned. The run lead reviews and commits.
+
+## Read first
+- `src/estimator/jobs/control-arm-replacement.json` and `src/estimator/jobs/starter-replacement.json`: files that passed review. Copy their schema exactly: `job`, `unit`, `classes` with keys `economy`, `midsize`, `truck`, `luxury`, each `{parts:[lo,hi], hours:[lo,hi], example, parts_src:[{url,what}], hours_src:[{url,what}]}`; top-level `src` (all URLs), `benchmarks:[{name,url,lo,hi,date,note}]`, `live`, `finding`, `confidence`, `checked`, `extras`.
+- `tools/estimator/RUNBOOK.md` section 2.
+
+## For each job, four vehicle classes on a named example vehicle
+Suggested examples: economy 2015 Toyota Corolla; midsize 2016 Toyota Camry or Honda CR-V/Accord; truck 2016 Ford F-150 or Chevrolet Silverado 1500; luxury 2015 BMW 328i or an Acura/Lexus. Prefer whichever common vehicle in the class has a manufacturer-stated labor time: Honda/Acura, Hyundai/Kia, GM, FCA, Subaru, Nissan and Mazda bulletins usually print times; Toyota, Ford and BMW rarely do. State the `unit` precisely (which part, one side or a pair, what is not included).
+
+1. **Parts**: low = quality aftermarket price, high = OEM list (MSRP). At least two sources per class: an OEM dealer parts catalog (toyotapartsdeal.com, hondapartsnow.com, acurapartswarehouse.com, subarupartsdeal.com, gmpartsgiant.com, fordpartsgiant.com, bmwpartsdeal.com) and a retailer (autopartsprime.com, fcpeuro.com, 1aauto.com, finditparts.com, summitracing.com, americantrucks.com). Record the exact part, brand/number and price in `what`. Say when a price is per piece and you multiplied it.
+2. **Labor hours**: a range from public sources that actually STATE a time. Best: manufacturer recall / TSB / warranty-extension dealer letters on static.nhtsa.gov listing labor-operation times (these are warranty times, the low end of what shops bill). Also acceptable: parts-maker install guides giving a time, trade-press articles quoting book time (brakeandfrontend.com, underhoodservice.com, tomorrowstechnician.com, motor.com), parts-seller install-time statements (americantrucks.com, fcpeuro.com guides), and general retailer or named-mechanic guides (label these as not vehicle-specific). A stated time for a comparable vehicle in the same class may be used if `what` says clearly that it is not the example vehicle. Do not convert BMW FRU or other time units unless you loaded a source for the conversion; say so.
+3. **Benchmarks**: at least three independent public estimates (RepairPal, Kelley Blue Book, YourMechanic, Jerry, AAA articles, J.D. Power, ConsumerAffairs, chain shop price pages), each with lo, hi, URL, date (today), and a note. COMPARISON CHECK ONLY: never copy or blend their prices into `classes`.
+4. **`finding`**: say plainly whether the live range is too wide, too low, too high or about right and why, with built totals per class = parts + hours x $120–$160/hr national middle (say that rate was used), and say candidly how solid each labor time is. **`confidence`**: low if any class lacks a stated labor time or has fewer than two parts sources, or if half or more of the hours are not for the example vehicle; otherwise medium. **`checked`**: today's date. **`extras`**: what a quote often adds (diagnosis, shop supplies, fluids, alignment, related parts, the other side).
+
+## Hard rules
+- Every number must be traceable to a URL you actually loaded and saw the number on. No invented, estimated or remembered prices or hours. If you cannot find something, use `null` and say so in `finding`: an honest null beats a guess.
+- Never cite au7o.io, AI-written cost-guide content farms (pages.dev cost sites, scraped or unsigned "cost guide" blogs), manuals.autorepairshq.com, tpautorepair.net, openlaborproject.com or bruisers.com. Forum posts quoting a book time are weak: second figure only, labelled.
+- If a site refuses to load or blocks you, skip it and use another. Do not work around blocks (no archive or cache mirrors, no curl or scripts; only WebSearch and WebFetch). WebFetch only accepts URLs that a search result returned, so search first, then fetch the result URL.
+- Known unusable: PartsGeek, RockAuto and AutoZone parts pages, O'Reilly (intermittent), ford.com, autoparts.toyota.com, jegs.com, go-parts.com, justanswer.com, detroitaxle.com, buyautoparts.com (no prices), the AAA estimator tool, kbb.com repair-guide pages (mostly errors).
+- Nothing in the files may mention any person or shop behind the site. An estimate is never a quote and never a diagnosis.
+- Budget: web lookups are shared with every other agent in the run. At most about 30 web searches; be economical with fetches. If you hit a search or fetch limit, stop at once, save what is verified (nulls for the rest), and report.
+
+## When done
+Check each file parses (`node -e "require('./src/estimator/jobs/<file>')"`), then reply with: per class the parts and hours and the source of each hours figure, built totals, benchmarks, your finding, what is null and why, and which sites were blocked.

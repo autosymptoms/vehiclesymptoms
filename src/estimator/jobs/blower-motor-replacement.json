@@ -1,0 +1,160 @@
+{
+  "job": "Blower motor replacement",
+  "unit": "per job: one front HVAC blower motor (with its fan wheel where sold that way). Not included: blower resistor or power module, cabin air filter, rear blower on three-row vehicles",
+  "classes": {
+    "economy": {
+      "parts": [
+        null,
+        641.13
+      ],
+      "hours": [
+        0.3,
+        null
+      ],
+      "example": "2015 Honda Fit",
+      "parts_src": [
+        {
+          "url": "https://hondapartsnow.com/oem-2015-honda-fit-blower_motor.html",
+          "what": "Honda OEM fan motor assembly 79310-T5R-A01 for 2015 Fit, MSRP $641.13 (high), discounted $438.54"
+        },
+        {
+          "url": "https://autopartsprime.com/p/honda-fit-blower-motor",
+          "what": "Same Honda OEM part 79310-T5R-A01 at $450.07 (cross-check of the OEM part). The page also lists Four Seasons aftermarket blower motors with wheel at $34.65-$73.18 (76953, 75878, 75060, 75849) but does not show which fit the 2015 Fit, so none was used and the aftermarket low is left null"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2021/MC-10186010-0001.pdf",
+          "what": "LOW, the example vehicle: Honda Service Bulletin 21-005 (2015-20 Fit) warranty table states op 612120 'Replace the filter and blower motor' flat rate time 0.3 hr (same 0.3 hr for 'Inspect the filter (no replacement needed). Replace the blower motor'). A warranty time is the low end of what a shop bills. No source stating a higher shop time for this car was loaded, so the high is null"
+        }
+      ]
+    },
+    "midsize": {
+      "parts": [
+        null,
+        346.52
+      ],
+      "hours": [
+        0.4,
+        null
+      ],
+      "example": "2022 Honda Pilot (front blower)",
+      "parts_src": [
+        {
+          "url": "https://www.hondapartsnow.com/oem-2022-honda-pilot-blower_motor.html",
+          "what": "Honda OEM front blower motor sub-assembly 79307-TZ5-A61 (replaces 79310-TZ5-A41/-A42), MSRP $346.52 (high), discounted $239.09. Rear blower motors on the same page (not part of this unit): 79315-TG7-A61 MSRP $296.55, 79309-TG7-A61 MSRP $294.66"
+        },
+        {
+          "url": "https://autopartsprime.com/p/honda-pilot-blower-motor",
+          "what": "Lists the same OEM front part 79307-TZ5-A61 with no price shown, and Four Seasons aftermarket blower motors at $41.48-$81.76 without showing which fit the 2022 Pilot, so none was used. Only one priced source for this class; aftermarket low is null"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2022/MC-10219670-0001.pdf",
+          "what": "LOW, the example vehicle: Honda Service Bulletin 22-023 (2022 Passport, Pilot, Ridgeline) warranty table states op 6121D6 'Replace the blower motor and cover cap (includes inspection)' flat rate time 0.4 hr; inspection only (op 6125A0) is 0.3 hr. A warranty time is the low end of what a shop bills. No source stating a higher shop time was loaded, so the high is null"
+        }
+      ]
+    },
+    "truck": {
+      "parts": [
+        59.99,
+        null
+      ],
+      "hours": [
+        0.4,
+        1
+      ],
+      "example": "2016 Chevrolet Silverado 1500",
+      "parts_src": [
+        {
+          "url": "https://www.americantrucks.com/silverado1500-hvac-blower-motor-assembly-hca40430.html",
+          "what": "Aftermarket HVAC blower motor assembly, store brand, part HCA40430 (item S196008), listed for 2014-2018 2WD Silverado 1500, $59.99 (low). No OEM list price was loaded, so the high is null and this class has only one parts source"
+        },
+        {
+          "url": "https://americantrucks.com/silverado1500-hvac-blower-motor-assembly-hma84783.html",
+          "what": "Not the example vehicle (older generation, for scale only): store-brand blower motor assembly for 2007-2013 Silverado 1500 with automatic temperature control, item S153175, $104.99; page says the item is no longer carried"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://www.americantrucks.com/silverado1500-hvac-blower-motor-assembly-hca40430.html",
+          "what": "HIGH: seller states installation time '(approx) 1 Hour' for the 2014-2018 Silverado 1500 part ('Simple installation for anyone'). A seller's approximate figure, not a flat-rate book time"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2022/MC-10219670-0001.pdf",
+          "what": "LOW, not the example vehicle and not a full-size truck: Honda Service Bulletin 22-023 covers the 2022 Ridgeline midsize pickup (with Passport and Pilot), op 6121D6 'Replace the blower motor and cover cap (includes inspection)' flat rate time 0.4 hr. GM bulletins loaded for the Silverado (PIT5245, PIT5343, PIT6132) print no blower motor replacement time"
+        }
+      ]
+    },
+    "luxury": {
+      "parts": [
+        null,
+        1117.99
+      ],
+      "hours": [
+        0.3,
+        null
+      ],
+      "example": "2016 Acura RLX",
+      "parts_src": [
+        {
+          "url": "https://acurapartswarehouse.com/oem-acura-rlx-blower_motor.html",
+          "what": "Acura OEM fan motor assembly 79310-TY2-A01, listed for 2014-2020 RLX, MSRP $1,117.99 (high), discounted $782.82. No aftermarket price was loaded, so the low is null and this class has only one parts source"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10176782-0001.pdf",
+          "what": "LOW, the example vehicle: Acura Service Bulletin 20-020 (2014-18 RLX and RLX Sport Hybrid) warranty table states op 612120 'Replace the filter and blower motor' flat rate time 0.3 hr (same 0.3 hr with filter inspection only). A warranty time is the low end of what a shop bills. No source stating a higher shop time was loaded, so the high is null"
+        }
+      ]
+    }
+  },
+  "src": [
+    "https://hondapartsnow.com/oem-2015-honda-fit-blower_motor.html",
+    "https://autopartsprime.com/p/honda-fit-blower-motor",
+    "https://www.hondapartsnow.com/oem-2022-honda-pilot-blower_motor.html",
+    "https://autopartsprime.com/p/honda-pilot-blower-motor",
+    "https://www.americantrucks.com/silverado1500-hvac-blower-motor-assembly-hca40430.html",
+    "https://americantrucks.com/silverado1500-hvac-blower-motor-assembly-hma84783.html",
+    "https://acurapartswarehouse.com/oem-acura-rlx-blower_motor.html",
+    "https://static.nhtsa.gov/odi/tsbs/2021/MC-10186010-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2022/MC-10219670-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10176782-0001.pdf"
+  ],
+  "benchmarks": [
+    {
+      "name": "RepairPal",
+      "url": "https://www.repairpal.com/estimator/blower-motor-replacement-cost",
+      "lo": 383,
+      "hi": 435,
+      "date": "2026-11-19",
+      "note": "national average, parts ($288-$297) plus labor ($94-$138), before taxes and fees; page says estimates last updated September 3, 2026"
+    },
+    {
+      "name": "Jerry",
+      "url": "https://getjerry.com/questions/how-much-does-it-cost-to-replace-a-car-blower-motor",
+      "lo": 130,
+      "hi": 200,
+      "date": "2026-11-19",
+      "note": "'about $50 to $100 for the part and $80 to $100 in labor'; a short answer page dated Sep 09, 2021, so the figures are old"
+    },
+    {
+      "name": "YourMechanic",
+      "url": "https://www.yourmechanic.com/estimates/chevrolet/silverado-1500-hd-classic/heater-blower-motor-replacement",
+      "lo": 236,
+      "hi": 696,
+      "date": "2026-11-19",
+      "note": "one vehicle only (Silverado 1500 HD Classic): stated average $236 ($141 parts, $95 labor); example for a 2007 V8-6.0L shows mobile estimate $396.55 and shop/dealer price $476.94-$695.61. No general all-vehicle figure on the page"
+    }
+  ],
+  "live": [
+    80,
+    440
+  ],
+  "finding": "Incomplete check: the shared web-search limit was reached before parts and labor could be finished, so several figures are null and the verdict is provisional. On the evidence gathered, the live range of $80-$440 looks slightly low at the bottom and too low at the top for any job done with a genuine (dealer) motor. Built totals use parts + stated hours x $120-$160/hr (the national middle labor rate used for these checks). Truck, 2016 Silverado 1500: $59.99 aftermarket motor + 0.4-1.0 hr = about $108-$220 (no OEM price loaded, so there is no OEM-part total). Economy, 2015 Honda Fit: only the genuine motor was priced, $641.13 list + 0.3 hr = about $677-$689 (about $475 at the discounted online OEM price of $438.54). Midsize, 2022 Honda Pilot front blower: $346.52 list + 0.4 hr = about $395-$411 (about $287 at the discounted $239.09). Luxury, 2016 Acura RLX: $1,117.99 list + 0.3 hr = about $1,154-$1,166 (about $819 at the discounted $782.82). So the lowest total we can build is about $108, above the live $80, and Jerry's low figure is $130; a floor nearer $110-$130 is better supported. The $440 top matches RepairPal's national average ($383-$435) and fits an ordinary vehicle with an aftermarket motor, but a genuine motor alone lists at $347 to $1,118 on the three Honda/Acura examples, so dealer-part jobs run well past $440. What is null and why: aftermarket (low) prices for the Fit, Pilot and RLX (the one retailer page loaded listed $35-$82 aftermarket motors without showing fitment, so they were not used); the OEM price for the Silverado; and the high end of labor hours for economy, midsize and luxury. How solid the labor times are: the 0.3 hr (Fit, RLX) and 0.4 hr (Pilot) figures are Honda/Acura warranty flat-rate times printed in dealer bulletins for the example vehicles themselves, which is the low end of what a shop bills, and they reflect easy under-dash access on these models. No source stating a typical shop time was loaded, so those totals use the warranty time only and real invoices will usually carry more labor. The truck's 1 hr is a parts seller's approximate figure and its 0.4 hr comes from a Honda Ridgeline bulletin, not a full-size truck. Some vehicles need dash or HVAC-case work and take far longer; nothing loaded here covers those. An estimate is never a quote and never a diagnosis.",
+  "confidence": "low",
+  "checked": "2026-11-19",
+  "extras": "A quote often adds a diagnosis fee (the same symptoms can come from a blower resistor or power module, a fuse, a relay or the control head), the blower resistor or module itself when it has failed or been overheated by the old motor, a cabin air filter (Honda's own bulletins replace the filter with the motor), shop supplies and sales tax. Three-row vehicles have a separate rear blower that is quoted separately."
+}
