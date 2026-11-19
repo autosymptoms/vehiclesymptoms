@@ -189,27 +189,27 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] mitsubishi-endeavor | Mitsubishi Endeavor | 2004-2011 |
 - [x] tesla-model-s | Tesla Model S | 2012-present | ev:true
 - [x] tesla-model-x | Tesla Model X | 2016-present | ev:true
-- [~] tesla-cybertruck | Tesla Cybertruck | 2024-present | ev:true redo: draft priced only 12 of 26 problems and had empty maintenance (search budget ran out) CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] tesla-cybertruck | Tesla Cybertruck | 2024-present | ev:true
 - [x] rivian-r1s-r1t | Rivian R1T / R1S | 2022-present | ev:true
 - [x] isuzu-rodeo | Isuzu Rodeo | 1996-2004 |
-- [~] suzuki-grand-vitara | Suzuki Grand Vitara / Vitara | 1999-2013 | redo: draft had only 2 sourced problems for 2005 (search budget ran out) CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] suzuki-grand-vitara | Suzuki Grand Vitara / Vitara | 1999-2013 |
 - [x] land-rover-range-rover-sport | Land Rover Range Rover Sport | 2006-present
-- [~] porsche-cayenne | Porsche Cayenne | 2003-present | redo: draft had no ownership file and only 40% of problems priced (search budget ran out); check 2007 gap CLAIMED by scheduled run 2026-11-19 08:31 ET
-- [~] genesis-gv70 | Genesis GV70 | 2022-present | redo: draft priced only 9 of 18 problems and had partial maintenance (search budget ran out) CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] porsche-cayenne | Porsche Cayenne | 2003-present |
+- [x] genesis-gv70 | Genesis GV70 | 2022-present |
 - [x] genesis-g70 | Genesis G70 | 2019-present
 
 ## Rest of each make's US lineup (after "Next"; most common first within each make)
 - [x] mercedes-benz-glb | Mercedes-Benz GLB | 2020-present
 - [x] mercedes-benz-a-class | Mercedes-Benz A-Class | 2019-2022
 - [x] mercedes-benz-cls | Mercedes-Benz CLS | 2006-present
-- [~] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | redo: draft priced only 12 of 26 problems (search budget ran out) CLAIMED by scheduled run 2026-11-19 08:31 ET
-- [~] mercedes-benz-slk-slc | Mercedes-Benz SLK / SLC | 1998-2020 | redo: draft priced only 14 of 27 problems and had empty maintenance (search budget ran out) CLAIMED by scheduled run 2026-11-19 08:31 ET
-- [~] mercedes-benz-sl | Mercedes-Benz SL | 1996-present | redo: draft had only 2 sourced problems for 2020 (search budget ran out); needs more 2020 sources and repair prices CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 |
+- [x] mercedes-benz-slk-slc | Mercedes-Benz SLK / SLC | 1998-2020 | published 1998-2016; SLC 2017-2020 still needs sourced problems
+- [x] mercedes-benz-sl | Mercedes-Benz SL | 1996-present |
 - [x] mercedes-benz-g-class | Mercedes-Benz G-Class | 2002-present |
-- [~] mercedes-benz-r-class | Mercedes-Benz R-Class | 2006-2012 | redo: draft priced only 7 of 20 problems (search budget ran out) CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] mercedes-benz-r-class | Mercedes-Benz R-Class | 2006-2012 |
 - [x] mercedes-benz-metris | Mercedes-Benz Metris | 2016-2023 |
-- [~] mercedes-benz-eqs | Mercedes-Benz EQS / EQS SUV | 2022-present | ev:true redo: draft had no ownership file (search budget ran out) CLAIMED by scheduled run 2026-11-19 08:31 ET
-- [~] mercedes-benz-eqe | Mercedes-Benz EQE / EQE SUV | 2023-present | ev:true redo: draft had no ownership file (search budget ran out) CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] mercedes-benz-eqs | Mercedes-Benz EQS / EQS SUV | 2022-present | ev:true
+- [x] mercedes-benz-eqe | Mercedes-Benz EQE / EQE SUV | 2023-present | ev:true
 - [x] mercedes-benz-eqb | Mercedes-Benz EQB | 2022-present | ev:true
 - [x] bmw-x7 | BMW X7 | 2019-present |
 - [x] bmw-x4 | BMW X4 | 2015-present |
@@ -251,7 +251,7 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] kia-ev9 | Kia EV9 | 2024-present | ev:true
 - [x] kia-cadenza | Kia Cadenza | 2014-2020 |
 - [x] kia-rondo | Kia Rondo | 2007-2010 |
-- [ ] kia-borrego | Kia Borrego | 2009 | CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] kia-borrego | Kia Borrego | 2009 |
 - [x] kia-amanti | Kia Amanti | 2004-2009 |
 - [x] kia-k900 | Kia K900 | 2015-2020 |
 - [x] genesis-g80 | Genesis G80 | 2017-present |
@@ -270,16 +270,16 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] volvo-xc40 | Volvo XC40 | 2019-present |
 - [x] volvo-s40-v50 | Volvo S40 / V50 | 2000-2011 |
 - [x] volvo-s80 | Volvo S80 | 1999-2016 |
-- [ ] volvo-s90-v90 | Volvo S90 / V90 | 1997-1998, 2017-present | CLAIMED by scheduled run 2026-11-19 08:31 ET
-- [ ] volvo-c30 | Volvo C30 | 2008-2013 | CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] volvo-s90-v90 | Volvo S90 / V90 | 1997-1998, 2017-present | published to 2023; 2024-2025 need sourced problems
+- [~] volvo-c30 | Volvo C30 | 2008-2013 | redo: draft priced only 10 of 23 problems (RepairPal estimate pages blocked)
 - [x] polestar-2 | Polestar 2 | 2021-present | ev:true
 - [ ] chevrolet-trailblazer-2021 | (covered by chevrolet-trailblazer; check 2021+ years) | |
 - [x] chevrolet-tracker | Chevrolet Tracker | 1999-2004 |
-- [~] chevrolet-lumina | Chevrolet Lumina | 1996-2001 | redo: draft priced only 7 of 26 problems and had no maintenance file (fetch budget ran out) CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] chevrolet-lumina | Chevrolet Lumina | 1996-2001 |
 - [x] chevrolet-astro | Chevrolet Astro | 1996-2005 |
-- [~] chevrolet-prizm | Chevrolet Prizm / Geo Prizm | 1996-2002 | redo: draft priced only 7 of 20 problems and had no maintenance items (fetch budget ran out) CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] chevrolet-prizm | Chevrolet Prizm / Geo Prizm | 1996-2002 |
 - [x] chevrolet-metro | Chevrolet Metro / Geo Metro | 1998-2001 |
-- [~] chevrolet-ssr | Chevrolet SSR | 2003-2006 | redo: draft priced only 4 of 21 problems and had partial maintenance (fetch budget ran out) CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] chevrolet-ssr | Chevrolet SSR | 2003-2006 |
 - [ ] chevrolet-caprice | Chevrolet Caprice | 1996 |
 - [x] gmc-safari | GMC Safari | 1996-2005 |
 - [x] gmc-sonoma | GMC Sonoma | 1996-2004 |
@@ -288,7 +288,7 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] hummer-h3 | Hummer H3 | 2006-2010 |
 - [x] ford-c-max | Ford C-Max | 2013-2018 |
 - [x] ford-transit-connect | Ford Transit Connect | 2010-2023 |
-- [ ] ford-probe | Ford Probe | 1996-1997 | CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [x] ford-probe | Ford Probe | 1996-1997 |
 - [ ] ford-f-450-f-550 | Ford F-450 / F-550 Super Duty | 1999-present | only if not covered
 - [x] lincoln-mkt | Lincoln MKT | 2010-2019 |
 - [x] lincoln-continental | Lincoln Continental | 1996-2002, 2017-2020 |
@@ -330,8 +330,8 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [ ] saab-9-3 | Saab 9-3 | 1999-2011 | CLAIMED by interactive session 2026-11-19 ET
 - [ ] saab-9-5 | Saab 9-5 | 1999-2011 | CLAIMED by interactive session 2026-11-19 ET
 - [ ] scion-xa | Scion xA | 2004-2006 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] scion-im | Scion iM / Toyota Corolla iM | 2016-2018 | CLAIMED by scheduled run 2026-11-19 08:31 ET
-- [ ] smart-fortwo | smart fortwo | 2008-2019 | CLAIMED by scheduled run 2026-11-19 08:31 ET
+- [~] scion-im | Scion iM / Toyota Corolla iM | 2016-2018 | redo: draft priced only 2 of 16 problems, empty maintenance, no 2018 evidence (budget ran out)
+- [x] smart-fortwo | smart fortwo | 2008-2019 | published 2008-2017; EQ fortwo 2018-2019 still needs sourced problems
 
 ## Completeness check per make
 Once the lists above are done, go make by make (every brand with US sales since 1996). Compare its US model lineup for each year 1996–2027 against `src/deep/`, and queue any model with meaningful US sales that is still missing. Separate trims and body styles of the same model (e.g. Camry Solara is separate, but Camry Hybrid is not) only when they're sold and recalled as a separate model.

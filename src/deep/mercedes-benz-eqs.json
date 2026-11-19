@@ -1,0 +1,555 @@
+{
+ "id": "mercedes-benz-eqs",
+ "make": "Mercedes-Benz",
+ "model": "EQS",
+ "years": [
+  2022,
+  2025
+ ],
+ "wmi": [
+  "W1K",
+  "4JG"
+ ],
+ "engines": [
+  {
+   "k": "ev-450plus",
+   "name": "Single-motor electric RWD (EQS 450+)",
+   "y": [
+    2022,
+    2025
+   ]
+  },
+  {
+   "k": "ev-450-4matic",
+   "name": "Dual-motor electric AWD (EQS 450 4MATIC)",
+   "y": [
+    2023,
+    2025
+   ]
+  },
+  {
+   "k": "ev-580-4matic",
+   "name": "Dual-motor electric AWD (EQS 580 4MATIC)",
+   "y": [
+    2022,
+    2025
+   ]
+  },
+  {
+   "k": "ev-amg-53",
+   "name": "Dual-motor electric AWD (AMG EQS 53)",
+   "y": [
+    2022,
+    2025
+   ]
+  },
+  {
+   "k": "ev-maybach-680",
+   "name": "Dual-motor electric AWD (Maybach EQS 680 SUV)",
+   "y": [
+    2024,
+    2025
+   ]
+  }
+ ],
+ "issues": [
+  {
+   "y": [
+    2023,
+    2025
+   ],
+   "sys": "Hybrid/EV",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Sudden loss of drive power from battery software (recall)",
+   "sym": "The car can lose drive power while moving, sometimes after a high-voltage battery warning in the instrument cluster. Steering and brakes still work, but the car coasts to a stop.",
+   "why": "Other control units kept sending diagnostic requests to the battery management computer until its memory overflowed. It then opened the battery contactors, cutting the drive battery off from the motors. Recall 24V-372 covers 2024 EQS sedans and 2023–2025 EQS SUVs, including Maybach and AMG versions.",
+   "next": "Have a Mercedes dealer check your VIN and install the updated battery software for free. It cannot be done over the air, so book a visit. If power cuts out, steer to the shoulder and call roadside assistance.",
+   "src": [
+    "https://www.cars.com/research/mercedes_benz-eqs_450_plus/recalls/",
+    "https://www.greencarreports.com/news/1143376_mercedes-recalls-nearly-15-000-evs-for-software-issue",
+    "https://cars.com/research/mercedes_benz-eqs_450-2025/recalls"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2024
+   ],
+   "sys": "Electrical",
+   "cat": "Starting Problems",
+   "sev": "med",
+   "t": "12-volt battery low or critical warning, car won't start",
+   "sym": "A \"12V battery low\" or \"critical\" message appears in the car or the Mercedes app. In worse cases the screens throw several errors, the car shuts down or will not switch on, and it has to be jump-started or towed.",
+   "why": "The EQS still uses a small 12-volt battery to wake up its computers. Early software did not always top it up from the big drive battery while parked, and long periods with doors open, lights on or screens running drain it. Mercedes released powertrain software updates and a bulletin about 12-volt warnings at startup. Some cars needed a new 12-volt battery.",
+   "next": "Plug the car in and let it charge overnight, then see if the warning clears. If it comes back, ask the dealer to check for software updates and test the 12-volt battery and its charging. Keep a portable jump pack if the car sits for long periods.",
+   "src": [
+    "https://mbworld.org/forums/eqs/837508-12v-battery-low.html",
+    "https://mbworld.org/forums/eqs/907877-12-volt-battery-low-critical.html",
+    "https://mbworld.org/forums/eqs-suv/884964-car-bricked-12v-battery-issue.html"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Hybrid/EV",
+   "cat": "Warning Lights",
+   "sev": "high",
+   "t": "High-voltage battery malfunction message",
+   "sym": "A \"battery malfunction\" message appears on the dash, charging may stop partway, and the car may refuse to drive. Some owners were told the whole drive battery had to be replaced.",
+   "why": "A fault inside the high-voltage battery pack or its charging parts. Owners on the EQS forum report cases where the dealer replaced charging parts and then the full battery, with long waits for parts.",
+   "next": "Stop charging and contact a Mercedes dealer. Don't keep driving with a battery malfunction warning. The drive battery has its own long warranty, so ask the dealer to handle it under that coverage.",
+   "src": [
+    "https://mbworld.org/forums/eqs/909481-well-didn-t-take-long-eqs-battery-malfunction.html",
+    "https://mbworld.org/forums/eqs-suv/884853-whaty-your-repairs-so-far.html",
+    "https://mbworld.org/forums/eqs/832826-buyer-beware-hv-battery-failure-3.html"
+   ]
+  },
+  {
+   "y": [
+    2023,
+    2024
+   ],
+   "sys": "Electrical",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Faulty 80-amp fuses can cut power (recall)",
+   "sym": "Without warning, the car may lose drive power, or safety systems like the airbags and instrument cluster may stop working.",
+   "why": "80-amp fuses in the main fuse box may have been made incorrectly and can fail. A failing fuse can also raise the risk of a fire.",
+   "next": "Check your VIN for recall 24V-115. The dealer replaces the main fuse boxes free.",
+   "src": [
+    "https://www.cars.com/research/mercedes_benz-eqs_450_plus/recalls/",
+    "https://www.cars.com/research/mercedes_benz-eqs_580/recalls"
+   ]
+  },
+  {
+   "y": [
+    2023,
+    2024
+   ],
+   "sys": "Electrical",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Wrong fuse box installed during earlier repair (recall)",
+   "sym": "The same symptoms as the fuse recall: sudden loss of drive power or of safety systems such as airbags and the instrument cluster.",
+   "why": "Some cars fixed under recall 24V-115 were given a fuse box that was not designed for them.",
+   "next": "Even if the fuse recall was done, check your VIN for recall 25V-255. The dealer inspects and replaces the fuse boxes free.",
+   "src": [
+    "https://www.cars.com/research/mercedes_benz-eqs_450_plus/recalls/",
+    "https://www.cars.com/research/mercedes_benz-eqs_580/recalls"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Hybrid/EV",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Drivetrain software can cut drive power (recall)",
+   "sym": "The car may suddenly lose power while driving, usually with a drivetrain warning message.",
+   "why": "A software error in the electric drivetrain control can shut off propulsion.",
+   "next": "Have the dealer install the drivetrain software update under recall 23V-405. It is free.",
+   "src": [
+    "https://www.cars.com/research/mercedes_benz-eqs_450_plus/recalls/",
+    "https://www.cars.com/research/mercedes_benz-eqs_580/recalls"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Hybrid/EV",
+   "cat": "Warning Lights",
+   "sev": "high",
+   "t": "No warning for high-voltage battery faults (recall)",
+   "sym": "You may see nothing unusual. The problem is that the car might not warn you when the drive battery has a fault.",
+   "why": "The battery monitoring software could miss a battery malfunction and fail to alert the driver, which breaks a federal electric-vehicle safety standard.",
+   "next": "Have the dealer install the battery software update under recall 23V-309. It is free.",
+   "src": [
+    "https://www.cars.com/research/mercedes_benz-eqs_450_plus/recalls/",
+    "https://www.cars.com/research/mercedes_benz-eqs_580/recalls"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2024
+   ],
+   "sys": "Safety",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Sudden automatic braking with nothing ahead",
+   "sym": "The car brakes hard on its own at highway or city speed, or while backing out of a driveway, even though nothing is in the way. Seat belts may tighten and warnings may sound.",
+   "why": "The automatic emergency braking and driver-assist sensors can misread things like overhead structures, bridge joints or oncoming cars as obstacles. Owners have filed many government complaints, and Mercedes ran a 2023 service campaign for braking near tall overhead structures.",
+   "next": "Report each event to the dealer with the date, time and place so they can read the stored data. Ask for every driver-assist software update. If it keeps happening, file a complaint with NHTSA.",
+   "src": [
+    "https://lemberglaw.com/2022-mercedes-benz-eqs-problems-complaints-lemon/",
+    "https://thechargeport.com/ev/mercedes-benz-eqs/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Safety",
+   "cat": "Noises",
+   "sev": "high",
+   "t": "Rear seat belt buckle bolts may be loose (recall)",
+   "sym": "A rear seat belt buckle may feel loose or wobble where it is bolted down. Often there are no signs.",
+   "why": "The bolts holding the rear seat belt buckles may not have been tightened properly, so the belt might not hold a passenger in a crash.",
+   "next": "Have the dealer inspect and tighten the buckle bolts under recall 23V-464. It is free.",
+   "src": [
+    "https://www.cars.com/research/mercedes_benz-eqs_450_plus/recalls/",
+    "https://www.cars.com/research/mercedes_benz-eqs_580/recalls"
+   ]
+  },
+  {
+   "y": [
+    2023,
+    2023
+   ],
+   "sys": "Safety",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Side curtain airbag can be cut by roof brackets (recall)",
+   "sym": "There are no symptoms. The risk only shows up in a crash.",
+   "why": "Mounting brackets near the roof may have sharp edges that can tear the side curtain airbag as it inflates.",
+   "next": "Check your VIN for recall 24V-960. The dealer inspects and replaces the curtain airbags and brackets as needed, free.",
+   "src": [
+    "https://www.cars.com/research/mercedes_benz-eqs_450_plus/recalls/"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2025
+   ],
+   "sys": "Safety",
+   "cat": "Noises",
+   "sev": "med",
+   "t": "Wrong pedestrian warning sound when reversing (recall)",
+   "sym": "The outside warning sound that electric cars make for pedestrians may sound wrong when the car is in reverse.",
+   "why": "A software error in the pedestrian sound system plays the wrong reversing sound, which does not meet the federal rule for quiet vehicles.",
+   "next": "Have the dealer install the sound system software update under recall 25V-366. It is free.",
+   "src": [
+    "https://www.cars.com/research/mercedes_benz-eqs_450_plus/recalls/",
+    "https://cars.com/research/mercedes_benz-eqs_450-2025/recalls"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2022
+   ],
+   "sys": "Safety",
+   "cat": "Warning Lights",
+   "sev": "med",
+   "t": "Hands-off steering detection may not work (recall)",
+   "sym": "When using DISTRONIC cruise control with steering assist, the car may not notice that your hands are off the wheel, so it does not warn you.",
+   "why": "A software error in the steering wheel hand detection unit stops it from sensing when the driver lets go.",
+   "next": "Keep your hands on the wheel and have the dealer install the free software update under recall 22V-189.",
+   "src": [
+    "https://www.cars.com/research/mercedes_benz-eqs_450_plus/recalls/"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2022
+   ],
+   "sys": "Brakes",
+   "cat": "Warning Lights",
+   "sev": "high",
+   "t": "Stability control software can shut off (recall)",
+   "sym": "Stability and traction control may stop working, and a warning light may come on.",
+   "why": "Faulty software in the electronic stability program could switch off the systems that help keep the car from skidding.",
+   "next": "Have the dealer update the stability control software under recall 23V-360. It is free.",
+   "src": [
+    "https://thechargeport.com/ev/mercedes-benz-eqs/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2022
+   ],
+   "sys": "Electrical",
+   "cat": "Warning Lights",
+   "sev": "med",
+   "t": "Rearview camera image may not appear (recall)",
+   "sym": "The screen stays blank or shows no picture when you shift into reverse.",
+   "why": "An MBUX multimedia software error can stop the backup camera image from showing.",
+   "next": "Use the mirrors and look over your shoulder until the dealer installs the free update under recall 22V-493.",
+   "src": [
+    "https://thechargeport.com/ev/mercedes-benz-eqs/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2022
+   ],
+   "sys": "Electrical",
+   "cat": "Warning Lights",
+   "sev": "high",
+   "t": "Rear turn signals, hazards and reverse lights may fail (recall)",
+   "sym": "The rear turn signals, hazard lights or reverse lights stop working, so drivers behind you can't see your signals.",
+   "why": "A software error in the rear lighting control can switch these lights off.",
+   "next": "Have someone check your rear lights, and get the free rear signal software update under recall 22V-167.",
+   "src": [
+    "https://thechargeport.com/ev/mercedes-benz-eqs/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2022
+   ],
+   "sys": "Body",
+   "cat": "Noises",
+   "sev": "low",
+   "t": "Tow ring can come loose from the bumper (recall)",
+   "sym": "There are usually no signs until the car is towed. The tow ring may pull out of the bumper.",
+   "why": "The tow ring assembly may not be held in the bumper strongly enough and can detach during towing.",
+   "next": "Have the dealer inspect it under recall 22V-467 and replace the tow ring assembly if needed, free.",
+   "src": [
+    "https://thechargeport.com/ev/mercedes-benz-eqs/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2022
+   ],
+   "sys": "Electrical",
+   "cat": "Warning Lights",
+   "sev": "med",
+   "t": "Loose ground and heater wiring connections (recall)",
+   "sym": "You may see electrical warnings or heater faults, or nothing at all.",
+   "why": "A ground connection and the electrical connection for the auxiliary heater may not have been fastened properly at the factory.",
+   "next": "Have the dealer inspect and fix the connections under recall 22V-112. It is free.",
+   "src": [
+    "https://thechargeport.com/ev/mercedes-benz-eqs/reliability"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2024
+   ],
+   "sys": "Electrical",
+   "cat": "Warning Lights",
+   "sev": "med",
+   "t": "MBUX screens go black, freeze or lose sound",
+   "sym": "The big screens or the Hyperscreen go blank or freeze, pop-ups list several faults, the radio or media has no sound, or the rear screens won't start.",
+   "why": "Many bugs in the MBUX infotainment and its connected control units. Mercedes has issued a long list of over-the-air and dealer software updates, plus a bulletin for a missing audio signal between two control units.",
+   "next": "Try restarting the system and make sure over-the-air updates are on. If problems keep coming back, ask the dealer to install all current MBUX and head unit updates.",
+   "src": [
+    "https://carcomplaints.com/Mercedes-Benz/EQS_450/2022/tsbs",
+    "https://mbworld.org/forums/eqs/832826-buyer-beware-hv-battery-failure-3.html"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Body",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "Flush door handle hard to open or won't lock",
+   "sym": "A door handle that pops out needs a lot of force to open by hand, or touching it does not lock or unlock the car.",
+   "why": "The pop-out door handles have small motors and brackets. Mercedes issued a bulletin to replace a bearing bracket when a handle is stiff, and some owners needed a whole handle replaced.",
+   "next": "Ask the dealer to check the handle against the bulletin. It is usually a warranty repair.",
+   "src": [
+    "https://carcomplaints.com/Mercedes-Benz/EQS_450/2022/tsbs",
+    "https://mbworld.org/forums/eqs-suv/884853-whaty-your-repairs-so-far.html",
+    "https://mbworld.org/forums/eqs/909481-well-didn-t-take-long-eqs-battery-malfunction.html"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Steering",
+   "cat": "Noises",
+   "sev": "low",
+   "t": "Grinding or creaking from the steering column",
+   "sym": "A grinding or creaking noise comes from behind the steering wheel when you turn it.",
+   "why": "Parts rub between the steering wheel and the switch module on the steering column. Mercedes issued bulletins for these noises.",
+   "next": "Mention the noise at your next service so the dealer can apply the bulletin fix.",
+   "src": [
+    "https://carcomplaints.com/Mercedes-Benz/EQS_450/2022/tsbs"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Steering",
+   "cat": "Warning Lights",
+   "sev": "med",
+   "t": "Power steering control unit fault",
+   "sym": "A steering warning appears and steering may feel heavier.",
+   "why": "A data memory problem in the electric power steering control unit sets a fault. Mercedes issued a bulletin with a software fix.",
+   "next": "Have the dealer read the codes and update the power steering software.",
+   "src": [
+    "https://carcomplaints.com/Mercedes-Benz/EQS_450/2022/tsbs"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2024
+   ],
+   "sys": "Suspension",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "Air suspension sagging or faults",
+   "sym": "One corner sits low, ride quality changes, or air suspension warnings appear. A rear air spring can collapse.",
+   "why": "The EQS rides on air springs. Mercedes pushed out-of-date air suspension software fixes for 2021–2023 S-Class and EQS cars, and EQS SUV owners report failed rear air springs.",
+   "next": "Don't drive far with a corner sitting very low. Have the dealer check for software updates and leaks in the air springs.",
+   "src": [
+    "https://carcomplaints.com/Mercedes-Benz/EQS_450/2022/tsbs",
+    "https://mbworld.org/forums/eqs-suv/884853-whaty-your-repairs-so-far.html"
+   ]
+  },
+  {
+   "y": [
+    2023,
+    2024
+   ],
+   "sys": "HVAC",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "A/C blows warm from failed expansion valve",
+   "sym": "The air conditioning blows warm air, sometimes only a few months after delivery.",
+   "why": "A faulty A/C valve (expansion valve) stops the system cooling. EQS SUV owners report it being replaced, sometimes after waiting days for parts.",
+   "next": "Have the A/C checked by the dealer. It should be a warranty repair on a newer car.",
+   "src": [
+    "https://mbworld.org/forums/eqs-suv/884853-whaty-your-repairs-so-far.html"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Body",
+   "cat": "Driving",
+   "sev": "low",
+   "t": "Trunk won't open or opens by itself",
+   "sym": "The trunk or tailgate unlocks but doesn't lift, or it opens when the key fob button is pressed by accident.",
+   "why": "A microswitch can send a bad signal to the trunk lift motor, and the key fob button was easy to press by mistake. Mercedes issued bulletins for both.",
+   "next": "Ask the dealer to apply the bulletin fixes.",
+   "src": [
+    "https://carcomplaints.com/Mercedes-Benz/EQS_450/2022/tsbs"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2024
+   ],
+   "sys": "Electrical",
+   "cat": "Warning Lights",
+   "sev": "low",
+   "t": "Parking or daytime running light warning",
+   "sym": "A warning says a parking light or daytime running light has failed, even though the lights seem to work.",
+   "why": "Software in two lighting control units can set false warnings. Mercedes issued an update, and some owners had a headlight assembly replaced.",
+   "next": "Ask the dealer for the lighting software update before agreeing to new headlights.",
+   "src": [
+    "https://carcomplaints.com/Mercedes-Benz/EQS_450/2022/tsbs",
+    "https://mbworld.org/forums/eqs-suv/884853-whaty-your-repairs-so-far.html"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Body",
+   "cat": "Noises",
+   "sev": "low",
+   "t": "Front seat creaks or feels loose",
+   "sym": "Creaking from the front seat back, or play and noise from the seat height adjuster or rail.",
+   "why": "Two parts in the seat back rub together, and the height adjuster can develop play. Mercedes issued bulletins for both.",
+   "next": "Mention it at your next service so the dealer can apply the bulletin repair.",
+   "src": [
+    "https://carcomplaints.com/Mercedes-Benz/EQS_450/2022/tsbs"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Drivetrain",
+   "cat": "Noises",
+   "sev": "low",
+   "t": "Squeak when reversing slowly",
+   "sym": "A squeak comes from under the car when backing up slowly, under about 4 mph.",
+   "why": "A seal in the electric drive unit that separates the coolant from the motor gets wet and squeaks. Mercedes issued a bulletin for it.",
+   "next": "Not dangerous. Ask the dealer to apply the bulletin repair under warranty.",
+   "src": [
+    "https://recallcheck.net/tsb/98154"
+   ]
+  },
+  {
+   "y": [
+    2022,
+    2023
+   ],
+   "sys": "Drivetrain",
+   "cat": "Noises",
+   "sev": "low",
+   "t": "Gear whine from the electric drive unit",
+   "sym": "A whine or gear noise from the drive unit while driving.",
+   "why": "Noise from the reduction gearing in the drive unit. Mercedes issued a bulletin with a software update to the drive control unit to quiet it.",
+   "next": "Ask the dealer for the drive unit software update.",
+   "src": [
+    "https://carcomplaints.com/Mercedes-Benz/EQS_450/2022/tsbs"
+   ]
+  },
+  {
+   "y": [
+    2023,
+    2024
+   ],
+   "sys": "Body",
+   "cat": "Leaks",
+   "sev": "low",
+   "t": "Sunroof reopens after closing",
+   "sym": "The sunroof closes and then opens again partway on its own, which can let rain in.",
+   "why": "A software issue in the sunroof control. Owners report it being fixed with an update under a service bulletin.",
+   "next": "Close it again and check it stays shut before leaving the car. Ask the dealer for the sunroof software update.",
+   "src": [
+    "https://mbworld.org/forums/eqs-suv/884853-whaty-your-repairs-so-far.html"
+   ]
+  },
+  {
+   "y": [
+    2025,
+    2025
+   ],
+   "sys": "Suspension",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "Tire blowout on large wheels",
+   "sym": "A tire suddenly loses air or blows out at highway speed, often without any sign of a puncture.",
+   "why": "The EQS is heavy and uses low-profile tires on large wheels, which leaves little sidewall to absorb potholes. Owners have filed government complaints about blowouts.",
+   "next": "Check tire pressures monthly and look for bulges on the sidewalls. Replace damaged tires in pairs with the correct load-rated tire.",
+   "src": [
+    "https://recallcheck.net/make/mercedes-benz/eqs-suv-580-4matic/2025"
+   ]
+  }
+ ]
+}
