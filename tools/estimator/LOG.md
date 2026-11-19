@@ -1,6 +1,11 @@
 # Estimator accuracy log (newest first)
 
 ## Run 2026-11-19 20:38 UTC started
+- Batch 1 (6 held jobs finished, all now `[x]`): spark plugs, fuel pump, A/C compressor, radiator (parts, missing hours and 4–5 benchmarks each filled), alternator, starter (economy/luxury labor times filled). Spot check: 5 of 5 cited figures that loaded matched the page (2 parts MSRPs, 1 aftermarket price, 2 NHTSA warranty times); one NHTSA PDF could not be re-fetched.
+- Gaps vs live: spark plugs top ($850) is far above anything built ($469) or benchmarked ($574), so $500–$600 fits and $850 only as a hard-to-reach-engine case; alternator low end ($270) is under the lowest buildable total ($341) and the top ($975) clips list-price jobs (about $1,100); starter floor ($200) is under the lowest build ($230). Fuel pump and radiator are about right. A/C compressor is right for a compressor-only swap but well under what benchmarks show for a full job with drier, expansion valve and recharge ($1,300–$2,500): the page needs to say which job it prices.
+- Pattern: RepairPal's parts figures run far above genuine list prices we can cite (radiator $993–$1,001 vs $346–$424 list; fuel pump $1,104–$1,160 vs $592–$840 list). Showing the parts/labor split with sources is where we can be clearer than they are.
+- Weak spots kept visible in the files: BMW times are flat-rate units converted at 10 per hour on informal technician sources; several classes use a stated time from a comparable vehicle, labelled as such; radiator and alternator are low confidence.
+- Blocked/unusable: page fetches of URLs not first returned by a search are refused; autonationmobileservice.com and detroitaxle.com (errors); buyautoparts.com (no prices); BMW/Honda bulletins often point to an internal time table instead of printing a time; no KBB page for A/C compressor or radiator.
 
 ## Run 2026-11-19 18:40 UTC finished 20:00 UTC (stopped: web search limit reached)
 - Totals: 12 jobs researched this run (first run): 2 passed review, 10 held `[~]` with partial files saved. State labor rates: first pass saved, held.

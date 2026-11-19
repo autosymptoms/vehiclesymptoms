@@ -3,52 +3,160 @@
   "unit": "per job",
   "classes": {
     "economy": {
-      "parts": [121.79, 402.68],
-      "hours": null,
+      "parts": [
+        121.79,
+        402.68
+      ],
+      "hours": [
+        0.9,
+        2
+      ],
       "example": "2015 Toyota Corolla 1.8L",
       "parts_src": [
-        {"url": "https://www.rockauto.com/en/catalog/toyota,2015,corolla,1.8l+l4,3308941,electrical,starter+motor,4152", "what": "Denso 280-0446 remanufactured, $121.79 plus $50.00 refundable core (low). Same page: WAI Global 19049N new $113.79, Bosch SR3316X reman $131.79 plus $84 core"},
-        {"url": "https://www.autozone.com/batteries-starting-and-charging/starter/toyota/corolla/2015", "what": "Duralast Gold 19049N new $283.99; Duralast 19531 reman $293.99 plus $40 core; Raw Power ES19049 new $179.99 (retail cross-check, not used for the range ends)"},
-        {"url": "https://www.toyotapartsdeal.com/parts-list/2015-toyota-corolla/engine_fuel_tool/starter.html", "what": "Toyota OEM starter assy 28100-0T340 (2ZR-FE, ZRE172) list $402.68 (high), discounted $280.82; 28100-0T290 list $338.64; 28100-0T260 list $332.82"}
-      ],
-      "hours_src": []
-    },
-    "midsize": {
-      "parts": [131.79, 225.18],
-      "hours": [1, 2],
-      "example": "2016 Toyota Camry 2.5L",
-      "parts_src": [
-        {"url": "https://www.rockauto.com/en/catalog/toyota,2016,camry,2.5l+l4,3338324,electrical,starter+motor,4152", "what": "Denso 280-0339 remanufactured, $131.79 plus $62.00 refundable core (low). Same page: Bosch SR3279X reman $90.79 plus $50 core, Remy 99632 new $100.99, Bosch SR3279N new $229.79"},
-        {"url": "https://toyotapartsdeal.com/oem-2016-toyota-camry-starter_motor.html", "what": "Toyota OEM 28100-0A011 (superseded by 28100-0A011-84), fits 2AR-FE 2.5L, MSRP $225.18 (high), discounted $159.34"}
+        {
+          "url": "https://www.rockauto.com/en/catalog/toyota,2015,corolla,1.8l+l4,3308941,electrical,starter+motor,4152",
+          "what": "Denso 280-0446 remanufactured, $121.79 plus $50.00 refundable core (low). Same page: WAI Global 19049N new $113.79, Bosch SR3316X reman $131.79 plus $84 core"
+        },
+        {
+          "url": "https://www.autozone.com/batteries-starting-and-charging/starter/toyota/corolla/2015",
+          "what": "Duralast Gold 19049N new $283.99; Duralast 19531 reman $293.99 plus $40 core; Raw Power ES19049 new $179.99 (retail cross-check, not used for the range ends)"
+        },
+        {
+          "url": "https://www.toyotapartsdeal.com/parts-list/2015-toyota-corolla/engine_fuel_tool/starter.html",
+          "what": "Toyota OEM starter assy 28100-0T340 (2ZR-FE, ZRE172) list $402.68 (high), discounted $280.82; 28100-0T290 list $338.64; 28100-0T260 list $332.82"
+        }
       ],
       "hours_src": [
-        {"url": "https://www.youcanic.com/replace-starter-a-toyota-camry/", "what": "DIY guide for 2012-2017 Camry (XV50) states 'About 1 to 2 hours for a DIYer with basic tools, since the air filter housing must come off for access'. This is a DIY estimate, not a flat-rate book time, and the guide does not name the engine"}
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2014/MC-10139610-9999.pdf",
+          "what": "LOW, comparable economy car, not a Corolla: Honda Service Bulletin 14-003 (2012 Civic except Si and Hybrid) warranty claim table states op 116100 'Replace Starter Motor Assembly' flat rate time 0.9 hr. A warranty time is the low end of what a shop bills. No Corolla-specific stated time was found"
+        },
+        {
+          "url": "https://www.autozone.com/diy/starter/starter-replacement-cost",
+          "what": "HIGH: Parts retailer's guide, not vehicle-specific: states 'Replacing a car starter typically takes between one and two hours, depending on the vehicle's make and model'; also 'Many vehicles have a starter that is easily accessible and can be removed and replaced in under an hour' and 'Some outliers can take six hours or more'"
+        }
+      ]
+    },
+    "midsize": {
+      "parts": [
+        131.79,
+        225.18
+      ],
+      "hours": [
+        0.9,
+        2
+      ],
+      "example": "2016 Toyota Camry 2.5L",
+      "parts_src": [
+        {
+          "url": "https://www.rockauto.com/en/catalog/toyota,2016,camry,2.5l+l4,3338324,electrical,starter+motor,4152",
+          "what": "Denso 280-0339 remanufactured, $131.79 plus $62.00 refundable core (low). Same page: Bosch SR3279X reman $90.79 plus $50 core, Remy 99632 new $100.99, Bosch SR3279N new $229.79"
+        },
+        {
+          "url": "https://toyotapartsdeal.com/oem-2016-toyota-camry-starter_motor.html",
+          "what": "Toyota OEM 28100-0A011 (superseded by 28100-0A011-84), fits 2AR-FE 2.5L, MSRP $225.18 (high), discounted $159.34"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://www.youcanic.com/replace-starter-a-toyota-camry/",
+          "what": "DIY guide for 2012-2017 Camry (XV50) states 'About 1 to 2 hours for a DIYer with basic tools, since the air filter housing must come off for access'. This is a DIY estimate, not a flat-rate book time, and the guide does not name the engine"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10115802-9999.pdf",
+          "what": "LOW, comparable midsize car, not a Camry: Honda Service Bulletin 16-002 (2013-2016 Accord V6 automatic, 2013-2015 Crosstour V6) warranty claim table states op 2181BD 'Replace the starter and rotate the torque converter one bolt hole' flat rate time 0.9 hr. A warranty time is the low end of what a shop bills"
+        },
+        {
+          "url": "https://www.autozone.com/diy/starter/starter-replacement-cost",
+          "what": "Parts retailer's guide, not vehicle-specific: states 'Replacing a car starter typically takes between one and two hours, depending on the vehicle's make and model'; also 'Many vehicles have a starter that is easily accessible and can be removed and replaced in under an hour' and 'Some outliers can take six hours or more'"
+        }
       ]
     },
     "truck": {
-      "parts": [154.99, 363.47],
-      "hours": [2, 2],
+      "parts": [
+        154.99,
+        363.47
+      ],
+      "hours": [
+        1,
+        2
+      ],
       "example": "2016 Ford F-150 5.0L",
       "parts_src": [
-        {"url": "https://americantrucks.com/f150-starter-sta03108.html", "what": "Aftermarket starter, item T568650, fits 2013-2017 F-150 5.0L, $154.99 (low)"},
-        {"url": "https://www.americantrucks.com/f150-starter-12-teeth-apstr216.html", "what": "Aftermarket starter, item T642312, fits 2013-2017 F-150 5.0L, $159.99"},
-        {"url": "https://www.fordpartsgiant.com/oem-2016-ford-f_150-starter.html", "what": "Ford OEM DL3Z-11002-C (5.0L V8) MSRP $363.47 (high), discounted $223.28; DL3Z-11002-B (5.0L V8) MSRP $338.73"},
-        {"url": "https://parts.parkwayford.com/oem-parts/ford-motorcraft-trade-starter-sa1083", "what": "Motorcraft SA-1083 (F-150 5.0L, builds from 03/14/2016) MSRP $298.18, discounted $205.00 plus $35 core"}
+        {
+          "url": "https://americantrucks.com/f150-starter-sta03108.html",
+          "what": "Aftermarket starter, item T568650, fits 2013-2017 F-150 5.0L, $154.99 (low)"
+        },
+        {
+          "url": "https://www.americantrucks.com/f150-starter-12-teeth-apstr216.html",
+          "what": "Aftermarket starter, item T642312, fits 2013-2017 F-150 5.0L, $159.99"
+        },
+        {
+          "url": "https://www.fordpartsgiant.com/oem-2016-ford-f_150-starter.html",
+          "what": "Ford OEM DL3Z-11002-C (5.0L V8) MSRP $363.47 (high), discounted $223.28; DL3Z-11002-B (5.0L V8) MSRP $338.73"
+        },
+        {
+          "url": "https://parts.parkwayford.com/oem-parts/ford-motorcraft-trade-starter-sa1083",
+          "what": "Motorcraft SA-1083 (F-150 5.0L, builds from 03/14/2016) MSRP $298.18, discounted $205.00 plus $35 core"
+        }
       ],
       "hours_src": [
-        {"url": "https://americantrucks.com/f150-starter-sta03108.html", "what": "Seller states installation time '(approx) 2 Hours' for 2013-2017 F-150 5.0L. Seller's approximate figure, not a flat-rate book time"},
-        {"url": "https://www.americantrucks.com/f150-starter-12-teeth-apstr216.html", "what": "Seller states installation time '(approx) 2 Hours' for 2013-2017 F-150 5.0L"}
+        {
+          "url": "https://americantrucks.com/f150-starter-sta03108.html",
+          "what": "Seller states installation time '(approx) 2 Hours' for 2013-2017 F-150 5.0L. Seller's approximate figure, not a flat-rate book time"
+        },
+        {
+          "url": "https://www.americantrucks.com/f150-starter-12-teeth-apstr216.html",
+          "what": "Seller states installation time '(approx) 2 Hours' for 2013-2017 F-150 5.0L"
+        },
+        {
+          "url": "https://www.carparts.com/blog/how-to-fix-a-starter-diagnose-repair-and-replace-it-right-quickref/",
+          "what": "LOW, not vehicle-specific: Parts retailer's guide reviewed by an ASE master technician (updated 2026-04-21), not vehicle-specific: states 'On an easy-access vehicle, replacing a starter typically takes about 1 to 2 hours'; cramped transverse layouts or rusted vehicles '3 to 4 hours or more'. No manufacturer-stated time for the F-150 5.0L was found"
+        },
+        {
+          "url": "https://www.autozone.com/diy/starter/starter-replacement-cost",
+          "what": "Parts retailer's guide, not vehicle-specific: states 'Replacing a car starter typically takes between one and two hours, depending on the vehicle's make and model'; also 'Many vehicles have a starter that is easily accessible and can be removed and replaced in under an hour' and 'Some outliers can take six hours or more'"
+        }
       ]
     },
     "luxury": {
-      "parts": [223.99, 736.69],
-      "hours": null,
+      "parts": [
+        223.99,
+        736.69
+      ],
+      "hours": [
+        1.6,
+        2
+      ],
       "example": "2015 BMW 328i 2.0L (N20)",
       "parts_src": [
-        {"url": "https://www.fcpeuro.com/BMW-parts/328i/Starter/", "what": "Bosch remanufactured 12417638195, $223.99 (low); Genuine BMW 12417638194, $579.99. Category page; N20 fitment of these part numbers confirmed on the OEM catalog page below"},
-        {"url": "https://bmwpartsdeal.com/oem-2015-bmw-328i-starter.html", "what": "Genuine BMW 12417638195 / 12417638194 for 2015 328i N20/N26 (F30), MSRP $736.69 (high), discounted $502.22"}
+        {
+          "url": "https://www.fcpeuro.com/BMW-parts/328i/Starter/",
+          "what": "Bosch remanufactured 12417638195, $223.99 (low); Genuine BMW 12417638194, $579.99. Category page; N20 fitment of these part numbers confirmed on the OEM catalog page below"
+        },
+        {
+          "url": "https://bmwpartsdeal.com/oem-2015-bmw-328i-starter.html",
+          "what": "Genuine BMW 12417638195 / 12417638194 for 2015 328i N20/N26 (F30), MSRP $736.69 (high), discounted $502.22"
+        }
       ],
-      "hours_src": []
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2018/MC-10138376-9999.pdf",
+          "what": "LOW, same body (F30 3 Series) but a different engine, not the 328i N20: BMW bulletin SI B12 09 18 (April 2018; F30 330e, G12 740e, G30 530e plug-in hybrids) states labor op 00 66 553 'Vehicle test and replace starter motor' allowance 16 FRU for the F30 (21 for G12, 11 for G30, 15 for G30 xDrive). At 10 FRU per hour that is 1.6 hr, and it includes the vehicle test"
+        },
+        {
+          "url": "https://g42.bimmerpost.com/forums/showthread.php?p=4436421",
+          "what": "Weak source (forum post by a dealer technician, 2009) used only to convert BMW's units: '10 FRUs in an hour'"
+        },
+        {
+          "url": "https://bmwvirtuoso.blogspot.com/2017/06/how-do-mechanics-get-paid-and-how-does.html",
+          "what": "Weak source (BMW technician's blog) used only to convert BMW's units: 'Usually one hour of time is divided into 10 FRUs'"
+        },
+        {
+          "url": "https://www.autozone.com/diy/starter/starter-replacement-cost",
+          "what": "HIGH, not vehicle-specific: Parts retailer's guide, not vehicle-specific: states 'Replacing a car starter typically takes between one and two hours, depending on the vehicle's make and model'; also 'Many vehicles have a starter that is easily accessible and can be removed and replaced in under an hour' and 'Some outliers can take six hours or more'. No stated time for the 328i N20 itself was found (other BMW starter bulletins refer dealers to BMW's own labor-time system instead of printing a time)"
+        }
+      ]
     }
   },
   "src": [
@@ -63,17 +171,55 @@
     "https://www.fordpartsgiant.com/oem-2016-ford-f_150-starter.html",
     "https://parts.parkwayford.com/oem-parts/ford-motorcraft-trade-starter-sa1083",
     "https://www.fcpeuro.com/BMW-parts/328i/Starter/",
-    "https://bmwpartsdeal.com/oem-2015-bmw-328i-starter.html"
+    "https://bmwpartsdeal.com/oem-2015-bmw-328i-starter.html",
+    "https://static.nhtsa.gov/odi/tsbs/2014/MC-10139610-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2017/MC-10115802-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2018/MC-10138376-9999.pdf",
+    "https://g42.bimmerpost.com/forums/showthread.php?p=4436421",
+    "https://bmwvirtuoso.blogspot.com/2017/06/how-do-mechanics-get-paid-and-how-does.html",
+    "https://www.autozone.com/diy/starter/starter-replacement-cost",
+    "https://www.carparts.com/blog/how-to-fix-a-starter-diagnose-repair-and-replace-it-right-quickref/"
   ],
   "benchmarks": [
-    {"name": "RepairPal", "url": "https://repairpal.com/estimator/starter-replacement-cost", "lo": 565, "hi": 796, "date": "2026-11-19", "note": "national average, parts ($375-$516) plus labor ($191-$280), before taxes and fees; page says estimates last updated September 3, 2026"},
-    {"name": "Kelley Blue Book", "url": "https://www.kbb.com/service-repair-guide/starter-replacement-costs", "lo": 728, "hi": 820, "date": "2026-11-19", "note": "stated average cost range for starter replacement"},
-    {"name": "AAA", "url": "https://www.aaa.com/autorepair/articles/how-much-does-a-starter-replacement-cost", "lo": 350, "hi": 1100, "date": "2026-11-19", "note": "'complete starter replacement costs between $350 and $1,100'; the same article also gives $400-$1,200 at a mechanic, and says 1-2 hours when easily accessible, up to 6 hours when buried"},
-    {"name": "YourMechanic", "url": "https://www.yourmechanic.com/estimates/toyota/corolla/starter-replacement", "lo": 885, "hi": 1630, "date": "2026-11-19", "note": "2015 Corolla 1.8L only: mobile estimate $884.91, shop/dealer price $1,072.97-$1,629.66. The same page also states an average of $247, which contradicts its own table, so treat with caution"}
+    {
+      "name": "RepairPal",
+      "url": "https://repairpal.com/estimator/starter-replacement-cost",
+      "lo": 565,
+      "hi": 796,
+      "date": "2026-11-19",
+      "note": "national average, parts ($375-$516) plus labor ($191-$280), before taxes and fees; page says estimates last updated September 3, 2026"
+    },
+    {
+      "name": "Kelley Blue Book",
+      "url": "https://www.kbb.com/service-repair-guide/starter-replacement-costs",
+      "lo": 728,
+      "hi": 820,
+      "date": "2026-11-19",
+      "note": "stated average cost range for starter replacement"
+    },
+    {
+      "name": "AAA",
+      "url": "https://www.aaa.com/autorepair/articles/how-much-does-a-starter-replacement-cost",
+      "lo": 350,
+      "hi": 1100,
+      "date": "2026-11-19",
+      "note": "'complete starter replacement costs between $350 and $1,100'; the same article also gives $400-$1,200 at a mechanic, and says 1-2 hours when easily accessible, up to 6 hours when buried"
+    },
+    {
+      "name": "YourMechanic",
+      "url": "https://www.yourmechanic.com/estimates/toyota/corolla/starter-replacement",
+      "lo": 885,
+      "hi": 1630,
+      "date": "2026-11-19",
+      "note": "2015 Corolla 1.8L only: mobile estimate $884.91, shop/dealer price $1,072.97-$1,629.66. The same page also states an average of $247, which contradicts its own table, so treat with caution"
+    }
   ],
-  "live": [200, 1125],
-  "finding": "The live range of $200-$1,125 is about right at the top but looks low at the bottom, and it is wide. We could only build a full parts-plus-labor figure for two of the four classes, because no public source stating a labor time was found for the 2015 Corolla 1.8L or the 2015 BMW 328i N20. Implied totals at $120-$160 per hour: midsize (2016 Camry 2.5L) about $252-$545; truck (2016 F-150 5.0L) about $395-$683. Economy and luxury cannot be totalled; their parts alone run $122-$403 (Corolla) and $224-$737 (328i). The lowest total we can support is about $252 and the lowest benchmark is $350 (AAA), so a $200 floor is below anything found. The $1,125 ceiling matches AAA's $1,100 and is plausible for a European car where the part alone can list at $737, but we could not confirm it with a stated labor time. Our two totals sit below RepairPal ($565-$796) and Kelley Blue Book ($728-$820); the gap is in parts, since our low ends use remanufactured aftermarket units at online prices ($122-$155) while RepairPal's parts figure is $375-$516, and our labor times are do-it-yourself or seller estimates rather than flat-rate book times.",
-  "confidence": "low",
+  "live": [
+    200,
+    1125
+  ],
+  "finding": "The live range of $200-$1,125 is about right at the top and a little low at the bottom; it is wide because the vehicle classes really do differ this much. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2015 Corolla about $230-$723 (0.9-2.0 hr); midsize 2016 Camry about $240-$545 (0.9-2.0 hr); truck 2016 F-150 5.0L about $275-$683 (1.0-2.0 hr); luxury 2015 BMW 328i about $416-$1,057 (1.6-2.0 hr). The lowest total we can build is about $230, and that uses a remanufactured starter at an online price ($122) plus a manufacturer warranty time, which is less than a shop normally charges for either; the lowest benchmark is $350 (AAA). So $200 is below anything found and roughly $230-$250 is the supportable floor. The $1,125 ceiling fits: a genuine BMW starter at list ($737) plus 2 hours comes to about $1,057, and AAA's top figure is $1,100. How solid the labor times are: the low ends for the economy and midsize classes are Honda warranty flat-rate times for comparable cars (0.9 hr for a 2012 Civic and for a 2013-2016 Accord V6), not Toyota times; the luxury low end is a BMW bulletin allowance for the same-body 330e plug-in hybrid (16 FRU, 1.6 hr at 10 FRU per hour, a conversion that rests on two informal technician sources), not the 328i's N20 engine; the truck figures are a parts seller's 2-hour estimate and a general 1-2 hour statement. The high ends use parts retailers' general statement that a starter typically takes one to two hours; the same guides say hard-to-reach starters can take 3-4 hours or more, so some vehicles will exceed these totals. Our mainstream totals sit below RepairPal ($565-$796) and Kelley Blue Book ($728-$820); the gap is mostly in parts, since our low ends use remanufactured units at online prices ($122-$155) while RepairPal's parts figure is $375-$516.",
+  "confidence": "medium",
   "checked": "2026-11-19",
   "extras": "A quote often adds a starting and charging system test or diagnosis fee, a refundable core charge on a remanufactured starter (about $35-$85 on the listings seen), shop supplies, and sales tax. A weak battery or corroded battery cables are often found at the same time and quoted separately. On engines where the starter sits under the intake manifold, new intake gaskets may be added."
 }

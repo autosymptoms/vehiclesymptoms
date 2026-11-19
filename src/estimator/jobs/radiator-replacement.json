@@ -3,42 +3,131 @@
   "unit": "per job",
   "classes": {
     "economy": {
-      "parts": null,
-      "hours": null,
+      "parts": [
+        70.85,
+        358.93
+      ],
+      "hours": [
+        1.7,
+        2.2
+      ],
       "example": "2015 Toyota Corolla 1.8L",
-      "parts_src": [],
-      "hours_src": []
+      "parts_src": [
+        {
+          "url": "https://www.autopartsprime.com/p/2015-toyota-corolla-radiator",
+          "what": "CSF 3445 radiator, all trims 1.8L, cap not included, $70.85 (low). Same page: TYC 13106, $68.30, but listed for non-CVT models only, so not used as the low; Toyota OEM 16410-0T031 $247.07 discounted (MSRP $358.93); Toyota OEM 16410-0T042 $222.85 discounted (MSRP $323.75)"
+        },
+        {
+          "url": "https://www.toyotapartsdeal.com/oem-2015-toyota-corolla-radiator.html",
+          "what": "Toyota OEM 16410-0T031 radiator assembly, 2015 Corolla 1.8L, MSRP $358.93 (high), sale $250.32. The other OEM radiator for this car, 16410-0T041 (superseded by 16410-0T042), is MSRP $323.75, sale $225.78; which one fits depends on engine version and transmission"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2024/MC-11006840-0001.pdf",
+          "what": "Different vehicle in the same class (no Corolla time found): Hyundai TSB 24-EM-005H (Aug 2024), 2022 Kona 2.0L: op 25310F04 'Radiator Coolant Leakage Inspection & Replacement' 1.7 M/H. Manufacturer warranty time (low end); includes the leak inspection and claim photos"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10171233-0001.pdf",
+          "what": "Different vehicle, and an electric car: Nissan bulletin NTB20-003 (Jan 2020), 2019 LEAF: op PC7230 'Replace Condenser Bolt And Radiator' 2.2 hrs. Manufacturer campaign time; a combined operation, and a LEAF radiator is not the same job as a gasoline Corolla's, so this is weak support for the top of the range"
+        },
+        {
+          "url": "https://www.buyautoparts.com/blog/?p=4216",
+          "what": "Context only, not used for the range: parts-retailer article states 'on most vehicles, you would be charged for 2-3 hours of labor at most' for a radiator. Its vehicle table (2000-2010 models, 1.2-3.4 hr) names no labor guide"
+        }
+      ]
     },
     "midsize": {
-      "parts": null,
-      "hours": [3.7, 3.7],
+      "parts": [
+        103.39,
+        424.32
+      ],
+      "hours": [
+        2,
+        3.7
+      ],
       "example": "2016 Honda Pilot with 9-speed automatic (the bulletin does not name the engine)",
-      "parts_src": [],
+      "parts_src": [
+        {
+          "url": "https://www.autopartsprime.com/p/2016-honda-pilot-radiator",
+          "what": "CSF 3644 radiator, 2016 Pilot 3.5L all trims, cap not supplied, $103.39 (low); TYC 13402 $111.88; Spectra Premium CU13402 $155.77; Denso 221-9337 $171.94; Honda OEM 19010-5J6-A01 (Denso) $297.86 discounted, MSRP $424.32. The page does not separate 6-speed and 9-speed trucks"
+        },
+        {
+          "url": "https://www.hondapartsnow.com/genuine/honda~radiator~denso~19010-5j6-a01.html",
+          "what": "Honda OEM 19010-5J6-A01 radiator assembly (Denso), stated to fit 2016-2022 Pilot, MSRP $424.32 (high), sale $290.23"
+        }
+      ],
       "hours_src": [
-        {"url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10117328-9999.pdf", "what": "Honda Service Bulletin 17-011 for 2016-2017 Pilot with 9-speed automatic. Manufacturer warranty flat-rate time: operation 2185D2 (Repair Procedure A) states 3.7 hrs. This is a bundled time, not a radiator-only time: it covers inspecting the transmission fluid warmer date, checking for overheating, replacing the radiator and hoses, and flushing the engine. No radiator-only time is given. Warranty times run short, but the bundle includes more than a plain radiator swap"}
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10117328-9999.pdf",
+          "what": "Honda Service Bulletin 17-011 for 2016-2017 Pilot with 9-speed automatic. Manufacturer warranty flat-rate time: operation 2185D2 (Repair Procedure A) states 3.7 hrs. This is a bundled time, not a radiator-only time: it covers inspecting the transmission fluid warmer date, checking for overheating, replacing the radiator and hoses, and flushing the engine. No radiator-only time is given. Warranty times run short, but the bundle includes more than a plain radiator swap"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10241799-0001.pdf",
+          "what": "Different vehicle in the same class: Hyundai TSB 23-EM-003H (Aug 2023), 2020-2022 Palisade: op 25310F02 'Radiator Coolant Leakage Inspection & Replacement' 2.0 M/H. Manufacturer warranty time (low end); includes the leak inspection and claim photos. Used as the low end; the Honda 3.7 hr bundled time above is the high end"
+        }
       ]
     },
     "truck": {
-      "parts": [139.99, 346.23],
-      "hours": [1, 1],
+      "parts": [
+        139.99,
+        346.23
+      ],
+      "hours": [
+        1,
+        1
+      ],
       "example": "2016 Ford F-150 5.0L V8 (without heavy-duty cooling)",
       "parts_src": [
-        {"url": "https://www.americantrucks.com/f150-oe-style-aluminum-radiator-oem-ra-13510.html", "what": "Store-brand OE-style aluminum radiator, item T599612, fits 2015-2020 F-150 2.7L, 3.5L EcoBoost and 5.0L V8 without heavy-duty cooling, $139.99 (low)"},
-        {"url": "https://www.fordpartsgiant.com/oem-2016-ford-f_150-radiator.html", "what": "Ford OEM HL3Z-8005-A (5.0L V8), MSRP $346.23 (high), discounted $231.26. The same page lists a second OEM radiator for the 5.0L, FL3Z-8005-A, MSRP $637.07, discounted $425.51; the page does not say which cooling package each one is for, so the lower list price is used and the higher one is noted in the finding"}
+        {
+          "url": "https://www.americantrucks.com/f150-oe-style-aluminum-radiator-oem-ra-13510.html",
+          "what": "Store-brand OE-style aluminum radiator, item T599612, fits 2015-2020 F-150 2.7L, 3.5L EcoBoost and 5.0L V8 without heavy-duty cooling, $139.99 (low)"
+        },
+        {
+          "url": "https://www.fordpartsgiant.com/oem-2016-ford-f_150-radiator.html",
+          "what": "Ford OEM HL3Z-8005-A (5.0L V8), MSRP $346.23 (high), discounted $231.26. The same page lists a second OEM radiator for the 5.0L, FL3Z-8005-A, MSRP $637.07, discounted $425.51; the page does not say which cooling package each one is for, so the lower list price is used and the higher one is noted in the finding"
+        }
       ],
       "hours_src": [
-        {"url": "https://www.americantrucks.com/f150-oe-style-aluminum-radiator-oem-ra-13510.html", "what": "Seller states installation time '(approx) 1 Hour' for this radiator on the 2015-2020 F-150. A seller's approximate figure, not a flat-rate book time"},
-        {"url": "https://www.americantrucks.com/f150-radiator-oem-ra-13099.html", "what": "Same seller states '(approx) 2 Hours' for a radiator on the 2009-2010 V8 F-150 with automatic transmission ($124.99). An earlier truck generation; shown for context only and not used for the 2016 truck"}
+        {
+          "url": "https://www.americantrucks.com/f150-oe-style-aluminum-radiator-oem-ra-13510.html",
+          "what": "Seller states installation time '(approx) 1 Hour' for this radiator on the 2015-2020 F-150. A seller's approximate figure, not a flat-rate book time"
+        },
+        {
+          "url": "https://www.americantrucks.com/f150-radiator-oem-ra-13099.html",
+          "what": "Same seller states '(approx) 2 Hours' for a radiator on the 2009-2010 V8 F-150 with automatic transmission ($124.99). An earlier truck generation; shown for context only and not used for the 2016 truck"
+        }
       ]
     },
     "luxury": {
-      "parts": null,
-      "hours": [3.7, 3.7],
+      "parts": [
+        103.39,
+        424.32
+      ],
+      "hours": [
+        3.7,
+        3.7
+      ],
       "example": "2016 Acura MDX (the bulletin does not name the engine)",
-      "parts_src": [],
+      "parts_src": [
+        {
+          "url": "https://autopartsprime.com/p/2016-acura-mdx-radiator",
+          "what": "CSF 3644 radiator, 2016 MDX 3.5L all trims, cap not supplied, $103.39 (low); TYC 13402 $111.88; Spectra Premium CU13402 $155.77; Denso 221-9337 $171.94. Same aftermarket part numbers as the Honda Pilot; the OEM number listed is 19010-5J6-A01"
+        },
+        {
+          "url": "https://acurapartswarehouse.com/oem-2016-acura-mdx-radiator.html",
+          "what": "Acura OEM 19010-5J6-A01 radiator, 2016 MDX, MSRP $424.32 (high), sale $297.11. The same part number Honda sells for the Pilot"
+        }
+      ],
       "hours_src": [
-        {"url": "https://static.nhtsa.gov/odi/tsbs/2018/MC-10134515-9999.pdf", "what": "Acura bulletin for the 2016 MDX. Manufacturer warranty flat-rate time: operation 2185A9 (Repair Procedure A) states 3.7 hrs. This is a bundled time, not a radiator-only time: it covers inspecting the transmission fluid warmer date, checking for overheating, 'Replace radiator and hoses' and 'Flush engine'. No radiator-only time is given"},
-        {"url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10166511-0001.pdf", "what": "Later version of the same Acura bulletin covering 2016-2017 MDX; states the same 3.7 hrs for operation 2185A9"}
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2018/MC-10134515-9999.pdf",
+          "what": "Acura bulletin for the 2016 MDX. Manufacturer warranty flat-rate time: operation 2185A9 (Repair Procedure A) states 3.7 hrs. This is a bundled time, not a radiator-only time: it covers inspecting the transmission fluid warmer date, checking for overheating, 'Replace radiator and hoses' and 'Flush engine'. No radiator-only time is given"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10166511-0001.pdf",
+          "what": "Later version of the same Acura bulletin covering 2016-2017 MDX; states the same 3.7 hrs for operation 2185A9"
+        }
       ]
     }
   },
@@ -48,13 +137,65 @@
     "https://www.fordpartsgiant.com/oem-2016-ford-f_150-radiator.html",
     "https://www.americantrucks.com/f150-radiator-oem-ra-13099.html",
     "https://static.nhtsa.gov/odi/tsbs/2018/MC-10134515-9999.pdf",
-    "https://static.nhtsa.gov/odi/tsbs/2019/MC-10166511-0001.pdf"
+    "https://static.nhtsa.gov/odi/tsbs/2019/MC-10166511-0001.pdf",
+    "https://www.autopartsprime.com/p/2015-toyota-corolla-radiator",
+    "https://www.toyotapartsdeal.com/oem-2015-toyota-corolla-radiator.html",
+    "https://static.nhtsa.gov/odi/tsbs/2024/MC-11006840-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10171233-0001.pdf",
+    "https://www.buyautoparts.com/blog/?p=4216",
+    "https://www.autopartsprime.com/p/2016-honda-pilot-radiator",
+    "https://www.hondapartsnow.com/genuine/honda~radiator~denso~19010-5j6-a01.html",
+    "https://static.nhtsa.gov/odi/tsbs/2023/MC-10241799-0001.pdf",
+    "https://autopartsprime.com/p/2016-acura-mdx-radiator",
+    "https://acurapartswarehouse.com/oem-2016-acura-mdx-radiator.html"
   ],
   "benchmarks": [
-    {"name": "YourMechanic", "url": "https://www.yourmechanic.com/estimates/toyota/tundra/radiator-replacement", "lo": 1043, "hi": 1216, "date": "2026-11-19", "note": "Toyota Tundra only, not a national figure: mobile-mechanic estimates of $1,043.00-$1,215.64 across the model years listed (2000-2014), with shop/dealer prices of $1,241.40-$2,163.62. The same page also states an average of $586 ($390 parts, $196 labor), which contradicts its own table, so treat with caution"}
+    {
+      "name": "RepairPal",
+      "url": "https://repairpal.com/estimator/radiator-replacement-cost",
+      "lo": 1368,
+      "hi": 1550,
+      "date": "2026-11-19",
+      "note": "average, all vehicles: parts $993-$1,001 + labor $375-$550, before taxes and fees. Its parts figure is more than double the genuine list prices we found ($346-$424)"
+    },
+    {
+      "name": "ConsumerAffairs",
+      "url": "https://www.consumeraffairs.com/automotive/cost-to-replace-a-radiator.html",
+      "lo": 750,
+      "hi": 1850,
+      "date": "2026-11-19",
+      "note": "headline 'between $750 and $1,850 for parts and labor'; quotes from five mechanics on three sample vehicles averaged $765-$1,826, parts about 50-60% of the total; says most mechanics need two to three hours. Updated Oct 6, 2026. Also repeats RepairPal's figure"
+    },
+    {
+      "name": "J.D. Power",
+      "url": "https://www.jdpower.com/cars/shopping-guides/how-much-does-it-cost-to-replace-a-radiator",
+      "lo": 700,
+      "hi": 1000,
+      "date": "2026-11-19",
+      "note": "article dated Dec 12, 2022: 'averages out on $700, but the final amount could go up to $1,000'; no parts/labor split. Four years old"
+    },
+    {
+      "name": "Jerry",
+      "url": "https://jerry.ai/car-repair/estimates/radiator-repair-cost/",
+      "lo": 236,
+      "hi": 377,
+      "date": "2026-11-19",
+      "note": "states replacement with labor is $236-$377 for most vehicles and over $2,000 for luxury or tight-access models; an outlier on the low side: its sample jobs show 95-105 minutes of labor ($186.93-$208.54) and no part cost, while its own text says two to four hours and a radiator at $150-$900. Updated Nov 2026"
+    },
+    {
+      "name": "YourMechanic",
+      "url": "https://www.yourmechanic.com/estimates/toyota/tundra/radiator-replacement",
+      "lo": 1043,
+      "hi": 1216,
+      "date": "2026-11-19",
+      "note": "Toyota Tundra only, not a national figure: mobile-mechanic estimates of $1,043.00-$1,215.64 across the model years listed (2000-2014), with shop/dealer prices of $1,241.40-$2,163.62. The same page also states an average of $586 ($390 parts, $196 labor), which contradicts its own table, so treat with caution"
+    }
   ],
-  "live": [290, 1400],
-  "finding": "We could not confirm or reject the live range of $290-$1,400 on this pass. Only one class has a full total: the truck (2016 F-150 5.0L) comes to about $260-$506 at $120-$160 per hour, which straddles the live floor of $290 and sits in the lower part of the range. That total uses online prices for the radiator alone ($139.99 aftermarket to $346.23 Ford list) and a seller's approximate one-hour time, with no coolant; with the other Ford radiator listed for this engine ($637.07 list) the top would be about $797. Economy (2015 Corolla 1.8L): no radiator price from a retailer listing and no stated labor time were found, so no total. Midsize (2016 Honda Pilot) and luxury (2016 Acura MDX): the manufacturer's warranty time is 3.7 hours, which is $444-$592 of labor at our rate, but that time also covers hoses, an engine flush and an inspection, and no radiator price was obtained for either vehicle, so no total. Those two labor figures alone are above the live floor, which suggests $290 is only reachable on simple vehicles with an inexpensive aftermarket radiator, and they leave room under the $1,400 ceiling for an OEM radiator and coolant. Only one outside estimate was recorded (YourMechanic, Toyota Tundra only, $1,043-$1,216 mobile and up to $2,164 at a shop or dealer), which is above the middle of the live range and, at the dealer end, above its ceiling; the other estimator pages could not be reached in this session, so the three-estimate comparison still needs to be done. For context only, and not used in our numbers: Ford bulletins for the 2015-2019 Transit van give 2.8-3.7 hours (gasoline engines) for a combined job of fan clutch test, thermostat inspection, cooling system flush and radiator replacement.",
+  "live": [
+    290,
+    1400
+  ],
+  "finding": "The live range of $290-$1,400 is about right: the floor matches what we can build, and the ceiling is higher than our own totals but lower than what two of the outside estimators show, so there is no evidence to narrow it. Our totals, built as radiator price plus stated hours at $120-$160 per hour (a national middle rate), radiator only with no coolant, are: economy 2015 Corolla 1.8L $275-$711; midsize 2016 Honda Pilot $343-$1,016; truck 2016 F-150 5.0L $260-$506 (about $797 with the dearer of the two Ford radiators listed for that engine, $637.07 list); luxury 2016 Acura MDX $547-$1,016. So the built span is about $260-$1,016. The cheapest cases, an aftermarket radiator on a Corolla or F-150, land within $30 of the live floor. Nothing we built reaches $1,400, but our numbers leave out coolant, hoses and shop parts markup and lean on warranty times, and the outside estimates run higher: RepairPal $1,368-$1,550, ConsumerAffairs $750-$1,850 from mechanic quotes, J.D. Power about $700-$1,000 (2022), YourMechanic $1,043-$1,216 for a Toyota Tundra. Jerry ($236-$377) is the one low outlier and contradicts its own text. The gap with RepairPal is in parts: it assumes $993-$1,001 for the radiator, where genuine list prices we found are $346-$424 and aftermarket $71-$140; its labor ($375-$550) is in line with our 2-3.7 hour classes. A fair reading is that $290 is a real floor for a simple vehicle with an aftermarket radiator, most jobs fall between about $450 and $1,000, and quotes up to $1,400 or somewhat more happen with dealer parts pricing, hoses, coolant and thermostat added. Weak points in the labor times: none is a plain radiator-only time for the example vehicle. Economy uses a Hyundai Kona warranty time (1.7 hr, includes a leak inspection) and a Nissan LEAF campaign time (2.2 hr, combined with a condenser bolt, on an electric car) because no Corolla time was found. Midsize runs from a Hyundai Palisade warranty time (2.0 hr) to Honda's own 3.7 hr for the Pilot, which also covers hoses, an engine flush and an inspection. Luxury is the same Honda bundled 3.7 hr on the MDX with no second figure, so its low total ($547) is probably too high for a plain radiator swap. Truck is a seller's approximate one hour (the same seller says two hours for the previous-generation truck). The Pilot and MDX share one radiator (19010-5J6-A01), so those two classes differ only in the labor figures we could find. For context only, and not used in our numbers: Ford bulletins for the 2015-2019 Transit van give 2.8-3.7 hours (gasoline engines) for a combined job of fan clutch test, thermostat inspection, cooling system flush and radiator replacement. No Kelley Blue Book radiator figure could be found by search.",
   "confidence": "low",
   "checked": "2026-11-19",
   "extras": "A quote often adds coolant and a cooling system bleed or pressure test (not included in the parts figures here), upper and lower radiator hoses and clamps, a radiator cap, a thermostat, transmission fluid top-up on vehicles where the transmission cooler is built into the radiator, a diagnosis fee, shop supplies, coolant disposal, and sales tax. If the engine overheated before the repair, a shop may also recommend checks for further damage. The parts figures here are the radiator only."

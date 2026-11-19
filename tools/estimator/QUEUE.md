@@ -3,17 +3,17 @@
 Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held with reason. Re-check any job whose date is over 60 days old. "Live" is the range the site shows today.
 
 - [~] Brake pads and rotors (live: $220–$775) (2026-11-19) — held: no stated labor time for economy/luxury; live looks about right
-- [~] Alternator replacement (live: $270–$975) (2026-11-19) — held: no labor time for economy/luxury; live low end too low
-- [~] Starter replacement (live: $200–$1125) (2026-11-19) — held: no labor time for economy/luxury; live low end too low, too wide
+- [x] Alternator replacement (live: $270–$975) (2026-11-19) — low end too low; $340–$1,100 fits (low confidence: economy/luxury hours are general retailer statements)
+- [x] Starter replacement (live: $200–$1125) (2026-11-19) — top right, floor nearer $230–$250 (medium confidence)
 - [~] Water pump replacement (live: $380–$1475) (2026-11-19) — held: no labor time for economy/midsize; no timing-driven pump example yet
 - [~] Head gasket repair (live: $1075–$3700) (2026-11-19) — held: hours rest on unsourced openlaborproject.com/bruisers.com, luxury hours missing; live low end far too low
 - [~] Catalytic converter replacement (live: $480–$2450) (2026-11-19) — held: labor time for truck only; live too low both ends, CARB parts exceed top
 - [x] Wheel bearing or hub replacement (live: $200–$700) (2026-11-19) — slightly low both ends; $250–$800 fits (medium confidence)
 - [x] Timing belt replacement (live: $500–$1475) (2026-11-19) — about right, top slightly generous (low confidence)
-- [~] Spark plug replacement (live: $130–$850) (2026-11-19) — partial: hours for 3 classes; needs parts prices and 3 benchmarks (search limit hit)
-- [~] A/C compressor replacement (live: $550–$1625) (2026-11-19) — partial: Toyota warranty time only; needs parts, other hours, benchmarks (search limit hit)
-- [~] Radiator replacement (live: $290–$1400) (2026-11-19) — partial: truck class only; needs parts, benchmarks (search limit hit)
-- [~] Fuel pump replacement (live: $330–$1400) (2026-11-19) — partial: recall warranty times for 3 classes; needs parts and benchmarks (search limit hit)
+- [x] Spark plug replacement (live: $130–$850) (2026-11-19) — top too high; $500–$600 fits (medium confidence)
+- [x] A/C compressor replacement (live: $550–$1625) (2026-11-19) — right for compressor-only; full job higher (medium confidence)
+- [x] Radiator replacement (live: $290–$1400) (2026-11-19) — about right; hours not vehicle-specific (low confidence)
+- [x] Fuel pump replacement (live: $330–$1400) (2026-11-19) — about right; warranty times only (medium confidence)
 - [ ] Control arm replacement (one side) (live: $240–$1200)
 - [ ] Ball joint replacement (live: $240–$950)
 - [ ] Tie rod end replacement (live: $170–$900)
