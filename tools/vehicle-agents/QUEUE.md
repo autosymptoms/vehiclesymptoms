@@ -426,6 +426,7 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 Once the lists above are done, go make by make (every brand with US sales since 1996). Compare its US model lineup for each year 1996–2027 against `src/deep/`, and queue any model with meaningful US sales that is still missing. Separate trims and body styles of the same model (e.g. Camry Solara is separate, but Camry Hybrid is not) only when they're sold and recalled as a separate model.
 
 ## After the queue is empty: deepen existing models
+**Next run: start here (Daniel approved Nov 19 2026).** First finish the two leftovers above (merge kia-cadenza-k5 issues into kia-optima, and chevrolet-caprice 1996), then work this list in order. Use the same BRIEF, review and publish steps; agents edit the existing model files instead of creating new ones.
 - Extend models that end early (2026/2027) once real problems exist for those years. See the project doc vehicles/model-coverage.md.
 - Fill thin years: any sold year with fewer than 3 issues (run check-vehicle.js on every id).
 - Raise models with fewer than 20 issues: dodge-caliber, dodge-neon, nissan-juke, jeep-gladiator, ford-flex, hyundai-santa-cruz.
