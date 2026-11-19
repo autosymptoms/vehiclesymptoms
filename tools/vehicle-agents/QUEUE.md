@@ -364,36 +364,36 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] audi-a7 | Audi A7 | 2012-present | 
 - [x] volvo-c70 | Volvo C70 | 1998-2004, 2006-2013 | gap 2005
 - [x] volvo-v60 | Volvo V60 / V60 Cross Country | 2015-present | published 2015-2024
-- [ ] saturn-sky | Saturn Sky | 2007-2009 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] pontiac-solstice | Pontiac Solstice | 2006-2009 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] pontiac-g8 | Pontiac G8 | 2008-2009 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] saturn-relay | Saturn Relay | 2005-2007 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] chrysler-voyager | Chrysler Voyager | 2001-2003, 2020-2025 | check gap 2004-2019 CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] toyota-tercel | Toyota Tercel | 1996-1998 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] toyota-mr2-spyder | Toyota MR2 Spyder | 2000-2005 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] isuzu-axiom | Isuzu Axiom | 2002-2004 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] hyundai-equus | Hyundai Equus | 2011-2016 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] buick-envista | Buick Envista | 2024-present |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] buick-cascada | Buick Cascada | 2016-2019 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] mazda-cx-70 | Mazda CX-70 | 2025-present |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] genesis-gv60 | Genesis GV60 | 2023-present | ev:true CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] lexus-hs | Lexus HS 250h | 2010-2012 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] lexus-lc | Lexus LC | 2018-present |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] infiniti-qx30 | Infiniti QX30 | 2017-2019 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] infiniti-qx55 | Infiniti QX55 | 2022-present |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] mini-paceman | MINI Paceman | 2013-2016 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] ford-aerostar | Ford Aerostar | 1996-1997 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] kia-sephia | Kia Sephia | 1996-2001 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] daewoo-lanos | Daewoo Lanos | 1999-2002 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] gmc-sierra-ev | GMC Sierra EV | 2024-present | ev:true CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] lucid-air | Lucid Air | 2022-present | ev:true CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] alfa-romeo-tonale | Alfa Romeo Tonale | 2024-present |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] volkswagen-eurovan | Volkswagen EuroVan | 1996-2003 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] saab-9-7x | Saab 9-7X | 2005-2009 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] chevrolet-captiva-sport | Chevrolet Captiva Sport | 2012-2015 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] buick-riviera | Buick Riviera | 1996-1999 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] plymouth-breeze | Plymouth Breeze | 1996-2000 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
-- [ ] oldsmobile-eighty-eight | Oldsmobile Eighty-Eight / LSS | 1996-1999 |  CLAIMED by scheduled run 2026-11-19 17:16 UTC
+- [x] saturn-sky | Saturn Sky | 2007-2009 | 
+- [x] pontiac-solstice | Pontiac Solstice | 2006-2009 | 
+- [x] pontiac-g8 | Pontiac G8 | 2008-2009 | 
+- [x] saturn-relay | Saturn Relay | 2005-2007 | 
+- [x] chrysler-voyager | Chrysler Voyager | 2000-2003, 2020-2026 | gap 2004-2019
+- [x] toyota-tercel | Toyota Tercel | 1996-1998 | 
+- [~] toyota-mr2-spyder | Toyota MR2 Spyder | 2000-2005 | redo: draft priced only 6 of 19 problems (RepairPal estimate pages had no figures); draft saved outside repo
+- [x] isuzu-axiom | Isuzu Axiom | 2002-2004 | 
+- [x] hyundai-equus | Hyundai Equus | 2011-2016 | 
+- [x] buick-envista | Buick Envista | 2024-present | 
+- [x] buick-cascada | Buick Cascada | 2016-2019 | 
+- [x] mazda-cx-70 | Mazda CX-70 | 2025-present | 
+- [x] genesis-gv60 | Genesis GV60 | 2023-present | published 2023-2025
+- [x] lexus-hs | Lexus HS 250h | 2010-2012 | 
+- [x] lexus-lc | Lexus LC | 2018-present | published 2018-2025
+- [x] infiniti-qx30 | Infiniti QX30 | 2017-2019 | 
+- [x] infiniti-qx55 | Infiniti QX55 | 2022-present | published 2022-2023; 2024+ need sourced problems
+- [x] mini-paceman | MINI Paceman | 2013-2016 | 
+- [x] ford-aerostar | Ford Aerostar | 1996-1997 | 
+- [x] kia-sephia | Kia Sephia | 1996-2001 | 
+- [x] daewoo-lanos | Daewoo Lanos | 1999-2002 | 
+- [x] gmc-sierra-ev | GMC Sierra EV | 2024-present | ev:true
+- [x] lucid-air | Lucid Air | 2022-present | ev:true
+- [x] alfa-romeo-tonale | Alfa Romeo Tonale | 2024-present | published 2024-2025
+- [x] volkswagen-eurovan | Volkswagen EuroVan | 1996-2003 | gap 1998 (camper-only year); starts 1997
+- [x] saab-9-7x | Saab 9-7X | 2005-2009 | 
+- [x] chevrolet-captiva-sport | Chevrolet Captiva Sport | 2012-2015 | 
+- [x] buick-riviera | Buick Riviera | 1996-1999 | 
+- [x] plymouth-breeze | Plymouth Breeze | 1996-2000 | 
+- [x] oldsmobile-eighty-eight | Oldsmobile Eighty-Eight / LSS | 1996-1999 | 
 - [ ] lincoln-mark-viii | Lincoln Mark VIII | 1996-1998 | 
 - [ ] nissan-200sx | Nissan 200SX | 1996-1998 | 
 - [ ] volkswagen-phaeton | Volkswagen Phaeton | 2004-2006 | 
