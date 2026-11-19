@@ -5,38 +5,37 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - If a model needs another pass, use `[~]` and add the reason.
 - Models already in `src/deep/` are live. Never add them twice: check `src/deep/` first.
 
-## In progress (wave 2, started Nov 19 2026 ~1:30am in the interactive session)
-If these still have no `src/deep/<id>.json` after Nov 19 2026 noon, treat them as unclaimed and do them.
-- [ ] toyota-matrix | Toyota Matrix | 2003-2013 | redo; earlier draft relied on au7o.io
-- [ ] toyota-yaris | Toyota Yaris | 2007-2020 | redo
-- [ ] kia-niro | Kia Niro | 2017-present | redo; hybrid/PHEV/EV, ev:false
-- [ ] chevrolet-monte-carlo | Chevrolet Monte Carlo | 1996-2007 |
-- [ ] chevrolet-venture | Chevrolet Venture | 1997-2005 |
-- [ ] chevrolet-corvette | Chevrolet Corvette | 1996-present |
-- [ ] lincoln-navigator | Lincoln Navigator | 1998-present |
-- [ ] lincoln-town-car | Lincoln Town Car | 1996-2011 |
-- [ ] lincoln-mkz | Lincoln MKZ | 2006-2020 | 2006 Zephyr
-- [ ] mercury-mountaineer | Mercury Mountaineer | 1997-2010 |
-- [ ] mercury-sable | Mercury Sable | 1996-2005, 2008-2009 | gap 2006-2007
-- [ ] ford-five-hundred | Ford Five Hundred | 2005-2007 |
-- [ ] pontiac-g6 | Pontiac G6 | 2005-2010 |
-- [ ] pontiac-grand-am | Pontiac Grand Am | 1996-2005 |
-- [ ] pontiac-vibe | Pontiac Vibe | 2003-2010 |
-- [ ] saturn-ion | Saturn Ion | 2003-2007 |
-- [ ] saturn-vue | Saturn Vue | 2002-2010 |
-- [ ] saturn-s-series | Saturn S-Series | 1996-2002 |
-- [ ] volkswagen-golf | Volkswagen Golf/GTI | 1996-present | incl. Rabbit 2007-09
-- [ ] volkswagen-beetle | Volkswagen Beetle | 1998-2019 |
-- [ ] volkswagen-atlas | Volkswagen Atlas | 2018-present |
-- [ ] bmw-5-series | BMW 5 Series | 1996-present |
-- [ ] mercedes-benz-gle | Mercedes-Benz M-Class / GLE | 1998-present |
-- [ ] mercedes-benz-glc | Mercedes-Benz GLC | 2016-present |
-- [ ] mazda-cx-30 | Mazda CX-30 | 2020-present |
-- [ ] mazda-mx-5-miata | Mazda MX-5 Miata | 1996-present | check 1998 gap
-- [ ] mazda-tribute | Mazda Tribute | 2001-2011 |
-- [ ] acura-tsx | Acura TSX | 2004-2014 |
-- [ ] acura-tlx | Acura TLX | 2015-present |
-- [ ] infiniti-qx60 | Infiniti QX60 | 2013-present | 2013 JX35
+## Wave 2 (published Nov 19 2026)
+- [x] toyota-matrix | Toyota Matrix | 2003-2013 | redo; earlier draft relied on au7o.io
+- [x] toyota-yaris | Toyota Yaris | 2007-2020 | redo
+- [x] kia-niro | Kia Niro | 2017-present | redo; hybrid/PHEV/EV, ev:false
+- [x] chevrolet-monte-carlo | Chevrolet Monte Carlo | 1996-2007 |
+- [x] chevrolet-venture | Chevrolet Venture | 1997-2005 |
+- [x] chevrolet-corvette | Chevrolet Corvette | 1996-present |
+- [x] lincoln-navigator | Lincoln Navigator | 1998-present |
+- [x] lincoln-town-car | Lincoln Town Car | 1996-2011 |
+- [x] lincoln-mkz | Lincoln MKZ | 2006-2020 | 2006 Zephyr
+- [x] mercury-mountaineer | Mercury Mountaineer | 1997-2010 |
+- [x] mercury-sable | Mercury Sable | 1996-2005, 2008-2009 | gap 2006-2007
+- [x] ford-five-hundred | Ford Five Hundred | 2005-2007 |
+- [x] pontiac-g6 | Pontiac G6 | 2005-2010 |
+- [x] pontiac-grand-am | Pontiac Grand Am | 1996-2005 |
+- [x] pontiac-vibe | Pontiac Vibe | 2003-2010 |
+- [x] saturn-ion | Saturn Ion | 2003-2007 |
+- [x] saturn-vue | Saturn Vue | 2002-2010 |
+- [x] saturn-s-series | Saturn S-Series | 1996-2002 |
+- [x] volkswagen-golf | Volkswagen Golf/GTI | 1996-present | incl. Rabbit 2007-09
+- [x] volkswagen-beetle | Volkswagen Beetle | 1998-2019 |
+- [x] volkswagen-atlas | Volkswagen Atlas | 2018-present |
+- [x] bmw-5-series | BMW 5 Series | 1996-present |
+- [x] mercedes-benz-gle | Mercedes-Benz M-Class / GLE | 1998-present |
+- [x] mercedes-benz-glc | Mercedes-Benz GLC | 2016-present |
+- [x] mazda-cx-30 | Mazda CX-30 | 2020-present |
+- [x] mazda-mx-5-miata | Mazda MX-5 Miata | 1996-present | check 1998 gap
+- [x] mazda-tribute | Mazda Tribute | 2001-2011 |
+- [x] acura-tsx | Acura TSX | 2004-2014 |
+- [~] acura-tlx | Acura TLX | 2015-present | draft held back: acura-tl already covers 2015+ TLX years; merge TLX issues into acura-tl instead of a separate page
+- [x] infiniti-qx60 | Infiniti QX60 | 2013-present | 2013 JX35
 
 ## Next (most common first)
 - [ ] chevrolet-uplander | Chevrolet Uplander | 2005-2009 |
