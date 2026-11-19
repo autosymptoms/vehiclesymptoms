@@ -2,14 +2,14 @@
 
 Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held with reason. Re-check any job whose date is over 60 days old. "Live" is the range the site shows today.
 
-- [ ] Brake pads and rotors (live: $220–$775)
-- [ ] Alternator replacement (live: $270–$975)
-- [ ] Starter replacement (live: $200–$1125)
-- [ ] Water pump replacement (live: $380–$1475)
-- [ ] Head gasket repair (live: $1075–$3700)
-- [ ] Catalytic converter replacement (live: $480–$2450)
-- [ ] Wheel bearing or hub replacement (live: $200–$700)
-- [ ] Timing belt replacement (live: $500–$1475)
+- [~] Brake pads and rotors (live: $220–$775) (2026-11-19) — held: no stated labor time for economy/luxury; live looks about right
+- [~] Alternator replacement (live: $270–$975) (2026-11-19) — held: no labor time for economy/luxury; live low end too low
+- [~] Starter replacement (live: $200–$1125) (2026-11-19) — held: no labor time for economy/luxury; live low end too low, too wide
+- [~] Water pump replacement (live: $380–$1475) (2026-11-19) — held: no labor time for economy/midsize; no timing-driven pump example yet
+- [~] Head gasket repair (live: $1075–$3700) (2026-11-19) — held: hours rest on unsourced openlaborproject.com/bruisers.com, luxury hours missing; live low end far too low
+- [~] Catalytic converter replacement (live: $480–$2450) (2026-11-19) — held: labor time for truck only; live too low both ends, CARB parts exceed top
+- [x] Wheel bearing or hub replacement (live: $200–$700) (2026-11-19) — slightly low both ends; $250–$800 fits (medium confidence)
+- [x] Timing belt replacement (live: $500–$1475) (2026-11-19) — about right, top slightly generous (low confidence)
 - [ ] Spark plug replacement (live: $130–$850)
 - [ ] A/C compressor replacement (live: $550–$1625)
 - [ ] Radiator replacement (live: $290–$1400)
