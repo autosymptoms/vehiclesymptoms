@@ -17,8 +17,16 @@
   .links{display:flex;gap:22px;font-size:14px;color:var(--muted);font-weight:600}
   .links a:hover{color:var(--text)}
   .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 10px;font:inherit;font-size:14px}
-  @media (max-width:720px){.links{display:none}.menu-btn{display:block}
-    .links.open{display:flex;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:var(--panel);padding:16px 20px;gap:14px;border-bottom:1px solid var(--line)}}
+  /* phones: every tab stays visible as a scrollable strip under the logo */
+  @media (max-width:720px){
+    .nav{flex-wrap:wrap;height:auto;padding-top:11px;padding-bottom:0;row-gap:0}
+    .links{order:3;display:flex;width:100%;margin:9px -20px 0;padding:0 20px;gap:17px;-webkit-mask-image:linear-gradient(to right,#000 86%,transparent 100%);mask-image:linear-gradient(to right,#000 86%,transparent 100%);overflow-x:auto;overflow-y:hidden;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;box-shadow:inset 0 -1px 0 rgba(255,255,255,.10)}
+    .links::-webkit-scrollbar{display:none}
+    .links a{flex:none;font-size:14.5px;padding:9px 0 10px;border-bottom:2.5px solid transparent;color:var(--muted)}
+    .links a.on{color:#fff;border-bottom-color:var(--blue)}
+    .menu-btn{display:none!important}
+    .home-btn{display:none!important}
+  }
 
   /* hero */
   .hero{position:relative;padding:64px 0 40px;overflow:hidden}
@@ -319,8 +327,8 @@ details.allm>summary{cursor:pointer;color:var(--blue2);font-weight:600;font-size
 /* home button: visible on phones, where the nav links are tucked into the menu */
 .home-btn{display:none;align-items:center;gap:5px;border:1px solid var(--line);border-radius:8px;padding:6px 9px;color:var(--text);font-size:13px;font-weight:600;margin-right:8px}
 .menu-btn{display:none;align-items:center;justify-content:center;padding:6px 8px}
-@media (max-width:720px){.home-btn{display:inline-flex}.menu-btn{display:inline-flex}}
-@media (max-width:420px){.home-btn span{display:none}.home-btn{padding:6px 8px;margin-right:6px}.hcta{margin-right:6px}}
+
+@media (max-width:420px){.hcta{margin-right:0}}
 @media (max-width:400px){.nav{padding:0 12px}.logo{font-size:14px;gap:6px}.logo .mark{width:26px;height:26px}.hcta{font-size:12.5px;padding:7px 9px;margin-right:5px}.home-btn{margin-right:5px;padding:6px 7px}.menu-btn{padding:6px 7px}}
 @media (max-width:330px){.logo span{display:none}}
 @media (max-width:380px){.hcta .hm{display:none}}
@@ -650,3 +658,28 @@ details.rmore h4{margin:6px 0;font-size:14px}
 .mkrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
 .mkrow a{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:14px;font-weight:600;color:var(--text);text-decoration:none}
 .mkrow a:hover{border-color:var(--blue2);color:var(--blue2)}
+
+/* ---------- phone sizing pass: nothing smaller than a thumb, nothing off the edge ---------- */
+@media (max-width:720px){
+  .hcta{padding:10px 14px;font-size:14px}
+  .vbar,.vbar .row,.ymm-row{flex-wrap:wrap}
+  .vbar select,.vehicle select,select{max-width:100%}
+  .vbar select{flex:1 1 140px;min-height:40px}
+  #ve{flex:1 1 100%;min-height:40px}
+  .savecar,.tab,.lfilter button,.codesearch .btn,.btn,button.btn{min-height:40px}
+  .lfilter{flex-wrap:wrap;gap:8px}
+  .lfilter button{padding:9px 14px}
+  details.faq>summary,details.rmore>summary,details.allm>summary,details.vin-d>summary,.csec details>summary{padding:11px 0;min-height:40px;display:flex;align-items:center;gap:8px}
+  .glist,.cgrid,.tools{gap:10px}
+  .gcard,.lcard,.lr{min-height:44px}
+  .mkrow a{min-height:40px;display:inline-flex;align-items:center}
+  .pg-row,.c2-h{flex-wrap:wrap}
+  input,select,textarea{font-size:16px}
+}
+/* grid and flex children may not push past the screen edge on small phones */
+@media (max-width:720px){
+  .hero-grid>*,.hero-main,.cgrid>*,.glist>*,.tools>*,.lgrid>*,.plan>*,.split>*,.compare>*,.pain-grid>*,.guide-grid>*{min-width:0}
+  .wrap{padding-left:16px;padding-right:16px}
+  .links{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px}
+}
+@media (max-width:720px){details.notlisted>summary,.notlisted summary{padding:11px 0;min-height:40px;display:flex;align-items:center}}

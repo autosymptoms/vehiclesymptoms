@@ -1,7 +1,11 @@
 // Site script: homepage search, vehicle pages, VIN decoder. Guide helpers come from guide.js (window.VS_GUIDES).
 const SEV={high:"Stop soon",med:"Get checked",low:"Monitor"};
 const {esc,search:searchGuides,forIssue,gurl}=window.VS_GUIDES;
-const menuBtn=document.getElementById('menuBtn');if(menuBtn)menuBtn.onclick=()=>document.getElementById('links').classList.toggle('open');
+// mark the tab you're on, and scroll the phone tab strip to it
+(function(){const nav=document.getElementById('links');if(!nav)return;const p=location.pathname;
+  let best=null,bl=0;nav.querySelectorAll('a').forEach(a=>{const h=a.getAttribute('href')||'';if(h==='/'){if(p==='/'&&!best){best=a;bl=1}return}
+    if(h.startsWith('/')&&p.startsWith(h)&&h.length>bl){best=a;bl=h.length}});
+  if(best){best.classList.add('on');if(nav.scrollWidth>nav.clientWidth)nav.scrollLeft=Math.max(0,best.offsetLeft-70)}})();
 const WMI={"1HG":"Honda (USA)","JHM":"Honda (Japan)","2HG":"Honda (Canada)","1FA":"Ford","1FT":"Ford Truck","1FM":"Ford SUV","3FA":"Ford (Mexico)","1G1":"Chevrolet","1GC":"Chevrolet Truck","2G1":"Chevrolet (Canada)","1GT":"GMC Truck","1GN":"Chevrolet SUV","1C4":"Chrysler/Jeep/Dodge","1C6":"Ram Truck","2C3":"Chrysler/Dodge (Canada)","3C6":"Ram (Mexico)","4T1":"Toyota (USA)","5TD":"Toyota (USA)","JTD":"Toyota (Japan)","JTE":"Toyota (Japan)","2T1":"Toyota (Canada)","5YJ":"Tesla","7SA":"Tesla","1N4":"Nissan (USA)","JN1":"Nissan (Japan)","3N1":"Nissan (Mexico)","KMH":"Hyundai","5NP":"Hyundai (USA)","KNA":"Kia","5XY":"Kia (USA)","WBA":"BMW","5UX":"BMW (USA)","WDD":"Mercedes-Benz","4JG":"Mercedes-Benz (USA)","WVW":"Volkswagen","3VW":"Volkswagen (Mexico)","WAU":"Audi","JF1":"Subaru","4S4":"Subaru (USA)","JM1":"Mazda","1J4":"Jeep","1J8":"Jeep","19X":"Honda (USA)","5FN":"Honda (USA)","5J6":"Honda (USA)","2T3":"Toyota (Canada)","JTM":"Toyota (Japan)"};
 const VAL={A:1,B:2,C:3,D:4,E:5,F:6,G:7,H:8,J:1,K:2,L:3,M:4,N:5,P:7,R:9,S:2,T:3,U:4,V:5,W:6,X:7,Y:8,Z:9};
 const WT=[8,7,6,5,4,3,2,10,0,9,8,7,6,5,4,3,2];
