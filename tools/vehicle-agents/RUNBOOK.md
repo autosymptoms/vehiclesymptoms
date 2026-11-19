@@ -18,6 +18,7 @@ Daniel asked for this to run unattended every 4 hours. Each run should add as ma
 1. Run `node tools/vehicle-agents/cleanup.js <ids...>`. It drops problems sourced only to au7o.io, strips those links and fixes NHTSA API links.
 2. Run `node tools/vehicle-agents/check-vehicle.js <id>` for each new model.
    - Hold back any model with fewer than 12 issues, or with 2+ sold years at 0–1 issues. Move its files out of src/ and mark it `[~]` in QUEUE.md with the reason.
+   - Hold back any new model with fewer than half its non-recall issues priced (see the pricing standard in BRIEF.md). Mark it `[~]` with "redo pricing pass".
    - Thin recent years (fewer than 3) are acceptable.
 3. Don't publish 2026/2027 years that have no documented problems. Cap `years` at the last documented year.
 4. Merge `/tmp/vs-newgaps/<id>.json` into `src/gaps.json`. Keep its one-token-per-line format: `JSON.stringify(g,null,1).replace(/^ +/gm,'')`.
@@ -29,14 +30,18 @@ Daniel asked for this to run unattended every 4 hours. Each run should add as ma
 4. Commit on a branch with a clear message listing the models, then push that branch to `main`. Daniel approved publishing these model batches directly to the live site.
 5. Wait about 3 minutes, then confirm the Vercel commit status is success: `gh api repos/autosymptoms/vehiclesymptoms/commits/<sha>/status`.
 
-## 5. Repeat
+## 5. Price-check metrics
+For every batch, run `node tools/vehicle-agents/price-stats.js` before and after, and put both lines in the summary to Daniel. It reports the share of non-recall issues with a real price, how many are diagnosis-only or rough, and models under 80% priced. For pricing-pass batches, also spot-check 3 random new prices against a YourMechanic or RepairPal page for the same car and job, and note any that land outside the sourced range.
+
+## 6. Repeat
 Go back to step 2 with the next models while time and limits allow.
 
-## 6. Report
+## 7. Report
 Before ending, send Daniel a short summary with SendUserMessage, covering:
 - models added
 - current total model count
 - anything held back, and why
+- price-check metrics before and after
 - what's next in the queue
 
 ## Rules

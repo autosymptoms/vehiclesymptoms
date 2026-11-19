@@ -31,6 +31,13 @@ The repo is the vehiclesymptoms checkout you were given (run commands from its r
    - One item per issue, with `t` copied **exactly** from the issue title. Price nearly every issue.
    - `parts` are US dollars for parts and `hours` are book labor hours. The site multiplies hours by $120–160/hr.
    - A recall repair done free by the dealer is `parts:[0,0], hours:[0,0], recall:true`.
+   - **Pricing standard (the site's "Is my quote fair?" price check uses these numbers):**
+     - Aim for at least 80% of non-recall issues priced. Under 50% means the model is held back.
+     - Price the actual repair, not just a diagnosis, whenever any source gives a repair cost. Use a diagnosis-only price only when the fix truly depends on what the shop finds, and say so in `note`.
+     - Good price sources, best first: YourMechanic or RepairPal estimate pages for this model, KBB service pricing, owner-reported costs (CarComplaints, NHTSA complaints, forums), a twin or sister model that shares the part (say which in `note`), then OEM or retail parts prices plus published labor time.
+     - When a source gives only a total, split it into parts and hours so that hours × $120–160 plus parts lands near that total, and put the source's own figure in `note` (e.g. "RepairPal: $410–$520 total").
+     - Never write a price with no source behind it. Never label a guess as an estimate to get around this; leave the issue unpriced instead.
+     - Do not cite AI-compiled labor sites (e.g. openlaborproject.com).
 3. **`src/own/<id>.json`**: `{id, ev:false, annual:{amount, label, src}, maint:[...]}`
    - Same structure as the Civic example, with keys `oil`, `front-brakes`, `rear-brakes`, `battery`, `spark-plugs` and `coolant`.
    - For an EV, set `ev:true` and follow the Bolt EV example (no oil or spark plugs).
@@ -51,5 +58,8 @@ The repo is the vehiclesymptoms checkout you were given (run commands from its r
 - **Do NOT run `npm run build`**: other agents are working in the same repo at the same time.
 - Only create files for your own model ids. Don't edit any other file in the repo.
 
+## Pricing-pass assignments
+Some assignments say **pricing pass**. For those, the model already exists in src/: don't add or reword issues (fix one only if its source is clearly wrong). Re-check existing prices, turn diagnosis-only prices into real repair prices where a source exists, price every unpriced issue you can, and fill missing maintenance items in src/own. Edit the existing files in place.
+
 ## Report back (short)
-For each model, list the id, years, issue count, priced count and any gap years. Also flag anything you weren't sure about.
+For each model, list the id, years, issue count, priced count (and how many are diagnosis-only) and any gap years. Also flag anything you weren't sure about.

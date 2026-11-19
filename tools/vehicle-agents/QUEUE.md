@@ -425,8 +425,200 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 ## Completeness check per make
 Once the lists above are done, go make by make (every brand with US sales since 1996). Compare its US model lineup for each year 1996–2027 against `src/deep/`, and queue any model with meaningful US sales that is still missing. Separate trims and body styles of the same model (e.g. Camry Solara is separate, but Camry Hybrid is not) only when they're sold and recalled as a separate model.
 
+## Pricing pass (added Nov 19 2026; do this before deepening)
+These live models have under 80% of their non-recall issues priced, so the price check gives their owners only general ranges. Most unpriced issues first. Give each agent 3 models and say "pricing pass" (see BRIEF.md). Re-run `node tools/vehicle-agents/price-stats.js --list` to refresh this list.
+- Also during pricing passes: 68 price files cite openlaborproject.com, which later agents found is AI-assisted. Replace those citations with a real source, or drop the price if none can be found (`grep -l openlaborproject src/prices/*.json`).
+- [ ] lexus-lx | Lexus LX | 1996-2025 | pricing pass: 33% priced, 16 unpriced
+- [ ] lexus-is | Lexus IS | 2001-2026 | pricing pass: 41% priced, 16 unpriced
+- [ ] acura-nsx | Acura NSX | 1996-2021 | pricing pass: 47% priced, 16 unpriced
+- [ ] bmw-i4 | BMW i4 | 2022-2025 | pricing pass: 12% priced, 15 unpriced
+- [ ] bmw-ix | BMW iX | 2022-2024 | pricing pass: 7% priced, 14 unpriced
+- [ ] toyota-avalon | Toyota Avalon | 1996-2022 | pricing pass: 39% priced, 14 unpriced
+- [ ] mercedes-benz-sl | Mercedes-Benz SL | 1996-2024 | pricing pass: 50% priced, 14 unpriced
+- [ ] acura-rdx | Acura RDX | 2007-2025 | pricing pass: 54% priced, 12 unpriced
+- [ ] lexus-ux | Lexus UX | 2019-2025 | pricing pass: 15% priced, 11 unpriced
+- [ ] audi-e-tron | Audi e-tron | 2019-2024 | pricing pass: 21% priced, 11 unpriced
+- [ ] toyota-supra | Toyota GR Supra | 2020-2023 | pricing pass: 9% priced, 10 unpriced
+- [ ] volkswagen-jetta | Volkswagen Jetta | 1996-2027 | pricing pass: 23% priced, 10 unpriced
+- [ ] nissan-armada | Nissan Armada | 2004-2026 | pricing pass: 50% priced, 10 unpriced
+- [ ] chevrolet-tracker | Chevrolet Tracker | 1999-2004 | pricing pass: 62% priced, 10 unpriced
+- [ ] jeep-renegade | Jeep Renegade | 2015-2023 | pricing pass: 40% priced, 9 unpriced
+- [ ] audi-a7 | Audi A7 | 2012-2025 | pricing pass: 44% priced, 9 unpriced
+- [ ] kia-rio | Kia Rio | 2001-2023 | pricing pass: 44% priced, 9 unpriced
+- [ ] toyota-4runner | Toyota 4Runner | 1996-2027 | pricing pass: 44% priced, 9 unpriced
+- [ ] kia-cadenza | Kia Cadenza | 2014-2020 | pricing pass: 53% priced, 9 unpriced
+- [ ] dodge-viper | Dodge Viper | 1996-2017 | pricing pass: 57% priced, 9 unpriced
+- [ ] rivian-r1s-r1t | Rivian R1T / R1S | 2022-2026 | pricing pass: 11% priced, 8 unpriced
+- [ ] honda-prologue | Honda Prologue | 2024-2025 | pricing pass: 20% priced, 8 unpriced
+- [ ] toyota-sequoia | Toyota Sequoia | 2001-2025 | pricing pass: 20% priced, 8 unpriced
+- [ ] mitsubishi-outlander | Mitsubishi Outlander | 2003-2026 | pricing pass: 47% priced, 8 unpriced
+- [ ] cadillac-srx | Cadillac SRX | 2004-2016 | pricing pass: 58% priced, 8 unpriced
+- [ ] toyota-tercel | Toyota Tercel | 1996-1998 | pricing pass: 58% priced, 8 unpriced
+- [ ] genesis-gv70 | Genesis GV70 | 2022-2026 | pricing pass: 64% priced, 8 unpriced
+- [ ] saab-9-5 | Saab 9-5 | 1999-2011 | pricing pass: 64% priced, 8 unpriced
+- [ ] alfa-romeo-giulia | Alfa Romeo Giulia / Stelvio | 2017-2025 | pricing pass: 42% priced, 7 unpriced
+- [ ] kia-sedona | Kia Sedona | 2002-2021 | pricing pass: 42% priced, 7 unpriced
+- [ ] volvo-v60 | Volvo V60 | 2015-2024 | pricing pass: 42% priced, 7 unpriced
+- [ ] mercedes-benz-gle | Mercedes-Benz M-Class / GLE | 1998-2024 | pricing pass: 46% priced, 7 unpriced
+- [ ] hyundai-equus | Hyundai Equus | 2011-2016 | pricing pass: 50% priced, 7 unpriced
+- [ ] jeep-patriot | Jeep Patriot | 2007-2017 | pricing pass: 50% priced, 7 unpriced
+- [ ] volkswagen-eurovan | Volkswagen EuroVan | 1997-2003 | pricing pass: 53% priced, 7 unpriced
+- [ ] chevrolet-metro | Chevrolet Metro | 1996-2001 | pricing pass: 61% priced, 7 unpriced
+- [ ] chrysler-lhs | Chrysler LHS | 1996-2001 | pricing pass: 68% priced, 7 unpriced
+- [ ] gmc-sonoma | GMC Sonoma | 1996-2004 | pricing pass: 68% priced, 7 unpriced
+- [ ] bmw-6-8-series | BMW 6 / 8 Series | 2004-2026 | pricing pass: 71% priced, 7 unpriced
+- [ ] volkswagen-passat | Volkswagen Passat | 1996-2022 | pricing pass: 0% priced, 6 unpriced
+- [ ] ford-fusion | Ford Fusion | 2006-2020 | pricing pass: 14% priced, 6 unpriced
+- [ ] ford-bronco-sport | Ford Bronco Sport | 2021-2026 | pricing pass: 25% priced, 6 unpriced
+- [ ] mitsubishi-outlander-sport | Mitsubishi Outlander Sport | 2011-2023 | pricing pass: 33% priced, 6 unpriced
+- [ ] toyota-crown | Toyota Crown | 2023-2025 | pricing pass: 40% priced, 6 unpriced
+- [ ] chevrolet-captiva-sport | Chevrolet Captiva Sport | 2012-2015 | pricing pass: 45% priced, 6 unpriced
+- [ ] mercedes-benz-g-class | Mercedes-Benz G-Class | 2002-2025 | pricing pass: 45% priced, 6 unpriced
+- [ ] nissan-kicks | Nissan Kicks | 2018-2026 | pricing pass: 45% priced, 6 unpriced
+- [ ] cadillac-xt5 | Cadillac XT5 | 2017-2025 | pricing pass: 50% priced, 6 unpriced
+- [ ] mitsubishi-montero | Mitsubishi Montero | 1996-2006 | pricing pass: 50% priced, 6 unpriced
+- [ ] buick-lesabre | Buick LeSabre | 1996-2005 | pricing pass: 54% priced, 6 unpriced
+- [ ] ford-f-450-f-550 | Ford F-450 / F-550 Super Duty | 1999-2026 | pricing pass: 54% priced, 6 unpriced
+- [ ] oldsmobile-achieva | Oldsmobile Achieva | 1996-1998 | pricing pass: 54% priced, 6 unpriced
+- [ ] ram-promaster | Ram ProMaster | 2014-2026 | pricing pass: 54% priced, 6 unpriced
+- [ ] suzuki-sidekick | Suzuki Sidekick | 1996-1998 | pricing pass: 54% priced, 6 unpriced
+- [ ] buick-skylark | Buick Skylark | 1996-1998 | pricing pass: 57% priced, 6 unpriced
+- [ ] chevrolet-camaro | Chevrolet Camaro | 1996-2024 | pricing pass: 57% priced, 6 unpriced
+- [ ] fiat-500 | Fiat 500 | 2012-2024 | pricing pass: 57% priced, 6 unpriced
+- [ ] mitsubishi-lancer | Mitsubishi Lancer | 2002-2017 | pricing pass: 57% priced, 6 unpriced
+- [ ] subaru-solterra | Subaru Solterra | 2023-2026 | pricing pass: 57% priced, 6 unpriced
+- [ ] suzuki-swift | Suzuki Swift | 1996-2001 | pricing pass: 57% priced, 6 unpriced
+- [ ] oldsmobile-bravada | Oldsmobile Bravada | 1996-2004 | pricing pass: 60% priced, 6 unpriced
+- [ ] volvo-c70 | Volvo C70 | 1998-2013 | pricing pass: 60% priced, 6 unpriced
+- [ ] ram-2500 | Ram 2500 | 1996-2027 | pricing pass: 63% priced, 6 unpriced
+- [ ] honda-ridgeline | Honda Ridgeline | 2006-2026 | pricing pass: 65% priced, 6 unpriced
+- [ ] land-rover-range-rover-sport | Land Rover Range Rover Sport | 2006-2026 | pricing pass: 65% priced, 6 unpriced
+- [ ] nissan-nv200 | Nissan NV200 | 2013-2021 | pricing pass: 67% priced, 6 unpriced
+- [ ] suzuki-esteem | Suzuki Esteem | 1996-2002 | pricing pass: 70% priced, 6 unpriced
+- [ ] acura-ilx | Acura ILX | 2013-2022 | pricing pass: 71% priced, 6 unpriced
+- [ ] chevrolet-ssr | Chevrolet SSR | 2003-2006 | pricing pass: 71% priced, 6 unpriced
+- [ ] isuzu-ascender | Isuzu Ascender | 2003-2008 | pricing pass: 71% priced, 6 unpriced
+- [ ] chevrolet-lumina | Chevrolet Lumina | 1996-2001 | pricing pass: 74% priced, 6 unpriced
+- [ ] volvo-s90-v90 | Volvo S90 / V90 | 1997-2023 | pricing pass: 74% priced, 6 unpriced
+- [ ] saab-9-3 | Saab 9-3 | 1999-2011 | pricing pass: 75% priced, 6 unpriced
+- [ ] lincoln-mark-viii | Lincoln Mark VIII | 1996-1998 | pricing pass: 79% priced, 6 unpriced
+- [ ] audi-q4-e-tron | Audi Q4 e-tron | 2022-2025 | pricing pass: 17% priced, 5 unpriced
+- [ ] nissan-juke | Nissan Juke | 2011-2017 | pricing pass: 38% priced, 5 unpriced
+- [ ] ford-taurus | Ford Taurus | 1996-2019 | pricing pass: 44% priced, 5 unpriced
+- [ ] gmc-acadia | GMC Acadia | 2007-2027 | pricing pass: 50% priced, 5 unpriced
+- [ ] lincoln-mark-lt | Lincoln Mark LT | 2006-2008 | pricing pass: 55% priced, 5 unpriced
+- [ ] ford-windstar | Ford Windstar | 1996-2003 | pricing pass: 58% priced, 5 unpriced
+- [ ] mitsubishi-eclipse | Mitsubishi Eclipse | 1996-2012 | pricing pass: 58% priced, 5 unpriced
+- [ ] nissan-pathfinder | Nissan Pathfinder | 1996-2026 | pricing pass: 58% priced, 5 unpriced
+- [ ] chevrolet-cavalier | Chevrolet Cavalier | 1996-2005 | pricing pass: 62% priced, 5 unpriced
+- [ ] saab-9-7x | Saab 9-7X | 2005-2009 | pricing pass: 64% priced, 5 unpriced
+- [ ] dodge-magnum | Dodge Magnum | 2005-2008 | pricing pass: 67% priced, 5 unpriced
+- [ ] oldsmobile-cutlass | Oldsmobile Cutlass | 1997-1999 | pricing pass: 67% priced, 5 unpriced
+- [ ] audi-a8 | Audi A8 | 1997-2024 | pricing pass: 69% priced, 5 unpriced
+- [ ] cadillac-deville-dts | Cadillac DeVille / DTS | 1996-2011 | pricing pass: 69% priced, 5 unpriced
+- [ ] mitsubishi-galant | Mitsubishi Galant | 1996-2012 | pricing pass: 69% priced, 5 unpriced
+- [ ] mitsubishi-i-miev | Mitsubishi i-MiEV | 2012-2017 | pricing pass: 69% priced, 5 unpriced
+- [ ] bmw-5-series | BMW 5 Series | 1997-2025 | pricing pass: 71% priced, 5 unpriced
+- [ ] hyundai-genesis | Hyundai Genesis | 2009-2016 | pricing pass: 71% priced, 5 unpriced
+- [ ] lincoln-mks | Lincoln MKS | 2009-2016 | pricing pass: 71% priced, 5 unpriced
+- [ ] buick-century | Buick Century | 1996-2005 | pricing pass: 72% priced, 5 unpriced
+- [ ] gmc-canyon | GMC Canyon | 2004-2026 | pricing pass: 72% priced, 5 unpriced
+- [ ] chevrolet-city-express | Chevrolet City Express | 2015-2018 | pricing pass: 74% priced, 5 unpriced
+- [ ] jeep-wrangler | Jeep Wrangler | 1997-2027 | pricing pass: 74% priced, 5 unpriced
+- [ ] genesis-g90 | Genesis G90 | 2017-2025 | pricing pass: 77% priced, 5 unpriced
+- [ ] saturn-sky | Saturn Sky | 2007-2009 | pricing pass: 77% priced, 5 unpriced
+- [ ] smart-fortwo | smart fortwo | 2008-2017 | pricing pass: 77% priced, 5 unpriced
+- [ ] chevrolet-bolt-ev | Chevrolet Bolt EV | 2017-2023 | pricing pass: 0% priced, 4 unpriced
+- [ ] ford-mustang-mach-e | Ford Mustang Mach-E | 2021-2026 | pricing pass: 43% priced, 4 unpriced
+- [ ] hyundai-sonata | Hyundai Sonata | 1996-2026 | pricing pass: 50% priced, 4 unpriced
+- [ ] audi-q8 | Audi Q8 | 2019-2025 | pricing pass: 56% priced, 4 unpriced
+- [ ] chevrolet-blazer-ev | Chevrolet Blazer EV | 2024-2026 | pricing pass: 56% priced, 4 unpriced
+- [ ] jaguar-f-pace | Jaguar F-Pace | 2017-2024 | pricing pass: 56% priced, 4 unpriced
+- [ ] chevrolet-equinox | Chevrolet Equinox | 2005-2026 | pricing pass: 60% priced, 4 unpriced
+- [ ] jeep-grand-cherokee | Jeep Grand Cherokee | 1996-2026 | pricing pass: 60% priced, 4 unpriced
+- [ ] tesla-cybertruck | Tesla Cybertruck | 2024-2026 | pricing pass: 60% priced, 4 unpriced
+- [ ] jeep-cherokee | Jeep Cherokee | 1996-2023 | pricing pass: 64% priced, 4 unpriced
+- [ ] nissan-rogue | Nissan Rogue | 2008-2027 | pricing pass: 64% priced, 4 unpriced
+- [ ] audi-q7 | Audi Q7 | 2007-2024 | pricing pass: 67% priced, 4 unpriced
+- [ ] chevrolet-malibu | Chevrolet Malibu | 1997-2025 | pricing pass: 67% priced, 4 unpriced
+- [ ] mitsubishi-mirage | Mitsubishi Mirage | 1997-2024 | pricing pass: 67% priced, 4 unpriced
+- [ ] hyundai-santa-cruz | Hyundai Santa Cruz | 2022-2026 | pricing pass: 69% priced, 4 unpriced
+- [ ] mercedes-benz-slk-slc | Mercedes-Benz SLK / SLC | 1998-2016 | pricing pass: 69% priced, 4 unpriced
+- [ ] ram-1500 | Ram 1500 | 1996-2027 | pricing pass: 69% priced, 4 unpriced
+- [ ] bmw-3-series | BMW 3 Series | 1996-2026 | pricing pass: 73% priced, 4 unpriced
+- [ ] mercedes-benz-glb | Mercedes-Benz GLB | 2020-2025 | pricing pass: 73% priced, 4 unpriced
+- [ ] pontiac-firebird | Pontiac Firebird | 1996-2002 | pricing pass: 73% priced, 4 unpriced
+- [ ] cadillac-elr | Cadillac ELR | 2014-2016 | pricing pass: 75% priced, 4 unpriced
+- [ ] hyundai-azera | Hyundai Azera | 2006-2017 | pricing pass: 75% priced, 4 unpriced
+- [ ] kia-rondo | Kia Rondo | 2007-2010 | pricing pass: 75% priced, 4 unpriced
+- [ ] mazda-rx-8 | Mazda RX-8 | 2004-2011 | pricing pass: 75% priced, 4 unpriced
+- [ ] oldsmobile-alero | Oldsmobile Alero | 1999-2004 | pricing pass: 75% priced, 4 unpriced
+- [ ] ram-3500 | Ram 3500 | 1996-2026 | pricing pass: 75% priced, 4 unpriced
+- [ ] saturn-l-series | Saturn L-Series | 2000-2005 | pricing pass: 75% priced, 4 unpriced
+- [ ] toyota-tacoma | Toyota Tacoma | 1996-2026 | pricing pass: 75% priced, 4 unpriced
+- [ ] audi-a4 | Audi A4 | 1996-2024 | pricing pass: 76% priced, 4 unpriced
+- [ ] chrysler-aspen | Chrysler Aspen | 2007-2009 | pricing pass: 76% priced, 4 unpriced
+- [ ] nissan-quest | Nissan Quest | 1996-2017 | pricing pass: 76% priced, 4 unpriced
+- [ ] scion-tc | Scion tC | 2005-2016 | pricing pass: 76% priced, 4 unpriced
+- [ ] suzuki-kizashi | Suzuki Kizashi | 2010-2013 | pricing pass: 76% priced, 4 unpriced
+- [ ] infiniti-q45 | Infiniti Q45 | 1996-2006 | pricing pass: 78% priced, 4 unpriced
+- [ ] scion-xa | Scion xA | 2004-2006 | pricing pass: 78% priced, 4 unpriced
+- [ ] toyota-t100 | Toyota T100 | 1996-1998 | pricing pass: 78% priced, 4 unpriced
+- [ ] chevrolet-prizm | Chevrolet Prizm | 1996-2002 | pricing pass: 79% priced, 4 unpriced
+- [ ] lexus-rc | Lexus RC | 2015-2024 | pricing pass: 79% priced, 4 unpriced
+- [ ] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | pricing pass: 79% priced, 4 unpriced
+- [ ] pontiac-solstice | Pontiac Solstice | 2006-2009 | pricing pass: 79% priced, 4 unpriced
+- [ ] suzuki-aerio | Suzuki Aerio | 2002-2007 | pricing pass: 79% priced, 4 unpriced
+- [ ] ford-bronco | Ford Bronco | 1996-2026 | pricing pass: 0% priced, 3 unpriced
+- [ ] kia-forte | Kia Forte | 2010-2024 | pricing pass: 0% priced, 3 unpriced
+- [ ] jeep-gladiator | Jeep Gladiator | 2020-2026 | pricing pass: 25% priced, 3 unpriced
+- [ ] ford-ranger | Ford Ranger | 1996-2027 | pricing pass: 50% priced, 3 unpriced
+- [ ] hyundai-tucson | Hyundai Tucson | 2005-2026 | pricing pass: 50% priced, 3 unpriced
+- [ ] cadillac-cts | Cadillac CTS | 2003-2019 | pricing pass: 57% priced, 3 unpriced
+- [ ] jeep-compass | Jeep Compass | 2007-2026 | pricing pass: 57% priced, 3 unpriced
+- [ ] kia-sorento | Kia Sorento | 2003-2027 | pricing pass: 57% priced, 3 unpriced
+- [ ] nissan-sentra | Nissan Sentra | 1996-2027 | pricing pass: 63% priced, 3 unpriced
+- [ ] chevrolet-equinox-ev | Chevrolet Equinox EV | 2024-2026 | pricing pass: 67% priced, 3 unpriced
+- [ ] chrysler-cirrus | Chrysler Cirrus | 1996-2000 | pricing pass: 70% priced, 3 unpriced
+- [ ] ford-expedition | Ford Expedition | 1997-2027 | pricing pass: 70% priced, 3 unpriced
+- [ ] hyundai-elantra | Hyundai Elantra | 1996-2026 | pricing pass: 70% priced, 3 unpriced
+- [ ] lexus-hs | Lexus HS 250h | 2010-2012 | pricing pass: 70% priced, 3 unpriced
+- [ ] lincoln-mkt | Lincoln MKT | 2010-2019 | pricing pass: 70% priced, 3 unpriced
+- [ ] daewoo-lanos | Daewoo Lanos | 1999-2002 | pricing pass: 73% priced, 3 unpriced
+- [ ] kia-ev9 | Kia EV9 | 2024-2026 | pricing pass: 73% priced, 3 unpriced
+- [ ] ford-mustang | Ford Mustang | 1996-2026 | pricing pass: 75% priced, 3 unpriced
+- [ ] honda-accord | Honda Accord | 1996-2026 | pricing pass: 75% priced, 3 unpriced
+- [ ] mercedes-benz-sprinter | Mercedes-Benz Sprinter | 2003-2024 | pricing pass: 75% priced, 3 unpriced
+- [ ] oldsmobile-intrigue | Oldsmobile Intrigue | 1998-2002 | pricing pass: 75% priced, 3 unpriced
+- [ ] volkswagen-taos | Volkswagen Taos | 2022-2025 | pricing pass: 75% priced, 3 unpriced
+- [ ] hyundai-entourage | Hyundai Entourage | 2007-2008 | pricing pass: 77% priced, 3 unpriced
+- [ ] isuzu-axiom | Isuzu Axiom | 2002-2004 | pricing pass: 77% priced, 3 unpriced
+- [ ] nissan-murano | Nissan Murano | 2003-2026 | pricing pass: 77% priced, 3 unpriced
+- [ ] chevrolet-silverado-2500hd | Chevrolet Silverado 2500HD | 2001-2026 | pricing pass: 79% priced, 3 unpriced
+- [ ] chevrolet-suburban | Chevrolet Suburban | 1996-2027 | pricing pass: 79% priced, 3 unpriced
+- [ ] dodge-stratus | Dodge Stratus | 1996-2006 | pricing pass: 79% priced, 3 unpriced
+- [ ] fiat-500l | Fiat 500L | 2014-2020 | pricing pass: 79% priced, 3 unpriced
+- [ ] hyundai-xg350 | Hyundai XG300 / XG350 | 2001-2005 | pricing pass: 79% priced, 3 unpriced
+- [ ] kia-carnival | Kia Carnival | 2022-2026 | pricing pass: 79% priced, 3 unpriced
+- [ ] lexus-ct | Lexus CT | 2011-2017 | pricing pass: 79% priced, 3 unpriced
+- [ ] scion-xb | Scion xB | 2004-2015 | pricing pass: 79% priced, 3 unpriced
+- [ ] ford-escape | Ford Escape | 2001-2026 | pricing pass: 50% priced, 2 unpriced
+- [ ] kia-optima | Kia Optima | 2001-2027 | pricing pass: 60% priced, 2 unpriced
+- [ ] honda-passport | Honda Passport | 1996-2026 | pricing pass: 71% priced, 2 unpriced
+- [ ] saturn-outlook | Saturn Outlook | 2007-2010 | pricing pass: 71% priced, 2 unpriced
+- [ ] ford-flex | Ford Flex | 2009-2019 | pricing pass: 75% priced, 2 unpriced
+- [ ] toyota-bz4x | Toyota bZ4X | 2023-2025 | pricing pass: 75% priced, 2 unpriced
+- [ ] hyundai-ioniq-6 | Hyundai Ioniq 6 | 2023-2025 | pricing pass: 78% priced, 2 unpriced
+- [ ] polestar-2 | Polestar 2 | 2021-2025 | pricing pass: 78% priced, 2 unpriced
+- [ ] scion-im | Scion iM / Corolla iM | 2016-2018 | pricing pass: 78% priced, 2 unpriced
+- [ ] mercedes-benz-glc | Mercedes-Benz GLC | 2016-2025 | pricing pass: 0% priced, 1 unpriced
+- [ ] ford-maverick | Ford Maverick | 2022-2026 | pricing pass: 67% priced, 1 unpriced
+- [ ] jeep-liberty | Jeep Liberty | 2002-2012 | pricing pass: 75% priced, 1 unpriced
+- [ ] nissan-xterra | Nissan Xterra | 2000-2015 | pricing pass: 75% priced, 1 unpriced
+- [ ] subaru-impreza | Subaru Impreza | 1996-2027 | pricing pass: 75% priced, 1 unpriced
+
 ## After the queue is empty: deepen existing models
-**Next run: start here (Daniel approved Nov 19 2026).** First finish the two leftovers above (merge kia-cadenza-k5 issues into kia-optima, and chevrolet-caprice 1996), then work this list in order. Use the same BRIEF, review and publish steps; agents edit the existing model files instead of creating new ones.
+**Daniel approved this Nov 19 2026.** Order for the next runs: (1) the pricing pass above, (2) the two leftovers (merge kia-cadenza-k5 issues into kia-optima; chevrolet-caprice 1996), (3) this list in order. Use the same BRIEF, review and publish steps; agents edit the existing model files instead of creating new ones.
 - Extend models that end early (2026/2027) once real problems exist for those years. See the project doc vehicles/model-coverage.md.
 - Fill thin years: any sold year with fewer than 3 issues (run check-vehicle.js on every id).
 - Raise models with fewer than 20 issues: dodge-caliber, dodge-neon, nissan-juke, jeep-gladiator, ford-flex, hyundai-santa-cruz.
