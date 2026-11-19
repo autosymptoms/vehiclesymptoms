@@ -1,6 +1,13 @@
 # Estimator accuracy log (newest first)
 
-## Run 2026-11-19 22:25 UTC started
+## Run 2026-11-19 22:25 UTC finished 22:47 UTC (stopped: search budget for the turn used)
+- Totals: 8 agents, 17 files worked (7 finishing, 10 new). Every one of the 42 jobs now has a file: 30 checked `[x]`, 12 held `[~]`. Labor rates untouched (still first pass).
+- Passed this run: brake caliper, heater core, intake manifold gasket, clutch, EGR valve, turbocharger. Still held: blower motor, window regulator, oxygen sensor, engine mount, strut, radiator fan, oil pan gasket, rear main seal, transmission, throttle body, mass air flow sensor, head gasket. Most are held for one missing figure, usually an aftermarket price that no retailer lists for the example vehicle; QUEUE.md records the decision on how to close those.
+- Spot check: 6 of 6 NHTSA labor times re-read and matched (Ford heater core 7.7–9.4 hr, Honda clutch 5.3 hr, GM Cruze turbo 2.4 hr, GM Silverado transmission 5.4–7.4 hr, Honda EGR 0.4 hr, Ford oil pan 3.2/4.1 hr).
+- Gaps vs live: remanufactured transmission ($1,500–$4,800) is too low at both ends: every build is above $4,100 and about $4,000–$7,500 fits (held, two classes lack a remanufacturer price). Clutch floor ($280) is far too low: builds run $835–$1,900 before a flywheel. Heater core floor ($240) is far too low for dashboard-out jobs: lowest build about $695, lowest benchmark $500. Mass air flow sensor floor ($40) is unsupported: about $100–$150. Intake manifold gasket floor ($490) is too high for modern plastic-manifold engines: about $250–$350. Rear main seal floor ($400) is too low for front-drive cars (about $690 up). Throttle body mixes cleaning (about $70–$230) with replacement (about $320–$710).
+- Reviewer change: intake manifold gasket set to low confidence (no labor time is for exactly this job; all are neighboring operations).
+- Autopilot: RUNBOOK.md rewritten into three phases with a publish gate; the scheduled task now runs hourly with standing approval to publish. Changing the separate vehicle-model task's schedule was blocked by a permission check and left as it was.
+- Blocked/unusable: store.mopar.com, hondapartsconnection.com, parts.gmparts.com, gmpartsdirect.com (some), tascaparts.com, jdpower.com, turnermotorsport.com, carid.com, finditparts.com (errors or prices without a decimal point); reman-transmission.com and powertrainproducts.net per-vehicle pages and several OEM catalog pages hit permission prompts that timed out; many GM bulletins say "use published labor time" and print no hours.
 - Owner gave standing approval to run on autopilot and publish when the publish gate passes; RUNBOOK.md rewritten into three phases (finish numbers, build into the price check, keep it right).
 
 ## Run 2026-11-19 21:31 UTC finished 22:04 UTC (stopped: web search limit reached, 200 per session turn)
