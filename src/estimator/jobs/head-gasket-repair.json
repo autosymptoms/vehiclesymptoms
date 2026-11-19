@@ -1,6 +1,6 @@
 {
   "job": "Head gasket repair",
-  "unit": "per job (one head on inline engines; both heads on the V8 truck example)",
+  "unit": "per job (one head on inline engines; both heads on the V8 truck and luxury examples)",
   "classes": {
     "economy": {
       "parts": [
@@ -141,33 +141,68 @@
     },
     "luxury": {
       "parts": [
-        274,
-        407
+        169.99,
+        381.41
       ],
-      "hours": null,
-      "example": "2015 BMW 328i 2.0L turbo (N20)",
+      "hours": [
+        9.9,
+        11.1
+      ],
+      "example": "2016 Cadillac Escalade 6.2L V8 (L86), both heads",
       "parts_src": [
         {
+          "url": "https://www.michiganmotorsports.com/gaskets-seals-and-sensors/l86-l87-lt1-6-2l-2014-head-gasket-and-head-bolt-set-replaces-12688943-silverado-sierra-tahoe-yukon-suburban-escalade-camaro-corvette/",
+          "what": "LOW, aftermarket: Michigan Motorsports head gasket and head bolt set for the 6.2L L86/L87/LT1 (replaces GM 12688943; lists Cadillac Escalade 2015-2024, 6.2L only), two multi-layer steel head gaskets for both heads plus 20 head bolts (19 standard and 1 Allen head), $169.99. Head gaskets and bolts only: no intake, exhaust or valve cover gaskets, so a narrower kit than the Fel-Pro sets used for the other classes"
+        },
+        {
+          "url": "https://www.duraforce.com/products/cylinder-head-gasket-bolts-kit-12700877-for-2014-2022-cadillac-chevy-gmc-6-2l",
+          "what": "Cross-check, aftermarket: Duraforce cylinder head gasket and bolts kit (sold under GM number 12700877; lists 2014-2022 Escalade / Escalade ESV 6.2L), $171.69. The page does not count the gaskets or bolts"
+        },
+        {
+          "url": "https://www.gmpartsgiant.com/parts/gm-gasket-kit-12657969.html",
+          "what": "HIGH, OEM list: GM cylinder head gasket kit 12657969 (the kit GM's bulletin 15638 calls for, one per vehicle: head gaskets, rocker cover, exhaust manifold, intake and throttle body gaskets), MSRP $234.73, discounted $137.28; replaced by 19433116. This page does not show a fitment table"
+        },
+        {
+          "url": "https://www.autopartsprime.com/gm/gasket-kit-cyl-hd/oe-12700877",
+          "what": "Confirms the kit: Genuine GM 12700877 gasket kit, cylinder head (replaces 12657969, replaced by 19433116), fitment table lists 2015-2020 Cadillac Escalade 6.2L, MSRP $234.73, discounted $134.86"
+        },
+        {
+          "url": "https://www.gmpartsgiant.com/parts/gm-bolt-11546959.html",
+          "what": "OEM GM cylinder head bolt 11546959 (fitment lists 2015-2024 Escalade 6.2L), MSRP $7.72 each, discounted $3.88. The bulletin calls for 19 of these plus 1 of bolt 11611976, and for new single-use fasteners. High = kit $234.73 + 19 x $7.72 ($146.68) = $381.41; the 20th bolt (11611976) was not priced, so the true list total is a few dollars higher"
+        },
+        {
+          "url": "https://gmpartsgiant.com/oem-2017-cadillac-escalade-head_gasket.html",
+          "what": "Cross-check (2017 Escalade, same engine): GM head gasket 12688943, single gasket, MSRP $118.47, discounted $68.67; kit 12700877 MSRP $234.73"
+        },
+        {
           "url": "https://www.bimmerworld.com/Engine/Gaskets/Head-Gasket-MLS-07mm-851mm-OEM-Elring-11128676519.html",
-          "what": "Elring head gasket 11128676519 (N20, stock thickness), $70.49"
+          "what": "Not in the range (earlier luxury example, 2015 BMW 328i N20, kept for reference; BMW parts came to $274-$407): Elring head gasket 11128676519 (N20, stock thickness), $70.49"
         },
         {
           "url": "https://www.bimmerworld.com/Engine/Gaskets/Head-Bolt-Set-Asa-Torx-OEM-Elring-11122212157.html",
-          "what": "Elring head bolt set 11122212157 (N20), $68.39"
+          "what": "Not in the range (earlier luxury example, 2015 BMW 328i N20, kept for reference; BMW parts came to $274-$407): Elring head bolt set 11122212157 (N20), $68.39"
         },
         {
           "url": "https://www.bimmerworld.com/Engine/Gaskets/Top-End-Gasket-Set-OEM-Elring-522190.html",
-          "what": "Elring top-end gasket set 522.190 (valve cover, intake, exhaust, valve stem seals; head gasket and bolts sold separately), $134.99. Low = $70.49 + $68.39 + $134.99"
+          "what": "Not in the range (earlier luxury example, 2015 BMW 328i N20, kept for reference; BMW parts came to $274-$407): Elring top-end gasket set 522.190 (valve cover, intake, exhaust, valve stem seals; head gasket and bolts sold separately), $134.99"
         },
         {
           "url": "https://www.turnermotorsport.com/p-528007-head-gasket/",
-          "what": "Genuine BMW head gasket 11128676519, $168.99; MSRP $203.99. High = $203.99 + $68.39 + $134.99"
+          "what": "Not in the range (earlier luxury example, 2015 BMW 328i N20, kept for reference; BMW parts came to $274-$407): Genuine BMW head gasket 11128676519, $168.99; MSRP $203.99"
         }
       ],
       "hours_src": [
         {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2015/SB-10074773-7690.pdf",
+          "what": "LOW, the example vehicle: GM bulletin 15638 (October 2015, customer satisfaction program 'Engine Cylinder Head Gasket Leak'; 2016 Escalade, 2015-2016 Escalade ESV, 2015-2016 Yukon Denali, 2015 Silverado / Sierra and 2016 Corvette, 6.2L V8) labor code 9101836 'Cylinder Head Gasket Replacement Both Sides': Escalade and Yukon 9.9, Silverado and Sierra 11.3, Corvette 14.3. An 'Add' line allows 0.3 more on the Escalade to fill the cooling system and to reach, recover and recharge the air conditioning; the table layout does not make clear whether that is one add or three, so it is not counted. A warranty time is the low end of what a shop bills"
+        },
+        {
           "url": "https://static.nhtsa.gov/odi/tsbs/2026/MC-11036421-0001.pdf",
-          "what": "NOT USED, hours left null: no stated head gasket time was found for the BMW N20 or any European luxury car (BMW bulletins loaded refer dealers to BMW's own labor-time system). The only luxury-brand figure found is Acura Service Bulletin 26-001 (Aug 26, 2026; 2025-26 Acura ADX 1.5L turbo), op 1105E2 replace head gasket flat rate time 11.1 hr. The ADX uses the same transverse 1.5L engine as the Honda Civic, so it is not a fair stand-in for a longitudinal BMW turbo four"
+          "what": "HIGH, comparable luxury-brand vehicle, not the example: Acura Service Bulletin 26-001 (Aug 26, 2026; 2025-26 Acura ADX 1.5L turbo four, one head) op 1105E2 'Remove cylinder head and check head and engine block for warpage. Replace head gasket (includes DTC clear)' flat rate time 11.1 hr (with cylinder head 11.6 hr). Also a warranty time. The ADX is a small transverse four-cylinder crossover, so this is a second luxury-brand figure, not a measure of a German turbo engine"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2014/MC-10147967-9999.pdf",
+          "what": "Not used, third attempt at a BMW time (2026-11-19): no stated head gasket time was found for the BMW 328i N20 or any European luxury car. BMW bulletins loaded give labor operations with the allowance 'Refer to KSD2' (BMW's own labor-time system) or in FRU with no stated conversion to hours, so nothing was converted. That is why the luxury example was changed from the 2015 BMW 328i to a vehicle whose maker prints the time"
         }
       ]
     }
@@ -200,7 +235,15 @@
     "https://www.bimmerworld.com/Engine/Gaskets/Head-Bolt-Set-Asa-Torx-OEM-Elring-11122212157.html",
     "https://www.bimmerworld.com/Engine/Gaskets/Top-End-Gasket-Set-OEM-Elring-522190.html",
     "https://www.turnermotorsport.com/p-528007-head-gasket/",
-    "https://static.nhtsa.gov/odi/tsbs/2026/MC-11036421-0001.pdf"
+    "https://static.nhtsa.gov/odi/tsbs/2026/MC-11036421-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2015/SB-10074773-7690.pdf",
+    "https://www.michiganmotorsports.com/gaskets-seals-and-sensors/l86-l87-lt1-6-2l-2014-head-gasket-and-head-bolt-set-replaces-12688943-silverado-sierra-tahoe-yukon-suburban-escalade-camaro-corvette/",
+    "https://www.duraforce.com/products/cylinder-head-gasket-bolts-kit-12700877-for-2014-2022-cadillac-chevy-gmc-6-2l",
+    "https://www.gmpartsgiant.com/parts/gm-gasket-kit-12657969.html",
+    "https://www.autopartsprime.com/gm/gasket-kit-cyl-hd/oe-12700877",
+    "https://www.gmpartsgiant.com/parts/gm-bolt-11546959.html",
+    "https://gmpartsgiant.com/oem-2017-cadillac-escalade-head_gasket.html",
+    "https://static.nhtsa.gov/odi/tsbs/2014/MC-10147967-9999.pdf"
   ],
   "benchmarks": [
     {
@@ -240,7 +283,7 @@
     1075,
     3700
   ],
-  "finding": "The live range of $1,075-$3,700 starts too low and tops out a little low for trucks. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2015 Corolla about $1,617-$3,301 (11.5-18.8 hr); midsize 2016 Camry about $1,704-$3,044 (11.5-17.0 hr); truck 2012 F-150 5.0L, both heads, about $2,842-$4,349 (20.9-24.2 hr); luxury 2015 BMW 328i could not be totalled because no stated labor time was found (parts alone $274-$407). The lowest total we can build is about $1,600, and that already uses a manufacturer warranty time and online parts prices with no machine-shop work, coolant or oil, so real quotes start higher; nothing supports $1,075. At the top, both heads on a full-size truck come to about $4,350, above $3,700. A range of roughly $1,600-$4,400 fits the evidence better. RepairPal ($2,572-$3,386 national; F-150 $3,474-$4,603) and CarParts.com ($2,400-$3,200) sit inside our built totals; only a 2023 J.D. Power article ($1,000-$3,000) supports the live low end. How solid the labor times are: none is a manufacturer time for the example vehicle. The economy and midsize low ends are Honda warranty flat-rate times for comparable cars (11.5 hr for the 2016-17 Civic 1.5L turbo and for the 2018-22 Accord 1.5L turbo; other Honda bulletins give 10.8-12.4 hr), not Toyota times. The economy high end (18.8 hr) is a technician forum post quoting a labor guide for the sister 1.8L engine in a Prius, and the midsize high end (17 hr) is a parts retailer's statement about Camrys with no model years given; both are weak. The truck times are Ford warranty times for replacing both cylinder heads on an F-150 with the 2.7L V6 (20.9-24.2 hr), not the 5.0L V8; a technician forum post puts the 5.0L book time at about 24 hours, which agrees. Other caveats: the midsize parts figure is a single aftermarket set price without head bolts; the truck bolt-set listing does not say whether it covers both heads; fluids were not priced.",
+  "finding": "The live range of $1,075-$3,700 starts too low and tops out a little low for trucks. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2015 Corolla about $1,617-$3,301 (11.5-18.8 hr); midsize 2016 Camry about $1,704-$3,044 (11.5-17.0 hr); truck 2012 F-150 5.0L, both heads, about $2,842-$4,349 (20.9-24.2 hr); luxury 2016 Cadillac Escalade 6.2L, both heads, about $1,358-$2,157 (9.9-11.1 hr). The lowest total we can build is about $1,360, and that pairs a manufacturer warranty time on a pushrod V8 with an online gasket-and-bolt set that leaves out the intake, exhaust and valve cover gaskets, with no machine-shop work, coolant, oil or air-conditioning service, so real quotes start higher; nothing supports $1,075. At the top, both heads on a full-size truck with overhead cams come to about $4,350, above $3,700. A range of roughly $1,400-$4,400 fits the evidence better. RepairPal ($2,572-$3,386 national; F-150 $3,474-$4,603) and CarParts.com ($2,400-$3,200) sit inside our built totals; only a 2023 J.D. Power article ($1,000-$3,000) supports the live low end. How solid the labor times are: only the luxury low end is a manufacturer time for the example vehicle. The economy and midsize low ends are Honda warranty flat-rate times for comparable cars (11.5 hr for the 2016-17 Civic 1.5L turbo and for the 2018-22 Accord 1.5L turbo; other Honda bulletins give 10.8-12.4 hr), not Toyota times. The economy high end (18.8 hr) is a technician forum post quoting a labor guide for the sister 1.8L engine in a Prius, and the midsize high end (17 hr) is a parts retailer's statement about Camrys with no model years given; both are weak. The truck times are Ford warranty times for replacing both cylinder heads on an F-150 with the 2.7L V6 (20.9-24.2 hr), not the 5.0L V8; a technician forum post puts the 5.0L book time at about 24 hours, which agrees. Luxury: the example was changed from a 2015 BMW 328i to a 2016 Cadillac Escalade because three attempts found no stated head gasket time for the BMW (its bulletins point to BMW's own labor-time system). The Escalade low end (9.9 hr, both heads) is GM's own warranty time for that vehicle; the high end (11.1 hr) is an Acura warranty time for a 2025-26 ADX four-cylinder, a comparable luxury-brand vehicle and not the example. Both are warranty times, so the luxury total is a floor, and it should not be read as the price for a European luxury car: no stated time was found for one, and overhead-cam turbo engines generally take longer than this pushrod V8 (GM allows 14.3 hr for the same engine in a Corvette). Other caveats: the midsize parts figure is a single aftermarket set price without head bolts; the truck bolt-set listing does not say whether it covers both heads; the luxury high parts figure prices 19 of the 20 head bolts; fluids were not priced.",
   "confidence": "low",
   "checked": "2026-11-19",
   "extras": "Machine-shop work is the biggest add-on: the head is normally checked for flatness and cracks and resurfaced, and a warped or cracked head means more machining or a replacement head. Quotes also commonly add coolant, engine oil and filter, thermostat, spark plugs, a diagnosis fee (cooling-system pressure test or combustion-gas test), shop supplies and sales tax. Many shops recommend doing the timing chain or belt, water pump and related seals while the engine is apart, and V engines may be quoted for one head or both, so check which the quote covers."

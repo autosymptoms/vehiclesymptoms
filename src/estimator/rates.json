@@ -1,4 +1,116 @@
 {
+ "_method": {
+  "what": "Each state's `indep` is NOT an independent-shop-only figure. It is the span between two all-shop state figures: Tekmetric's 2026 state average (one number per state, from shops using Tekmetric software, which are mostly general repair shops; the page does not say independent vs dealer, posted vs effective rate, or per-state sample) and an AutoLeap blog table (a range per state, 'compiled from AAA, BLS, and industry surveys', underlying source not named). Read it as 'typical general repair shop hourly labor rate in this state'.",
+  "date": "Tekmetric page dated 2026-06-30 (data period not stated). AutoLeap table 'last updated June 2026' (data year not stated). All entries re-checked 2026-11-19.",
+  "dealer": "No source publishes dealership labor rates by state, so every state's `dealer` is null. Use `_national.dealer` and `_national.dealer_premium` and say plainly that they are national, not local. Do not multiply a state figure by the premium and present it as a sourced state dealer rate.",
+  "confidence_rule": "`confidence` is 'medium' when the Tekmetric state figure is within 15% of the midpoint of the AutoLeap state range, otherwise 'low'. 'medium' still rests on a soft second source (AutoLeap), so no state is rated 'high'. NC and DC are 'low' (NC: second source is an unexplained outlier; DC: one source only).",
+  "limits": [
+   "State averages hide large metro-vs-rural gaps inside a state.",
+   "Rates are for mechanical repair. Collision/body rates and insurer-paid mechanical rates at body shops are different and are not used.",
+   "No stronger second per-state hourly source was found on 2026-11-19. Other 'by state' tables seen are not hourly shop rates: CarMD's state index is average labor COST per check-engine-light repair (2020 data: $125.95 Vermont to $152.63 Mississippi), and the World Population Review table quoted by AAA ('Average Cost of Labor', $211.26 Michigan to $281.53 Connecticut) and by Identifix (national $142.82, 2024) tracks that kind of per-repair figure. The Identifix/World Population Review numbers kept in some state notes are weak and never set a range bound.",
+   "Shop-software samples (Tekmetric) may differ from all shops in a state."
+  ],
+  "excluded_sources": [
+   {
+    "url": "https://vehicleservicepros.com/shop-operations/article/21255783/labor-rates-by-state-2021",
+    "what": "Vehicle Service Pros, published 2022-02-09, citing CarMD (13.9 million vehicles, 2020 data): 'State average labor cost for check engine light-related car repairs in 2020', e.g. Mississippi $152.63, North Carolina $144.53, District of Columbia $140.71, Vermont $125.95. Labor cost per repair, not an hourly rate; shop type not stated. Not used."
+   },
+   {
+    "url": "https://www.aaa.com/autorepair/articles/average-mechanic-labor-rate-repair-costs-in-your-state-2026",
+    "what": "AAA Automotive article (2026, no date shown): state table 'Average Cost of Labor' 'sourced from World Population Review', e.g. North Carolina $257.96, District of Columbia $270.00, Michigan $211.26, Connecticut $281.53. Not an hourly rate (AAA's own text says hourly rates run 'from less than $100 to over $200'); weak aggregation; data date not stated. Not used for state ranges."
+   },
+   {
+    "url": "https://www.autobodynews.com/news/who-pays-for-what-survey-average-median-non-drp-labor-rates-reach-68-body-93-frame-and-127-mechanical",
+    "what": "Autobody News, 2026-10-26: 'Who Pays for What?' survey (Collision Advice / CRASH Network, 473 collision shops in 49 states, April 2026): mechanical labor $127/hr average of median non-DRP rates insurers pay. COLLISION-shop, insurer-paid rate; national only. Not used as a retail mechanical rate."
+   }
+  ],
+  "checked": "2026-11-19"
+ },
+ "_national": {
+  "indep": [
+   132,
+   140
+  ],
+  "indep_src_notes": [
+   {
+    "url": "https://tours.tekmetric.com/answers/average-auto-repair-labor-rates-by-state-2026",
+    "what": "Tekmetric 'Average Auto Repair Labor Rates by State (2026)': 'The average labor rate across the United States is $132 per hour', 'backed by data from more than 10,000 shops across North America'. All shops on Tekmetric; independent vs dealer not stated; posted vs effective not stated; data period not stated."
+   },
+   {
+    "url": "https://autoleap.com/blog/mechanic-hourly-labor-rate",
+    "what": "AutoLeap blog (published 2026-06-19): 'A national benchmark is near $140 for independent shops'; also says the average rate 'typically falls around $120 to $159 per hour'. Soft source: underlying data not named."
+   },
+   {
+    "url": "https://www.wickedfile.com/blogs/whats-the-right-labor-rate-for-my-auto-repair-shop-in-2026/",
+    "what": "Context only, second-hand, not used in the range: WickedFile blog (published 2026-04-29) reports Paar Melis Benchmark Report 2025 (2024 financials of that accounting firm's independent-shop clients) at about $165/hr, by region Midwest $157, Southeast $165, Northeast $166, West $171, Southwest $177. A client sample that likely runs higher than shops overall."
+   },
+   {
+    "url": "https://www.ratchetandwrench.com/columns/article/55339110/hayes-labor-rate-reality-check",
+    "what": "Context only, opinion column (2026-01-19), no dataset: independent 'average posted rate' put at '$145-$185 per hour'. Not used in the range."
+   }
+  ],
+  "middle": [
+   120,
+   159
+  ],
+  "middle_src_notes": [
+   {
+    "url": "https://stacker.com/stories/autos-transportation/mechanic-hourly-rates-state-what-shops-charge-vs-what-techs-take-home",
+    "what": "Stacker/Way article (2026-09-29): PartsTech 'surveyed 752 general repair shops across the U.S. during fall 2024': 49% of shops charge $120 to $159 per hour, 10% under $100, 2% over $200. General repair shops; no dealer split."
+   },
+   {
+    "url": "https://www.aaa.com/autorepair/articles/average-mechanic-labor-rate-repair-costs-in-your-state-2026",
+    "what": "AAA Automotive (2026): 'Almost half of all auto repair shops price their labor between $120 and $159 per hour', citing the '2025 PartsTech Report: State of General Auto Repair Shops in the U.S.'; rates vary 'from less than $100 to over $200 per hour'."
+   },
+   {
+    "url": "https://www.ratchetandwrench.com/news/researchreports/article/55398631/industry-insights-us-auto-repair-shops-and-labor-rate-trends-2025",
+    "what": "Ratchet+Wrench (2026-08-19) on the next PartsTech general-repair survey (September 2025, nearly 700 shops): under $100 7%; $100-$139 'nearly 50%'; $140-$159 19%; $160-$179 12%; $180-$200 9%; over $200 3%."
+   },
+   {
+    "url": "https://img.ratchetandwrench.com/files/base/ebm/ratchetandwrench/document/2026/06/6a4277e469691969c387beca-2026_rwindustry_survey_fnl.pdf",
+    "what": "2026 Ratchet+Wrench Industry Survey (Q1 2026, more than 430 responses, 'independent (and some franchise) auto repair shops'), posted labor rate: under $80 7%; $80-$89 9%; $90-$99 12%; $100-$109 12%; $110-$119 7%; $120-$129 17%; $130-$139 5%; $140-$149 6%; $150 or more 25%. Shows a wider, lower spread than PartsTech."
+   }
+  ],
+  "dealer": [
+   128,
+   173
+  ],
+  "dealer_kind": "EFFECTIVE labor rate (average dollars actually collected per labor hour at franchised dealerships), by market type from rural to major urban. This is not the posted 'door' rate a customer is quoted, which is normally higher. No sourced national average of posted dealer rates was found.",
+  "dealer_src_notes": [
+   {
+    "url": "https://news.dealershipguy.com/p/reynolds-and-reynolds-repair-orders-rates-increase-for-shops-2026-08-14",
+    "what": "Car Dealership Guy News (2026-08-17) on Reynolds and Reynolds 'Fixed Operations Golden Metrics 2026': dealership effective labor rate $128.15/hr in rural areas to $173.08/hr in major urban areas; small shops $143.28, larger shops $160.84. Trade-press report of the study; dealer count not given; data period roughly mid-2025 to mid-2026."
+   },
+   {
+    "url": "https://www.reyrey.com/sites/default/media/2025-08/F1_FixedOps_Report_Digital_25_0.pdf",
+    "what": "Reynolds and Reynolds 'Fixed Operations Golden Metrics 2025' (primary report, US dealerships, June 2024 to May 2025, dealer count not given): average effective labor rate Major Urban $166.88, Metro $151.04, Community $131.66, Rural $124.00; by volume class $154.98 (largest) to $137.09 (smallest). Report does not define ELR or split customer-pay from warranty."
+   },
+   {
+    "url": "https://www.motor1.com/features/807845/why-dealership-service-costs-more/",
+    "what": "Anecdotal only, not used in the range: Motor1 feature (Sep 13, year not shown) quotes dealership staff on Reddit (2025) giving posted customer-pay rates of 'roughly $165 to $250 per hour, depending on brand and location', and a $285/hr BMW dealer example."
+   }
+  ],
+  "dealer_premium": {
+   "ratio": 1.25,
+   "stated": "dealer mechanics generally cost more than independent mechanics, 'often by 25 percent or more'",
+   "strength": "soft: a general statement in an AAA consumer article, no dataset behind it",
+   "src_notes": [
+    {
+     "url": "https://www.aaa.com/autorepair/articles/average-mechanic-labor-rate-repair-costs-in-your-state-2026",
+     "what": "AAA Automotive article (2026, no date shown), FAQ: dealer mechanics cost more than independent mechanics 'often by 25 percent or more'; dealerships 'typically charge higher labor rates'. About labor price generally; no survey cited."
+    },
+    {
+     "url": "https://www.worktruckonline.com/news/aaia-study-vehicle-repairs-cost-an-average-34-more-at-new-car-dealerships-than-independent-repair-shops",
+     "what": "Old, total-bill not rate: AAIA study 'Vehicle Repair Cost Analysis: Comparing New Car Dealerships vs. Independents' (reported 2009-03-12; 10 repair jobs in six cities, 2008): parts and labor 'averaged 34.3 percent more at new car dealers' (foreign nameplates 36.8%, domestic 31.5%)."
+    },
+    {
+     "url": "https://www.coxautoinc.com/wp-content/uploads/2025/10/2025-Service-Industry-Study-FINAL.pdf",
+     "what": "Counterpoint, spend per visit not rate: 2025 Cox Automotive Service Industry Study (1,974 vehicle owners, 2025-04-16 to 2025-05-08): average customer spend per service visit '$261 Dealer' vs '$275 General Repair'. Mix of work differs (dealer visits include warranty and maintenance), so it does not show dealers charge less per hour."
+    }
+   ]
+  },
+  "checked": "2026-11-19"
+ },
  "AL": {
   "indep": [
    124,
@@ -21,10 +133,12 @@
    },
    {
     "url": "https://www.identifix.com/blogs/mechanic-labor-rates-for-2025/",
-    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Alabama average labor rate $149.58/hr (national average $142.82). Shop type not stated."
+    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Alabama average labor rate $149.58/hr (national average $142.82). Shop type not stated. Weak: a World Population Review aggregation whose figures track CarMD's per-repair labor cost series, so it may not be a posted hourly rate. It does not set either end of the range."
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $124 vs AutoLeap $140-$150 (midpoint $145): 14.5% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "AK": {
@@ -48,6 +162,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $161 vs AutoLeap $135-$150 (midpoint $142.5): 13% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "AZ": {
@@ -72,10 +188,12 @@
    },
    {
     "url": "https://www.identifix.com/blogs/mechanic-labor-rates-for-2025/",
-    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Arizona average labor rate $138.78/hr (national average $142.82). Shop type not stated."
+    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Arizona average labor rate $138.78/hr (national average $142.82). Shop type not stated. Weak: a World Population Review aggregation whose figures track CarMD's per-repair labor cost series, so it may not be a posted hourly rate. It does not set either end of the range."
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $145 vs AutoLeap $125-$140 (midpoint $132.5): 9.4% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "AR": {
@@ -99,6 +217,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "low",
+  "confidence_basis": "Tekmetric $116 vs AutoLeap $140-$150 (midpoint $145): 20% apart. Sources differ by more than 15%.",
   "checked": "2026-11-19"
  },
  "CA": {
@@ -122,6 +242,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $156 vs AutoLeap $155-$175 (midpoint $165): 5.5% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "CO": {
@@ -145,6 +267,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $151 vs AutoLeap $135-$150 (midpoint $142.5): 6% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "CT": {
@@ -168,6 +292,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $141 vs AutoLeap $125-$140 (midpoint $132.5): 6.4% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "DE": {
@@ -192,10 +318,12 @@
    },
    {
     "url": "https://www.identifix.com/blogs/mechanic-labor-rates-for-2025/",
-    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Delaware average labor rate $142.15/hr (national average $142.82). Shop type not stated."
+    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Delaware average labor rate $142.15/hr (national average $142.82). Shop type not stated. Weak: a World Population Review aggregation whose figures track CarMD's per-repair labor cost series, so it may not be a posted hourly rate. It does not set either end of the range."
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $141 vs AutoLeap $130-$145 (midpoint $137.5): 2.5% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "DC": {
@@ -215,6 +343,7 @@
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more. Only one source covers DC (Tekmetric's list has no DC entry).",
   "confidence": "low",
+  "confidence_basis": "One source only (AutoLeap $135-$150). Tekmetric has no DC figure. No other hourly source for DC found.",
   "checked": "2026-11-19"
  },
  "FL": {
@@ -239,10 +368,12 @@
    },
    {
     "url": "https://www.identifix.com/blogs/mechanic-labor-rates-for-2025/",
-    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Florida average labor rate $142.74/hr (national average $142.82). Shop type not stated."
+    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Florida average labor rate $142.74/hr (national average $142.82). Shop type not stated. Weak: a World Population Review aggregation whose figures track CarMD's per-repair labor cost series, so it may not be a posted hourly rate. It does not set either end of the range."
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $138 vs AutoLeap $140-$145 (midpoint $142.5): 3.2% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "GA": {
@@ -266,6 +397,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $137 vs AutoLeap $140-$150 (midpoint $145): 5.5% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "HI": {
@@ -290,10 +423,12 @@
    },
    {
     "url": "https://www.identifix.com/blogs/mechanic-labor-rates-for-2025/",
-    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Hawaii average labor rate $136.74/hr (national average $142.82). Shop type not stated."
+    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Hawaii average labor rate $136.74/hr (national average $142.82). Shop type not stated. Weak: a World Population Review aggregation whose figures track CarMD's per-repair labor cost series, so it may not be a posted hourly rate. It does not set either end of the range."
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $142 vs AutoLeap $120-$140 (midpoint $130): 9.2% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "ID": {
@@ -317,6 +452,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $136 vs AutoLeap $130-$145 (midpoint $137.5): 1.1% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "IL": {
@@ -340,6 +477,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $135 vs AutoLeap $125-$140 (midpoint $132.5): 1.9% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "IN": {
@@ -363,6 +502,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $123 vs AutoLeap $135-$145 (midpoint $140): 12.1% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "IA": {
@@ -386,6 +527,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $123 vs AutoLeap $130-$145 (midpoint $137.5): 10.5% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "KS": {
@@ -409,6 +552,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "low",
+  "confidence_basis": "Tekmetric $120 vs AutoLeap $135-$150 (midpoint $142.5): 15.8% apart. Sources differ by more than 15%.",
   "checked": "2026-11-19"
  },
  "KY": {
@@ -432,6 +577,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $126 vs AutoLeap $140-$150 (midpoint $145): 13.1% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "LA": {
@@ -455,6 +602,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $132 vs AutoLeap $140-$150 (midpoint $145): 9% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "ME": {
@@ -478,6 +627,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "low",
+  "confidence_basis": "Tekmetric $110 vs AutoLeap $130-$140 (midpoint $135): 18.5% apart. Sources differ by more than 15%.",
   "checked": "2026-11-19"
  },
  "MD": {
@@ -501,6 +652,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $141 vs AutoLeap $135-$145 (midpoint $140): 0.7% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "MA": {
@@ -524,6 +677,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $133 vs AutoLeap $130-$135 (midpoint $132.5): 0.4% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "MI": {
@@ -547,6 +702,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $130 vs AutoLeap $135-$145 (midpoint $140): 7.1% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "MN": {
@@ -570,6 +727,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $137 vs AutoLeap $135-$150 (midpoint $142.5): 3.9% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "MS": {
@@ -594,10 +753,12 @@
    },
    {
     "url": "https://www.identifix.com/blogs/mechanic-labor-rates-for-2025/",
-    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Mississippi average labor rate $151.67/hr (national average $142.82). Shop type not stated."
+    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Mississippi average labor rate $151.67/hr (national average $142.82). Shop type not stated. Weak: a World Population Review aggregation whose figures track CarMD's per-repair labor cost series, so it may not be a posted hourly rate. It does not set either end of the range."
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "low",
+  "confidence_basis": "Tekmetric $125 vs AutoLeap $150-$155 (midpoint $152.5): 18% apart. Sources differ by more than 15%.",
   "checked": "2026-11-19"
  },
  "MO": {
@@ -621,6 +782,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "low",
+  "confidence_basis": "Tekmetric $120 vs AutoLeap $135-$150 (midpoint $142.5): 15.8% apart. Sources differ by more than 15%.",
   "checked": "2026-11-19"
  },
  "MT": {
@@ -644,6 +807,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $135 vs AutoLeap $140-$150 (midpoint $145): 6.9% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "NE": {
@@ -668,10 +833,12 @@
    },
    {
     "url": "https://www.identifix.com/blogs/mechanic-labor-rates-for-2025/",
-    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Nebraska average labor rate $147.41/hr (national average $142.82). Shop type not stated."
+    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Nebraska average labor rate $147.41/hr (national average $142.82). Shop type not stated. Weak: a World Population Review aggregation whose figures track CarMD's per-repair labor cost series, so it may not be a posted hourly rate. It does not set either end of the range."
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $127 vs AutoLeap $135-$150 (midpoint $142.5): 10.9% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "NV": {
@@ -695,6 +862,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $152 vs AutoLeap $130-$140 (midpoint $135): 12.6% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "NH": {
@@ -718,6 +887,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $128 vs AutoLeap $120-$135 (midpoint $127.5): 0.4% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "NJ": {
@@ -741,6 +912,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $140 vs AutoLeap $140-$145 (midpoint $142.5): 1.8% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "NM": {
@@ -764,6 +937,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $141 vs AutoLeap $135-$145 (midpoint $140): 0.7% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "NY": {
@@ -787,6 +962,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $125 vs AutoLeap $135-$140 (midpoint $137.5): 9.1% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "NC": {
@@ -811,6 +988,7 @@
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more. Range rests on Tekmetric alone because the second source's NC figure is an unexplained outlier.",
   "confidence": "low",
+  "confidence_basis": "Tekmetric $123 only; AutoLeap $85-$105 is an unexplained outlier (30% or more below Tekmetric) and is not used. No other hourly state source found.",
   "checked": "2026-11-19"
  },
  "ND": {
@@ -834,6 +1012,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $135 vs AutoLeap $130-$145 (midpoint $137.5): 1.8% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "OH": {
@@ -858,10 +1038,12 @@
    },
    {
     "url": "https://www.identifix.com/blogs/mechanic-labor-rates-for-2025/",
-    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Ohio average labor rate $136.07/hr (national average $142.82). Shop type not stated."
+    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Ohio average labor rate $136.07/hr (national average $142.82). Shop type not stated. Weak: a World Population Review aggregation whose figures track CarMD's per-repair labor cost series, so it may not be a posted hourly rate. It does not set either end of the range."
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $125 vs AutoLeap $130-$140 (midpoint $135): 7.4% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "OK": {
@@ -886,10 +1068,12 @@
    },
    {
     "url": "https://www.identifix.com/blogs/mechanic-labor-rates-for-2025/",
-    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Oklahoma average labor rate $147.81/hr (national average $142.82). Shop type not stated."
+    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Oklahoma average labor rate $147.81/hr (national average $142.82). Shop type not stated. Weak: a World Population Review aggregation whose figures track CarMD's per-repair labor cost series, so it may not be a posted hourly rate. It does not set either end of the range."
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $129 vs AutoLeap $135-$150 (midpoint $142.5): 9.5% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "OR": {
@@ -913,6 +1097,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $150 vs AutoLeap $130-$140 (midpoint $135): 11.1% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "PA": {
@@ -936,6 +1122,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "low",
+  "confidence_basis": "Tekmetric $115 vs AutoLeap $135-$140 (midpoint $137.5): 16.4% apart. Sources differ by more than 15%.",
   "checked": "2026-11-19"
  },
  "RI": {
@@ -959,6 +1147,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $134 vs AutoLeap $120-$130 (midpoint $125): 7.2% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "SC": {
@@ -982,6 +1172,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $130 vs AutoLeap $130-$145 (midpoint $137.5): 5.5% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "SD": {
@@ -1005,6 +1197,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $120 vs AutoLeap $130-$150 (midpoint $140): 14.3% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "TN": {
@@ -1028,6 +1222,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $127 vs AutoLeap $140-$150 (midpoint $145): 12.4% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "TX": {
@@ -1051,6 +1247,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $141 vs AutoLeap $140-$145 (midpoint $142.5): 1.1% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "UT": {
@@ -1074,6 +1272,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $135 vs AutoLeap $130-$145 (midpoint $137.5): 1.8% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "VT": {
@@ -1098,10 +1298,12 @@
    },
    {
     "url": "https://www.identifix.com/blogs/mechanic-labor-rates-for-2025/",
-    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Vermont average labor rate $127.15/hr (national average $142.82). Shop type not stated."
+    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Vermont average labor rate $127.15/hr (national average $142.82). Shop type not stated. Weak: a World Population Review aggregation whose figures track CarMD's per-repair labor cost series, so it may not be a posted hourly rate. It does not set either end of the range."
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $110 vs AutoLeap $115-$130 (midpoint $122.5): 10.2% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "VA": {
@@ -1125,6 +1327,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $136 vs AutoLeap $130-$145 (midpoint $137.5): 1.1% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "WA": {
@@ -1148,6 +1352,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $152 vs AutoLeap $135-$145 (midpoint $140): 8.6% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "WV": {
@@ -1171,6 +1377,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "low",
+  "confidence_basis": "Tekmetric $100 vs AutoLeap $140-$145 (midpoint $142.5): 29.8% apart. Sources differ by more than 15%.",
   "checked": "2026-11-19"
  },
  "WI": {
@@ -1194,6 +1402,8 @@
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $125 vs AutoLeap $130-$145 (midpoint $137.5): 9.1% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  },
  "WY": {
@@ -1218,10 +1428,12 @@
    },
    {
     "url": "https://www.identifix.com/blogs/mechanic-labor-rates-for-2025/",
-    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Wyoming average labor rate $151.18/hr (national average $142.82). Shop type not stated."
+    "what": "Identifix blog (published 2025-02-11), citing World Population Review 2024 data: Wyoming average labor rate $151.18/hr (national average $142.82). Shop type not stated. Weak: a World Population Review aggregation whose figures track CarMD's per-repair labor cost series, so it may not be a posted hourly rate. It does not set either end of the range."
    }
   ],
   "note": "indep = span of the all-shop state figures the sources state (lowest to highest). No source gives an independent-vs-dealer split by state or explicitly labels its state figure as independent shops, so treat as general repair-shop rate. dealer is null: no state-level dealership rate was found; sources only say dealerships typically charge more.",
+  "confidence": "medium",
+  "confidence_basis": "Tekmetric $134 vs AutoLeap $150-$155 (midpoint $152.5): 12.1% apart. Two sources agree within 15%; second source is soft.",
   "checked": "2026-11-19"
  }
 }
