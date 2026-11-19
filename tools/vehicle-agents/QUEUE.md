@@ -334,36 +334,36 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] smart-fortwo | smart fortwo | 2008-2019 | published 2008-2017; EQ fortwo 2018-2019 still needs sourced problems
 
 ## Wave 13 (completeness check, added Nov 19 2026)
-- [ ] ford-explorer-sport-trac | Ford Explorer Sport Trac | 2001-2005, 2007-2010 | gap 2006 CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] mercury-monterey | Mercury Monterey | 2004-2007 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] mercury-montego | Mercury Montego | 2005-2007 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] mercury-cougar | Mercury Cougar | 1999-2002 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] mercury-mystique | Mercury Mystique | 1996-2000 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] cadillac-xts | Cadillac XTS | 2013-2019 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] buick-verano | Buick Verano | 2012-2017 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] pontiac-g5 | Pontiac G5 | 2007-2009 | Cobalt twin CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] pontiac-torrent | Pontiac Torrent | 2006-2009 | Equinox twin CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] fiat-500x | Fiat 500X | 2016-2023 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] fiat-500l | Fiat 500L | 2014-2020 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] kia-k4 | Kia K4 | 2025-present | Forte successor CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] isuzu-trooper | Isuzu Trooper | 1996-2002 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] isuzu-ascender | Isuzu Ascender | 2003-2008 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] oldsmobile-bravada | Oldsmobile Bravada | 1996-2004 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] scion-xd | Scion xD | 2008-2014 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] toyota-supra | Toyota GR Supra | 2020-present |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] toyota-crown | Toyota Crown | 2023-present | sedan; Crown Signia separate CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] chevrolet-silverado-ev | Chevrolet Silverado EV | 2024-present | ev:true CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] hyundai-genesis-coupe | Hyundai Genesis Coupe | 2010-2016 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] hyundai-entourage | Hyundai Entourage | 2007-2009 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] oldsmobile-aurora | Oldsmobile Aurora | 1996-1999, 2001-2003 | gap 2000 CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] mitsubishi-diamante | Mitsubishi Diamante | 1997-2004 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] mitsubishi-raider | Mitsubishi Raider | 2006-2009 | Dakota twin CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] suzuki-aerio | Suzuki Aerio | 2002-2007 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] suzuki-forenza | Suzuki Forenza | 2004-2008 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] suzuki-kizashi | Suzuki Kizashi | 2010-2013 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] audi-a7 | Audi A7 | 2012-present |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] volvo-c70 | Volvo C70 | 1998-2004, 2006-2013 | gap 2005 CLAIMED by scheduled run 2026-11-19 16:40 UTC
-- [ ] volvo-v60 | Volvo V60 / V60 Cross Country | 2015-present |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [x] ford-explorer-sport-trac | Ford Explorer Sport Trac | 2001-2005, 2007-2010 | gap 2006
+- [x] mercury-monterey | Mercury Monterey | 2004-2007 | 
+- [x] mercury-montego | Mercury Montego | 2005-2007 | 
+- [x] mercury-cougar | Mercury Cougar | 1999-2002 | 
+- [x] mercury-mystique | Mercury Mystique | 1996-2000 | 
+- [x] cadillac-xts | Cadillac XTS | 2013-2019 | 
+- [x] buick-verano | Buick Verano | 2012-2017 | 
+- [x] pontiac-g5 | Pontiac G5 | 2007-2009 | Cobalt twin
+- [x] pontiac-torrent | Pontiac Torrent | 2006-2009 | Equinox twin
+- [x] fiat-500x | Fiat 500X | 2016-2023 | 
+- [x] fiat-500l | Fiat 500L | 2014-2020 | 
+- [x] kia-k4 | Kia K4 | 2025-present | Forte successor; published 2025 only, unconfirmed acceleration complaint left out pending qualified review
+- [x] isuzu-trooper | Isuzu Trooper | 1996-2002 | 
+- [x] isuzu-ascender | Isuzu Ascender | 2003-2008 | 
+- [x] oldsmobile-bravada | Oldsmobile Bravada | 1996-2004 | 
+- [x] scion-xd | Scion xD | 2008-2014 | 
+- [x] toyota-supra | Toyota GR Supra | 2020-present | published 2020-2023; 2024+ need sourced problems
+- [x] toyota-crown | Toyota Crown | 2023-present | sedan; Crown Signia separate; published 2023-2025
+- [x] chevrolet-silverado-ev | Chevrolet Silverado EV | 2024-present | ev:true
+- [x] hyundai-genesis-coupe | Hyundai Genesis Coupe | 2010-2016 | 
+- [x] hyundai-entourage | Hyundai Entourage | 2007-2009 | published 2007-2008; 2009 needs sourced problems
+- [x] oldsmobile-aurora | Oldsmobile Aurora | 1996-1999, 2001-2003 | gap 2000
+- [x] mitsubishi-diamante | Mitsubishi Diamante | 1997-2004 | 
+- [x] mitsubishi-raider | Mitsubishi Raider | 2006-2009 | Dakota twin
+- [x] suzuki-aerio | Suzuki Aerio | 2002-2007 | 
+- [x] suzuki-forenza | Suzuki Forenza | 2004-2008 | 
+- [x] suzuki-kizashi | Suzuki Kizashi | 2010-2013 | 
+- [x] audi-a7 | Audi A7 | 2012-present | 
+- [x] volvo-c70 | Volvo C70 | 1998-2004, 2006-2013 | gap 2005
+- [x] volvo-v60 | Volvo V60 / V60 Cross Country | 2015-present | published 2015-2024
 - [ ] saturn-sky | Saturn Sky | 2007-2009 | 
 - [ ] pontiac-solstice | Pontiac Solstice | 2006-2009 | 
 - [ ] pontiac-g8 | Pontiac G8 | 2008-2009 | 
