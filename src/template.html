@@ -45,8 +45,12 @@
       <h1>Understand what your car <em>may be telling you.</em></h1>
       <p class="sub">Get free, clear guidance on what to check, how urgent it may be, what repairs typically cost, and what to ask your mechanic. Start by telling us what's happening.</p>
       <div class="search">
+        <label class="search-label" for="helpInput">What is your car doing? Type it here:</label>
         <form id="helpForm" autocomplete="off">
-          <input id="helpInput" type="search" placeholder="Example: shakes when I brake" aria-label="What's happening with your car?">
+          <span class="search-field">
+            <svg class="search-ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+            <input id="helpInput" type="search" placeholder="e.g. shakes when I brake">
+          </span>
           <button class="btn" type="submit">Help me understand my car</button>
         </form>
         <div class="results" id="helpResults"></div>
