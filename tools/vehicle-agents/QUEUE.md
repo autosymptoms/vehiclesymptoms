@@ -68,37 +68,37 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] toyota-fj-cruiser | Toyota FJ Cruiser | 2007-2014 |
 - [x] toyota-echo | Toyota Echo | 2000-2005 |
 - [x] toyota-celica | Toyota Celica | 1996-2005 |
-- [ ] toyota-land-cruiser | Toyota Land Cruiser | 1996-present |
-- [ ] toyota-gr86 | Toyota 86 / GR86 (incl. Scion FR-S) | 2013-present |
-- [ ] toyota-bz4x | Toyota bZ4X | 2023-present | ev:true
-- [ ] toyota-grand-highlander | Toyota Grand Highlander | 2024-present |
+- [ ] toyota-land-cruiser | Toyota Land Cruiser | 1996-present | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] toyota-gr86 | Toyota 86 / GR86 (incl. Scion FR-S) | 2013-present | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] toyota-bz4x | Toyota bZ4X | 2023-present | ev:true CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] toyota-grand-highlander | Toyota Grand Highlander | 2024-present | CLAIMED by interactive session 2026-11-19 03:15 ET
 - [ ] toyota-t100-previa | (skip unless time remains) | |
-- [ ] scion-tc | Scion tC | 2005-2016 |
-- [ ] scion-xb | Scion xB | 2004-2015 |
-- [ ] honda-insight | Honda Insight | 2000-2006, 2010-2014, 2019-2022 |
-- [ ] honda-prelude | Honda Prelude | 1996-2001 |
-- [ ] honda-crosstour | Honda Accord Crosstour / Crosstour | 2010-2015 |
-- [ ] honda-prologue | Honda Prologue | 2024-present | ev:true
-- [ ] acura-rsx-integra | Acura Integra / RSX | 1996-2006, 2023-present |
-- [ ] acura-ilx | Acura ILX | 2013-2022 |
-- [ ] acura-rl-rlx | Acura RL / RLX | 1996-2020 |
+- [ ] scion-tc | Scion tC | 2005-2016 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] scion-xb | Scion xB | 2004-2015 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] honda-insight | Honda Insight | 2000-2006, 2010-2014, 2019-2022 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] honda-prelude | Honda Prelude | 1996-2001 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] honda-crosstour | Honda Accord Crosstour / Crosstour | 2010-2015 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] honda-prologue | Honda Prologue | 2024-present | ev:true CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] acura-rsx-integra | Acura Integra / RSX | 1996-2006, 2023-present | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] acura-ilx | Acura ILX | 2013-2022 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] acura-rl-rlx | Acura RL / RLX | 1996-2020 | CLAIMED by interactive session 2026-11-19 03:15 ET
 - [ ] acura-tl-already | (acura-tl exists; skip) | |
-- [ ] nissan-350z-370z | Nissan 350Z / 370Z / Z | 2003-present |
-- [ ] nissan-cube | Nissan Cube | 2009-2014 |
-- [ ] nissan-ariya | Nissan Ariya | 2023-present | ev:true
-- [ ] nissan-rogue-sport | Nissan Rogue Sport | 2017-2022 |
-- [ ] infiniti-qx50 | Infiniti QX50 / EX35 | 2008-present |
-- [ ] infiniti-fx-qx70 | Infiniti FX / QX70 | 2003-2017 |
-- [ ] infiniti-q50 | Infiniti Q50 | 2014-present |
-- [ ] infiniti-qx80 | Infiniti QX56 / QX80 | 2004-present |
-- [ ] infiniti-i30-i35 | Infiniti I30 / I35 | 1996-2004 |
-- [ ] hyundai-venue | Hyundai Venue | 2020-present |
-- [ ] hyundai-ioniq-5 | Hyundai Ioniq 5 | 2022-present | ev:true
-- [ ] hyundai-genesis | Hyundai Genesis (sedan) / Genesis G80 | 2009-present |
-- [ ] hyundai-azera | Hyundai Azera | 2006-2017 |
-- [ ] hyundai-veracruz | Hyundai Veracruz | 2007-2012 |
-- [ ] kia-seltos | Kia Seltos | 2021-present |
-- [ ] kia-stinger | Kia Stinger | 2018-2023 |
+- [ ] nissan-350z-370z | Nissan 350Z / 370Z / Z | 2003-present | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] nissan-cube | Nissan Cube | 2009-2014 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] nissan-ariya | Nissan Ariya | 2023-present | ev:true CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] nissan-rogue-sport | Nissan Rogue Sport | 2017-2022 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] infiniti-qx50 | Infiniti QX50 / EX35 | 2008-present | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] infiniti-fx-qx70 | Infiniti FX / QX70 | 2003-2017 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] infiniti-q50 | Infiniti Q50 | 2014-present | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] infiniti-qx80 | Infiniti QX56 / QX80 | 2004-present | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] infiniti-i30-i35 | Infiniti I30 / I35 | 1996-2004 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] hyundai-venue | Hyundai Venue | 2020-present | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] hyundai-ioniq-5 | Hyundai Ioniq 5 | 2022-present | ev:true CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] hyundai-genesis | Hyundai Genesis (sedan) / Genesis G80 | 2009-present | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] hyundai-azera | Hyundai Azera | 2006-2017 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] hyundai-veracruz | Hyundai Veracruz | 2007-2012 | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] kia-seltos | Kia Seltos | 2021-present | CLAIMED by interactive session 2026-11-19 03:15 ET
+- [ ] kia-stinger | Kia Stinger | 2018-2023 | CLAIMED by interactive session 2026-11-19 03:15 ET
 - [ ] kia-carnival | Kia Carnival | 2022-present |
 - [ ] kia-spectra | Kia Spectra | 2000-2009 |
 - [ ] kia-cadenza-k5 | Kia K5 | 2021-present |
