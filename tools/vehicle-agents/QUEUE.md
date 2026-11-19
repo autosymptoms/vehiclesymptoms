@@ -333,6 +333,73 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [~] scion-im | Scion iM / Toyota Corolla iM | 2016-2018 | redo: draft priced only 2 of 16 problems, empty maintenance, no 2018 evidence (budget ran out) CLAIMED by interactive session 2026-11-19 11:15 ET
 - [x] smart-fortwo | smart fortwo | 2008-2019 | published 2008-2017; EQ fortwo 2018-2019 still needs sourced problems
 
+## Wave 13 (completeness check, added Nov 19 2026)
+- [ ] ford-explorer-sport-trac | Ford Explorer Sport Trac | 2001-2005, 2007-2010 | gap 2006 CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] mercury-monterey | Mercury Monterey | 2004-2007 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] mercury-montego | Mercury Montego | 2005-2007 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] mercury-cougar | Mercury Cougar | 1999-2002 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] mercury-mystique | Mercury Mystique | 1996-2000 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] cadillac-xts | Cadillac XTS | 2013-2019 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] buick-verano | Buick Verano | 2012-2017 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] pontiac-g5 | Pontiac G5 | 2007-2009 | Cobalt twin CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] pontiac-torrent | Pontiac Torrent | 2006-2009 | Equinox twin CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] fiat-500x | Fiat 500X | 2016-2023 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] fiat-500l | Fiat 500L | 2014-2020 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] kia-k4 | Kia K4 | 2025-present | Forte successor CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] isuzu-trooper | Isuzu Trooper | 1996-2002 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] isuzu-ascender | Isuzu Ascender | 2003-2008 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] oldsmobile-bravada | Oldsmobile Bravada | 1996-2004 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] scion-xd | Scion xD | 2008-2014 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] toyota-supra | Toyota GR Supra | 2020-present |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] toyota-crown | Toyota Crown | 2023-present | sedan; Crown Signia separate CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] chevrolet-silverado-ev | Chevrolet Silverado EV | 2024-present | ev:true CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] hyundai-genesis-coupe | Hyundai Genesis Coupe | 2010-2016 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] hyundai-entourage | Hyundai Entourage | 2007-2009 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] oldsmobile-aurora | Oldsmobile Aurora | 1996-1999, 2001-2003 | gap 2000 CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] mitsubishi-diamante | Mitsubishi Diamante | 1997-2004 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] mitsubishi-raider | Mitsubishi Raider | 2006-2009 | Dakota twin CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] suzuki-aerio | Suzuki Aerio | 2002-2007 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] suzuki-forenza | Suzuki Forenza | 2004-2008 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] suzuki-kizashi | Suzuki Kizashi | 2010-2013 |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] audi-a7 | Audi A7 | 2012-present |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] volvo-c70 | Volvo C70 | 1998-2004, 2006-2013 | gap 2005 CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] volvo-v60 | Volvo V60 / V60 Cross Country | 2015-present |  CLAIMED by scheduled run 2026-11-19 16:40 UTC
+- [ ] saturn-sky | Saturn Sky | 2007-2009 | 
+- [ ] pontiac-solstice | Pontiac Solstice | 2006-2009 | 
+- [ ] pontiac-g8 | Pontiac G8 | 2008-2009 | 
+- [ ] saturn-relay | Saturn Relay | 2005-2007 | 
+- [ ] chrysler-voyager | Chrysler Voyager | 2001-2003, 2020-2025 | check gap 2004-2019
+- [ ] toyota-tercel | Toyota Tercel | 1996-1998 | 
+- [ ] toyota-mr2-spyder | Toyota MR2 Spyder | 2000-2005 | 
+- [ ] isuzu-axiom | Isuzu Axiom | 2002-2004 | 
+- [ ] hyundai-equus | Hyundai Equus | 2011-2016 | 
+- [ ] buick-envista | Buick Envista | 2024-present | 
+- [ ] buick-cascada | Buick Cascada | 2016-2019 | 
+- [ ] mazda-cx-70 | Mazda CX-70 | 2025-present | 
+- [ ] genesis-gv60 | Genesis GV60 | 2023-present | ev:true
+- [ ] lexus-hs | Lexus HS 250h | 2010-2012 | 
+- [ ] lexus-lc | Lexus LC | 2018-present | 
+- [ ] infiniti-qx30 | Infiniti QX30 | 2017-2019 | 
+- [ ] infiniti-qx55 | Infiniti QX55 | 2022-present | 
+- [ ] mini-paceman | MINI Paceman | 2013-2016 | 
+- [ ] ford-aerostar | Ford Aerostar | 1996-1997 | 
+- [ ] kia-sephia | Kia Sephia | 1996-2001 | 
+- [ ] daewoo-lanos | Daewoo Lanos | 1999-2002 | 
+- [ ] gmc-sierra-ev | GMC Sierra EV | 2024-present | ev:true
+- [ ] lucid-air | Lucid Air | 2022-present | ev:true
+- [ ] alfa-romeo-tonale | Alfa Romeo Tonale | 2024-present | 
+- [ ] volkswagen-eurovan | Volkswagen EuroVan | 1996-2003 | 
+- [ ] saab-9-7x | Saab 9-7X | 2005-2009 | 
+- [ ] chevrolet-captiva-sport | Chevrolet Captiva Sport | 2012-2015 | 
+- [ ] buick-riviera | Buick Riviera | 1996-1999 | 
+- [ ] plymouth-breeze | Plymouth Breeze | 1996-2000 | 
+- [ ] oldsmobile-eighty-eight | Oldsmobile Eighty-Eight / LSS | 1996-1999 | 
+- [ ] lincoln-mark-viii | Lincoln Mark VIII | 1996-1998 | 
+- [ ] nissan-200sx | Nissan 200SX | 1996-1998 | 
+- [ ] volkswagen-phaeton | Volkswagen Phaeton | 2004-2006 | 
+- [ ] toyota-crown-signia | Toyota Crown Signia | 2025-present | 
+- [ ] volkswagen-id-buzz | Volkswagen ID. Buzz | 2025-present | ev:true; only if 3+ documented problems
+
 ## Completeness check per make
 Once the lists above are done, go make by make (every brand with US sales since 1996). Compare its US model lineup for each year 1996–2027 against `src/deep/`, and queue any model with meaningful US sales that is still missing. Separate trims and body styles of the same model (e.g. Camry Solara is separate, but Camry Hybrid is not) only when they're sold and recalled as a separate model.
 
