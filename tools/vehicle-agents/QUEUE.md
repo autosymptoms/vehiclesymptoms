@@ -1,0 +1,205 @@
+# Vehicle model queue
+
+Work from the top down. Each line is `- [ ] model-id | Make Model | US years | notes`.
+- When a model goes live, change `[ ]` to `[x]`.
+- If a model needs another pass, use `[~]` and add the reason.
+- Models already in `src/deep/` are live. Never add them twice: check `src/deep/` first.
+
+## In progress (wave 2, started Nov 19 2026 ~1:30am in the interactive session)
+If these still have no `src/deep/<id>.json` after Nov 19 2026 noon, treat them as unclaimed and do them.
+- [ ] toyota-matrix | Toyota Matrix | 2003-2013 | redo; earlier draft relied on au7o.io
+- [ ] toyota-yaris | Toyota Yaris | 2007-2020 | redo
+- [ ] kia-niro | Kia Niro | 2017-present | redo; hybrid/PHEV/EV, ev:false
+- [ ] chevrolet-monte-carlo | Chevrolet Monte Carlo | 1996-2007 |
+- [ ] chevrolet-venture | Chevrolet Venture | 1997-2005 |
+- [ ] chevrolet-corvette | Chevrolet Corvette | 1996-present |
+- [ ] lincoln-navigator | Lincoln Navigator | 1998-present |
+- [ ] lincoln-town-car | Lincoln Town Car | 1996-2011 |
+- [ ] lincoln-mkz | Lincoln MKZ | 2006-2020 | 2006 Zephyr
+- [ ] mercury-mountaineer | Mercury Mountaineer | 1997-2010 |
+- [ ] mercury-sable | Mercury Sable | 1996-2005, 2008-2009 | gap 2006-2007
+- [ ] ford-five-hundred | Ford Five Hundred | 2005-2007 |
+- [ ] pontiac-g6 | Pontiac G6 | 2005-2010 |
+- [ ] pontiac-grand-am | Pontiac Grand Am | 1996-2005 |
+- [ ] pontiac-vibe | Pontiac Vibe | 2003-2010 |
+- [ ] saturn-ion | Saturn Ion | 2003-2007 |
+- [ ] saturn-vue | Saturn Vue | 2002-2010 |
+- [ ] saturn-s-series | Saturn S-Series | 1996-2002 |
+- [ ] volkswagen-golf | Volkswagen Golf/GTI | 1996-present | incl. Rabbit 2007-09
+- [ ] volkswagen-beetle | Volkswagen Beetle | 1998-2019 |
+- [ ] volkswagen-atlas | Volkswagen Atlas | 2018-present |
+- [ ] bmw-5-series | BMW 5 Series | 1996-present |
+- [ ] mercedes-benz-gle | Mercedes-Benz M-Class / GLE | 1998-present |
+- [ ] mercedes-benz-glc | Mercedes-Benz GLC | 2016-present |
+- [ ] mazda-cx-30 | Mazda CX-30 | 2020-present |
+- [ ] mazda-mx-5-miata | Mazda MX-5 Miata | 1996-present | check 1998 gap
+- [ ] mazda-tribute | Mazda Tribute | 2001-2011 |
+- [ ] acura-tsx | Acura TSX | 2004-2014 |
+- [ ] acura-tlx | Acura TLX | 2015-present |
+- [ ] infiniti-qx60 | Infiniti QX60 | 2013-present | 2013 JX35
+
+## Next (most common first)
+- [ ] chevrolet-uplander | Chevrolet Uplander | 2005-2009 |
+- [ ] chevrolet-silverado-3500hd | Chevrolet Silverado 3500HD | 2001-present |
+- [ ] ram-3500 | Ram 3500 | 1996-present | Dodge Ram 3500 before 2010
+- [ ] ford-f-350-super-duty | Ford F-350 Super Duty | 1999-present | only if not already covered by the f-250 page
+- [ ] gmc-savana | GMC Savana | 1996-present |
+- [ ] gmc-jimmy | GMC Jimmy | 1996-2005 |
+- [ ] gmc-sierra-3500hd | GMC Sierra 3500HD | 2001-present |
+- [ ] chevrolet-spark | Chevrolet Spark | 2013-2022 |
+- [ ] chevrolet-aveo | Chevrolet Aveo | 2004-2011 |
+- [ ] chevrolet-blazer-ev | Chevrolet Blazer EV | 2024-present | ev:true
+- [ ] chevrolet-equinox-ev | Chevrolet Equinox EV | 2024-present | ev:true
+- [ ] ford-excursion | Ford Excursion | 2000-2005 |
+- [ ] ford-ecosport | Ford EcoSport | 2018-2022 |
+- [ ] ford-mustang-mach-e | Ford Mustang Mach-E | 2021-present | ev:true
+- [ ] ford-freestar | Ford Freestar | 2004-2007 |
+- [ ] ford-freestyle-taurus-x | Ford Freestyle / Taurus X | 2005-2009 |
+- [ ] ford-contour | Ford Contour | 1996-2000 |
+- [ ] ford-thunderbird | Ford Thunderbird | 1996-1997, 2002-2005 |
+- [ ] ford-f-150-lightning | Ford F-150 Lightning | 2022-present | ev:true
+- [ ] lincoln-mkx-nautilus | Lincoln MKX / Nautilus | 2007-present |
+- [ ] lincoln-aviator | Lincoln Aviator | 2003-2005, 2020-present |
+- [ ] lincoln-corsair-mkc | Lincoln MKC / Corsair | 2015-present |
+- [ ] lincoln-ls | Lincoln LS | 2000-2006 |
+- [ ] mercury-milan | Mercury Milan | 2006-2011 |
+- [ ] mercury-mariner | Mercury Mariner | 2005-2011 |
+- [ ] mercury-villager | Mercury Villager | 1996-2002 |
+- [ ] toyota-solara | Toyota Camry Solara | 1999-2008 |
+- [ ] toyota-fj-cruiser | Toyota FJ Cruiser | 2007-2014 |
+- [ ] toyota-echo | Toyota Echo | 2000-2005 |
+- [ ] toyota-celica | Toyota Celica | 1996-2005 |
+- [ ] toyota-land-cruiser | Toyota Land Cruiser | 1996-present |
+- [ ] toyota-gr86 | Toyota 86 / GR86 (incl. Scion FR-S) | 2013-present |
+- [ ] toyota-bz4x | Toyota bZ4X | 2023-present | ev:true
+- [ ] toyota-grand-highlander | Toyota Grand Highlander | 2024-present |
+- [ ] toyota-t100-previa | (skip unless time remains) | |
+- [ ] scion-tc | Scion tC | 2005-2016 |
+- [ ] scion-xb | Scion xB | 2004-2015 |
+- [ ] honda-insight | Honda Insight | 2000-2006, 2010-2014, 2019-2022 |
+- [ ] honda-prelude | Honda Prelude | 1996-2001 |
+- [ ] honda-crosstour | Honda Accord Crosstour / Crosstour | 2010-2015 |
+- [ ] honda-prologue | Honda Prologue | 2024-present | ev:true
+- [ ] acura-rsx-integra | Acura Integra / RSX | 1996-2006, 2023-present |
+- [ ] acura-ilx | Acura ILX | 2013-2022 |
+- [ ] acura-rl-rlx | Acura RL / RLX | 1996-2020 |
+- [ ] acura-tl-already | (acura-tl exists; skip) | |
+- [ ] nissan-350z-370z | Nissan 350Z / 370Z / Z | 2003-present |
+- [ ] nissan-cube | Nissan Cube | 2009-2014 |
+- [ ] nissan-ariya | Nissan Ariya | 2023-present | ev:true
+- [ ] nissan-rogue-sport | Nissan Rogue Sport | 2017-2022 |
+- [ ] infiniti-qx50 | Infiniti QX50 / EX35 | 2008-present |
+- [ ] infiniti-fx-qx70 | Infiniti FX / QX70 | 2003-2017 |
+- [ ] infiniti-q50 | Infiniti Q50 | 2014-present |
+- [ ] infiniti-qx80 | Infiniti QX56 / QX80 | 2004-present |
+- [ ] infiniti-i30-i35 | Infiniti I30 / I35 | 1996-2004 |
+- [ ] hyundai-venue | Hyundai Venue | 2020-present |
+- [ ] hyundai-ioniq-5 | Hyundai Ioniq 5 | 2022-present | ev:true
+- [ ] hyundai-genesis | Hyundai Genesis (sedan) / Genesis G80 | 2009-present |
+- [ ] hyundai-azera | Hyundai Azera | 2006-2017 |
+- [ ] hyundai-veracruz | Hyundai Veracruz | 2007-2012 |
+- [ ] kia-seltos | Kia Seltos | 2021-present |
+- [ ] kia-stinger | Kia Stinger | 2018-2023 |
+- [ ] kia-carnival | Kia Carnival | 2022-present |
+- [ ] kia-spectra | Kia Spectra | 2000-2009 |
+- [ ] kia-cadenza-k5 | Kia K5 | 2021-present |
+- [ ] kia-ev6 | Kia EV6 | 2022-present | ev:true
+- [ ] subaru-wrx | Subaru WRX / STI | 2002-present |
+- [ ] subaru-tribeca | Subaru B9 Tribeca / Tribeca | 2006-2014 |
+- [ ] subaru-baja | Subaru Baja | 2003-2006 |
+- [ ] mazda-cx-50 | Mazda CX-50 | 2023-present |
+- [ ] mazda-cx-90 | Mazda CX-90 | 2024-present |
+- [ ] mazda-cx-7 | Mazda CX-7 | 2007-2012 |
+- [ ] mazda-protege | Mazda Protege | 1996-2003 |
+- [ ] mazda-626 | Mazda 626 | 1996-2002 |
+- [ ] mazda-mpv | Mazda MPV | 1996-2006 |
+- [ ] mazda-b-series | Mazda B-Series pickup | 1996-2009 |
+- [ ] mazda-rx-8 | Mazda RX-8 | 2004-2011 |
+- [ ] volkswagen-taos | Volkswagen Taos | 2022-present |
+- [ ] volkswagen-id4 | Volkswagen ID.4 | 2021-present | ev:true
+- [ ] volkswagen-cc | Volkswagen CC | 2009-2017 |
+- [ ] volkswagen-touareg | Volkswagen Touareg | 2004-2017 |
+- [ ] volkswagen-atlas-cross-sport | Volkswagen Atlas Cross Sport | 2020-present |
+- [ ] bmw-x1 | BMW X1 | 2013-present |
+- [ ] bmw-x6 | BMW X6 | 2008-present |
+- [ ] bmw-7-series | BMW 7 Series | 1996-present |
+- [ ] bmw-4-series | BMW 4 Series | 2014-present |
+- [ ] mercedes-benz-s-class | Mercedes-Benz S-Class | 1996-present |
+- [ ] mercedes-benz-gla | Mercedes-Benz GLA | 2015-present |
+- [ ] mercedes-benz-cla | Mercedes-Benz CLA | 2014-present |
+- [ ] mercedes-benz-gl-gls | Mercedes-Benz GL / GLS | 2007-present |
+- [ ] mercedes-benz-sprinter | Mercedes-Benz Sprinter (incl. Dodge/Freightliner) | 2003-present |
+- [ ] audi-q7 | Audi Q7 | 2007-present |
+- [ ] audi-a3 | Audi A3 | 2006-present |
+- [ ] audi-q3 | Audi Q3 | 2015-present |
+- [ ] volvo-xc90 | Volvo XC90 | 2003-present |
+- [ ] volvo-xc60 | Volvo XC60 | 2010-present |
+- [ ] volvo-s60 | Volvo S60 | 2001-present |
+- [ ] volvo-v70-xc70 | Volvo V70 / XC70 | 1998-2016 |
+- [ ] mini-cooper | MINI Cooper (hardtop) | 2002-present |
+- [ ] mini-countryman | MINI Countryman | 2011-present |
+- [ ] lexus-gx | Lexus GX | 2003-present |
+- [ ] lexus-nx | Lexus NX | 2015-present |
+- [ ] lexus-ls | Lexus LS | 1996-present |
+- [ ] lexus-gs | Lexus GS | 1998-2020 |
+- [ ] lexus-ux | Lexus UX | 2019-present |
+- [ ] cadillac-xt5 | Cadillac XT5 | 2017-present |
+- [ ] cadillac-deville-dts | Cadillac DeVille / DTS | 1996-2011 |
+- [ ] cadillac-xt4 | Cadillac XT4 | 2019-present |
+- [ ] cadillac-ats | Cadillac ATS | 2013-2019 |
+- [ ] cadillac-ct5 | Cadillac CT5 | 2020-present |
+- [ ] buick-rendezvous | Buick Rendezvous | 2002-2007 |
+- [ ] buick-encore | Buick Encore | 2013-2022 |
+- [ ] buick-encore-gx | Buick Encore GX | 2020-present |
+- [ ] buick-regal | Buick Regal | 1996-2004, 2011-2020 |
+- [ ] buick-park-avenue | Buick Park Avenue | 1997-2005 |
+- [ ] buick-lucerne | Buick Lucerne | 2006-2011 |
+- [ ] buick-rainier | Buick Rainier | 2004-2007 |
+- [ ] buick-envision | Buick Envision | 2016-present |
+- [ ] pontiac-bonneville | Pontiac Bonneville | 1996-2005 |
+- [ ] pontiac-montana | Pontiac Montana / Trans Sport | 1997-2009 |
+- [ ] pontiac-sunfire | Pontiac Sunfire | 1996-2005 |
+- [ ] pontiac-aztek | Pontiac Aztek | 2001-2005 |
+- [ ] pontiac-firebird | Pontiac Firebird | 1996-2002 |
+- [ ] saturn-aura | Saturn Aura | 2007-2009 |
+- [ ] saturn-outlook | Saturn Outlook | 2007-2010 |
+- [ ] saturn-l-series | Saturn L-Series | 2000-2005 |
+- [ ] oldsmobile-alero | Oldsmobile Alero | 1999-2004 |
+- [ ] oldsmobile-intrigue | Oldsmobile Intrigue | 1998-2002 |
+- [ ] oldsmobile-silhouette | Oldsmobile Silhouette | 1997-2004 |
+- [ ] plymouth-voyager | Plymouth Voyager / Grand Voyager | 1996-2000 |
+- [ ] chrysler-sebring | Chrysler Sebring | 1996-2010 |
+- [ ] chrysler-concorde | Chrysler Concorde | 1996-2004 |
+- [ ] dodge-intrepid | Dodge Intrepid | 1996-2004 |
+- [ ] dodge-stratus | Dodge Stratus | 1996-2006 |
+- [ ] dodge-avenger | Dodge Avenger | 2008-2014 |
+- [ ] dodge-nitro | Dodge Nitro | 2007-2011 |
+- [ ] dodge-dart | Dodge Dart | 2013-2016 |
+- [ ] dodge-hornet | Dodge Hornet | 2023-present |
+- [ ] dodge-magnum | Dodge Magnum | 2005-2008 |
+- [ ] ram-promaster | Ram ProMaster | 2014-present |
+- [ ] ram-promaster-city | Ram ProMaster City | 2015-2022 |
+- [ ] jeep-commander | Jeep Commander | 2006-2010 |
+- [ ] jeep-grand-wagoneer-wagoneer | Jeep Wagoneer / Grand Wagoneer | 2022-present |
+- [ ] mitsubishi-outlander | Mitsubishi Outlander | 2003-present |
+- [ ] mitsubishi-outlander-sport | Mitsubishi Outlander Sport | 2011-present |
+- [ ] mitsubishi-lancer | Mitsubishi Lancer | 2002-2017 |
+- [ ] mitsubishi-galant | Mitsubishi Galant | 1996-2012 |
+- [ ] mitsubishi-eclipse | Mitsubishi Eclipse | 1996-2012 |
+- [ ] mitsubishi-mirage | Mitsubishi Mirage | 1997-2002, 2014-present |
+- [ ] mitsubishi-endeavor | Mitsubishi Endeavor | 2004-2011 |
+- [ ] tesla-model-s | Tesla Model S | 2012-present | ev:true
+- [ ] tesla-model-x | Tesla Model X | 2016-present | ev:true
+- [ ] tesla-cybertruck | Tesla Cybertruck | 2024-present | ev:true
+- [ ] rivian-r1s-r1t | Rivian R1T / R1S | 2022-present | ev:true
+- [ ] isuzu-rodeo | Isuzu Rodeo | 1996-2004 |
+- [ ] suzuki-grand-vitara | Suzuki Grand Vitara / Vitara | 1999-2013 |
+- [ ] land-rover-range-rover-sport | Land Rover Range Rover Sport | 2006-present |
+- [ ] porsche-cayenne | Porsche Cayenne | 2003-present |
+- [ ] genesis-gv70 | Genesis GV70 | 2022-present |
+- [ ] genesis-g70 | Genesis G70 | 2019-present |
+
+## After the queue is empty: deepen existing models
+- Extend models that end early (2026/2027) once real problems exist for those years. See the project doc vehicles/model-coverage.md.
+- Fill thin years: any sold year with fewer than 3 issues (run check-vehicle.js on every id).
+- Raise models with fewer than 20 issues: dodge-caliber, dodge-neon, nissan-juke, jeep-gladiator, ford-flex, hyundai-santa-cruz.
