@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-19 21:31 UTC started
+
 ## Run 2026-11-19 20:38 UTC finished 21:20 UTC (stopped: near the shared web search budget after two batches)
 - Totals: 12 jobs worked this run, 11 passed review and 1 held (head gasket). Overall: 13 of 42 jobs checked `[x]`, 1 held `[~]`, 28 not started. Labor rates untouched this run (still first pass, held).
 - Batch 2 (brakes, water pump, head gasket, catalytic converter finished; control arm and ball joint new). Spot check: 5 of 5 NHTSA labor times re-read and matched (Honda 11.5 hr head gasket, Ford 20.9/21.3 hr both heads, Kia 1.4 hr converter, GM 1.3/1.6 hr water pump, GM 0.7 hr control arm).
