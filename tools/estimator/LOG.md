@@ -1,5 +1,8 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-19 22:25 UTC started
+- Owner gave standing approval to run on autopilot and publish when the publish gate passes; RUNBOOK.md rewritten into three phases (finish numbers, build into the price check, keep it right).
+
 ## Run 2026-11-19 21:31 UTC finished 22:04 UTC (stopped: web search limit reached, 200 per session turn)
 - Totals: 18 new jobs worked this run: 11 passed review, 7 held (2 with a few nulls, 5 partial because the search limit hit mid-batch). Overall: 24 of 42 jobs checked `[x]`, 8 held `[~]`, 10 not started. Labor rates untouched.
 - Batch 2 (6 agents, 12 jobs): door lock actuator, power steering pump, ignition coil, timing chain, valve cover gasket, serpentine belt, wheel speed sensor passed. Blower motor, window regulator, oxygen sensor, brake caliper and engine mount are partial: verified labor times saved, parts prices and benchmarks missing. No spot check this batch (no searches left); do one next run.
