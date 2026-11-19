@@ -68,7 +68,7 @@ const indexJs='window.GUIDE_INDEX='+JSON.stringify(INDEX)+';\n';
 console.log(`${J.length} symptom guides`);
 
 // ---------- output ----------
-const tpl=fs.readFileSync('src/template.html','utf8');
+const tpl=fs.readFileSync('src/template.html','utf8').replace(/{{NMODELS}}/g,String(V.length));
 fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');
 // Phones only download what a page needs: a small vehicle list everywhere, full data per vehicle on demand.
 {const lite=V.map(v=>{const o={};for(const k of Object.keys(v))if(k!=='issues'&&k!=='own'&&k!=='engines')o[k]=v[k];o.issues=[];o.n=v.issues.length;return o});
