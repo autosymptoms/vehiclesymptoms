@@ -394,15 +394,15 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] buick-riviera | Buick Riviera | 1996-1999 | 
 - [x] plymouth-breeze | Plymouth Breeze | 1996-2000 | 
 - [x] oldsmobile-eighty-eight | Oldsmobile Eighty-Eight / LSS | 1996-1999 | 
-- [~] lincoln-mark-viii | Lincoln Mark VIII | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
-- [~] nissan-200sx | Nissan 200SX | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [~] lincoln-mark-viii | Lincoln Mark VIII | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass CLAIMED by scheduled run 2026-11-19 19:15 UTC
+- [~] nissan-200sx | Nissan 200SX | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass CLAIMED by scheduled run 2026-11-19 19:15 UTC
 - [x] volkswagen-phaeton | Volkswagen Phaeton | 2004-2006 |
 - [~] toyota-crown-signia | Toyota Crown Signia | 2025-present | not ready: only 2-3 recalls and scattered single complaints for 2025, none for 2026; retry mid-2027
 - [~] volkswagen-id-buzz | Volkswagen ID. Buzz | 2025-present | not ready: 2 recalls and ~12 unverified complaints for 2025; retry mid-2027
-- [~] nissan-240sx | Nissan 240SX | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [~] nissan-240sx | Nissan 240SX | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass CLAIMED by scheduled run 2026-11-19 19:15 UTC
 - [x] mitsubishi-3000gt | Mitsubishi 3000GT | 1996-1999 |
-- [~] toyota-previa | Toyota Previa | 1996-1997 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
-- [~] toyota-t100 | Toyota T100 | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [~] toyota-previa | Toyota Previa | 1996-1997 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass CLAIMED by scheduled run 2026-11-19 19:15 UTC
+- [~] toyota-t100 | Toyota T100 | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass CLAIMED by scheduled run 2026-11-19 19:15 UTC
 - [x] suzuki-esteem | Suzuki Esteem | 1996-2002 |
 - [x] suzuki-swift | Suzuki Swift | 1996-2001 |
 - [x] suzuki-sidekick | Suzuki Sidekick / Vitara | 1996-1998 | Vitara 1999+ is on suzuki-grand-vitara
@@ -415,10 +415,10 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] saturn-astra | Saturn Astra | 2008-2009 |
 - [x] saab-9-2x | Saab 9-2X | 2005-2006 |
 - [x] cadillac-elr | Cadillac ELR | 2014-2016 | gap 2015 (not built)
-- [~] honda-del-sol | Honda del Sol | 1996-1997 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [~] honda-del-sol | Honda del Sol | 1996-1997 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass CLAIMED by scheduled run 2026-11-19 19:15 UTC
 - [x] acura-nsx | Acura NSX | 1996-2005, 2017-2022 | published 1996-2005, 2017-2021 (no 2022 evidence)
-- [~] infiniti-q45 | Infiniti Q45 | 1996-2006 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
-- [~] infiniti-j30 | Infiniti J30 | 1996-1997 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [~] infiniti-q45 | Infiniti Q45 | 1996-2006 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass CLAIMED by scheduled run 2026-11-19 19:15 UTC
+- [~] infiniti-j30 | Infiniti J30 | 1996-1997 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass CLAIMED by scheduled run 2026-11-19 19:15 UTC
 - [x] mitsubishi-i-miev | Mitsubishi i-MiEV | 2012-2017 | ev:true; gaps 2013, 2015 (not sold in US)
 - [x] chevrolet-city-express | Chevrolet City Express | 2015-2018 | NV200 twin
 
