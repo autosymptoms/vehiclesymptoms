@@ -1,0 +1,57 @@
+{
+  "job": "Spark plug replacement",
+  "unit": "per job (all cylinders)",
+  "classes": {
+    "economy": {
+      "parts": null,
+      "hours": null,
+      "example": "2015 Toyota Corolla 1.8L (4 cylinders, 4 plugs)",
+      "parts_src": [],
+      "hours_src": []
+    },
+    "midsize": {
+      "parts": null,
+      "hours": [0.3, 0.5],
+      "example": "2017 Honda CR-V 1.5L turbo (4 cylinders, 4 plugs)",
+      "parts_src": [],
+      "hours_src": [
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2024/MC-10253308-0001.pdf", "what": "Honda bulletin for 2017-2018 CR-V (EX, EX-L, Touring; 1.5L). Manufacturer warranty flat-rate times: operation 1175A5 'Replace spark plugs. (Inspection or replacement) (Admin Included)' states 0.5 hr; the same work as an add-on to another operation states 0.3 hr. Warranty times run short, so treat this as the low end of what a shop would bill"}
+      ]
+    },
+    "truck": {
+      "parts": [84.99, 84.99],
+      "hours": [0.75, 0.75],
+      "example": "2016 Ford F-150 5.0L V8 (8 cylinders, 8 plugs)",
+      "parts_src": [
+        {"url": "https://www.americantrucks.com/f150-iridium-spark-plugs-8-piece-spa02185.html", "what": "Store-brand iridium spark plugs, 8-piece set, item T586256, fits 2011-2017 F-150 5.0L V8, $84.99. This is the only price found for this truck, so low and high are the same figure; no OEM (Motorcraft) list price was obtained"},
+        {"url": "https://www.fordpartsgiant.com/oem-2016-ford-f_150-spark_plug.html", "what": "Ford OEM catalog page for the 2016 F-150 loaded, but it listed only six-cylinder plugs (CYFS-092-YPT $21.25 MSRP for 2.7L; CYFS-12-YT3 $22.35 MSRP for 3.5L). No 5.0L V8 plug was shown, so no figure from this page is used"}
+      ],
+      "hours_src": [
+        {"url": "https://www.americantrucks.com/f150-iridium-spark-plugs-8-piece-spa02185.html", "what": "Seller states installation time '(approx) 45 Minutes' for the 8-plug set on the 2011-2017 F-150 5.0L. A seller's approximate figure, not a flat-rate book time"},
+        {"url": "https://americantrucks.com/f150-platinum-spark-plugs-8-piece-ign01301.html", "what": "Same seller states '(approx) 1 Hour' for an 8-plug set on the 2018-2020 F-150 5.0L (a later version of the engine; listing marked no longer carried, $109.99). Shown for context only; not used for the 2016 truck"}
+      ]
+    },
+    "luxury": {
+      "parts": null,
+      "hours": [2, 2],
+      "example": "2013 BMW 335i 3.0L turbo (N55, 6 cylinders, 6 plugs)",
+      "parts_src": [],
+      "hours_src": [
+        {"url": "https://www.fcpeuro.com/blog/how-to-replace-spark-plugs-bmw-n55-engine-x5-x3-335i", "what": "Parts-seller guide for the BMW N55 engine, listing 2011-2015 335i and 335i xDrive among the cars it applies to, states 'you can expect it to take you around 2 hours to complete this job'. A do-it-yourself estimate, not a flat-rate book time; a trained technician would normally be quicker"}
+      ]
+    }
+  },
+  "src": [
+    "https://static.nhtsa.gov/odi/tsbs/2024/MC-10253308-0001.pdf",
+    "https://www.americantrucks.com/f150-iridium-spark-plugs-8-piece-spa02185.html",
+    "https://www.fordpartsgiant.com/oem-2016-ford-f_150-spark_plug.html",
+    "https://americantrucks.com/f150-platinum-spark-plugs-8-piece-ign01301.html",
+    "https://www.fcpeuro.com/blog/how-to-replace-spark-plugs-bmw-n55-engine-x5-x3-335i"
+  ],
+  "benchmarks": [],
+  "live": [130, 850],
+  "finding": "We could not judge the live range of $130-$850 on this pass. Only one class has a full total: the truck (2016 F-150 5.0L, 8 plugs) comes to about $175-$205 at $120-$160 per hour, which sits inside the live range near its low end. That figure rests on a single aftermarket plug set ($84.99) and a seller's approximate 45-minute time, with no OEM plug price, so it is a low-end figure rather than a full range. Economy (2015 Corolla 1.8L): no plug price and no stated labor time were found, so no total. Midsize (2017 CR-V 1.5L turbo): Honda's warranty time is 0.3-0.5 hours, which is $36-$80 of labor at our rate, but no plug price was obtained, so no total. Luxury (2013 BMW 335i N55): a parts seller's guide says about 2 hours for a home mechanic, which is $240-$320 of labor, but no plug price for that car was obtained, so no total. Nothing found contradicts the live range: the labor figures we did find are small for four-cylinder and V8 engines with plugs on top, which is consistent with a floor near $130, and nothing here tests the $850 ceiling (engines where the intake manifold has to come off). No outside estimates were recorded, because the estimator pages could not be reached in this session; the benchmarks list is empty and the three-estimate comparison still needs to be done. For context only, and not used in our numbers: one parts retailer's BMW 328i page showed six-plug kits at $64.08-$78.78 (NGK or Bosch) and $139.02-$163.02 (Genuine BMW) without saying which engine each fits, and a general car-care article says a shop may charge 0.8-1.2 hours for a regular four-cylinder and 1.5-2.5 hours for V6 engines where the intake manifold must be removed.",
+  "confidence": "low",
+  "checked": "2026-11-19",
+  "extras": "A quote often adds ignition coils or coil boots if any are cracked or oil-soaked, an intake manifold gasket on engines where the manifold has to come off to reach the rear plugs, a valve cover gasket if oil is found in the plug wells, a diagnosis fee if the visit started with a misfire or check engine light, shop supplies, and sales tax. Extra labor is common when a plug is seized or breaks during removal. The parts figures here are the plugs only."
+}

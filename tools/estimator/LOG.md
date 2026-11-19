@@ -1,6 +1,8 @@
 # Estimator accuracy log (newest first)
 
-## Run 2026-11-19 18:40 UTC started
+## Run 2026-11-19 18:40 UTC finished 20:00 UTC (stopped: web search limit reached)
+- Totals: 12 jobs researched this run (first run): 2 passed review, 10 held `[~]` with partial files saved. State labor rates: first pass saved, held.
+- Batch 2 (spark plugs, A/C compressor, radiator, fuel pump + labor rates): the shared web search budget ran out mid-batch, after which pages not already seen in search results could not be fetched. Job files hold verified labor times only (mostly NHTSA-hosted Toyota/Honda warranty times) with parts and benchmarks null. rates.json: 51 entries, range about $100 (WV) to $175 (CA), versus the live flat $120–$160; all-shop averages, no dealer split.
 - Set-up note: `estimator` was brought up to date with main by a merge, not a rebase (a rebase needs a force-push, which the run is not allowed to do).
 - Batch 1 (8 jobs): 2 passed review (wheel bearing/hub, timing belt), 6 held `[~]` with files saved (brakes, alternator, starter, water pump, head gasket, catalytic converter). Held files have real, sourced parts prices but `hours: null` for 1–3 classes.
 - Biggest gaps vs live: head gasket low end ($1,075) is far below anything the evidence builds (about $2,400 up; benchmarks $2,400–$3,400); catalytic converter is too low at both ends and CARB-state parts alone can pass the $2,450 top; alternator low end ($270) is below any buildable total (cheapest reman unit $221 before labor; about $340 up).

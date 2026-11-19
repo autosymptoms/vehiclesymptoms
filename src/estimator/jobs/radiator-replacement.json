@@ -1,0 +1,61 @@
+{
+  "job": "Radiator replacement",
+  "unit": "per job",
+  "classes": {
+    "economy": {
+      "parts": null,
+      "hours": null,
+      "example": "2015 Toyota Corolla 1.8L",
+      "parts_src": [],
+      "hours_src": []
+    },
+    "midsize": {
+      "parts": null,
+      "hours": [3.7, 3.7],
+      "example": "2016 Honda Pilot with 9-speed automatic (the bulletin does not name the engine)",
+      "parts_src": [],
+      "hours_src": [
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10117328-9999.pdf", "what": "Honda Service Bulletin 17-011 for 2016-2017 Pilot with 9-speed automatic. Manufacturer warranty flat-rate time: operation 2185D2 (Repair Procedure A) states 3.7 hrs. This is a bundled time, not a radiator-only time: it covers inspecting the transmission fluid warmer date, checking for overheating, replacing the radiator and hoses, and flushing the engine. No radiator-only time is given. Warranty times run short, but the bundle includes more than a plain radiator swap"}
+      ]
+    },
+    "truck": {
+      "parts": [139.99, 346.23],
+      "hours": [1, 1],
+      "example": "2016 Ford F-150 5.0L V8 (without heavy-duty cooling)",
+      "parts_src": [
+        {"url": "https://www.americantrucks.com/f150-oe-style-aluminum-radiator-oem-ra-13510.html", "what": "Store-brand OE-style aluminum radiator, item T599612, fits 2015-2020 F-150 2.7L, 3.5L EcoBoost and 5.0L V8 without heavy-duty cooling, $139.99 (low)"},
+        {"url": "https://www.fordpartsgiant.com/oem-2016-ford-f_150-radiator.html", "what": "Ford OEM HL3Z-8005-A (5.0L V8), MSRP $346.23 (high), discounted $231.26. The same page lists a second OEM radiator for the 5.0L, FL3Z-8005-A, MSRP $637.07, discounted $425.51; the page does not say which cooling package each one is for, so the lower list price is used and the higher one is noted in the finding"}
+      ],
+      "hours_src": [
+        {"url": "https://www.americantrucks.com/f150-oe-style-aluminum-radiator-oem-ra-13510.html", "what": "Seller states installation time '(approx) 1 Hour' for this radiator on the 2015-2020 F-150. A seller's approximate figure, not a flat-rate book time"},
+        {"url": "https://www.americantrucks.com/f150-radiator-oem-ra-13099.html", "what": "Same seller states '(approx) 2 Hours' for a radiator on the 2009-2010 V8 F-150 with automatic transmission ($124.99). An earlier truck generation; shown for context only and not used for the 2016 truck"}
+      ]
+    },
+    "luxury": {
+      "parts": null,
+      "hours": [3.7, 3.7],
+      "example": "2016 Acura MDX (the bulletin does not name the engine)",
+      "parts_src": [],
+      "hours_src": [
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2018/MC-10134515-9999.pdf", "what": "Acura bulletin for the 2016 MDX. Manufacturer warranty flat-rate time: operation 2185A9 (Repair Procedure A) states 3.7 hrs. This is a bundled time, not a radiator-only time: it covers inspecting the transmission fluid warmer date, checking for overheating, 'Replace radiator and hoses' and 'Flush engine'. No radiator-only time is given"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10166511-0001.pdf", "what": "Later version of the same Acura bulletin covering 2016-2017 MDX; states the same 3.7 hrs for operation 2185A9"}
+      ]
+    }
+  },
+  "src": [
+    "https://static.nhtsa.gov/odi/tsbs/2017/MC-10117328-9999.pdf",
+    "https://www.americantrucks.com/f150-oe-style-aluminum-radiator-oem-ra-13510.html",
+    "https://www.fordpartsgiant.com/oem-2016-ford-f_150-radiator.html",
+    "https://www.americantrucks.com/f150-radiator-oem-ra-13099.html",
+    "https://static.nhtsa.gov/odi/tsbs/2018/MC-10134515-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2019/MC-10166511-0001.pdf"
+  ],
+  "benchmarks": [
+    {"name": "YourMechanic", "url": "https://www.yourmechanic.com/estimates/toyota/tundra/radiator-replacement", "lo": 1043, "hi": 1216, "date": "2026-11-19", "note": "Toyota Tundra only, not a national figure: mobile-mechanic estimates of $1,043.00-$1,215.64 across the model years listed (2000-2014), with shop/dealer prices of $1,241.40-$2,163.62. The same page also states an average of $586 ($390 parts, $196 labor), which contradicts its own table, so treat with caution"}
+  ],
+  "live": [290, 1400],
+  "finding": "We could not confirm or reject the live range of $290-$1,400 on this pass. Only one class has a full total: the truck (2016 F-150 5.0L) comes to about $260-$506 at $120-$160 per hour, which straddles the live floor of $290 and sits in the lower part of the range. That total uses online prices for the radiator alone ($139.99 aftermarket to $346.23 Ford list) and a seller's approximate one-hour time, with no coolant; with the other Ford radiator listed for this engine ($637.07 list) the top would be about $797. Economy (2015 Corolla 1.8L): no radiator price from a retailer listing and no stated labor time were found, so no total. Midsize (2016 Honda Pilot) and luxury (2016 Acura MDX): the manufacturer's warranty time is 3.7 hours, which is $444-$592 of labor at our rate, but that time also covers hoses, an engine flush and an inspection, and no radiator price was obtained for either vehicle, so no total. Those two labor figures alone are above the live floor, which suggests $290 is only reachable on simple vehicles with an inexpensive aftermarket radiator, and they leave room under the $1,400 ceiling for an OEM radiator and coolant. Only one outside estimate was recorded (YourMechanic, Toyota Tundra only, $1,043-$1,216 mobile and up to $2,164 at a shop or dealer), which is above the middle of the live range and, at the dealer end, above its ceiling; the other estimator pages could not be reached in this session, so the three-estimate comparison still needs to be done. For context only, and not used in our numbers: Ford bulletins for the 2015-2019 Transit van give 2.8-3.7 hours (gasoline engines) for a combined job of fan clutch test, thermostat inspection, cooling system flush and radiator replacement.",
+  "confidence": "low",
+  "checked": "2026-11-19",
+  "extras": "A quote often adds coolant and a cooling system bleed or pressure test (not included in the parts figures here), upper and lower radiator hoses and clamps, a radiator cap, a thermostat, transmission fluid top-up on vehicles where the transmission cooler is built into the radiator, a diagnosis fee, shop supplies, coolant disposal, and sales tax. If the engine overheated before the repair, a shop may also recommend checks for further damage. The parts figures here are the radiator only."
+}

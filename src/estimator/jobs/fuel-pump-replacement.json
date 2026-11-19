@@ -1,0 +1,69 @@
+{
+ "job": "Fuel pump replacement",
+ "unit": "per job (in-tank pump module)",
+ "classes": {
+  "economy": {
+   "parts": null,
+   "hours": [1.5, 1.5],
+   "example": "2018 Toyota Corolla 1.8L",
+   "parts_src": [],
+   "hours_src": [
+    {
+     "url": "https://static.nhtsa.gov/odi/rcl/2020/RCMN-20V012-6556.pdf",
+     "what": "Toyota Safety Recall 20TA02 dealer letter: op code TA0209, Corolla, replace low-pressure (in-tank) fuel pump, 1.5 hr. Manufacturer recall/warranty time (low end of real-world times); includes 0.1 hr administrative allowance. No independent/retail book time was found, so high = low."
+    }
+   ]
+  },
+  "midsize": {
+   "parts": null,
+   "hours": [1.4, 1.4],
+   "example": "2018 Toyota Camry 2.5L",
+   "parts_src": [],
+   "hours_src": [
+    {
+     "url": "https://static.nhtsa.gov/odi/rcl/2020/RCMN-20V012-6556.pdf",
+     "what": "Toyota Safety Recall 20TA02 dealer letter: op code TA0204, Camry, replace low-pressure (in-tank) fuel pump, 1.4 hr. Manufacturer recall/warranty time (low end); includes 0.1 hr administrative allowance. Same letter: Avalon 1.5 hr, Highlander 2.1-3.4 hr, Sienna 2.6-2.7 hr."
+    },
+    {
+     "url": "https://static.nhtsa.gov/odi/rcl/2020/RCRIT-20V314-3291.pdf",
+     "what": "Cross-check on a second midsize car: Honda recall bulletin, 2018-19 Accord 2.0L, op 3101HK 'Replace the fuel pump motor', flat rate time 1.2 hr (manufacturer warranty time; kit 06170-TVC-306). Not used for the Camry range."
+    }
+   ]
+  },
+  "truck": {
+   "parts": null,
+   "hours": [1.6, 1.6],
+   "example": "2018 Toyota Tundra 5.7L",
+   "parts_src": [],
+   "hours_src": [
+    {
+     "url": "https://static.nhtsa.gov/odi/rcl/2020/RCMN-20V012-6556.pdf",
+     "what": "Toyota Safety Recall 20TA02 dealer letter: op code TA0206, Tundra, replace low-pressure (in-tank) fuel pump, 1.6 hr. Manufacturer recall/warranty time (low end); includes 0.1 hr administrative allowance. Same letter: Sequoia 1.5 hr, Tacoma 1.7-1.8 hr, 4Runner 2.5 hr, Land Cruiser 2.4 hr."
+    }
+   ]
+  },
+  "luxury": {
+   "parts": null,
+   "hours": null,
+   "example": "2011 BMW 528i (F10, N52 3.0L)",
+   "parts_src": [],
+   "hours_src": [
+    {
+     "url": "https://static.nhtsa.gov/odi/rcl/2016/RCRIT-16V746-1944.pdf",
+     "what": "BMW recall 16V-746 (SI B16 04 16): labor operation 00 64 234, replace right delivery unit (in-tank low-pressure fuel pump) plus harness repair cable, 11 FRU for F10/F12/F13/E71/E72, 12 FRU for E70, 14 FRU for F07 and E70 with third row; includes fuel extraction and refill. The document gives BMW flat-rate units only; the FRU-to-hours conversion was not confirmed from a loaded source, so hours are left null. Recall pump part numbers listed (e.g. 16 11 7 934 458 for F10 N52) but no prices."
+    }
+   ]
+  }
+ },
+ "src": [
+  "https://static.nhtsa.gov/odi/rcl/2020/RCMN-20V012-6556.pdf",
+  "https://static.nhtsa.gov/odi/rcl/2020/RCRIT-20V314-3291.pdf",
+  "https://static.nhtsa.gov/odi/rcl/2016/RCRIT-16V746-1944.pdf"
+ ],
+ "benchmarks": [],
+ "live": [330, 1400],
+ "finding": "Not judged: the live range of $330-$1,400 can be neither confirmed nor corrected from this research. Only labor times were verified. Parts prices for all four classes and all three required benchmark estimates are missing because web search and page loading were cut off partway through (shared search budget exhausted; retailer, OEM-catalog and estimator pages then could not be loaded). Verified labor, all manufacturer recall/warranty times, which run short of retail book time: 2018 Corolla 1.5 hr, 2018 Camry 1.4 hr (2018-19 Accord 2.0L 1.2 hr as a cross-check), 2018 Tundra 1.6 hr; BMW 5 Series F10 is stated as 11 flat-rate units, not converted to hours. Implied totals per class cannot be stated without parts; labor alone at $120-$160/hr is economy $180-$240, midsize $168-$224, truck $192-$256, luxury unknown. Note the same Toyota letter shows some vehicles need far more labor (Highlander up to 3.4 hr, Sienna 2.7 hr, 4Runner 2.5 hr), so a single flat labor assumption will understate those. Also note these recall operations replace the pump inside the tank module on the same access path as a full module swap; a retail job usually replaces the whole module, which costs more in parts. Do not change the live range on this file alone.",
+ "confidence": "low",
+ "checked": "2026-11-19",
+ "extras": "Not researched from sources in this pass (no pages could be loaded for it). Items a quote commonly lists separately and worth asking about: diagnosis/fuel-pressure test fee, tank seal or lock ring, fuel filter or strainer, shop supplies, and tax."
+}

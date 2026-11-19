@@ -10,10 +10,10 @@ Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held wi
 - [~] Catalytic converter replacement (live: $480–$2450) (2026-11-19) — held: labor time for truck only; live too low both ends, CARB parts exceed top
 - [x] Wheel bearing or hub replacement (live: $200–$700) (2026-11-19) — slightly low both ends; $250–$800 fits (medium confidence)
 - [x] Timing belt replacement (live: $500–$1475) (2026-11-19) — about right, top slightly generous (low confidence)
-- [ ] Spark plug replacement (live: $130–$850)
-- [ ] A/C compressor replacement (live: $550–$1625)
-- [ ] Radiator replacement (live: $290–$1400)
-- [ ] Fuel pump replacement (live: $330–$1400)
+- [~] Spark plug replacement (live: $130–$850) (2026-11-19) — partial: hours for 3 classes; needs parts prices and 3 benchmarks (search limit hit)
+- [~] A/C compressor replacement (live: $550–$1625) (2026-11-19) — partial: Toyota warranty time only; needs parts, other hours, benchmarks (search limit hit)
+- [~] Radiator replacement (live: $290–$1400) (2026-11-19) — partial: truck class only; needs parts, benchmarks (search limit hit)
+- [~] Fuel pump replacement (live: $330–$1400) (2026-11-19) — partial: recall warranty times for 3 classes; needs parts and benchmarks (search limit hit)
 - [ ] Control arm replacement (one side) (live: $240–$1200)
 - [ ] Ball joint replacement (live: $240–$950)
 - [ ] Tie rod end replacement (live: $170–$900)
@@ -45,6 +45,11 @@ Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held wi
 - [ ] EGR valve replacement (live: $160–$675)
 - [ ] Turbocharger replacement (live: $1150–$4800)
 
+## Notes for the next run
+- `[~]` jobs have a saved file; finish them (fill the nulls) before starting new jobs. Do not redo the parts that are already sourced.
+- Labor times are the bottleneck. Best finds so far: recall/TSB dealer letters on static.nhtsa.gov (warranty times, so the low end). Agents may switch the example vehicle within a class to one that has a stated time.
+- Web lookups are shared across agents: about 200 searches per run and an hourly page-fetch limit. Run at most 3 agents at a time and about 6 jobs per run.
+
 ## After the job list
-- [ ] Labor rates: fill src/estimator/rates.json for all 50 states + DC (at least 2 sources each)
+- [~] Labor rates: fill src/estimator/rates.json for all 50 states + DC (at least 2 sources each) (2026-11-19) — first pass saved: 51 filled, 49 with 2 sources, but figures are all-shop averages (Tekmetric 2026 + AutoLeap blog, a soft second source), `dealer` null everywhere, NC and DC low confidence. Needs a stronger second source and a real independent/dealer split.
 - [ ] Add jobs drivers ask about that are missing: battery replacement, oil change, brake fluid flush, coolant flush, transmission fluid service, tire rotation, wheel alignment, serpentine belt, cabin air filter

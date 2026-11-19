@@ -1,0 +1,65 @@
+{
+ "job": "A/C compressor replacement",
+ "unit": "per job (compressor; say whether drier/expansion valve and recharge are included)",
+ "classes": {
+  "economy": {
+   "parts": null,
+   "hours": [1.8, 2.9],
+   "example": "2014 Toyota Corolla 1.8L",
+   "parts_src": [],
+   "hours_src": [
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2014/SB-10061340-2273.pdf",
+     "what": "Toyota T-SB-0086-14 (Aug 11, 2014), 2014 Corolla: op code AC1400 'Compressor w/ Magnetic Clutch Assembly', time 2.9 hr, replacing compressor 88310-02850 with 88310-02851. Manufacturer warranty time. The bulletin replaces the compressor only (no drier or expansion valve) and does not say whether refrigerant recovery/recharge is inside the time."
+    },
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2014/SB-10061714-2273.pdf",
+     "what": "Revised version of the same Toyota bulletin (2014-2015 Corolla): same op code AC1400, time read as 1.8 hr. Manufacturer warranty time. The two versions disagree (2.9 vs 1.8); both are recorded as the range rather than choosing one."
+    }
+   ]
+  },
+  "midsize": {
+   "parts": null,
+   "hours": null,
+   "example": "2017 Honda CR-V 1.5T",
+   "parts_src": [],
+   "hours_src": [
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10237039-0001.pdf",
+     "what": "NOT a compressor replacement time, so not used: Honda Service Bulletin 23-040, 2017-22 CR-V 1.5T, op 6141D4 'Replace the A/C compressor shaft seal (includes inspection, evacuate and recharge)' 2.1 hr. No stated time for replacing the compressor itself was found."
+    }
+   ]
+  },
+  "truck": {
+   "parts": null,
+   "hours": null,
+   "example": "2018 Ford F-150 5.0L",
+   "parts_src": [],
+   "hours_src": [
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10233745-0001.pdf",
+     "what": "No time stated, so not used: Ford bulletin for 2017-2021 F-150 (3.5L EcoBoost, 2.7L, 5.0L, 3.0L diesel) says to install an updated A/C compressor and refers to the Service Labor Time Standards manual for the time instead of printing it."
+    }
+   ]
+  },
+  "luxury": {
+   "parts": null,
+   "hours": null,
+   "example": "2015 BMW 328i (F30, N20)",
+   "parts_src": [],
+   "hours_src": []
+  }
+ },
+ "src": [
+  "https://static.nhtsa.gov/odi/tsbs/2014/SB-10061340-2273.pdf",
+  "https://static.nhtsa.gov/odi/tsbs/2014/SB-10061714-2273.pdf",
+  "https://static.nhtsa.gov/odi/tsbs/2023/MC-10237039-0001.pdf",
+  "https://static.nhtsa.gov/odi/tsbs/2023/MC-10233745-0001.pdf"
+ ],
+ "benchmarks": [],
+ "live": [550, 1625],
+ "finding": "Not judged: the live range of $550-$1,625 can be neither confirmed nor corrected from this research. Parts prices for all four classes, labor times for three classes and all three required benchmark estimates are missing because web search and page loading were cut off partway through (shared search budget exhausted; retailer, OEM-catalog and estimator pages then could not be loaded). The one verified labor figure is a Toyota warranty time for the 2014-2015 Corolla compressor: 1.8 hr in the revised bulletin and 2.9 hr in the original, compressor only. Implied totals per class cannot be stated without parts; labor alone at $120-$160/hr for the economy class is $216-$464, and the other three classes are unknown. About fifteen further manufacturer bulletins were opened (Honda, GM, Ford, Nissan, Ram, VW, BMW); none printed a compressor replacement time. Two things from those bulletins bear on what a quote should include: Volkswagen's compressor bulletin requires a new expansion valve, receiver-drier insert, seals and a system flush with every compressor replacement, and Toyota's contamination guideline (T-SB-0083-13) calls for condenser, hoses or more when debris is found, so a compressor-only price and a full-system price are different jobs. One undated parts-retailer article (buyautoparts.com) lists labor hours for 2007 models with no named labor guide (Malibu 2.4, Mazda6 2.5, BMW 328i 2.7, Silverado 2.9, F-150 3.4, Tundra 4.1, stated to include 1.4 hr for recover/evacuate/recharge); these were left out of the class figures because the vehicles are outside 2008-2020 and the source of the times is not named. Do not change the live range on this file alone.",
+ "confidence": "low",
+ "checked": "2026-11-19",
+ "extras": "From the manufacturer bulletins loaded: refrigerant recovery, evacuation and recharge (R-1234yf on newer cars), compressor oil, O-rings/seals, and often a receiver-drier and expansion valve plus a system flush when the old compressor failed internally; a condenser may be added if debris is found. Diagnosis/leak-test fee, shop supplies and tax were not researched from sources in this pass."
+}
