@@ -99,33 +99,33 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] hyundai-veracruz | Hyundai Veracruz | 2007-2012 |
 - [x] kia-seltos | Kia Seltos | 2021-present |
 - [x] kia-stinger | Kia Stinger | 2018-2023 |
-- [ ] kia-carnival | Kia Carnival | 2022-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] kia-spectra | Kia Spectra | 2000-2009 | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] kia-cadenza-k5 | Kia K5 | 2021-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] kia-ev6 | Kia EV6 | 2022-present | ev:true CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] subaru-wrx | Subaru WRX / STI | 2002-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] subaru-tribeca | Subaru B9 Tribeca / Tribeca | 2006-2014 | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] subaru-baja | Subaru Baja | 2003-2006 | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mazda-cx-50 | Mazda CX-50 | 2023-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mazda-cx-90 | Mazda CX-90 | 2024-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mazda-cx-7 | Mazda CX-7 | 2007-2012 | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mazda-protege | Mazda Protege | 1996-2003 | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mazda-626 | Mazda 626 | 1996-2002 | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mazda-mpv | Mazda MPV | 1996-2006 | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mazda-b-series | Mazda B-Series pickup | 1996-2009 | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mazda-rx-8 | Mazda RX-8 | 2004-2011 | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] volkswagen-taos | Volkswagen Taos | 2022-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] volkswagen-id4 | Volkswagen ID.4 | 2021-present | ev:true CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] volkswagen-cc | Volkswagen CC | 2009-2017 | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] volkswagen-touareg | Volkswagen Touareg | 2004-2017 | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] volkswagen-atlas-cross-sport | Volkswagen Atlas Cross Sport | 2020-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] bmw-x1 | BMW X1 | 2013-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] bmw-x6 | BMW X6 | 2008-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] bmw-7-series | BMW 7 Series | 1996-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] bmw-4-series | BMW 4 Series | 2014-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mercedes-benz-s-class | Mercedes-Benz S-Class | 1996-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mercedes-benz-gla | Mercedes-Benz GLA | 2015-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mercedes-benz-cla | Mercedes-Benz CLA | 2014-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
+- [x] kia-carnival | Kia Carnival | 2022-present |
+- [x] kia-spectra | Kia Spectra | 2000-2009 |
+- [~] kia-cadenza-k5 | Kia K5 | 2021-present | draft held back: kia-optima already covers K5 2021+ years; merge K5 issues into kia-optima instead of a separate page
+- [x] kia-ev6 | Kia EV6 | 2022-present | ev:true
+- [x] subaru-wrx | Subaru WRX / STI | 2002-present |
+- [x] subaru-tribeca | Subaru B9 Tribeca / Tribeca | 2006-2014 |
+- [x] subaru-baja | Subaru Baja | 2003-2006 |
+- [x] mazda-cx-50 | Mazda CX-50 | 2023-present |
+- [x] mazda-cx-90 | Mazda CX-90 | 2024-present |
+- [x] mazda-cx-7 | Mazda CX-7 | 2007-2012 |
+- [x] mazda-protege | Mazda Protege | 1996-2003 |
+- [x] mazda-626 | Mazda 626 | 1996-2002 |
+- [x] mazda-mpv | Mazda MPV | 1996-2006 |
+- [x] mazda-b-series | Mazda B-Series pickup | 1996-2009 |
+- [x] mazda-rx-8 | Mazda RX-8 | 2004-2011 |
+- [x] volkswagen-taos | Volkswagen Taos | 2022-present |
+- [x] volkswagen-id4 | Volkswagen ID.4 | 2021-present | ev:true
+- [x] volkswagen-cc | Volkswagen CC | 2009-2017 |
+- [x] volkswagen-touareg | Volkswagen Touareg | 2004-2017 |
+- [x] volkswagen-atlas-cross-sport | Volkswagen Atlas Cross Sport | 2020-present |
+- [x] bmw-x1 | BMW X1 | 2013-present |
+- [x] bmw-x6 | BMW X6 | 2008-present |
+- [x] bmw-7-series | BMW 7 Series | 1996-present |
+- [x] bmw-4-series | BMW 4 Series | 2014-present |
+- [x] mercedes-benz-s-class | Mercedes-Benz S-Class | 1996-present |
+- [x] mercedes-benz-gla | Mercedes-Benz GLA | 2015-present |
+- [x] mercedes-benz-cla | Mercedes-Benz CLA | 2014-present |
 - [x] mercedes-benz-gl-gls | Mercedes-Benz GL / GLS | 2007-present |
 - [x] mercedes-benz-sprinter | Mercedes-Benz Sprinter (incl. Dodge/Freightliner) | 2003-present |
 - [x] audi-q7 | Audi Q7 | 2007-present |
