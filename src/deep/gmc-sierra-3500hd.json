@@ -1,0 +1,706 @@
+{
+ "id": "gmc-sierra-3500hd",
+ "make": "GMC",
+ "model": "Sierra 3500HD",
+ "years": [
+  2001,
+  2026
+ ],
+ "wmi": [
+  "1GT",
+  "1GD",
+  "2GT"
+ ],
+ "engines": [
+  {
+   "k": "6.0-v8",
+   "name": "6.0L V8 gas (Vortec)",
+   "y": [
+    2001,
+    2019
+   ]
+  },
+  {
+   "k": "8.1-v8",
+   "name": "8.1L V8 gas (Vortec)",
+   "y": [
+    2001,
+    2007
+   ]
+  },
+  {
+   "k": "dmax-lb7",
+   "name": "6.6L Duramax diesel (LB7)",
+   "y": [
+    2001,
+    2004
+   ]
+  },
+  {
+   "k": "dmax-lly",
+   "name": "6.6L Duramax diesel (LLY)",
+   "y": [
+    2004,
+    2006
+   ]
+  },
+  {
+   "k": "dmax-lbz",
+   "name": "6.6L Duramax diesel (LBZ)",
+   "y": [
+    2006,
+    2007
+   ]
+  },
+  {
+   "k": "dmax-lmm",
+   "name": "6.6L Duramax diesel (LMM)",
+   "y": [
+    2007,
+    2010
+   ]
+  },
+  {
+   "k": "dmax-lml",
+   "name": "6.6L Duramax diesel (LML)",
+   "y": [
+    2011,
+    2016
+   ]
+  },
+  {
+   "k": "dmax-l5p",
+   "name": "6.6L Duramax diesel (L5P)",
+   "y": [
+    2017,
+    2026
+   ]
+  },
+  {
+   "k": "6.6-gas",
+   "name": "6.6L V8 gas",
+   "y": [
+    2020,
+    2026
+   ]
+  }
+ ],
+ "issues": [
+  {
+   "y": [
+    2011,
+    2016
+   ],
+   "sys": "Fuel",
+   "cat": "Starting Problems",
+   "sev": "high",
+   "t": "High-pressure diesel fuel pump failure",
+   "eng": "6.6L Duramax diesel (LML)",
+   "engs": [
+    "dmax-lml"
+   ],
+   "sym": "The engine suddenly stalls or will not restart, often with low fuel-rail pressure codes and a reduced-power message. Metal flakes may show up in the fuel filter.",
+   "why": "The Bosch CP4 pump on the LML Duramax can wear internally and shed metal, which then travels through the injectors, rails and lines. Poor lubrication from US diesel and air in the fuel are blamed.",
+   "next": "Stop driving if it stalls and have it towed. Ask the shop to check the fuel filter for metal before replacing parts, because debris usually means the whole high-pressure system must be cleaned or replaced.",
+   "src": [
+    "https://www.carcomplaints.com/Chevrolet/Silverado_3500/2012/fuel_system/high_pressure_fuel_pump_failure.shtml",
+    "https://www.carwhere.com/chevrolet/known-issues/silverado-hd",
+    "https://www.dieselhub.com/duramax/common-6.6-duramax-engine-problems.html"
+   ]
+  },
+  {
+   "y": [
+    2001,
+    2004
+   ],
+   "sys": "Fuel",
+   "cat": "Smoke",
+   "sev": "high",
+   "t": "Leaking or cracked fuel injectors",
+   "eng": "6.6L Duramax diesel (LB7)",
+   "engs": [
+    "dmax-lb7"
+   ],
+   "sym": "White or gray smoke, rough idle, hard starting, a fuel smell, and an oil level that rises between changes because diesel is leaking into the oil.",
+   "why": "The LB7 injectors sit under the valve covers. When their bodies crack or their seals leak, fuel drips into the crankcase and thins the oil.",
+   "next": "Have a shop run a fuel return-rate test and check the oil for fuel. Leaking injectors are usually replaced as a full set, and the oil should be changed right away.",
+   "src": [
+    "https://www.dieselhub.com/duramax/common-6.6-duramax-engine-problems.html",
+    "https://us.bddiesel.com/blogs/r-d-blog/duramax-lb7-l5p-top-3-failures-by-generation-bd-fixes"
+   ]
+  },
+  {
+   "y": [
+    2007,
+    2010
+   ],
+   "sys": "Emissions",
+   "cat": "Warning Lights",
+   "sev": "med",
+   "t": "Clogged diesel particulate filter and fuel in the oil",
+   "eng": "6.6L Duramax diesel (LMM)",
+   "engs": [
+    "dmax-lmm"
+   ],
+   "sym": "Frequent \"regeneration\" cycles, black smoke, lost power, worse fuel mileage, and an oil level that creeps up.",
+   "why": "The LMM was the first Duramax with a soot filter in the exhaust. Short trips and idling let soot and ash build up faster than the truck can burn it off, and the extra fuel used to clean the filter can wash into the oil.",
+   "next": "Drive at highway speed for 20-30 minutes now and then so the filter can clean itself. If warnings stay on, have the filter and its pressure sensors checked, and change the oil if it smells of fuel.",
+   "src": [
+    "https://www.dieselhub.com/duramax/common-6.6-duramax-engine-problems.html",
+    "https://us.bddiesel.com/blogs/r-d-blog/duramax-lb7-l5p-top-3-failures-by-generation-bd-fixes"
+   ]
+  },
+  {
+   "y": [
+    2011,
+    2016
+   ],
+   "sys": "Emissions",
+   "cat": "Warning Lights",
+   "sev": "med",
+   "t": "NOx sensor and DEF system faults",
+   "eng": "6.6L Duramax diesel (LML)",
+   "engs": [
+    "dmax-lml"
+   ],
+   "sym": "Check-engine light, \"Service DEF\" or emissions messages, and sometimes a countdown to a 55 mph or 4 mph speed limit.",
+   "why": "The exhaust cleanup system uses NOx sensors, a DEF pump, a level sensor and a tank heater. The NOx sensors fail most often, and a failed heater can let DEF freeze in deep cold.",
+   "next": "Do not ignore a DEF countdown. Have the codes read; a single sensor is often the fix. Ask the dealer whether the federal emissions warranty still covers the part.",
+   "src": [
+    "https://www.dieselhub.com/duramax/common-6.6-duramax-engine-problems.html",
+    "https://us.bddiesel.com/blogs/r-d-blog/duramax-lb7-l5p-top-3-failures-by-generation-bd-fixes"
+   ]
+  },
+  {
+   "y": [
+    2001,
+    2016
+   ],
+   "sys": "Fuel",
+   "cat": "Starting Problems",
+   "sev": "med",
+   "t": "Air leaking in at the fuel filter head",
+   "eng": "6.6L Duramax diesel (LB7 to LML)",
+   "engs": [
+    "dmax-lb7",
+    "dmax-lly",
+    "dmax-lbz",
+    "dmax-lmm",
+    "dmax-lml"
+   ],
+   "sym": "Hard starting after the truck sits, stumbling or surging under load, and trouble getting the fuel system to prime after a filter change.",
+   "why": "These Duramax engines have no in-tank lift pump, so the injection pump pulls fuel through the filter. A cracked filter housing or worn seal lets air in, which starves the engine.",
+   "next": "Have the filter head and its seals inspected, and make sure the system is primed properly after any filter change. Some owners add an aftermarket lift pump.",
+   "src": [
+    "https://www.dieselhub.com/duramax/common-6.6-duramax-engine-problems.html",
+    "https://us.bddiesel.com/blogs/r-d-blog/duramax-lb7-l5p-top-3-failures-by-generation-bd-fixes"
+   ]
+  },
+  {
+   "y": [
+    2001,
+    2005
+   ],
+   "sys": "Cooling",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "Overheating while towing",
+   "eng": "6.6L Duramax diesel (LB7, LLY)",
+   "engs": [
+    "dmax-lb7",
+    "dmax-lly"
+   ],
+   "sym": "The temperature gauge climbs when pulling a trailer up grades in hot weather, sometimes with the fan roaring.",
+   "why": "The early Duramax cooling system has little reserve. A weak fan clutch, a radiator and intercooler packed with dirt, or a failing water pump push it over the edge, and repeated overheating can damage head gaskets.",
+   "next": "Back off and let it cool before the gauge reaches the red. Have the fan clutch, radiator fins and water pump checked, and clean the stack of coolers at the front.",
+   "src": [
+    "https://www.dieselhub.com/duramax/common-6.6-duramax-engine-problems.html",
+    "https://us.bddiesel.com/blogs/r-d-blog/duramax-lb7-l5p-top-3-failures-by-generation-bd-fixes"
+   ]
+  },
+  {
+   "y": [
+    2001,
+    2005
+   ],
+   "sys": "Cooling",
+   "cat": "Leaks",
+   "sev": "med",
+   "t": "Duramax water pump leaks",
+   "eng": "6.6L Duramax diesel (LB7, LLY)",
+   "engs": [
+    "dmax-lb7",
+    "dmax-lly"
+   ],
+   "sym": "Coolant drips or a sweet smell at the front of the engine, a falling coolant level, and in time overheating.",
+   "why": "The original water pump design on the early Duramax wears out its seal and bearing, sometimes by about 75,000 miles. GM fitted a larger pump from 2006.",
+   "next": "Keep an eye on the coolant level and look for crusty residue at the pump. Replace a weeping pump before it causes overheating.",
+   "src": [
+    "https://www.dieselhub.com/duramax/common-6.6-duramax-engine-problems.html",
+    "https://us.bddiesel.com/blogs/r-d-blog/duramax-lb7-l5p-top-3-failures-by-generation-bd-fixes"
+   ]
+  },
+  {
+   "y": [
+    2004,
+    2006
+   ],
+   "sys": "Electrical",
+   "cat": "Starting Problems",
+   "sev": "med",
+   "t": "Chafed injector wiring harness",
+   "eng": "6.6L Duramax diesel (LLY)",
+   "engs": [
+    "dmax-lly"
+   ],
+   "sym": "Rough running, a miss on one or more cylinders, open-circuit codes, or a no-start that is easy to mistake for a bad injector.",
+   "why": "The injector wiring on the LLY rubs against engine parts under the valve covers and wears through over time.",
+   "next": "Before buying injectors, ask the shop to check the harness for rubbed or broken wires. Repairing the wiring is much cheaper.",
+   "src": [
+    "https://www.dieselhub.com/duramax/common-6.6-duramax-engine-problems.html",
+    "https://us.bddiesel.com/blogs/r-d-blog/duramax-lb7-l5p-top-3-failures-by-generation-bd-fixes"
+   ]
+  },
+  {
+   "y": [
+    2006,
+    2006
+   ],
+   "sys": "Engine",
+   "cat": "Starting Problems",
+   "sev": "med",
+   "t": "Glow plug tips can break off (recall)",
+   "eng": "6.6L Duramax diesel (LLY, LBZ)",
+   "engs": [
+    "dmax-lly",
+    "dmax-lbz"
+   ],
+   "sym": "Hard cold starts, white smoke, a glow plug warning, or in the worst case a sudden knock if a broken tip falls into a cylinder.",
+   "why": "A faulty glow plug control module kept the plugs on too long, overheating them until the tips could snap off.",
+   "next": "Have a dealer confirm the glow plug module reprogramming was done. If the engine knocks, stop driving it.",
+   "src": [
+    "https://www.thedieselpage.com/duramax/dmaxservicebulletin0406.htm",
+    "https://www.dieselhub.com/duramax/common-6.6-duramax-engine-problems.html"
+   ]
+  },
+  {
+   "y": [
+    2001,
+    2003
+   ],
+   "sys": "Brakes",
+   "cat": "Leaks",
+   "sev": "high",
+   "t": "Rusted brake lines can burst",
+   "sym": "The brake pedal suddenly sinks much lower, braking takes far longer, and fluid may be found dripping near a wheel or along the frame.",
+   "why": "On trucks used where roads are salted, the steel brake lines along the frame rust from the outside until one bursts under hard braking. NHTSA studied this on 1999-2003 GM pickups, including the 3500 series.",
+   "next": "Have the lines inspected from underneath every year, especially behind clips and above the fuel tank. Replace any line with heavy scale before it fails.",
+   "src": [
+    "https://static.nhtsa.gov/odi/inv/2011/INCR-EA11001-50409.pdf"
+   ]
+  },
+  {
+   "y": [
+    2001,
+    2019
+   ],
+   "sys": "Exhaust",
+   "cat": "Noises",
+   "sev": "med",
+   "t": "Broken exhaust manifold bolts",
+   "eng": "6.0L V8 gas (Vortec)",
+   "engs": [
+    "6.0-v8"
+   ],
+   "sym": "A ticking or puffing sound from the engine bay that is loudest on a cold start and may fade as the engine warms. You may smell exhaust.",
+   "why": "Repeated heating and cooling makes the cast-iron manifolds warp, and the bolts holding them to the heads snap, letting exhaust leak.",
+   "next": "Get it fixed before the leak burns the gasket or a sensor. A shop will extract the broken bolts and may need to resurface the manifold.",
+   "src": [
+    "https://chevytrucks.org/?p=20072",
+    "https://m.carcomplaints.com/Chevrolet/Silverado_2500/2004/engine/broken_exhaust_manifold_bolts.shtml"
+   ]
+  },
+  {
+   "y": [
+    2001,
+    2007
+   ],
+   "sys": "Steering",
+   "cat": "Noises",
+   "sev": "low",
+   "t": "Clunk felt in the steering wheel",
+   "sym": "A clunk or knock you feel through the steering wheel when turning at low speed or going over bumps.",
+   "why": "The sliding intermediate steering shaft between the column and the steering box dries out and binds, then releases with a clunk. GM issued service bulletins for these trucks.",
+   "next": "Not dangerous by itself, but have the steering checked to rule out worn joints. A dealer can lubricate or replace the shaft.",
+   "src": [
+    "https://www.chevroletforum.com/how-tos/a/chevrolet-silverado-1999-2006-recalls-and-technical-service-bulletins-389378",
+    "https://www.carcomplaints.com/Chevrolet/Silverado_2500/2007/tsbs/index.shtml"
+   ]
+  },
+  {
+   "y": [
+    2003,
+    2006
+   ],
+   "sys": "Electrical",
+   "cat": "Warning Lights",
+   "sev": "low",
+   "t": "Instrument cluster gauges stick or quit",
+   "sym": "The speedometer, fuel or temperature gauge sticks, reads wrong or drops to zero, and the cluster lights may flicker.",
+   "why": "Small stepper motors that move the gauge needles on 2003-2006 GM full-size trucks fail with age.",
+   "next": "A cluster repair shop can rebuild your cluster with new motors for much less than a new one. Get it fixed so you can trust the speedometer and fuel gauge.",
+   "src": [
+    "https://circuitboardmedics.com/2003-2006-gm-gmc-chevy-instrument-cluster-exchange",
+    "https://www.chevroletforum.com/how-tos/a/chevrolet-silverado-1999-2006-recalls-and-technical-service-bulletins-389378"
+   ]
+  },
+  {
+   "y": [
+    2007,
+    2011
+   ],
+   "sys": "Electrical",
+   "cat": "Smells",
+   "sev": "high",
+   "t": "Trailer wiring can overheat (recall)",
+   "sym": "A burning smell or melted wiring near the battery, often after towing a trailer that draws heavy current.",
+   "why": "Too much current through the trailer harness can melt the auxiliary battery fusible link, which is a fire risk.",
+   "next": "Check your VIN for recall 14V-407 and have the free fix done before towing again.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500"
+   ]
+  },
+  {
+   "y": [
+    2007,
+    2009
+   ],
+   "sys": "Electrical",
+   "cat": "Smoke",
+   "sev": "high",
+   "t": "Heated washer fluid module can overheat (recall)",
+   "sym": "Smoke or a burning smell from the engine bay, or the heated washer feature stops working.",
+   "why": "The heated windshield washer module can overheat and catch fire. GM disabled and removed it under recall.",
+   "next": "Check your VIN for recall 10V-240. If the module is still in place, have a dealer remove it.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500"
+   ]
+  },
+  {
+   "y": [
+    2007,
+    2014
+   ],
+   "sys": "Safety",
+   "cat": "Warning Lights",
+   "sev": "high",
+   "t": "Passenger front air bag inflator can rupture (recalls)",
+   "sym": "No warning before a crash. In a crash the passenger air bag inflator can burst and throw metal pieces into the cab.",
+   "why": "Takata inflators in these trucks use a propellant that breaks down after years of heat and humidity.",
+   "next": "Look up your VIN today. Recalls 15V-324, 20V-011 and 21V-050 to 21V-054 cover these years, and the replacement is free.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500",
+    "https://www.carwhere.com/chevrolet/known-issues/silverado-hd"
+   ]
+  },
+  {
+   "y": [
+    2011,
+    2018
+   ],
+   "sys": "Fuel",
+   "cat": "Leaks",
+   "sev": "high",
+   "t": "Dual-tank fuel overfill and leak (recalls)",
+   "sym": "Fuel smell or fuel leaking near the front tank, or a front fuel gauge that reads wrong on trucks with two tanks.",
+   "why": "A sticking front-tank level sensor lets the rear tank keep pumping fuel forward until the front tank overfills and can leak.",
+   "next": "If you smell fuel, park it outside and have it checked. Run your VIN for recalls 17V-664 and 19V-088.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500"
+   ]
+  },
+  {
+   "y": [
+    2015,
+    2016
+   ],
+   "sys": "Brakes",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Brake pedal pivot nut can loosen (recalls)",
+   "sym": "The brake pedal feels loose or wobbly, and brake lights may not come on properly.",
+   "why": "The nut on the brake pedal pivot bolt can back off, letting the pedal come loose from its bracket.",
+   "next": "Stop driving if the pedal feels loose. Recalls 16V-069 and 18V-578 secure the nut for free.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500"
+   ]
+  },
+  {
+   "y": [
+    2015,
+    2017
+   ],
+   "sys": "Safety",
+   "cat": "Warning Lights",
+   "sev": "high",
+   "t": "Software fault can switch off the front air bags (recalls)",
+   "sym": "Usually no symptom. Rarely the air bag light may come on.",
+   "why": "The air bag module could run a self-test at the wrong moment, during which the front air bags and belt tighteners would not fire in a crash.",
+   "next": "Check your VIN for recalls 16V-651 and 17V-437. The fix is a free software update.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500"
+   ]
+  },
+  {
+   "y": [
+    2015,
+    2020
+   ],
+   "sys": "Safety",
+   "cat": "Warning Lights",
+   "sev": "high",
+   "t": "Roof-rail air bag inflator can come apart (recalls)",
+   "sym": "No warning. In a crash the side curtain air bag inflator can break apart and throw metal pieces.",
+   "why": "The end cap of the roof-rail air bag inflator can separate, or the inflator wall can rupture, when the bag deploys.",
+   "next": "Run your VIN; several recalls (including 21V-504, 24V-756, 25V-432, 26V-166, 26V-325 and 26V-611) cover these years with a free replacement.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500"
+   ]
+  },
+  {
+   "y": [
+    2017,
+    2019
+   ],
+   "sys": "Fuel",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Rear fuel tank can collapse and starve the engine (recall)",
+   "eng": "6.6L Duramax diesel (L5P)",
+   "engs": [
+    "dmax-l5p"
+   ],
+   "sym": "On dual-tank diesels, the engine stalls when the front tank runs low even though the rear gauge still shows fuel.",
+   "why": "The rear tank can collapse inward, blocking fuel from moving to the front tank.",
+   "next": "Check your VIN for recall 23V-047. The dealer replaces the tank and pump module as needed for free.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500",
+    "https://www.carwhere.com/chevrolet/known-issues/silverado-hd"
+   ]
+  },
+  {
+   "y": [
+    2017,
+    2019
+   ],
+   "sys": "Electrical",
+   "cat": "Smells",
+   "sev": "high",
+   "t": "Engine block heater cord can short (recall)",
+   "eng": "6.6L Duramax diesel (L5P)",
+   "engs": [
+    "dmax-l5p"
+   ],
+   "sym": "A burning smell or melted plug at the block heater cord, or a block heater that stops working.",
+   "why": "The heater cord or its terminals can short circuit, which is a fire risk.",
+   "next": "Do not plug in the block heater until recalls 19V-328 and 21V-496 have been done.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500",
+    "https://www.carwhere.com/chevrolet/known-issues/silverado-hd"
+   ]
+  },
+  {
+   "y": [
+    2020,
+    2020
+   ],
+   "sys": "Body",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Hood can fly open while driving (recall)",
+   "sym": "The hood does not latch firmly or flutters at speed.",
+   "why": "The hood latch striker wires may not have been heat-treated, so they can crack.",
+   "next": "Check your VIN for recalls 20V-142 and 20V-324 and get the striker replaced for free.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500",
+    "https://www.carwhere.com/chevrolet/known-issues/silverado-hd"
+   ]
+  },
+  {
+   "y": [
+    2020,
+    2020
+   ],
+   "sys": "Safety",
+   "cat": "Smoke",
+   "sev": "high",
+   "t": "Seat belt tensioner can set the carpet on fire (recall)",
+   "sym": "Smoke or a burnt carpet smell near the front seats after a crash or tensioner firing.",
+   "why": "Hot gas vented by the seat belt pretensioners can ignite the carpet.",
+   "next": "Check your VIN for recall 19V-814 and have the free fix done.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500"
+   ]
+  },
+  {
+   "y": [
+    2020,
+    2021
+   ],
+   "sys": "Safety",
+   "cat": "Noises",
+   "sev": "high",
+   "t": "Front seat belt mountings may not be secured (recalls)",
+   "sym": "Usually nothing obvious; a center seat belt may feel loose.",
+   "why": "A center seat belt bracket or belt bolts may not have been fastened properly at the factory.",
+   "next": "Check your VIN for recalls 20V-792 and 20V-811.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500"
+   ]
+  },
+  {
+   "y": [
+    2020,
+    2022
+   ],
+   "sys": "Transmission",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Rear wheels can lock up from a transmission valve fault (recall)",
+   "eng": "6.6L Duramax diesel (L5P)",
+   "engs": [
+    "dmax-l5p"
+   ],
+   "sym": "Harsh shifts, a transmission warning or limp mode, and rarely a sudden skid as the rear wheels lock.",
+   "why": "A worn control valve in the Allison 10-speed can apply the wrong clutches at once.",
+   "next": "Check your VIN for recall 24V-797 (and 26V-083 for some 2020 trucks). The fix is free software that also detects a bad valve.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500",
+    "https://www.carwhere.com/chevrolet/known-issues/silverado-hd",
+    "https://pickuptrucktalk.com/2026/06/2024-2026-chevrolet-silverado-2500-known-issues-transmission-recalls-valve-body-fails-random-tailgate-opening-and-tech-annoyances/"
+   ]
+  },
+  {
+   "y": [
+    2021,
+    2022
+   ],
+   "sys": "Brakes",
+   "cat": "Smoke",
+   "sev": "high",
+   "t": "Brake module bolts can let water in and start a fire (recall)",
+   "sym": "Usually no warning; possibly an ABS light or a burning smell.",
+   "why": "Loose bolts on the brake pressure modulator let water in, which can short the module and start a fire.",
+   "next": "Park outside until recall 21V-758 is done, then have the free repair done.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500"
+   ]
+  },
+  {
+   "y": [
+    2020,
+    2026
+   ],
+   "sys": "Body",
+   "cat": "Driving",
+   "sev": "med",
+   "t": "Power tailgate can open by itself (recall)",
+   "sym": "You find the tailgate open after parking, or it drops open without anyone pressing the button.",
+   "why": "Water gets into the power-release switch and shorts it.",
+   "next": "Check that the tailgate is latched before driving. Run your VIN for recalls 24V-060 and 24V-894 (and the later 2025-2026 campaign) for a sealed switch.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500",
+    "https://pickuptrucktalk.com/2026/06/2024-2026-chevrolet-silverado-2500-known-issues-transmission-recalls-valve-body-fails-random-tailgate-opening-and-tech-annoyances/",
+    "https://vehicleflaws.com/vehicle/chevrolet/silverado-3500/2023"
+   ]
+  },
+  {
+   "y": [
+    2021,
+    2025
+   ],
+   "sys": "Transmission",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "10-speed automatic valve body failure",
+   "sym": "Harsh or delayed shifts, transmission warning messages, and limp mode stuck in one gear.",
+   "why": "The valve body that controls the Allison 10-speed can fail. GM released a new repair process for 2021-2024 Silverado and Sierra HD trucks (the Sierra 3500HD shares this transmission with the Silverado 3500HD), and owners of later trucks report the same thing.",
+   "next": "Have the codes read and ask the dealer about the latest bulletin. Most of these trucks are still under powertrain warranty, so go to a dealer first.",
+   "src": [
+    "https://pickuptrucktalk.com/2026/06/2024-2026-chevrolet-silverado-2500-known-issues-transmission-recalls-valve-body-fails-random-tailgate-opening-and-tech-annoyances/",
+    "https://vehicleflaws.com/vehicle/chevrolet/silverado-3500/2023"
+   ]
+  },
+  {
+   "y": [
+    2023,
+    2023
+   ],
+   "sys": "Transmission",
+   "cat": "Starting Problems",
+   "sev": "med",
+   "t": "Shifter won't go fully into Park, so the engine won't shut off",
+   "sym": "The truck will not register Park, so it won't let you turn off the engine, or it shows a shift-to-park message.",
+   "why": "Owner complaints to NHTSA trace this to a failed transmission valve body or control module on the 10-speed.",
+   "next": "Set the parking brake and have a dealer read the transmission codes. Ask whether the repair is covered under the powertrain warranty.",
+   "src": [
+    "https://vehicleflaws.com/vehicle/chevrolet/silverado-3500/2023"
+   ]
+  },
+  {
+   "y": [
+    2024,
+    2024
+   ],
+   "sys": "Steering",
+   "cat": "Noises",
+   "sev": "high",
+   "t": "Steering gear shaft can break (recall)",
+   "sym": "Clunking or looseness in the steering, or steering that stops responding.",
+   "why": "A shaft inside the steering gear can fracture and separate from the steering arm.",
+   "next": "Check your VIN for recall 23V-549 right away and do not drive if the steering feels loose.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500",
+    "https://www.carwhere.com/chevrolet/known-issues/silverado-hd"
+   ]
+  },
+  {
+   "y": [
+    2025,
+    2026
+   ],
+   "sys": "Fuel",
+   "cat": "Driving",
+   "sev": "high",
+   "t": "Gas dual-tank trucks can stall from low fuel transfer (recall)",
+   "eng": "6.6L V8 gas",
+   "engs": [
+    "6.6-gas"
+   ],
+   "sym": "The engine stalls while the fuel gauge still shows fuel, sometimes with no warning.",
+   "why": "Engine computer software can stop the rear pump moving fuel to the front tank until the next key cycle, while the gauge keeps showing both tanks combined.",
+   "next": "Check your VIN for recall 26V-129. The free fix is a software update at a dealer or over the air.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500",
+    "https://pickuptrucktalk.com/2026/03/2025-2026-chevrolet-silverado-3500-gmc-sierra-3500-recall-12k-faulty-rear-fuel-pump/",
+    "https://www.cars.com/research/gmc-sierra_3500-2025/recalls"
+   ]
+  },
+  {
+   "y": [
+    2026,
+    2026
+   ],
+   "sys": "Electrical",
+   "cat": "Warning Lights",
+   "sev": "low",
+   "t": "Owner's manual may be missing (recalls)",
+   "sym": "There is no printed manual in the truck and the radio has not downloaded the electronic one.",
+   "why": "The radio was not set to download the manual, and some trucks left without a printed copy, so safety information is missing.",
+   "next": "Check your VIN for recalls 26V-114 and 25V-815 and ask the dealer to load or supply the manual.",
+   "src": [
+    "https://www.carwhere.com/recalls/gmc/sierra-3500"
+   ]
+  }
+ ]
+}
