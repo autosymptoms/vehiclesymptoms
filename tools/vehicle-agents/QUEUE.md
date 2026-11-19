@@ -210,28 +210,28 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] mercedes-benz-metris | Mercedes-Benz Metris | 2016-2023 |
 - [~] mercedes-benz-eqs | Mercedes-Benz EQS / EQS SUV | 2022-present | ev:true redo: draft had no ownership file (search budget ran out)
 - [~] mercedes-benz-eqe | Mercedes-Benz EQE / EQE SUV | 2023-present | ev:true redo: draft had no ownership file (search budget ran out)
-- [x] mercedes-benz-eqb | Mercedes-Benz EQB | 2022-present | ev:true CLAIMED by interactive session 2026-11-19 09:10 ET
+- [x] mercedes-benz-eqb | Mercedes-Benz EQB | 2022-present | ev:true
 - [x] bmw-x7 | BMW X7 | 2019-present |
 - [x] bmw-x4 | BMW X4 | 2015-present |
 - [x] bmw-x2 | BMW X2 | 2018-present |
 - [x] bmw-2-series | BMW 1 / 2 Series | 2008-present |
 - [x] bmw-z3-z4 | BMW Z3 / Z4 | 1996-present
 - [x] bmw-6-8-series | BMW 6 / 8 Series | 2004-present
-- [x] bmw-i3 | BMW i3 | 2014-2021 | ev:true (REx option) CLAIMED by interactive session 2026-11-19 09:10 ET
-- [x] bmw-i4 | BMW i4 | 2022-present | ev:true CLAIMED by interactive session 2026-11-19 09:10 ET
-- [x] bmw-ix | BMW iX | 2022-present | ev:true CLAIMED by interactive session 2026-11-19 09:10 ET
+- [x] bmw-i3 | BMW i3 | 2014-2021 | ev:true (REx option)
+- [x] bmw-i4 | BMW i4 | 2022-present | ev:true
+- [x] bmw-ix | BMW iX | 2022-present | ev:true
 - [x] audi-a5 | Audi A5 / S5 | 2008-present
 - [x] audi-q8 | Audi Q8 | 2019-present
 - [x] audi-a8 | Audi A8 | 1997-present
 - [x] audi-tt | Audi TT | 2000-2023
-- [x] audi-e-tron | Audi e-tron / Q8 e-tron | 2019-present | ev:true CLAIMED by interactive session 2026-11-19 09:10 ET
-- [x] audi-q4-e-tron | Audi Q4 e-tron | 2022-present | ev:true CLAIMED by interactive session 2026-11-19 09:10 ET
+- [x] audi-e-tron | Audi e-tron / Q8 e-tron | 2019-present | ev:true
+- [x] audi-q4-e-tron | Audi Q4 e-tron | 2022-present | ev:true
 - [x] lexus-lx | Lexus LX | 1996-present
 - [x] lexus-rc | Lexus RC | 2015-present
 - [x] lexus-ct | Lexus CT 200h | 2011-2017
 - [x] lexus-sc | Lexus SC | 1996-2010
 - [x] lexus-tx | Lexus TX | 2024-present
-- [x] toyota-prius-c-v | Toyota Prius c / Prius v | 2012-2019 | if not covered by toyota-prius CLAIMED by interactive session 2026-11-19 09:10 ET
+- [x] toyota-prius-c-v | Toyota Prius c / Prius v | 2012-2019 | if not covered by toyota-prius
 - [x] toyota-mirai | Toyota Mirai | 2016-present
 - [x] honda-s2000 | Honda S2000 | 2000-2009
 - [x] honda-cr-z | Honda CR-Z | 2011-2016
@@ -300,36 +300,36 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [ ] cadillac-lyriq | Cadillac Lyriq | 2023-present | ev:true CLAIMED by scheduled run 2026-11-19 07:37 ET
 - [ ] cadillac-eldorado | Cadillac Eldorado | 1996-2002 | CLAIMED by scheduled run 2026-11-19 07:37 ET
 - [ ] cadillac-catera | Cadillac Catera | 1997-2001 | CLAIMED by scheduled run 2026-11-19 07:37 ET
-- [ ] cadillac-xlr | Cadillac XLR | 2004-2009 |
-- [ ] cadillac-ct4 | Cadillac CT4 | 2020-present |
-- [ ] buick-terraza | Buick Terraza | 2005-2007 |
-- [ ] chrysler-aspen | Chrysler Aspen | 2007-2009 |
-- [ ] chrysler-crossfire | Chrysler Crossfire | 2004-2008 |
-- [ ] chrysler-cirrus | Chrysler Cirrus | 1996-2000 |
-- [ ] chrysler-lhs | Chrysler LHS | 1996-2001 |
-- [ ] dodge-viper | Dodge Viper | 1996-2017 |
-- [ ] mitsubishi-montero | Mitsubishi Montero | 1996-2006 |
-- [ ] mitsubishi-montero-sport | Mitsubishi Montero Sport | 1997-2004 |
-- [ ] mitsubishi-eclipse-cross | Mitsubishi Eclipse Cross | 2018-present |
-- [ ] land-rover-range-rover | Land Rover Range Rover | 1996-present |
-- [ ] land-rover-discovery | Land Rover Discovery / LR3 / LR4 | 1996-present |
-- [ ] land-rover-evoque | Range Rover Evoque | 2012-present |
-- [ ] land-rover-defender | Land Rover Defender | 2020-present |
-- [ ] porsche-macan | Porsche Macan | 2015-present |
-- [ ] porsche-911 | Porsche 911 | 1996-present |
-- [ ] porsche-boxster-cayman | Porsche Boxster / Cayman | 1997-present |
-- [ ] jaguar-x-type | Jaguar X-Type | 2002-2008 |
-- [ ] jaguar-s-type | Jaguar S-Type | 2000-2008 |
-- [ ] jaguar-xf | Jaguar XF | 2009-present |
-- [ ] jaguar-f-pace | Jaguar F-Pace | 2017-present |
-- [ ] mini-clubman | MINI Clubman | 2008-2024 |
-- [ ] fiat-500 | Fiat 500 | 2012-2019, 2024-present |
-- [ ] alfa-romeo-giulia | Alfa Romeo Giulia / Stelvio | 2017-present |
-- [ ] suzuki-sx4 | Suzuki SX4 | 2007-2013 |
-- [ ] suzuki-xl7 | Suzuki XL-7 | 2001-2009 |
-- [ ] saab-9-3 | Saab 9-3 | 1999-2011 |
-- [ ] saab-9-5 | Saab 9-5 | 1999-2011 |
-- [ ] scion-xa | Scion xA | 2004-2006 |
+- [ ] cadillac-xlr | Cadillac XLR | 2004-2009 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] cadillac-ct4 | Cadillac CT4 | 2020-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] buick-terraza | Buick Terraza | 2005-2007 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] chrysler-aspen | Chrysler Aspen | 2007-2009 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] chrysler-crossfire | Chrysler Crossfire | 2004-2008 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] chrysler-cirrus | Chrysler Cirrus | 1996-2000 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] chrysler-lhs | Chrysler LHS | 1996-2001 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] dodge-viper | Dodge Viper | 1996-2017 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] mitsubishi-montero | Mitsubishi Montero | 1996-2006 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] mitsubishi-montero-sport | Mitsubishi Montero Sport | 1997-2004 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] mitsubishi-eclipse-cross | Mitsubishi Eclipse Cross | 2018-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] land-rover-range-rover | Land Rover Range Rover | 1996-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] land-rover-discovery | Land Rover Discovery / LR3 / LR4 | 1996-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] land-rover-evoque | Range Rover Evoque | 2012-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] land-rover-defender | Land Rover Defender | 2020-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] porsche-macan | Porsche Macan | 2015-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] porsche-911 | Porsche 911 | 1996-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] porsche-boxster-cayman | Porsche Boxster / Cayman | 1997-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] jaguar-x-type | Jaguar X-Type | 2002-2008 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] jaguar-s-type | Jaguar S-Type | 2000-2008 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] jaguar-xf | Jaguar XF | 2009-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] jaguar-f-pace | Jaguar F-Pace | 2017-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] mini-clubman | MINI Clubman | 2008-2024 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] fiat-500 | Fiat 500 | 2012-2019, 2024-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] alfa-romeo-giulia | Alfa Romeo Giulia / Stelvio | 2017-present | CLAIMED by interactive session 2026-11-19 ET
+- [ ] suzuki-sx4 | Suzuki SX4 | 2007-2013 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] suzuki-xl7 | Suzuki XL-7 | 2001-2009 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] saab-9-3 | Saab 9-3 | 1999-2011 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] saab-9-5 | Saab 9-5 | 1999-2011 | CLAIMED by interactive session 2026-11-19 ET
+- [ ] scion-xa | Scion xA | 2004-2006 | CLAIMED by interactive session 2026-11-19 ET
 - [ ] scion-im | Scion iM / Toyota Corolla iM | 2016-2018 |
 - [ ] smart-fortwo | smart fortwo | 2008-2019 |
 
