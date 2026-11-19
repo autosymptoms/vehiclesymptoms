@@ -1,6 +1,11 @@
 # Estimator accuracy log (newest first)
 
 ## Run 2026-11-19 21:31 UTC started
+- Batch 1 (6 new jobs): tie rod end, CV axle, sway bar link, thermostat passed; strut/shock and radiator fan held with nulls (RLX aftermarket strut price; Camry OEM fan price; luxury fan hours).
+- Gaps vs live: radiator fan is too low at both ends for a full assembly ($140 only fits a motor-only repair; a BMW fan lists at $1,083 for the part alone; about $225–$1,300 fits). CV axle top ($825) misses dealer-parts jobs (Accord genuine shaft $1,084 list builds to about $1,340). Tie rod end top ($900) and thermostat top ($875) are too high: one outer end with alignment tops out near $500, and nothing built or benchmarked for a thermostat passes $747. Strut floor ($260) only fits one corner or truck rear shocks; a front pair starts near $375.
+- Pattern again: RepairPal assumes parts far above list (thermostat $421–$429 vs $18–$177 list; CV axle $1,075). Its tie rod headline ($1,401–$1,640) is inconsistent with its own per-year figures and was flagged, not relied on.
+- Reviewer changes: CV axle and sway bar link set to low confidence (high ends rest on one independent mechanic's blog; half the low ends are other makes).
+- Blocked/unusable: kbb.com repair-guide pages (mostly errors), turnermotorsport.com, ecstuning.com (intermittent), jdpower.com (intermittent), several NHTSA PDFs returned binary only.
 
 ## Run 2026-11-19 20:38 UTC finished 21:20 UTC (stopped: near the shared web search budget after two batches)
 - Totals: 12 jobs worked this run, 11 passed review and 1 held (head gasket). Overall: 13 of 42 jobs checked `[x]`, 1 held `[~]`, 28 not started. Labor rates untouched this run (still first pass, held).
