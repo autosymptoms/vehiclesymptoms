@@ -270,36 +270,36 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [ ] volvo-xc40 | Volvo XC40 | 2019-present | CLAIMED by interactive session 2026-11-19 ET
 - [ ] volvo-s40-v50 | Volvo S40 / V50 | 2000-2011 | CLAIMED by interactive session 2026-11-19 ET
 - [ ] volvo-s80 | Volvo S80 | 1999-2016 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] volvo-s90-v90 | Volvo S90 / V90 | 1997-1998, 2017-present |
-- [ ] volvo-c30 | Volvo C30 | 2008-2013 |
+- [ ] volvo-s90-v90 | Volvo S90 / V90 | 1997-1998, 2017-present | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] volvo-c30 | Volvo C30 | 2008-2013 | CLAIMED by scheduled run 2026-11-19 07:37 ET
 - [ ] polestar-2 | Polestar 2 | 2021-present | ev:true CLAIMED by interactive session 2026-11-19 ET
 - [ ] chevrolet-trailblazer-2021 | (covered by chevrolet-trailblazer; check 2021+ years) | |
-- [ ] chevrolet-tracker | Chevrolet Tracker | 1999-2004 |
-- [ ] chevrolet-lumina | Chevrolet Lumina | 1996-2001 |
-- [ ] chevrolet-astro | Chevrolet Astro | 1996-2005 |
-- [ ] chevrolet-prizm | Chevrolet Prizm / Geo Prizm | 1998-2002 |
-- [ ] chevrolet-metro | Chevrolet Metro / Geo Metro | 1998-2001 |
-- [ ] chevrolet-ssr | Chevrolet SSR | 2003-2006 |
+- [ ] chevrolet-tracker | Chevrolet Tracker | 1999-2004 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] chevrolet-lumina | Chevrolet Lumina | 1996-2001 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] chevrolet-astro | Chevrolet Astro | 1996-2005 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] chevrolet-prizm | Chevrolet Prizm / Geo Prizm | 1998-2002 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] chevrolet-metro | Chevrolet Metro / Geo Metro | 1998-2001 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] chevrolet-ssr | Chevrolet SSR | 2003-2006 | CLAIMED by scheduled run 2026-11-19 07:37 ET
 - [ ] chevrolet-caprice | Chevrolet Caprice | 1996 |
-- [ ] gmc-safari | GMC Safari | 1996-2005 |
-- [ ] gmc-sonoma | GMC Sonoma | 1996-2004 |
-- [ ] gmc-hummer-ev | GMC Hummer EV | 2022-present | ev:true
-- [ ] hummer-h2 | Hummer H2 | 2003-2009 |
-- [ ] hummer-h3 | Hummer H3 | 2006-2010 |
-- [ ] ford-c-max | Ford C-Max | 2013-2018 |
-- [ ] ford-transit-connect | Ford Transit Connect | 2010-2023 |
+- [ ] gmc-safari | GMC Safari | 1996-2005 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] gmc-sonoma | GMC Sonoma | 1996-2004 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] gmc-hummer-ev | GMC Hummer EV | 2022-present | ev:true CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] hummer-h2 | Hummer H2 | 2003-2009 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] hummer-h3 | Hummer H3 | 2006-2010 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] ford-c-max | Ford C-Max | 2013-2018 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] ford-transit-connect | Ford Transit Connect | 2010-2023 | CLAIMED by scheduled run 2026-11-19 07:37 ET
 - [ ] ford-probe | Ford Probe | 1996-1997 |
 - [ ] ford-f-450-f-550 | Ford F-450 / F-550 Super Duty | 1999-present | only if not covered
-- [ ] lincoln-mkt | Lincoln MKT | 2010-2019 |
-- [ ] lincoln-continental | Lincoln Continental | 1996-2002, 2017-2020 |
-- [ ] lincoln-mks | Lincoln MKS | 2009-2016 |
-- [ ] lincoln-mark-lt | Lincoln Mark LT | 2006-2008 |
-- [ ] cadillac-sts-seville | Cadillac Seville / STS | 1996-2011 |
-- [ ] cadillac-ct6 | Cadillac CT6 | 2016-2020 |
-- [ ] cadillac-xt6 | Cadillac XT6 | 2020-present |
-- [ ] cadillac-lyriq | Cadillac Lyriq | 2023-present | ev:true
-- [ ] cadillac-eldorado | Cadillac Eldorado | 1996-2002 |
-- [ ] cadillac-catera | Cadillac Catera | 1997-2001 |
+- [ ] lincoln-mkt | Lincoln MKT | 2010-2019 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] lincoln-continental | Lincoln Continental | 1996-2002, 2017-2020 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] lincoln-mks | Lincoln MKS | 2009-2016 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] lincoln-mark-lt | Lincoln Mark LT | 2006-2008 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] cadillac-sts-seville | Cadillac Seville / STS | 1996-2011 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] cadillac-ct6 | Cadillac CT6 | 2016-2020 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] cadillac-xt6 | Cadillac XT6 | 2020-present | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] cadillac-lyriq | Cadillac Lyriq | 2023-present | ev:true CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] cadillac-eldorado | Cadillac Eldorado | 1996-2002 | CLAIMED by scheduled run 2026-11-19 07:37 ET
+- [ ] cadillac-catera | Cadillac Catera | 1997-2001 | CLAIMED by scheduled run 2026-11-19 07:37 ET
 - [ ] cadillac-xlr | Cadillac XLR | 2004-2009 |
 - [ ] cadillac-ct4 | Cadillac CT4 | 2020-present |
 - [ ] buick-terraza | Buick Terraza | 2005-2007 |
