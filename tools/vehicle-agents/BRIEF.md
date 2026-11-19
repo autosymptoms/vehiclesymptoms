@@ -38,7 +38,7 @@ The repo is the vehiclesymptoms checkout you were given (run commands from its r
 
 ## Research and writing rules
 - **Lookup budget:** web searches are shared across all agents and capped per round. Use **at most 15 WebSearch calls in total**. Prefer WebFetch on known pages, such as carcomplaints.com/<Make>/<Model>/<year>/, nhtsa.gov/vehicle/<year>/<MAKE>/<MODEL>, repairpal.com/<make>/<model> and yourmechanic.com estimate pages.
-- **Never cite au7o.io.** It is AI-compiled, and anything sourced only to it will be deleted. Other AI-written content sites are also not acceptable sources.
+- **Never cite au7o.io or cherishyourcar.com.** Both are AI-compiled, and anything sourced only to it will be deleted. Other AI-written content sites are also not acceptable sources. recharged.com may be cited only for EV maintenance-cost figures, never as the only source for a problem.
 - If you can't find 3 real problems for the newest model years, end `years` at the last year that has them. Don't stretch issues into years with no evidence.
 - Use WebSearch and WebFetch. Good sources include NHTSA recalls and complaints, manufacturer TSBs, CarComplaints, Consumer Reports, RepairPal, YourMechanic, KBB, reputable owner forums and repair shops. Only include problems you found real evidence for. Never invent a problem, a year range or a price.
 - Write everything in **your own words**. Never copy sentences from sources.

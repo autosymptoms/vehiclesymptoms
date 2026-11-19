@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path0 = require('path');
 const R = path0.resolve(__dirname, '../../src');
-const bad = (u) => /au7o\.io/i.test(u);
+const bad = (u) => /au7o\.io|cherishyourcar\.com/i.test(u);
 const fixApi = (u) => {
   const m = u.match(/^https:\/\/api\.nhtsa\.gov\/(recalls\/recallsByVehicle|complaints\/complaintsByVehicle)\?(.*)$/);
   if (!m) return u;
