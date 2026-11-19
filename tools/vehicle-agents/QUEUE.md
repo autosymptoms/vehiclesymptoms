@@ -239,40 +239,40 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] acura-zdx | Acura ZDX | 2010-2013, 2024-present
 - [x] acura-cl | Acura CL | 1997-2003
 - [x] nissan-nv200 | Nissan NV200 | 2013-2021
-- [ ] nissan-nv | Nissan NV Cargo / Passenger | 2012-2021 | CLAIMED by interactive session 2026-11-19 ET
+- [x] nissan-nv | Nissan NV Cargo / Passenger | 2012-2021 |
 - [ ] nissan-240sx-300zx | (skip unless time) | |
-- [ ] infiniti-m-q70 | Infiniti M / Q70 | 2003-2019 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] infiniti-q60 | Infiniti Q60 / G37 coupe | 2014-2022 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] infiniti-qx4 | Infiniti QX4 | 1997-2003 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] hyundai-tiburon | Hyundai Tiburon | 1997-2008 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] hyundai-ioniq | Hyundai Ioniq (hatch) | 2017-2022 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] hyundai-ioniq-6 | Hyundai Ioniq 6 | 2023-present | ev:true CLAIMED by interactive session 2026-11-19 ET
-- [ ] hyundai-xg350 | Hyundai XG300 / XG350 | 2001-2005 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] kia-ev9 | Kia EV9 | 2024-present | ev:true CLAIMED by interactive session 2026-11-19 ET
-- [ ] kia-cadenza | Kia Cadenza | 2014-2020 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] kia-rondo | Kia Rondo | 2007-2010 | CLAIMED by interactive session 2026-11-19 ET
+- [x] infiniti-m-q70 | Infiniti M / Q70 | 2003-2019 |
+- [x] infiniti-q60 | Infiniti Q60 / G37 coupe | 2014-2022 |
+- [x] infiniti-qx4 | Infiniti QX4 | 1997-2003 |
+- [x] hyundai-tiburon | Hyundai Tiburon | 1997-2008 |
+- [x] hyundai-ioniq | Hyundai Ioniq (hatch) | 2017-2022 |
+- [x] hyundai-ioniq-6 | Hyundai Ioniq 6 | 2023-present | ev:true
+- [x] hyundai-xg350 | Hyundai XG300 / XG350 | 2001-2005 |
+- [x] kia-ev9 | Kia EV9 | 2024-present | ev:true
+- [x] kia-cadenza | Kia Cadenza | 2014-2020 |
+- [x] kia-rondo | Kia Rondo | 2007-2010 |
 - [ ] kia-borrego | Kia Borrego | 2009 |
-- [ ] kia-amanti | Kia Amanti | 2004-2009 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] kia-k900 | Kia K900 | 2015-2020 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] genesis-g80 | Genesis G80 | 2017-present | CLAIMED by interactive session 2026-11-19 ET
-- [ ] genesis-gv80 | Genesis GV80 | 2021-present | CLAIMED by interactive session 2026-11-19 ET
-- [ ] genesis-g90 | Genesis G90 | 2017-present | CLAIMED by interactive session 2026-11-19 ET
-- [ ] subaru-brz | Subaru BRZ | 2013-present | CLAIMED by interactive session 2026-11-19 ET
-- [ ] subaru-solterra | Subaru Solterra | 2023-present | ev:true CLAIMED by interactive session 2026-11-19 ET
-- [ ] mazda-cx-3 | Mazda CX-3 | 2016-2021 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] mazda-mazda5 | Mazda5 | 2006-2015 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] mazda-mazda2 | Mazda2 | 2011-2014 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] mazda-millenia | Mazda Millenia | 1996-2002 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] volkswagen-arteon | Volkswagen Arteon | 2019-2023 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] volkswagen-eos | Volkswagen Eos | 2007-2016 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] volkswagen-routan | Volkswagen Routan | 2009-2014 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] volkswagen-cabrio | Volkswagen Cabrio | 1996-2002 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] volvo-xc40 | Volvo XC40 | 2019-present | CLAIMED by interactive session 2026-11-19 ET
-- [ ] volvo-s40-v50 | Volvo S40 / V50 | 2000-2011 | CLAIMED by interactive session 2026-11-19 ET
-- [ ] volvo-s80 | Volvo S80 | 1999-2016 | CLAIMED by interactive session 2026-11-19 ET
+- [x] kia-amanti | Kia Amanti | 2004-2009 |
+- [x] kia-k900 | Kia K900 | 2015-2020 |
+- [x] genesis-g80 | Genesis G80 | 2017-present |
+- [x] genesis-gv80 | Genesis GV80 | 2021-present |
+- [x] genesis-g90 | Genesis G90 | 2017-present |
+- [x] subaru-brz | Subaru BRZ | 2013-present |
+- [x] subaru-solterra | Subaru Solterra | 2023-present | ev:true
+- [x] mazda-cx-3 | Mazda CX-3 | 2016-2021 |
+- [x] mazda-mazda5 | Mazda5 | 2006-2015 |
+- [x] mazda-mazda2 | Mazda2 | 2011-2014 |
+- [x] mazda-millenia | Mazda Millenia | 1996-2002 |
+- [x] volkswagen-arteon | Volkswagen Arteon | 2019-2023 |
+- [x] volkswagen-eos | Volkswagen Eos | 2007-2016 |
+- [x] volkswagen-routan | Volkswagen Routan | 2009-2014 |
+- [x] volkswagen-cabrio | Volkswagen Cabrio | 1996-2002 |
+- [x] volvo-xc40 | Volvo XC40 | 2019-present |
+- [x] volvo-s40-v50 | Volvo S40 / V50 | 2000-2011 |
+- [x] volvo-s80 | Volvo S80 | 1999-2016 |
 - [ ] volvo-s90-v90 | Volvo S90 / V90 | 1997-1998, 2017-present | CLAIMED by scheduled run 2026-11-19 07:37 ET
 - [ ] volvo-c30 | Volvo C30 | 2008-2013 | CLAIMED by scheduled run 2026-11-19 07:37 ET
-- [ ] polestar-2 | Polestar 2 | 2021-present | ev:true CLAIMED by interactive session 2026-11-19 ET
+- [x] polestar-2 | Polestar 2 | 2021-present | ev:true
 - [ ] chevrolet-trailblazer-2021 | (covered by chevrolet-trailblazer; check 2021+ years) | |
 - [ ] chevrolet-tracker | Chevrolet Tracker | 1999-2004 | CLAIMED by scheduled run 2026-11-19 07:37 ET
 - [ ] chevrolet-lumina | Chevrolet Lumina | 1996-2001 | CLAIMED by scheduled run 2026-11-19 07:37 ET
