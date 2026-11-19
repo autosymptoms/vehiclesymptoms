@@ -6,7 +6,7 @@ Daniel asked for this to run unattended every 4 hours. Each run should add as ma
 1. Attach and clone the repo autosymptoms/vehiclesymptoms (push access), then `npm ci`.
 2. Read `tools/vehicle-agents/BRIEF.md` (agent instructions) and `tools/vehicle-agents/QUEUE.md` (models in priority order).
 3. Make the gap-years scratch folder: `mkdir -p /tmp/vs-newgaps`.
-4. Skip any queue id that already has `src/deep/<id>.json`.
+4. Skip any queue id that already has `src/deep/<id>.json`. Also skip lines marked `CLAIMED by ...` unless the claim is more than 8 hours old. Before sending out a batch, mark its ids `CLAIMED by scheduled run <date time>` in QUEUE.md and push that change, so parallel sessions don't duplicate work.
 
 ## 2. Send out a batch
 - Start about 10 general-purpose agents in parallel, each with 2–3 models from the top of the queue.

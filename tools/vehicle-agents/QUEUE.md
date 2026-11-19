@@ -38,36 +38,36 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] infiniti-qx60 | Infiniti QX60 | 2013-present | 2013 JX35
 
 ## Next (most common first)
-- [ ] chevrolet-uplander | Chevrolet Uplander | 2005-2009 |
-- [ ] chevrolet-silverado-3500hd | Chevrolet Silverado 3500HD | 2001-present |
-- [ ] ram-3500 | Ram 3500 | 1996-present | Dodge Ram 3500 before 2010
+- [ ] chevrolet-uplander | Chevrolet Uplander | 2005-2009 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] chevrolet-silverado-3500hd | Chevrolet Silverado 3500HD | 2001-present | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] ram-3500 | Ram 3500 | 1996-present | Dodge Ram 3500 before 2010 CLAIMED by interactive session 2026-11-19 ~02:45 ET
 - [ ] ford-f-350-super-duty | Ford F-350 Super Duty | 1999-present | only if not already covered by the f-250 page
-- [ ] gmc-savana | GMC Savana | 1996-present |
-- [ ] gmc-jimmy | GMC Jimmy | 1996-2005 |
-- [ ] gmc-sierra-3500hd | GMC Sierra 3500HD | 2001-present |
-- [ ] chevrolet-spark | Chevrolet Spark | 2013-2022 |
-- [ ] chevrolet-aveo | Chevrolet Aveo | 2004-2011 |
-- [ ] chevrolet-blazer-ev | Chevrolet Blazer EV | 2024-present | ev:true
-- [ ] chevrolet-equinox-ev | Chevrolet Equinox EV | 2024-present | ev:true
-- [ ] ford-excursion | Ford Excursion | 2000-2005 |
-- [ ] ford-ecosport | Ford EcoSport | 2018-2022 |
-- [ ] ford-mustang-mach-e | Ford Mustang Mach-E | 2021-present | ev:true
-- [ ] ford-freestar | Ford Freestar | 2004-2007 |
-- [ ] ford-freestyle-taurus-x | Ford Freestyle / Taurus X | 2005-2009 |
-- [ ] ford-contour | Ford Contour | 1996-2000 |
-- [ ] ford-thunderbird | Ford Thunderbird | 1996-1997, 2002-2005 |
-- [ ] ford-f-150-lightning | Ford F-150 Lightning | 2022-present | ev:true
-- [ ] lincoln-mkx-nautilus | Lincoln MKX / Nautilus | 2007-present |
-- [ ] lincoln-aviator | Lincoln Aviator | 2003-2005, 2020-present |
-- [ ] lincoln-corsair-mkc | Lincoln MKC / Corsair | 2015-present |
-- [ ] lincoln-ls | Lincoln LS | 2000-2006 |
-- [ ] mercury-milan | Mercury Milan | 2006-2011 |
-- [ ] mercury-mariner | Mercury Mariner | 2005-2011 |
-- [ ] mercury-villager | Mercury Villager | 1996-2002 |
-- [ ] toyota-solara | Toyota Camry Solara | 1999-2008 |
-- [ ] toyota-fj-cruiser | Toyota FJ Cruiser | 2007-2014 |
-- [ ] toyota-echo | Toyota Echo | 2000-2005 |
-- [ ] toyota-celica | Toyota Celica | 1996-2005 |
+- [ ] gmc-savana | GMC Savana | 1996-present | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] gmc-jimmy | GMC Jimmy | 1996-2005 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] gmc-sierra-3500hd | GMC Sierra 3500HD | 2001-present | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] chevrolet-spark | Chevrolet Spark | 2013-2022 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] chevrolet-aveo | Chevrolet Aveo | 2004-2011 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] chevrolet-blazer-ev | Chevrolet Blazer EV | 2024-present | ev:true CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] chevrolet-equinox-ev | Chevrolet Equinox EV | 2024-present | ev:true CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] ford-excursion | Ford Excursion | 2000-2005 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] ford-ecosport | Ford EcoSport | 2018-2022 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] ford-mustang-mach-e | Ford Mustang Mach-E | 2021-present | ev:true CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] ford-freestar | Ford Freestar | 2004-2007 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] ford-freestyle-taurus-x | Ford Freestyle / Taurus X | 2005-2009 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] ford-contour | Ford Contour | 1996-2000 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] ford-thunderbird | Ford Thunderbird | 1996-1997, 2002-2005 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] ford-f-150-lightning | Ford F-150 Lightning | 2022-present | ev:true CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] lincoln-mkx-nautilus | Lincoln MKX / Nautilus | 2007-present | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] lincoln-aviator | Lincoln Aviator | 2003-2005, 2020-present | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] lincoln-corsair-mkc | Lincoln MKC / Corsair | 2015-present | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] lincoln-ls | Lincoln LS | 2000-2006 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] mercury-milan | Mercury Milan | 2006-2011 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] mercury-mariner | Mercury Mariner | 2005-2011 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] mercury-villager | Mercury Villager | 1996-2002 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] toyota-solara | Toyota Camry Solara | 1999-2008 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] toyota-fj-cruiser | Toyota FJ Cruiser | 2007-2014 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] toyota-echo | Toyota Echo | 2000-2005 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
+- [ ] toyota-celica | Toyota Celica | 1996-2005 | CLAIMED by interactive session 2026-11-19 ~02:45 ET
 - [ ] toyota-land-cruiser | Toyota Land Cruiser | 1996-present |
 - [ ] toyota-gr86 | Toyota 86 / GR86 (incl. Scion FR-S) | 2013-present |
 - [ ] toyota-bz4x | Toyota bZ4X | 2023-present | ev:true
