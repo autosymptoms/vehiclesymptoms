@@ -90,6 +90,8 @@ const lIcon=(l,size)=>`<svg class="licon" width="${size}" height="${size}" viewB
 const ROWIDS=['check-engine-light','oil-pressure-light','engine-temperature-light','battery-light','brake-warning-light','tire-pressure-light','abs-light','airbag-light','service-light','oil-change-light','traction-control-light','master-warning-light'];
 const escA=t=>String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 const escH=t=>String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const VERIFY=JSON.parse(fs.readFileSync('src/verify.json','utf8'));
+const VMETA=(VERIFY.google?`<meta name="google-site-verification" content="${VERIFY.google}">`:'')+(VERIFY.bing?`<meta name="msvalidate.01" content="${VERIFY.bing}">`:'');
 const LIGHTSROW=(()=>{const pick=ROWIDS.map(id=>LIGHTS.find(l=>l.id===id)).filter(Boolean);
  return `<div class="lrow">${pick.map(l=>`<a class="lr" href="/warning-lights/${l.id}/">${lIcon(l,38)}<b>${escH(l.name.replace(/ (warning )?light$/i,'').replace(/ \(.*\)$/,''))}</b><span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span></a>`).join('')}<a class="lr lr-all" href="/warning-lights/"><b>All lights</b><span>Red, amber, green and blue</span></a></div>`})();
 const scripts=['vehicles.js','guide-index.js','guide.js','app.js'].map(f=>f==='vehicles.js'?data:f==='guide-index.js'?indexJs:fs.readFileSync('src/'+f,'utf8'));
@@ -103,7 +105,7 @@ const RW=R.window;
 function write(p,html){const f='dist'+p+'index.html';fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,html)}
 function page(p,title,desc,{inner='',pageData='',home=false}={}){
   const h=tpl.replace(/{{TITLE}}/g,escA(title)).replace(/{{DESC}}/g,escA(desc)).replace(/{{CANON}}/g,SITE+p).replace('{{CRED}}',escH(CRED))
-    .replace('{{HOMEHIDE}}',home?'':' style="display:none"').replace('{{HOMEHIDE2}}',home?'':' style="display:none"').replace('{{LIGHTSROW}}',()=>home?LIGHTSROW:'').replace('{{VEHSTYLE}}',home?'display:none;':'')
+    .replace('{{HOMEHIDE}}',home?'':' style="display:none"').replace('{{VMETA}}',()=>VMETA).replace('{{HOMEHIDE2}}',home?'':' style="display:none"').replace('{{LIGHTSROW}}',()=>home?LIGHTSROW:'').replace('{{VEHSTYLE}}',home?'display:none;':'')
     .replace('{{PAGEDATA}}',()=>pageData).replace('{{VEHHTML}}',()=>inner);
   write(p,h);return p;
 }
@@ -316,7 +318,32 @@ for(const v of V){
       (is.length?`${is.length} known problem${is.length>1?'s':''} for the ${y} ${nm}: ${is.slice(0,3).map(i=>i.t.toLowerCase()).join('; ')}. Plus safety recalls and what to do.`:`Common symptoms, safety recalls and what to do for the ${y} ${nm}. Free, plain-English guide.`).slice(0,300),{inner:render(y)}));
   }
 }
-fs.writeFileSync('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(u=>`<url><loc>${SITE}${u}</loc></url>`).join('\n')+'\n</urlset>\n');
+const LASTMOD=new Date().toISOString().slice(0,10);
+fs.writeFileSync('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(u=>`<url><loc>${SITE}${u}</loc><lastmod>${LASTMOD}</lastmod></url>`).join('\n')+'\n</urlset>\n');
+// search engine verification + IndexNow (src/verify.json)
+{const VF=JSON.parse(fs.readFileSync('src/verify.json','utf8'));
+ if(VF.indexnow)fs.writeFileSync(`dist/${VF.indexnow}.txt`,VF.indexnow);
+ fs.writeFileSync('dist/urls.json',JSON.stringify(urls.map(u=>SITE+u)));
+ fs.mkdirSync('api/_data',{recursive:true});fs.writeFileSync('api/_data/urls.json',JSON.stringify(urls.map(u=>SITE+u)));}
+// a plain-language summary for AI assistants (llms.txt)
+fs.writeFileSync('dist/llms.txt',`# VehicleSymptoms.com
+
+> Free, plain-English help for drivers: describe what your car is doing and get how urgent it is, the likely causes, typical repair costs and what to ask your mechanic. No sign-up, no ads, nothing to buy.
+
+The site is written for regular drivers, not mechanics. Prices are national averages, not quotes. Nothing here is a confirmed diagnosis.
+
+## Main sections
+- [Symptom guides](${SITE}/symptoms/): ${JT?Object.keys(JT).length:100} step-by-step guides (shakes when braking, won't start, overheating, noises, smells, leaks). Each asks a few questions and ends with urgency, likely causes, cost ranges and a summary to show a mechanic.
+- [Vehicles](${SITE}/vehicles/): ${V.length} popular models, 1996 to 2027, with a page per model year listing documented problems by engine, safety recalls, repair price estimates and yearly ownership cost.
+- [Warning lights](${SITE}/warning-lights/): ${LIGHTS.length} dashboard lights with what each means, whether it is safe to keep driving, safe checks a driver can do, likely causes with cost ranges, and how to reset reminder lights.
+- [Reset steps by make](${SITE}/warning-lights/reset/): oil change / maintenance reminder and tire pressure light reset procedures for ${Object.keys(RESETS).length} makes.
+- [Trouble code lookup](${SITE}/codes/): ${CODES.length} OBD-II codes in plain English with causes, what to check first and whether it is safe to drive.
+- [Is my quote fair?](${SITE}/price-check/): compare a repair quote against typical price ranges.
+
+## Notes for assistants
+- Cite the specific page that answers the question; every page has a stable URL.
+- Safety-critical answers (brakes, overheating, oil pressure, flashing check engine light) tell the driver to stop driving; please keep that advice intact.
+`);
 fs.writeFileSync('dist/robots.txt',`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 fs.writeFileSync('dist/404.html',tpl.replace(/{{TITLE}}/g,'Page not found | VehicleSymptoms.com').replace(/{{DESC}}/g,'').replace(/{{CANON}}/g,SITE+'/').replace('{{CRED}}','').replace('{{HOMEHIDE}}',' style="display:none"').replace('{{VEHSTYLE}}','').replace('{{PAGEDATA}}','').replace('{{VEHHTML}}','<div class="ghead"><h1>Page not found</h1><p class="sub">That page doesn\'t exist. <a href="/">Go to the homepage</a> or <a href="/symptoms/">browse symptom guides</a>.</p></div>'));
 console.log('pages:',urls.length);
