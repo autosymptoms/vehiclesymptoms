@@ -156,36 +156,36 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] buick-rainier | Buick Rainier | 2004-2007 |
 - [x] buick-envision | Buick Envision | 2016-present |
 - [x] pontiac-bonneville | Pontiac Bonneville | 1996-2005 |
-- [ ] pontiac-montana | Pontiac Montana / Trans Sport | 1997-2009 |
-- [ ] pontiac-sunfire | Pontiac Sunfire | 1996-2005 |
-- [ ] pontiac-aztek | Pontiac Aztek | 2001-2005 |
-- [ ] pontiac-firebird | Pontiac Firebird | 1996-2002 |
-- [ ] saturn-aura | Saturn Aura | 2007-2009 |
-- [ ] saturn-outlook | Saturn Outlook | 2007-2010 |
-- [ ] saturn-l-series | Saturn L-Series | 2000-2005 |
-- [ ] oldsmobile-alero | Oldsmobile Alero | 1999-2004 |
-- [ ] oldsmobile-intrigue | Oldsmobile Intrigue | 1998-2002 |
-- [ ] oldsmobile-silhouette | Oldsmobile Silhouette | 1997-2004 |
-- [ ] plymouth-voyager | Plymouth Voyager / Grand Voyager | 1996-2000 |
-- [ ] chrysler-sebring | Chrysler Sebring | 1996-2010 |
-- [ ] chrysler-concorde | Chrysler Concorde | 1996-2004 |
-- [ ] dodge-intrepid | Dodge Intrepid | 1996-2004 |
-- [ ] dodge-stratus | Dodge Stratus | 1996-2006 |
-- [ ] dodge-avenger | Dodge Avenger | 2008-2014 |
-- [ ] dodge-nitro | Dodge Nitro | 2007-2011 |
-- [ ] dodge-dart | Dodge Dart | 2013-2016 |
-- [ ] dodge-hornet | Dodge Hornet | 2023-present |
-- [ ] dodge-magnum | Dodge Magnum | 2005-2008 |
-- [ ] ram-promaster | Ram ProMaster | 2014-present |
-- [ ] ram-promaster-city | Ram ProMaster City | 2015-2022 |
-- [ ] jeep-commander | Jeep Commander | 2006-2010 |
-- [ ] jeep-grand-wagoneer-wagoneer | Jeep Wagoneer / Grand Wagoneer | 2022-present |
-- [ ] mitsubishi-outlander | Mitsubishi Outlander | 2003-present |
-- [ ] mitsubishi-outlander-sport | Mitsubishi Outlander Sport | 2011-present |
-- [ ] mitsubishi-lancer | Mitsubishi Lancer | 2002-2017 |
-- [ ] mitsubishi-galant | Mitsubishi Galant | 1996-2012 |
-- [ ] mitsubishi-eclipse | Mitsubishi Eclipse | 1996-2012 |
-- [ ] mitsubishi-mirage | Mitsubishi Mirage | 1997-2002, 2014-present |
+- [ ] pontiac-montana | Pontiac Montana / Trans Sport | 1997-2009 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] pontiac-sunfire | Pontiac Sunfire | 1996-2005 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] pontiac-aztek | Pontiac Aztek | 2001-2005 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] pontiac-firebird | Pontiac Firebird | 1996-2002 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] saturn-aura | Saturn Aura | 2007-2009 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] saturn-outlook | Saturn Outlook | 2007-2010 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] saturn-l-series | Saturn L-Series | 2000-2005 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] oldsmobile-alero | Oldsmobile Alero | 1999-2004 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] oldsmobile-intrigue | Oldsmobile Intrigue | 1998-2002 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] oldsmobile-silhouette | Oldsmobile Silhouette | 1997-2004 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] plymouth-voyager | Plymouth Voyager / Grand Voyager | 1996-2000 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] chrysler-sebring | Chrysler Sebring | 1996-2010 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] chrysler-concorde | Chrysler Concorde | 1996-2004 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] dodge-intrepid | Dodge Intrepid | 1996-2004 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] dodge-stratus | Dodge Stratus | 1996-2006 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] dodge-avenger | Dodge Avenger | 2008-2014 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] dodge-nitro | Dodge Nitro | 2007-2011 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] dodge-dart | Dodge Dart | 2013-2016 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] dodge-hornet | Dodge Hornet | 2023-present | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] dodge-magnum | Dodge Magnum | 2005-2008 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] ram-promaster | Ram ProMaster | 2014-present | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] ram-promaster-city | Ram ProMaster City | 2015-2022 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] jeep-commander | Jeep Commander | 2006-2010 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] jeep-grand-wagoneer-wagoneer | Jeep Wagoneer / Grand Wagoneer | 2022-present | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] mitsubishi-outlander | Mitsubishi Outlander | 2003-present | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] mitsubishi-outlander-sport | Mitsubishi Outlander Sport | 2011-present | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] mitsubishi-lancer | Mitsubishi Lancer | 2002-2017 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] mitsubishi-galant | Mitsubishi Galant | 1996-2012 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] mitsubishi-eclipse | Mitsubishi Eclipse | 1996-2012 | CLAIMED by interactive session 2026-11-19 06:30 ET
+- [ ] mitsubishi-mirage | Mitsubishi Mirage | 1997-2002, 2014-present | CLAIMED by interactive session 2026-11-19 06:30 ET
 - [ ] mitsubishi-endeavor | Mitsubishi Endeavor | 2004-2011 |
 - [ ] tesla-model-s | Tesla Model S | 2012-present | ev:true
 - [ ] tesla-model-x | Tesla Model X | 2016-present | ev:true
