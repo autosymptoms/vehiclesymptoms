@@ -34,8 +34,8 @@ The repo is the vehiclesymptoms checkout you were given (run commands from its r
    - **Pricing standard (the site's "Is my quote fair?" price check uses these numbers):**
      - Aim for at least 80% of non-recall issues priced. Under 50% means the model is held back.
      - Price the actual repair, not just a diagnosis, whenever any source gives a repair cost. Use a diagnosis-only price only when the fix truly depends on what the shop finds, and say so in `note`.
-     - Good price sources, best first: YourMechanic or RepairPal estimate pages for this model, KBB service pricing, owner-reported costs (CarComplaints, NHTSA complaints, forums), a twin or sister model that shares the part (say which in `note`), then OEM or retail parts prices plus published labor time.
-     - When a source gives only a total, split it into parts and hours so that hours × $120–160 plus parts lands near that total, and put the source's own figure in `note` (e.g. "RepairPal: $410–$520 total").
+     - Build prices the same way the site's estimator work does: **parts** from at least one parts retailer or OEM parts catalog for this model (low = quality aftermarket, high = OEM), and **labor hours** from a source that states a time (manufacturer bulletins or recall notices, parts-maker install guides, shop price pages). Cite those URLs.
+     - Other estimators (RepairPal, YourMechanic, KBB, Jerry) are a cross-check. Put their total in `note` (e.g. "RepairPal: $410–$520 total"). Use one as the basis only when no parts-plus-labor source can be found, and say so in `note`. Owner-reported costs (CarComplaints, NHTSA complaints, forums) are good supporting evidence. A twin model that shares the part is fine; say which in `note`.
      - Never write a price with no source behind it. Never label a guess as an estimate to get around this; leave the issue unpriced instead.
      - Do not cite AI-compiled labor sites (e.g. openlaborproject.com).
 3. **`src/own/<id>.json`**: `{id, ev:false, annual:{amount, label, src}, maint:[...]}`
