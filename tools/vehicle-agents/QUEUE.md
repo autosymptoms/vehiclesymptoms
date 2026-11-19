@@ -370,7 +370,7 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] saturn-relay | Saturn Relay | 2005-2007 | 
 - [x] chrysler-voyager | Chrysler Voyager | 2000-2003, 2020-2026 | gap 2004-2019
 - [x] toyota-tercel | Toyota Tercel | 1996-1998 | 
-- [~] toyota-mr2-spyder | Toyota MR2 Spyder | 2000-2005 | redo: draft priced only 6 of 19 problems (RepairPal estimate pages had no figures); draft saved outside repo CLAIMED by scheduled run 2026-11-19 18:20 UTC
+- [x] toyota-mr2-spyder | Toyota MR2 Spyder | 2000-2005 |
 - [x] isuzu-axiom | Isuzu Axiom | 2002-2004 | 
 - [x] hyundai-equus | Hyundai Equus | 2011-2016 | 
 - [x] buick-envista | Buick Envista | 2024-present | 
@@ -394,33 +394,33 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] buick-riviera | Buick Riviera | 1996-1999 | 
 - [x] plymouth-breeze | Plymouth Breeze | 1996-2000 | 
 - [x] oldsmobile-eighty-eight | Oldsmobile Eighty-Eight / LSS | 1996-1999 | 
-- [ ] lincoln-mark-viii | Lincoln Mark VIII | 1996-1998 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] nissan-200sx | Nissan 200SX | 1996-1998 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] volkswagen-phaeton | Volkswagen Phaeton | 2004-2006 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] toyota-crown-signia | Toyota Crown Signia | 2025-present |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] volkswagen-id-buzz | Volkswagen ID. Buzz | 2025-present | ev:true; only if 3+ documented problems CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] nissan-240sx | Nissan 240SX | 1996-1998 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] mitsubishi-3000gt | Mitsubishi 3000GT | 1996-1999 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] toyota-previa | Toyota Previa | 1996-1997 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] toyota-t100 | Toyota T100 | 1996-1998 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] suzuki-esteem | Suzuki Esteem | 1996-2002 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] suzuki-swift | Suzuki Swift | 1996-2001 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] suzuki-sidekick | Suzuki Sidekick / Vitara | 1996-1998 | Vitara 1999+ is on suzuki-grand-vitara CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] daewoo-nubira | Daewoo Nubira | 1999-2002 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] daewoo-leganza | Daewoo Leganza | 1999-2002 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] mercury-tracer | Mercury Tracer | 1996-1999 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] buick-skylark | Buick Skylark | 1996-1998 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] oldsmobile-cutlass | Oldsmobile Cutlass | 1997-1999 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] oldsmobile-achieva | Oldsmobile Achieva | 1996-1998 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] saturn-astra | Saturn Astra | 2008-2009 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] saab-9-2x | Saab 9-2X | 2005-2006 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] cadillac-elr | Cadillac ELR | 2014-2016 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] honda-del-sol | Honda del Sol | 1996-1997 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] acura-nsx | Acura NSX | 1996-2005, 2017-2022 | gap 2006-2016 CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] infiniti-q45 | Infiniti Q45 | 1996-2006 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] infiniti-j30 | Infiniti J30 | 1996-1997 |  CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] mitsubishi-i-miev | Mitsubishi i-MiEV | 2012-2017 | ev:true CLAIMED by scheduled run 2026-11-19 18:20 UTC
-- [ ] chevrolet-city-express | Chevrolet City Express | 2015-2018 | NV200 twin CLAIMED by scheduled run 2026-11-19 18:20 UTC
+- [~] lincoln-mark-viii | Lincoln Mark VIII | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [~] nissan-200sx | Nissan 200SX | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [x] volkswagen-phaeton | Volkswagen Phaeton | 2004-2006 |
+- [~] toyota-crown-signia | Toyota Crown Signia | 2025-present | not ready: only 2-3 recalls and scattered single complaints for 2025, none for 2026; retry mid-2027
+- [~] volkswagen-id-buzz | Volkswagen ID. Buzz | 2025-present | not ready: 2 recalls and ~12 unverified complaints for 2025; retry mid-2027
+- [~] nissan-240sx | Nissan 240SX | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [x] mitsubishi-3000gt | Mitsubishi 3000GT | 1996-1999 |
+- [~] toyota-previa | Toyota Previa | 1996-1997 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [~] toyota-t100 | Toyota T100 | 1996-1998 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [x] suzuki-esteem | Suzuki Esteem | 1996-2002 |
+- [x] suzuki-swift | Suzuki Swift | 1996-2001 |
+- [x] suzuki-sidekick | Suzuki Sidekick / Vitara | 1996-1998 | Vitara 1999+ is on suzuki-grand-vitara
+- [x] daewoo-nubira | Daewoo Nubira | 1999-2002 |
+- [x] daewoo-leganza | Daewoo Leganza | 1999-2002 |
+- [x] mercury-tracer | Mercury Tracer | 1996-1999 |
+- [x] buick-skylark | Buick Skylark | 1996-1998 |
+- [x] oldsmobile-cutlass | Oldsmobile Cutlass | 1997-1999 |
+- [x] oldsmobile-achieva | Oldsmobile Achieva | 1996-1998 |
+- [x] saturn-astra | Saturn Astra | 2008-2009 |
+- [x] saab-9-2x | Saab 9-2X | 2005-2006 |
+- [x] cadillac-elr | Cadillac ELR | 2014-2016 | gap 2015 (not built)
+- [~] honda-del-sol | Honda del Sol | 1996-1997 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [x] acura-nsx | Acura NSX | 1996-2005, 2017-2022 | published 1996-2005, 2017-2021 (no 2022 evidence)
+- [~] infiniti-q45 | Infiniti Q45 | 1996-2006 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [~] infiniti-j30 | Infiniti J30 | 1996-1997 | redo: draft priced under half its problems (fetch limit hit before pricing); redo pricing pass
+- [x] mitsubishi-i-miev | Mitsubishi i-MiEV | 2012-2017 | ev:true; gaps 2013, 2015 (not sold in US)
+- [x] chevrolet-city-express | Chevrolet City Express | 2015-2018 | NV200 twin
 
 ## Completeness check per make
 Once the lists above are done, go make by make (every brand with US sales since 1996). Compare its US model lineup for each year 1996–2027 against `src/deep/`, and queue any model with meaningful US sales that is still missing. Separate trims and body styles of the same model (e.g. Camry Solara is separate, but Camry Hybrid is not) only when they're sold and recalled as a separate model.
