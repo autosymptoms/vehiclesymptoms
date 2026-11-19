@@ -34,14 +34,14 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] mazda-mx-5-miata | Mazda MX-5 Miata | 1996-present | check 1998 gap
 - [x] mazda-tribute | Mazda Tribute | 2001-2011 |
 - [x] acura-tsx | Acura TSX | 2004-2014 |
-- [~] acura-tlx | Acura TLX | 2015-present | draft held back: acura-tl already covers 2015+ TLX years; merge TLX issues into acura-tl instead of a separate page
+- [~] acura-tlx | Acura TLX | 2015-present | draft held back: acura-tl already covers 2015+ TLX years; merge TLX issues into acura-tl instead of a separate page CLAIMED by interactive session 2026-11-19 11:15 ET
 - [x] infiniti-qx60 | Infiniti QX60 | 2013-present | 2013 JX35
 
 ## Next (most common first)
 - [x] chevrolet-uplander | Chevrolet Uplander | 2005-2009 |
 - [x] chevrolet-silverado-3500hd | Chevrolet Silverado 3500HD | 2001-present |
 - [x] ram-3500 | Ram 3500 | 1996-present | Dodge Ram 3500 before 2010
-- [ ] ford-f-350-super-duty | Ford F-350 Super Duty | 1999-present | only if not already covered by the f-250 page
+- [ ] ford-f-350-super-duty | Ford F-350 Super Duty | 1999-present | only if not already covered by the f-250 page CLAIMED by interactive session 2026-11-19 11:15 ET
 - [x] gmc-savana | GMC Savana | 1996-present |
 - [x] gmc-jimmy | GMC Jimmy | 1996-2005 |
 - [x] gmc-sierra-3500hd | GMC Sierra 3500HD | 2001-present |
@@ -271,7 +271,7 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] volvo-s40-v50 | Volvo S40 / V50 | 2000-2011 |
 - [x] volvo-s80 | Volvo S80 | 1999-2016 |
 - [x] volvo-s90-v90 | Volvo S90 / V90 | 1997-1998, 2017-present | published to 2023; 2024-2025 need sourced problems
-- [~] volvo-c30 | Volvo C30 | 2008-2013 | redo: draft priced only 10 of 23 problems (RepairPal estimate pages blocked)
+- [~] volvo-c30 | Volvo C30 | 2008-2013 | redo: draft priced only 10 of 23 problems (RepairPal estimate pages blocked) CLAIMED by interactive session 2026-11-19 11:15 ET
 - [x] polestar-2 | Polestar 2 | 2021-present | ev:true
 - [ ] chevrolet-trailblazer-2021 | (covered by chevrolet-trailblazer; check 2021+ years) | |
 - [x] chevrolet-tracker | Chevrolet Tracker | 1999-2004 |
@@ -289,7 +289,7 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] ford-c-max | Ford C-Max | 2013-2018 |
 - [x] ford-transit-connect | Ford Transit Connect | 2010-2023 |
 - [x] ford-probe | Ford Probe | 1996-1997 |
-- [ ] ford-f-450-f-550 | Ford F-450 / F-550 Super Duty | 1999-present | only if not covered
+- [ ] ford-f-450-f-550 | Ford F-450 / F-550 Super Duty | 1999-present | only if not covered CLAIMED by interactive session 2026-11-19 11:15 ET
 - [x] lincoln-mkt | Lincoln MKT | 2010-2019 |
 - [x] lincoln-continental | Lincoln Continental | 1996-2002, 2017-2020 |
 - [x] lincoln-mks | Lincoln MKS | 2009-2016 |
@@ -330,7 +330,7 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] saab-9-3 | Saab 9-3 | 1999-2011 |
 - [x] saab-9-5 | Saab 9-5 | 1999-2011 |
 - [x] scion-xa | Scion xA | 2004-2006 |
-- [~] scion-im | Scion iM / Toyota Corolla iM | 2016-2018 | redo: draft priced only 2 of 16 problems, empty maintenance, no 2018 evidence (budget ran out)
+- [~] scion-im | Scion iM / Toyota Corolla iM | 2016-2018 | redo: draft priced only 2 of 16 problems, empty maintenance, no 2018 evidence (budget ran out) CLAIMED by interactive session 2026-11-19 11:15 ET
 - [x] smart-fortwo | smart fortwo | 2008-2019 | published 2008-2017; EQ fortwo 2018-2019 still needs sourced problems
 
 ## Completeness check per make
