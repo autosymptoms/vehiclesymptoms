@@ -694,3 +694,13 @@ details.rmore h4{margin:6px 0;font-size:14px}
 .hero .search input::placeholder{color:#7A8794;opacity:1}
 .search form .btn{border-radius:12px}
 @media (max-width:560px){.search form{gap:10px}}
+
+/* download this page */
+.vh-btns{display:flex;gap:8px;flex-wrap:wrap}
+.savecar.dl{background:var(--blue);border-color:var(--blue);color:#fff}
+.savecar:disabled,.dlbox .btn:disabled{opacity:.7;cursor:default}
+.dlbox{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:18px 0;box-shadow:var(--shadow)}
+.dlbox b{display:block;font-size:16px;margin-bottom:3px}.dlbox span{color:var(--body2);font-size:14px;line-height:1.5}
+.dlbox .btn{flex:none}
+@media (max-width:640px){.dlbox{flex-direction:column;align-items:stretch}}
+@media print{.vh-btns,.dlbox{display:none!important}}

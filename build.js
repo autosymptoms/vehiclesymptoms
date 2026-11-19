@@ -76,7 +76,8 @@ fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');
   "(function(){const c={};window.VS_LOAD=function(id){const v=(window.VEHICLES||[]).find(x=>x.id===id);if(!v)return Promise.resolve(null);if(v._full)return Promise.resolve(v);"+
   "return c[id]=c[id]||fetch('/data/v/'+id+'.json').then(r=>r.json()).then(d=>{Object.assign(v,d,{_full:true});return v}).catch(()=>v)}})();\n");
  fs.mkdirSync('dist/data/v',{recursive:true});for(const v of V)fs.writeFileSync('dist/data/v/'+v.id+'.json',JSON.stringify({issues:v.issues,own:v.own||null,engines:v.engines||[]}));}fs.writeFileSync('dist/guide-index.js',indexJs);
-for(const f of ['app.js','guide.js','site.css'])fs.copyFileSync('src/'+f,'dist/'+f);
+for(const f of ['app.js','guide.js','site.css','pdf.js'])fs.copyFileSync('src/'+f,'dist/'+f);
+fs.mkdirSync('dist/vendor',{recursive:true});fs.copyFileSync('src/vendor/jspdf.umd.min.js','dist/vendor/jspdf.umd.min.js');
 fs.mkdirSync('dist/email',{recursive:true});for(const f of fs.readdirSync('src/email'))fs.copyFileSync('src/email/'+f,'dist/email/'+f);
 // ---------- warning lights data (src/lights.js + optional depth in src/lights-deep.json) ----------
 const LIGHTS=require('./src/lights.js');

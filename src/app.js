@@ -68,6 +68,7 @@ document.getElementById('mgrid').outerHTML=`<div id="mgrid">${makes.map(m=>`<det
 const money=n=>'$'+n.toLocaleString('en-US');
 const costLine=c=>c&&c.free?`<div class="cost"><div class="cost-top"><span class="cost-l">Typical repair cost</span><span class="cost-v">No charge under recall</span></div><div class="cost-job">${esc(c.job)}${c.note?`<br><span class="cost-note">${esc(c.note)}</span>`:''}</div></div>`:c?`<div class="cost"><div class="cost-top"><span class="cost-l">Typical repair cost</span><span class="cost-v">${money(c.lo)}–${money(c.hi)}</span></div><div class="cost-job">${esc(c.job)}${c.recall?' <span class="rc">May be free under a recall or extended warranty.</span>':''}${c.note?`<br><span class="cost-note">${esc(c.note)}</span>`:''}</div></div>`:'';
 const PRICE_DISC='Estimates only, not a quote. Ranges are averages built from typical parts prices plus standard book labor time at $120–$160 an hour, what about half of U.S. repair shops charge. Your price will depend on your area, the shop, the parts used and what the shop finds. Dealers often charge more. Diagnosis and taxes are extra.';
+const SNAP_NOTE="The problems here are the ones we've documented so far, not a complete list or a reliability rating. Prices are U.S. national averages researched in November 2026: typical parts plus standard labor time at $120–$160 an hour. Diagnosis, taxes and shop fees are extra, and your area, engine and trim can change the price.";
 const rngTxt=c=>money(c.lo)+'–'+money(c.hi);
 function priceGuide(list,name){
   const seen=new Set(),uniq=list.filter(i=>i.cost&&!seen.has(i.cost.job)&&seen.add(i.cost.job));
@@ -92,7 +93,7 @@ function snapshot(v,year,list,name){
   tiles.push(`<div class="tile" id="recTile"><span class="tl">Safety recalls</span><span class="tv">${year?'…':'—'}</span><span class="tn">${year?'Checking NHTSA':'Pick a year'}</span></div>`);
   if(big)tiles.push(`<div class="tile"><span class="tl">Highest-cost issue covered here</span><span class="tv sm">${rngTxt(big.cost)}</span><span class="tn">${esc(big.cost.job)}</span></div>`);
   const m=own&&own.maint&&own.maint.length?`<div class="maint"><h3>Routine maintenance costs <small>(model-wide, not specific to one year or engine)</small></h3><div class="mt">${own.maint.map(x=>`<div class="mrow"><div><b>${esc(x.job)}</b><span>${esc(x.every)}${x.note?' · '+esc(x.note):''}</span></div><span class="mv">${rngTxt(x)}</span></div>`).join('')}</div></div>`:'';
-  return `<section class="snap"><div class="snap-h"><h2>Ownership snapshot</h2><span class="pg-badge">Averages, not quotes</span></div><div class="tiles">${tiles.join('')}</div>${m}<p class="snap-note">The problems here are the ones we've documented so far, not a complete list or a reliability rating. Prices are U.S. national averages researched in November 2026: typical parts plus standard labor time at $120–$160 an hour. Diagnosis, taxes and shop fees are extra, and your area, engine and trim can change the price.</p></section>`;
+  return `<section class="snap"><div class="snap-h"><h2>Ownership snapshot</h2><span class="pg-badge">Averages, not quotes</span></div><div class="tiles">${tiles.join('')}</div>${m}<p class="snap-note">${SNAP_NOTE}</p></section>`;
 }
 function issueCard(i){return `<div class="issue"><div class="meta"><span class="sev ${i.sev}">${SEV[i.sev]}</span><span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><span class="pill">${esc(i.sys)}</span>${i.eng?`<span class="pill">${esc(i.eng)}</span>`:''}</div>
 <h3>${esc(i.t)}</h3><dl><div><dt>What you'll notice</dt><dd>${esc(i.sym)}</dd></div><div><dt>Why it happens</dt><dd>${esc(i.why)}</dd></div><div><dt>What to do</dt><dd>${esc(i.next)}</dd></div></dl>${costLine(i.cost)}${(g=>g?`<a class="walk" href="${gurl(g.id)}?v=${i._v||''}${i._y?'&y='+i._y:''}">Walk through this symptom: ${esc(g.title)} →</a>`:'')(forIssue(i))}</div>`}
@@ -115,7 +116,7 @@ function renderVehicle(v,year){
   const general=state.q?searchGuides(state.q,3):[];
   const SR={high:0,med:1,low:2};const sorted=shown.slice().sort((a,b)=>SR[a.sev]-SR[b.sev]);
   el.innerHTML=`<div class="crumb"><a href="/">Home</a> › ${esc(v.make)} › ${esc(v.model)}${year?' › '+year:''}</div>
-  <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div>${year?`<button type="button" class="savecar" id="saveCar">+ Save to my garage</button>`:''}</div><h1>${year?'Your '+esc(name):esc(name)}<span class="h1s">problems, repair costs and recalls</span></h1>
+  <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div><div class="vh-btns"><button type="button" class="savecar dl" data-dl>Download this page (PDF)</button>${year?`<button type="button" class="savecar" id="saveCar">+ Save to my garage</button>`:''}</div></div><h1>${year?'Your '+esc(name):esc(name)}<span class="h1s">problems, repair costs and recalls</span></h1>
   <p class="sub">${year?`What we've documented about the ${esc(name)}: problems owners and shops report, typical repair and upkeep costs, and safety recalls.`:`Problems reported across ${v.years[0]}–${v.years[1]}. Pick your model year below to see what applies to your vehicle.`}${v.alt?' '+esc(v.alt.replace(/\.$/,''))+'.':''}</p></div>
   <p class="byline">VehicleSymptoms team · Updated November 2026 · <a href="/about/">How we work</a> · <a href="mailto:autosymptoms@gmail.com?subject=${encodeURIComponent('Mistake on '+location.pathname)}">Report a mistake</a></p>
   <div class="yearbar"><label for="vy" style="color:var(--muted);font-size:14px">Model year</label><select id="vy">${yopts}</select>${engs.length>1?`<label for="ve" style="color:var(--muted);font-size:14px;margin-left:6px">Engine</label><select id="ve"><option value="">All engines</option>${engs.map(e=>`<option value="${e.k}" ${e.k===esel?'selected':''}>${esc(e.name)}</option>`).join('')}</select>`:''}</div>${engs.length>1&&!esel&&list.some(i=>i.engs)?`<p class="enghint">Pick your engine to hide problems that only affect other engines. Not sure? It is on the sticker under the hood or in the owner's manual.</p>`:''}${esel?`<p class="enghint on">Showing problems for the <b>${esc(ename)}</b> plus everything that applies to every ${esc(v.model)}${allN>list.length?' ('+(allN-list.length)+' other-engine issue'+(allN-list.length>1?'s':'')+' hidden)':''}.</p>`:''}
@@ -127,12 +128,14 @@ function renderVehicle(v,year){
   ${sorted.map(i=>issueCard(Object.assign({},i,{_v:v.id,_y:year}))).join('')}
   ${priceGuide(list,name)}
   <div class="livebox" id="nhtsa"><b>Safety recalls${year?' for the '+esc(name):''}</b><br>${year?'Checking the NHTSA recall database…':'Pick a model year to see its safety recalls.'}</div>
+  <div class="dlbox"><div><b>Keep a copy of this page</b><span>Download the snapshot, every problem, the repair costs and the recalls for ${year?'your ':'the '}${esc(name)} as a PDF you can save, print or bring to your shop.</span></div><button type="button" class="btn" data-dl>Download this page (PDF)</button></div>
   <div class="trust">This page is a general guide based on widely reported problems. Not every vehicle is affected, and it doesn't replace an in-person diagnosis.</div>`;
+  window.VS_PAGE={v,year,list,name,ename};
   const pq=el.querySelector('#pgQuote');if(pq)pq.href='/price-check/?v='+v.id+(year?'&y='+year:'');
   const sc=el.querySelector('#saveCar');if(sc){const paint=()=>{const on=inG(v.id,year);sc.textContent=on?'✓ In my garage':'+ Save to my garage';sc.classList.toggle('on',on)};paint();sc.onclick=()=>{inG(v.id,year)?removeG(v.id,year):addG(v.id,year);paint();showMy()}}
   {const ve=el.querySelector('#ve');if(ve)ve.onchange=e=>{try{localStorage.setItem('vs_eng_'+v.id,e.target.value)}catch(x){}renderVehicle(v,year)}}
   el.querySelector('#vy').onchange=e=>{location.href=url(v,+e.target.value||null)};
-  loadNhtsa(v,year);
+  {const pg=window.VS_PAGE;pg.ready=loadNhtsa(v,year).then(r=>{pg.recalls=r})}
   el.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{state.tab=b.dataset.tab;renderVehicle(v,year)});
 }
 function route(){
@@ -150,10 +153,23 @@ async function loadNhtsa(v,year){
     const r=await fetch('https://api.nhtsa.gov/recalls/recallsByVehicle?make='+encodeURIComponent(v.nmake||v.make)+'&model='+encodeURIComponent(v.nmodel||v.model)+'&modelYear='+year);
     const d=await r.json();const list=(d.results||[]);
     const rt=document.getElementById('recTile');if(rt)rt.innerHTML=`<span class="tl">Model-year safety recalls</span><span class="tv">${list.length}</span><span class="tn">${list.length?'<a href="#nhtsa">See details</a> · fixed free · check your VIN':'None listed under this model name. Check your VIN to be sure.'}</span>`;
-    if(!list.length){box.innerHTML=`<b>Safety recalls for the ${year} ${esc(v.make)} ${esc(v.model)}</b><br>No recalls found under this exact model name. Enter your VIN at ${link} to be sure — recalls are fixed free at a dealer.`;return}
+    if(!list.length){box.innerHTML=`<b>Safety recalls for the ${year} ${esc(v.make)} ${esc(v.model)}</b><br>No recalls found under this exact model name. Enter your VIN at ${link} to be sure — recalls are fixed free at a dealer.`;return list}
     box.innerHTML=`<b>${list.length} safety recall${list.length>1?'s':''} for the ${year} ${esc(v.make)} ${esc(v.model)}</b><p style="margin:6px 0 0;font-size:14px">These are recalls filed for this model year. ${list.length>12?'Showing the first 12 of '+list.length+'. ':''}Not every vehicle is included in every recall.</p><div style="margin-top:10px">${list.slice(0,12).map(x=>`<div class="issue" style="margin:8px 0;padding:14px"><div class="meta"><span class="pill">${esc(x.NHTSACampaignNumber||'')}</span><span class="pill">${esc((x.Component||'').split(':')[0])}</span></div><dl><div><dt>Problem</dt><dd>${esc(x.Summary||'')}</dd></div><div><dt>Fix</dt><dd>${esc(x.Remedy||'')}</dd></div></dl></div>`).join('')}</div><p><b>Check your own vehicle:</b> enter your VIN at ${link} to see which recalls apply to it and whether they're still open. Recall repairs are free at a dealer.</p>`;
-  }catch(_){const rt=document.getElementById('recTile');if(rt){rt.querySelector('.tv').textContent='—';rt.querySelector('.tn').textContent='Recall lookup unavailable right now. Check your VIN at nhtsa.gov.'}box.innerHTML=`<b>Safety recalls: lookup unavailable</b><br>We couldn't reach the government recall database just now. This does not mean there are no recalls. Check your VIN at ${link}.`}
+    return list;
+  }catch(_){const rt=document.getElementById('recTile');if(rt){rt.querySelector('.tv').textContent='—';rt.querySelector('.tn').textContent='Recall lookup unavailable right now. Check your VIN at nhtsa.gov.'}box.innerHTML=`<b>Safety recalls: lookup unavailable</b><br>We couldn't reach the government recall database just now. This does not mean there are no recalls. Check your VIN at ${link}.`;return null}
 }
+
+// Download this page as a PDF. The PDF code and library load only when someone asks for it.
+function dlPdf(btn){
+  const pg=window.VS_PAGE;if(!pg||btn.disabled)return;
+  const label=btn.textContent;btn.disabled=true;btn.textContent='Preparing your PDF…';
+  const ld=src=>new Promise((ok,no)=>{if(document.querySelector('script[data-dl-src="'+src+'"]'))return ok();const e=document.createElement('script');e.src=src;e.dataset.dlSrc=src;e.onload=ok;e.onerror=()=>{e.remove();no()};document.head.appendChild(e)});
+  const wait=Promise.race([pg.ready||Promise.resolve(),new Promise(r=>setTimeout(r,6000))]);
+  Promise.all([ld('/vendor/jspdf.umd.min.js'),ld('/pdf.js'),wait]).then(()=>{window.VS_PDF(Object.assign({disc:PRICE_DISC,note:SNAP_NOTE},pg));btn.textContent='✓ Downloaded';})
+    .catch(()=>{btn.textContent="Couldn't make the PDF. Tap to try again"})
+    .then(()=>{btn.disabled=false;setTimeout(()=>{btn.textContent=label},4000)});
+}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-dl]');if(b)dlPdf(b)});
 
 // VIN decoder: live NHTSA lookup, with an offline fallback
 function vinLinks(make,year){const ms=V.filter(v=>make&&norm(make).includes(norm(v.make))||make&&norm(v.make).includes(norm(make).slice(0,4)));
