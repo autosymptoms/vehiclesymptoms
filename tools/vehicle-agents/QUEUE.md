@@ -126,36 +126,36 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [ ] mercedes-benz-s-class | Mercedes-Benz S-Class | 1996-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
 - [ ] mercedes-benz-gla | Mercedes-Benz GLA | 2015-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
 - [ ] mercedes-benz-cla | Mercedes-Benz CLA | 2014-present | CLAIMED by scheduled run 2026-11-19 03:40 ET
-- [ ] mercedes-benz-gl-gls | Mercedes-Benz GL / GLS | 2007-present |
-- [ ] mercedes-benz-sprinter | Mercedes-Benz Sprinter (incl. Dodge/Freightliner) | 2003-present |
-- [ ] audi-q7 | Audi Q7 | 2007-present |
-- [ ] audi-a3 | Audi A3 | 2006-present |
-- [ ] audi-q3 | Audi Q3 | 2015-present |
-- [ ] volvo-xc90 | Volvo XC90 | 2003-present |
-- [ ] volvo-xc60 | Volvo XC60 | 2010-present |
-- [ ] volvo-s60 | Volvo S60 | 2001-present |
-- [ ] volvo-v70-xc70 | Volvo V70 / XC70 | 1998-2016 |
-- [ ] mini-cooper | MINI Cooper (hardtop) | 2002-present |
-- [ ] mini-countryman | MINI Countryman | 2011-present |
-- [ ] lexus-gx | Lexus GX | 2003-present |
-- [ ] lexus-nx | Lexus NX | 2015-present |
-- [ ] lexus-ls | Lexus LS | 1996-present |
-- [ ] lexus-gs | Lexus GS | 1998-2020 |
-- [ ] lexus-ux | Lexus UX | 2019-present |
-- [ ] cadillac-xt5 | Cadillac XT5 | 2017-present |
-- [ ] cadillac-deville-dts | Cadillac DeVille / DTS | 1996-2011 |
-- [ ] cadillac-xt4 | Cadillac XT4 | 2019-present |
-- [ ] cadillac-ats | Cadillac ATS | 2013-2019 |
-- [ ] cadillac-ct5 | Cadillac CT5 | 2020-present |
-- [ ] buick-rendezvous | Buick Rendezvous | 2002-2007 |
-- [ ] buick-encore | Buick Encore | 2013-2022 |
-- [ ] buick-encore-gx | Buick Encore GX | 2020-present |
-- [ ] buick-regal | Buick Regal | 1996-2004, 2011-2020 |
-- [ ] buick-park-avenue | Buick Park Avenue | 1997-2005 |
-- [ ] buick-lucerne | Buick Lucerne | 2006-2011 |
-- [ ] buick-rainier | Buick Rainier | 2004-2007 |
-- [ ] buick-envision | Buick Envision | 2016-present |
-- [ ] pontiac-bonneville | Pontiac Bonneville | 1996-2005 |
+- [ ] mercedes-benz-gl-gls | Mercedes-Benz GL / GLS | 2007-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] mercedes-benz-sprinter | Mercedes-Benz Sprinter (incl. Dodge/Freightliner) | 2003-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] audi-q7 | Audi Q7 | 2007-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] audi-a3 | Audi A3 | 2006-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] audi-q3 | Audi Q3 | 2015-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] volvo-xc90 | Volvo XC90 | 2003-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] volvo-xc60 | Volvo XC60 | 2010-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] volvo-s60 | Volvo S60 | 2001-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] volvo-v70-xc70 | Volvo V70 / XC70 | 1998-2016 | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] mini-cooper | MINI Cooper (hardtop) | 2002-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] mini-countryman | MINI Countryman | 2011-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] lexus-gx | Lexus GX | 2003-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] lexus-nx | Lexus NX | 2015-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] lexus-ls | Lexus LS | 1996-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] lexus-gs | Lexus GS | 1998-2020 | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] lexus-ux | Lexus UX | 2019-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] cadillac-xt5 | Cadillac XT5 | 2017-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] cadillac-deville-dts | Cadillac DeVille / DTS | 1996-2011 | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] cadillac-xt4 | Cadillac XT4 | 2019-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] cadillac-ats | Cadillac ATS | 2013-2019 | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] cadillac-ct5 | Cadillac CT5 | 2020-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] buick-rendezvous | Buick Rendezvous | 2002-2007 | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] buick-encore | Buick Encore | 2013-2022 | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] buick-encore-gx | Buick Encore GX | 2020-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] buick-regal | Buick Regal | 1996-2004, 2011-2020 | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] buick-park-avenue | Buick Park Avenue | 1997-2005 | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] buick-lucerne | Buick Lucerne | 2006-2011 | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] buick-rainier | Buick Rainier | 2004-2007 | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] buick-envision | Buick Envision | 2016-present | CLAIMED by interactive session 2026-11-19 04:40 ET
+- [ ] pontiac-bonneville | Pontiac Bonneville | 1996-2005 | CLAIMED by interactive session 2026-11-19 04:40 ET
 - [ ] pontiac-montana | Pontiac Montana / Trans Sport | 1997-2009 |
 - [ ] pontiac-sunfire | Pontiac Sunfire | 1996-2005 |
 - [ ] pontiac-aztek | Pontiac Aztek | 2001-2005 |
