@@ -1,7 +1,7 @@
 {
   "job": "Muffler replacement",
   "status": "held",
-  "held_reason": "Third attempt, 2026-11-20. Fixed since the second attempt: the midsize low is now a direct-fit muffler kit on a page that says new and names the 2014-2018 Forester 2.5L; the truck low is now a direct-fit muffler on a page that says new and lists the 2011-2018 Ram 1500 (it is a premium stainless performance-brand part, so that low is high; see finding); two more publishers were added to the benchmarks (CostHelper and Synchrony), making three publishers with a full installed price. Still missing: a low (aftermarket) parts price for the luxury example. Walker 53728 and 53729 are sold for the 2012 ES 350 but no page loaded both said new and named the years with a price (autobarn.net does not say new, transend.us prints no years or condition, the retailer page for the 2012 car shows no price). No maker-stated time with a unit was found for any of the four example vehicles.",
+  "held_reason": "Fourth attempt, 2026-11-20. Both remaining parts gaps now have a figure. Luxury low: a direct-fit muffler kit on a page that says new and names the 2007-2012 ES 350 ($259.43); the page does not say which side, see finding. Truck low: a stock-style Walker muffler on a page that says brand-new, calls it direct fit and lists the 2015 Ram 1500 ($160.21); it is for the single-exhaust truck, and sellers disagree on whether it fits without cutting, see finding. Still open: no maker-stated time with a unit was found for any of the four example vehicles, and no stock-style direct-fit muffler was found for the Ram with factory dual exhaust (only performance parts at $425 and up).",
   "unit": "per job: one rear muffler, fitted, as a bolt-on or direct-fit assembly the way it is sold for the vehicle (on many cars the rear muffler comes welded to its tail pipe as one piece). Low = a direct-fit aftermarket muffler, high = the genuine part at list (MSRP). Not included: other pipes, a second muffler on cars with two, the resonator, the catalytic converter, hangers, gaskets and clamps, and cutting or welding of custom pipe",
   "classes": {
     "economy": {
@@ -124,22 +124,30 @@
     },
     "truck": {
       "parts": [
-        508,
+        160.21,
         832
       ],
       "hours": [
         0.9,
         2
       ],
-      "example": "2015 Ram 1500 5.7L V8 (the low price and the 2-hour time are for trucks with the factory dual exhaust)",
+      "example": "2015 Ram 1500 5.7L V8 (the low price is for trucks with single exhaust; the 2-hour time is from listings for trucks with the factory dual exhaust; the genuine part lists at the same price for both)",
       "parts_src": [
         {
           "url": "https://www.autopartsprime.com/p/2015-ram-1500-muffler",
-          "what": "Retailer page for the 2015 Ram 1500. HIGH: genuine Mopar exhaust muffler with tail pipe 55398258AD (5.7L, single exhaust) MSRP $832.00, discounted $548.89; the dual-exhaust muffler 55398327AG is the same, MSRP $832.00. Also listed: 3.6L muffler 68092187AB MSRP $587.00; 3.0L diesel muffler 68185063AA MSRP $761.00. Not used as the low: Walker 21642 Quiet-Flow stainless steel oval muffler for the 5.7L and 3.6L with single exhaust, $118.36, because it is listed as a bare muffler and the page does not say direct fit, so fitting may need clamps or a weld"
+          "what": "Retailer page for the 2015 Ram 1500. HIGH: genuine Mopar exhaust muffler with tail pipe 55398258AD (5.7L, single exhaust) MSRP $832.00, discounted $548.89; the dual-exhaust muffler 55398327AG is the same, MSRP $832.00. Also listed: 3.6L muffler 68092187AB MSRP $587.00; 3.0L diesel muffler 68185063AA MSRP $761.00. Also listed: Walker 21642 Quiet-Flow stainless steel oval bare muffler for the 5.7L and 3.6L with single exhaust, $118.36. Not used as the low because this seller does not say new (its own page for the part, https://www.autopartsprime.com/walker/mp-21642, shows $118.36, 3 inch pipe connections, fitment '2011-2018 Ram 1500 All Trims 8 Cyl 5.7L', grade 'OEM Standard Part', no condition)"
+        },
+        {
+          "url": "https://www.beachaudio.com/walker-exhaust-21642-muffler-quiet-flowss",
+          "what": "LOW: Walker 21642, titled 'Walker Exhaust 21642 Quiet-Flow SS Direct Fit Exhaust Muffler 2.625\" Inlet/3\" Outlet for Ram 1500', $160.21, 'This item is brand-new, factory sealed', one in stock when loaded; the fitment text lists the Ram 1500 year by year, including '2015-2015 Ram 1500'. The page calls it a 'Direct-fit bolt-on replacement solution with OE-style hangers, brackets and pipe routings' and says it needs no welding; that is the maker's standard wording. It does not say single or dual exhaust or whether clamps or pipes are included, and its title and specification list disagree on the inlet size (2.625 inch against 3 inch). Other sellers list this part for the 5.7L with single exhaust and with plain pipe connections (see the next entries), so fitting it may mean cutting the old muffler off its tail pipe and clamping"
+        },
+        {
+          "url": "https://www.partcatalog.com/products/walker-21642-exhaust-muffler",
+          "what": "Cross-check: the same Walker 21642 at another seller, $141.27, described as 'a direct-fit replacement' and 'specific-fit' with pipe-connection inlet and outlet; the fitment table lists the 2015 Ram 1500 5.7L V8 in five cab and bed layouts, each 'with single exhaust'. Not used as the low because the page does not say new"
         },
         {
           "url": "https://frsport.com/products/mm-magnaflow-19439-performance-exhaust-magnaflow-d-fit-muffler-replacement-with-muffler-performance-exhaust-system",
-          "what": "LOW: MagnaFlow 19439 direct-fit muffler replacement kit, condition stated New, $508.00, fitment table lists the Ram 1500 for 2011-2018 (Sport, ST, Tradesman, SLT, Big Horn, Laramie and others) and 2015-2018 (Limited, Rebel); it replaces the factory muffler and keeps the original piping and tail pipes (the page showed both '15 in stock' and a sold-out label). This is a stainless performance-brand muffler, not a stock-style economy part, so it is a high low: it is used because it is the only direct-fit muffler found on a page that both says new and lists the 2015 truck"
+          "what": "Cross-check, and the only direct-fit option found for trucks with factory dual exhaust: MagnaFlow 19439 direct-fit muffler replacement kit, condition stated New, $508.00, fitment table lists the Ram 1500 for 2011-2018 (Sport, ST, Tradesman, SLT, Big Horn, Laramie and others) and 2015-2018 (Limited, Rebel); it replaces the factory muffler and keeps the original piping and tail pipes (the page showed both '15 in stock' and a sold-out label). A stainless performance-brand muffler, not a stock-style part; it was the low until a stock-style part passed the test"
         },
         {
           "url": "https://rudysdiesel.com/products/magnaflow-exhaust-muffler-replacement-kit-for-2009-20018-dodge-ram-1500-5-7l-19439",
@@ -147,7 +155,7 @@
         },
         {
           "url": "https://frsport.com/products/walker-exhaust-exhaust-muffler-21642",
-          "what": "Cross-check: a stock-style muffler that is new and listed for the 2015 truck but is not a direct-fit assembly. Walker 21642, condition stated New, $148.26, fitment table lists the Ram 1500 for 2011-2018 and later (SLT, ST, Tradesman, Big Horn, Laramie and others); the page describes it as a muffler without any pipes, so fitting it means cutting out the old muffler and clamping or welding, which is outside this unit. It shows what a muffler shop's welded-in repair starts from"
+          "what": "Cross-check: the same Walker 21642 at another seller, condition stated New, $148.26, fitment table lists the Ram 1500 for 2011-2018 and later (SLT, ST, Tradesman, Big Horn, Laramie and others). This page describes it as a muffler without any pipes, which is why the low carries a warning that fitting may need a cut and clamps"
         },
         {
           "url": "https://www.beachaudio.com/walker-exhaust-50464-muffler-quiet-flowss-dms",
@@ -191,18 +199,30 @@
     },
     "luxury": {
       "parts": [
-        null,
+        259.43,
         676.97
       ],
       "hours": [
         0.5,
         0.9
       ],
-      "example": "2012 Lexus ES 350 (one of its two rear mufflers, driver side)",
+      "example": "2012 Lexus ES 350 (one of its two rear mufflers)",
       "parts_src": [
         {
           "url": "https://autopartsprime.com/p/2012-lexus-es350-muffler",
           "what": "Retailer page for the 2012 ES 350. HIGH: genuine Lexus exhaust tail pipe, left (muffler with tail pipe) 17440-31021, MSRP $676.97, discounted $499.77. Also: genuine tail pipe assembly 17430-31521 (the other side) MSRP $630.71, discounted $508.37. The page lists Walker 53728 Quiet-Flow driver-side stainless steel oval muffler and pipe assembly as fitting the 2012 ES 350, with no price shown"
+        },
+        {
+          "url": "https://frsport.com/products/magnaflow-brexhaust-07-12-lexus-es350-07-11-toyota-camry-muffler-kit-108-0145",
+          "what": "LOW: BRExhaust (a MagnaFlow brand) 108-0145, titled 'Magnaflow BRExhaust 07-12 Lexus ES350 / 07-11 Toyota Camry Muffler Kit', item condition stated New, $259.43 (the page showed both 'Low stock: 2 left' and a sold-out label). Described as a direct-fit rear muffler kit, bolt-on, with gaskets, clamps and hardware, 'engineered for OEM 174400P021 exhaust replacement'. The year range is in the title, not a per-year fitment table, and the page does not say which side. The genuine number it names is in the same 17440 series as the left-hand genuine part priced as the high"
+        },
+        {
+          "url": "https://www.brexhaust.com/collections/lexus-es350-replacement-exhaust-mufflers.oembed",
+          "what": "Cross-check: the maker's own store. BRExhaust direct-fit exhaust muffler kits 108-0114 and 108-0145, each titled for the 2007-2012 Lexus ES350 3.5L and 2007-2011 Toyota Camry 3.5L, $263.00 each, in stock, with gaskets, clamps and hardware. Not used as the low because the page does not say new"
+        },
+        {
+          "url": "https://xatracing.com/brexhaust-07-12-lexus-es350-07-11-toyota-camry-left-muffler-kit-108-0114",
+          "what": "Cross-check: the kit for the other muffler. BRExhaust 108-0114 '07-12 Lexus ES350 / 07-11 Toyota Camry Left Muffler Kit', $259.44, available for backorder, 'engineered for OEM 174300P061 exhaust replacement'. Condition not stated. The two kits cost the same, so the low holds for either side"
         },
         {
           "url": "https://shop.advanceautoparts.com/find/lexus-es350-mufflers",
@@ -279,7 +299,13 @@
     "https://www.americantrucks.com/magnaflow-ram1500-direct-fit-replacement-muffler-19439.html",
     "https://transend.us/products/exhaust/mufflers/exhaust-muffler-assembly/wal-53729",
     "https://cars.costhelper.com/muffler-repair.html",
-    "https://www.synchrony.com/blog/automotive/3-telltale-signs-of-a-failing-muffler"
+    "https://www.synchrony.com/blog/automotive/3-telltale-signs-of-a-failing-muffler",
+    "https://www.beachaudio.com/walker-exhaust-21642-muffler-quiet-flowss",
+    "https://www.partcatalog.com/products/walker-21642-exhaust-muffler",
+    "https://www.autopartsprime.com/walker/mp-21642",
+    "https://frsport.com/products/magnaflow-brexhaust-07-12-lexus-es350-07-11-toyota-camry-muffler-kit-108-0145",
+    "https://www.brexhaust.com/collections/lexus-es350-replacement-exhaust-mufflers.oembed",
+    "https://xatracing.com/brexhaust-07-12-lexus-es350-07-11-toyota-camry-left-muffler-kit-108-0114"
   ],
   "benchmarks": [
     {
@@ -324,7 +350,7 @@
     }
   ],
   "live": null,
-  "finding": "Held: this file is not ready to publish. There is no live range for this job on the site today (live is null), so there is nothing to call too wide or too narrow; this is a first build. What can be built (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2012 Toyota Corolla about $206-$740 (parts $146.26-$595.67, 0.5-0.9 hour); midsize 2015 Subaru Forester 2.5i about $309-$583 (parts $236.95-$439.45, 0.6-0.9 hour); truck 2015 Ram 1500 5.7L about $616-$1,152 (parts $508-$832, 0.9-2 hours). For the luxury 2012 Lexus ES 350 only the top can be built, up to about $821 for one of its two rear mufflers (genuine $676.97, 0.5-0.9 hour), because no aftermarket price passed the sourcing test. The part is most of every total: the labor is roughly $60 to $320. The truck's low end is too high. Its low parts price is a premium stainless performance-brand direct-fit muffler ($508), the only direct-fit part found on a page that says new and lists the 2015 truck. A stock-style Walker muffler listed new for the same truck is $148.26, but it is sold without pipes and has to be cut in and clamped or welded, which is a different job from this unit, so it is kept as a cross-check only; a driver quoted well under $616 for a welded-in muffler on this truck is probably being quoted that job. What is null and why: the low parts price for the luxury example. Walker direct-fit mufflers are sold for it and prices of roughly $129-$211 were seen, but each page failed one test: it printed no model years, did not say the part was new, or showed no price. How solid the labor times are: two examples have a time for the example vehicle, and neither is a maker document. The Forester's 0.6 hour is a Subaru book time quoted by a named mechanic, and the Ram's 2 hours is a parts seller's figure written for an owner fitting a bolt-on muffler at home (two listings for the truck say 2 hours and one says 1 hour). Every other range end is a maker-stated time for a different vehicle: Hyundai's 0.5 hour for the centre muffler on the 2014-2015 Tucson and FCA's 0.9 hour for the muffler on the 2015 Ram 2500 and 3500 5.7L. No maker-stated time with a unit was found for the Corolla, Forester, Ram 1500 or ES 350. Four maker figures support the range without being used as ends because each includes an inspection or prints no unit: Mazda 0.4 hour (2019 CX-5 Turbo), FCA 0.3 hour (2020 Jeep Cherokee, inspect and replace), Kia 0.4 hour (2023 Sportage centre muffler, inspect and replace) and Subaru 0.2 with no unit (2015-2017 Legacy and Outback). These suggest warranty times are often shorter than 0.5 hour, so the labor range here is not low. All of them are times for bolted joints that come apart; a rusted flange or seized bolts on an older car add time, and the 0.9 hour top does not allow for that. On some vehicles the larger main muffler is part of a centre pipe that costs far more from the maker and is outside this unit; a quote for 'a muffler' on such a vehicle may be for that part. Benchmarks, from three publishers with a full installed price: RepairPal's national average is $1,138-$1,190 with parts at about $1,035, far above the built totals, while its Corolla figure ($625-$661) sits inside the built economy range and its Silverado and F-150 figures ($706-$830) sit inside the built truck range. The national figure appears to price a dearer genuine part or a larger exhaust section; the page does not say which, so that is a reading, not a finding. CostHelper gives $75-$750 or more (its readers report $80-$647, average $280, in reports dated 2010 to 2020) and Synchrony's article gives $175-$450 or more, with a maker's original muffler at up to $1,000. Both are lower than RepairPal and overlap the built economy and midsize ranges; their low ends are for cheaper universal or welded-in mufflers than the direct-fit parts priced here. A fourth entry is parts only. Confidence is low because one low parts price is missing, the truck low is a premium part, half the labor range ends are not for the example vehicle and no example has a maker-stated time. This is an estimate, not a quote and not a diagnosis.",
+  "finding": "Held: this file is not ready to publish. There is no live range for this job on the site today (live is null), so there is nothing to call too wide or too narrow; this is a first build. What can be built (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2012 Toyota Corolla about $206-$740 (parts $146.26-$595.67, 0.5-0.9 hour); midsize 2015 Subaru Forester 2.5i about $309-$583 (parts $236.95-$439.45, 0.6-0.9 hour); truck 2015 Ram 1500 5.7L about $268-$1,152 (parts $160.21-$832, 0.9-2 hours); luxury 2012 Lexus ES 350 about $319-$821 for one of its two rear mufflers (parts $259.43-$676.97, 0.5-0.9 hour). The part is most of every total: the labor is roughly $60 to $320. Two caveats on the lows added in the fourth attempt. The truck low ($160.21) is a stock-style Walker muffler on a page that says brand-new, calls it direct fit and bolt-on and lists the 2015 Ram 1500, but other sellers list the same part for the single-exhaust truck only and one describes it as a muffler without pipes, so on some trucks fitting it means cutting the old muffler from its tail pipe and clamping the new one, which takes longer than a bolted swap. For trucks with the factory dual exhaust no stock-style direct-fit muffler was found; the direct-fit parts seen are performance mufflers at about $426-$508, which would put that truck's low near $534-$616. The luxury low ($259.43) is a direct-fit kit on a page that says new and names the 2007-2012 ES 350 in its title; the page does not say which of the car's two mufflers it replaces, though the genuine number it names is in the same series as the left-hand genuine part used for the high, and the kit for the other muffler costs the same ($259.44). Nothing in the parts or hours is null now. Cheaper Walker direct-fit mufflers for the ES 350 were seen at roughly $129-$211, but each page failed one test: it printed no model years, did not say the part was new, or showed no price. How solid the labor times are: two examples have a time for the example vehicle, and neither is a maker document. The Forester's 0.6 hour is a Subaru book time quoted by a named mechanic, and the Ram's 2 hours is a parts seller's figure written for an owner fitting a bolt-on muffler at home (two listings for the truck say 2 hours and one says 1 hour). Every other range end is a maker-stated time for a different vehicle: Hyundai's 0.5 hour for the centre muffler on the 2014-2015 Tucson and FCA's 0.9 hour for the muffler on the 2015 Ram 2500 and 3500 5.7L. No maker-stated time with a unit was found for the Corolla, Forester, Ram 1500 or ES 350. Four maker figures support the range without being used as ends because each includes an inspection or prints no unit: Mazda 0.4 hour (2019 CX-5 Turbo), FCA 0.3 hour (2020 Jeep Cherokee, inspect and replace), Kia 0.4 hour (2023 Sportage centre muffler, inspect and replace) and Subaru 0.2 with no unit (2015-2017 Legacy and Outback). These suggest warranty times are often shorter than 0.5 hour, so the labor range here is not low. All of them are times for bolted joints that come apart; a rusted flange or seized bolts on an older car add time, and the 0.9 hour top does not allow for that. On some vehicles the larger main muffler is part of a centre pipe that costs far more from the maker and is outside this unit; a quote for 'a muffler' on such a vehicle may be for that part. Benchmarks, from three publishers with a full installed price: RepairPal's national average is $1,138-$1,190 with parts at about $1,035, far above the built totals, while its Corolla figure ($625-$661) sits inside the built economy range and its Silverado and F-150 figures ($706-$830) sit inside the built truck range. The national figure appears to price a dearer genuine part or a larger exhaust section; the page does not say which, so that is a reading, not a finding. CostHelper gives $75-$750 or more (its readers report $80-$647, average $280, in reports dated 2010 to 2020) and Synchrony's article gives $175-$450 or more, with a maker's original muffler at up to $1,000. Both are lower than RepairPal and overlap the built economy and midsize ranges; their low ends are for cheaper universal or welded-in mufflers than the direct-fit parts priced here. A fourth entry is parts only. Confidence is low because half the labor range ends are not for the example vehicle, no example has a maker-stated time, and the truck low may need a cut and clamps on some trucks. This is an estimate, not a quote and not a diagnosis.",
   "confidence": "low",
   "checked": "2026-11-20",
   "extras": "A quote often adds new gaskets, clamps, bolts and rubber hangers, and labor to cut or heat rusted fasteners. Many shops recommend replacing the connecting pipe or resonator at the same time, and on cars with two rear mufflers the second one. If no bolt-on part is used, a muffler shop may cut the old one out and weld in a universal muffler, which is priced differently from this estimate. Also possible: a diagnosis or exhaust leak check fee, shop supplies and sales tax. A muffler replaced under a recall, service campaign or warranty extension is done by the dealer at no charge, so check for open campaigns first. An exhaust leak ahead of the muffler can let fumes into the cabin and should be looked at promptly."
