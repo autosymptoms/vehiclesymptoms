@@ -5,7 +5,7 @@
     "economy": {
       "parts": [
         120.51,
-        144.04
+        174.71
       ],
       "hours": [
         0.33,
@@ -15,11 +15,15 @@
       "parts_src": [
         {
           "url": "https://www.walmart.com/browse/auto-tires/all-everstart-batteries/91083_1074765_6499603_1104292_6892772_5926247_5918503",
-          "what": "Retailer brand listing: EverStart Plus lead acid, Group Size 35, 525 CCA, $120.51 (low). Same page: EverStart Value Group 35, 490 CCA, $81.37 (budget tier, not used); EverStart Maxx Group 35N, 640 CCA, $144.04 (used as the high, see finding: this is the top retail tier seen in this size, NOT a Toyota list price). Page states no core charge amount"
+          "what": "Retailer brand listing: EverStart Plus lead acid, Group Size 35, 525 CCA, $120.51 (low). Same page: EverStart Value Group 35, 490 CCA, $81.37 (budget tier, not used); EverStart Maxx Group 35N, 640 CCA, $144.04 (not used). Page states no core charge amount"
+        },
+        {
+          "url": "https://www.toyotapartsnow.com/oem/toyota~truestart-battery~00544-35060-550",
+          "what": "Genuine Toyota TrueStart battery 00544-35060-550 on an online Toyota OEM parts catalog: MSRP $174.71 (high), discounted $148.31. The page's fitment table lists '1988-2019 Toyota Corolla' without breaking out trims by year, so confirm the fit for the exact car. The page marks the item 'Currently Unavailable' for ordering (supply shortage) but shows the list price. No core charge stated"
         },
         {
           "url": "https://www.toyotapartsandservice.com/wp-content/uploads/2020/08/03_Batteries2020_hi.pdf",
-          "what": "Toyota dealer parts battery chart (2020): lists group size 35 for the 2014-2016 Corolla (ZRE172) and TrueStart part number 00544-35060-550 for size 35. No prices on the chart. The page text is partly garbled, so the size should be confirmed for the exact car. A Toyota TrueStart list price could not be found: three dealer catalog pages either would not load or showed the battery as not for sale with no price"
+          "what": "Toyota dealer parts battery chart (2020): lists group size 35 for the 2014-2016 Corolla (ZRE172) and TrueStart part number 00544-35060-550 for size 35, which ties the list price above to this car. No prices on the chart. The page text is partly garbled, so the size should be confirmed for the exact car"
         },
         {
           "url": "https://www.batteriesplus.com/t/battery/car-battery-cost",
@@ -28,8 +32,16 @@
       ],
       "hours_src": [
         {
+          "url": "https://static.nhtsa.gov/odi/rcl/2021/RCRIT-21V650-3026.pdf",
+          "what": "Cross-check only, NOT a range end (an add-on time on an electric car is not a stand-alone time for a Corolla): General Motors recall bulletin for the 2020-2022 Chevrolet Bolt EV and 2022 Bolt EUV (small cars) has a warranty line for the 12-volt battery: labor operation 9106288 '12 Volt Battery Initial Charge and Re-Test' 0.4, with 'Add Time: Battery Replacement' 0.3, used when the 12-volt battery fails the retest and is replaced. The 0.3 hr is an add-on for swapping the 12-volt battery only, and is a warranty time, the low end of what shops bill. No Toyota-stated time for the Corolla was found"
+        },
+        {
           "url": "https://jerry.ai/car-repair/estimates/battery-replacement/",
-          "what": "General guide, not vehicle-specific (insurance-comparison site's repair guide, co-written by a named auto mechanic, updated 2026-11-18): its comparison table lists '20-60 minutes' for professional battery replacement and '30-60 minutes' for DIY. 20 minutes is entered as 0.33 hr. No manufacturer-stated time for swapping a 12-volt battery was found: four Honda bulletins about batteries and battery sensors on static.nhtsa.gov were loaded and none lists a labor operation for replacing the 12-volt battery"
+          "what": "LOW and HIGH, general guide, not vehicle-specific (insurance-comparison site's repair guide, co-written by a named auto mechanic, updated 2026-11-18): its comparison table lists '20-60 minutes' for professional battery replacement and '30-60 minutes' for DIY. 60 minutes = 1 hr; 20 minutes = 0.33 hr"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10156620-0001.pdf",
+          "what": "Cross-check, NOT in the range because it is a larger job: Honda bulletin for the 2019 CR-V lists operation 1255F5, 0.7 hr, 'Replace the battery. Clear the DTCs. Do the VSA sensor neutral position memorization. Update the PGM-FI software. Includes GR8 diagnosis', against 0.5 hr for the same work without the battery. Honda prints no time for the battery alone"
         },
         {
           "url": "https://www.batteriesplus.com/t/battery/car-battery-cost",
@@ -40,27 +52,43 @@
     "midsize": {
       "parts": [
         120.51,
-        189
+        209.97
       ],
       "hours": [
-        0.33,
+        0.4,
         1
       ],
       "example": "2016 Toyota Camry 2.5L",
       "parts_src": [
         {
           "url": "https://www.walmart.com/browse/auto-tires/all-everstart-batteries/91083_1074765_6499603_1104292_6892772_5926247_5918503",
-          "what": "Retailer brand listing. The Camry's battery group size was not confirmed from a loaded source, but the tier prices were the same in every size seen: EverStart Plus $120.51 in sizes 35, 24F, 65, H6 and H7 (low); EverStart Platinum AGM $189.00 in sizes 24F, 65 and H7 (used as the high: top retail tier, NOT a Toyota list price). EverStart Value $81.37 in sizes 35, 24F, 65 and H6 (budget tier, not used)"
+          "what": "Retailer brand listing: EverStart Plus lead acid, Group Size 24F, $120.51 (low). Size 24F matches the Toyota part number below (00544-24F60-575). Same page: EverStart Value 24F $81.37 (budget tier, not used); EverStart Platinum AGM 24F $189.00 (not used). Page states no core charge amount"
+        },
+        {
+          "url": "https://toyotapartsnow.com/oem/toyota~truestart-battery~00544-24f60-575",
+          "what": "Genuine Toyota TrueStart battery 00544-24F60-575 on an online Toyota OEM parts catalog: MSRP $209.97 (high), discounted $176.74. Fitment table lists '2015-2017, 1992-2011, 1984-1986 Toyota Camry' including the 2.5L 4-cylinder. The page marks the item 'Currently Unavailable' for ordering (supply shortage) but shows the list price. No core charge stated"
+        },
+        {
+          "url": "https://www.lithiatoyotaparts.com/oem-parts/toyota-truestart-battery-54424f60575",
+          "what": "Second source for the Toyota list price, a Toyota dealer's parts site: TrueStart Battery 00544-24F60-575, MSRP $205.93, sale price $185.34, marked unable to ship. Slightly below the catalog MSRP above; the higher figure is used. This page shows no vehicle fitment"
         },
         {
           "url": "https://www.batteriesplus.com/t/battery/car-battery-cost",
-          "what": "Cross-check, battery retailer's general guide, not vehicle-specific: 'around $185 to $300 for a standard flooded car battery and around $250 to $400 for a premium AGM type' (its FAQ on the same page gives lower figures, $100-$160 flooded and $200-$325 AGM). Not used for the range ends. A Toyota TrueStart list price could not be found"
+          "what": "Cross-check, battery retailer's general guide, not vehicle-specific: 'around $185 to $300 for a standard flooded car battery and around $250 to $400 for a premium AGM type' (its FAQ on the same page gives lower figures, $100-$160 flooded and $200-$325 AGM). Not used for the range ends"
         }
       ],
       "hours_src": [
         {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2016/MC-10121880-9999.pdf",
+          "what": "LOW, maker-stated but NOT the example vehicle: FCA bulletin 08-090-16 (November 22, 2016, 'Shortened Battery Life') for the 2017 Dodge Charger and 2017 Chrysler 300 sedans: 'NOTE: No testing is required for this RRT, just replace the battery', labor operation 08-08-01-95 'Battery - Replace' 0.4 Hrs. A warranty time for the battery swap alone, the low end of what shops bill. No Toyota-stated time for the Camry was found"
+        },
+        {
           "url": "https://jerry.ai/car-repair/estimates/battery-replacement/",
-          "what": "General guide, not vehicle-specific (insurance-comparison site's repair guide, co-written by a named auto mechanic, updated 2026-11-18): its comparison table lists '20-60 minutes' for professional battery replacement and '30-60 minutes' for DIY. 20 minutes is entered as 0.33 hr. No manufacturer-stated time for swapping a 12-volt battery was found: four Honda bulletins about batteries and battery sensors on static.nhtsa.gov were loaded and none lists a labor operation for replacing the 12-volt battery"
+          "what": "HIGH, general guide, not vehicle-specific (insurance-comparison site's repair guide, co-written by a named auto mechanic, updated 2026-11-18): its comparison table lists '20-60 minutes' for professional battery replacement and '30-60 minutes' for DIY. 60 minutes = 1 hr"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2022/MC-10225753-0001.pdf",
+          "what": "Cross-check, NOT in the range because the time also covers testing: Subaru battery warranty-extension bulletin for 2015-20 Legacy, Outback, Forester and WRX and 2019-20 Ascent lists 'BATTERY TESTING ONLY' B800-048 0.2, 'BATTERY TEST & REPLACE' B800-051 0.5 and 'BATTERY TEST, CHARGE & REPLACE' B800-041 0.6. Not the example vehicle"
         },
         {
           "url": "https://www.batteriesplus.com/t/battery/car-battery-cost",
@@ -91,7 +119,11 @@
       "hours_src": [
         {
           "url": "https://jerry.ai/car-repair/estimates/battery-replacement/",
-          "what": "General guide, not vehicle-specific (insurance-comparison site's repair guide, co-written by a named auto mechanic, updated 2026-11-18): its comparison table lists '20-60 minutes' for professional battery replacement and '30-60 minutes' for DIY. 20 minutes is entered as 0.33 hr. No manufacturer-stated time for swapping a 12-volt battery was found: four Honda bulletins about batteries and battery sensors on static.nhtsa.gov were loaded and none lists a labor operation for replacing the 12-volt battery"
+          "what": "LOW and HIGH, general guide, not vehicle-specific (insurance-comparison site's repair guide, co-written by a named auto mechanic, updated 2026-11-18): its comparison table lists '20-60 minutes' for professional battery replacement and '30-60 minutes' for DIY. 20 minutes is entered as 0.33 hr. No Ford-stated time for swapping the F-150's 12-volt battery was found: the Ford recall and program documents loaded either cover other parts or print no labor operation for the battery"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2014/SB-10062703-0335.pdf",
+          "what": "Cross-check, NOT in the range because the time also covers an inspection and it is not the example vehicle: Chrysler bulletin for the 2014 Ram 1500 3.0L diesel lists 08-08-01-91 'Battery - Inspect and Replace' 0.3 Hrs and 08-08-01-90 'Battery - Inspect Only' 0.2 Hrs (the inspection is a check of the battery's part number). It supports the low end used here for a half-ton pickup"
         },
         {
           "url": "https://www.batteriesplus.com/t/battery/car-battery-cost",
@@ -126,7 +158,11 @@
       "hours_src": [
         {
           "url": "https://jerry.ai/car-repair/estimates/battery-replacement/",
-          "what": "General guide, not vehicle-specific (insurance-comparison site's repair guide, co-written by a named auto mechanic, updated 2026-11-18): its comparison table lists '20-60 minutes' for professional battery replacement and '30-60 minutes' for DIY. 20 minutes is entered as 0.33 hr. No manufacturer-stated time for swapping a 12-volt battery was found: four Honda bulletins about batteries and battery sensors on static.nhtsa.gov were loaded and none lists a labor operation for replacing the 12-volt battery. Nothing BMW-specific was found, and no stated time for registering the new battery to the car, so that step is not in these hours"
+          "what": "LOW and HIGH, general guide, not vehicle-specific (insurance-comparison site's repair guide, co-written by a named auto mechanic, updated 2026-11-18): its comparison table lists '20-60 minutes' for professional battery replacement and '30-60 minutes' for DIY. 20 minutes is entered as 0.33 hr. Nothing BMW-specific was found, and no stated time for registering the new battery to the car, so that step is not in these hours"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2021/MC-10221355-9999.pdf",
+          "what": "Cross-check, NOT in the range because it is a larger job and not the example vehicle: FCA bulletin for the 2021 Jeep Wrangler plug-in hybrid lists 08-08-01-9C 'Test, Charge, and Retest Battery' 0.3 Hrs and 08-08-01-9D 'Test, Charge, Retest and Replace Battery' 0.5 Hrs. The other maker-stated times found for the battery swap alone are 0.3 hr (Chevrolet Bolt add-on) and 0.4 hr (2017 Dodge Charger and Chrysler 300); none is for a BMW"
         },
         {
           "url": "https://www.batteriesplus.com/t/battery/car-battery-cost",
@@ -137,9 +173,18 @@
   },
   "src": [
     "https://www.walmart.com/browse/auto-tires/all-everstart-batteries/91083_1074765_6499603_1104292_6892772_5926247_5918503",
+    "https://www.toyotapartsnow.com/oem/toyota~truestart-battery~00544-35060-550",
     "https://www.toyotapartsandservice.com/wp-content/uploads/2020/08/03_Batteries2020_hi.pdf",
+    "https://toyotapartsnow.com/oem/toyota~truestart-battery~00544-24f60-575",
+    "https://www.lithiatoyotaparts.com/oem-parts/toyota-truestart-battery-54424f60575",
     "https://www.batteriesplus.com/t/battery/car-battery-cost",
     "https://jerry.ai/car-repair/estimates/battery-replacement/",
+    "https://static.nhtsa.gov/odi/rcl/2021/RCRIT-21V650-3026.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2016/MC-10121880-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2019/MC-10156620-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2022/MC-10225753-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2014/SB-10062703-0335.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2021/MC-10221355-9999.pdf",
     "https://www.fordpartsgiant.com/oem-2016-ford-f_150-car_batteries.html",
     "https://www.fcpeuro.com/BMW-parts/328i/Battery/",
     "https://www.bmwpartsdeal.com/oem-2015-bmw-328i-batteries.html"
@@ -179,8 +224,8 @@
     }
   ],
   "live": null,
-  "finding": "The site has no live range for this job, so there is nothing to grade; this file is a first build. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2015 Corolla about $160-$304; midsize 2016 Camry about $160-$349; truck 2016 F-150 5.0L about $160-$360; luxury 2015 BMW 328i about $229-$490, before any battery registration. These sit close to the benchmarks: Jerry gives $268-$368 installed, a battery chain gives $185-$400 for the battery with installation often free, a mobile mechanic chain's figures add up to about $100-$370, and RepairPal shows $223-$251 for a 2021 Honda Civic. Candidly, this is a menu-priced service: the battery chain whose guide was loaded says most of its locations fit a battery free with purchase and otherwise charge $20-$75, so a real bill can be just the battery price plus tax and core, which is at or below the bottom of a parts-plus-book-time build; the top of each built range (a full hour at $160) is what a repair shop or dealer billing normal labor might reach, not what most drivers pay. How solid the numbers are: the hours are weak. No manufacturer-stated time for swapping a 12-volt battery was found (four Honda battery-related bulletins were checked and none lists one), so every class uses one general guide's 20-60 minutes, which is not specific to any of the example vehicles. Parts: the Ford and BMW high ends are genuine list prices from OEM catalogs. No Toyota TrueStart list price could be loaded, so the economy and midsize high ends are the top retail tier seen at a national retailer ($144.04 and $189.00), not OEM list, and a dealer battery may cost more. The Camry's group size and the BMW's exact battery size were not confirmed from a loaded source; the retailer's tier prices were the same across the sizes seen, which limits the error. The low ends use the retailer's mid tier ($120.51); its budget tier is $81.37. BMW battery registration: no source stating a time or price was found, so it is not included and the luxury total could be higher.",
+  "finding": "The site has no live range for this job, so there is nothing to grade. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2015 Corolla about $157-$335; midsize 2016 Camry about $169-$370; truck 2016 F-150 5.0L about $160-$360; luxury 2015 BMW 328i about $229-$490, before any battery registration. These sit close to the benchmarks: Jerry gives $268-$368 installed, a battery chain gives $185-$400 for the battery with installation often free, a mobile mechanic chain's figures add up to about $100-$370, and RepairPal shows $223-$251 for a 2021 Honda Civic. Candidly, this is a menu-priced service: the battery chain whose guide was loaded says most of its locations fit a battery free with purchase and otherwise charge $20-$75, so a real bill can be just the battery price plus tax and core, which is at or below the bottom of a parts-plus-book-time build; the top of each built range (a full hour at $160) is what a repair shop or dealer billing normal labor might reach, not what most drivers pay. Second look on 2026-11-20, what changed: (1) the Toyota high ends are now genuine list prices from an online Toyota OEM catalog, TrueStart 00544-35060-550 at $174.71 for the Corolla and 00544-24F60-575 at $209.97 for the Camry (a Toyota dealer site shows $205.93 for the same Camry battery), replacing the retailer's top tier; the Camry's size 24F is now confirmed by that catalog's fitment. The catalog marks both as currently unavailable to order, and its Corolla fitment row does not break out years. (2) Two maker-stated times for swapping the 12-volt battery alone were found, both warranty times for other vehicles: GM's 0.3 hr add-on for the Chevrolet Bolt (now the economy low) and FCA's 0.4 hr 'Battery - Replace' for the 2017 Dodge Charger and Chrysler 300 (now the midsize low). How solid the hours are: still weak. No class has a time stated for its own example vehicle; Toyota, Ford and BMW print none that could be found. The truck and luxury low ends and every high end still rest on one general guide's 20-60 minutes. Other maker times found cover more than the swap and are cross-checks only: Subaru 0.5 hr test and replace (0.2 hr for the test alone), Ram 1500 diesel 0.3 hr inspect and replace, Jeep Wrangler 0.5 hr test, charge, retest and replace, Honda CR-V 0.7 hr with a software update. Together they say a dealer's warranty time for this job is about 0.3-0.5 hr, which fits inside the range used. Parts: the Ford and BMW high ends are genuine list prices from OEM catalogs, and the BMW's exact battery size was not confirmed from a loaded source. The low ends use a national retailer's mid tier ($120.51); its budget tier is $81.37. BMW battery registration: no source stating a time or price was found, so it is not included and the luxury total could be higher. Reviewer note 2026-11-20: the economy low end stays at 0.33 hr (general guide); the GM 0.3 hr add-on time for a Bolt EV agrees with it but is a cross-check only, so the economy build is about $160-$335.",
   "confidence": "low",
-  "checked": "2026-11-19",
+  "checked": "2026-11-20",
   "extras": "A quote often adds a refundable core charge until the old battery is handed back (none of the pages loaded stated the amount, and it is left out of the prices here), a battery and charging system test, terminal cleaning or anti-corrosion treatment, shop supplies or a battery disposal fee, and sales tax. Some cars, BMW among them, need the new battery registered or coded to the car's computer, which a shop may charge for separately; no stated time or price for that was found. On some vehicles the battery sits under a seat, in the trunk or behind a wheel-well liner, which takes longer than the general times used here. A weak battery can also be a sign of a charging fault, so an alternator test may be suggested."
 }

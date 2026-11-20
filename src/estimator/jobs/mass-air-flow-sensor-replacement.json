@@ -102,12 +102,24 @@
       ],
       "hours_src": [
         {
-          "url": "https://static.nhtsa.gov/odi/tsbs/2024/MC-11008941-0001.pdf",
-          "what": "HIGH, the example vehicle: GM bulletin 24-NA-158 (September 2024; 2023-2024 Tahoe, Suburban, Yukon and Escalade, L84/L87 V8) labor operation 4088488 'MAF Sensor and Connector Replacement' 1.0 hr. This includes fitting a service wiring connector, so it is more work than the sensor alone"
+          "url": "https://jerry.ai/car-repair/estimates/mass-airflow-sensor-repair-cost/",
+          "what": "LOW, not vehicle-specific: consumer cost guide co-written by a named auto mechanic (updated Nov 18, 2026) states 'book time is usually between 20 and 35 minutes' for removing and replacing a MAF sensor (20 minutes = 0.33 hr used as the low end). It adds 0.5 to 1.0 hour of diagnostic time, not included here. No manufacturer time for the sensor alone on the Tahoe was found"
         },
         {
-          "url": "https://jerry.ai/car-repair/estimates/mass-airflow-sensor-repair-cost/",
-          "what": "LOW, not vehicle-specific: consumer cost guide co-written by a named auto mechanic (updated Nov 18, 2026) states 'book time is usually between 20 and 35 minutes' for removing and replacing a MAF sensor (20 minutes = 0.33 hr used as the low end). It adds 0.5 to 1.0 hour of diagnostic time, not included here"
+          "url": "https://www.americantrucks.com/silverado1500-mass-air-flow-sensor-ems00035.html",
+          "what": "Second figure for the low end, an older truck, not the example: parts seller's listing for a direct-replacement MAF sensor for the 1999-2006 Silverado 1500 gives an install time of about 20 minutes ('Simple installation for anyone'). A do-it-yourself estimate; the listing says the item is no longer carried"
+        },
+        {
+          "url": "https://www.americantrucks.com/silverado1500-mass-air-flow-sensor-esa48430.html",
+          "what": "HIGH, an older truck, not the example: parts seller's listing for a replacement MAF sensor for the 2007-2008 Silverado 1500 6.0L gives an install time of '(approx) 1 Hour', 'Light to Moderate mechanical skill required' (1.0 hr used as the high end). A do-it-yourself estimate, not a shop book time"
+        },
+        {
+          "url": "https://www.fixdapp.com/blog/how-much-does-replacing-the-mass-air-flow-sensor-cost",
+          "what": "HIGH, not vehicle-specific: scan-tool maker's guide (by a named author, published April 22, 2022) says the replacement should take 'no more than an hour of work' (1.0 hr, the same high end)"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2024/MC-11008941-0001.pdf",
+          "what": "Cross-check only, not a range end: GM bulletin 24-NA-158 (September 2024; 2023-2024 Tahoe, Suburban, Yukon and Escalade, L84/L87 V8) labor operation 4088488 'MAF Sensor and Connector Replacement' 1.0 hr. This is the example vehicle, but the operation also fits a service wiring connector, so it is a larger job than the sensor alone"
         }
       ]
     },
@@ -137,12 +149,12 @@
           "what": "LOW, not vehicle-specific: consumer cost guide co-written by a named auto mechanic (updated Nov 18, 2026) states 'book time is usually between 20 and 35 minutes' for removing and replacing a MAF sensor (20 minutes = 0.33 hr used as the low end). It adds 0.5 to 1.0 hour of diagnostic time, not included here. No stated time for the 328i was found"
         },
         {
-          "url": "https://static.nhtsa.gov/odi/tsbs/2024/MC-11008941-0001.pdf",
-          "what": "HIGH, a luxury SUV, not the 328i: GM bulletin 24-NA-158 labor operation 4088488 'MAF Sensor and Connector Replacement' 1.0 hr, which covers the 2023-2024 Cadillac Escalade and includes fitting a service wiring connector"
-        },
-        {
           "url": "https://www.fixdapp.com/blog/how-much-does-replacing-the-mass-air-flow-sensor-cost",
           "what": "HIGH, not vehicle-specific: scan-tool maker's guide (by a named author, published April 22, 2022) says the replacement should take 'no more than an hour of work' (1.0 hr used as the high end)"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2024/MC-11008941-0001.pdf",
+          "what": "Cross-check only, not a range end: GM bulletin 24-NA-158 labor operation 4088488 'MAF Sensor and Connector Replacement' 1.0 hr covers the 2023-2024 Cadillac Escalade, a luxury SUV and not the 328i, and includes fitting a service wiring connector, so it is a larger job than the sensor alone"
         }
       ]
     }
@@ -164,7 +176,11 @@
     "https://stockwiseauto.com/acdelco-12714453-mass-air-flow-sensor?Year=2020",
     "https://static.nhtsa.gov/odi/tsbs/2024/MC-11008941-0001.pdf",
     "https://www.fcpeuro.com/products/bmw-mass-air-flow-sensor-0280218266",
-    "https://www.bmwpartsdeal.com/oem-2015-bmw-328i-mass_air_flow_sensor.html"
+    "https://www.bmwpartsdeal.com/oem-2015-bmw-328i-mass_air_flow_sensor.html",
+    "https://www.americantrucks.com/silverado1500-mass-air-flow-sensor-esa48430.html",
+    "https://www.americantrucks.com/silverado1500-mass-air-flow-sensor-ems00035.html",
+    "https://www.identifix.com/blogs/mass-air-flow-sensor-replacement-the-step-by-step-guide/",
+    "https://static.nhtsa.gov/odi/tsbs/2013/SB-10052169-4686.pdf"
   ],
   "benchmarks": [
     {
@@ -204,8 +220,8 @@
     40,
     550
   ],
-  "finding": "The live range of $40-$550 is too low at the bottom and about right at the top. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks; 0.33-1.0 hr in every class): economy 2015 Corolla about $150-$383 ($109.99 Delphi to $222.87 Toyota list); midsize 2016 Accord about $104-$566 ($63.93 Hitachi to $405.72 Honda list); truck 2023 Tahoe 5.3L about $95-$264 ($55.31 to $104.38 GM list); luxury 2015 BMW 328i about $182-$658 ($141.94 Bosch to $497.76 BMW list). The bottom: the lowest totals, about $95-$104, pair an online-priced sensor with 20 minutes of labor, less than most shops charge for either; the lowest benchmark is $158 (Jerry). Nothing found supports $40 for a shop replacement: that is roughly the cost of a can of sensor cleaner or a minimum labor charge. A floor near $100-$150 is supportable. The top: $550 fits RepairPal's $274-$381 and most of what we built, and is a little low only where a dealer-list part is used on the Accord (about $566) or a European luxury car (about $658 for the 328i). Two low ends need a caveat. The Tahoe low is not an aftermarket part: no aftermarket sensor for the 2023 Tahoe was found, so it is the genuine GM sensor at the lowest online price seen ($55.31 against a $104.38 list). The Accord low is a Hitachi sensor whose fit rests on a cross-reference to the Honda part number (37980-RC0-M01); neither retailer page that loaded prints the model years. The Accord list price is also uncertain: three catalog pages show $405.72 and the part's own page at the same dealer catalog shows $345.55 (which would make the top about $506); the figure three pages agree on was used. How solid the labor times are: weak. Only the Tahoe has a manufacturer-stated time (GM 1.0 hr), and that operation also replaces the wiring connector, so it overstates the sensor alone. For the Corolla, Accord and 328i no manufacturer time was found; the range rests on a mechanic-written consumer guide's 'book time is usually between 20 and 35 minutes' and a general 'no more than an hour of work' statement, neither vehicle-specific. Seven of the eight hour figures are not for the example vehicle, so confidence is low. The job itself is simple on most cars (a connector and two screws on the Accord), which is consistent with the short times. Parts are the bigger variable: list prices found run from $104 (Tahoe) to $498 (328i). Nothing is null.",
+  "finding": "The live range of $40-$550 is too low at the bottom and about right at the top. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks; 0.33-1.0 hr in every class): economy 2015 Corolla about $150-$383 ($109.99 Delphi to $222.87 Toyota list); midsize 2016 Accord about $104-$566 ($63.93 Hitachi to $405.72 Honda list); truck 2023 Tahoe 5.3L about $95-$264 ($55.31 to $104.38 GM list); luxury 2015 BMW 328i about $182-$658 ($141.94 Bosch to $497.76 BMW list). The bottom: the lowest totals, about $95-$104, pair an online-priced sensor with 20 minutes of labor, less than most shops charge for either; the lowest benchmark is $158 (Jerry). Nothing found supports $40 for a shop replacement: that is roughly the cost of a can of sensor cleaner or a minimum labor charge. A floor near $100-$150 is supportable. The top: $550 fits RepairPal's $274-$381 and most of what we built, and is a little low only where a dealer-list part is used on the Accord (about $566) or a European luxury car (about $658 for the 328i). Two low ends need a caveat. The Tahoe low is not an aftermarket part: no aftermarket sensor for the 2023 Tahoe was found, so it is the genuine GM sensor at the lowest online price seen ($55.31 against a $104.38 list). The Accord low is a Hitachi sensor whose fit rests on a cross-reference to the Honda part number (37980-RC0-M01); neither retailer page that loaded prints the model years. The Accord list price is also uncertain: three catalog pages show $405.72 and the part's own page at the same dealer catalog shows $345.55 (which would make the top about $506); the figure three pages agree on was used. How solid the labor times are: weak, and a second look on 2026-11-20 did not change that or any number. No manufacturer-stated time for replacing the sensor alone was found for any of the four example vehicles. About fifteen maker bulletins returned by searches for a mass air flow sensor replacement time were opened (GM, Nissan, Mazda, Honda, Hyundai, Subaru, Ford): none prints a time for the sensor alone on a passenger vehicle. The GM and Nissan bulletins on mass air flow fault codes tell the dealer not to replace the sensor (the fix is a connector, wiring, software or a PCV valve), and the Nissan ones refer to a flat-rate manual instead of printing a time. The one maker time for the Tahoe (GM 1.0 hr) is for the sensor plus a service wiring connector, a larger job, so it is now a cross-check only and no longer a range end. The range therefore rests on general statements: a mechanic-written consumer guide's 'book time is usually between 20 and 35 minutes' (low) and a scan-tool maker's 'no more than an hour of work' (high). Three things found on the second look support the same 0.33-1.0 hr span without replacing it: a parts seller's install times for older Silverado 1500 sensors (about 20 minutes for the 1999-2006 truck, about 1 hour for the 2007-2008 6.0L, both do-it-yourself estimates for trucks that are not the example); an unsigned guide from a repair-information company (Identifix, published September 1, 2025) saying 'a half-hour to an hour of labor'; and a Mitsubishi Fuso campaign (C1006210, 2013) that allows 0.2 hr for 'air flow and intake temperature sensor replacement' on a commercial cab-over truck, a maker warranty time for a different kind of vehicle. None of the eight hour figures is a stated time for the example vehicle, so confidence stays low. The job itself is simple on most cars (a connector and two screws on the Accord), which is consistent with the short times. Parts are the bigger variable: list prices found run from $104 (Tahoe) to $498 (328i). Still weak: every labor figure; the Tahoe low being a discounted genuine part; the Accord aftermarket fit resting on a cross-reference. Nothing is null.",
   "confidence": "low",
-  "checked": "2026-11-19",
+  "checked": "2026-11-20",
   "extras": "A quote often adds diagnosis (one guide says 0.5-1.0 hr), since a MAF code is frequently caused by a dirty or oiled sensor, an air leak after the sensor, a loose intake tube or a clogged air filter rather than a failed sensor. A shop may clean the sensor first, replace the air filter, repair the wiring connector (one GM bulletin bundles the connector with the sensor at 1.0 hr), and add shop supplies and tax. An estimate is not a quote and not a diagnosis."
 }
