@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-20 03:26 UTC started
+
 ## Run 2026-11-20 02:27 UTC finished 2026-11-20 02:56 UTC (confidence pass on the last 14 low-confidence jobs; sources list now separates cross-checks; about 120 of 200 searches used)
 - Totals: 7 research agents (14 jobs) and 1 fetch agent. 50 job files: 46 shown, 4 held (unchanged). Medium confidence: 14 jobs (unchanged). This completes the second look at every low-confidence job (Phase 1 step 3); what is left low is low because no public source states the time.
 - Changed examples or figures: EGR valve (midsize now 2020 Hyundai Sonata 2.5L, Hyundai 2.4 hr; luxury now 2012 Lexus CT 200h, Lexus 1.9 hr), transmission (luxury now 2021 Cadillac XT4, GM 12.3 hr transmission-only; the old MDX ends were a torque-converter time and a transmission-plus-radiator time), throttle body (luxury now 2016 Lincoln MKZ Hybrid, Ford 0.5 hr; GM 0.8 hr with diagnosis demoted), cabin air filter (midsize now 2015 Subaru Outback, Subaru 0.2 hr), battery (Toyota highs now genuine list prices $174.71 and $209.97; midsize low FCA 0.4 hr "Battery - Replace" on a Charger/300), wheel alignment (truck now 2021 Ram 1500, FCA 1.1 hr front alignment), turbocharger (two diagnose-and-replace figures demoted: Cruze 2.4 hr, F-150 4 hr from a seller only).
