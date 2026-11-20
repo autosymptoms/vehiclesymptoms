@@ -1,0 +1,187 @@
+{
+  "job": "Tire rotation",
+  "unit": "per vehicle (rotate four tires to the maker's pattern and set pressures; labor only, no parts; wheel balancing, a full-size spare in the pattern and tire pressure sensor service not included)",
+  "classes": {
+    "economy": {
+      "parts": [
+        0,
+        0
+      ],
+      "hours": [
+        0.29,
+        0.5
+      ],
+      "example": "2015 Nissan Sentra, rotate four tires",
+      "parts_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10232652-0001.pdf",
+          "what": "No parts are needed: a tire rotation is a labor-only service. Nissan bulletin NTB08-097K lists its tire-swap operations as labor operations with no part. Balancing weights, valve stems or tire pressure sensor service kits, if a shop adds them, are extra and are not priced here"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10232652-0001.pdf",
+          "what": "HIGH, this maker, all models, nearest stated operation and not a plain maintenance rotation: Nissan bulletin NTB08-097K (February 22, 2023; all Nissan except GT-R) op PX35AA 'Swap front and rear tires (side to side) and re-initialize TPMS' flat rate 0.5 hr. It moves all four wheels and also resets the tire pressure system, so it runs a little longer than a bare rotation"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2018/MC-10144487-9999.pdf",
+          "what": "Earlier version of the same Nissan bulletin (NTB08-097h, June 21, 2018), same figure: PX35AA 0.5 hr"
+        },
+        {
+          "url": "https://service.tesla.com/docs/Model3/ServiceManual/2024/en-us/GUID-7A200CAC-C2A5-4828-A96D-E49550FA1E85.html",
+          "what": "LOW, a different maker and a compact sedan, not a Sentra: Tesla Model 3 service manual 'Tire Rotation', correction code 34010105, flat rate time 0.29 hr. A manufacturer flat-rate time is the low end of what a shop bills"
+        },
+        {
+          "url": "https://www.lesschwab.com/tires/tire-rotation",
+          "what": "Cross-check, general and not a book time: tire chain states 'tire rotations take about 30 minutes once your vehicle gets moved into a Les Schwab service bay'"
+        }
+      ]
+    },
+    "midsize": {
+      "parts": [
+        0,
+        0
+      ],
+      "hours": [
+        0.36,
+        0.5
+      ],
+      "example": "2016 Nissan Rogue, rotate four tires",
+      "parts_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10232652-0001.pdf",
+          "what": "No parts are needed: a tire rotation is a labor-only service. Nissan bulletin NTB08-097K lists its tire-swap operations as labor operations with no part. Balancing weights, valve stems or tire pressure sensor service kits, if a shop adds them, are extra and are not priced here"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10232652-0001.pdf",
+          "what": "HIGH, this maker, all models, nearest stated operation and not a plain maintenance rotation: Nissan bulletin NTB08-097K (all Nissan except GT-R) op PX35AA 'Swap front and rear tires (side to side) and re-initialize TPMS' flat rate 0.5 hr"
+        },
+        {
+          "url": "https://service.tesla.com/docs/ModelY/ServiceManual/2025/en-us/GUID-5C853B76-71A4-4D7D-A7EC-8002D1B51EE4.html",
+          "what": "LOW, a different maker and a midsize crossover, not a Rogue: Tesla Model Y service manual 'Tire Rotation (Maintenance)', correction code 34010105, flat rate time 0.36 hr. A manufacturer flat-rate time is the low end of what a shop bills"
+        },
+        {
+          "url": "https://firestonecompleteautocare.com/repair/tire-repair/rotation",
+          "what": "Cross-check, general and not a book time: service chain states 'A typical tire rotation will take no longer than an hour (oftentimes, less!) to complete'"
+        }
+      ]
+    },
+    "truck": {
+      "parts": [
+        0,
+        0
+      ],
+      "hours": [
+        0.5,
+        0.66
+      ],
+      "example": "2017 Nissan Titan, rotate four tires",
+      "parts_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10232652-0001.pdf",
+          "what": "No parts are needed: a tire rotation is a labor-only service. Nissan bulletin NTB08-097K lists its tire-swap operations as labor operations with no part. Balancing weights, valve stems or tire pressure sensor service kits, if a shop adds them, are extra and are not priced here"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10232652-0001.pdf",
+          "what": "LOW, this maker, all models, nearest stated operation and not a plain maintenance rotation: Nissan bulletin NTB08-097K (all Nissan except GT-R) op PX35AA 'Swap front and rear tires (side to side) and re-initialize TPMS' flat rate 0.5 hr. The time is the same for every Nissan model, so it is not truck-specific"
+        },
+        {
+          "url": "https://service.tesla.com/docs/Cybertruck/ServiceManual/en-us/GUID-30B3F514-17F3-4470-A4E8-748840871CBC.html",
+          "what": "HIGH, a different full-size pickup, not a Titan: Tesla Cybertruck service manual 'Tire Rotation (Maintenance)', correction code 34010105, flat rate time 0.66 hr, about double the same maker's time for a compact sedan (0.29 hr). Heavy truck wheels take longer"
+        },
+        {
+          "url": "https://www.lesschwab.com/tires/tire-rotation",
+          "what": "Cross-check, general and not a book time: tire chain states rotations 'take about 30 minutes' once the vehicle is in a service bay, and that what it charges 'depends on what you drive'"
+        }
+      ]
+    },
+    "luxury": {
+      "parts": [
+        0,
+        0
+      ],
+      "hours": [
+        0.29,
+        0.5
+      ],
+      "example": "2015 BMW 328i (F30) with the same tire size front and rear, rotate four tires",
+      "parts_src": [
+        {
+          "url": "https://service.tesla.com/docs/Model3/ServiceManual/2024/en-us/GUID-7A200CAC-C2A5-4828-A96D-E49550FA1E85.html",
+          "what": "No parts are needed: a tire rotation is a labor-only service; the manufacturer procedure is a labor operation with a flat rate time only. Balancing weights, valve stems or tire pressure sensor service kits, if a shop adds them, are extra and are not priced here"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://service.tesla.com/docs/Model3/ServiceManual/2024/en-us/GUID-7A200CAC-C2A5-4828-A96D-E49550FA1E85.html",
+          "what": "LOW, comparable premium compact sedan, not a BMW: Tesla Model 3 service manual 'Tire Rotation', correction code 34010105, flat rate time 0.29 hr. A manufacturer flat-rate time is the low end of what a shop bills. No stated time for the 328i was found"
+        },
+        {
+          "url": "https://lesschwab.com/article/tire-rotation-its-preventive-care-for-your-tires.html",
+          "what": "HIGH, general and not vehicle-specific, a tire chain's statement and not a book time: 'Getting your tires rotated at Les Schwab can take about 30 minutes once your vehicle gets moved into our service bay' (published May 29, 2024)"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10232652-0001.pdf",
+          "what": "Cross-check on a mainstream maker, not used for the range: Nissan bulletin NTB08-097K op PX35AA 'Swap front and rear tires (side to side) and re-initialize TPMS' 0.5 hr; the same bulletin allows 1.5 hr to swap four tires between wheels on vehicles with different-size or directional tires (op PX40AA), which is a different and larger job"
+        }
+      ]
+    }
+  },
+  "src": [
+    "https://static.nhtsa.gov/odi/tsbs/2023/MC-10232652-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2018/MC-10144487-9999.pdf",
+    "https://service.tesla.com/docs/Model3/ServiceManual/2024/en-us/GUID-7A200CAC-C2A5-4828-A96D-E49550FA1E85.html",
+    "https://service.tesla.com/docs/ModelY/ServiceManual/2025/en-us/GUID-5C853B76-71A4-4D7D-A7EC-8002D1B51EE4.html",
+    "https://service.tesla.com/docs/Cybertruck/ServiceManual/en-us/GUID-30B3F514-17F3-4470-A4E8-748840871CBC.html",
+    "https://www.lesschwab.com/tires/tire-rotation",
+    "https://lesschwab.com/article/tire-rotation-its-preventive-care-for-your-tires.html",
+    "https://firestonecompleteautocare.com/repair/tire-repair/rotation",
+    "https://repairpal.com/estimator/chevrolet/malibu/2021/tire-rotation-cost",
+    "https://www.slashgear.com/1957971/retailers-that-offer-free-tire-rotations"
+  ],
+  "benchmarks": [
+    {
+      "name": "RepairPal (2021 Chevrolet Malibu)",
+      "url": "https://repairpal.com/estimator/chevrolet/malibu/2021/tire-rotation-cost",
+      "lo": 49,
+      "hi": 72,
+      "date": "2026-11-19",
+      "note": "tire rotation $49-$72 for a 2021 Malibu; the same range is shown for other Malibu years and for the Silverado 1500 and Impala. No parts/labor split or update date shown on the page"
+    },
+    {
+      "name": "Kelley Blue Book (as quoted by SlashGear)",
+      "url": "https://www.slashgear.com/1957971/retailers-that-offer-free-tire-rotations",
+      "lo": 60,
+      "hi": 72,
+      "date": "2026-11-19",
+      "note": "second-hand: SlashGear article dated September 9, 2025 cites Kelley Blue Book's average tire rotation cost of $60 to $72. The Kelley Blue Book page itself was not loaded"
+    },
+    {
+      "name": "Tire retailers, free with tires bought there (SlashGear list)",
+      "url": "https://www.slashgear.com/1957971/retailers-that-offer-free-tire-rotations",
+      "lo": 0,
+      "hi": 0,
+      "date": "2026-11-19",
+      "note": "article dated September 9, 2025: Discount Tire, Costco, Les Schwab, Firestone, Sam's Club, Monro, Mavis, Tires Plus and BJ's rotate tires at no charge for the life of tires bought and installed there (some charge an installation fee up front). It says Walmart and Goodyear do not rotate for free"
+    },
+    {
+      "name": "Les Schwab",
+      "url": "https://www.lesschwab.com/tires/tire-rotation",
+      "lo": 0,
+      "hi": null,
+      "date": "2026-11-19",
+      "note": "chain's own page: 'When you have Les Schwab tires on your vehicle, rotations are free'; otherwise 'there may be a charge for a rotation' that 'depends on what you drive'. No paid price is posted, so the high is left empty"
+    }
+  ],
+  "live": null,
+  "finding": "There is no live range for this job yet, so this is a first build. Built totals, labor only (no parts), stated hours x $120-$160/hr (the national middle labor rate used for these checks): economy 2015 Nissan Sentra about $35-$80 (0.29-0.5 hr); midsize 2016 Nissan Rogue about $43-$80 (0.36-0.5 hr); truck 2017 Nissan Titan about $60-$106 (0.5-0.66 hr); luxury 2015 BMW 328i about $35-$80 (0.29-0.5 hr). Across classes that is roughly $35-$106. How this compares: the car figures bracket the two priced benchmarks, RepairPal's $49-$72 and the Kelley Blue Book average of $60-$72 quoted second-hand, so the build is about right for a paid rotation on a car; the truck top of $106 is above RepairPal's $49-$72 for a Silverado 1500 and should be read as a ceiling. Candidly, this is a menu-price service and the menu price often sits below a book-time build: many shops charge a flat fee near the bottom of this range, fold the rotation into an oil change, or do it free. Rotation is commonly free for the life of the tires where the tires were bought (Discount Tire, Costco, Les Schwab, Firestone, Sam's Club and others), so $0 is a normal price and a driver should check that first. A shown range of about $0-$100, with a typical paid price of $35-$80, would be honest. How solid the labor times are: weak. No maker-printed time for a plain maintenance rotation was found for any conventional example vehicle. The low ends are Tesla service-manual flat rate times (0.29 hr Model 3, 0.36 hr Model Y) and the truck high is Tesla's 0.66 hr for a Cybertruck; none is the example vehicle. The 0.5 hr figure is Nissan's all-models warranty time for swapping all four wheels and resetting the tire pressure system during a pull diagnosis, the nearest stated operation and a little more than a bare rotation. The luxury high is a tire chain's general 'about 30 minutes', not a book time. Not found: a posted paid rotation price from a chain (the Walmart and Les Schwab pages reached list none) and a Honda, GM, Hyundai/Kia, Subaru or FCA bulletin printing a 'rotate tires' time. Cars with different tire sizes front and rear, or directional tires, cannot be rotated the usual way.",
+  "confidence": "low",
+  "checked": "2026-11-19",
+  "extras": "A quote may add: wheel balancing (often sold with the rotation as 'rotate and balance'); a tire pressure sensor reset or relearn; including a full-size spare in the pattern; removing and refitting wheel locks or hubcaps; extra labor for dual rear wheels, oversized or heavy off-road tires; remounting tires on the wheels where sizes differ front to rear or tires are directional (a larger job); a brake inspection or a wheel alignment recommended from the tire wear found; shop supplies and sales tax. Before paying, check whether the rotation is free where the tires were bought or included with an oil change or a maintenance plan.",
+  "status": "held",
+  "held_reason": "labor times rest on Tesla service-manual figures printed without a unit and a Nissan tyre-swap diagnosis operation"
+}

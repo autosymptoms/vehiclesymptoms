@@ -239,34 +239,55 @@ showMy();
 (function(){const app=document.getElementById('pcApp');if(!app)return;
   const qs=new URLSearchParams(location.search);const g=getG();
   const init=qs.get('v')?{id:qs.get('v'),year:+qs.get('y')||null}:(g[0]?{id:g[0].id,year:g[0].y}:null);
+  const E=window.EST||{jobs:[],rates:{},nat:[120,160],states:[],rsrc:[]};const norm=t=>t.toLowerCase().replace(/\s*\(.*?\)\s*/g,' ').trim();
+  const CL={economy:'Economy or compact car',midsize:'Midsize car or crossover',truck:'Truck or large SUV',luxury:'Luxury car'};
+  const estBox=document.getElementById('pcEst'),clsS=document.getElementById('pcCls'),stS=document.getElementById('pcSt');
+  if(clsS){clsS.innerHTML='<option value="">Any kind</option>'+Object.entries(CL).map(([k,l])=>`<option value="${k}">${l}</option>`).join('');stS.innerHTML='<option value="">Whole U.S.</option>'+E.states.map(([k,l])=>`<option value="${k}">${esc(l)}</option>`).join('')}
+  const rnd=(n,up)=>{const st=n<500?10:n<2000?25:50;return (up?Math.ceil(n/st):Math.floor(n/st))*st};
+  function estR(e,c,st){const r=st&&E.rates[st]?E.rates[st]:E.nat;let lo=1/0,hi=0;const rows=(c?[c]:Object.keys(e.cls)).map(k=>{const x=e.cls[k],a=rnd(x.p[0]+x.h[0]*r[0],false),b=Math.max(rnd(x.p[1]+x.h[1]*r[1],true),a+10);lo=Math.min(lo,a);hi=Math.max(hi,b);return {k,x,a,b}});return {lo,hi,rows,r}}
   let job=null;const ji=document.getElementById('pcJob'),sug=document.getElementById('pcSug'),picked=document.getElementById('pcPicked'),amt=document.getElementById('pcAmt'),goB=document.getElementById('pcGo'),out=document.getElementById('pcOut');
-  const pick=window.YMM(document.getElementById('pcY'),document.getElementById('pcM'),document.getElementById('pcMo'),init,()=>{job=null;picked.hidden=true;ji.hidden=false;ready();list();const sv=pick.get().v;if(sv&&!sv._full&&window.VS_LOAD)window.VS_LOAD(sv.id).then(list)});
+  const pick=window.YMM(document.getElementById('pcY'),document.getElementById('pcM'),document.getElementById('pcMo'),init,()=>{job=null;picked.hidden=true;if(estBox)estBox.hidden=true;ji.hidden=false;ready();list();const sv=pick.get().v;if(sv&&!sv._full&&window.VS_LOAD)window.VS_LOAD(sv.id).then(list)});
   const gb=document.getElementById('pcGarage');if(g.length)gb.innerHTML='<span>Your garage:</span>'+g.map((m,i)=>`<button type="button" data-i="${i}">${esc(carName(m))}</button>`).join('');
   gb.querySelectorAll('button').forEach(b=>b.onclick=()=>{const m=g[+b.dataset.i];location.search='?v='+m.id+(m.y?'&y='+m.y:'')});
   function jobs(){const s=pick.get(),out=[];const seen=new Set();
     if(s.v){const vname=(s.y?s.y+' ':'')+s.v.make+' '+s.v.model;
       for(const i of s.v.issues)if(i.cost&&!i.cost.free&&(!s.y||(s.y>=i.y[0]&&s.y<=i.y[1]))&&!seen.has(i.cost.job)){seen.add(i.cost.job);out.push({job:i.cost.job,lo:i.cost.lo,hi:i.cost.hi,src:'Known problem on the '+vname,recall:i.cost.recall})}
       if(s.v.own)for(const m of s.v.own.maint)if(!seen.has(m.job)){seen.add(m.job);out.push({job:m.job,lo:m.lo,hi:m.hi,src:'Routine maintenance for the '+s.v.make+' '+s.v.model})}}
-    for(const x of (window.GEN_PRICES||[]))if(!seen.has(x[0]))out.push({job:x[0],lo:x[1],hi:x[2],src:'General estimate (all vehicles)',gen:true});
+    const en=new Set();for(const e of E.jobs){en.add(norm(e.job));if(!seen.has(e.job)){seen.add(e.job);out.push({job:e.job,est:e,src:'Sourced estimate: parts prices plus stated labor time',gen:true})}}
+    for(const x of (window.GEN_PRICES||[]))if(!seen.has(x[0])&&!en.has(norm(x[0])))out.push({job:x[0],lo:x[1],hi:x[2],src:'General estimate (all vehicles)',gen:true});
     return out}
   function list(){const q=ji.value.trim().toLowerCase();const all=jobs();const ws=q.split(/\s+/).filter(Boolean);
     const hits=(ws.length?all.filter(j=>ws.every(w=>j.job.toLowerCase().includes(w))):all.filter(j=>!j.gen)).slice(0,ws.length?12:8);
     sug.innerHTML=hits.length?(ws.length?'':'<p class="muted" style="margin:6px 0">Common for this vehicle:</p>')+hits.map((j,k)=>`<button type="button" data-k="${k}"><b>${esc(j.job)}</b><span>${esc(j.src)}</span></button>`).join(''):(ws.length?'<p class="muted">No match yet. Try a simpler word, like "brake", "pump" or "sensor".</p>':'');
-    sug.querySelectorAll('button').forEach(b=>b.onclick=()=>{job=hits[+b.dataset.k];sug.innerHTML='';ji.hidden=true;picked.hidden=false;picked.innerHTML=`<b>${esc(job.job)}</b><span>${esc(job.src)}</span><button type="button" id="pcRe">Change</button>`;document.getElementById('pcRe').onclick=()=>{job=null;picked.hidden=true;ji.hidden=false;ji.focus();list();ready()};ready();amt.focus()})}
+    sug.querySelectorAll('button').forEach(b=>b.onclick=()=>{job=hits[+b.dataset.k];sug.innerHTML='';ji.hidden=true;picked.hidden=false;picked.innerHTML=`<b>${esc(job.job)}</b><span>${esc(job.src)}</span><button type="button" id="pcRe">Change</button>`;if(estBox)estBox.hidden=!job.est;document.getElementById('pcRe').onclick=()=>{job=null;picked.hidden=true;if(estBox)estBox.hidden=true;ji.hidden=false;ji.focus();list();ready()};ready();amt.focus()})}
   function ready(){goB.disabled=!(job&&+amt.value>0)}
   ji.oninput=list;amt.oninput=ready;list();{const sv=pick.get().v;if(sv&&!sv._full&&window.VS_LOAD)window.VS_LOAD(sv.id).then(list)}
   const m$=n=>'$'+Math.round(n).toLocaleString('en-US');
-  goB.onclick=()=>{const q=+amt.value,lo=job.lo,hi=job.hi;let cls,head,txt;
+  const m2=n=>'$'+(Math.round(n*100)/100).toLocaleString('en-US',{maximumFractionDigits:0});const host=u=>{try{return new URL(u).hostname.replace(/^www\./,'')}catch(e){return 'source'}};
+  function estHtml(e,R,c,st){const stn=st?(E.states.find(x=>x[0]===st)||[])[1]:'';const weak=st&&E.rates[st]&&!E.rates[st][2];
+    const conf=e.conf==='high'?['Well sourced','every labor time is the maker\'s own for the example vehicle']:e.conf==='medium'?['Estimate','every class has a stated labor time and at least two parts sources']:['Rough estimate','some labor times come from a comparable vehicle or a general guide, not the example vehicle'];
+    const rate=`${m2(R.r[0])}–${m2(R.r[1])} an hour (${st?'typical repair shop rate in '+esc(stn)+(weak?', limited data':''):'the national middle: about half of U.S. shops'})`;
+    const rows=R.rows.map(o=>`<tr><th scope="row">${CL[o.k]}<small>${esc(o.x.ex)}</small></th><td>${m2(o.x.p[0])}–${m2(o.x.p[1])}</td><td>${o.x.h[0]===o.x.h[1]?o.x.h[0]:o.x.h[0]+'–'+o.x.h[1]} hr</td><td><b>${m$(o.a)}–${m$(o.b)}</b></td></tr>`).join('');
+    const src=R.rows.map(o=>`<h4>${CL[o.k]}: ${esc(o.x.ex)}</h4><ul class="pcr-src">${o.x.src.map(x=>`<li><span>${x[1]==='p'?'Parts':'Labor'}</span> <a href="${esc(x[0])}" target="_blank" rel="noopener nofollow">${esc(host(x[0]))}</a>: ${esc(x[2])}</li>`).join('')}</ul>`).join('');
+    return `<h3>How this range is built <span class="pcr-conf ${e.conf==='low'?'lowc':''}">${conf[0]}</span></h3>
+      <p class="muted" style="font-size:13.5px">${esc(e.job)}, ${esc(e.unit)}. Parts run from a good aftermarket part to the dealer's list price. Labor is the stated time multiplied by ${rate}. ${conf[0]}: ${conf[1]}. Last checked ${esc(e.checked)}.</p>
+      <div class="pcr-tw"><table class="pcr-t"><thead><tr><th scope="col">Kind of vehicle</th><th scope="col">Parts</th><th scope="col">Labor</th><th scope="col">Total</th></tr></thead><tbody>${rows}</tbody></table></div>
+      ${c?'':'<p class="muted" style="font-size:13.5px">The typical range above covers all four kinds of vehicle. Pick your kind of vehicle in step 2 to narrow it.</p>'}${st?'<p class="muted" style="font-size:13.5px">State rates are averages across general repair shops. Dealers and big-city shops often charge more; nobody publishes dealer rates by state.</p>':''}
+      <h3>What a quote often adds</h3><p>${esc(e.extras)}</p>
+      <details class="pcr-d"><summary>Sources for every number (${R.rows.reduce((a,o)=>a+o.x.src.length,0)} links)</summary>${src}<h4>Labor rates</h4><ul class="pcr-src">${E.rsrc.map(u=>`<li><a href="${esc(u)}" target="_blank" rel="noopener nofollow">${esc(host(u))}</a></li>`).join('')}</ul></details>
+      ${e.bm.length?`<details class="pcr-d"><summary>How other estimators compare (cross-check only)</summary><p class="muted" style="font-size:13.5px">We do not use these figures to build our range. They are here so you can compare.</p><ul class="pcr-src">${e.bm.map(b=>`<li><a href="${esc(b[1])}" target="_blank" rel="noopener nofollow">${esc(b[0])}</a>: ${m$(b[2])}–${m$(b[3])}</li>`).join('')}</ul></details>`:''}
+      <p class="muted" style="font-size:13.5px">An estimate is not a quote and not a diagnosis. Your vehicle and your shop may differ.</p>`}
+  goB.onclick=()=>{const q=+amt.value;const ec=job.est&&clsS?clsS.value:'',es=job.est&&stS?stS.value:'',ER=job.est?estR(job.est,ec,es):null;const lo=ER?ER.lo:job.lo,hi=ER?ER.hi:job.hi;let cls,head,txt;
     if(q<lo*0.85){cls='low';head='Lower than typical';txt="That's below the usual range. It could be a good deal, but make sure it includes all the parts and labor, and ask what quality of parts they're using and what warranty comes with it."}
     else if(q<=hi*1.1){cls='ok';head='Within the typical range';txt="That's in line with what this job usually costs. It's still worth asking the questions below so you know exactly what you're getting."}
     else if(q<=hi*1.5){cls='high';head='Higher than typical';txt="That's above the usual range. Dealers and shops in high-cost areas often charge more, and some jobs need extra parts once the shop gets in. Ask the questions below, and consider a second quote."}
     else{cls='vhigh';head='Well above typical';txt="That's well above what this job usually costs. Ask for an itemized quote and get a second opinion before you approve it."}
     const max=Math.max(hi*1.6,q*1.08),L=lo/max*100,W=(hi-lo)/max*100,Q=Math.min(q/max*100,99);
     const s=pick.get();const vname=s.v?(s.y?s.y+' ':'')+s.v.make+' '+s.v.model:'';
-    out.innerHTML=`<section class="card pcr ${cls}"><div class="eyebrow">Your result${vname?' · '+esc(vname):''}</div><h2>${head}</h2><p class="pcr-job">${esc(job.job)}: you were quoted <b>${m$(q)}</b>. Typical: <b>${m$(lo)}–${m$(hi)}</b>.</p>
+    out.innerHTML=`<section class="card pcr ${cls}"><div class="eyebrow">Your result${vname?' · '+esc(vname):''}</div><h2>${head}</h2><p class="pcr-job">${esc(job.job)}: you were quoted <b>${m$(q)}</b>. Typical${ER?(ec?' for '+({economy:'an economy or compact car',midsize:'a midsize car or crossover',truck:'a truck or large SUV',luxury:'a luxury car'})[ec]:'')+(es?' in '+esc((E.states.find(x=>x[0]===es)||[])[1]):''):''}: <b>${m$(lo)}–${m$(hi)}</b>.</p>
       <div class="pcr-bar"><span class="band" style="left:${L.toFixed(1)}%;width:${W.toFixed(1)}%"></span><span class="mark" style="left:${Q.toFixed(1)}%"><i></i><em>Your quote</em></span></div>
       <div class="pcr-scale"><span>${m$(0)}</span><span>${m$(max)}</span></div>
-      <p>${txt}</p>${job.recall?'<p class="rc">This repair may be covered by a recall or extended warranty. Check your VIN before paying.</p>':''}${job.gen?'<p class="muted" style="font-size:13.5px">This is a general estimate across all vehicles. Prices for trucks, luxury and European models usually run higher.</p>':''}
+      <p>${txt}</p>${job.recall?'<p class="rc">This repair may be covered by a recall or extended warranty. Check your VIN before paying.</p>':''}${ER?estHtml(job.est,ER,ec,es):''}${job.gen&&!ER?'<p class="muted" style="font-size:13.5px">This is a general estimate across all vehicles. Prices for trucks, luxury and European models usually run higher.</p>':''}
       <h3>Questions to ask your shop</h3><ul class="dots"><li>Is that the total, including diagnosis, taxes and shop fees?</li><li>How many labor hours is that, and at what hourly rate?</li><li>Are the parts new original (OEM), aftermarket or remanufactured?</li><li>What warranty comes with the parts and the labor?</li><li>Can you show me the worn or failed part before it's replaced?</li>${job.recall?'<li>Is there a recall, service bulletin or extended warranty that covers this?</li>':''}</ul>
       <div class="row-btns"><button class="btn" type="button" onclick="window.print()">Print or save this</button>${s.v?`<a class="btn ghost" href="${url(s.v,s.y)}">See your vehicle's page</a>`:''}</div></section>`;
     out.scrollIntoView({behavior:'smooth',block:'start'})};

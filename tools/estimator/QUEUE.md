@@ -46,6 +46,9 @@ Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held wi
 - [x] Turbocharger replacement (live: $1150–$4800) (2026-11-19) — about right both ends (low confidence)
 
 ## Notes for the next run
+- 2026-11-20: Phase 2 is built and live. 44 jobs pass and are shown on /price-check/; 6 are held (`"status": "held"` in the job file keeps a file off the page; remove it when the file passes). Next: second attempt at oil change, coolant flush and tire rotation; then Phase 1 step 3 (raise confidence: 34 of 44 shown jobs are "rough estimate") and Phase 3.
+- Tesla service-manual times are printed without a unit: cross-check only, never a range end.
+- A full run this size (11 research agents, 2 fetch agents) used about 177 of the 200 searches.
 - `[~]` jobs have a saved file; finish them (fill the nulls) before starting new jobs. Do not redo the parts that are already sourced.
 - Labor times are the bottleneck. Best finds so far: recall/TSB dealer letters on static.nhtsa.gov (warranty times, so the low end). Agents may switch the example vehicle within a class to one that has a stated time.
 - No hourly page-fetch limit was hit in the last two runs (up to 6 agents at once).
@@ -58,4 +61,12 @@ Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held wi
 
 ## After the job list
 - [x] Labor rates: src/estimator/rates.json (2026-11-19) — 51 entries, 49 with two sources (42 medium, 9 low confidence). State figures are typical general-repair-shop rates, not independent-only. No one publishes dealer rates by state: `dealer` stays null per state and `_national` holds the sourced dealer figures (Reynolds effective rates $128–$173; AAA "often 25 percent or more" above independents). Decision: treat as complete; the page uses the state range and states the dealer caveat in words, never a multiplied state dealer figure.
-- [ ] Add jobs drivers ask about that are missing: battery replacement, oil change, brake fluid flush, coolant flush, transmission fluid service, tire rotation, wheel alignment, serpentine belt, cabin air filter
+- [x] Battery replacement (new, no live range) (2026-11-19) — builds $160–$490; Toyota highs are top retail tier, not list (low confidence)
+- [x] Brake fluid flush (new) (2026-11-19) — builds $70–$200; shops' menu prices often higher (low confidence)
+- [x] Transmission fluid service (new) (2026-11-19) — one drain-and-fill, builds $90–$420 (low confidence)
+- [x] Cabin air filter replacement (new) (2026-11-19) — builds $30–$140 (low confidence)
+- [x] Wheel alignment (new) (2026-11-19) — builds $90–$180; truck and luxury on a single 1.1 hr Hyundai/Genesis time (low confidence)
+- [~] Oil change (new) (2026-11-19) — held, first attempt: engine oil capacities are not from a maker document, only two independent benchmarks, Ford and BMW highs are kit prices not list
+- [~] Coolant flush (new) (2026-11-19) — held, first attempt: F-150 5.0L coolant capacity and Motorcraft list price not found (truck parts null)
+- [~] Tire rotation (new) (2026-11-19) — held, first attempt: times rest on Tesla service-manual figures printed without a unit and a Nissan tyre-swap diagnosis operation; needs a maker "rotate tires" time
+- Serpentine belt: already covered by "Serpentine belt or tensioner replacement".
