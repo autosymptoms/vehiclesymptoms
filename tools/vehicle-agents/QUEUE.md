@@ -101,7 +101,7 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] kia-stinger | Kia Stinger | 2018-2023 |
 - [x] kia-carnival | Kia Carnival | 2022-present |
 - [x] kia-spectra | Kia Spectra | 2000-2009 |
-- [~] kia-cadenza-k5 | Kia K5 | 2021-present | draft held back: kia-optima already covers K5 2021+ years; merge K5 issues into kia-optima instead of a separate page | CLAIMED by scheduled run 2026-11-20 08:54 UTC
+- [x] kia-cadenza-k5 | Kia K5 | 2021-present | merged into kia-optima Nov 20 08:54 run (6 K5 issues added; years capped 2026). 2020 still thin; K5 AWD coupling (TRA105/108) and 1.6T coolant (PS744) not yet added
 - [x] kia-ev6 | Kia EV6 | 2022-present | ev:true
 - [x] subaru-wrx | Subaru WRX / STI | 2002-present |
 - [x] subaru-tribeca | Subaru B9 Tribeca / Tribeca | 2006-2014 |
@@ -280,7 +280,7 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] chevrolet-prizm | Chevrolet Prizm / Geo Prizm | 1996-2002 |
 - [x] chevrolet-metro | Chevrolet Metro / Geo Metro | 1998-2001 |
 - [x] chevrolet-ssr | Chevrolet SSR | 2003-2006 |
-- [ ] chevrolet-caprice | Chevrolet Caprice | 1996 | | CLAIMED by scheduled run 2026-11-20 08:54 UTC
+- [x] chevrolet-caprice | Chevrolet Caprice | 1996 | published Nov 20: 17 issues, 50% priced; needs pricing pass + own maint (only oil)
 - [x] gmc-safari | GMC Safari | 1996-2005 |
 - [x] gmc-sonoma | GMC Sonoma | 1996-2004 |
 - [x] gmc-hummer-ev | GMC Hummer EV | 2022-present | ev:true
@@ -624,8 +624,11 @@ These live models have under 80% of their non-recall issues priced, so the price
 
 - Run note (Nov 20 08:37 UTC run): pricing-pass list above is now worked through once. Several pricing-pass models fail check-vehicle on thin years in src/deep (ford-escape, kia-optima, honda-passport 2003-2018 gap + 2024-26, nissan-xterra, subaru-impreza 1996-2001/2020-27, jeep-liberty 13 issues); queue them for the deepen step. honda-passport deep still cites carwhere on ~16 recall issues (replacement URLs are in its prices file); same for nissan-xterra, subaru-impreza, kia-optima, ford-escape deep files.
 
+- Run note (Nov 20 08:54 UTC run, batch 2 deepen): ford-escape 43->47 (2026 still thin, 2 recalls), nissan-xterra 20->28, honda-passport 24->29, jeep-liberty 13->21 (only 25% priced: PRICING PASS NEXT, RepairPal/YourMechanic Liberty pages listed in run log), subaru-impreza 36->47 (years capped 2026; 2016/2025/2026 still 2 issues), mercedes-benz-glc 34->39 (50% priced), ford-maverick 31->36 (63%; new brake-grab issue is safety-related, rests on Lemberg Law + CarComplaints — qualified review), kia-optima 28->38 (50% priced; 6 unpriced). Deep files still cite carwhere (pre-existing): ford-escape, ford-maverick, honda-passport (16 recall issues), jeep-liberty, mercedes-benz-glc, nissan-xterra — swap to NHTSA recall pages.
+- Next run order: (a) jeep-gladiator deepen; (b) pricing pass on jeep-liberty, chevrolet-caprice, kia-optima, mercedes-benz-glc, ford-maverick, nissan-juke, honda-passport; (c) carwhere source swap in the deep files above; (d) continue "Fill thin years" via check-vehicle on every id.
+
 ## After the queue is empty: deepen existing models
 **Daniel approved this Nov 19 2026.** Order for the next runs: (1) the pricing pass above, (2) the two leftovers (merge kia-cadenza-k5 issues into kia-optima; chevrolet-caprice 1996), (3) this list in order. Use the same BRIEF, review and publish steps; agents edit the existing model files instead of creating new ones.
 - Extend models that end early (2026/2027) once real problems exist for those years. See the project doc vehicles/model-coverage.md.
 - Fill thin years: any sold year with fewer than 3 issues (run check-vehicle.js on every id).
-- Raise models with fewer than 20 issues: dodge-caliber, dodge-neon, nissan-juke, jeep-gladiator, ford-flex, hyundai-santa-cruz. | CLAIMED by scheduled run 2026-11-20 08:54 UTC (caliber, neon, juke, gladiator, flex, santa-cruz)
+- Raise models with fewer than 20 issues: dodge-caliber, dodge-neon, nissan-juke, jeep-gladiator, ford-flex, hyundai-santa-cruz. | done Nov 20 08:54 run for caliber, neon, juke, flex, santa-cruz (+ chevrolet-bolt-ev 10->22). jeep-gladiator NOT done (search budget ran out): still 19 issues, 2025 thin, 0/3 non-recall priced, own.annual missing
