@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-20 08:26 UTC started
+
 ## Run 2026-11-20 07:26 UTC finished 2026-11-20 08:00 UTC (Phase 3: no new jobs passed; result now says how the quote sits for each kind of vehicle; about 125 of 200 searches used)
 - Totals: 6 research agents (4 held retries, 1 new job, 2 leads on shown jobs) and 1 fetch agent. 80 job files: 57 shown (unchanged), 23 held (was 22). Medium confidence: 14 jobs (unchanged). No built range changed on any job.
 - Nothing passed review. Retried and still held: muffler, brake light switch, knock sensor, oil pressure sensor. New and held: ignition coil, one coil. Leads on alternator and brake caliper added cross-checks only; their classes and ranges are untouched. Reasons are in QUEUE.md.
