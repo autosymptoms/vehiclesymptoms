@@ -433,49 +433,49 @@ These live models have under 80% of their non-recall issues priced, so the price
 - Run note (Nov 20 ~05:40 UTC, batch 2): shared search budget ran out after ~5-10 searches per agent; several models dropped below 80% because AI-only prices (enginepatrol/openlaborproject/bruisers) were removed with no replacement. Retry those with fresh budget. Useful recall sources: auto-recalls.justia.com/<make>/<model>/<year>/<campaign>000 and static.nhtsa.gov/odi/rcl/<year>/RCLRPT-<campaign>-*.pdf.
 - Run note (Nov 20 04:40 UTC run, batch 1): 30 models repriced; carwhere-priced recalls set to free [0,0] with real recall sources. Deep files still cite carwhere/enginepatrol on many issues (ram-1500, ram-3500, audi-q7, chevrolet-malibu, bmw-3-series, toyota-tacoma, audi-a4, mazda-rx-8): needs an issue-source pass. Also vet vehicleflaws.com, 8020automotive.com, samarins.com (no prices?), thechargeport.com, forcar.org, carcomplaintdata.com, theweeklydriver.com.
 - Run note (Nov 19 20:40 UTC run): in unattended runs, subagent WebFetch of URLs that did not come from a WebSearch result timed out waiting for permission (RepairPal/CarComplaints/NHTSA PDF links already in the repo). Most `[~]` leftovers below are from that, not from a lack of sources. 65 files still cite openlaborproject (after batch 2). Batch 2 (21:25 UTC) ran out of the shared search budget early; items marked "redo first" got no real research.
-- [~] lexus-lx | Lexus LX | 1996-2025 | pricing pass done Nov 19 (was 33% priced, 16 unpriced; now 63% priced, 9 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [~] lexus-lx | Lexus LX | 1996-2025 | Nov 20 13:10 run: 71%, 7 unpriced; own battery missing
 - [x] lexus-is | Lexus IS | 2001-2026 | pricing pass done Nov 20 12:40 run; 89% priced (9 diagnosis-only); 2025-26 thin
 - [~] acura-nsx | Acura NSX | 1996-2021 | pricing pass done Nov 20 12:40 run (77%, 7 unpriced, ~18 diagnosis-only). No NSX labor-hour sources found
 - [x] bmw-i4 | BMW i4 | 2022-2025 | pricing pass done Nov 19 (was 12% priced, 15 unpriced; now 80%+)
 - [x] bmw-ix | BMW iX | 2022-2024 | pricing pass done Nov 19 (was 7% priced, 14 unpriced; now 80%+)
 - [x] toyota-avalon | Toyota Avalon | 1996-2022 | pricing pass done Nov 19 (was 39% priced, 14 unpriced; now 80%+)
-- [~] mercedes-benz-sl | Mercedes-Benz SL | 1996-2024 | pricing pass done Nov 19 (was 50% priced, 14 unpriced; now 61% priced, 11 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [~] mercedes-benz-sl | Mercedes-Benz SL | 1996-2024 | Nov 20 13:10 run: carwhere removed (justia sl500 links unverified); 61%, 11 unpriced, search budget ran out — retry
 - [x] acura-rdx | Acura RDX | 2007-2025 | pricing pass done Nov 19 (was 54% priced, 12 unpriced; now 80%+)
 - [~] lexus-ux | Lexus UX | 2019-2025 | pricing pass done Nov 20 12:40 run (38%, 8 unpriced). Comm module 86740-76180 has 1.9h from L-SB-0032-20 but no part price; sunroof glass lacks labor
 - [x] audi-e-tron | Audi e-tron | 2019-2024 | pricing pass done Nov 19 (was 21% priced, 11 unpriced; now 80%+)
 - [~] toyota-supra | Toyota GR Supra | 2020-2023 | pricing pass done Nov 20 12:40 run (36%, 7 unpriced): most issues have no published fix; own lacks spark plugs
 - [x] volkswagen-jetta | Volkswagen Jetta | 1996-2027 | pricing pass done Nov 19 (was 23% priced, 10 unpriced; now 80%+)
-- [~] nissan-armada | Nissan Armada | 2004-2026 | pricing pass done Nov 19 (was 50% priced, 10 unpriced; now 65% priced, 7 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [~] nissan-armada | Nissan Armada | 2004-2026 | Nov 20 13:10 run: 65%; carwhere->justia, enginepatrol removed; 3 enginepatrol-only issues deleted; radiator/manifold/self-leveling re-sourced
 - [x] chevrolet-tracker | Chevrolet Tracker | 1999-2004 | pricing pass done Nov 19 (was 62% priced, 10 unpriced; now 80%+)
 - [~] jeep-renegade | Jeep Renegade | 2015-2023 | pricing pass done Nov 19 (was 40% priced, 9 unpriced; now 67% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
-- [~] audi-a7 | Audi A7 | 2012-2025 | pricing pass done Nov 19 (was 44% priced, 9 unpriced; now 63% priced, 6 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [~] audi-a7 | Audi A7 | 2012-2025 | Nov 20 13:10 run: 75%; carwhere replaced with NHTSA vehicle pages; timing chain priced from dealer/owner quotes; oil pressure switch 06E919081G needs labor time
 - [~] kia-rio | Kia Rio | 2001-2023 | pricing pass done Nov 19 (was 44% priced, 9 unpriced; now 69% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
 - [~] toyota-4runner | Toyota 4Runner | 1996-2027 | pricing pass done Nov 19 (was 44% priced, 9 unpriced; now 73% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
 - [x] kia-cadenza | Kia Cadenza | 2014-2020 | pricing pass done Nov 19 (was 53% priced, 9 unpriced; now 80%+)
-- [~] dodge-viper | Dodge Viper | 1996-2017 | pricing pass done Nov 19 (was 57% priced, 9 unpriced; now 57% priced, 9 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
-- [~] rivian-r1s-r1t | Rivian R1T / R1S | 2022-2026 | pricing pass done Nov 19 (was 11% priced, 8 unpriced; now 22% priced, 7 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
-- [~] honda-prologue | Honda Prologue | 2024-2025 | pricing pass done Nov 19 (was 20% priced, 8 unpriced; now 40% priced, 6 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [~] dodge-viper | Dodge Viper | 1996-2017 | Nov 20 13:10 run: 62%, 8 unpriced; crank damper pin kit ($60-80) and IAC ($25) need labor times
+- [~] rivian-r1s-r1t | Rivian R1T / R1S | 2022-2026 | Nov 20 13:10 run: 44%, 5 unpriced; tonneau/door priced from Rivian invoices in NHTSA PE26004; own coolant missing
+- [~] honda-prologue | Honda Prologue | 2024-2025 | Nov 20 13:10 run: no change; front half-shaft 86284282 $142-223 found, needs labor time
 - [~] toyota-sequoia | Toyota Sequoia | 2001-2025 | pricing pass done Nov 19 (was 20% priced, 8 unpriced; now 78% priced, 2 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
 - [x] mitsubishi-outlander | Mitsubishi Outlander | 2003-2026 | pricing pass done Nov 19 (was 47% priced, 8 unpriced; now 80%+)
 - [~] cadillac-srx | Cadillac SRX | 2004-2016 | pricing pass done Nov 19 (was 58% priced, 8 unpriced; now 74% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
 - [~] toyota-tercel | Toyota Tercel | 1996-1998 | pricing pass done Nov 19 (was 58% priced, 8 unpriced; now 74% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
-- [~] genesis-gv70 | Genesis GV70 | 2022-2026 | pricing pass done Nov 19 (was 64% priced, 8 unpriced; now 64% priced, 8 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [~] genesis-gv70 | Genesis GV70 | 2022-2026 | Nov 20 13:10 run: 73%, 6 unpriced (mostly warranty items); hyundaipartsdeal shows no prices to fetch
 - [x] saab-9-5 | Saab 9-5 | 1999-2011 | pricing pass done Nov 19 (was 64% priced, 8 unpriced; now 80%+)
-- [~] alfa-romeo-giulia | Alfa Romeo Giulia / Stelvio | 2017-2025 | pricing pass done Nov 19 (was 42% priced, 7 unpriced; now 50% priced, 6 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [~] alfa-romeo-giulia | Alfa Romeo Giulia / Stelvio | 2017-2025 | Nov 20 13:10 run: 58%, 5 unpriced; search budget ran out
 - [x] kia-sedona | Kia Sedona | 2002-2021 | pricing pass done Nov 19 (was 42% priced, 7 unpriced; now 80%+)
 - [~] volvo-v60 | Volvo V60 | 2015-2024 | pricing pass done Nov 19 (was 42% priced, 7 unpriced; now 67% priced, 4 unpriced). Partial: search budget ran out; retry
 - [x] mercedes-benz-gle | Mercedes-Benz M-Class / GLE | 1998-2024 | pricing pass done Nov 19 (was 46% priced, 7 unpriced; now 80%+)
-- [~] hyundai-equus | Hyundai Equus | 2011-2016 | pricing pass done Nov 19 (was 50% priced, 7 unpriced; now 57% priced, 6 unpriced). Partial: search budget ran out; retry
+- [x] hyundai-equus | Hyundai Equus | 2011-2016 | pricing pass done Nov 20 13:10 run; 93% priced (3 diagnosis-only); HECU/clock-spring labor not book time
 - [~] jeep-patriot | Jeep Patriot | 2007-2017 | pricing pass done Nov 19 (was 50% priced, 7 unpriced; now 64% priced, 5 unpriced). Partial: search budget ran out; retry
-- [~] volkswagen-eurovan | Volkswagen EuroVan | 1997-2003 | pricing pass done Nov 20 (was 53% priced, 7 unpriced; now 60% priced, 6 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [~] volkswagen-eurovan | Volkswagen EuroVan | 1997-2003 | Nov 20 13:10 run: no change; search budget ran out (try ECS Tuning/GoWesty)
 - [~] chevrolet-metro | Chevrolet Metro | 1996-2001 | pricing pass done Nov 20 12:40 run (67%, 6 unpriced)
 - [~] chrysler-lhs | Chrysler LHS | 1996-2001 | pricing pass done Nov 20 (was 68% priced, 7 unpriced; now 77% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
 - [x] gmc-sonoma | GMC Sonoma | 1996-2004 | pricing pass done Nov 20 12:40 run; 80%+ priced; 2 openlaborproject-only issues removed (spider injector, cooler lines): re-add only with real sources
 - [x] bmw-6-8-series | BMW 6 / 8 Series | 2004-2026 | pricing pass done Nov 20 (was 71% priced, 7 unpriced; now 80%+)
 - [~] volkswagen-passat | Volkswagen Passat | 1996-2022 | pricing pass done Nov 20 (was 0% priced, 6 unpriced; now 60% priced, 2 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
 - [~] ford-fusion | Ford Fusion | 2006-2020 | pricing pass done Nov 20 12:40 run (63%); carwhere/enginepatrol removed, own re-sourced; 1.5L short block lacks parts price
-- [~] ford-bronco-sport | Ford Bronco Sport | 2021-2026 | pricing pass done Nov 20 (was 25% priced, 6 unpriced; now 38% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
-- [~] mitsubishi-outlander-sport | Mitsubishi Outlander Sport | 2011-2023 | pricing pass done Nov 20 (was 33% priced, 6 unpriced; now 44% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [~] ford-bronco-sport | Ford Bronco Sport | 2021-2026 | Nov 20 13:10 run: 50%; carwhere removed; own spark-plugs/coolant removed (enginepatrol only) — refill; A/C clutch JX6Z-19D786-C $75-122 needs labor
+- [~] mitsubishi-outlander-sport | Mitsubishi Outlander Sport | 2011-2023 | Nov 20 13:10 run: no change; search budget ran out
 - [~] toyota-crown | Toyota Crown | 2023-2025 | pricing pass done Nov 20 (was 40% priced, 6 unpriced; now 60% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
 - [~] chevrolet-captiva-sport | Chevrolet Captiva Sport | 2012-2015 | pricing pass done Nov 19 (was 45% priced, 6 unpriced; now 64% priced, 4 unpriced). Partial: search budget ran out; retry
 - [~] mercedes-benz-g-class | Mercedes-Benz G-Class | 2002-2025 | pricing pass done Nov 19 (was 45% priced, 6 unpriced; now 55% priced, 5 unpriced). Partial: search budget ran out; retry
@@ -535,7 +535,7 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [x] smart-fortwo | smart fortwo | 2008-2017 | pricing pass done Nov 20 (was 77% priced, 5 unpriced; now 80%+)
 - [x] chevrolet-bolt-ev | Chevrolet Bolt EV | 2017-2023 | pricing pass done Nov 20 (was 0% priced, 4 unpriced; now 80%+)
 - [~] ford-mustang-mach-e | Ford Mustang Mach-E | 2021-2026 | pricing pass done Nov 20 (was 43% priced, 4 unpriced; now 43% priced, 4 unpriced). Shared search budget ran out and direct fetches were blocked; retry later
-- [~] hyundai-sonata | Hyundai Sonata | 1996-2026 | pricing pass done Nov 20 (was 50% priced, 4 unpriced; now 38% priced, 5 unpriced). Shared search budget ran out and direct fetches were blocked; retry later
+- [~] hyundai-sonata | Hyundai Sonata | 1996-2026 | Nov 20 13:10 run: 25%; carwhere->justia (oil-consumption price dropped: carwhere only). THIN YEARS 1996-98, 2001, 2004-05, 2023-26 need a deepen pass; windshield recall "21V-00M" campaign number is wrong
 - [~] audi-q8 | Audi Q8 | 2019-2025 | pricing pass done Nov 20 (was 56% priced, 4 unpriced; now 56% priced, 4 unpriced). Shared search budget ran out and direct fetches were blocked; retry later
 - [x] chevrolet-blazer-ev | Chevrolet Blazer EV | 2024-2026 | pricing pass done Nov 20 (was 56% priced, 4 unpriced; now 80%+)
 - [~] jaguar-f-pace | Jaguar F-Pace | 2017-2024 | pricing pass done Nov 20 (was 56% priced, 4 unpriced; now 56% priced, 4 unpriced). Shared search budget ran out and direct fetches were blocked; retry later
@@ -572,7 +572,7 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [x] chevrolet-prizm | Chevrolet Prizm | 1996-2002 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 80%+).
 - [x] lexus-rc | Lexus RC | 2015-2024 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 80%+).
 - [~] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 79% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. fuel pump recall issue years wrong in deep (08V-303 is 2003-04, 2006-08)
-- [~] pontiac-solstice | Pontiac Solstice | 2006-2009 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 63% priced, 7 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] pontiac-solstice | Pontiac Solstice | 2006-2009 | Nov 20 13:10 run: no change (search budget ran out); Saturn Sky twin prices are rough estimates, do not copy
 - [~] suzuki-aerio | Suzuki Aerio | 2002-2007 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 79% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
 - [x] ford-bronco | Ford Bronco | 1996-2026 | pricing pass done Nov 20 12:40 run; 100% priced; carwhere removed
 - [x] kia-forte | Kia Forte | 2010-2024 | pricing pass done Nov 20 (was 0% priced, 3 unpriced; now every issue priced; all are free recall repairs)
@@ -630,7 +630,8 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [~] chevrolet-caprice | Chevrolet Caprice | 1996 | pricing pass done Nov 20 12:40 run (64%, 5 unpriced: stall in reverse, rear seal, rust, air pump, odometer); own missing rear-brakes/plugs/coolant
 - Run note (Nov 20 12:40 UTC run, batch 1): pricing pass on 19 models + jeep-gladiator deepen (19->24 issues, 78% priced, own.annual added; defroster/TPMS issues rest on vehicleflaws/CarComplaints bulletin pages). Many justia recall URLs were built from campaign numbers but could not be opened (proxy blocks justia); spot-check them. Next: (a) carwhere swap in remaining deep files; (b) pricing retries for models still [~]; (c) "Fill thin years" (kia-optima 2020, ford-mustang 2002, jeep-cherokee 2023, lexus-is 2025-26, gmc-sonoma 2002).
 
-- CLAIMED by scheduled run 2026-11-20 13:10 UTC (batch 2): fill thin years kia-optima, ford-mustang, jeep-cherokee, gmc-sonoma, ford-ranger, lexus-is; pricing pass on mercedes-benz-sl, dodge-viper, lexus-lx, genesis-gv70, rivian-r1s-r1t, pontiac-solstice, nissan-armada, honda-prologue, alfa-romeo-giulia, hyundai-equus, volkswagen-eurovan, audi-a7, hyundai-sonata, ford-bronco-sport, mitsubishi-outlander-sport
+- Run note (Nov 20 13:10 UTC run, batch 2): shared search budget (200/turn) ran out early again. Thin years filled: kia-optima 2020 (P1326 limp mode, unpriced), ford-mustang 2002 (hood paint, unpriced), jeep-cherokee 2023 (2 bulletin issues, unpriced), ford-ranger 1996 (2 issues, unpriced). Still thin: ford-ranger 1997 and 2027, lexus-is 2025-2026 (no documented 2026 problems; decide whether to cap years at 2024), hyundai-sonata (many years). gmc-sonoma 2002 was already fine. Two Rivian diagnosis-only prices dropped (hours came from unrelated invoices).
+- Next run order: (a) price the new unpriced deepen issues (kia-optima P1326, mustang hood paint, ranger throttle/seat belt, cherokee 2023 bulletins); (b) hyundai-sonata thin-years deepen; (c) pricing retries for [~] models with "search budget ran out"; (d) carwhere swap in remaining deep files (`grep -l carwhere src/deep/*.json`).
 
 ## After the queue is empty: deepen existing models
 **Daniel approved this Nov 19 2026.** Order for the next runs: (1) the pricing pass above, (2) the two leftovers (merge kia-cadenza-k5 issues into kia-optima; chevrolet-caprice 1996), (3) this list in order. Use the same BRIEF, review and publish steps; agents edit the existing model files instead of creating new ones.
