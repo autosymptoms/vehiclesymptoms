@@ -1,0 +1,87 @@
+{
+  "job": "Rear brake shoes replacement (drum brakes, one axle)",
+  "unit": "one set of rear brake shoes (both rear wheels), fitted, with the existing drums reused. Not included: new drums, machining the drums, wheel cylinders, a hardware (spring) kit unless the shoe price says it includes one, brake fluid service",
+  "status": "held",
+  "held_reason": "First attempt, 2026-11-20. Only the truck class has a labor range, and both ends are a parts seller's approximate install time, not a book time. Economy has both parts ends but no usable labor time: every maker bulletin found either adds a drum or wheel cylinders to the shoes, prints the time with no unit, or points to the maker's labor guide without printing a time. Midsize has no sourced example. Luxury is null because no luxury-make vehicle with rear drum service brakes was found. The truck aftermarket price is null because none of the three retailer pages loaded says the shoes are new. Needs: a shoes-only time with a unit for an economy and a midsize car, a midsize example with two parts sources, and a truck retailer page that says new.",
+  "classes": {
+    "economy": {
+      "parts": [34.10, 89.64],
+      "hours": [null, null],
+      "example": "2015 Toyota Corolla 1.8L with rear drum brakes (L, LE and similar trims), one set of rear shoes",
+      "parts_src": [
+        {"url": "https://onefastshop.com/products/dfc-rear-brake-shoes-toyota-corolla-2008-2019-prius-c-and-scion-xd", "what": "DFC rear brake shoes 1901-0945-10, fitment chart covers 2009-2019 Corolla, $34.10 sale price (regular $48.50) (low). The page's product data gives the condition as new. The text does not say in words that it is an axle set; the product pictures show four shoes. Hardware not stated as included"},
+        {"url": "https://www.toyotapartsdeal.com/oem/toyota~shoe~kit~brake~rr~04495-02211.html", "what": "Genuine Toyota 04495-02211 'Shoe Kit, Rear Brake' (replaced by 04495-02212), 2014-2016 Corolla 1.8L, MSRP $89.64 (high), discounted $63.59. The page shows no required quantity"},
+        {"url": "https://autopartsprime.com/p/2015-toyota-corolla-brake-shoe-set", "what": "Confirms the list price: Genuine Toyota 04495-02212 'Drum Brakes; Corolla' MSRP $89.64, discounted $61.69. Cross-check, not used for the range: Wagner Quickstop Z945 rear drum brake shoes $29.45, hardware not included; the listing does not say new or state that it is a set for both wheels"},
+        {"url": "https://parts.autonationtoyotasouthaustin.com/v-2015-toyota-corolla--le--1-8l-l4-gas/brakes--brake-components", "what": "Cross-check, dealer catalog for the 2015 Corolla LE: 'Brake Shoes' (Corolla, drum brakes, US built) MSRP $86.97, sale $62.75; no part number shown. Same page, not part of this job: brake drum MSRP $117.41, wheel cylinder MSRP $65.18"}
+      ],
+      "hours_src": [
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2013/SB-10071520-5448.pdf", "what": "Cross-check, comparable small car and includes another part: GM bulletin PI0887B (April 2013, 2012-2013 Chevrolet Cruze with rear drum brakes) labor op H9768 'Replacing Right Rear Drum and Shoe Kit Includes Greasing the Applied Position of Backing Plate' 0.9 hr. It adds a new right drum to the shoe kit, so it is not a shoes-only time"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2012/SB-10060785-2280.pdf", "what": "Cross-check, the Corolla itself but a different part and no unit printed: Toyota T-SB-0235-12 Rev2 (2009-2013 Corolla) op BR1204 'R & R Drum Brake Strut Kit' time 1.4, with both rear drums off and the old shoes reused"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2013/MC-10112373-9999.pdf", "what": "Cross-check, no time printed: GM bulletin PIC5781A (2012-2013 Chevrolet Sonic) lists labor op 2430220 'Brake Shoe Replacement' with 'Use Published Labor Operation Time' and also replaces both drums"}
+      ]
+    },
+    "midsize": {
+      "parts": [null, null],
+      "hours": [null, null],
+      "example": "No midsize example sourced in this pass (most midsize cars and crossovers of the last fifteen years have rear disc brakes)",
+      "parts_src": [],
+      "hours_src": [
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2015/SB-10058513-3972.pdf", "what": "Cross-check, a small cargo van, not a midsize car, and includes other parts: FCA bulletin 05-003-15 (May 27, 2015, 2015 Ram ProMaster City) labor op 05-90-50-96 'Replace Rear Brake Shoes And Wheel Cylinders' 1.2 Hrs. It adds both wheel cylinders, so it is not a shoes-only time"}
+      ]
+    },
+    "truck": {
+      "parts": [null, 94.96],
+      "hours": [1, 2],
+      "example": "2016 Toyota Tacoma (rear drum brakes on all 2005-2023 trucks), one set of rear shoes",
+      "parts_src": [
+        {"url": "https://www.lithiatoyotaparts.com/v-2016-toyota-tacoma--sr--3-5l-v6-gas/brakes--rear-brakes", "what": "Dealer parts catalog for the 2016 Tacoma SR 3.5L: 'Brake Shoes' (2005-2020 Tacoma) MSRP $94.96 (high), sale $85.46. No part number or quantity shown on the page. Same page, not part of this job: brake drum MSRP $165.16, wheel cylinder MSRP $61.53"},
+        {"url": "https://www.extremeterrain.com/tacoma-brake-shoes-rear-4p2200426.html", "what": "Cross-check, not used for the range because the page does not say new: rear brake shoes, item TT35761, fits 2005-2023 Tacoma, '(1) Set of Rear Brake Shoes', $62.99"},
+        {"url": "https://www.extremeterrain.com/tacoma-brake-shoes-rear-bfa73776.html", "what": "Cross-check, not used for the range because the page does not say new: rear brake shoes, item TT22691, fits 2005-2023 Tacoma with rear drums, '(1) Set of Rear Brake Shoes', mounts with the original hardware, $69.99"},
+        {"url": "https://onefastshop.com/products/brembo-rear-drum-brake-shoe-05-21-toyota-tacoma", "what": "Cross-check, not used for the range because the page does not say new: Brembo rear drum brake shoe BRES83559N, 2005-2021 Tacoma depending on trim, 'Sold as set', $64.48"}
+      ],
+      "hours_src": [
+        {"url": "https://www.extremeterrain.com/tacoma-brake-shoes-rear-bfa73776.html", "what": "LOW: seller states installation time '(approx) 1 Hour' for rear brake shoes on the 2005-2023 Tacoma. Seller's approximate figure, not a flat-rate book time"},
+        {"url": "https://www.extremeterrain.com/tacoma-brake-shoes-rear-4p2200426.html", "what": "HIGH: seller states installation time '(approx) 2 Hours' for rear brake shoes on the 2005-2023 Tacoma. Seller's approximate figure, not a flat-rate book time"},
+        {"url": "https://static.nhtsa.gov/odi/tsbs/2012/SB-10061667-2280.pdf", "what": "Cross-check, no unit printed and includes other parts: Toyota T-SB-0236-12 (December 6, 2012, 2011-2012 Tacoma) op 472021 'R & R Rear Brake Shoe Assembly' time 1.1 for 4x2 and PreRunner, 1.2 for 4x4. The repair also fits two new drums and drum gaskets. The parts table lists 'Shoe Kit, Rear Brake' quantity 1 per truck"},
+        {"url": "https://americantrucks.com/silverado1500-brake-shoes-rear-bfa73799.html", "what": "Cross-check on another truck: seller states '(approx) 2 Hours' for rear brake shoes on the 2005-2008 Silverado 1500. Same page: item S140265, four shoes, 'New Item Condition', no mounting hardware, $104.99"},
+        {"url": "https://www.americantrucks.com/powerstop-colorado-autospecialty-drum-brake-shoes-hardware-rear-ssh959.html", "what": "Cross-check on another truck: seller states '(approx) 1 Hour' for PowerStop SSH959 rear shoes with hardware kit on the 2009-2012 Colorado ($51.68; page does not say new)"},
+        {"url": "https://www.americantrucks.com/ram1500-brake-shoes-rear-bfa17061.html", "what": "Cross-check on another truck: seller states '(approx) 1 Hour' for rear brake shoes listed for the 2018 Ram 1500 ($59.99; box holds two shoes; page does not say new)"}
+      ]
+    },
+    "luxury": {
+      "parts": [null, null],
+      "hours": [null, null],
+      "example": "None. No luxury-make vehicle with rear drum service brakes was found, so no example is given",
+      "parts_src": [],
+      "hours_src": []
+    }
+  },
+  "src": [
+    "https://onefastshop.com/products/dfc-rear-brake-shoes-toyota-corolla-2008-2019-prius-c-and-scion-xd",
+    "https://www.toyotapartsdeal.com/oem/toyota~shoe~kit~brake~rr~04495-02211.html",
+    "https://autopartsprime.com/p/2015-toyota-corolla-brake-shoe-set",
+    "https://parts.autonationtoyotasouthaustin.com/v-2015-toyota-corolla--le--1-8l-l4-gas/brakes--brake-components",
+    "https://static.nhtsa.gov/odi/tsbs/2013/SB-10071520-5448.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2012/SB-10060785-2280.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2013/MC-10112373-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2015/SB-10058513-3972.pdf",
+    "https://www.lithiatoyotaparts.com/v-2016-toyota-tacoma--sr--3-5l-v6-gas/brakes--rear-brakes",
+    "https://www.extremeterrain.com/tacoma-brake-shoes-rear-4p2200426.html",
+    "https://www.extremeterrain.com/tacoma-brake-shoes-rear-bfa73776.html",
+    "https://onefastshop.com/products/brembo-rear-drum-brake-shoe-05-21-toyota-tacoma",
+    "https://static.nhtsa.gov/odi/tsbs/2012/SB-10061667-2280.pdf",
+    "https://americantrucks.com/silverado1500-brake-shoes-rear-bfa73799.html",
+    "https://www.americantrucks.com/powerstop-colorado-autospecialty-drum-brake-shoes-hardware-rear-ssh959.html",
+    "https://www.americantrucks.com/ram1500-brake-shoes-rear-bfa17061.html"
+  ],
+  "benchmarks": [
+    {"name": "RepairPal", "url": "https://repairpal.com/estimator/brake-shoes-replacement-cost", "lo": 314, "hi": 397, "date": "2026-11-20", "note": "national average, all vehicles: labor $173-$253 plus parts $142-$144, before taxes and fees; page says estimates last updated September 3, 2026"},
+    {"name": "Jerry", "url": "https://jerry.ai/car-repair/estimates/replace-brake-drums-cost/", "lo": 350, "hi": 550, "date": "2026-11-20", "note": "'basic' case, shoes and hardware with the drums reused: $350-$550 per axle and 1.5-2.0 hr; with new drums $550-$850 per axle and 2.0-3.0 hr. Signed by a named mechanic, updated November 19, 2025. Another estimator's guide, so its times are shown here for comparison only"},
+    {"name": "YourMechanic (Toyota Tacoma)", "url": "https://www.yourmechanic.com/estimates/toyota/tacoma/brake-shoes-rear-replacement", "lo": 398, "hi": 509, "date": "2026-11-20", "note": "vehicle-specific table for the truck example: mobile estimates $398.12 (2004) to $508.82 (2018), $442.08 for 2006-2015; shop/dealer prices $441-$761. The same page also states an average of $299 ($75 parts, $224 labor), which is below its own table, so treat with caution"}
+  ],
+  "live": null,
+  "finding": "New job, so there is no live range to judge, and this file is not ready to show a range. Built totals use parts + stated hours x $120-$160/hr (the national middle labor rate used for these checks). Only the truck class can be partly built: on a 2016 Toyota Tacoma the labor is 1 to 2 hours ($120-$320), and with the shoes at Toyota's list price of $94.96 the total is about $215-$415; no low total with aftermarket shoes is given because none of the three retailer pages ($62.99, $64.48, $69.99) says the shoes are new. Economy (2015 Corolla): parts are $34.10 aftermarket to $89.64 Toyota list, but no total is built because no shoes-only labor time with a unit was found. Midsize: nothing sourced. Luxury: null, because no luxury-make vehicle with rear drum service brakes was found. How solid the labor times are: weak. The Tacoma figures are a parts seller's approximate install times (1 hour on one listing, 2 hours on another), not book times. The maker bulletins found do not give a clean shoes-only time: GM allows 0.9 hr on a Chevrolet Cruze for one new drum plus the shoe kit, FCA allows 1.2 hr on a Ram ProMaster City for shoes plus both wheel cylinders, Toyota prints 1.1 to 1.2 for Tacoma shoes with new drums but gives no unit, and GM's Sonic bulletin and Nissan's bulletins point to the labor guide without printing a time. Those cross-checks all sit between about 1 and 1.5 hours, which is consistent with the truck range but does not replace a stated time. Against the outside estimates: the partial truck total ($215-$415) overlaps RepairPal ($314-$397) and sits below Jerry ($350-$550) and YourMechanic's Tacoma table ($398-$509); RepairPal assumes $173-$253 of labor, which at $120-$160/hr is roughly 1.1 to 2.1 hours.",
+  "confidence": "low",
+  "checked": "2026-11-20",
+  "extras": "A quote often adds new drums or machining the existing drums, a hardware (spring and adjuster) kit, wheel cylinders if they are leaking, a brake fluid bleed or flush when the hydraulics are opened, parking brake adjustment, brake cleaner and shop supplies, an inspection or diagnosis fee, and sales tax. The dealer catalogs loaded list a Corolla drum at $117.41 and wheel cylinder at $65.18, and a Tacoma drum at $165.16 and wheel cylinder at $61.53, each at list price."
+}
