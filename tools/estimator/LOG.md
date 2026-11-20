@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-20 06:26 UTC started
+
 ## Run 2026-11-20 05:26 UTC finished 2026-11-20 06:10 UTC (Phase 3: three more jobs on the page, refrigerant note on A/C recharge, held jobs named in search; about 190 of 200 searches used)
 - Totals: 7 research agents (7 held retries, 7 new jobs) and 2 fetch agents. 73 job files: 57 shown (was 54), 16 held (was 12). Medium confidence: 14 jobs (unchanged).
 - New on the page (all classes, national middle rate, before page rounding): EVAP purge valve $48–$146 before diagnosis (second attempt); PCV valve $67–$221 (second attempt); brake master cylinder $261–$650 (new; a maker time for every example). All low confidence. None had a live sourced range before.
