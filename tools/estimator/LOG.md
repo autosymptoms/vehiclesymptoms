@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-20 02:27 UTC started
+
 ## Run 2026-11-20 01:26 UTC finished 2026-11-20 02:01 UTC (confidence pass on 14 jobs; quote-gap line added; about 164 of 200 searches used)
 - Totals: 7 research agents (14 jobs) and 1 fetch agent. 50 job files: 46 shown, 4 held (unchanged). Medium confidence: 14 jobs (was 12).
 - Raised to medium: blower motor (truck example now 2010 Silverado 1500 with automatic temperature control: GM PI0648A 0.6 hr low, seller-stated 1 hr high) and serpentine belt (examples now 2018 Hyundai Elantra, 2022 Kia Telluride, 2011 Acura MDX, each with a maker time for the low end; Tacoma unchanged).
