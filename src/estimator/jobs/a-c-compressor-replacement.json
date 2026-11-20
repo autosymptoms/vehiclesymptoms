@@ -1,0 +1,175 @@
+{
+ "job": "A/C compressor replacement",
+ "unit": "per job (compressor; say whether drier/expansion valve and recharge are included)",
+ "classes": {
+  "economy": {
+   "parts": [245.08, 839.11],
+   "hours": [1.8, 2.9],
+   "example": "2014 Toyota Corolla 1.8L",
+   "parts_src": [
+    {
+     "url": "https://www.autopartsprime.com/p/2014-toyota-corolla-a-c-compressor",
+     "what": "Four Seasons 198339 new A/C compressor with clutch, $245.08 (low). Same page: Four Seasons kit 8602NK (new compressor, filter drier, expansion valve, oil, O-rings) $310.92; Toyota OEM 88310-02852 $565.28 discounted; Toyota OEM 88320-0Z070 $683.66 discounted"
+    },
+    {
+     "url": "https://toyotapartsdeal.com/oem-2014-toyota-corolla-a_c_compressor.html",
+     "what": "Toyota OEM 88310-02851 / 88310-02850 'Compressor Assembly, With Pulley' (manual A/C; both superseded by 88310-02852), MSRP $839.11 (high), sale $558.27. This is the part number named in the Toyota bulletin used for the labor time. The page also lists a second OEM compressor, 88320-0Z070, MSRP $1,008.14 (sale $675.18); it is not the bulletin part, so the lower list price is used and the higher one is noted in the finding"
+    }
+   ],
+   "hours_src": [
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2014/SB-10061340-2273.pdf",
+     "what": "Toyota T-SB-0086-14 (Aug 11, 2014), 2014 Corolla: op code AC1400 'Compressor w/ Magnetic Clutch Assembly', time 2.9 hr, replacing compressor 88310-02850 with 88310-02851. Manufacturer warranty time. The bulletin replaces the compressor only (no drier or expansion valve) and does not say whether refrigerant recovery/recharge is inside the time."
+    },
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2014/SB-10061714-2273.pdf",
+     "what": "Revised version of the same Toyota bulletin (2014-2015 Corolla): same op code AC1400, time read as 1.8 hr. Manufacturer warranty time. The two versions disagree (2.9 vs 1.8); both are recorded as the range rather than choosing one."
+    }
+   ]
+  },
+  "midsize": {
+   "parts": [265.17, 885.90],
+   "hours": [1.1, 1.7],
+   "example": "2017 Honda CR-V 1.5T",
+   "parts_src": [
+    {
+     "url": "https://autopartsprime.com/p/2019-honda-cr-v-a-c-compressor",
+     "what": "Four Seasons 198277 new compressor with clutch, $265.17 (low). This is the retailer's 2019 CR-V page (same generation as the 2017); the 2017-2022 CR-V fitment of this part number is stated on the finditparts page below. Same page lists Honda OEM 38810-5PH-A01 as the 2.4L (LX) compressor, $545.43 discounted, MSRP $776.98, and the 1.5L compressors for EX, EX-L and Touring trims"
+    },
+    {
+     "url": "https://finditparts.com/products/11202024/four-seasons-198277",
+     "what": "Same part, Four Seasons 198277 new compressor with clutch, $484.99; fitment listed as Honda CR-V 2017-2022 and Honda Civic 2016-2021 (engine not listed on the page). Shows how far the price of one aftermarket part number varies between sellers"
+    },
+    {
+     "url": "https://hondapartsnow.com/oem-2017-honda-cr_v-a_c_compressor.html",
+     "what": "Honda OEM 38810-5AA-A03 (superseded by 38810-5AA-A06), listed for 2017 CR-V EX, EX-L and Touring (the 1.5T trims; the page lists trims, not engines), MSRP $885.90 (high), sale $605.96. The LX (2.4L) compressor 38810-5PH-A01 is MSRP $776.98, sale $531.46"
+    }
+   ],
+   "hours_src": [
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10237039-0001.pdf",
+     "what": "NOT a compressor replacement time, so not used: Honda Service Bulletin 23-040, 2017-22 CR-V 1.5T, op 6141D4 'Replace the A/C compressor shaft seal (includes inspection, evacuate and recharge)' 2.1 hr. No stated time for replacing the compressor itself was found."
+    },
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10163448-0001.pdf",
+     "what": "Different vehicle in the same class (no CR-V time found): Kia bulletin CLI046 (July 2019), 2017-2019 Sportage: op 97701F10 'A/C System Inspection, Compressor Replacement' 1.1 M/H; op 97701F11 with ETS replacement as well, 1.2 M/H. The bulletin states 'Op Time includes evacuate and recharge of the A/C refrigerant'. Manufacturer warranty time (low end)"
+    },
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10156892-9999.pdf",
+     "what": "Different vehicle in the same class: Ford Customer Satisfaction Program 19B02, 2019 Escape: 'Evacuate A/C System of Refrigerant utilizing Special Loaner Equipment, Replace Compressor and Recharge A/C System' 1.7 hr (1.5L, op 19B02C), 1.4 hr (2.0L, op 19B02D), 1.2 hr (2.5L, op 19B02E). The same bulletin gives 0.6 hr for evacuate and recharge alone (op 19B02B). Manufacturer program time (low end)"
+    }
+   ]
+  },
+  "truck": {
+   "parts": [347.39, 1087.27],
+   "hours": [2.0, 3.0],
+   "example": "2018 Ford F-150 5.0L",
+   "parts_src": [
+    {
+     "url": "https://partshawk.com/four-seasons-168391-a-c-compressor-for-ford-f-150.html",
+     "what": "Four Seasons 168391 new compressor with clutch (Nippondenso 7SAS17C type), listed for 2018-2020 Ford F-150, $347.39 (low; regular price $365.67). The page does not list engines, so 5.0L fitment is not confirmed on the page"
+    },
+    {
+     "url": "https://www.summitracing.com/parts/FSS-168386",
+     "what": "Four Seasons 168386 new compressor with clutch (7SAS17C type), listed for 2017-2020 F-150, 2018-2021 Expedition and 2018-2022 Navigator, $488.99. Engine-level fitment did not load on the page"
+    },
+    {
+     "url": "https://www.americantrucks.com/f150-a-c-compressor-clutch-pulley-apacc222.html",
+     "what": "For reference, the earlier 5.0L truck: store-brand compressor with clutch and pulley, item T619611, 2015-2017 5.0L F-150, $215.99. Not used for the 2018 example because the model years differ"
+    },
+    {
+     "url": "https://fordpartsgiant.com/oem-2018-ford-f_150-a_c_compressor.html",
+     "what": "Ford OEM JL3Z-19703-LB compressor assembly, 2018 F-150 5.0L, MSRP $1,087.27 (high), sale $669.76. Other engines on the same page run from MSRP $730.91 (2.7L, HL3Z-19703-K) to $1,220.00 (3.5L GTDI, HL3Z-19703-V)"
+    },
+    {
+     "url": "https://www.summitracing.com/parts/uac-kt5768",
+     "what": "For the extras: UAC kit KT 5768 for 2018-2019 F-150 (compressor, accumulator/drier, expansion valve, oil and seals), $443.99. Engine fitment did not load on the page"
+    }
+   ],
+   "hours_src": [
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10233745-0001.pdf",
+     "what": "No time stated, so not used: Ford bulletin for 2017-2021 F-150 (3.5L EcoBoost, 2.7L, 5.0L, 3.0L diesel) says to install an updated A/C compressor and refers to the Service Labor Time Standards manual for the time instead of printing it."
+    },
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2021/MC-10189756-0001.pdf",
+     "what": "Same truck family, not the F-150 itself: Ford Customer Satisfaction Program 20N08, 2018 Expedition and Navigator: op 20N08B 'Obtain Loaner Equipment, Evacuate Contaminated Refrigerant, Replace A/C Compressor Only' 2.6 hr. Manufacturer program time"
+    },
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10153987-9999.pdf",
+     "what": "Same truck family: Ford Customer Satisfaction Program 19B01, 2019 Expedition and Navigator: op 19B01B 'Evacuate A/C System of Refrigerant utilizing Special Loaner Equipment, Replace Compressor, Desiccant Bag (part of condenser), and Recharge A/C System' 3.0 hr. Manufacturer program time; includes the desiccant bag and the recharge"
+    },
+    {
+     "url": "https://www.americantrucks.com/f150-a-c-compressor-clutch-pulley-apacc528.html",
+     "what": "Seller states installation time 'approximately 2 hours' for its compressor (item T619616, $328.49) on the late-2018 to 2020 2.7L EcoBoost F-150. A seller's approximate figure for a different engine, not a flat-rate book time"
+    },
+    {
+     "url": "https://www.americantrucks.com/f150-a-c-compressor-clutch-pulley-apacc222.html",
+     "what": "Same seller states 'approximately 3 hours' for its compressor on the 2015-2017 5.0L F-150. A seller's approximate figure"
+    }
+   ]
+  },
+  "luxury": {
+   "parts": [469.99, 1524.65],
+   "hours": [1.0, 1.0],
+   "example": "2015 BMW 328i (F30, N20)",
+   "parts_src": [
+    {
+     "url": "https://www.fcpeuro.com/BMW-parts/328i/AC-Compressor/",
+     "what": "A/C compressor 64529399059 for the 328i: Mahle Behr $469.99 (low), Denso $523.99. The category page lists models, not chassis or engine; the part number is the one the two pages below list for the F30 N20"
+    },
+    {
+     "url": "https://www.bimmerworld.com/BMW-Interior/BMW-AC-Compressors/BMW-Air-conditioner-Systems-64529216466.html",
+     "what": "A/C compressor with clutch, N20/N26 four-cylinder, 64529399059, made by Denso (the original supplier), $569.99; listed for F30/F31/F34 328i and 328i xDrive"
+    },
+    {
+     "url": "https://bmwpartsdeal.com/oem-2015-bmw-328i-a_c_compressor.html",
+     "what": "Genuine BMW 64529399059 'Air Conditioning Compressor With Magnetic Coupling', 2015 328i N20/N26 (F30), MSRP $1,524.65 (high), sale $1,094.63"
+    }
+   ],
+   "hours_src": [
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2015/SB-10105529-9340.pdf",
+     "what": "Different vehicle in the same class (no BMW time found; BMW bulletins point to BMW's own time system): Jaguar Land Rover bulletin LTB00776NAS1 (21 Jul 2015), Range Rover (2013 on) and Range Rover Sport (2014-2015): operation 82.10.20 'Compressor - Air conditioning - Renew' 1.0 hr. Manufacturer warranty time (low end); the bulletin does not say whether refrigerant recovery and recharge are inside the time and calls its times guidance only"
+    }
+   ]
+  }
+ },
+ "src": [
+  "https://static.nhtsa.gov/odi/tsbs/2014/SB-10061340-2273.pdf",
+  "https://static.nhtsa.gov/odi/tsbs/2014/SB-10061714-2273.pdf",
+  "https://static.nhtsa.gov/odi/tsbs/2023/MC-10237039-0001.pdf",
+  "https://static.nhtsa.gov/odi/tsbs/2023/MC-10233745-0001.pdf",
+  "https://www.autopartsprime.com/p/2014-toyota-corolla-a-c-compressor",
+  "https://toyotapartsdeal.com/oem-2014-toyota-corolla-a_c_compressor.html",
+  "https://autopartsprime.com/p/2019-honda-cr-v-a-c-compressor",
+  "https://finditparts.com/products/11202024/four-seasons-198277",
+  "https://hondapartsnow.com/oem-2017-honda-cr_v-a_c_compressor.html",
+  "https://static.nhtsa.gov/odi/tsbs/2019/MC-10163448-0001.pdf",
+  "https://static.nhtsa.gov/odi/tsbs/2019/MC-10156892-9999.pdf",
+  "https://partshawk.com/four-seasons-168391-a-c-compressor-for-ford-f-150.html",
+  "https://www.summitracing.com/parts/FSS-168386",
+  "https://www.americantrucks.com/f150-a-c-compressor-clutch-pulley-apacc222.html",
+  "https://fordpartsgiant.com/oem-2018-ford-f_150-a_c_compressor.html",
+  "https://www.summitracing.com/parts/uac-kt5768",
+  "https://static.nhtsa.gov/odi/tsbs/2021/MC-10189756-0001.pdf",
+  "https://static.nhtsa.gov/odi/tsbs/2019/MC-10153987-9999.pdf",
+  "https://www.americantrucks.com/f150-a-c-compressor-clutch-pulley-apacc528.html",
+  "https://www.fcpeuro.com/BMW-parts/328i/AC-Compressor/",
+  "https://www.bimmerworld.com/BMW-Interior/BMW-AC-Compressors/BMW-Air-conditioner-Systems-64529216466.html",
+  "https://bmwpartsdeal.com/oem-2015-bmw-328i-a_c_compressor.html",
+  "https://static.nhtsa.gov/odi/tsbs/2015/SB-10105529-9340.pdf"
+ ],
+ "benchmarks": [
+  {"name": "RepairPal", "url": "https://repairpal.com/estimator/ac-compressor-replacement-cost", "lo": 1081, "hi": 1463, "date": "2026-11-19", "note": "average, all vehicles: parts $836-$1,103 + labor $245-$360, before taxes and fees; the page warns related repairs may be needed"},
+  {"name": "ConsumerAffairs", "url": "https://www.consumeraffairs.com/automotive/cost-of-car-ac-repair.html", "lo": 1319, "hi": 2515, "date": "2026-11-19", "note": "its own survey of mechanics: average compressor replacement $1,319-$2,515 across its sample vehicles (labor $849 on a 2017 Honda Civic, $709 on a 2017 Ford F-150, $655 on a 2019 BMW 740i); article updated Sep 25, 2026. It also repeats RepairPal's $1,081-$1,463"},
+  {"name": "YourMechanic (Toyota Corolla)", "url": "https://www.yourmechanic.com/estimates/toyota/corolla/ac-compressor-replacement", "lo": 1439, "hi": 4777, "date": "2026-11-19", "note": "lo = stated average $1,439 ($655 parts, $784 labor); hi = highest row in its table, $4,777.21 for a 2016 Corolla (lowest row $2,126.58, 1999 Corolla). The page's average is below every row of its own table, so treat with caution"},
+  {"name": "YourMechanic (BMW 328i)", "url": "https://www.yourmechanic.com/estimates/bmw/328i/ac-compressor-replacement", "lo": 1302, "hi": 4265, "date": "2026-11-19", "note": "lo = stated average $1,302 ($644 parts, $658 labor); hi = $4,264.70 table row for a 2015 328i 2.0L turbo (2013 row $3,212.79). Same contradiction between average and table as the Corolla page"},
+  {"name": "Jerry", "url": "https://jerry.ai/car-repair/estimates/ac-compressor-replacement", "lo": 241, "hi": 702, "date": "2026-11-19", "note": "states an average of $241-$702; an outlier on the low side: its sample jobs show 95-105 minutes of labor and parts from $7.26, while its own text gives 2.5-6.0 hours and labor of $275-$1,200. Updated Nov 2026"}
+ ],
+ "live": [550, 1625],
+ "finding": "The live range of $550-$1,625 is about right for a compressor-only job, with a floor that is slightly high and a ceiling that is slightly low; it is too low for a full job that also replaces the drier and expansion valve and is priced the way the outside estimators price it. Our totals, built as compressor price plus stated hours at $120-$160 per hour (a national middle rate), are: economy 2014 Corolla $461-$1,303; midsize 2017 CR-V 1.5T $397-$1,158; truck 2018 F-150 5.0L $587-$1,567; luxury 2015 BMW 328i $590-$1,685. So the built span is about $400-$1,685. The cheapest cases (an aftermarket compressor on a small car or crossover) come in $90-$150 under the live floor, and a BMW with a genuine compressor comes in about $60 over the live ceiling. These totals are deliberately lean: they hold the compressor and labor only, no refrigerant, oil, drier, expansion valve or flush, and the labor is manufacturer warranty or program time, which runs shorter than what shops bill. The midsize times (Kia Sportage 1.1 hr, Ford Escape 1.2-1.7 hr) and the Ford Expedition times (2.6-3.0 hr) include evacuating and recharging; the Toyota and Land Rover times do not say. Four of the five outside estimates sit well above our totals (RepairPal $1,081-$1,463; ConsumerAffairs mechanic survey $1,319-$2,515; YourMechanic averages $1,302-$1,439 with table rows far higher); Jerry ($241-$702) is the one low outlier and contradicts its own text. The gap comes from parts, not labor: RepairPal's labor ($245-$360) matches ours, but its parts figure ($836-$1,103) equals a genuine compressor at full list price, where we found quality aftermarket compressors at $245-$470. A fair reading is that $550-$1,625 fits a compressor swap with an aftermarket-to-genuine part, and a quote of $1,700-$2,500 can still be fair when it includes a genuine compressor, drier, expansion valve, flush and refrigerant. Weak points: no CR-V, F-150 or BMW-specific labor time was found, so those classes use stated times from other vehicles in the same class (Sportage and Escape; Expedition/Navigator plus a seller's approximate F-150 times; Range Rover), and the luxury class rests on a single 1.0 hr warranty time that is almost certainly short of a real BMW job, so its low total is the least reliable. The two aftermarket F-150 listings do not confirm the 5.0L engine on the page. The 2017 CR-V aftermarket price is from the seller's 2019 CR-V page, with 2017-2022 fitment confirmed on a second seller's page where the same part costs $484.99. A dearer Toyota compressor (88320-0Z070, $1,008.14 list) would lift the economy top to about $1,472. No Kelley Blue Book figure could be found by search. From the earlier pass: Volkswagen's compressor bulletin requires a new expansion valve, receiver-drier insert, seals and a system flush with every compressor replacement, and Toyota's contamination guideline (T-SB-0083-13) calls for condenser, hoses or more when debris is found, so a compressor-only price and a full-system price are different jobs. One undated parts-retailer article (buyautoparts.com) lists labor hours for 2007 models with no named labor guide (Malibu 2.4, Mazda6 2.5, BMW 328i 2.7, Silverado 2.9, F-150 3.4, Tundra 4.1, stated to include 1.4 hr for recover/evacuate/recharge); these were left out of the class figures because the vehicles are outside 2008-2020 and the source of the times is not named.",
+ "confidence": "medium",
+ "checked": "2026-11-19",
+ "extras": "The parts figures here are the compressor with clutch only. A proper job adds: a receiver-drier or accumulator (or desiccant bag), an expansion valve or orifice tube, compressor oil and O-rings, and refrigerant with an evacuate-and-recharge. Sourced pointers for those: a Four Seasons kit for the 2014 Corolla with compressor, drier, expansion valve, oil and O-rings is $310.92 against $245.08 for the compressor alone (about $66 more); a UAC kit for the 2018-2019 F-150 with compressor, drier, expansion valve, oil and seals is $443.99; Ford allows 0.6 hr for evacuate and recharge alone on a 2019 Escape, and its 3.0 hr Expedition time includes the desiccant bag and recharge. Refrigerant cost itself (R-134a, or the dearer R-1234yf on newer cars) was not priced from a source in this pass. From the manufacturer bulletins loaded earlier: a system flush when the old compressor failed internally, and a condenser if debris is found. Diagnosis/leak-test fee, shop supplies and tax were not researched from sources."
+}

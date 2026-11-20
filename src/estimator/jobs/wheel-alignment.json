@@ -1,0 +1,221 @@
+{
+  "job": "Wheel alignment",
+  "unit": "per vehicle (four-wheel alignment check and adjustment of the factory adjusters; labor only, no parts; seized adjusters, cam bolts, shims, worn steering or suspension parts and driver-assist camera calibration not included)",
+  "classes": {
+    "economy": {
+      "parts": [
+        0,
+        0
+      ],
+      "hours": [
+        0.8,
+        1.1
+      ],
+      "example": "2015 Hyundai Elantra, four-wheel alignment check and adjustment",
+      "parts_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10172142-0001.pdf",
+          "what": "No parts are needed: an alignment is a labor-only service. Hyundai bulletin 20-SS-001H lists the alignment as a labor operation with a placeholder causal part (ALIGN00000), not a priced part. Seized adjusters, cam bolts or shims, where a car needs them, are extra and are not priced here"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10172142-0001.pdf",
+          "what": "HIGH, this maker, all models: Hyundai bulletin 20-SS-001H (February 2020, 'all models and model years') warranty table: Model 'ALL', op code 52903A00 'Alignment Diagnosis/Repair', op time 1.1 hr. A warranty time is the low end of what a shop bills, and this one includes diagnosis"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10181080-0001.pdf",
+          "what": "LOW, a different maker and a compact crossover, not an Elantra: Honda Service Bulletin 20-081 (October 8, 2020; 2017-20 CR-V) op 4193A0 'Do a four-wheel alignment' flat rate 0.8 hr. A warranty time is the low end of what a shop bills"
+        },
+        {
+          "url": "https://service.tesla.com/docs/Model3/ServiceManual/en-us/GUID-13BE03F3-57D9-41B2-817E-C17E7545DE3A.html",
+          "what": "Cross-check on another compact sedan, not used for the range: Tesla Model 3 service manual 'Four Wheel Alignment Check and Adjust', correction code 31002300, flat rate time 0.90 hr"
+        },
+        {
+          "url": "https://mechanicbase.com/?p=32866",
+          "what": "Cross-check, not vehicle-specific and not a book time: guide by a certified diagnostic technician (updated October 18, 2026) states 'The average wheel alignment takes 30 to 60 minutes once the vehicle is taken into the tire shop', longer when bolts or nuts are rusted or seized"
+        }
+      ]
+    },
+    "midsize": {
+      "parts": [
+        0,
+        0
+      ],
+      "hours": [
+        0.8,
+        1.1
+      ],
+      "example": "2017 Honda CR-V, four-wheel alignment check and adjustment",
+      "parts_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10181080-0001.pdf",
+          "what": "No parts are needed: an alignment is a labor-only service. Honda Service Bulletin 20-081 lists 'Do a four-wheel alignment' as a labor operation with no part. Seized adjusters, cam bolts or shims, where a car needs them, are extra and are not priced here"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10181080-0001.pdf",
+          "what": "LOW, this vehicle: Honda Service Bulletin 20-081 version 1 (October 8, 2020; 2017-20 CR-V, all trims) op 4193A0 'Do a four-wheel alignment' flat rate 0.8 hr. A warranty time is the low end of what a shop bills"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10181842-0001.pdf",
+          "what": "Same bulletin, version 2 (October 21, 2020), same figure: op 4193A0 'Do a four-wheel alignment' 0.8 hr"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10172142-0001.pdf",
+          "what": "HIGH, a different maker, not a CR-V: Hyundai bulletin 20-SS-001H (February 2020, all models) op 52903A00 'Alignment Diagnosis/Repair' 1.1 hr, which includes diagnosis"
+        },
+        {
+          "url": "https://service.tesla.com/docs/ModelY/ServiceManual/en-us/GUID-13BE03F3-57D9-41B2-817E-C17E7545DE3A.html",
+          "what": "Cross-check on another midsize crossover, not used for the range: Tesla Model Y service manual 'Four Wheel Alignment Check and Adjust', correction code 31002300, flat rate time 0.90 hr"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2021/MC-10189760-0001.pdf",
+          "what": "Cross-check, rear axle only, not used for the range: Ford program 21B14 (March 8, 2021; 2013-2017 Explorer) op 21B14G 'Check alignment and, if necessary, adjust rear toe' 0.6 hr"
+        }
+      ]
+    },
+    "truck": {
+      "parts": [
+        0,
+        0
+      ],
+      "hours": [
+        1.1,
+        1.1
+      ],
+      "example": "2016 Ford F-150, four-wheel alignment check and adjustment (front caster, camber and toe; the solid rear axle is measured, not adjusted)",
+      "parts_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2013/SB-10068974-5448.pdf",
+          "what": "No parts are needed: an alignment is a labor-only service. GM bulletin 05-03-07-009F (May 2013, 2014 and prior passenger cars and light duty trucks) defines the job as labor operations only: 8070012 'Steering Wheel Angle and/or Front Toe set' and 8070032 'Wheel Alignment Check/Adjust includes Caster, Camber and Toe set'. It prints no time. Seized adjusters, cam bolts or shims are extra and are not priced here"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://service.tesla.com/docs/Cybertruck/ServiceManual/en-us/GUID-EF986AB5-6F25-4FFA-9041-130AF4B976B7.html",
+          "what": "HIGH, a different full-size pickup, not an F-150: Tesla Cybertruck service manual 'Four Wheel Alignment Check and Adjust (Test/Adjust)', correction code 31002300, flat rate time 1.26 hr. A manufacturer flat-rate time is the low end of what a shop bills. The Cybertruck has an adjustable independent rear suspension, which an F-150 does not"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10172142-0001.pdf",
+          "what": "LOW, not a truck maker's figure and not an F-150: Hyundai bulletin 20-SS-001H (February 2020, all models and model years) op 52903A00 'Alignment Diagnosis/Repair' 1.1 hr. Used because no stated alignment time was found for an F-150, Silverado or Ram"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2025/MC-11015409-0001.pdf",
+          "what": "Checked, no time printed: GM bulletin 05-03-07-009L (February 2025, 2026 and prior passenger cars and light duty trucks) refers alignment warranty claims to labor operations 8070012 and 8070032 without stating their times"
+        },
+        {
+          "url": "https://mechanicbase.com/?p=32866",
+          "what": "Cross-check, not vehicle-specific and not a book time: 'The average wheel alignment takes 30 to 60 minutes once the vehicle is taken into the tire shop'; four-wheel-drive vehicles usually need a four-wheel alignment and rusted or seized hardware adds time"
+        }
+      ]
+    },
+    "luxury": {
+      "parts": [
+        0,
+        0
+      ],
+      "hours": [
+        1.1,
+        1.1
+      ],
+      "example": "2017 Genesis G80, four-wheel alignment check and adjustment",
+      "parts_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10172141-0001.pdf",
+          "what": "No parts are needed: an alignment is a labor-only service. Genesis bulletin 20-SS-001HG lists the alignment as a labor operation with a placeholder causal part (ALIGN00000), not a priced part. Seized adjusters, cam bolts or shims, where a car needs them, are extra and are not priced here"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10172141-0001.pdf",
+          "what": "HIGH, this vehicle: Genesis bulletin 20-SS-001HG 'Wheel Alignment Requirements and Best Practices' (February 2020; 2017-2018 G80 and G90) op 52903A00 'Alignment Diagnosis/Repair' op time 1.1 hr. A warranty time is the low end of what a shop bills, and this one includes diagnosis"
+        },
+        {
+          "url": "https://service.tesla.com/docs/Model3/ServiceManual/en-us/GUID-13BE03F3-57D9-41B2-817E-C17E7545DE3A.html",
+          "what": "LOW, comparable premium sedan, not a Genesis: Tesla Model 3 service manual 'Four Wheel Alignment Check and Adjust', correction code 31002300, flat rate time 0.90 hr"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2016/SB-10100142-9340.pdf",
+          "what": "Cross-check, add-on time only, not used for the range: Acura Service Bulletin 16-057 (November 2, 2016; 2015-16 TLX V6) 'A 4-wheel alignment - add 0.4 hr' on top of a 1.8 hr mount repair. An add-on time assumes the car is already in the bay and apart, so it understates a stand-alone alignment"
+        }
+      ]
+    }
+  },
+  "src": [
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10172142-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10181080-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10181842-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10172141-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2016/SB-10100142-9340.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2013/SB-10068974-5448.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2025/MC-11015409-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2021/MC-10189760-0001.pdf",
+    "https://service.tesla.com/docs/Model3/ServiceManual/en-us/GUID-13BE03F3-57D9-41B2-817E-C17E7545DE3A.html",
+    "https://service.tesla.com/docs/ModelY/ServiceManual/en-us/GUID-13BE03F3-57D9-41B2-817E-C17E7545DE3A.html",
+    "https://service.tesla.com/docs/Cybertruck/ServiceManual/en-us/GUID-EF986AB5-6F25-4FFA-9041-130AF4B976B7.html",
+    "https://mechanicbase.com/?p=32866",
+    "https://repairpal.com/estimator/wheel-alignment-cost",
+    "https://jerry.ai/car-repair/estimates/wheel-alignment-cost/",
+    "https://www.slashgear.com/2202201/how-much-does-car-alignment-cost-how-much-expect-pay/",
+    "https://www.slashgear.com/2158933/major-retailers-offer-lifetime-tire-alignments/",
+    "https://ncs.dealerteamwork.com/service-specials/honda-north-clovis-ca/print/22345",
+    "https://www.thedrive.com/maintenance-repair/37220/wheel-alignment-cost.md"
+  ],
+  "benchmarks": [
+    {
+      "name": "RepairPal",
+      "url": "https://repairpal.com/estimator/wheel-alignment-cost",
+      "lo": 186,
+      "hi": 273,
+      "date": "2026-11-19",
+      "note": "national average for a wheel alignment $186-$273, all labor, before taxes and fees; estimates last updated September 3, 2026. Per vehicle on the same page: Ford F-150 $188-$276, Toyota Camry $223-$326, Chevrolet Silverado 1500 $166-$243, Honda Accord $157-$231"
+    },
+    {
+      "name": "Jerry",
+      "url": "https://jerry.ai/car-repair/estimates/wheel-alignment-cost/",
+      "lo": 100,
+      "hi": 200,
+      "date": "2026-11-19",
+      "note": "'standard four-wheel alignments fall mostly in the $100 to $200 range', more for higher-end vehicles or at dealers; cites Kelley Blue Book for a front-end (two-wheel) alignment at $50 to $100; page updated June 17, 2025"
+    },
+    {
+      "name": "SlashGear",
+      "url": "https://www.slashgear.com/2202201/how-much-does-car-alignment-cost-how-much-expect-pay/",
+      "lo": 100,
+      "hi": 175,
+      "date": "2026-11-19",
+      "note": "article dated June 29, 2026: four-wheel alignments 'start around $100 and can go as high as $175'; front-end two-wheel alignment '$50 to $100 or so'; dealers tend to charge more. A second SlashGear article (May 1, 2026, https://www.slashgear.com/2158933/major-retailers-offer-lifetime-tire-alignments/) puts a standard one-time alignment at $75 to $150"
+    },
+    {
+      "name": "Honda dealer service menu (Clovis, California)",
+      "url": "https://ncs.dealerteamwork.com/service-specials/honda-north-clovis-ca/print/22345",
+      "lo": 139.95,
+      "hi": 169.95,
+      "date": "2026-11-19",
+      "note": "one dealer's menu price, an example and not an average: 'Four Wheel Alignment' regular price $169.95, coupon price $139.95, offer expires 11-30-2026"
+    },
+    {
+      "name": "Mechanic Base",
+      "url": "https://mechanicbase.com/?p=32866",
+      "lo": 200,
+      "hi": 200,
+      "date": "2026-11-19",
+      "note": "technician-written guide (updated October 18, 2026): 'If you were going to have all four wheels aligned, you might spend around $200'; a single figure, no range given"
+    },
+    {
+      "name": "The Drive",
+      "url": "https://www.thedrive.com/maintenance-repair/37220/wheel-alignment-cost.md",
+      "lo": null,
+      "hi": 100,
+      "date": "2026-11-19",
+      "note": "older article (November 14, 2020): 'Getting an alignment done at a chain or local shop should cost less than $100', and a skilled tech 'should be able to complete an alignment job in under an hour'. No low figure given; prices have risen since 2020"
+    }
+  ],
+  "live": null,
+  "finding": "There is no live range for this job yet, so this is a first build. Built totals, labor only (no parts), stated hours x $120-$160/hr (the national middle labor rate used for these checks): economy 2015 Hyundai Elantra about $96-$176 (0.8-1.1 hr); midsize 2017 Honda CR-V about $96-$176 (0.8-1.1 hr); truck 2016 Ford F-150 about $132-$202 (1.1-1.26 hr); luxury 2017 Genesis G80 about $108-$176 (0.9-1.1 hr). Across classes that is roughly $96-$202. How this compares: the built range sits squarely on the consumer guides ($100-$200 and $100-$175 for a four-wheel alignment) and on one dealer menu ($139.95-$169.95), and below RepairPal's national average of $186-$273 (F-150 $188-$276, Silverado $166-$243, Accord $157-$231, Camry $223-$326). So the build is about right for a chain or independent shop and somewhat low for a dealer; a shown range of about $100-$250 would cover both. Candidly, an alignment is sold at a menu price, not billed by the hour. Chains often sell it below a book-time build as a coupon item or bundle it with tires, and sell lifetime plans at about the price of two alignments, while dealers and shops that calibrate driver-assist cameras charge above it. Our hours are manufacturer warranty times, the low end of what a shop bills. How solid the labor times are: fair for three classes, weak for trucks. Maker-printed times were found for the midsize example itself (Honda 0.8 hr, 2017-20 CR-V), the luxury example itself (Genesis 1.1 hr, 2017-18 G80) and, through an all-models bulletin, the economy example (Hyundai 1.1 hr). The other end of each range is another maker's figure for a comparable vehicle (Honda 0.8 hr, Tesla 0.90 hr), clearly labelled. For trucks no stated time was found for an F-150, Silverado or Ram: the GM alignment bulletin names its labor operations without printing times, so the truck range rests on Hyundai's all-models 1.1 hr and Tesla's 1.26 hr for a Cybertruck, neither a conventional pickup. Acura's 0.4 hr is an add-on allowance when the car is already apart and Ford's 0.6 hr covers rear toe only; both are cross-checks, not used. Not found: a chain shop's own posted alignment price (the chain pages reached listed none) and an alignment-equipment maker's stated time. A front-only (two-wheel) alignment is a smaller job, about $50-$100 in the guides. Seized adjusters, cam bolts, shims and worn parts are extra, and an alignment cannot be finished on worn tie rods or ball joints. Reviewer note (2026-11-19): the Tesla service-manual figures (0.90 for the Model 3, 1.26 for the Cybertruck) are printed without a unit, so they are kept as cross-checks only and no longer set a range end. Truck and luxury hours are now the single Hyundai/Genesis stated time of 1.1 hr: luxury (2017 Genesis G80, the example itself) builds to about $132-$176 and truck (not a truck-specific time) to about $132-$176.",
+  "confidence": "low",
+  "checked": "2026-11-19",
+  "extras": "A quote may add: freeing or replacing seized adjusters, eccentric (cam) bolts or sleeves; camber or caster shims or adjustment kits on vehicles with no factory adjustment; worn tie rod ends, ball joints, bushings or wheel bearings that must be replaced before the alignment will hold; a steering angle sensor reset; calibration of driver-assist cameras or radar on newer vehicles (can cost more than the alignment itself); extra labor for lifted, lowered or modified vehicles; an alignment check or inspection fee if no adjustment is made; shop supplies and sales tax. Lifetime or multi-year alignment plans cost more up front. Ask for the before-and-after printout."
+}
