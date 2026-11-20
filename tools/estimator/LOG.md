@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-20 05:26 UTC started
+
 ## Run 2026-11-20 04:27 UTC finished 2026-11-20 04:52 UTC (Phase 3: four more jobs on the page, more posted prices, single-labor-time note; about 194 of 200 searches used; page-fetch limit reached)
 - Totals: 7 research agents (2 held retries, 2 menu-price jobs, 10 new jobs) and 1 fetch agent. 66 job files: 54 shown (was 50), 12 held (was 6). Medium confidence: 14 jobs (unchanged).
 - New on the page (all classes, national middle rate, before page rounding): engine air filter $40–$162 with 4 posted prices $25–$79 (passes on its second attempt); hydraulic steering rack $452–$2,622; differential fluid service, one axle, $96–$250 with 8 posted prices $80–$180; headlight bulb, one bulb, $55–$294. All low confidence. None had a live sourced range before.
