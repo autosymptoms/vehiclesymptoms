@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-20 07:26 UTC started
+
 ## Run 2026-11-20 06:26 UTC finished 2026-11-20 07:13 UTC (Phase 3: no new jobs passed; duplicate general entries removed from search, kind of vehicle set from the picked vehicle; about 190 of 200 searches used)
 - Totals: 7 research agents (8 held retries, 6 new jobs) and 1 fetch agent. 79 job files: 57 shown (unchanged), 22 held (was 16). Medium confidence: 14 jobs (unchanged). No built range changed on any job.
 - Nothing passed review. Retried and still held: power steering fluid service, wiper motor, A/C condenser, camshaft position sensor, radiator hose, blend door actuator, variable valve timing solenoid, muffler. New and held: brake light switch, EVAP vent valve, oil pressure sensor, coolant temperature sensor, knock sensor, exhaust manifold gasket. Reasons are in QUEUE.md.
