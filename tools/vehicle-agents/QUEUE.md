@@ -434,16 +434,16 @@ These live models have under 80% of their non-recall issues priced, so the price
 - Run note (Nov 20 04:40 UTC run, batch 1): 30 models repriced; carwhere-priced recalls set to free [0,0] with real recall sources. Deep files still cite carwhere/enginepatrol on many issues (ram-1500, ram-3500, audi-q7, chevrolet-malibu, bmw-3-series, toyota-tacoma, audi-a4, mazda-rx-8): needs an issue-source pass. Also vet vehicleflaws.com, 8020automotive.com, samarins.com (no prices?), thechargeport.com, forcar.org, carcomplaintdata.com, theweeklydriver.com.
 - Run note (Nov 19 20:40 UTC run): in unattended runs, subagent WebFetch of URLs that did not come from a WebSearch result timed out waiting for permission (RepairPal/CarComplaints/NHTSA PDF links already in the repo). Most `[~]` leftovers below are from that, not from a lack of sources. 65 files still cite openlaborproject (after batch 2). Batch 2 (21:25 UTC) ran out of the shared search budget early; items marked "redo first" got no real research.
 - [~] lexus-lx | Lexus LX | 1996-2025 | pricing pass done Nov 19 (was 33% priced, 16 unpriced; now 63% priced, 9 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
-- [~] lexus-is | Lexus IS | 2001-2026 | pricing pass done Nov 19 (was 41% priced, 16 unpriced; now 59% priced, 11 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
-- [~] acura-nsx | Acura NSX | 1996-2021 | pricing pass done Nov 19 (was 47% priced, 16 unpriced; now 53% priced, 14 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [x] lexus-is | Lexus IS | 2001-2026 | pricing pass done Nov 20 12:40 run; 89% priced (9 diagnosis-only); 2025-26 thin
+- [~] acura-nsx | Acura NSX | 1996-2021 | pricing pass done Nov 20 12:40 run (77%, 7 unpriced, ~18 diagnosis-only). No NSX labor-hour sources found
 - [x] bmw-i4 | BMW i4 | 2022-2025 | pricing pass done Nov 19 (was 12% priced, 15 unpriced; now 80%+)
 - [x] bmw-ix | BMW iX | 2022-2024 | pricing pass done Nov 19 (was 7% priced, 14 unpriced; now 80%+)
 - [x] toyota-avalon | Toyota Avalon | 1996-2022 | pricing pass done Nov 19 (was 39% priced, 14 unpriced; now 80%+)
 - [~] mercedes-benz-sl | Mercedes-Benz SL | 1996-2024 | pricing pass done Nov 19 (was 50% priced, 14 unpriced; now 61% priced, 11 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
 - [x] acura-rdx | Acura RDX | 2007-2025 | pricing pass done Nov 19 (was 54% priced, 12 unpriced; now 80%+)
-- [~] lexus-ux | Lexus UX | 2019-2025 | pricing pass done Nov 19 (was 15% priced, 11 unpriced; now 15% priced, 11 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [~] lexus-ux | Lexus UX | 2019-2025 | pricing pass done Nov 20 12:40 run (38%, 8 unpriced). Comm module 86740-76180 has 1.9h from L-SB-0032-20 but no part price; sunroof glass lacks labor
 - [x] audi-e-tron | Audi e-tron | 2019-2024 | pricing pass done Nov 19 (was 21% priced, 11 unpriced; now 80%+)
-- [~] toyota-supra | Toyota GR Supra | 2020-2023 | pricing pass done Nov 19 (was 9% priced, 10 unpriced; now 18% priced, 9 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [~] toyota-supra | Toyota GR Supra | 2020-2023 | pricing pass done Nov 20 12:40 run (36%, 7 unpriced): most issues have no published fix; own lacks spark plugs
 - [x] volkswagen-jetta | Volkswagen Jetta | 1996-2027 | pricing pass done Nov 19 (was 23% priced, 10 unpriced; now 80%+)
 - [~] nissan-armada | Nissan Armada | 2004-2026 | pricing pass done Nov 19 (was 50% priced, 10 unpriced; now 65% priced, 7 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
 - [x] chevrolet-tracker | Chevrolet Tracker | 1999-2004 | pricing pass done Nov 19 (was 62% priced, 10 unpriced; now 80%+)
@@ -468,12 +468,12 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [~] hyundai-equus | Hyundai Equus | 2011-2016 | pricing pass done Nov 19 (was 50% priced, 7 unpriced; now 57% priced, 6 unpriced). Partial: search budget ran out; retry
 - [~] jeep-patriot | Jeep Patriot | 2007-2017 | pricing pass done Nov 19 (was 50% priced, 7 unpriced; now 64% priced, 5 unpriced). Partial: search budget ran out; retry
 - [~] volkswagen-eurovan | Volkswagen EuroVan | 1997-2003 | pricing pass done Nov 20 (was 53% priced, 7 unpriced; now 60% priced, 6 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
-- [~] chevrolet-metro | Chevrolet Metro | 1996-2001 | pricing pass done Nov 19 (was 61% priced, 7 unpriced; now 56% priced, 8 unpriced). Partial: search budget ran out; retry
+- [~] chevrolet-metro | Chevrolet Metro | 1996-2001 | pricing pass done Nov 20 12:40 run (67%, 6 unpriced)
 - [~] chrysler-lhs | Chrysler LHS | 1996-2001 | pricing pass done Nov 20 (was 68% priced, 7 unpriced; now 77% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
-- [~] gmc-sonoma | GMC Sonoma | 1996-2004 | pricing pass done Nov 19 (was 68% priced, 7 unpriced; now 55% priced, 10 unpriced). Partial: search budget ran out; retry
+- [x] gmc-sonoma | GMC Sonoma | 1996-2004 | pricing pass done Nov 20 12:40 run; 80%+ priced; 2 openlaborproject-only issues removed (spider injector, cooler lines): re-add only with real sources
 - [x] bmw-6-8-series | BMW 6 / 8 Series | 2004-2026 | pricing pass done Nov 20 (was 71% priced, 7 unpriced; now 80%+)
 - [~] volkswagen-passat | Volkswagen Passat | 1996-2022 | pricing pass done Nov 20 (was 0% priced, 6 unpriced; now 60% priced, 2 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
-- [~] ford-fusion | Ford Fusion | 2006-2020 | pricing pass done Nov 19 (was 14% priced, 6 unpriced; now 13% priced, 7 unpriced). Partial: search budget ran out; retry
+- [~] ford-fusion | Ford Fusion | 2006-2020 | pricing pass done Nov 20 12:40 run (63%); carwhere/enginepatrol removed, own re-sourced; 1.5L short block lacks parts price
 - [~] ford-bronco-sport | Ford Bronco Sport | 2021-2026 | pricing pass done Nov 20 (was 25% priced, 6 unpriced; now 38% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
 - [~] mitsubishi-outlander-sport | Mitsubishi Outlander Sport | 2011-2023 | pricing pass done Nov 20 (was 33% priced, 6 unpriced; now 44% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
 - [~] toyota-crown | Toyota Crown | 2023-2025 | pricing pass done Nov 20 (was 40% priced, 6 unpriced; now 60% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
@@ -508,7 +508,7 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [x] saab-9-3 | Saab 9-3 | 1999-2011 | pricing pass done Nov 20 (was 75% priced, 6 unpriced; now 80%+)
 - [x] lincoln-mark-viii | Lincoln Mark VIII | 1996-1998 | pricing pass done Nov 20 (was 79% priced, 6 unpriced; now 80%+)
 - [x] audi-q4-e-tron | Audi Q4 e-tron | 2022-2025 | pricing pass done Nov 20 (was 17% priced, 5 unpriced; now 80%+)
-- [~] nissan-juke | Nissan Juke | 2011-2017 | pricing pass done Nov 20 (was 38% priced, 5 unpriced; now 63% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
+- [x] nissan-juke | Nissan Juke | 2011-2017 | pricing pass done Nov 20 12:40 run; now 80%+ priced. Sunroof glass/strut mount lack labor times
 - [x] ford-taurus | Ford Taurus | 1996-2019 | pricing pass done Nov 20 (was 44% priced, 5 unpriced; now 80%+)
 - [x] gmc-acadia | GMC Acadia | 2007-2027 | pricing pass done Nov 20 (was 50% priced, 5 unpriced; now 80%+)
 - [~] lincoln-mark-lt | Lincoln Mark LT | 2006-2008 | pricing pass done Nov 20 (was 55% priced, 5 unpriced; now 55% priced, 5 unpriced). Shared search budget ran out and direct fetches were blocked; retry later
@@ -542,7 +542,7 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [~] chevrolet-equinox | Chevrolet Equinox | 2005-2026 | pricing pass done Nov 20 (was 60% priced, 4 unpriced; now 70% priced, 3 unpriced). Shared search budget ran out and direct fetches were blocked; retry later
 - [~] jeep-grand-cherokee | Jeep Grand Cherokee | 1996-2026 | pricing pass done Nov 20 (was 60% priced, 4 unpriced; now 67% priced, 3 unpriced). Shared search budget ran out and direct fetches were blocked; retry later
 - [~] tesla-cybertruck | Tesla Cybertruck | 2024-2026 | pricing pass done Nov 20 (was 60% priced, 4 unpriced; now 60% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
-- [~] jeep-cherokee | Jeep Cherokee | 1996-2023 | pricing pass done Nov 20 (was 64% priced, 4 unpriced; now 25% priced, 6 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. AI-only prices dropped (openlaborproject); 2023 thin
+- [~] jeep-cherokee | Jeep Cherokee | 1996-2023 | pricing pass done Nov 20 12:40 run (75%); oil consumption and rust unpriceable; 2023 thin
 - [x] nissan-rogue | Nissan Rogue | 2008-2027 | pricing pass done Nov 20 (was 64% priced, 4 unpriced; now 80%+). samarins-only prices may need unpricing; thin 2020/2022/2026/2027
 - [~] audi-q7 | Audi Q7 | 2007-2024 | pricing pass done Nov 20 (was 67% priced, 4 unpriced; now 67% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. deep file still cites carwhere/enginepatrol
 - [x] chevrolet-malibu | Chevrolet Malibu | 1997-2025 | pricing pass done Nov 20 (was 67% priced, 4 unpriced; now 80%+). deep file still cites carwhere/enginepatrol
@@ -574,10 +574,10 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [~] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 79% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. fuel pump recall issue years wrong in deep (08V-303 is 2003-04, 2006-08)
 - [~] pontiac-solstice | Pontiac Solstice | 2006-2009 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 63% priced, 7 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
 - [~] suzuki-aerio | Suzuki Aerio | 2002-2007 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 79% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
-- [~] ford-bronco | Ford Bronco | 1996-2026 | pricing pass done Nov 20 (was 0% priced, 3 unpriced; now 0% priced, 7 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. 4 recall prices removed (unconfirmed recalls)
+- [x] ford-bronco | Ford Bronco | 1996-2026 | pricing pass done Nov 20 12:40 run; 100% priced; carwhere removed
 - [x] kia-forte | Kia Forte | 2010-2024 | pricing pass done Nov 20 (was 0% priced, 3 unpriced; now every issue priced; all are free recall repairs)
 - [~] jeep-gladiator | Jeep Gladiator | 2020-2026 | pricing pass done Nov 20 (was 25% priced, 3 unpriced; now 25% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
-- [~] ford-ranger | Ford Ranger | 1996-2027 | pricing pass done Nov 20 (was 50% priced, 3 unpriced; now 0% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. only ~1 of 6 non-recall priced after AI-only prices removed; deep has eng/engs + carwhere issues
+- [x] ford-ranger | Ford Ranger | 1996-2027 | pricing pass done Nov 20 12:40 run; 80% priced; carwhere removed. 1996-97 and 2027 thin
 - [~] hyundai-tucson | Hyundai Tucson | 2005-2026 | pricing pass done Nov 20 (was 50% priced, 3 unpriced; now 63% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
 - [~] cadillac-cts | Cadillac CTS | 2003-2019 | pricing pass done Nov 20 (was 57% priced, 3 unpriced; now 43% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
 - [x] jeep-compass | Jeep Compass | 2007-2026 | pricing pass done Nov 20 (was 57% priced, 3 unpriced; now 80%+).
@@ -591,9 +591,9 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [~] lincoln-mkt | Lincoln MKT | 2010-2019 | pricing pass done Nov 20 (was 70% priced, 3 unpriced; now 70% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
 - [~] daewoo-lanos | Daewoo Lanos | 1999-2002 | pricing pass done Nov 20 (was 73% priced, 3 unpriced; now 73% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
 - [~] kia-ev9 | Kia EV9 | 2024-2026 | pricing pass done Nov 20 (was 73% priced, 3 unpriced; now 73% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
-- [~] ford-mustang | Ford Mustang | 1996-2026 | pricing pass done Nov 20 (was 75% priced, 3 unpriced; now 44% priced, 9 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. own oil/brakes/battery/coolant removed (enginepatrol-only); 6 recall issues lost their only source
+- [~] ford-mustang | Ford Mustang | 1996-2026 | pricing pass done Nov 20 12:40 run (70%); carwhere removed, own re-sourced; 10-speed CDF price dropped (part price unknown); 2002 thin
 - [~] honda-accord | Honda Accord | 1996-2026 | pricing pass done Nov 20 (was 75% priced, 3 unpriced; now 64% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
-- [~] mercedes-benz-sprinter | Mercedes-Benz Sprinter | 2003-2024 | pricing pass done Nov 20 (was 75% priced, 3 unpriced; now 23% priced, 10 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. 3 of 12 non-recall priced after enginepatrol-only prices removed; needs diesel parts+labor sources
+- [x] mercedes-benz-sprinter | Mercedes-Benz Sprinter | 2003-2024 | pricing pass done Nov 20 12:40 run; 100% priced; 4 enginepatrol-only issues removed (no other source); coolant maint missing; MB Medic used for OM642 labor
 - [~] oldsmobile-intrigue | Oldsmobile Intrigue | 1998-2002 | pricing pass done Nov 20 (was 75% priced, 3 unpriced; now 75% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
 - [~] volkswagen-taos | Volkswagen Taos | 2022-2025 | pricing pass done Nov 20 (was 75% priced, 3 unpriced; now 75% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
 - [~] hyundai-entourage | Hyundai Entourage | 2007-2008 | pricing pass done Nov 20 (was 77% priced, 3 unpriced; now 77% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
@@ -608,17 +608,17 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [x] lexus-ct | Lexus CT | 2011-2017 | pricing pass done Nov 20 08:37 run; now 80%+ priced
 - [~] scion-xb | Scion xB | 2004-2015 | pricing pass done Nov 20 08:37 run (79%, 3 unpriced). Windshield, hatch handle, white paint: parts found but no labor-time source
 - [x] ford-escape | Ford Escape | 2001-2026 | pricing pass done Nov 20 08:37 run; now 80%+ priced
-- [x] kia-optima | Kia Optima | 2001-2027 | pricing pass done Nov 20 08:37 run; now 80%+ priced
-- [x] honda-passport | Honda Passport | 1996-2026 | pricing pass done Nov 20 08:37 run; now 80%+ priced
+- [x] kia-optima | Kia Optima | 2001-2027 | pricing pass done Nov 20 12:40 run; now 92% priced. 2020 still thin (needs a K5 issue)
+- [~] honda-passport | Honda Passport | 1996-2026 | pricing pass done Nov 20 12:40 run (75%); carwhere swapped to NHTSA; 3 unpriced are 2026 warranty/investigation items
 - [x] saturn-outlook | Saturn Outlook | 2007-2010 | pricing pass done Nov 20 08:37 run; now 80%+ priced
 - [x] ford-flex | Ford Flex | 2009-2019 | pricing pass done Nov 20 08:37 run; now 80%+ priced
 - [x] toyota-bz4x | Toyota bZ4X | 2023-2025 | pricing pass done Nov 20 08:37 run; now 80%+ priced
 - [~] hyundai-ioniq-6 | Hyundai Ioniq 6 | 2023-2025 | pricing pass done Nov 20 08:37 run (78%, 2 unpriced). Wireless charger/digital key and false plugged-in: no repair source. deep still cites carwhere on seat-belt recall
 - [~] polestar-2 | Polestar 2 | 2021-2025 | pricing pass done Nov 20 08:37 run (78%, 2 unpriced). TCAM module and front strut mount: no price source; 5 of 6 priced are diagnosis-only
 - [x] scion-im | Scion iM / Corolla iM | 2016-2018 | pricing pass done Nov 20 08:37 run; now 80%+ priced
-- [~] mercedes-benz-glc | Mercedes-Benz GLC | 2016-2025 | pricing pass done Nov 20 08:37 run. Only 1 non-recall issue (cracked piston, owner totals $9.5k-12k, no parts+labor source) — needs an ISSUES pass (non-recall problems). deep cites carwhere; recall prices cite theweeklydriver
-- [~] ford-maverick | Ford Maverick | 2022-2026 | pricing pass done Nov 20 08:37 run (67%, 1 unpriced). Roof trim strip: no confirmed part or labor time. Only 3 non-recall issues: needs issues pass
-- [~] jeep-liberty | Jeep Liberty | 2002-2012 | pricing pass done Nov 20 08:37 run (75%, 1 unpriced). TIPM price dropped (no stated labor time). Only 13 issues (check wants 18): needs issues pass
+- [~] mercedes-benz-glc | Mercedes-Benz GLC | 2016-2025 | pricing pass done Nov 20 12:40 run (50%); recall sources moved to justia/NHTSA; cracked-piston repair has no parts+labor source; coolant maint missing; needs ISSUES pass
+- [~] ford-maverick | Ford Maverick | 2022-2026 | pricing pass done Nov 20 12:40 run (63%); carwhere removed; windshield/roof trim/floor leak lack labor sources
+- [x] jeep-liberty | Jeep Liberty | 2002-2012 | pricing pass done Nov 20 12:40 run; now 92% priced (brake lines unpriced)
 - [~] nissan-xterra | Nissan Xterra | 2000-2015 | pricing pass done Nov 20 08:37 run (75%, 1 unpriced). Body rust: no sourced repair price. Thin years 2004, 2013-2015
 - [x] subaru-impreza | Subaru Impreza | 1996-2027 | pricing pass done Nov 20 08:37 run; now 80%+ priced
 
@@ -627,10 +627,11 @@ These live models have under 80% of their non-recall issues priced, so the price
 - Run note (Nov 20 08:54 UTC run, batch 2 deepen): ford-escape 43->47 (2026 still thin, 2 recalls), nissan-xterra 20->28, honda-passport 24->29, jeep-liberty 13->21 (only 25% priced: PRICING PASS NEXT, RepairPal/YourMechanic Liberty pages listed in run log), subaru-impreza 36->47 (years capped 2026; 2016/2025/2026 still 2 issues), mercedes-benz-glc 34->39 (50% priced), ford-maverick 31->36 (63%; new brake-grab issue is safety-related, rests on Lemberg Law + CarComplaints — qualified review), kia-optima 28->38 (50% priced; 6 unpriced). Deep files still cite carwhere (pre-existing): ford-escape, ford-maverick, honda-passport (16 recall issues), jeep-liberty, mercedes-benz-glc, nissan-xterra — swap to NHTSA recall pages.
 - Next run order: (a) jeep-gladiator deepen; (b) pricing pass on jeep-liberty, chevrolet-caprice, kia-optima, mercedes-benz-glc, ford-maverick, nissan-juke, honda-passport; (c) carwhere source swap in the deep files above; (d) continue "Fill thin years" via check-vehicle on every id.
 
-- CLAIMED by scheduled run 2026-11-20 12:40 UTC (batch 1): jeep-gladiator (deepen); pricing pass on jeep-liberty, chevrolet-caprice, kia-optima, mercedes-benz-glc, ford-maverick, nissan-juke, honda-passport, ford-bronco, ford-ranger, ford-fusion, ford-mustang, mercedes-benz-sprinter, jeep-cherokee, lexus-ux, toyota-supra, acura-nsx, lexus-is, gmc-sonoma, chevrolet-metro
+- [~] chevrolet-caprice | Chevrolet Caprice | 1996 | pricing pass done Nov 20 12:40 run (64%, 5 unpriced: stall in reverse, rear seal, rust, air pump, odometer); own missing rear-brakes/plugs/coolant
+- Run note (Nov 20 12:40 UTC run, batch 1): pricing pass on 19 models + jeep-gladiator deepen (19->24 issues, 78% priced, own.annual added; defroster/TPMS issues rest on vehicleflaws/CarComplaints bulletin pages). Many justia recall URLs were built from campaign numbers but could not be opened (proxy blocks justia); spot-check them. Next: (a) carwhere swap in remaining deep files; (b) pricing retries for models still [~]; (c) "Fill thin years" (kia-optima 2020, ford-mustang 2002, jeep-cherokee 2023, lexus-is 2025-26, gmc-sonoma 2002).
 
 ## After the queue is empty: deepen existing models
 **Daniel approved this Nov 19 2026.** Order for the next runs: (1) the pricing pass above, (2) the two leftovers (merge kia-cadenza-k5 issues into kia-optima; chevrolet-caprice 1996), (3) this list in order. Use the same BRIEF, review and publish steps; agents edit the existing model files instead of creating new ones.
 - Extend models that end early (2026/2027) once real problems exist for those years. See the project doc vehicles/model-coverage.md.
 - Fill thin years: any sold year with fewer than 3 issues (run check-vehicle.js on every id).
-- Raise models with fewer than 20 issues: dodge-caliber, dodge-neon, nissan-juke, jeep-gladiator, ford-flex, hyundai-santa-cruz. | done Nov 20 08:54 run for caliber, neon, juke, flex, santa-cruz (+ chevrolet-bolt-ev 10->22). jeep-gladiator NOT done (search budget ran out): still 19 issues, 2025 thin, 0/3 non-recall priced, own.annual missing
+- Raise models with fewer than 20 issues: dodge-caliber, dodge-neon, nissan-juke, jeep-gladiator, ford-flex, hyundai-santa-cruz. | done Nov 20 08:54 run for caliber, neon, juke, flex, santa-cruz (+ chevrolet-bolt-ev 10->22). jeep-gladiator done Nov 20 12:40 run (24 issues, 78% priced)
