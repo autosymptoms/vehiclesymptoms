@@ -539,36 +539,36 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [~] jaguar-f-pace | Jaguar F-Pace | 2017-2024 | pricing pass done Nov 20 (was 56% priced, 4 unpriced; now 56% priced, 4 unpriced). Shared search budget ran out and direct fetches were blocked; retry later
 - [~] chevrolet-equinox | Chevrolet Equinox | 2005-2026 | pricing pass done Nov 20 (was 60% priced, 4 unpriced; now 70% priced, 3 unpriced). Shared search budget ran out and direct fetches were blocked; retry later
 - [~] jeep-grand-cherokee | Jeep Grand Cherokee | 1996-2026 | pricing pass done Nov 20 (was 60% priced, 4 unpriced; now 67% priced, 3 unpriced). Shared search budget ran out and direct fetches were blocked; retry later
-- [ ] tesla-cybertruck | Tesla Cybertruck | 2024-2026 | pricing pass: 60% priced, 4 unpriced
-- [ ] jeep-cherokee | Jeep Cherokee | 1996-2023 | pricing pass: 64% priced, 4 unpriced
-- [ ] nissan-rogue | Nissan Rogue | 2008-2027 | pricing pass: 64% priced, 4 unpriced
-- [ ] audi-q7 | Audi Q7 | 2007-2024 | pricing pass: 67% priced, 4 unpriced
-- [ ] chevrolet-malibu | Chevrolet Malibu | 1997-2025 | pricing pass: 67% priced, 4 unpriced
-- [ ] mitsubishi-mirage | Mitsubishi Mirage | 1997-2024 | pricing pass: 67% priced, 4 unpriced
-- [ ] hyundai-santa-cruz | Hyundai Santa Cruz | 2022-2026 | pricing pass: 69% priced, 4 unpriced
-- [ ] mercedes-benz-slk-slc | Mercedes-Benz SLK / SLC | 1998-2016 | pricing pass: 69% priced, 4 unpriced
-- [ ] ram-1500 | Ram 1500 | 1996-2027 | pricing pass: 69% priced, 4 unpriced
-- [ ] bmw-3-series | BMW 3 Series | 1996-2026 | pricing pass: 73% priced, 4 unpriced
-- [ ] mercedes-benz-glb | Mercedes-Benz GLB | 2020-2025 | pricing pass: 73% priced, 4 unpriced
-- [ ] pontiac-firebird | Pontiac Firebird | 1996-2002 | pricing pass: 73% priced, 4 unpriced
-- [ ] cadillac-elr | Cadillac ELR | 2014-2016 | pricing pass: 75% priced, 4 unpriced
-- [ ] hyundai-azera | Hyundai Azera | 2006-2017 | pricing pass: 75% priced, 4 unpriced
-- [ ] kia-rondo | Kia Rondo | 2007-2010 | pricing pass: 75% priced, 4 unpriced
-- [ ] mazda-rx-8 | Mazda RX-8 | 2004-2011 | pricing pass: 75% priced, 4 unpriced
-- [ ] oldsmobile-alero | Oldsmobile Alero | 1999-2004 | pricing pass: 75% priced, 4 unpriced
-- [ ] ram-3500 | Ram 3500 | 1996-2026 | pricing pass: 75% priced, 4 unpriced
-- [ ] saturn-l-series | Saturn L-Series | 2000-2005 | pricing pass: 75% priced, 4 unpriced
-- [ ] toyota-tacoma | Toyota Tacoma | 1996-2026 | pricing pass: 75% priced, 4 unpriced
-- [ ] audi-a4 | Audi A4 | 1996-2024 | pricing pass: 76% priced, 4 unpriced
-- [ ] chrysler-aspen | Chrysler Aspen | 2007-2009 | pricing pass: 76% priced, 4 unpriced
-- [ ] nissan-quest | Nissan Quest | 1996-2017 | pricing pass: 76% priced, 4 unpriced
-- [ ] scion-tc | Scion tC | 2005-2016 | pricing pass: 76% priced, 4 unpriced
-- [ ] suzuki-kizashi | Suzuki Kizashi | 2010-2013 | pricing pass: 76% priced, 4 unpriced
-- [ ] infiniti-q45 | Infiniti Q45 | 1996-2006 | pricing pass: 78% priced, 4 unpriced
-- [ ] scion-xa | Scion xA | 2004-2006 | pricing pass: 78% priced, 4 unpriced
-- [ ] toyota-t100 | Toyota T100 | 1996-1998 | pricing pass: 78% priced, 4 unpriced
-- [ ] chevrolet-prizm | Chevrolet Prizm | 1996-2002 | pricing pass: 79% priced, 4 unpriced
-- [ ] lexus-rc | Lexus RC | 2015-2024 | pricing pass: 79% priced, 4 unpriced
+- [ ] tesla-cybertruck | Tesla Cybertruck | 2024-2026 | pricing pass: 60% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] jeep-cherokee | Jeep Cherokee | 1996-2023 | pricing pass: 64% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] nissan-rogue | Nissan Rogue | 2008-2027 | pricing pass: 64% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] audi-q7 | Audi Q7 | 2007-2024 | pricing pass: 67% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] chevrolet-malibu | Chevrolet Malibu | 1997-2025 | pricing pass: 67% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] mitsubishi-mirage | Mitsubishi Mirage | 1997-2024 | pricing pass: 67% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] hyundai-santa-cruz | Hyundai Santa Cruz | 2022-2026 | pricing pass: 69% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] mercedes-benz-slk-slc | Mercedes-Benz SLK / SLC | 1998-2016 | pricing pass: 69% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] ram-1500 | Ram 1500 | 1996-2027 | pricing pass: 69% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] bmw-3-series | BMW 3 Series | 1996-2026 | pricing pass: 73% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] mercedes-benz-glb | Mercedes-Benz GLB | 2020-2025 | pricing pass: 73% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] pontiac-firebird | Pontiac Firebird | 1996-2002 | pricing pass: 73% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] cadillac-elr | Cadillac ELR | 2014-2016 | pricing pass: 75% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] hyundai-azera | Hyundai Azera | 2006-2017 | pricing pass: 75% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] kia-rondo | Kia Rondo | 2007-2010 | pricing pass: 75% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] mazda-rx-8 | Mazda RX-8 | 2004-2011 | pricing pass: 75% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] oldsmobile-alero | Oldsmobile Alero | 1999-2004 | pricing pass: 75% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] ram-3500 | Ram 3500 | 1996-2026 | pricing pass: 75% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] saturn-l-series | Saturn L-Series | 2000-2005 | pricing pass: 75% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] toyota-tacoma | Toyota Tacoma | 1996-2026 | pricing pass: 75% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] audi-a4 | Audi A4 | 1996-2024 | pricing pass: 76% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] chrysler-aspen | Chrysler Aspen | 2007-2009 | pricing pass: 76% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] nissan-quest | Nissan Quest | 1996-2017 | pricing pass: 76% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] scion-tc | Scion tC | 2005-2016 | pricing pass: 76% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] suzuki-kizashi | Suzuki Kizashi | 2010-2013 | pricing pass: 76% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] infiniti-q45 | Infiniti Q45 | 1996-2006 | pricing pass: 78% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] scion-xa | Scion xA | 2004-2006 | pricing pass: 78% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] toyota-t100 | Toyota T100 | 1996-1998 | pricing pass: 78% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] chevrolet-prizm | Chevrolet Prizm | 1996-2002 | pricing pass: 79% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
+- [ ] lexus-rc | Lexus RC | 2015-2024 | pricing pass: 79% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 04:37 UTC
 - [ ] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | pricing pass: 79% priced, 4 unpriced
 - [ ] pontiac-solstice | Pontiac Solstice | 2006-2009 | pricing pass: 79% priced, 4 unpriced
 - [ ] suzuki-aerio | Suzuki Aerio | 2002-2007 | pricing pass: 79% priced, 4 unpriced
