@@ -1,0 +1,199 @@
+{
+  "job": "Blend door actuator replacement",
+  "status": "held",
+  "held_reason": "No class has a labor time that can honestly be used as a range end: every maker-stated time found either includes a test or diagnosis, includes removing the HVAC housing or other parts, is for a different door actuator, or is printed without a unit. Three of the four classes have no verified parts price. Only the midsize class has parts prices, and both come from one seller.",
+  "unit": "per job: one HVAC air-mix (blend / temperature) door actuator, fitted and calibrated. Not included: mode (air distribution) or recirculation (intake) door actuators, a second temperature actuator on dual-zone systems, the HVAC box or the blend door itself, diagnosis, and dashboard or HVAC housing removal (on some vehicles the actuator cannot be reached without it, which turns this into a much larger job)",
+  "classes": {
+    "economy": {
+      "parts": [
+        null,
+        null
+      ],
+      "hours": [
+        null,
+        null
+      ],
+      "example": "2016 Ford Fiesta (no parts price was loaded for this car)",
+      "parts_src": [],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10177855-0001.pdf",
+          "what": "Cross-check: the example car, but a different door actuator and the time includes diagnosis. Ford TSB 20-2017 (23 January 2020; 2014-2018 Fiesta, clicking noise from the dash) states op 202017B 'Diagnose And Secure The Wiring Harness Retest (Fails) Replace The Air Distribution Door Actuator, Includes Time To Perform Actuator Calibration Or Reprogram The HVAC Module' 1.0 Hrs; op 202017A (diagnose and secure the harness only, retest passes) 0.8 Hrs. The part is one 'Door Actuator' BE8Z-19E616-B; the bulletin calls it the air distribution door actuator, not the temperature door actuator"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10170917-0001.pdf",
+          "what": "Cross-check: a second copy of the same Ford TSB 20-2017 on the regulator's site, same lines: 202017A 0.8 Hrs, 202017B 1.0 Hrs, both marked 'Do Not Use With Any Other Labor Operations'"
+        }
+      ]
+    },
+    "midsize": {
+      "parts": [
+        95.46,
+        144
+      ],
+      "hours": [
+        null,
+        null
+      ],
+      "example": "2015 Chrysler Town & Country 3.6L (minivan, used here for the midsize class because it has a maker-stated time; the Dodge Grand Caravan is the same vehicle)",
+      "parts_src": [
+        {
+          "url": "https://moparpartsgiant.com/oem-2015-chrysler-town_country-blend_door_actuator.html",
+          "what": "Genuine Mopar 68299450AA 'Door Actuator' (Actuator A/C and Heater) listed for the 2015 Chrysler Town & Country 3.6L, condition New, MSRP $144.00 (high), discounted $95.46 (low). The low is the discounted genuine part, not an aftermarket part: aftermarket actuators are sold for this van for much less (see the cross-checks below) but none was found on a page that states the part is new and names the 2015 fitment. Same page: 68238243AA, also MSRP $144.00, replaced by 68299450AA"
+        },
+        {
+          "url": "https://moparpartsgiant.com/parts/chrysler-actuator_a_c_and_heater-68299450aa.html",
+          "what": "Same seller's part page: 68299450AA, condition New, MSRP $144.00, discounted $95.46, fits 2008-2016 Chrysler Town & Country and 2008-2023 Chrysler 300; the page says this actuator controls the blend air door, which sets air temperature. This is the part number the maker's bulletin (24-005-16) lists for the right temperature blend door"
+        },
+        {
+          "url": "https://www.walmart.com/c/auto/dodge-grand-caravan-hvac-blend-door-actuator",
+          "what": "Cross-check: general retailer's listing page for Dodge Grand Caravan blend door actuators, condition not stated on any listing, so not used for the range: Dorman 604-024 $25.49; another brand's 604-024 for 2008-2020 at $15.81; an unnamed-brand actuator for 2008-2016 at $21.95"
+        },
+        {
+          "url": "https://www.ebay.com/p/252145435",
+          "what": "Cross-check: marketplace product page for Mopar 68299450AA, new listings from $24.99 to $111.89; the page does not name the 2015 van in its fitment details and its part-type field is inconsistent, so not used for the range"
+        }
+      ],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2016/MC-10121638-9999.pdf",
+          "what": "Cross-check: the example vehicle and the right door, but the time includes a test. FCA bulletin 24-005-16 Rev. B (July 2, 2016; 2014-2015 Chrysler Town & Country and Dodge Grand Caravan, 'Blend Door Stuck In Full Heat Mode', X64 warranty extension) states op 24-55-23-90 'Actuator, A/C and Heater Right Temperature Blend Door - Test and Replace' 0.6 Hrs. The 'test' is the actuator calibration test that decides whether the actuator is replaced, so it is not a bare fitting time and is not used as a range end. It is a warranty time, the low end of what a shop bills. This is the closest thing found to a usable time for this job"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2016/MC-10141293-9999.pdf",
+          "what": "Cross-check: the original issue of the same FCA bulletin 24-005-16 (May 26, 2016) prints the same line, 24-55-23-90 'Test and Replace' 0.6 Hrs, and lists the actuator as part 68299450AA"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2016/MC-10075989-0699.pdf",
+          "what": "Cross-check: FCA customer satisfaction notification R62 (January 2016) for the same vans: reprogram the HVAC control module 0.2 hours; its owner letter estimates about half an hour for programming and says more time may be needed if an actuator is replaced"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10158712-0001.pdf",
+          "what": "Cross-check: a different minivan and not a replacement. Honda Service Bulletin 19-023 (April 12, 2019; 2018 Odyssey) states op 6135A1 'Do the diagnosis. Do REPAIR PROCEDURE A - drivers side' 0.8 hr and 6135A2 both sides 1.6 hrs; the procedure removes and refits the air mix control motor to seal the heater case, and the time includes diagnosis"
+        },
+        {
+          "url": "https://2carpros.com/questions/blend-door-actuator-26564849",
+          "what": "Cross-check: weak source, a different vehicle (2013 Chevrolet Equinox). A question-and-answer site's mechanic ('Steve W.', June 9, 2024) answers how long the blend door actuator takes: 'Usually takes about a half hour'. Not a book time"
+        }
+      ]
+    },
+    "truck": {
+      "parts": [
+        null,
+        null
+      ],
+      "hours": [
+        null,
+        null
+      ],
+      "example": "2016 Ford F-150 (no parts price was loaded for this truck)",
+      "parts_src": [],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10178009-0001.pdf",
+          "what": "Cross-check: the example truck, but the time includes removing the HVAC housing and other work. Ford TSB 20-2236 (15 July 2020; 2015-2019 F-150 and 2017-2019 Super Duty, 'Temperature Door Or Door Actuator Binding/Inoperative') states for the F-150 'Retrieve DTCs, Clean Actuator Cam And Replace Actuator Retest Function (Fail), Lubricate The Temperature Door Bearing Surfaces, Includes Time To Remove And Install Climate Control Housing': 5.0 Hrs (40/40 seat), 5.2 Hrs (40/20/40), 5.5 Hrs (console), 5.6 Hrs (floor shift); Super Duty 5.3 to 5.7 Hrs; retest passes with no housing work 0.4 Hrs. This shows how large the job becomes when the housing has to come out; it is not the time to swap one actuator"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10179567-0001.pdf",
+          "what": "Cross-check: a different truck and no unit printed. Nissan bulletin NTB17-116b (August 21, 2020; 2016-2017 Titan and Titan XD, dual-zone) claims table lists 'Replace Air Mix Door Motor RH' with 0.6 under the FRT column, no unit printed; the left-hand motor refers to the flat rate manual with no figure"
+        },
+        {
+          "url": "https://pickuptrucktalk.com/?p=215922",
+          "what": "Cross-check: weak source, a different truck. Truck news site's guest article (September 1, 2026) calls the 2016 Silverado 1500 passenger-side actuator 'a genuine 30-minute driveway job'; the author's own figure, not a book time"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10156909-9999.pdf",
+          "what": "Cross-check: a relearn only, a different truck and a different actuator. GM preliminary information PIT5660 (March 5, 2019; 2019 Silverado 1500 and Sierra 1500) states op 4485998 'Perform Mode Door Actuator Relearn' 0.3hr"
+        }
+      ]
+    },
+    "luxury": {
+      "parts": [
+        null,
+        null
+      ],
+      "hours": [
+        null,
+        null
+      ],
+      "example": "2015 Lexus IS 350 (no parts price was loaded for this car)",
+      "parts_src": [],
+      "hours_src": [
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2021/MC-10187279-9999.pdf",
+          "what": "Cross-check: the example car's bulletin, but no unit is printed and the servo is not named. Lexus bulletin L-SB-0001-21 (January 11, 2021; 2014-2017 IS 350 among other IS, GS and RC models, 'HVAC Servo Motor Malfunction') lists under a TIME column with no unit: ZKL004 IS/RC 'R & R Driver Knee Airbag and One Servo' 1.3; two servos 1.4; and, where the servo can only be reached with the unit out, ZKL012 IS/RC 'Air Conditioner Box Removal and R & R One Servo' 6.5 (GS 7.6). The bulletin covers air mix, air outlet and air inlet servos and does not tie a time to the air mix servo"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2022/MC-10211788-9999.pdf",
+          "what": "Cross-check: a different Lexus, no unit printed, and other work included. Lexus bulletin L-SB-0009-22 (April 4, 2022; 2018-2020 LC 500 and LC 500h) lists 'Reprogram and Redistribute Grease, Air Conditioner Box Removal, and R & R One Servo / Module' 8.0 (LC 500) and 8.6 (LC 500h) under a TIME column with no unit"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2016/MC-10134101-9999.pdf",
+          "what": "Cross-check: same maker's minivan, no unit printed. Toyota bulletin T-SB-0065-16 (June 22, 2016; 2015 Sienna, 'HVAC Servo Motor Noise') lists AC1601 'R & R Servo Sub-Assy, Damper' 1.2 under a TIME column with no unit; one driver-side servo is replaced and an insulation sheet is added on the passenger side"
+        }
+      ]
+    }
+  },
+  "src": [
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10177855-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10170917-0001.pdf",
+    "https://moparpartsgiant.com/oem-2015-chrysler-town_country-blend_door_actuator.html",
+    "https://moparpartsgiant.com/parts/chrysler-actuator_a_c_and_heater-68299450aa.html",
+    "https://www.walmart.com/c/auto/dodge-grand-caravan-hvac-blend-door-actuator",
+    "https://www.ebay.com/p/252145435",
+    "https://static.nhtsa.gov/odi/tsbs/2016/MC-10121638-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2016/MC-10141293-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2016/MC-10075989-0699.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2019/MC-10158712-0001.pdf",
+    "https://2carpros.com/questions/blend-door-actuator-26564849",
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10178009-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10179567-0001.pdf",
+    "https://pickuptrucktalk.com/?p=215922",
+    "https://static.nhtsa.gov/odi/tsbs/2019/MC-10156909-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2021/MC-10187279-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2022/MC-10211788-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2016/MC-10134101-9999.pdf",
+    "https://www.fixdapp.com/?p=25949",
+    "https://repairpal.com/estimator/toyota/camry/hvac-blend-door-actuator-replacement-cost",
+    "https://repairpal.com/estimator/ram/3500/hvac-blend-door-actuator-replacement-cost"
+  ],
+  "benchmarks": [
+    {
+      "name": "FIXD",
+      "url": "https://www.fixdapp.com/?p=25949",
+      "lo": 308,
+      "hi": 355,
+      "date": "2026-11-20",
+      "note": "'Cost at the Mechanic: $308-$355': parts $130, labor $178-$225 (published June 23, 2022; modified October 6, 2026). The article also says replacing a blend door actuator 'should take no longer than an hour'"
+    },
+    {
+      "name": "RepairPal (Toyota Camry)",
+      "url": "https://repairpal.com/estimator/toyota/camry/hvac-blend-door-actuator-replacement-cost",
+      "lo": 853,
+      "hi": 1150,
+      "date": "2026-11-20",
+      "note": "Toyota Camry, all years: $853-$1,150; by year the page gives about $312-$382 (2002-2006), $777-$1,039 (2012-2014) and $1,149-$1,588 (2007-2011); Corolla $716-$944. Estimates last updated September 3, 2026. The spread between years suggests some include dashboard or HVAC unit removal"
+    },
+    {
+      "name": "RepairPal (Ram 3500)",
+      "url": "https://repairpal.com/estimator/ram/3500/hvac-blend-door-actuator-replacement-cost",
+      "lo": 564,
+      "hi": 794,
+      "date": "2026-11-20",
+      "note": "Ram 3500, all years: $564-$794; by year $138-$166 (2013-2018) and $932-$1,337 (2019-2025); Ram 1500 $573-$808. Estimates last updated September 3, 2026"
+    },
+    {
+      "name": "Pickup Truck Talk",
+      "url": "https://pickuptrucktalk.com/?p=215922",
+      "lo": 600,
+      "hi": 900,
+      "date": "2026-11-20",
+      "note": "guest article (September 1, 2026): typical shop quotes of $600 to $900, the author's own observation with no source named; it also reports, second-hand, a RepairPal national average of $459-$601 and aftermarket actuators at $30-$80"
+    }
+  ],
+  "live": null,
+  "finding": "New job, so there is no live range to compare, and this file is HELD: it is not complete enough to show. What this job costs depends almost entirely on where the actuator sits. Where it can be reached from under the dashboard it is a short job; where the HVAC housing or the whole air-conditioner box has to come out it is most of a day. The maker bulletins found show both ends but none gives a time that can honestly be used for this unit (one air-mix actuator, fitted and calibrated, no diagnosis). Closest: FCA's warranty bulletin for the 2014-2015 Chrysler Town & Country and Dodge Grand Caravan prints 0.6 Hrs to 'Test and Replace' the right temperature blend door actuator, but that time includes the test that decides whether the actuator is replaced, so it is recorded as a cross-check. Ford's Fiesta bulletin prints 1.0 Hrs, but for the air distribution actuator and including diagnosis and securing a harness. Ford's F-150 bulletin prints 5.0 to 5.6 Hrs, which includes removing and refitting the climate control housing, cleaning the cam and lubricating the door. Lexus, Toyota and Nissan bulletins print 1.3 (one servo behind the knee airbag), 6.5 (air-conditioner box out), 1.2 and 0.6 with no unit. Honda's Odyssey bulletin prints 0.8 hr per side to remove and refit an air mix motor, including diagnosis. General Motors bulletins loaded for the Silverado and Colorado gave no actuator replacement time. Parts: only the minivan was priced, genuine Mopar actuator $95.46 discounted to $144.00 list, both from one dealer-parts seller; aftermarket actuators for it are listed at about $16-$26 but on pages that do not state condition. For illustration only, not a published range: the minivan parts plus the 0.6 hr cross-check time at $120-$160/hr (the national middle labor rate used for these checks) would come to about $167-$240, which is below every benchmark (FIXD $308-$355; RepairPal model pages from $138-$166 up to $1,149-$1,588). The benchmarks' very wide spread matches the bulletins: cheap where the actuator is reachable, $900 and up where the dash or HVAC unit comes out. To finish: find a maker time with a unit for a bare air-mix actuator replacement in each class (FCA and GM flat-rate lines are the most likely), price an aftermarket and a genuine actuator for each example, and decide whether dashboard-out vehicles belong in this job or a separate one. This is an estimate, never a quote and never a diagnosis.",
+  "confidence": "low",
+  "checked": "2026-11-20",
+  "extras": "A quote often adds: diagnosis (scan for HVAC codes, actuator calibration test) since clicking or wrong-temperature air can also be a broken blend door, a binding door, a control head or a software fault; an HVAC control module software update; the second temperature actuator on dual-zone systems, or mode and recirculation actuators found worn at the same time; shop supplies and sales tax. If the actuator cannot be reached without removing the dashboard or HVAC housing, expect many more labor hours and, on some vehicles, an air-conditioning evacuate and recharge and coolant top-up."
+}
