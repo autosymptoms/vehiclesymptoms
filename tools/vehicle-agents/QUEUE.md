@@ -630,6 +630,8 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [~] chevrolet-caprice | Chevrolet Caprice | 1996 | pricing pass done Nov 20 12:40 run (64%, 5 unpriced: stall in reverse, rear seal, rust, air pump, odometer); own missing rear-brakes/plugs/coolant
 - Run note (Nov 20 12:40 UTC run, batch 1): pricing pass on 19 models + jeep-gladiator deepen (19->24 issues, 78% priced, own.annual added; defroster/TPMS issues rest on vehicleflaws/CarComplaints bulletin pages). Many justia recall URLs were built from campaign numbers but could not be opened (proxy blocks justia); spot-check them. Next: (a) carwhere swap in remaining deep files; (b) pricing retries for models still [~]; (c) "Fill thin years" (kia-optima 2020, ford-mustang 2002, jeep-cherokee 2023, lexus-is 2025-26, gmc-sonoma 2002).
 
+- CLAIMED by scheduled run 2026-11-20 13:10 UTC (batch 2): fill thin years kia-optima, ford-mustang, jeep-cherokee, gmc-sonoma, ford-ranger, lexus-is; pricing pass on mercedes-benz-sl, dodge-viper, lexus-lx, genesis-gv70, rivian-r1s-r1t, pontiac-solstice, nissan-armada, honda-prologue, alfa-romeo-giulia, hyundai-equus, volkswagen-eurovan, audi-a7, hyundai-sonata, ford-bronco-sport, mitsubishi-outlander-sport
+
 ## After the queue is empty: deepen existing models
 **Daniel approved this Nov 19 2026.** Order for the next runs: (1) the pricing pass above, (2) the two leftovers (merge kia-cadenza-k5 issues into kia-optima; chevrolet-caprice 1996), (3) this list in order. Use the same BRIEF, review and publish steps; agents edit the existing model files instead of creating new ones.
 - Extend models that end early (2026/2027) once real problems exist for those years. See the project doc vehicles/model-coverage.md.
