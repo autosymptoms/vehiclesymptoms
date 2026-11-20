@@ -463,50 +463,50 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [x] mercedes-benz-gle | Mercedes-Benz M-Class / GLE | 1998-2024 | pricing pass done Nov 19 (was 46% priced, 7 unpriced; now 80%+)
 - [~] hyundai-equus | Hyundai Equus | 2011-2016 | pricing pass done Nov 19 (was 50% priced, 7 unpriced; now 57% priced, 6 unpriced). Partial: search budget ran out; retry
 - [~] jeep-patriot | Jeep Patriot | 2007-2017 | pricing pass done Nov 19 (was 50% priced, 7 unpriced; now 64% priced, 5 unpriced). Partial: search budget ran out; retry
-- [ ] volkswagen-eurovan | Volkswagen EuroVan | 1997-2003 | pricing pass: 53% priced, 7 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
+- [ ] volkswagen-eurovan | Volkswagen EuroVan | 1997-2003 | pricing pass: 53% priced, 7 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
 - [~] chevrolet-metro | Chevrolet Metro | 1996-2001 | pricing pass done Nov 19 (was 61% priced, 7 unpriced; now 56% priced, 8 unpriced). Partial: search budget ran out; retry
-- [ ] chrysler-lhs | Chrysler LHS | 1996-2001 | pricing pass: 68% priced, 7 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
+- [ ] chrysler-lhs | Chrysler LHS | 1996-2001 | pricing pass: 68% priced, 7 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
 - [~] gmc-sonoma | GMC Sonoma | 1996-2004 | pricing pass done Nov 19 (was 68% priced, 7 unpriced; now 55% priced, 10 unpriced). Partial: search budget ran out; retry
-- [ ] bmw-6-8-series | BMW 6 / 8 Series | 2004-2026 | pricing pass: 71% priced, 7 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
-- [ ] volkswagen-passat | Volkswagen Passat | 1996-2022 | pricing pass: 0% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
+- [ ] bmw-6-8-series | BMW 6 / 8 Series | 2004-2026 | pricing pass: 71% priced, 7 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] volkswagen-passat | Volkswagen Passat | 1996-2022 | pricing pass: 0% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
 - [~] ford-fusion | Ford Fusion | 2006-2020 | pricing pass done Nov 19 (was 14% priced, 6 unpriced; now 13% priced, 7 unpriced). Partial: search budget ran out; retry
-- [ ] ford-bronco-sport | Ford Bronco Sport | 2021-2026 | pricing pass: 25% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
-- [ ] mitsubishi-outlander-sport | Mitsubishi Outlander Sport | 2011-2023 | pricing pass: 33% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
-- [ ] toyota-crown | Toyota Crown | 2023-2025 | pricing pass: 40% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
+- [ ] ford-bronco-sport | Ford Bronco Sport | 2021-2026 | pricing pass: 25% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] mitsubishi-outlander-sport | Mitsubishi Outlander Sport | 2011-2023 | pricing pass: 33% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] toyota-crown | Toyota Crown | 2023-2025 | pricing pass: 40% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
 - [~] chevrolet-captiva-sport | Chevrolet Captiva Sport | 2012-2015 | pricing pass done Nov 19 (was 45% priced, 6 unpriced; now 64% priced, 4 unpriced). Partial: search budget ran out; retry
 - [~] mercedes-benz-g-class | Mercedes-Benz G-Class | 2002-2025 | pricing pass done Nov 19 (was 45% priced, 6 unpriced; now 55% priced, 5 unpriced). Partial: search budget ran out; retry
 - [~] nissan-kicks | Nissan Kicks | 2018-2026 | pricing pass done Nov 19 (was 45% priced, 6 unpriced; now 55% priced, 5 unpriced). Partial: search budget ran out; retry
 - [~] cadillac-xt5 | Cadillac XT5 | 2017-2025 | pricing pass done Nov 19 (was 50% priced, 6 unpriced; now 58% priced, 5 unpriced). Partial: search budget ran out; retry
 - [~] mitsubishi-montero | Mitsubishi Montero | 1996-2006 | pricing pass done Nov 19 (was 50% priced, 6 unpriced; now 58% priced, 5 unpriced). Partial: search budget ran out; retry
 - [x] buick-lesabre | Buick LeSabre | 1996-2005 | pricing pass done Nov 19 (was 54% priced, 6 unpriced; now 80%+)
-- [ ] ford-f-450-f-550 | Ford F-450 / F-550 Super Duty | 1999-2026 | pricing pass: 54% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
+- [ ] ford-f-450-f-550 | Ford F-450 / F-550 Super Duty | 1999-2026 | pricing pass: 54% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
 - [~] oldsmobile-achieva | Oldsmobile Achieva | 1996-1998 | pricing pass done Nov 19 (was 54% priced, 6 unpriced; now 62% priced, 5 unpriced). Partial: search budget ran out; retry
 - [~] ram-promaster | Ram ProMaster | 2014-2026 | pricing pass done Nov 19 (was 54% priced, 6 unpriced; now 77% priced, 3 unpriced). Partial: search budget ran out; retry
-- [ ] suzuki-sidekick | Suzuki Sidekick | 1996-1998 | pricing pass: 54% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
+- [ ] suzuki-sidekick | Suzuki Sidekick | 1996-1998 | pricing pass: 54% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
 - [~] buick-skylark | Buick Skylark | 1996-1998 | pricing pass done Nov 19 (was 57% priced, 6 unpriced; now 64% priced, 5 unpriced). Partial: search budget ran out; retry
 - [~] chevrolet-camaro | Chevrolet Camaro | 1996-2024 | pricing pass done Nov 19 (was 57% priced, 6 unpriced; now 75% priced, 3 unpriced). Partial: search budget ran out; retry
-- [ ] fiat-500 | Fiat 500 | 2012-2024 | pricing pass: 57% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
+- [ ] fiat-500 | Fiat 500 | 2012-2024 | pricing pass: 57% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
 - [~] mitsubishi-lancer | Mitsubishi Lancer | 2002-2017 | pricing pass done Nov 19 (was 57% priced, 6 unpriced; now 64% priced, 5 unpriced). Partial: search budget ran out; retry
-- [ ] subaru-solterra | Subaru Solterra | 2023-2026 | pricing pass: 57% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
-- [ ] suzuki-swift | Suzuki Swift | 1996-2001 | pricing pass: 57% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first
-- [ ] oldsmobile-bravada | Oldsmobile Bravada | 1996-2004 | pricing pass: 60% priced, 6 unpriced
-- [ ] volvo-c70 | Volvo C70 | 1998-2013 | pricing pass: 60% priced, 6 unpriced
-- [ ] ram-2500 | Ram 2500 | 1996-2027 | pricing pass: 63% priced, 6 unpriced
-- [ ] honda-ridgeline | Honda Ridgeline | 2006-2026 | pricing pass: 65% priced, 6 unpriced
-- [ ] land-rover-range-rover-sport | Land Rover Range Rover Sport | 2006-2026 | pricing pass: 65% priced, 6 unpriced
-- [ ] nissan-nv200 | Nissan NV200 | 2013-2021 | pricing pass: 67% priced, 6 unpriced
-- [ ] suzuki-esteem | Suzuki Esteem | 1996-2002 | pricing pass: 70% priced, 6 unpriced
-- [ ] acura-ilx | Acura ILX | 2013-2022 | pricing pass: 71% priced, 6 unpriced
-- [ ] chevrolet-ssr | Chevrolet SSR | 2003-2006 | pricing pass: 71% priced, 6 unpriced
-- [ ] isuzu-ascender | Isuzu Ascender | 2003-2008 | pricing pass: 71% priced, 6 unpriced
-- [ ] chevrolet-lumina | Chevrolet Lumina | 1996-2001 | pricing pass: 74% priced, 6 unpriced
-- [ ] volvo-s90-v90 | Volvo S90 / V90 | 1997-2023 | pricing pass: 74% priced, 6 unpriced
-- [ ] saab-9-3 | Saab 9-3 | 1999-2011 | pricing pass: 75% priced, 6 unpriced
-- [ ] lincoln-mark-viii | Lincoln Mark VIII | 1996-1998 | pricing pass: 79% priced, 6 unpriced
-- [ ] audi-q4-e-tron | Audi Q4 e-tron | 2022-2025 | pricing pass: 17% priced, 5 unpriced
-- [ ] nissan-juke | Nissan Juke | 2011-2017 | pricing pass: 38% priced, 5 unpriced
-- [ ] ford-taurus | Ford Taurus | 1996-2019 | pricing pass: 44% priced, 5 unpriced
-- [ ] gmc-acadia | GMC Acadia | 2007-2027 | pricing pass: 50% priced, 5 unpriced
+- [ ] subaru-solterra | Subaru Solterra | 2023-2026 | pricing pass: 57% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] suzuki-swift | Suzuki Swift | 1996-2001 | pricing pass: 57% priced, 6 unpriced | Nov 19 21:25 run: search budget ran out before this got real research; redo first | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] oldsmobile-bravada | Oldsmobile Bravada | 1996-2004 | pricing pass: 60% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] volvo-c70 | Volvo C70 | 1998-2013 | pricing pass: 60% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] ram-2500 | Ram 2500 | 1996-2027 | pricing pass: 63% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] honda-ridgeline | Honda Ridgeline | 2006-2026 | pricing pass: 65% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] land-rover-range-rover-sport | Land Rover Range Rover Sport | 2006-2026 | pricing pass: 65% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] nissan-nv200 | Nissan NV200 | 2013-2021 | pricing pass: 67% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] suzuki-esteem | Suzuki Esteem | 1996-2002 | pricing pass: 70% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] acura-ilx | Acura ILX | 2013-2022 | pricing pass: 71% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] chevrolet-ssr | Chevrolet SSR | 2003-2006 | pricing pass: 71% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] isuzu-ascender | Isuzu Ascender | 2003-2008 | pricing pass: 71% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] chevrolet-lumina | Chevrolet Lumina | 1996-2001 | pricing pass: 74% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] volvo-s90-v90 | Volvo S90 / V90 | 1997-2023 | pricing pass: 74% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] saab-9-3 | Saab 9-3 | 1999-2011 | pricing pass: 75% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] lincoln-mark-viii | Lincoln Mark VIII | 1996-1998 | pricing pass: 79% priced, 6 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] audi-q4-e-tron | Audi Q4 e-tron | 2022-2025 | pricing pass: 17% priced, 5 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] nissan-juke | Nissan Juke | 2011-2017 | pricing pass: 38% priced, 5 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] ford-taurus | Ford Taurus | 1996-2019 | pricing pass: 44% priced, 5 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
+- [ ] gmc-acadia | GMC Acadia | 2007-2027 | pricing pass: 50% priced, 5 unpriced | CLAIMED by scheduled run 2026-11-20 00:40 UTC
 - [ ] lincoln-mark-lt | Lincoln Mark LT | 2006-2008 | pricing pass: 55% priced, 5 unpriced
 - [ ] ford-windstar | Ford Windstar | 1996-2003 | pricing pass: 58% priced, 5 unpriced
 - [ ] mitsubishi-eclipse | Mitsubishi Eclipse | 1996-2012 | pricing pass: 58% priced, 5 unpriced
