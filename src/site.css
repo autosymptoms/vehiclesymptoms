@@ -718,6 +718,15 @@ details.rmore h4{margin:6px 0;font-size:14px}
 .pcr-t th,.pcr-t td{text-align:left;padding:8px 10px 8px 0;border-top:1px solid var(--line);vertical-align:top}
 .pcr-t thead th{border-top:0;color:var(--muted);font-size:12.5px;font-weight:600}
 .pcr-t td{white-space:nowrap}
+.pcr-t th{overflow-wrap:normal;word-break:normal;hyphens:none}
+@media(max-width:480px){.pcr-t{font-size:13px}.pcr-t th,.pcr-t td{padding-right:7px}}
+.pcr-hrs{margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:10px}
+.pcr-hrs label{display:block;font-weight:700;font-size:14.5px;margin-bottom:6px}
+.pcr-hrs label span{font-weight:400;color:var(--muted)}
+.pcr-hrs-r{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pcr-hrs-r input{width:7.5em;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font:inherit}
+.pcr-hrs .pcr-gap{margin:10px 0 0}
+@media print{.pcr-hrs-r{display:none}}
 .pcr-t th small{display:block;font-weight:400;color:var(--muted);font-size:12px;margin-top:2px}
 .pcr-d{border-top:1px solid var(--line);padding:10px 0}
 .pcr-d summary{cursor:pointer;font-weight:700;color:var(--blue2)}
