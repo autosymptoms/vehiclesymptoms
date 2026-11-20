@@ -1,6 +1,6 @@
 {
   "job": "Oil change",
-  "unit": "per oil change: drain and refill the engine oil with the grade the maker specifies (full synthetic 0W-20 on the Toyota examples, 5W-20 on the Ford, 5W-30 on the BMW) and one new oil filter. Not included: tire rotation, other fluid top-offs, cabin or engine air filters, shop supplies and oil disposal fees, tax",
+  "unit": "per oil change: drain and refill the engine oil with the grade the maker specifies (full synthetic 0W-20 on all four examples) and one new oil filter. Oil is costed as the maker's stated capacity with filter x a price per quart. Not included: tire rotation, other fluid top-offs, cabin or engine air filters, shop supplies and oil disposal fees, tax",
   "classes": {
     "economy": {
       "parts": [
@@ -11,19 +11,23 @@
         0.25,
         0.75
       ],
-      "example": "2015 Toyota Corolla 1.8L (4.4 quarts, 0W-20)",
+      "example": "2010 Toyota Corolla 1.8L (2ZR-FE; 4.4 quarts, 0W-20). The same engine, oil fill and filter element carried on in the Corolla through 2017",
       "parts_src": [
+        {
+          "url": "https://www.manualsdir.com/manuals/746447/toyota-2010-corolla.html?page=434",
+          "what": "Capacity and grade, maker document: Toyota 2010 Corolla owner's manual, section 6-1 Specifications (printed page 429), as reproduced on a manuals site: 1.8 L 4-cylinder (2ZR-FE) oil capacity, drain and refill, with filter '4.4 qt. (4.2 L, 3.7 Imp. qt.)', without filter 4.1 qt. 'Recommended viscosity: SAE 5W-20 or SAE 0W-20'; 'SAE 0W-20 is the best choice for good fuel economy and good starting in cold weather'"
+        },
         {
           "url": "https://www.walmart.com/browse/auto-tires/synthetic-motor-oil/91083_1104294_7259277_6661220",
           "what": "LOW oil: Mobil 1 Advanced Fuel Economy Full Synthetic 0W-20, 5-quart jug $31.97 = $6.39 per quart. 4.4 qt x $6.39 = $28.13, plus filter $4.68 = $32.81. In practice you buy the whole 5-quart jug ($31.97). Same page: Castrol EDGE 0W-20 5 qt $31.97, Pennzoil Platinum 0W-20 5 qt $31.97, Valvoline Advanced 0W-20 5 qt $33.97, store-brand Super Tech full synthetic 0W-20 5 qt $24.88"
         },
         {
           "url": "https://www.toyotapartsdeal.com/oem-toyota-oil_filter.html",
-          "what": "Filter: Toyota OEM oil filter element 04152-37010 (Corolla 2009-2017 1.8L), MSRP $6.57 (used in the high), discounted $4.68 (used in the low). 90915-10003 is also listed for the 2015 Corolla at the same prices; confirm which the engine takes"
+          "what": "Filter: Toyota OEM oil filter element 04152-37010 (Corolla 2009-2017 1.8L), MSRP $6.57 (used in the high), discounted $4.68 (used in the low)"
         },
         {
           "url": "https://www.toyotapartsdeal.com/oem/toyota~0w20~6x1~quart~case~00279-0wqte-6s.html",
-          "what": "HIGH oil: Toyota Genuine Motor Oil 0W-20, 6-quart case 00279-0WQTE-6S, MSRP $56.45 = $9.41 per quart (discounted $40.34). 4.4 qt x $9.41 = $41.40, plus filter at MSRP $6.57 = $47.97"
+          "what": "HIGH oil, OEM catalog list price: Toyota Genuine Motor Oil 0W-20, 6-quart case 00279-0WQTE-6S, MSRP $56.45 = $9.41 per quart (discounted $40.34). Multiplied: 4.4 qt x $9.41 = $41.40, plus filter at MSRP $6.57 = $47.97"
         },
         {
           "url": "https://www.yotashop.com/motor-oil-toyota-0w-20-fully-synthetic-motor-oil-00279-0wqte-01/",
@@ -31,11 +35,7 @@
         },
         {
           "url": "https://toyota-club.net/files/techdata/ttx/corolla_170u.pdf",
-          "what": "Capacity: enthusiast data sheet that says it was compiled from genuine Toyota owner's manuals: 2ZR-FE 1.8L engine oil with filter 4.2 liters (4.4 US quarts). The owner's manual itself was not loaded"
-        },
-        {
-          "url": "https://getjerry.com/car-repair/2015-toyota-corolla-engine-oil-capacity",
-          "what": "Capacity and grade, second source (insurance-comparison site's guide, named author): 2015 Corolla 1.8L 'an oil capacity of 4.4 quarts, or 4.2 liters'; 'Toyota recommends using a fully synthetic SAE 0W-20 engine oil'"
+          "what": "Cross-check for the later Corolla (2014-2019), not a maker document: enthusiast data sheet that says it was compiled from Toyota owner's manuals gives the same 2ZR-FE figure, engine oil with filter 4.2 liters (4.4 US quarts)"
         }
       ],
       "hours_src": [
@@ -49,7 +49,11 @@
         },
         {
           "url": "https://www.donandjoesautoservice.com/how-long-does-an-oil-change-take/",
-          "what": "Second general figure, another independent repair shop's guide, not vehicle-specific: full synthetic 'budget for 30 to 45 minutes at a reputable shop'; conventional or blend '15 and 30 minutes when performed by an experienced technician'; 'anywhere from 15 to 45 minutes' overall. No manufacturer-stated labor time for an oil and filter change was found: the Honda and Acura bulletins loaded from static.nhtsa.gov list oil and a filter as materials but no separate oil-change operation"
+          "what": "Second general figure, another independent repair shop's guide, not vehicle-specific: full synthetic 'budget for 30 to 45 minutes at a reputable shop'; conventional or blend '15 and 30 minutes when performed by an experienced technician'; 'anywhere from 15 to 45 minutes' overall"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2024/MC-10253308-0001.pdf",
+          "what": "Maker cross-check, a different vehicle and not a plain oil change: American Honda Service Bulletin 19-032 (version 4, April 12, 2024; 2017-18 CR-V 1.5L) op 1245B5, 0.6 hr, covers replacing the engine oil (the bulletin says not to replace the filter) plus a maintenance-minder reset, two software updates and an idle-learn procedure. It bundles other work, so it only shows that a maker allows well under 0.6 hr for the drain and refill itself. No maker document giving a separate time for an oil and filter change was found: GM bulletin 25-NA-339 pays an oil-change credit in dollars with no time, GM 04-00-89-015P names no time, and VW bulletin 2020354 lists a 30 time-unit operation without saying what it covers"
         }
       ]
     },
@@ -62,8 +66,12 @@
         0.25,
         0.75
       ],
-      "example": "2016 Toyota Camry 2.5L (4.6 quarts, 0W-20)",
+      "example": "2016 Toyota Camry 2.5L (2AR-FE; 4.6 quarts, 0W-20)",
       "parts_src": [
+        {
+          "url": "https://www.toyota.ca/content/dam/toyota/documents/manuals/en/OM33B27U/OM33B27U.pdf",
+          "what": "Capacity and grade, maker document: Toyota owner's manual publication OM33B27U on Toyota Canada's own site, section 6-1 Specifications: 2.5 L 4-cylinder (2AR-FE) oil capacity, drain and refill, with filter '4.6 qt. (4.4 L, 3.9 Imp. qt.)', without filter 4.2 qt.; 3.5 L V6 (2GR-FE) 6.4 qt. with filter. Oil grade 'ILSAC GF-5 multigrade engine oil', recommended viscosity SAE 0W-20. The pages read do not print the model name or model year; the manual covers the 2.5L 2AR-FE and 3.5L 2GR-FE, the two engines of the 2012-2017 Camry, and was returned by a search for the 2016 Camry manual"
+        },
         {
           "url": "https://www.walmart.com/browse/auto-tires/synthetic-motor-oil/91083_1104294_7259277_6661220",
           "what": "LOW oil: Mobil 1 Advanced Fuel Economy Full Synthetic 0W-20, 5-quart jug $31.97 = $6.39 per quart. 4.6 qt x $6.39 = $29.41, plus filter $4.68 = $34.09. In practice you buy the whole 5-quart jug ($31.97)"
@@ -74,11 +82,7 @@
         },
         {
           "url": "https://www.toyotapartsdeal.com/oem/toyota~0w20~6x1~quart~case~00279-0wqte-6s.html",
-          "what": "HIGH oil: Toyota Genuine Motor Oil 0W-20, 6-quart case 00279-0WQTE-6S, MSRP $56.45 = $9.41 per quart. 4.6 qt x $9.41 = $43.28, plus filter at MSRP $6.57 = $49.85"
-        },
-        {
-          "url": "https://getjerry.com/car-repair/2016-toyota-camry-oil-capacity-guide",
-          "what": "Capacity and grade (insurance-comparison site's guide, named author; the only capacity source loaded for this car, and it does not cite the manual page): 2016 Camry 2.5L '4.6 quarts or 4.4 liters'; recommends Toyota Genuine 0W-20 or another SAE 0W-20"
+          "what": "HIGH oil, OEM catalog list price: Toyota Genuine Motor Oil 0W-20, 6-quart case 00279-0WQTE-6S, MSRP $56.45 = $9.41 per quart. Multiplied: 4.6 qt x $9.41 = $43.28, plus filter at MSRP $6.57 = $49.85"
         }
       ],
       "hours_src": [
@@ -92,36 +96,48 @@
         },
         {
           "url": "https://www.donandjoesautoservice.com/how-long-does-an-oil-change-take/",
-          "what": "Second general figure, another independent repair shop's guide, not vehicle-specific: full synthetic 'budget for 30 to 45 minutes at a reputable shop'; conventional or blend '15 and 30 minutes when performed by an experienced technician'; 'anywhere from 15 to 45 minutes' overall. No manufacturer-stated labor time for an oil and filter change was found: the Honda and Acura bulletins loaded from static.nhtsa.gov list oil and a filter as materials but no separate oil-change operation"
+          "what": "Second general figure, another independent repair shop's guide, not vehicle-specific: full synthetic 'budget for 30 to 45 minutes at a reputable shop'; conventional or blend '15 and 30 minutes when performed by an experienced technician'; 'anywhere from 15 to 45 minutes' overall"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2024/MC-10253308-0001.pdf",
+          "what": "Maker cross-check, a different vehicle and not a plain oil change: American Honda Service Bulletin 19-032 (version 4, April 12, 2024; 2017-18 CR-V 1.5L) op 1245B5, 0.6 hr, covers replacing the engine oil (the bulletin says not to replace the filter) plus a maintenance-minder reset, two software updates and an idle-learn procedure. It bundles other work, so it only shows that a maker allows well under 0.6 hr for the drain and refill itself. No maker document giving a separate time for an oil and filter change was found: GM bulletin 25-NA-339 pays an oil-change credit in dollars with no time, GM 04-00-89-015P names no time, and VW bulletin 2020354 lists a 30 time-unit operation without saying what it covers"
         }
       ]
     },
     "truck": {
       "parts": [
-        57.37,
-        79.99
+        57.1,
+        105.13
       ],
       "hours": [
         0.25,
         0.75
       ],
-      "example": "2016 Ford F-150 5.0L (7.7 quarts, 5W-20)",
+      "example": "2016 Chevrolet Silverado 1500 5.3L V8 (8.0 quarts, dexos1 0W-20)",
       "parts_src": [
         {
+          "url": "https://chevytrucks.org/wp-content/uploads/2020/07/2016-Chevy-Silverado-LD-Owners-Manual.pdf",
+          "what": "Capacity, maker document: General Motors 'Silverado LD 1500 and Silverado 2500/3500 Owner's Manual' (copyright 2018 General Motors LLC), Capacities and Specifications table: 'Engine Oil with Filter' 5.3L V8 engine '7.6 L 8.0 qt'; 'All capacities are approximate'. Oil: 'Engine oil meeting the dexos1 specification of the proper SAE viscosity grade', 'ACDelco dexos1 full synthetic is recommended'. The file is hosted on an enthusiast site under a 2016 file name, but its copyright date shows it is the later Silverado LD edition of the same truck generation with the same 5.3L V8. The page that names the viscosity grade was not read, so 0W-20 should be confirmed on the oil filler cap or in the manual"
+        },
+        {
           "url": "https://www.walmart.com/browse/auto-tires/synthetic-motor-oil/91083_1104294_7259277_6661220",
-          "what": "LOW oil: Mobil 1 Advanced Full Synthetic 5W-20, 5-quart jug $31.97 = $6.39 per quart. 7.7 qt x $6.39 = $49.23, plus filter $8.14 = $57.37. In practice that is two jugs or a jug plus three single quarts. Same page: Valvoline MaxLife 5W-20 synthetic blend 5 qt $22.97, Super Tech High Mileage full synthetic 5W-20 5 qt $24.88"
+          "what": "LOW oil: Mobil 1 Advanced Fuel Economy Full Synthetic 0W-20, 5-quart jug $31.97 = $6.39 per quart. 8.0 qt x $6.39 = $51.15, plus filter $5.95 = $57.10. In practice that is two jugs or a jug plus three single quarts. The page does not say whether this oil carries the dexos1 approval; check the label"
         },
         {
-          "url": "https://www.fordpartsgiant.com/oem-2016-ford-f_150-oil_filter.html",
-          "what": "Filter: Ford OEM AA5Z-6714-A (Motorcraft FL-500-S), listed for the 2016 F-150 5.0L V8, MSRP $12.71, discounted $8.14 (used in the low)"
+          "url": "https://www.gmpartsgiant.com/oem-chevrolet-silverado-oil_filter.html",
+          "what": "Filter, OEM catalog: GM oil filter 12731742, listed for 2014-2024 Silverado 4.3L, 5.3L and 6.2L engines, MSRP $9.93 (used in the high), discounted $5.95 (used in the low). Three other numbers are also listed for the 2016 5.3L (12690386 and 12710960 at MSRP $10.04, 12669842 at $8.44); confirm by VIN"
         },
         {
-          "url": "https://lmr.com/item/FTP-6731P/2011-2017-F-150-Motorcraft-Oil-Change-Kit-5w20-5-0",
-          "what": "HIGH: genuine-brand kit for the 2011-2017 F-150 5.0L: 8 quarts Motorcraft XO-5W20-QSP synthetic blend 5W-20 plus Motorcraft FL-500S filter, $79.99 for the kit (8 quarts supplied, 7.7 used). This is a parts seller's price for Ford's own brand, not a Ford list price: no Ford list price per quart could be loaded"
+          "url": "https://parts.gmc.com/product/acdelco-gm-original-equipment-dexos™1-gen-3-full-synthetic-0w-20-motor-oil-1-qt-19432331",
+          "what": "HIGH oil, GM's own parts site list price: ACDelco GM Original Equipment dexos1 GEN 3 Full Synthetic 0W-20 Motor Oil, 1 quart, part 19432331, MSRP $11.90. Multiplied: 8.0 qt x $11.90 = $95.20, plus filter at MSRP $9.93 = $105.13"
         },
         {
-          "url": "https://getjerry.com/car-repair/2016-ford-f-150-5-0-engine-oil-capacity",
-          "what": "Capacity and grade (insurance-comparison site's guide, no named author; the owner's manual itself could not be loaded): 2016 F-150 5.0L 'you'll need to give it 7.7 quarts of engine oil on each change'; 'Ford Motor Company suggests using SAE 5W-20 engine oil'. Consistent with the 8-quart Motorcraft kit above"
+          "url": "https://parts.gmparts.com/product/acdelco-gm-original-equipment-dexos1™-gen-3-full-synthetic-0w-20-motor-oil-5-qt-19432324",
+          "what": "Cross-check, not used: the same oil in a 5-quart jug, part 19432324, MSRP $76.34, which is $15.27 per quart, more per quart than the single-quart bottle"
+        },
+        {
+          "url": "https://parts.gmparts.com/product/acdelco-gm-original-equipment-dexos1™-gen-2-full-synthetic-0w-20-motor-oil-1-qt-88865747",
+          "what": "Cross-check, not used: the earlier ACDelco dexos1 GEN 2 Full Synthetic 0W-20, 1 quart, part 88865747, MSRP $11.46"
         }
       ],
       "hours_src": [
@@ -135,40 +151,44 @@
         },
         {
           "url": "https://www.donandjoesautoservice.com/how-long-does-an-oil-change-take/",
-          "what": "Second general figure, another independent repair shop's guide, not vehicle-specific: full synthetic 'budget for 30 to 45 minutes at a reputable shop'; conventional or blend '15 and 30 minutes when performed by an experienced technician'; 'anywhere from 15 to 45 minutes' overall. No manufacturer-stated labor time for an oil and filter change was found: the Honda and Acura bulletins loaded from static.nhtsa.gov list oil and a filter as materials but no separate oil-change operation"
+          "what": "Second general figure, another independent repair shop's guide, not vehicle-specific: full synthetic 'budget for 30 to 45 minutes at a reputable shop'; conventional or blend '15 and 30 minutes when performed by an experienced technician'; 'anywhere from 15 to 45 minutes' overall"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2024/MC-10253308-0001.pdf",
+          "what": "Maker cross-check, a different vehicle and not a plain oil change: American Honda Service Bulletin 19-032 (version 4, April 12, 2024; 2017-18 CR-V 1.5L) op 1245B5, 0.6 hr, covers replacing the engine oil (the bulletin says not to replace the filter) plus a maintenance-minder reset, two software updates and an idle-learn procedure. It bundles other work, so it only shows that a maker allows well under 0.6 hr for the drain and refill itself. No maker document giving a separate time for an oil and filter change was found: GM bulletin 25-NA-339 pays an oil-change credit in dollars with no time, GM 04-00-89-015P names no time, and VW bulletin 2020354 lists a 30 time-unit operation without saying what it covers"
         }
       ]
     },
     "luxury": {
       "parts": [
-        46.43,
-        115.99
+        47,
+        68.04
       ],
       "hours": [
         0.25,
         0.75
       ],
-      "example": "2015 BMW 328i 2.0L (N20) (5.3 quarts, 5W-30)",
+      "example": "2015 Lexus ES 350 3.5L V6 (2GR-FE; 6.4 quarts, 0W-20)",
       "parts_src": [
         {
+          "url": "https://www.manualslib.com/manual/974575/Lexus-Es350.html?page=576",
+          "what": "Capacity and grade, maker document: Lexus ES 350 owner's manual, publication ES350_OM_OM33B64U_(U), Specifications, as reproduced on a manuals site: oil capacity, drain and refill, 6.4 qt. (6.1 L, 5.4 Imp. qt.) with filter and 6.0 qt. (5.7 L, 5.0 Imp. qt.) without; 'Oil grade: ILSAC GF-5 multigrade engine oil', 'Recommended viscosity: SAE 0W-20'. The page text is scrambled, so the with/without-filter pairing was confirmed against the next source. The model year is not printed on the page"
+        },
+        {
+          "url": "https://www.toyota.ca/content/dam/toyota/documents/manuals/en/OM33B27U/OM33B27U.pdf",
+          "what": "Capacity confirmation, maker document for the same engine in a Toyota: Toyota owner's manual OM33B27U states the 3.5 L V6 (2GR-FE) takes 6.4 qt. (6.1 L) with filter and 6.0 qt. (5.7 L) without, SAE 0W-20"
+        },
+        {
           "url": "https://www.walmart.com/browse/auto-tires/synthetic-motor-oil/91083_1104294_7259277_6661220",
-          "what": "LOW oil: Castrol EDGE Euro 5W-30 K Advanced Full Synthetic, 5-quart jug $31.97 = $6.39 per quart. 5.3 qt x $6.39 = $33.89, plus filter $12.54 = $46.43. In practice that is a jug plus one more quart. The page does not state which BMW oil approval this product carries; check it against the owner's manual"
+          "what": "LOW oil: Mobil 1 Advanced Fuel Economy Full Synthetic 0W-20, 5-quart jug $31.97 = $6.39 per quart. 6.4 qt x $6.39 = $40.92, plus filter $6.08 = $47.00. In practice that is a jug plus two single quarts"
         },
         {
-          "url": "https://www.fcpeuro.com/BMW-parts/328i/Oil-Filter/",
-          "what": "Filter (low): Mann oil filter 11427953125, $12.54; Mahle/Behr kit same number $18.59; Genuine BMW 11427953125 $17.09. N20 fitment of this number is confirmed on the BMW catalog page below"
+          "url": "https://lexuspartsnow.com/oem-lexus-es350-oil_filter.html",
+          "what": "Filter, OEM catalog: Lexus oil filter element kit 04152-31090, listed for the 2007-2024 ES350 3.5L V6, MSRP $7.83 (used in the high), discounted $6.08 (used in the low)"
         },
         {
-          "url": "https://www.bmwpartsdeal.com/oem-bmw-328i-oil_filter.html",
-          "what": "Genuine BMW oil filter 11427953125 for the 2012-2016 328i N20/N26 (F30, F31), MSRP $23.25, discounted $14.73. A genuine BMW engine oil list price could not be loaded, so the high end below is a premium aftermarket kit instead"
-        },
-        {
-          "url": "https://www.bimmerworld.com/Engine/Engine-Maintenance/Inspection-I-Oil-Change-Package-N20-RWD-Red-Line-5W30-Synthetic-OEM-Mann-Filter-Kit.html",
-          "what": "HIGH: BMW specialist's oil change package for rear-wheel-drive N20/N26 cars including the 2012-2015 F30 328i: 6 quarts Red Line 5W-30 synthetic plus Mann filter kit (filter, cap O-ring, drain plug crush seal), $115.99 (6 quarts supplied, about 5.3 used). Premium aftermarket, NOT genuine BMW list. The page says the capacity is 'just a tiny bit over 5 quarts'"
-        },
-        {
-          "url": "https://getjerry.com/car-repair/bmw-n20-oil-capacity",
-          "what": "Capacity (insurance-comparison site's guide, named author; BMW's own manual was not loaded): 'The BMW N20 can hold 5.3 quarts of engine oil'. That page names 0W-20 or 0W-30 as the grade, which differs from the 5W-30 in the N20 kit above; the grade and BMW approval should be confirmed in the owner's manual"
+          "url": "https://www.toyotapartsdeal.com/oem/toyota~0w20~6x1~quart~case~00279-0wqte-6s.html",
+          "what": "HIGH oil, OEM catalog list price: Toyota Genuine Motor Oil 0W-20, 6-quart case 00279-0WQTE-6S, MSRP $56.45 = $9.41 per quart. Multiplied: 6.4 qt x $9.41 = $60.21, plus filter at MSRP $7.83 = $68.04. This is the Toyota-brand catalog's price for the maker's own oil; a Lexus-catalog oil listing was not loaded"
         }
       ],
       "hours_src": [
@@ -182,29 +202,34 @@
         },
         {
           "url": "https://www.donandjoesautoservice.com/how-long-does-an-oil-change-take/",
-          "what": "Second general figure, another independent repair shop's guide, not vehicle-specific: full synthetic 'budget for 30 to 45 minutes at a reputable shop'; conventional or blend '15 and 30 minutes when performed by an experienced technician'; 'anywhere from 15 to 45 minutes' overall. No manufacturer-stated labor time for an oil and filter change was found: the Honda and Acura bulletins loaded from static.nhtsa.gov list oil and a filter as materials but no separate oil-change operation"
+          "what": "Second general figure, another independent repair shop's guide, not vehicle-specific: full synthetic 'budget for 30 to 45 minutes at a reputable shop'; conventional or blend '15 and 30 minutes when performed by an experienced technician'; 'anywhere from 15 to 45 minutes' overall"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2024/MC-10253308-0001.pdf",
+          "what": "Maker cross-check, a different vehicle and not a plain oil change: American Honda Service Bulletin 19-032 (version 4, April 12, 2024; 2017-18 CR-V 1.5L) op 1245B5, 0.6 hr, covers replacing the engine oil (the bulletin says not to replace the filter) plus a maintenance-minder reset, two software updates and an idle-learn procedure. It bundles other work, so it only shows that a maker allows well under 0.6 hr for the drain and refill itself. No maker document giving a separate time for an oil and filter change was found: GM bulletin 25-NA-339 pays an oil-change credit in dollars with no time, GM 04-00-89-015P names no time, and VW bulletin 2020354 lists a 30 time-unit operation without saying what it covers"
         }
       ]
     }
   },
   "src": [
+    "https://www.manualsdir.com/manuals/746447/toyota-2010-corolla.html?page=434",
     "https://www.walmart.com/browse/auto-tires/synthetic-motor-oil/91083_1104294_7259277_6661220",
     "https://www.toyotapartsdeal.com/oem-toyota-oil_filter.html",
     "https://www.toyotapartsdeal.com/oem/toyota~0w20~6x1~quart~case~00279-0wqte-6s.html",
     "https://www.yotashop.com/motor-oil-toyota-0w-20-fully-synthetic-motor-oil-00279-0wqte-01/",
     "https://toyota-club.net/files/techdata/ttx/corolla_170u.pdf",
-    "https://getjerry.com/car-repair/2015-toyota-corolla-engine-oil-capacity",
     "https://jiffylube.com/resource-center/how-long-does-an-oil-change-take",
     "https://ericscarcare.com/blogs/how-long-does-an-oil-change-take/",
     "https://www.donandjoesautoservice.com/how-long-does-an-oil-change-take/",
-    "https://getjerry.com/car-repair/2016-toyota-camry-oil-capacity-guide",
-    "https://www.fordpartsgiant.com/oem-2016-ford-f_150-oil_filter.html",
-    "https://lmr.com/item/FTP-6731P/2011-2017-F-150-Motorcraft-Oil-Change-Kit-5w20-5-0",
-    "https://getjerry.com/car-repair/2016-ford-f-150-5-0-engine-oil-capacity",
-    "https://www.fcpeuro.com/BMW-parts/328i/Oil-Filter/",
-    "https://www.bmwpartsdeal.com/oem-bmw-328i-oil_filter.html",
-    "https://www.bimmerworld.com/Engine/Engine-Maintenance/Inspection-I-Oil-Change-Package-N20-RWD-Red-Line-5W30-Synthetic-OEM-Mann-Filter-Kit.html",
-    "https://getjerry.com/car-repair/bmw-n20-oil-capacity"
+    "https://static.nhtsa.gov/odi/tsbs/2024/MC-10253308-0001.pdf",
+    "https://www.toyota.ca/content/dam/toyota/documents/manuals/en/OM33B27U/OM33B27U.pdf",
+    "https://chevytrucks.org/wp-content/uploads/2020/07/2016-Chevy-Silverado-LD-Owners-Manual.pdf",
+    "https://www.gmpartsgiant.com/oem-chevrolet-silverado-oil_filter.html",
+    "https://parts.gmc.com/product/acdelco-gm-original-equipment-dexos™1-gen-3-full-synthetic-0w-20-motor-oil-1-qt-19432331",
+    "https://parts.gmparts.com/product/acdelco-gm-original-equipment-dexos1™-gen-3-full-synthetic-0w-20-motor-oil-5-qt-19432324",
+    "https://parts.gmparts.com/product/acdelco-gm-original-equipment-dexos1™-gen-2-full-synthetic-0w-20-motor-oil-1-qt-88865747",
+    "https://www.manualslib.com/manual/974575/Lexus-Es350.html?page=576",
+    "https://lexuspartsnow.com/oem-lexus-es350-oil_filter.html"
   ],
   "benchmarks": [
     {
@@ -230,13 +255,27 @@
       "hi": 64.88,
       "date": "2026-11-19",
       "note": "full-synthetic options 'typically land around $58.88 to $64.88'; conventional Pit Crew package starts at $28.88; quarts included not stated; article dated Jul 25 with no year shown"
+    },
+    {
+      "name": "SoFi (average oil change cost, 2026)",
+      "url": "https://www.sofi.com/learn/content/average-cost-oil-change/",
+      "lo": 65,
+      "hi": 125,
+      "date": "2026-11-20",
+      "note": "full synthetic $65 to $125; synthetic blend $40 to $100; conventional 'between $35 and $75, according to Kelley Blue Book'. Article by a named author, published March 6, 2026; the synthetic figures are not attributed to a source"
+    },
+    {
+      "name": "RepairPal",
+      "url": "https://repairpal.com/estimator/oil-change-cost",
+      "lo": 160,
+      "hi": 188,
+      "date": "2026-11-20",
+      "note": "oil change national average $160-$188: labor $58-$86, parts $101-$103; estimates last updated September 3, 2026. Far above chain menu prices, and its parts figure is above every genuine-oil build here, so treat as a high outlier"
     }
   ],
   "live": null,
-  "finding": "The site has no live range for this job, so there is nothing to grade; this file is a first build. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks; oil = the maker's capacity in quarts x a per-quart price, plus one filter): economy 2015 Corolla (4.4 qt) about $63-$168; midsize 2016 Camry (4.6 qt) about $64-$170; truck 2016 F-150 5.0L (7.7 qt) about $87-$200; luxury 2015 BMW 328i (5.3 qt) about $76-$236. Against the benchmarks: a chain price survey found full synthetic at $45 (Walmart) to $100 (Valvoline, Firestone Premium), $65 at a local mechanic and $109 at a dealer, and a second article puts Walmart's full synthetic at about $59-$65. So the low end of the build ($63-$87) lands in the middle of real menu prices, while the high end ($168-$236) is well above anything the benchmarks show for an ordinary car. Candidly, that gap is expected: an oil change is sold at a menu price rather than built up from parts and hourly labor, and the menu prices found sit below a build that charges retail or list oil prices plus up to 45 minutes at $160/hr. The build therefore overstates what most drivers pay; the benchmarks ($45-$109 for a full synthetic service that typically includes up to five quarts) are the better guide to a real bill, with extra quarts charged on top for the larger truck fill. How solid the numbers are: the hours are general, not vehicle-specific. No manufacturer-stated oil-change time was found; the low end is a quick-lube chain's own '15 minutes or less' and the high end is two independent repair shops' '30 to 45 minutes'. The oil capacities are meant to be the makers' figures, but no maker's manual page could be loaded directly: the Corolla figure comes from a data sheet that says it was compiled from Toyota owner's manuals plus one guide, and the Camry, F-150 and BMW capacities each rest on one third-party guide. Parts: Toyota oil and filters use genuine list prices from an OEM catalog. No Ford or BMW genuine oil list price could be loaded, so the truck high end is a seller's price for a Motorcraft kit and the luxury high end is a premium aftermarket kit, not OEM list. The BMW oil grade is an open point: the kit sold for this engine is 5W-30, one guide names 0W-20 or 0W-30, so the owner's manual decides. Only two independent benchmark sources were found (the two chain-survey rows come from the same article); the chains' own price pages loaded without prices.",
+  "finding": "The site has no live range for this job, so there is nothing to grade; this file is a first build, revised on a second pass. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks; oil = the maker's capacity with filter in quarts x a per-quart price, plus one filter): economy Toyota Corolla 1.8L (4.4 qt) about $63-$168; midsize 2016 Toyota Camry 2.5L (4.6 qt) about $64-$170; truck Chevrolet Silverado 1500 5.3L (8.0 qt) about $87-$225; luxury Lexus ES 350 3.5L (6.4 qt) about $77-$188. Against the benchmarks: a chain price survey found full synthetic at $45 (Walmart) to $100 (Valvoline, Firestone Premium), $65 at a local mechanic and $109 at a dealer; a second article puts Walmart's full synthetic at about $59-$65; a third gives $65-$125 for full synthetic; RepairPal's national average of $160-$188 is a high outlier. So the low end of the build ($63-$87) lands in the middle of real menu prices, while the high end ($168-$225) is above most of what the benchmarks show for an ordinary car and close to RepairPal. That gap is expected: an oil change is sold at a menu price rather than built up from parts and hourly labor, and a build that charges list-price genuine oil plus up to 45 minutes at $160/hr overstates what most drivers pay. The menu-price benchmarks ($45-$125 for a full synthetic service that typically includes up to five quarts) are the better guide to a real bill, with extra quarts charged on top for the truck and the V6. What changed on this pass: every oil capacity now comes from the maker's owner's manual, and every high figure is an OEM list price per quart multiplied by that capacity plus the filter at list. To get there the examples were changed: the economy car is the 2010 Corolla (its manual loaded; the 2015 car uses the same 1.8L engine and the same 4.4-quart figure per a non-maker data sheet), the truck is a Silverado 1500 with GM's own list prices in place of a Ford kit price, and the luxury car is a Lexus ES 350 in place of the BMW, whose manual and genuine oil list price could not be loaded. Caveats, stated plainly: the Corolla and Lexus manual pages were read on manuals-hosting sites, not the makers' own sites; the Camry manual is on Toyota Canada's site but the pages read do not print the model name or year (it is identified by its two engines); the Silverado manual read is the later Silverado LD edition (copyright 2018) of the same truck and engine, and the page naming its oil viscosity was not read, so 0W-20 is to be confirmed; the Lexus oil price is the Toyota catalog's list price for Toyota Genuine oil. How solid the hours are: they are general, not vehicle-specific, and none is a maker's time. The low end is a quick-lube chain's own '15 minutes or less' and the high end is two independent repair shops' '30 to 45 minutes'. No maker document with a separate time for an oil and filter change was found; the nearest is a Honda bulletin that allows 0.6 hr for an oil replacement bundled with software updates, which fits inside the range.",
   "confidence": "low",
-  "checked": "2026-11-19",
-  "extras": "A quote often adds a charge per extra quart beyond the five a menu price usually includes (one survey reports $5-$10 a quart at one chain), which matters for the truck (7.7 quarts) and the BMW (5.3), plus shop supplies and an oil disposal or environmental fee, a new drain plug washer, and sales tax. Many menu prices bundle a tire rotation, fluid top-offs and a multi-point inspection. Engine and cabin air filters, wiper blades and other fluid services are commonly offered at the same visit and priced separately. Cartridge-style filters and under-engine covers can add a little time.",
-  "status": "held",
-  "held_reason": "capacities not from a maker document; only two independent benchmarks; Ford and BMW highs are not list prices"
+  "checked": "2026-11-20",
+  "extras": "A quote often adds a charge per extra quart beyond the five a menu price usually includes (one survey reports $5-$10 a quart at one chain), which matters for the truck (8.0 quarts) and the V6 (6.4), plus shop supplies and an oil disposal or environmental fee, a new drain plug washer, and sales tax. Many menu prices bundle a tire rotation, fluid top-offs and a multi-point inspection. Engine and cabin air filters, wiper blades and other fluid services are commonly offered at the same visit and priced separately. Cartridge-style filters and under-engine covers can add a little time."
 }

@@ -2,23 +2,23 @@
 
 Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held with reason. Re-check any job whose date is over 60 days old. "Live" is the range the site shows today.
 
-- [x] Brake pads and rotors (live: $220–$775) (2026-11-19) — about right; hours from comparable vehicles (low confidence)
-- [x] Alternator replacement (live: $270–$975) (2026-11-19) — low end too low; $340–$1,100 fits (low confidence: economy/luxury hours are general retailer statements)
+- [x] Brake pads and rotors (2026-11-20) — examples now Mazda3, Grand Caravan, Acura RDX with maker-stated times for the low end (0.6–0.7 hr); every high end is still one mechanic's blog (low confidence). One vehicle-specific upper time would make it medium
+- [x] Alternator replacement (2026-11-20) — midsize now 2014 Jeep Grand Cherokee (FCA recall time 0.5 hr); shown $330–$1,275; economy and luxury times still general (low confidence). Lead: Subaru TSB 07-112-16R (static.nhtsa.gov/odi/tsbs/2016/MC-10120993-9999.pdf) may print a Forester time
 - [x] Starter replacement (live: $200–$1125) (2026-11-19) — top right, floor nearer $230–$250 (medium confidence)
-- [x] Water pump replacement (live: $380–$1475) (2026-11-19) — about right; spans two different jobs (low confidence)
+- [x] Water pump replacement (2026-11-20) — now one external belt-driven or electric pump only; examples Cruze, Accord, 2014 F-150; shown $210–$950 (low confidence: truck time is a seller estimate, highs are one general how-to)
 - [x] Head gasket repair (live: $1075–$3700) (2026-11-19) — low end far too low; about $1,400–$4,400 fits; luxury example now a Cadillac Escalade V8 (GM time 9.9 hr), not a European car (low confidence)
-- [x] Catalytic converter replacement (live: $480–$2450) (2026-11-19) — low end too low; CARB states exceed top (low confidence)
+- [x] Catalytic converter replacement (2026-11-20) — examples now Kia Soul, Chevrolet Equinox, Acura RDX with maker times; shown $625–$2,800 (medium confidence); CARB-state parts still higher
 - [x] Wheel bearing or hub replacement (live: $200–$700) (2026-11-19) — slightly low both ends; $250–$800 fits (medium confidence)
-- [x] Timing belt replacement (live: $500–$1475) (2026-11-19) — about right, top slightly generous (low confidence)
+- [x] Timing belt replacement (2026-11-20) — midsize now 2019 Odyssey (Honda recall time 3.1 hr), truck low 3.7 hr from a Gates sheet; economy rests on a forum answer (low confidence)
 - [x] Spark plug replacement (live: $130–$850) (2026-11-19) — top too high; $500–$600 fits (medium confidence)
 - [x] A/C compressor replacement (live: $550–$1625) (2026-11-19) — right for compressor-only; full job higher (medium confidence)
-- [x] Radiator replacement (live: $290–$1400) (2026-11-19) — about right; hours not vehicle-specific (low confidence)
+- [x] Radiator replacement (2026-11-20) — economy now 2022 Hyundai Kona, truck now 2015 Silverado (GM 3.0 hr with thermostat); shown $340–$1,025 (medium confidence); Kona aftermarket price is a little-known brand
 - [x] Fuel pump replacement (live: $330–$1400) (2026-11-19) — about right; warranty times only (medium confidence)
 - [x] Control arm replacement (one side) (live: $240–$1200) (2026-11-19) — about right once alignment is added (medium confidence)
-- [x] Ball joint replacement (live: $240–$950) (2026-11-19) — top too high for one joint; ~$600 (low confidence)
-- [x] Tie rod end replacement (live: $170–$900) (2026-11-19) — top too high for one end; ~$500 with alignment (low confidence)
-- [x] Strut or shock absorber replacement (2026-11-19) — floor low for a front pair (~$375), top low for luxury (~$1,680); luxury low is the genuine part at a discount (low confidence)
-- [x] CV axle replacement (live: $200–$825) (2026-11-19) — floor right; top low for dealer parts (~$1,350) (low confidence)
+- [x] Ball joint replacement (2026-11-20) — midsize now 2014 Equinox (trade-press book time 1.4 hr); range unchanged (low confidence: no time for the Corolla)
+- [x] Tie rod end replacement (2026-11-20) — luxury low was a Tesla time (0.24 hr), now 0.5 hr; range unchanged (low confidence: only the truck times are vehicle-specific)
+- [x] Strut or shock absorber replacement (2026-11-20) — examples now Kia Forte, Kia Sorento, Silverado with maker times for the low end; shown $320–$1,700 (kept low: Kia operations are named for other strut parts, Silverado aftermarket price unit unstated)
+- [x] CV axle replacement (2026-11-20) — economy now Honda Fit (Honda 1.1 hr), midsize now Jeep Cherokee (FCA 0.5 hr, optimistic); shown $200–$1,300 (low confidence). Lead for truck: FCA recall S32 / 16V-301, 0.8 hr both halfshafts, 2016 Ram 1500
 - [x] Sway bar link or bushing replacement (live: $100–$575) (2026-11-19) — floor right; links alone top ~$425 (low confidence)
 - [x] Radiator fan replacement (2026-11-19) — too low both ends (~$225–$1,300); luxury time is one Mercedes campaign figure, 0.8 hr (low confidence)
 - [x] Thermostat replacement (live: $160–$875) (2026-11-19) — floor right; top too high, ~$750 (medium confidence)
@@ -46,6 +46,8 @@ Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held wi
 - [x] Turbocharger replacement (live: $1150–$4800) (2026-11-19) — about right both ends (low confidence)
 
 ## Notes for the next run
+- 2026-11-20 (run 00:27): 46 jobs shown, 4 held (engine mount, oil pan gasket, rear main seal, tire rotation: all at the two-attempt limit or past it, so Phase 1 steps 1–2 are done). The price check now remembers the optional vehicle kind and state on the device. Next: Phase 1 step 3 continues, most-searched first among jobs not yet re-worked: head gasket, spark plugs (already medium), sway bar link, radiator fan, blower motor, window regulator, door lock actuator, power steering pump, ignition coil, valve cover gasket (leads in LOG), oxygen sensor, brake caliper, serpentine belt, ABS sensor. Also: one vehicle-specific upper labor time each for brakes and water pump would lift them to medium.
+- Good sources for labor times found this run: Mazda, Chrysler/FCA and Acura brake bulletins; FCA and Ford recall dealer instructions (Ford does print times in recalls); Gates timing-kit installation sheets ("Labor Times - hrs"); GM PI bulletins for Silverado. A 7-agent batch used about 155 searches; spot checks used none.
 - 2026-11-20: Phase 2 is built and live. 44 jobs pass and are shown on /price-check/; 6 are held (`"status": "held"` in the job file keeps a file off the page; remove it when the file passes). Next: second attempt at oil change, coolant flush and tire rotation; then Phase 1 step 3 (raise confidence: 34 of 44 shown jobs are "rough estimate") and Phase 3.
 - Tesla service-manual times are printed without a unit: cross-check only, never a range end.
 - A full run this size (11 research agents, 2 fetch agents) used about 177 of the 200 searches.
@@ -66,7 +68,7 @@ Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held wi
 - [x] Transmission fluid service (new) (2026-11-19) — one drain-and-fill, builds $90–$420 (low confidence)
 - [x] Cabin air filter replacement (new) (2026-11-19) — builds $30–$140 (low confidence)
 - [x] Wheel alignment (new) (2026-11-19) — builds $90–$180; truck and luxury on a single 1.1 hr Hyundai/Genesis time (low confidence)
-- [~] Oil change (new) (2026-11-19) — held, first attempt: engine oil capacities are not from a maker document, only two independent benchmarks, Ford and BMW highs are kit prices not list
-- [~] Coolant flush (new) (2026-11-19) — held, first attempt: F-150 5.0L coolant capacity and Motorcraft list price not found (truck parts null)
-- [~] Tire rotation (new) (2026-11-19) — held, first attempt: times rest on Tesla service-manual figures printed without a unit and a Nissan tyre-swap diagnosis operation; needs a maker "rotate tires" time
+- [x] Oil change (new) (2026-11-20) — passes on second attempt: capacities from owner's manuals, list price x capacity; examples Corolla, Camry, Silverado, Lexus ES 350; builds $60–$230, menu prices $45–$125 are the better guide (low confidence: hours general; Silverado oil grade not confirmed in the manual)
+- [x] Coolant flush (new) (2026-11-20) — passes on second attempt: truck now Silverado (16.6 qt, Dex-Cool list price); builds $110–$360 (low confidence: hours general; BMW capacity not from a BMW document)
+- [~] Tire rotation (new) (2026-11-20) — held after two attempts: no maker prints a plain "rotate tires" time (GM, Honda, VW, FCA, Ford, Hyundai, Subaru, Mazda, Toyota checked); only the Nissan/Infiniti 0.5 hr swap step in a pull diagnosis. Tesla figures removed from range ends. Does not block the phase
 - Serpentine belt: already covered by "Serpentine belt or tensioner replacement".
