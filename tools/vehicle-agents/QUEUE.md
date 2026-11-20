@@ -570,36 +570,36 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [x] toyota-t100 | Toyota T100 | 1996-1998 | pricing pass done Nov 20 (was 78% priced, 4 unpriced; now 80%+).
 - [x] chevrolet-prizm | Chevrolet Prizm | 1996-2002 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 80%+).
 - [x] lexus-rc | Lexus RC | 2015-2024 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 80%+).
-- [ ] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | pricing pass: 79% priced, 4 unpriced
-- [ ] pontiac-solstice | Pontiac Solstice | 2006-2009 | pricing pass: 79% priced, 4 unpriced
-- [ ] suzuki-aerio | Suzuki Aerio | 2002-2007 | pricing pass: 79% priced, 4 unpriced
-- [ ] ford-bronco | Ford Bronco | 1996-2026 | pricing pass: 0% priced, 3 unpriced
-- [ ] kia-forte | Kia Forte | 2010-2024 | pricing pass: 0% priced, 3 unpriced
-- [ ] jeep-gladiator | Jeep Gladiator | 2020-2026 | pricing pass: 25% priced, 3 unpriced
-- [ ] ford-ranger | Ford Ranger | 1996-2027 | pricing pass: 50% priced, 3 unpriced
-- [ ] hyundai-tucson | Hyundai Tucson | 2005-2026 | pricing pass: 50% priced, 3 unpriced
-- [ ] cadillac-cts | Cadillac CTS | 2003-2019 | pricing pass: 57% priced, 3 unpriced
-- [ ] jeep-compass | Jeep Compass | 2007-2026 | pricing pass: 57% priced, 3 unpriced
-- [ ] kia-sorento | Kia Sorento | 2003-2027 | pricing pass: 57% priced, 3 unpriced
-- [ ] nissan-sentra | Nissan Sentra | 1996-2027 | pricing pass: 63% priced, 3 unpriced
-- [ ] chevrolet-equinox-ev | Chevrolet Equinox EV | 2024-2026 | pricing pass: 67% priced, 3 unpriced
-- [ ] chrysler-cirrus | Chrysler Cirrus | 1996-2000 | pricing pass: 70% priced, 3 unpriced
-- [ ] ford-expedition | Ford Expedition | 1997-2027 | pricing pass: 70% priced, 3 unpriced
-- [ ] hyundai-elantra | Hyundai Elantra | 1996-2026 | pricing pass: 70% priced, 3 unpriced
-- [ ] lexus-hs | Lexus HS 250h | 2010-2012 | pricing pass: 70% priced, 3 unpriced
-- [ ] lincoln-mkt | Lincoln MKT | 2010-2019 | pricing pass: 70% priced, 3 unpriced
-- [ ] daewoo-lanos | Daewoo Lanos | 1999-2002 | pricing pass: 73% priced, 3 unpriced
-- [ ] kia-ev9 | Kia EV9 | 2024-2026 | pricing pass: 73% priced, 3 unpriced
-- [ ] ford-mustang | Ford Mustang | 1996-2026 | pricing pass: 75% priced, 3 unpriced
-- [ ] honda-accord | Honda Accord | 1996-2026 | pricing pass: 75% priced, 3 unpriced
-- [ ] mercedes-benz-sprinter | Mercedes-Benz Sprinter | 2003-2024 | pricing pass: 75% priced, 3 unpriced
-- [ ] oldsmobile-intrigue | Oldsmobile Intrigue | 1998-2002 | pricing pass: 75% priced, 3 unpriced
-- [ ] volkswagen-taos | Volkswagen Taos | 2022-2025 | pricing pass: 75% priced, 3 unpriced
-- [ ] hyundai-entourage | Hyundai Entourage | 2007-2008 | pricing pass: 77% priced, 3 unpriced
-- [ ] isuzu-axiom | Isuzu Axiom | 2002-2004 | pricing pass: 77% priced, 3 unpriced
-- [ ] nissan-murano | Nissan Murano | 2003-2026 | pricing pass: 77% priced, 3 unpriced
-- [ ] chevrolet-silverado-2500hd | Chevrolet Silverado 2500HD | 2001-2026 | pricing pass: 79% priced, 3 unpriced
-- [ ] chevrolet-suburban | Chevrolet Suburban | 1996-2027 | pricing pass: 79% priced, 3 unpriced
+- [ ] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | pricing pass: 79% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] pontiac-solstice | Pontiac Solstice | 2006-2009 | pricing pass: 79% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] suzuki-aerio | Suzuki Aerio | 2002-2007 | pricing pass: 79% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] ford-bronco | Ford Bronco | 1996-2026 | pricing pass: 0% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] kia-forte | Kia Forte | 2010-2024 | pricing pass: 0% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] jeep-gladiator | Jeep Gladiator | 2020-2026 | pricing pass: 25% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] ford-ranger | Ford Ranger | 1996-2027 | pricing pass: 50% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] hyundai-tucson | Hyundai Tucson | 2005-2026 | pricing pass: 50% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] cadillac-cts | Cadillac CTS | 2003-2019 | pricing pass: 57% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] jeep-compass | Jeep Compass | 2007-2026 | pricing pass: 57% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] kia-sorento | Kia Sorento | 2003-2027 | pricing pass: 57% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] nissan-sentra | Nissan Sentra | 1996-2027 | pricing pass: 63% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] chevrolet-equinox-ev | Chevrolet Equinox EV | 2024-2026 | pricing pass: 67% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] chrysler-cirrus | Chrysler Cirrus | 1996-2000 | pricing pass: 70% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] ford-expedition | Ford Expedition | 1997-2027 | pricing pass: 70% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] hyundai-elantra | Hyundai Elantra | 1996-2026 | pricing pass: 70% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] lexus-hs | Lexus HS 250h | 2010-2012 | pricing pass: 70% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] lincoln-mkt | Lincoln MKT | 2010-2019 | pricing pass: 70% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] daewoo-lanos | Daewoo Lanos | 1999-2002 | pricing pass: 73% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] kia-ev9 | Kia EV9 | 2024-2026 | pricing pass: 73% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] ford-mustang | Ford Mustang | 1996-2026 | pricing pass: 75% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] honda-accord | Honda Accord | 1996-2026 | pricing pass: 75% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] mercedes-benz-sprinter | Mercedes-Benz Sprinter | 2003-2024 | pricing pass: 75% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] oldsmobile-intrigue | Oldsmobile Intrigue | 1998-2002 | pricing pass: 75% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] volkswagen-taos | Volkswagen Taos | 2022-2025 | pricing pass: 75% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] hyundai-entourage | Hyundai Entourage | 2007-2008 | pricing pass: 77% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] isuzu-axiom | Isuzu Axiom | 2002-2004 | pricing pass: 77% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] nissan-murano | Nissan Murano | 2003-2026 | pricing pass: 77% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] chevrolet-silverado-2500hd | Chevrolet Silverado 2500HD | 2001-2026 | pricing pass: 79% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [ ] chevrolet-suburban | Chevrolet Suburban | 1996-2027 | pricing pass: 79% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
 - [ ] dodge-stratus | Dodge Stratus | 1996-2006 | pricing pass: 79% priced, 3 unpriced
 - [ ] fiat-500l | Fiat 500L | 2014-2020 | pricing pass: 79% priced, 3 unpriced
 - [ ] hyundai-xg350 | Hyundai XG300 / XG350 | 2001-2005 | pricing pass: 79% priced, 3 unpriced
