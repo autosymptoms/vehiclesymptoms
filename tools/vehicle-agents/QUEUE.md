@@ -101,7 +101,7 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] kia-stinger | Kia Stinger | 2018-2023 |
 - [x] kia-carnival | Kia Carnival | 2022-present |
 - [x] kia-spectra | Kia Spectra | 2000-2009 |
-- [~] kia-cadenza-k5 | Kia K5 | 2021-present | draft held back: kia-optima already covers K5 2021+ years; merge K5 issues into kia-optima instead of a separate page
+- [~] kia-cadenza-k5 | Kia K5 | 2021-present | draft held back: kia-optima already covers K5 2021+ years; merge K5 issues into kia-optima instead of a separate page | CLAIMED by scheduled run 2026-11-20 08:54 UTC
 - [x] kia-ev6 | Kia EV6 | 2022-present | ev:true
 - [x] subaru-wrx | Subaru WRX / STI | 2002-present |
 - [x] subaru-tribeca | Subaru B9 Tribeca / Tribeca | 2006-2014 |
@@ -280,7 +280,7 @@ Work from the top down. Each line is `- [ ] model-id | Make Model | US years | n
 - [x] chevrolet-prizm | Chevrolet Prizm / Geo Prizm | 1996-2002 |
 - [x] chevrolet-metro | Chevrolet Metro / Geo Metro | 1998-2001 |
 - [x] chevrolet-ssr | Chevrolet SSR | 2003-2006 |
-- [ ] chevrolet-caprice | Chevrolet Caprice | 1996 |
+- [ ] chevrolet-caprice | Chevrolet Caprice | 1996 | | CLAIMED by scheduled run 2026-11-20 08:54 UTC
 - [x] gmc-safari | GMC Safari | 1996-2005 |
 - [x] gmc-sonoma | GMC Sonoma | 1996-2004 |
 - [x] gmc-hummer-ev | GMC Hummer EV | 2022-present | ev:true
@@ -628,4 +628,4 @@ These live models have under 80% of their non-recall issues priced, so the price
 **Daniel approved this Nov 19 2026.** Order for the next runs: (1) the pricing pass above, (2) the two leftovers (merge kia-cadenza-k5 issues into kia-optima; chevrolet-caprice 1996), (3) this list in order. Use the same BRIEF, review and publish steps; agents edit the existing model files instead of creating new ones.
 - Extend models that end early (2026/2027) once real problems exist for those years. See the project doc vehicles/model-coverage.md.
 - Fill thin years: any sold year with fewer than 3 issues (run check-vehicle.js on every id).
-- Raise models with fewer than 20 issues: dodge-caliber, dodge-neon, nissan-juke, jeep-gladiator, ford-flex, hyundai-santa-cruz.
+- Raise models with fewer than 20 issues: dodge-caliber, dodge-neon, nissan-juke, jeep-gladiator, ford-flex, hyundai-santa-cruz. | CLAIMED by scheduled run 2026-11-20 08:54 UTC (caliber, neon, juke, gladiator, flex, santa-cruz)
