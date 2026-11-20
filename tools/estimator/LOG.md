@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-20 04:27 UTC started
+
 ## Run 2026-11-20 03:26 UTC finished 2026-11-20 03:54 UTC (Phase 3: posted shop prices beside the range on eight jobs; four new jobs; about 177 of 200 searches used)
 - Totals: 7 research agents (8 menu-price jobs, 6 new jobs, 1 parts re-check) and 1 fetch agent. 56 job files: 50 shown (was 46), 6 held (was 4). Medium confidence: 14 jobs (unchanged).
 - Posted prices added (`menu` in the job file; read from each shop's own page today): oil change 8 prices $59.95–$109; cabin air filter 8, $35–$119.95; wheel alignment 8, $89.95–$169.95; battery 7, $134.95–$389.95; brake fluid flush 7, $99.99–$259.95; coolant flush 5 matching (2 chemical flushes kept in the file, not shown), $93.99–$269.95; transmission fluid service 4 matching (3 exchange/flush/filter services not shown), $142–$329.95; A/C recharge 7 matching, $175–$499.99. No built range changed on the seven existing jobs.
