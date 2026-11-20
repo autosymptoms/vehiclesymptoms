@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-20 09:27 UTC started
+
 ## Run 2026-11-20 08:26 UTC finished 2026-11-20 08:50 UTC (Phase 3: muffler passes and is shown; the result can now compare the labor hours on a quote with the stated time; about 150 of 200 searches used)
 - Totals: 5 research agents (4 held retries, 4 new jobs), 1 fetch agent and 1 spot-check agent. 84 job files: 58 shown (was 57), 26 held (was 23). Medium confidence: 14 jobs (unchanged). No built range changed on any job already shown.
 - Passed: muffler replacement, at low confidence ("rough estimate"). New on the page; there was no live range before. Built at the national rate: economy $200–$750, midsize $300–$600, truck $260–$1,175, luxury $310–$825; all kinds $200–$1,175.
