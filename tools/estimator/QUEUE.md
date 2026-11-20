@@ -15,10 +15,10 @@ Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held wi
 - [x] Radiator replacement (2026-11-20) — economy now 2022 Hyundai Kona, truck now 2015 Silverado (GM 3.0 hr with thermostat); shown $340–$1,025 (medium confidence); Kona aftermarket price is a little-known brand
 - [x] Fuel pump replacement (live: $330–$1400) (2026-11-19) — about right; warranty times only (medium confidence)
 - [x] Control arm replacement (one side) (live: $240–$1200) (2026-11-19) — about right once alignment is added (medium confidence)
-- [x] Ball joint replacement (2026-11-20) — midsize now 2014 Equinox (trade-press book time 1.4 hr); range unchanged (low confidence: no time for the Corolla)
-- [x] Tie rod end replacement (2026-11-20) — luxury low was a Tesla time (0.24 hr), now 0.5 hr; range unchanged (low confidence: only the truck times are vehicle-specific)
+- [x] Ball joint replacement (2026-11-20) — second look found no one-joint time for the Corolla (about 60 bulletins); cross-checks point to 0.75–0.9 hr per joint; range unchanged (low confidence)
+- [x] Tie rod end replacement (2026-11-20) — second look found no maker time for one outer end on any example or substitute; range unchanged (low confidence: only the truck times are vehicle-specific)
 - [x] Strut or shock absorber replacement (2026-11-20) — examples now Kia Forte, Kia Sorento, Silverado with maker times for the low end; shown $320–$1,700 (kept low: Kia operations are named for other strut parts, Silverado aftermarket price unit unstated)
-- [x] CV axle replacement (2026-11-20) — economy now Honda Fit (Honda 1.1 hr), midsize now Jeep Cherokee (FCA 0.5 hr, optimistic); shown $200–$1,300 (low confidence). Lead for truck: FCA recall S32 / 16V-301, 0.8 hr both halfshafts, 2016 Ram 1500
+- [x] CV axle replacement (2026-11-20) — Ram recall S32 confirmed (0.8 hr for both front halfshafts on new trucks) and kept as a cross-check; shown $200–$1,300 unchanged (low confidence)
 - [x] Sway bar link or bushing replacement (2026-11-20) — luxury low was a Tesla time, now Kia 0.5 hr; range unchanged (low confidence)
 - [x] Radiator fan replacement (2026-11-20) — economy now 2017 Sentra (Nissan 1.4 hr); range unchanged; luxury still one Mercedes figure; no aftermarket S550 fan found (low confidence)
 - [x] Thermostat replacement (live: $160–$875) (2026-11-19) — floor right; top too high, ~$750 (medium confidence)
@@ -35,17 +35,20 @@ Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held wi
 - [x] Serpentine belt or tensioner replacement (2026-11-20) — belt only; examples now Elantra, Telluride, Tacoma, Acura MDX with maker times for the low end; shown $60–$250 (medium confidence)
 - [x] Wheel speed (ABS) sensor replacement (2026-11-20) — truck low now Nissan Titan XD 0.5 hr; all highs one general guide (low confidence)
 - [x] Heater core replacement (live: $240–$1850) (2026-11-19) — floor far too low; ~$500–$700 up (medium confidence)
-- [x] Intake manifold gasket replacement (live: $490–$1275) (2026-11-19) — floor too high; ~$250–$350 fits (low confidence)
+- [x] Intake manifold gasket replacement (2026-11-20) — second look: no maker time for gaskets alone on any example (about 30 bulletins); several range ends are times for a related job and are named in the finding; range unchanged (low confidence)
 - [~] Oil pan gasket replacement (2026-11-19) — held after three attempts: the Corolla pan is liquid-sealed and no page confirms which Toyota sealant it takes (economy OEM price null); other three classes complete
 - [~] Rear main seal replacement (2026-11-19) — held after three attempts: no maker prints a rear main seal time for a luxury vehicle (about 45 bulletins loaded); floor too low for cars (~$690 up)
 - [x] Clutch replacement (live: $280–$1925) (2026-11-19) — floor far too low; ~$835–$1,900 before flywheel (medium confidence)
-- [x] Transmission replacement (remanufactured) (2026-11-19) — live too low both ends; about $3,800–$7,500 fits; midsize and luxury lows are the maker's own reman unit at a discount (low confidence)
-- [x] Throttle body cleaning or replacement (2026-11-19) — file prices replacement ($140–$705); cleaning is cheaper (~$70–$230) (low confidence)
-- [x] Mass air flow sensor replacement (2026-11-19) — floor far too low (~$95–$150); top about right (low confidence)
-- [x] EGR valve replacement (live: $160–$675) (2026-11-19) — about right; floor nearer $200 (low confidence)
-- [x] Turbocharger replacement (live: $1150–$4800) (2026-11-19) — about right both ends (low confidence)
+- [x] Transmission replacement (remanufactured) (2026-11-20) — luxury now 2021 Cadillac XT4 (GM 12.3 hr transmission-only time); every class now has a maker time for its example; built $3,816–$7,647 (low confidence: Accord has one parts source, lows are makers' own reman units)
+- [x] Throttle body cleaning or replacement (2026-11-20) — luxury now 2016 Lincoln MKZ Hybrid (Ford 0.5 hr); GM 0.8 hr with diagnosis demoted to a cross-check; built $138–$705 unchanged (low confidence: every high is one general guide)
+- [x] Mass air flow sensor replacement (2026-11-20) — second look: no maker prints a sensor-only time (about 15 bulletins); GM 1.0 hr with connector demoted to a cross-check; range unchanged (low confidence)
+- [x] EGR valve replacement (2026-11-20) — midsize now 2020 Hyundai Sonata 2.5L (Hyundai 2.4 hr), luxury now 2012 Lexus CT 200h (Lexus 1.9 hr); built $200–$737 (low confidence: Civic has no maker time). A 2012 Prius economy example would reach medium but would misrepresent ordinary economy cars
+- [x] Turbocharger replacement (2026-11-20) — no new times found; two diagnose-and-replace figures demoted (Cruze now 2.4 hr, F-150 now 4 hr from a seller only); built $835–$4,307 (low confidence)
 
 ## Notes for the next run
+- 2026-11-20 (run 02:27): 46 jobs shown, 4 held, 14 medium (unchanged). Phase 1 step 3 has now had a second look at every low-confidence job; this pass moved examples in five files but lifted none to medium, and about 250 more bulletins were opened for it. Further bulletin trawling for the same jobs has low yield: do not repeat it. Next: Phase 3. First item: shop menu prices beside the built range for maintenance jobs (oil change, alignment, brake fluid, coolant, transmission fluid, battery, cabin filter), where a menu price is what drivers are actually charged; source them from chain and dealer price pages with URLs, shown as "what shops advertise", never blended into the range. Second: an independent remanufacturer's price for the Accord and XT4 transmissions.
+- The source list on the page now separates "Also checked, not used in the range". build.js decides by the first 70 characters of `what`: start such entries with "Cross-check", "Not used", "Not in the range", "Context only", "Outlier" or "Corroboration", and never start a range-end source with those words.
+- Reviewer rules added this run: an add-on time ("add time", "add for") is a cross-check; a Honda/Acura "FRT" column with no unit printed stays a cross-check; a front-only alignment time does not by itself make a file medium.
 - 2026-11-20 (run 01:26): 46 jobs shown, 4 held, 14 medium. The result now says what the gap between a quote and the range amounts to in dollars and labor hours. Every low-confidence job on the previous note's list has had its second look. Next: Phase 1 step 3 on the jobs not yet re-worked: battery, brake fluid flush, cabin air filter, mass air flow sensor, EGR valve, intake manifold gasket, throttle body, transmission fluid service, wheel alignment, turbocharger, transmission (remanufactured), tie rod end (economy/midsize/luxury), ball joint (economy). Then Phase 3: shop menu prices beside the built range for maintenance jobs.
 - Reviewer rules added this run: a pads-plus-resurfacing time is not a pads-and-rotors time; a time that includes another part is a cross-check; a switch of example vehicle must not narrow what the all-kinds range covers (keep a European luxury example where the job costs more on them); a maker time whose bulletin does not say what it covers is a cross-check.
 - Leads: F-150 2.7L head gasket has maker times at both ends but no aftermarket head set was found (OEM gaskets FT4Z-6051-A/B on fordpartsgiant); 2020 Mazda3 caliper (Mazda 0.6 hr) needs an aftermarket price; Ford TSB 26-2210 prints one-coil times for Ranger, Explorer, Escape/Corsair.
@@ -66,11 +69,11 @@ Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held wi
 
 ## After the job list
 - [x] Labor rates: src/estimator/rates.json (2026-11-19) — 51 entries, 49 with two sources (42 medium, 9 low confidence). State figures are typical general-repair-shop rates, not independent-only. No one publishes dealer rates by state: `dealer` stays null per state and `_national` holds the sourced dealer figures (Reynolds effective rates $128–$173; AAA "often 25 percent or more" above independents). Decision: treat as complete; the page uses the state range and states the dealer caveat in words, never a multiplied state dealer figure.
-- [x] Battery replacement (new, no live range) (2026-11-19) — builds $160–$490; Toyota highs are top retail tier, not list (low confidence)
-- [x] Brake fluid flush (new) (2026-11-19) — builds $70–$200; shops' menu prices often higher (low confidence)
-- [x] Transmission fluid service (new) (2026-11-19) — one drain-and-fill, builds $90–$420 (low confidence)
-- [x] Cabin air filter replacement (new) (2026-11-19) — builds $30–$140 (low confidence)
-- [x] Wheel alignment (new) (2026-11-19) — builds $90–$180; truck and luxury on a single 1.1 hr Hyundai/Genesis time (low confidence)
+- [x] Battery replacement (2026-11-20) — Toyota highs are now genuine list prices ($174.71, $209.97); midsize low is an FCA 0.4 hr battery-replace time (Charger/300); builds $160–$490 (low confidence: no time for any example vehicle)
+- [x] Brake fluid flush (2026-11-20) — second look: only stand-alone maker time is Hyundai Genesis 0.7 hr with an ABS scan-tool step (cross-check); builds $70–$200 unchanged (low confidence)
+- [x] Transmission fluid service (2026-11-20) — car lows now rest on Acura 19-004 (0.5 hr, fluid only, a different Acura); Honda/Acura 0.3 "FRT" lines print no unit and stay cross-checks; builds $90–$420 unchanged (low confidence)
+- [x] Cabin air filter replacement (2026-11-20) — midsize now 2015 Subaru Outback (Subaru 0.2 hr to fit a filter); builds $35–$140 (low confidence)
+- [x] Wheel alignment (2026-11-20) — truck now 2021 Ram 1500 (FCA 1.1 hr front alignment); builds $96–$176; kept low: Hyundai time includes diagnosis, truck and luxury are single figures, truck cross-checks span 0.8–1.5 hr
 - [x] Oil change (new) (2026-11-20) — passes on second attempt: capacities from owner's manuals, list price x capacity; examples Corolla, Camry, Silverado, Lexus ES 350; builds $60–$230, menu prices $45–$125 are the better guide (low confidence: hours general; Silverado oil grade not confirmed in the manual)
 - [x] Coolant flush (new) (2026-11-20) — passes on second attempt: truck now Silverado (16.6 qt, Dex-Cool list price); builds $110–$360 (low confidence: hours general; BMW capacity not from a BMW document)
 - [~] Tire rotation (new) (2026-11-20) — held after two attempts: no maker prints a plain "rotate tires" time (GM, Honda, VW, FCA, Ford, Hyundai, Subaru, Mazda, Toyota checked); only the Nissan/Infiniti 0.5 hr swap step in a pull diagnosis. Tesla figures removed from range ends. Does not block the phase
