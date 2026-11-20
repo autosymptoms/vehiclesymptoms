@@ -1,29 +1,41 @@
 {
   "job": "Radiator hose replacement (one hose)",
   "status": "held",
-  "held_reason": "First attempt, 2026-11-20. Missing: (1) a low (aftermarket) parts price for every class. Aftermarket hoses are sold for the examples, but no page loaded both said the part was new and named the example vehicle and year with a price (the one aftermarket page for the example truck does not say new). (2) A top labor time for the economy, midsize and luxury examples: the only stated times that qualify as range ends are a general guide's figure for one hose and a parts seller's time for the Ram 1500. No maker-stated time with a unit for replacing only a radiator hose on a passenger vehicle was found; the maker figures found include an inspection, cover a different hose or are for a heavy truck, so they are cross-checks.",
-  "unit": "per job: one radiator hose, upper or lower, fitted with its clamps, with the coolant topped up or the drained amount replaced. Low = a quality aftermarket hose, high = the genuine hose at list (MSRP). Not included: the second hose, the thermostat, a full coolant flush, heater hoses, bypass or overflow hoses, the radiator, and diagnosis of a leak or of overheating",
+  "held_reason": "Second attempt, 2026-11-20. Now filled: an aftermarket low for every class and a maker one-hose time for a car (GM bulletin 17-NA-120, 2016-2017 Malibu 1.5L, 'Add Radiator Outlet Hose 0.7 hr'). Still weak or missing: (1) the luxury example (2015 BMW 328i) has no top labor time; (2) the GM 0.7 hr is an add-on time paid on top of a radiator bracket repair, and it is used for the economy example although it is for a midsize sedan from another maker; (3) the low labor time everywhere is a general owner guide, not a vehicle-specific figure; (4) the aftermarket low for the Malibu and for the BMW comes from ordinary new-parts retailer listings that name the model years but do not print the word 'new' (for the Malibu a second retailer's page for the same Gates part number says New but shows no price).",
+  "unit": "per job: one radiator hose, upper or lower, fitted with its clamps. Low = a quality aftermarket hose, high = the genuine hose at list (MSRP). Not included: coolant (a top-up or the drained amount replaced is an extra), the second hose, the thermostat, a full coolant flush, heater hoses, bypass or overflow hoses, the radiator, and diagnosis of a leak or of overheating",
   "classes": {
     "economy": {
       "parts": [
-        null,
+        19.49,
         39.74
       ],
       "hours": [
         0.5,
-        null
+        0.7
       ],
       "example": "2015 Toyota Corolla 1.8L",
       "parts_src": [
         {
           "url": "https://www.toyotapartsdeal.com/oem-2015-toyota-corolla-radiator_hose.html",
-          "what": "Toyota dealer catalog for the 2015 Corolla. HIGH: genuine lower radiator hose 16573-0T040 (No. 3), MSRP $39.74, discounted $28.43, the top of the four hoses listed. Others: lower hose 16572-0T040 (No. 2) MSRP $39.57, discounted $28.31; upper hose 16571-0T040 (No. 1) MSRP $37.91, discounted $27.12; upper hose 16571-0T210 MSRP $32.09, discounted $22.96. No aftermarket price that passed the sourcing test was found, so the low is null; this is the only parts source for the class"
+          "what": "Toyota dealer catalog for the 2015 Corolla. HIGH: genuine lower radiator hose 16573-0T040 (No. 3), MSRP $39.74, discounted $28.43, the top of the four hoses listed. Others: lower hose 16572-0T040 (No. 2) MSRP $39.57, discounted $28.31; upper hose 16571-0T040 (No. 1) MSRP $37.91, discounted $27.12; upper hose 16571-0T210 MSRP $32.09, discounted $22.96"
+        },
+        {
+          "url": "https://www.finditparts.com/products/2490792",
+          "what": "LOW: Gates 23521 'Premium Molded Coolant Hose', $19.49 (MSRP $21.96 shown), in stock, a parts retailer's listing. Application: Toyota Corolla, 4-cylinder 1.8 L, upper hose from the radiator to the tee; fits Toyota Corolla 2009-2019. The page does not print the word 'new'; a second retailer's page for the same Gates part number does (next entry). On this car the upper hose run is in two pieces and this is one of them"
+        },
+        {
+          "url": "https://stockwiseauto.com/gates-23521-radiator-coolant-hose",
+          "what": "Cross-check: the same Gates 23521 at a second retailer, 'Condition: New', $13.19, listed for 'Toyota Corolla 1.8L L4 Gas DOHC, Upper - Radiator To Tee'. The page prints no model years, so the dearer listing that names the years is used as the low. The same retailer lists Gates 23519 (upper, tee to engine) at $15.44 and Dayco 72460 (upper) at $14.93, both New, also without years"
         }
       ],
       "hours_src": [
         {
           "url": "https://www.ebay.com/motors/diy/how-to-replace-radiator-hose",
           "what": "LOW, a general guide by a named automotive writer on a parts marketplace, not vehicle-specific: Jefferson Bryant (April 12, 2025) writes 'You can usually replace one hose in less than 30 minutes.' Taken as 0.5 hour. The guide is written for an owner and says the work depends on the make and model"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10114021-9999.pdf",
+          "what": "HIGH, manufacturer-stated with a unit, but not the example vehicle: a midsize four-cylinder front-drive sedan from another maker, used because no maker time for the Corolla was found. General Motors bulletin 17-NA-120 (April 2017; 2016-2017 Chevrolet Malibu with the 1.5L turbo engine, RPO LFV; coolant leak at a radiator bracket or the lower radiator hose) prints in its warranty table 'Add Radiator Outlet Hose 0.7 hr'. It is an add-on time: the extra time GM pays to replace the radiator outlet (lower) hose when the job is done together with a radiator bracket repair (upper bracket 2.0 hrs, lower bracket 2.5 hrs), so the hose done on its own may take a little more or less. The line names only the hose, with no inspection, diagnosis or other part. A warranty time is the low end of what a shop bills"
         },
         {
           "url": "https://www.napaonline.com/en/knowhow/radiator-hose-replacement",
@@ -41,18 +53,26 @@
     },
     "midsize": {
       "parts": [
-        null,
-        49.8
+        19.49,
+        162.16
       ],
       "hours": [
         0.5,
-        null
+        0.7
       ],
-      "example": "2015 Honda CR-V 2.4L",
+      "example": "2016 Chevrolet Malibu 1.5L turbo",
       "parts_src": [
         {
-          "url": "https://www.hondapartsnow.com/oem-2015-honda-cr_v-radiator_hose.html",
-          "what": "Honda dealer catalog for the 2015 CR-V (EX, EX-L, LX and Touring, 2WD and AWD). HIGH: genuine lower radiator hose 19502-5LA-A00 MSRP $49.80, discounted $35.26. Upper radiator hose 19501-5LA-A00 MSRP $41.97, discounted $29.71. No aftermarket price that passed the sourcing test was found, so the low is null; this is the only parts source for the class"
+          "url": "https://gmpartsgiant.com/oem-2016-chevrolet-malibu-cooling_hose.html",
+          "what": "GM dealer catalog for the 2016 Chevrolet Malibu. HIGH: genuine radiator hose 85135096 for the 1.5L (L, LS, LT, LTZ, RS), MSRP $162.16, discounted $108.71; the page's 'other name' field calls it the radiator inlet (upper) hose. The other 1.5L radiator hose, 85135098, MSRP $158.25, discounted $106.09, is given as the radiator outlet (lower) hose, the one GM's bulletin covers. The page's listing titles and 'other name' fields disagree on which of the two is the inlet and which the outlet, so the dearer of the two is used as the high. The 2.0L and 2.5L hoses on the same page are much cheaper (23105391 MSRP $45.68, 23105392 MSRP $56.30)"
+        },
+        {
+          "url": "https://coyotedirect.com/products/gates-16-24-chevrolet-malibu-4-cyl-1-5l-lower-molded-coolant-hose",
+          "what": "LOW: Gates 51897 (seller SKU GAT51897) 'Gates 16-24 Chevrolet Malibu 4-Cyl. 1.5L Lower Molded Coolant Hose', $19.49, a parts retailer's listing, fitment 2016-2021 Malibu L, 2016-2025 LS and LT. Backordered when checked. The page does not print the word 'new'; a second retailer's page for the same Gates part number does (next entry)"
+        },
+        {
+          "url": "https://stockwiseauto.com/gates-51897-radiator-coolant-hose",
+          "what": "Cross-check: the same Gates 51897 at a second retailer, condition 'New', listed for 'Chevrolet Malibu 1.5L L4 Gas DOHC Turbo, Lower, Molded Coolant Hose'. No price and no model years were shown when the page was loaded"
         }
       ],
       "hours_src": [
@@ -61,8 +81,12 @@
           "what": "LOW, a general guide by a named automotive writer on a parts marketplace, not vehicle-specific: Jefferson Bryant (April 12, 2025) writes 'You can usually replace one hose in less than 30 minutes.' Taken as 0.5 hour"
         },
         {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10114021-9999.pdf",
+          "what": "HIGH, this vehicle, manufacturer-stated with a unit. General Motors bulletin 17-NA-120 (April 2017; 2016-2017 Chevrolet Malibu with the 1.5L turbo engine, RPO LFV; coolant leak at a radiator bracket or the lower radiator hose) prints in its warranty table 'Add Radiator Outlet Hose 0.7 hr'. It is an add-on time: the extra time GM pays to replace the radiator outlet (lower) hose when the job is done together with a radiator bracket repair (upper bracket 2.0 hrs, lower bracket 2.5 hrs), so the hose done on its own may take a little more or less. The line names only the hose, with no inspection, diagnosis or other part. A warranty time is the low end of what a shop bills"
+        },
+        {
           "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10236902-9999.pdf",
-          "what": "Cross-check: manufacturer-stated for a comparable compact SUV, not the example vehicle, and the time includes an inspection. FCA US bulletin 07-001-23 Rev. A (April 4, 2023; 2022-2023 Jeep Compass and Commander 2.0L turbo diesel, lower radiator hose, coolant drained and refilled) lists labor op 07-30-32-A3 'Hose - Inspect and Replace' 1.0 Hrs; 'Hose - Inspect' alone is 0.1 Hrs"
+          "what": "Cross-check: manufacturer-stated but not the example vehicle, and the time includes an inspection. FCA US bulletin 07-001-23 Rev. A (April 4, 2023; 2022-2023 Jeep Compass and Commander 2.0L turbo diesel, lower radiator hose, coolant drained and refilled) lists labor op 07-30-32-A3 'Hose - Inspect and Replace' 1.0 Hrs; 'Hose - Inspect' alone is 0.1 Hrs"
         },
         {
           "url": "https://static.nhtsa.gov/odi/tsbs/2022/MC-10243093-9999.pdf",
@@ -76,7 +100,7 @@
     },
     "truck": {
       "parts": [
-        null,
+        83.54,
         107
       ],
       "hours": [
@@ -90,8 +114,16 @@
           "what": "Mopar dealer catalog for the 2015 Ram 1500. HIGH: genuine radiator outlet hose 52014835AA for the 5.7L, MSRP $107.00, discounted $72.00. Other 5.7L hoses: outlet hose 55056771AC MSRP $87.35, discounted $58.95; inlet (upper) hose 55056772AB MSRP $63.10, discounted $44.10. Fitment differs by sub-model"
         },
         {
+          "url": "https://frsport.com/products/gates-radiator-coolant-hose-23605",
+          "what": "LOW: Gates 23605 radiator coolant hose, item condition New, $83.54 (struck-through price $103.45), 'Fits: 2021-09 Dodge, Ram Series Pickup, V-8 5.7 L, Upper'; the fitment table runs 2009-2022 and includes the Ram 1500. A name-brand aftermarket hose that costs more than the genuine upper hose at list ($63.10) but less than the dearest genuine hose"
+        },
+        {
+          "url": "https://www.autobarn.net/products/gates-gates-09-22-dodge-ram-pickup-v-8-5-7l-upper-molded-coolant-hose-t14-878282",
+          "what": "Cross-check: the same Gates 23605 at a second retailer, $68.03, in stock, '09-22 Dodge Ram Pickup V-8 5.7L Upper Molded Coolant Hose', fitment Ram 1500 2011-2018. The page does not print the word 'new', so the dearer listing that does is used as the low"
+        },
+        {
           "url": "https://www.americantrucks.com/ram1500-upper-radiator-hose-mch1251.html",
-          "what": "Cross-check: one aftermarket upper radiator hose, the seller's own brand, item R190313, listed as fitting the 2009-2018 Ram 1500 5.7L, $32.99. Not used as the low because the page does not say the part is new"
+          "what": "Cross-check: one aftermarket upper radiator hose, the seller's own brand, item R190313, listed as fitting the 2009-2018 Ram 1500 5.7L, $32.99. Not used as the low because the page does not say the part is new and it is not a name-brand hose"
         },
         {
           "url": "https://www.1aauto.com/dodge-ram-1500-2500-3500-radiator-hose-gates-23068/i/1arhl00031",
@@ -118,12 +150,16 @@
         {
           "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10248621-9999.pdf",
           "what": "Cross-check: manufacturer-stated but no hose is replaced. FCA US bulletin 09-015-23 Rev. A (September 22, 2023; 2023 Jeep Gladiator 3.6L) lists labor op 07-30-32-98 'Hose, Radiator Lower/Outlet - Inspect and Reposition' 0.4 Hrs, with the coolant checked and topped off; inspection alone is 0.3 Hrs"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10114021-9999.pdf",
+          "what": "Cross-check: manufacturer-stated with a unit, but a midsize sedan, not a pickup. General Motors bulletin 17-NA-120 (April 2017; 2016-2017 Chevrolet Malibu with the 1.5L turbo engine, RPO LFV; coolant leak at a radiator bracket or the lower radiator hose) prints in its warranty table 'Add Radiator Outlet Hose 0.7 hr'. It is an add-on time: the extra time GM pays to replace the radiator outlet (lower) hose when the job is done together with a radiator bracket repair (upper bracket 2.0 hrs, lower bracket 2.5 hrs), so the hose done on its own may take a little more or less. The line names only the hose, with no inspection, diagnosis or other part. A warranty time is the low end of what a shop bills"
         }
       ]
     },
     "luxury": {
       "parts": [
-        null,
+        48.99,
         154.45
       ],
       "hours": [
@@ -134,7 +170,19 @@
       "parts_src": [
         {
           "url": "https://bmwpartsdeal.com/oem-2015-bmw-328i-radiator_hose.html",
-          "what": "BMW dealer catalog for the 2015 328i. HIGH: genuine 'Radiator Coolant Hose Upper' 17127625382 (sedan), MSRP $154.45, discounted $114.72. Other hoses the page names as radiator coolant hoses: 17127596837 (upper) and 17127596838, MSRP $114.58 each, discounted $85.11; 17127596839 (lower) and 17127625383, MSRP $134.53 each, discounted $99.93. The page lists 16 coolant hoses for the car, most of them not radiator hoses, and does not say which of the alternatives fits which build, so the top price among the hoses named as radiator hoses is used. No aftermarket price that passed the sourcing test was found, so the low is null; this is the only parts source for the class"
+          "what": "BMW dealer catalog for the 2015 328i. HIGH: genuine 'Radiator Coolant Hose Upper' 17127625382 (sedan), MSRP $154.45, discounted $114.72. Other hoses the page names as radiator coolant hoses: 17127596837 (upper) and 17127596838, MSRP $114.58 each, discounted $85.11; 17127596839 (lower) and 17127625383, MSRP $134.53 each, discounted $99.93. The page lists 16 coolant hoses for the car, most of them not radiator hoses, and does not say which of the alternatives fits which build, so the top price among the hoses named as radiator hoses is used"
+        },
+        {
+          "url": "https://www.bimmerworld.com/Cooling/Lower-Radiator-Hose-Rein-F22-F30-F32-17127596838.html",
+          "what": "LOW: Rein 'Lower Radiator Hose, Rein - F22 228i, F30 320i/328i, F32 428i', an aftermarket replacement for BMW 17127596838, $48.99, a BMW parts retailer's listing. Fitment F30/F31/F34 (2012-2019) 328i and 328i xDrive, N20 and N26 engines, 'Not for Sport or M Sport models'. Out of stock when checked. The page does not print the word 'new'; it is an ordinary new-parts listing that names the model years"
+        },
+        {
+          "url": "https://www.turnermotorsport.com/p-592012-coolant-hose/",
+          "what": "Cross-check: the same Rein hose (17127596838, 'Connects the thermostat to the radiator') at a second BMW parts retailer, $50.99, listed by chassis (F30 and others) with no model years; the page does not say new"
+        },
+        {
+          "url": "https://www.fcpeuro.com/BMW-parts/328i/Radiator-Hose/",
+          "what": "Cross-check: a third retailer's 328i radiator hose list shows Rein 17127596838 (lower) at $53.99 and Rein 17127596837 at $61.67, with no model years and no statement that the parts are new"
         }
       ],
       "hours_src": [
@@ -145,13 +193,16 @@
         {
           "url": "https://static.nhtsa.gov/odi/tsbs/2023/MC-10236902-9999.pdf",
           "what": "Cross-check: manufacturer-stated but not the example vehicle, and the time includes an inspection. FCA US bulletin 07-001-23 Rev. A (April 4, 2023; 2022-2023 Jeep Compass and Commander 2.0L turbo diesel, lower radiator hose, coolant drained and refilled) lists labor op 07-30-32-A3 'Hose - Inspect and Replace' 1.0 Hrs"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10114021-9999.pdf",
+          "what": "Cross-check: manufacturer-stated with a unit, but a midsize front-drive sedan from another maker; not used as the top for the BMW because its hoses, fittings and layout differ. General Motors bulletin 17-NA-120 (April 2017; 2016-2017 Chevrolet Malibu with the 1.5L turbo engine, RPO LFV; coolant leak at a radiator bracket or the lower radiator hose) prints in its warranty table 'Add Radiator Outlet Hose 0.7 hr'. It is an add-on time: the extra time GM pays to replace the radiator outlet (lower) hose when the job is done together with a radiator bracket repair (upper bracket 2.0 hrs, lower bracket 2.5 hrs), so the hose done on its own may take a little more or less. The line names only the hose, with no inspection, diagnosis or other part. A warranty time is the low end of what a shop bills"
         }
       ]
     }
   },
   "src": [
     "https://www.toyotapartsdeal.com/oem-2015-toyota-corolla-radiator_hose.html",
-    "https://www.hondapartsnow.com/oem-2015-honda-cr_v-radiator_hose.html",
     "https://www.moparpartsgiant.com/oem-2015-ram-1500-radiator_hose.html",
     "https://www.americantrucks.com/ram1500-upper-radiator-hose-mch1251.html",
     "https://www.americantrucks.com/ram1500-upper-radiator-hose-mch1304.html",
@@ -166,7 +217,18 @@
     "https://static.nhtsa.gov/odi/tsbs/2023/MC-10248621-9999.pdf",
     "https://jerry.ai/car-repair/estimates/radiator-hose-replacement/",
     "https://repairpal.com/estimator/dodge/ram-1500/radiator-hose-replacement-cost",
-    "https://www.yourmechanic.com/estimates/ram/2500/radiator-hose-replacement"
+    "https://www.yourmechanic.com/estimates/ram/2500/radiator-hose-replacement",
+    "https://static.nhtsa.gov/odi/tsbs/2017/MC-10114021-9999.pdf",
+    "https://www.finditparts.com/products/2490792",
+    "https://stockwiseauto.com/gates-23521-radiator-coolant-hose",
+    "https://gmpartsgiant.com/oem-2016-chevrolet-malibu-cooling_hose.html",
+    "https://coyotedirect.com/products/gates-16-24-chevrolet-malibu-4-cyl-1-5l-lower-molded-coolant-hose",
+    "https://stockwiseauto.com/gates-51897-radiator-coolant-hose",
+    "https://frsport.com/products/gates-radiator-coolant-hose-23605",
+    "https://www.autobarn.net/products/gates-gates-09-22-dodge-ram-pickup-v-8-5-7l-upper-molded-coolant-hose-t14-878282",
+    "https://www.bimmerworld.com/Cooling/Lower-Radiator-Hose-Rein-F22-F30-F32-17127596838.html",
+    "https://www.turnermotorsport.com/p-592012-coolant-hose/",
+    "https://www.fcpeuro.com/BMW-parts/328i/Radiator-Hose/"
   ],
   "benchmarks": [
     {
@@ -195,8 +257,8 @@
     }
   ],
   "live": null,
-  "finding": "Held: this file is not ready to publish. There is no live range for this job on the site today (live is null), so there is nothing to call too wide or too narrow; this is a first build. What was verified: the genuine hose at list is cheap on every example, $39.74 for the 2015 Toyota Corolla, $49.80 for the 2015 Honda CR-V, $107.00 for the 2015 Ram 1500 5.7L and $154.45 for the 2015 BMW 328i, each the dearest upper or lower radiator hose in the maker's dealer catalog. The only total that can be built at both ends of the labor range is the top for the truck: $107.00 + 2 hours x $160 = about $427 (the rate used for these checks is the national middle, $120-$160 an hour). Labor alone at the stated times is $60-$80 for half an hour and $240-$320 for two hours, so labor, not the hose, is most of this job, and the coolant is extra. What is null and why: (1) the low parts price for all four classes. Aftermarket hoses are sold for these vehicles, and one was seen for the Ram at $32.99, but no page loaded both said the part was new and named the example vehicle and year with a price, so no low is given and each class except the truck has only one parts source. (2) The top labor time for the economy, midsize and luxury examples. How solid the labor times are: weak. The low end everywhere is a general guide's statement that one hose usually takes less than 30 minutes, written for an owner and not for any vehicle. The truck's top is a parts seller's 2-hour installation time for an upper hose on the example truck, also written for an owner; the same seller says 1 hour for an older Ram. No maker-stated time with a unit for replacing only a radiator hose on a car or light truck was found. The maker figures that were found are cross-checks only: FCA's 1.0 hour to inspect and replace the lower radiator hose on a diesel Jeep Compass, FCA's 0.7 hour to inspect and replace a different coolant hose on a Dodge Durango 6.4L (both include an inspection, and both include draining and refilling the coolant), and Volvo Trucks' 0.6 hour for the upper radiator hose on a highway tractor. Taken together they point to roughly 0.6 to 1.0 hour as a warranty time when the coolant is drained and refilled, which would put a one-hose job at very roughly $110-$270 with a genuine hose, before coolant; that is a reading of cross-checks, not a sourced range, and it is not entered in the classes. A GM bulletin for the 2023-2026 Colorado and Canyon names a labor operation for radiator inlet hose replacement but prints no time. Benchmarks: Jerry $350-$630 (two hoses, 1 to 2.5 hours), RepairPal $304-$361 for the older Dodge Ram 1500 and $512-$547 for the later Ram 1500, YourMechanic about $251 on average. All three sit above what the cross-checks suggest for one hose, which fits their covering both hoses, more coolant or longer labor times; none says exactly what is included. Confidence is low: no class has a low parts price, three classes have one parts source, and only one labor figure is for an example vehicle. This is an estimate, not a quote and not a diagnosis.",
+  "finding": "Held: second attempt, closer but not ready to publish. There is no live range for this job on the site today (live is null), so there is nothing to call too wide or too narrow; this is a first build. Built totals for one hose (part + stated hours x $120-$160 an hour, the national middle labor rate used for these checks), coolant not included: economy 2015 Toyota Corolla about $79-$152 ($19.49 Gates hose to $39.74 genuine, 0.5-0.7 hr); midsize 2016 Chevrolet Malibu 1.5L about $79-$274 ($19.49 Gates hose to $162.16 genuine, 0.5-0.7 hr); truck 2015 Ram 1500 5.7L about $144-$427 ($83.54 Gates hose to $107.00 genuine, 0.5-2 hr); luxury 2015 BMW 328i from about $109 ($48.99 Rein hose + 0.5 hr x $120), with no top because no top labor time was found (the genuine hose is $154.45 at list). The midsize example was changed from the Honda CR-V to the Malibu because the Malibu has a maker-stated time. How solid the labor times are, stated plainly. The one maker figure is GM bulletin 17-NA-120 for the 2016-2017 Malibu 1.5L: 'Add Radiator Outlet Hose 0.7 hr'. It names only the hose and prints a unit, but it is an add-on time paid on top of a radiator bracket repair, so it is not quite a stand-alone time, and as a warranty time it is the low end of what a shop bills. It is the top of the range for the Malibu and, as a comparable four-cylinder front-drive sedan from another maker, for the Corolla; it was not applied to the BMW. The low end everywhere is a general guide's statement that one hose usually takes less than 30 minutes, written for an owner and not for any vehicle. The truck's top is a parts seller's 2-hour installation time for an upper hose on the example truck, also written for an owner; the same seller says 1 hour for an older Ram. Cross-checks only: FCA's 1.0 hour to inspect and replace the lower radiator hose on a diesel Jeep Compass, FCA's 0.7 hour to inspect and replace a different coolant hose on a Dodge Durango 6.4L (both include an inspection and draining and refilling the coolant), and Volvo Trucks' 0.6 hour for the upper radiator hose on a highway tractor. These agree with the GM figure: roughly 0.6 to 1.0 hour as a warranty time. A GM bulletin for the 2023-2026 Colorado and Canyon names a labor operation for radiator inlet hose replacement but prints no time. Parts: each class now has a genuine list price and a name-brand aftermarket price from a second seller. The Ram low is on a page that says the part is new and lists the model years. The Corolla, Malibu and BMW lows are on ordinary new-parts retailer listings that name the model years but do not print the word 'new'; for the Corolla and the Malibu a second retailer's page for the same Gates part number says New (the Corolla hose is $13.19 there, without years). The Malibu 1.5L genuine hoses are unusually dear ($158.25 and $162.16 at list, against $45.68-$56.30 for the 2.0L and 2.5L cars), and the dealer catalog's titles disagree on which is the upper and which the lower. What is null and why: the top labor time for the BMW; no stated time for it was found and BMW time units were not converted. Benchmarks: Jerry $350-$630 (two hoses, 1 to 2.5 hours), RepairPal $304-$361 for the older Dodge Ram 1500 and $512-$547 for the later Ram 1500, YourMechanic about $251 on average. All three sit above the built totals for the cars and around the top of the truck's; that fits their covering both hoses, coolant or a flush, and longer labor times, and none says exactly what is included. So the built ranges are probably low for a real shop quote: they use a warranty add-on time and leave coolant out. Confidence is low: one class has no top labor time, only one labor figure in each of two classes is for the example vehicle, and the low labor time is a general guide. This is an estimate, not a quote and not a diagnosis.",
   "confidence": "low",
   "checked": "2026-11-20",
-  "extras": "A quote often adds coolant (a top-up or a full drain and refill), new clamps if they are not supplied with the hose, bleeding air from the cooling system, a cooling system pressure test, shop supplies and sales tax. Shops often recommend replacing the other radiator hose at the same time, and sometimes the thermostat, the radiator cap or a coolant flush; each is priced separately from this estimate. On vehicles with quick-connect hose fittings the hose comes as an assembly with its connectors and costs more than a plain hose. If the hose was replaced because of a leak or overheating, finding the cause is a separate diagnosis charge. A hose replaced under a recall, service campaign or warranty is done by the dealer at no charge, so check for open campaigns first."
+  "extras": "A quote often adds coolant (a top-up, or a full drain and refill; not included in this estimate), new clamps if they are not supplied with the hose, bleeding air from the cooling system, a cooling system pressure test, shop supplies and sales tax. Shops often recommend replacing the other radiator hose at the same time, and sometimes the thermostat, the radiator cap or a coolant flush; each is priced separately from this estimate. On vehicles with quick-connect hose fittings the hose comes as an assembly with its connectors and costs more than a plain hose. If the hose was replaced because of a leak or overheating, finding the cause is a separate diagnosis charge. A hose replaced under a recall, service campaign or warranty is done by the dealer at no charge, so check for open campaigns first."
 }

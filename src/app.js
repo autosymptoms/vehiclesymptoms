@@ -241,32 +241,37 @@ showMy();
   const init=qs.get('v')?{id:qs.get('v'),year:+qs.get('y')||null}:(g[0]?{id:g[0].id,year:g[0].y}:null);
   const E=window.EST||{jobs:[],rates:{},nat:[120,160],states:[],rsrc:[]};const norm=t=>t.toLowerCase().replace(/\s*\(.*?\)\s*/g,' ').trim();
   const CL={economy:'Economy or compact car',midsize:'Midsize car or crossover',truck:'Truck or large SUV',luxury:'Luxury car'};
+  let clsSaved='';
   const estBox=document.getElementById('pcEst'),clsS=document.getElementById('pcCls'),stS=document.getElementById('pcSt');
   if(clsS){clsS.innerHTML='<option value="">Any kind</option>'+Object.entries(CL).map(([k,l])=>`<option value="${k}">${l}</option>`).join('');stS.innerHTML='<option value="">Whole U.S.</option>'+E.states.map(([k,l])=>`<option value="${k}">${esc(l)}</option>`).join('');
     // Remember the optional kind of vehicle and state on this device only, so a returning driver does not pick them again.
-    try{const p=JSON.parse(localStorage.getItem('vs_pc')||'{}');if(p.c&&CL[p.c])clsS.value=p.c;if(p.s&&E.rates[p.s])stS.value=p.s}catch(_){}
-    clsS.onchange=stS.onchange=()=>{try{localStorage.setItem('vs_pc',JSON.stringify({c:clsS.value,s:stS.value}))}catch(_){}}}
+    try{const p=JSON.parse(localStorage.getItem('vs_pc')||'{}');if(p.c&&CL[p.c])clsS.value=clsSaved=p.c;if(p.s&&E.rates[p.s])stS.value=p.s}catch(_){}
+    const sv=()=>{try{localStorage.setItem('vs_pc',JSON.stringify({c:clsSaved,s:stS.value}))}catch(_){}};stS.onchange=sv;clsS.onchange=()=>{clsMan=true;clsSaved=clsS.value;sv();clsHint()}}
+  // When a vehicle is picked in step 1, pre-select its kind (economy, midsize, truck, luxury) so the range is the one for that kind. The driver can change it; a change made by hand is kept.
+  let clsMan=false,clsAuto='';const VCN={e:'economy',m:'midsize',t:'truck',l:'luxury'};
+  function clsHint(){if(!estBox)return;let h=document.getElementById('pcClsHint');if(!h){h=document.createElement('p');h.id='pcClsHint';h.className='muted';h.style.cssText='font-size:13.5px;margin:0;grid-column:1/-1';estBox.appendChild(h)}let v=null;try{v=pick.get().v}catch(_){}const on=!!(v&&clsAuto&&clsS.value===clsAuto&&!clsMan);h.hidden=!on;if(on)h.textContent='Kind of vehicle set from your '+v.make+' '+v.model+'. Change it if it does not fit.'}
+  function clsSet(){if(!clsS)return;let v=null;try{v=pick.get().v}catch(_){}const c=v&&E.vc&&VCN[E.vc[v.id]];clsAuto=c||'';if(!clsMan)clsS.value=c||clsSaved;clsHint()}
   const rnd=(n,up)=>{const st=n<500?10:n<2000?25:50;return (up?Math.ceil(n/st):Math.floor(n/st))*st};
   function estR(e,c,st){const r=st&&E.rates[st]?E.rates[st]:E.nat;let lo=1/0,hi=0;const rows=(c?[c]:Object.keys(e.cls)).map(k=>{const x=e.cls[k],a=rnd(x.p[0]+x.h[0]*r[0],false),b=Math.max(rnd(x.p[1]+x.h[1]*r[1],true),a+10);lo=Math.min(lo,a);hi=Math.max(hi,b);return {k,x,a,b}});return {lo,hi,rows,r}}
   let job=null;const ji=document.getElementById('pcJob'),sug=document.getElementById('pcSug'),picked=document.getElementById('pcPicked'),amt=document.getElementById('pcAmt'),goB=document.getElementById('pcGo'),out=document.getElementById('pcOut');
-  const pick=window.YMM(document.getElementById('pcY'),document.getElementById('pcM'),document.getElementById('pcMo'),init,()=>{job=null;picked.hidden=true;if(estBox)estBox.hidden=true;ji.hidden=false;ready();list();const sv=pick.get().v;if(sv&&!sv._full&&window.VS_LOAD)window.VS_LOAD(sv.id).then(list)});
+  const pick=window.YMM(document.getElementById('pcY'),document.getElementById('pcM'),document.getElementById('pcMo'),init,()=>{job=null;picked.hidden=true;if(estBox)estBox.hidden=true;ji.hidden=false;clsMan=false;clsSet();ready();list();const sv=pick.get().v;if(sv&&!sv._full&&window.VS_LOAD)window.VS_LOAD(sv.id).then(list)});
   const gb=document.getElementById('pcGarage');if(g.length)gb.innerHTML='<span>Your garage:</span>'+g.map((m,i)=>`<button type="button" data-i="${i}">${esc(carName(m))}</button>`).join('');
   gb.querySelectorAll('button').forEach(b=>b.onclick=()=>{const m=g[+b.dataset.i];location.search='?v='+m.id+(m.y?'&y='+m.y:'')});
   function jobs(){const s=pick.get(),out=[];const seen=new Set();
     if(s.v){const vname=(s.y?s.y+' ':'')+s.v.make+' '+s.v.model;
       for(const i of s.v.issues)if(i.cost&&!i.cost.free&&(!s.y||(s.y>=i.y[0]&&s.y<=i.y[1]))&&!seen.has(i.cost.job)){seen.add(i.cost.job);out.push({job:i.cost.job,lo:i.cost.lo,hi:i.cost.hi,src:'Known problem on the '+vname,recall:i.cost.recall})}
       if(s.v.own)for(const m of s.v.own.maint)if(!seen.has(m.job)){seen.add(m.job);out.push({job:m.job,lo:m.lo,hi:m.hi,src:'Routine maintenance for the '+s.v.make+' '+s.v.model})}}
-    const en=new Set();for(const e of E.jobs){en.add(norm(e.job));if(!seen.has(e.job)){seen.add(e.job);out.push({job:e.job,est:e,src:'Sourced estimate: parts prices plus stated labor time',gen:true})}}
+    const en=new Set();for(const e of E.jobs){en.add(norm(e.job));(e.aka||[]).forEach(a=>en.add(norm(a)));if(!seen.has(e.job)){seen.add(e.job);out.push({job:e.job,hay:(e.job+' '+(e.aka||[]).join(' ')).toLowerCase(),est:e,src:'Sourced estimate: parts prices plus stated labor time',gen:true})}}
     for(const x of (window.GEN_PRICES||[]))if(!seen.has(x[0])&&!en.has(norm(x[0])))out.push({job:x[0],lo:x[1],hi:x[2],src:'General estimate (all vehicles)',gen:true});
     return out}
   function list(){const q=ji.value.trim().toLowerCase();const all=jobs();const ws=q.split(/\s+/).filter(Boolean);
-    const hits=(ws.length?all.filter(j=>ws.every(w=>j.job.toLowerCase().includes(w))):all.filter(j=>!j.gen)).slice(0,ws.length?12:8);
+    const hits=(ws.length?all.filter(j=>ws.every(w=>(j.hay||j.job.toLowerCase()).includes(w))):all.filter(j=>!j.gen)).slice(0,ws.length?12:8);
     sug.innerHTML=hits.length?(ws.length?'':'<p class="muted" style="margin:6px 0">Common for this vehicle:</p>')+hits.map((j,k)=>`<button type="button" data-k="${k}"><b>${esc(j.job)}</b><span>${esc(j.src)}</span></button>`).join(''):(ws.length?'<p class="muted">No match yet. Try a simpler word, like "brake", "pump" or "sensor".</p>':'');
     // Jobs we researched but could not source well enough to show a range: say so, so a search does not come up empty or silently fall back.
     if(ws.length){const hn=new Set(hits.map(j=>norm(j.job)));const hl=(E.held||[]).filter(n=>ws.every(w=>n.toLowerCase().includes(w))&&!hn.has(norm(n))).slice(0,3);if(hl.length)sug.insertAdjacentHTML('beforeend',`<p class="muted pc-held" style="font-size:13.5px;margin:8px 0 0">No sourced range yet for ${hl.map(n=>'<b style="display:inline;font-size:inherit">'+esc(n)+'</b>').join(', ')}: we have not found enough public parts prices and stated labor times to build one we can stand behind. Ask the shop for the parts and labor split and the hours they are charging.</p>`)}
     sug.querySelectorAll('button').forEach(b=>b.onclick=()=>{job=hits[+b.dataset.k];sug.innerHTML='';ji.hidden=true;picked.hidden=false;picked.innerHTML=`<b>${esc(job.job)}</b><span>${esc(job.src)}</span><button type="button" id="pcRe">Change</button>`;if(estBox){estBox.hidden=!job.est;let nt=document.getElementById('pcNote');if(!nt){nt=document.createElement('p');nt.id='pcNote';nt.className='muted';nt.style.cssText='font-size:13.5px;margin:0;grid-column:1/-1';estBox.appendChild(nt)}nt.textContent=job.est&&job.est.note||'';nt.hidden=!(job.est&&job.est.note)}document.getElementById('pcRe').onclick=()=>{job=null;picked.hidden=true;if(estBox)estBox.hidden=true;ji.hidden=false;ji.focus();list();ready()};ready();amt.focus()})}
   function ready(){goB.disabled=!(job&&+amt.value>0)}
-  ji.oninput=list;amt.oninput=ready;list();{const sv=pick.get().v;if(sv&&!sv._full&&window.VS_LOAD)window.VS_LOAD(sv.id).then(list)}
+  ji.oninput=list;amt.oninput=ready;clsSet();list();{const sv=pick.get().v;if(sv&&!sv._full&&window.VS_LOAD)window.VS_LOAD(sv.id).then(list)}
   const m$=n=>'$'+Math.round(n).toLocaleString('en-US');
   const m2c=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2});
   const m2=n=>'$'+(Math.round(n*100)/100).toLocaleString('en-US',{maximumFractionDigits:0});const host=u=>{try{return new URL(u).hostname.replace(/^www\./,'')}catch(e){return 'source'}};
