@@ -74,55 +74,58 @@
   },
   {
    "t": "EGR cooler leaking coolant into the engine",
+   "recall": false,
    "job": "Replace EGR cooler",
    "parts": [
-    500,
-    1200
+    688,
+    2226
    ],
    "hours": [
     6,
-    10
+    6
    ],
-   "recall": false,
-   "note": "Cost rises a lot if coolant in the cylinders damaged the engine.",
+   "note": "Low is a reman cooler (core return), high is a new Mopar cooler. AmericanTrucks lists about 6 hours to install. Cost rises a lot if coolant in the cylinders damaged the engine.",
    "src": [
-    "https://openlaborproject.com/portal/ram/3500/2021/6.7l-i6-cummins/?tab=labor",
-    "https://us.bddiesel.com/blogs/r-d-blog/6-7l-cummins-problems-10-common-issues-how-to-fix-them"
+    "https://dieselpowerproducts.com/products/p-grizzly-remanufactured-replacement-egr-cooler-10-12-dodge-ram-67l-cummins",
+    "https://tamelessperformance.com/products/mopar-68048991aa-exhaust-gas-recirculation-egr-cooler",
+    "https://www.americantrucks.com/ram2500-egr-exhaust-gas-recirculation-cooler-kit-904-311.html"
    ]
   },
   {
    "t": "Variable-geometry turbo sticking",
+   "recall": false,
    "job": "Replace turbocharger",
    "parts": [
-    1500,
-    3500
+    1095,
+    2455
    ],
    "hours": [
-    6,
-    8
+    5,
+    5
    ],
-   "recall": false,
-   "note": "Cleaning the vanes or replacing just the actuator costs much less if that fixes it.",
+   "note": "Reman turbo prices assume a core return. BD Diesel lists about 5 hours to install. Cleaning the vanes or replacing just the actuator costs much less if that fixes it.",
    "src": [
-    "https://openlaborproject.com/portal/ram/3500/2021/6.7l-i6-cummins/?tab=labor",
-    "https://us.bddiesel.com/blogs/r-d-blog/6-7l-cummins-problems-10-common-issues-how-to-fix-them"
+    "https://dalessuperstore.com/i-23898618-reman-holset-he351ve-turbocharger-w-actuator-2007-5-2012-dodge-ram-cummins-6-7l.html",
+    "https://dieselpowerproducts.com/products/holset-5325950hx-turbo-67l-cummins",
+    "https://us.bddiesel.com/products/6-7l-cummins-turbo-stock-replacement-dodge-2007-5-2012-pick-up-he351"
    ]
   },
   {
    "t": "DEF / SCR system faults and NOx sensor failures",
+   "recall": false,
    "job": "Replace NOx sensor",
    "parts": [
-    250,
-    700
+    546,
+    567
    ],
    "hours": [
-    1.5,
-    3
+    0.5,
+    0.5
    ],
-   "recall": false,
-   "note": "Price is per sensor. A DEF heater or doser repair costs more.",
+   "note": "Price is per sensor (2013-2018 inlet sensor; Mopar reman or Dorman new). AmericanTrucks lists about 30 minutes to fit; shops usually add diagnostic time. A DEF heater or doser repair costs more.",
    "src": [
-    "https://openlaborproject.com/portal/ram/3500/2021/6.7l-i6-cummins/?tab=labor",
+    "https://www.americantrucks.com/ram2500-nox-nitrogen-oxide-sensor-upstream-904-6030.html",
+    "https://tamelessperformance.com/a/p/products/13-18-ram-6-7l-cummins-mopar-reman-nox-sensor",
     "https://pickuptrucktalk.com/2026/08/buying-a-used-2013-2024-ram-2500-or-3500-cummins-check-these-common-problems/"
    ]
   },
@@ -163,19 +166,21 @@
   },
   {
    "t": "CP4 high-pressure fuel pump failure",
-   "job": "Replace CP4 pump, injectors and lines; clean fuel system",
+   "recall": false,
+   "job": "Replace CP4 pump, injectors, rail and lines; clean fuel system",
    "parts": [
-    4000,
+    6550,
     7000
    ],
    "hours": [
-    20,
-    30
+    12,
+    20
    ],
-   "recall": false,
-   "note": "If caught before debris spread, a pump alone costs much less.",
+   "note": "Parts are complete 2019-2020 'disaster' kits (core return). No stated labor time was found; hours are back-figured from Diesel World, which puts the job at $6,000 to $10,000 or more. Diesel World also says some trucks are covered by recall 21V-801, which swaps in a CP3 for free, so check your VIN first.",
    "src": [
-    "https://openlaborproject.com/portal/ram/3500/2021/6.7l-i6-cummins/?tab=labor"
+    "https://alligatorperformance.com/products/2gs105-19-20-ram-67l-cummins-industrial-disaster-kit-w-cp4-pump-standard-output",
+    "https://www.injectorsdirect.com/product/2019-2020-ram-67-cummins-cp4-fuel-pump-failure-def-contamination-kit-oem-new-copy/",
+    "https://www.dieselworldmag.com/diesel-technology/the-recall-you-wanted-cummins-cp4/"
    ]
   },
   {
@@ -353,6 +358,25 @@
    "note": "A bolt-on cover is the cheap fix; a full dash pad swap is most of the labor.",
    "src": [
     "https://dieselpowerproducts.com/products/molded-dash-top-cover-98-02-dodge"
+   ]
+  },
+  {
+   "recall": false,
+   "t": "Common-rail fuel injector wear",
+   "job": "Replace all six injectors with connector tubes",
+   "parts": [
+    1596,
+    1987
+   ],
+   "hours": [
+    3,
+    3
+   ],
+   "note": "Reman injector sets assume a core return. BD Diesel puts install at about 3 hours; new feed tubes, lines and a fuel filter should go in with them.",
+   "src": [
+    "https://dalessuperstore.com/i-23916903-reman-bosch-authorized-injector-set-6-0986435503-2003-2004-dodge-ram-cummins-5-9l.html",
+    "https://dieselpowerproducts.com/products/p-industrial-injection-reman-stock-injector-with-connector-tube-fuel-lines-045-07-ram-59l-cummins",
+    "https://us.bddiesel.com/blogs/r-d-blog/5-9l-cummins-injectors-2004-5-2007-bd-built-guide"
    ]
   }
  ]
