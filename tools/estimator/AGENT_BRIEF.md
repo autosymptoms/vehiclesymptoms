@@ -24,3 +24,11 @@ Suggested examples: economy 2015 Toyota Corolla; midsize 2016 Toyota Camry or Ho
 
 ## When done
 Check each file parses (`node -e "require('./src/estimator/jobs/<file>')"`), then reply with: per class the parts and hours and the source of each hours figure, built totals, benchmarks, your finding, what is null and why, and which sites were blocked.
+
+## Menu prices (only when your assignment says "menu prices")
+Some services (oil change, alignment, fluid services, battery, filters) are sold at a posted menu price, not built up from parts and hours. For those jobs, add a top-level `menu` array to the existing job file and change nothing else in it except appending one sentence to `finding` and adding the new URLs to top-level `src`.
+- Each entry: `{"name": seller, "kind": "chain" | "dealer" | "independent", "url", "lo", "hi", "where": "nationwide" or "City, ST", "what": exactly what the price covers as the page words it, "date": today}`. `lo` and `hi` are the same number when one price is posted.
+- The price must be printed on the seller's own page (a chain's price or service page, a dealer's service menu or service specials page, an independent shop's price list) and you must have loaded that page and seen it. Not acceptable: price-survey articles, coupon aggregators, "prices" listing sites (they go in `benchmarks`, if anywhere), a price you remember, or a "starting at" teaser with no service named.
+- Say in `what` when it is a coupon or limited-time special, when it is "starting at", how many quarts or which oil type it includes, and whether it is per axle, per wheel, or for the whole car. Match the job's `unit`: an entry for a different service (conventional oil when the unit is full synthetic; a front-only alignment) must say so at the start of `what` with the words "Different service:".
+- Aim for 5 to 8 entries from at least four different sellers, at least two kinds, and at least three states or nationwide. Never include the same seller twice unless the two prices are for clearly different tiers.
+- Shops are named only as a source of a posted price. Do not rank or recommend them.
