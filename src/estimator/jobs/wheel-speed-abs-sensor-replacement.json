@@ -82,7 +82,7 @@
         76.09
       ],
       "hours": [
-        0.4,
+        0.5,
         2
       ],
       "example": "2016 Chevrolet Silverado 1500 5.3L",
@@ -98,12 +98,24 @@
       ],
       "hours_src": [
         {
-          "url": "https://static.nhtsa.gov/odi/tsbs/2015/SB-10059220-8434.pdf",
-          "what": "LOW, not a truck and not the example vehicle: Subaru bulletin 06-49-15 (2010-14 Legacy and Outback) states 0.4 hr to replace one front ABS wheel speed sensor. No stated front-sensor time was found for the Silverado 1500 or any other light pickup; the GM bulletins found pay only for inspection or engineering contact"
+          "url": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10172260-0001.pdf",
+          "what": "LOW, a full-size pickup but not the example vehicle: Nissan campaign bulletin PC721 (February 14, 2020; 2019 Titan XD, front wheel sensor harness inspection) states op PC7211 'Inspect both front wheel sensors and replace ONE front wheel sensor.' 0.5 Hr; PC7212, the same with BOTH front sensors replaced, 0.7 Hr; PC7210, inspection only, 0.3 Hr. The 0.5 hr includes the inspection of both sensors. A warranty time is the low end of what a shop bills. No stated front-sensor time was found for the Silverado 1500: GM bulletin 17-NA-180 (2017-2018 Colorado and Canyon ZR2 front sensor) says only 'Use Published Labor Operation Time', and the other GM truck bulletins found pay only for inspection, cleaning or engineering contact"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2024/MC-11011716-0001.pdf",
+          "what": "Supporting, a pickup but a rear sensor and a heavier truck: Ram bulletin 05-004-24 (December 3, 2024; 2019-2024 Ram 3500) states op 08-14-18-9G 'Sensor, Wheel Speed - Replace One Rear Left or Right Side' 0.4 Hrs; both rear sides, op 08-14-18-9H, 0.5 Hrs"
         },
         {
           "url": "https://static.nhtsa.gov/odi/rcl/2016/RCRIT-16V888-9367.pdf",
           "what": "Supporting, a pickup but a rear sensor replaced as an add-on to other work: Honda Service Bulletin 16-093 (2017 Ridgeline AWD rear harness recall) states additional labor 'Wheel Speed Sensor (one side)' 0.3 hr, '(both sides)' 0.4 hr"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2015/SB-10059220-8434.pdf",
+          "what": "Supporting, not a truck: Subaru bulletin 06-49-15 (2010-14 Legacy and Outback) states 0.4 hr to replace one front ABS wheel speed sensor; this was the borrowed low end before the Nissan pickup time was found"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2018/MC-10137267-9999.pdf",
+          "what": "Not a time: GM bulletin 17-NA-180 (2017-2018 Chevrolet Colorado and GMC Canyon with ZR2) lists labor operation 2410020 'Front Wheel Speed Sensor Replacement (With ZR2)' with 'Use Published Labor Operation Time' in place of a figure. Listed to show that GM does not print the time"
         },
         {
           "url": "https://jerry.ai/car-repair/estimates/replace-a-wheel-speed-sensor/",
@@ -167,6 +179,9 @@
     "https://static.nhtsa.gov/odi/rcl/2016/RCRIT-16V888-9367.pdf",
     "https://static.nhtsa.gov/odi/tsbs/2016/SB-10086061-2280.pdf",
     "https://static.nhtsa.gov/odi/rcl/2024/RCRIT-24V794-3446.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2020/MC-10172260-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2024/MC-11011716-0001.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2018/MC-10137267-9999.pdf",
     "https://service.tesla.com/docs/Model3/ServiceManual/en-us/GUID-E4D1FACE-A01E-4645-8DA0-0D9296C5AB4C.html",
     "https://service.tesla.com/docs/ModelY/ServiceManual/en-us/GUID-8ABF1191-828D-4A7C-9BE6-31D91A38150C.html",
     "https://jerry.ai/car-repair/estimates/replace-a-wheel-speed-sensor/"
@@ -201,8 +216,8 @@
     110,
     625
   ],
-  "finding": "The live range of $110-$625 is about right for one bolt-in sensor at both ends, though the top is only reached with a dealer-priced sensor and a slow, corroded removal. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2015 Corolla about $93-$659 (0.4-2.0 hr); midsize 2014 Subaru Outback about $90-$403; truck 2016 Silverado 1500 about $86-$396; luxury 2015 BMW 328i about $87-$488. The low ends, about $86-$93, pair an online aftermarket sensor with a manufacturer warranty time and no diagnosis; Subaru pays its dealers a separate 0.5 hr for ABS testing and diagnosis, and Jerry also puts diagnosis at about half an hour, which adds roughly $60-$80, so a real quote rarely comes in under about $150 and $110 is a fair floor. At the top, only the Corolla passes $625, and only because a genuine Toyota front sensor lists at $321-$339 where the others list at $76-$168; with the same two hours the Outback, Silverado and BMW stop at about $400-$490. The benchmarks agree: Jerry gives $189-$357 and up to $600 or more at a shop, and RepairPal's BMW Z4 figure is $295-$346. How solid the labor times are: the low end is solid only for the midsize class, where Subaru states 0.4 hr for one front sensor on the example vehicle. The other three classes borrow that Subaru figure, because no stated front-sensor time was found for a Corolla, a Silverado 1500 or a BMW; a Honda Ridgeline bulletin (0.3 hr, one rear sensor, as an add-on) and Tesla's service manual (0.30 for a Model 3 or Model Y front sensor, unit not printed) point the same way. Every high end is one general guide's 1 to 2 hours, not a book time; the same guide's customer examples show only 25-35 minutes billed, so most jobs will sit well under the high totals, and the 2 hours is there for sensors seized in a rusted knuckle. Where the sensor is part of the hub: on some vehicles the sensor or its encoder ring is built into the hub and bearing assembly, so the hub is replaced instead. Honda's 2006-07 Civic rear sensor recall (bulletin 07-055) replaces the sensor together with the rear hub bearing unit (0.7 hr added for one side), and FCA's recall 24V-794 for the 2025 Ram 1500 fixes a wheel speed fault from the front bearing's encoder ring by replacing the hub and bearing assembly (1.1 hr for one side including road test). Jerry says hub-integrated parts often cost $250-$500 for the part alone. That is the wheel bearing or hub job and is priced there, not here. Rear sensors were not priced. This is an estimate, not a quote and not a diagnosis; an ABS light has other causes, including wiring, the tone ring and the wheel bearing.",
+  "finding": "The live range of $110-$625 is about right for one bolt-in sensor at both ends, though the top is only reached with a dealer-priced sensor and a slow, corroded removal. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2015 Corolla about $93-$659 (0.4-2.0 hr); midsize 2014 Subaru Outback about $90-$403 (0.4-2.0 hr); truck 2016 Silverado 1500 about $98-$396 (0.5-2.0 hr); luxury 2015 BMW 328i about $87-$488 (0.4-2.0 hr). The low ends, about $87-$98, pair an online aftermarket sensor with a manufacturer warranty time and no diagnosis; Subaru pays its dealers a separate 0.5 hr for ABS testing and diagnosis, and Jerry also puts diagnosis at about half an hour, which adds roughly $60-$80, so a real quote rarely comes in under about $150 and $110 is a fair floor. At the top, only the Corolla passes $625, and only because a genuine Toyota front sensor lists at $321-$339 where the others list at $76-$168; with the same two hours the Outback, Silverado and BMW stop at about $400-$490. The benchmarks agree: Jerry gives $189-$357 and up to $600 or more at a shop, and RepairPal's BMW Z4 figure is $295-$346. How solid the labor times are: the low end is solid only for the midsize class, where Subaru states 0.4 hr for one front sensor on the example vehicle. The truck low end is now a pickup maker's own figure, Nissan's 0.5 hr to inspect both front sensors and replace one on a 2019 Titan XD, but that is a comparable full-size pickup, not the Silverado; a Ram 3500 bulletin (0.4 hr, one rear sensor) and a Honda Ridgeline bulletin (0.3 hr, one rear sensor, as an add-on) sit close to it. The economy and luxury classes still borrow the Subaru 0.4 hr, because no stated front-sensor time was found for a Corolla or a BMW; Tesla's service manual (0.30 for a Model 3 or Model Y front sensor, unit not printed) points the same way but is not used. A second pass on 2026-11-20 looked through GM, FCA, Honda and Acura, Hyundai and Kia, Nissan and Infiniti, Mazda and Subaru bulletins for a front-sensor replacement time on a common compact car, half-ton pickup or luxury car and found none: the bulletins that mention wheel speed sensors pay for inspection, cleaning the encoder ring, wiring re-routing, software, or hub replacement instead, and GM's says only to use the published time. The truck example was not switched to the Titan XD because its parts could not be fully re-sourced (the one aftermarket listing found did not state front or rear). Every high end is one general guide's 1 to 2 hours, not a book time; the same guide's customer examples show only 25-35 minutes billed, so most jobs will sit well under the high totals, and the 2 hours is there for sensors seized in a rusted knuckle. Confidence stays low: only one of the eight hours figures is for the example vehicle itself. Where the sensor is part of the hub: on some vehicles the sensor or its encoder ring is built into the hub and bearing assembly, so the hub is replaced instead. Honda's 2006-07 Civic rear sensor recall (bulletin 07-055) replaces the sensor together with the rear hub bearing unit (0.7 hr added for one side), and FCA's recall 24V-794 for the 2025 Ram 1500 fixes a wheel speed fault from the front bearing's encoder ring by replacing the hub and bearing assembly (1.1 hr for one side including road test). Jerry says hub-integrated parts often cost $250-$500 for the part alone. That is the wheel bearing or hub job and is priced there, not here. Rear sensors were not priced. This is an estimate, not a quote and not a diagnosis; an ABS light has other causes, including wiring, the tone ring and the wheel bearing.",
   "confidence": "low",
-  "checked": "2026-11-19",
+  "checked": "2026-11-20",
   "extras": "A quote often adds an ABS scan and diagnosis fee (about half an hour; Subaru's own bulletin lists 0.5 hr for ABS testing and diagnosis as a separate operation), shop supplies and sales tax. Extra time is common where the old sensor has seized in the knuckle and breaks on removal. Related items quoted separately: wiring or connector repair, cleaning or replacing a rusted tone (reluctor) ring, a wheel bearing or hub assembly where the sensor or encoder ring is part of it, and the sensor on the other side. Some vehicles need a steering angle or stability control calibration after the repair."
 }

@@ -2,11 +2,11 @@
 
 Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held with reason. Re-check any job whose date is over 60 days old. "Live" is the range the site shows today.
 
-- [x] Brake pads and rotors (2026-11-20) — examples now Mazda3, Grand Caravan, Acura RDX with maker-stated times for the low end (0.6–0.7 hr); every high end is still one mechanic's blog (low confidence). One vehicle-specific upper time would make it medium
+- [x] Brake pads and rotors (2026-11-20) — second look found no shop-level upper time (maker lines are pads plus resurfacing); examples now Mazda3, Grand Caravan, Acura RDX with maker-stated times for the low end (0.6–0.7 hr); every high end is still one mechanic's blog (low confidence). One vehicle-specific upper time would make it medium
 - [x] Alternator replacement (2026-11-20) — midsize now 2014 Jeep Grand Cherokee (FCA recall time 0.5 hr); shown $330–$1,275; economy and luxury times still general (low confidence). Lead: Subaru TSB 07-112-16R (static.nhtsa.gov/odi/tsbs/2016/MC-10120993-9999.pdf) may print a Forester time
 - [x] Starter replacement (live: $200–$1125) (2026-11-19) — top right, floor nearer $230–$250 (medium confidence)
 - [x] Water pump replacement (2026-11-20) — now one external belt-driven or electric pump only; examples Cruze, Accord, 2014 F-150; shown $210–$950 (low confidence: truck time is a seller estimate, highs are one general how-to)
-- [x] Head gasket repair (live: $1075–$3700) (2026-11-19) — low end far too low; about $1,400–$4,400 fits; luxury example now a Cadillac Escalade V8 (GM time 9.9 hr), not a European car (low confidence)
+- [x] Head gasket repair (2026-11-20) — economy and midsize now the Civic and Accord 1.5T Honda's 11.5 hr covers; shown $1,350–$4,350; Honda parts lows are a gasket alone, highs still a forum figure (low confidence)
 - [x] Catalytic converter replacement (2026-11-20) — examples now Kia Soul, Chevrolet Equinox, Acura RDX with maker times; shown $625–$2,800 (medium confidence); CARB-state parts still higher
 - [x] Wheel bearing or hub replacement (live: $200–$700) (2026-11-19) — slightly low both ends; $250–$800 fits (medium confidence)
 - [x] Timing belt replacement (2026-11-20) — midsize now 2019 Odyssey (Honda recall time 3.1 hr), truck low 3.7 hr from a Gates sheet; economy rests on a forum answer (low confidence)
@@ -19,21 +19,21 @@ Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held wi
 - [x] Tie rod end replacement (2026-11-20) — luxury low was a Tesla time (0.24 hr), now 0.5 hr; range unchanged (low confidence: only the truck times are vehicle-specific)
 - [x] Strut or shock absorber replacement (2026-11-20) — examples now Kia Forte, Kia Sorento, Silverado with maker times for the low end; shown $320–$1,700 (kept low: Kia operations are named for other strut parts, Silverado aftermarket price unit unstated)
 - [x] CV axle replacement (2026-11-20) — economy now Honda Fit (Honda 1.1 hr), midsize now Jeep Cherokee (FCA 0.5 hr, optimistic); shown $200–$1,300 (low confidence). Lead for truck: FCA recall S32 / 16V-301, 0.8 hr both halfshafts, 2016 Ram 1500
-- [x] Sway bar link or bushing replacement (live: $100–$575) (2026-11-19) — floor right; links alone top ~$425 (low confidence)
-- [x] Radiator fan replacement (2026-11-19) — too low both ends (~$225–$1,300); luxury time is one Mercedes campaign figure, 0.8 hr (low confidence)
+- [x] Sway bar link or bushing replacement (2026-11-20) — luxury low was a Tesla time, now Kia 0.5 hr; range unchanged (low confidence)
+- [x] Radiator fan replacement (2026-11-20) — economy now 2017 Sentra (Nissan 1.4 hr); range unchanged; luxury still one Mercedes figure; no aftermarket S550 fan found (low confidence)
 - [x] Thermostat replacement (live: $160–$875) (2026-11-19) — floor right; top too high, ~$750 (medium confidence)
-- [x] Blower motor replacement (2026-11-19) — floor nearer $105–$115; top too low for genuine motors (luxury $660–$1,260) (low confidence)
-- [x] Window regulator or motor replacement (2026-11-19) — floor right; top too low with genuine parts ($718–$915) (low confidence)
-- [x] Door lock actuator replacement (live: $170–$700) (2026-11-19) — about right; top nearer $600–$650 (low confidence)
-- [x] Power steering pump replacement (live: $300–$1200) (2026-11-19) — floor right; top low, ~$1,300, European ~$1,950 (low confidence)
-- [x] Ignition coil replacement (live: $100–$700) (2026-11-19) — right for one coil; full V8/six set ~$930 (low confidence)
+- [x] Blower motor replacement (2026-11-20) — truck now 2010 Silverado 1500 (GM 0.6 hr); range unchanged $100–$1,275 (medium confidence, thin: three highs are general)
+- [x] Window regulator or motor replacement (2026-11-20) — no change; no maker time for a luxury car (low confidence)
+- [x] Door lock actuator replacement (2026-11-20) — economy now 2017 Elantra (Hyundai 0.6 hr); shown $110–$525; all highs general (low confidence)
+- [x] Power steering pump replacement (2026-11-20) — no change; Acura MDX 0.3 hr found but unclear what it covers, cross-check only (low confidence)
+- [x] Ignition coil replacement (2026-11-20) — F-150 now 0.5–1 hr for the full set; maker one-coil times for other vehicles noted (low confidence)
 - [x] Timing chain replacement (live: $975–$3600) (2026-11-19) — about right; simple four-cylinders start ~$800 (medium confidence)
-- [x] Valve cover gasket replacement (live: $150–$950) (2026-11-19) — about right both ends (low confidence)
-- [x] Oxygen sensor replacement (2026-11-19) — floor right; one upstream sensor tops out near $570 (low confidence)
-- [x] Brake caliper replacement (live: $170–$825) (2026-11-19) — about right; top may be low at dealers (low confidence)
+- [x] Valve cover gasket replacement (2026-11-20) — economy now Cruze 1.4T (GM 0.6 hr), truck now F-150 3.5L EcoBoost both covers (Ford 4.2–4.4 hr); shown $90–$875 (low confidence: BMW and the highs are general)
+- [x] Oxygen sensor replacement (2026-11-20) — F-150 high now stated for the truck; Subaru lows and BMW still general (low confidence)
+- [x] Brake caliper replacement (2026-11-20) — no change; a 2020 Mazda3 switch would reach medium but no aftermarket caliper is sold for it (low confidence)
 - [~] Engine or motor mount replacement (2026-11-19) — held after three attempts: no stated one-mount time for a full-size truck (GM prints only both-mount times); luxury example switched to Acura ILX with a stated 0.8 hr; economy, midsize and luxury are complete
-- [x] Serpentine belt or tensioner replacement (live: $100–$440) (2026-11-19) — mixes two jobs; belt ~$100–$300, with tensioner ~$175–$500 (low confidence)
-- [x] Wheel speed (ABS) sensor replacement (live: $110–$625) (2026-11-19) — about right both ends (low confidence)
+- [x] Serpentine belt or tensioner replacement (2026-11-20) — belt only; examples now Elantra, Telluride, Tacoma, Acura MDX with maker times for the low end; shown $60–$250 (medium confidence)
+- [x] Wheel speed (ABS) sensor replacement (2026-11-20) — truck low now Nissan Titan XD 0.5 hr; all highs one general guide (low confidence)
 - [x] Heater core replacement (live: $240–$1850) (2026-11-19) — floor far too low; ~$500–$700 up (medium confidence)
 - [x] Intake manifold gasket replacement (live: $490–$1275) (2026-11-19) — floor too high; ~$250–$350 fits (low confidence)
 - [~] Oil pan gasket replacement (2026-11-19) — held after three attempts: the Corolla pan is liquid-sealed and no page confirms which Toyota sealant it takes (economy OEM price null); other three classes complete
@@ -46,6 +46,9 @@ Most-searched jobs first. `[ ]` not checked, `[x]` checked (date), `[~]` held wi
 - [x] Turbocharger replacement (live: $1150–$4800) (2026-11-19) — about right both ends (low confidence)
 
 ## Notes for the next run
+- 2026-11-20 (run 01:26): 46 jobs shown, 4 held, 14 medium. The result now says what the gap between a quote and the range amounts to in dollars and labor hours. Every low-confidence job on the previous note's list has had its second look. Next: Phase 1 step 3 on the jobs not yet re-worked: battery, brake fluid flush, cabin air filter, mass air flow sensor, EGR valve, intake manifold gasket, throttle body, transmission fluid service, wheel alignment, turbocharger, transmission (remanufactured), tie rod end (economy/midsize/luxury), ball joint (economy). Then Phase 3: shop menu prices beside the built range for maintenance jobs.
+- Reviewer rules added this run: a pads-plus-resurfacing time is not a pads-and-rotors time; a time that includes another part is a cross-check; a switch of example vehicle must not narrow what the all-kinds range covers (keep a European luxury example where the job costs more on them); a maker time whose bulletin does not say what it covers is a cross-check.
+- Leads: F-150 2.7L head gasket has maker times at both ends but no aftermarket head set was found (OEM gaskets FT4Z-6051-A/B on fordpartsgiant); 2020 Mazda3 caliper (Mazda 0.6 hr) needs an aftermarket price; Ford TSB 26-2210 prints one-coil times for Ranger, Explorer, Escape/Corsair.
 - 2026-11-20 (run 00:27): 46 jobs shown, 4 held (engine mount, oil pan gasket, rear main seal, tire rotation: all at the two-attempt limit or past it, so Phase 1 steps 1–2 are done). The price check now remembers the optional vehicle kind and state on the device. Next: Phase 1 step 3 continues, most-searched first among jobs not yet re-worked: head gasket, spark plugs (already medium), sway bar link, radiator fan, blower motor, window regulator, door lock actuator, power steering pump, ignition coil, valve cover gasket (leads in LOG), oxygen sensor, brake caliper, serpentine belt, ABS sensor. Also: one vehicle-specific upper labor time each for brakes and water pump would lift them to medium.
 - Good sources for labor times found this run: Mazda, Chrysler/FCA and Acura brake bulletins; FCA and Ford recall dealer instructions (Ford does print times in recalls); Gates timing-kit installation sheets ("Labor Times - hrs"); GM PI bulletins for Silverado. A 7-agent batch used about 155 searches; spot checks used none.
 - 2026-11-20: Phase 2 is built and live. 44 jobs pass and are shown on /price-check/; 6 are held (`"status": "held"` in the job file keeps a file off the page; remove it when the file passes). Next: second attempt at oil change, coolant flush and tire rotation; then Phase 1 step 3 (raise confidence: 34 of 44 shown jobs are "rough estimate") and Phase 3.
