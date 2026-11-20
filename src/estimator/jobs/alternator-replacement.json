@@ -1,6 +1,6 @@
 {
  "job": "Alternator replacement",
- "unit": "per job",
+ "unit": "Replace one alternator: the alternator itself (remanufactured aftermarket at the low end, new genuine at list price at the high end) and the labor to remove the old one and fit the new one. Not included: charging-system diagnosis, a new drive belt or tensioner, a new battery, the refundable core charge on remanufactured units, battery registration or coding, shop supplies and tax.",
  "classes": {
   "economy": {
    "parts": [
@@ -35,36 +35,44 @@
   },
   "midsize": {
    "parts": [
-    220.58,
-    703.27
+    279.99,
+    875
    ],
    "hours": [
-    1,
+    0.5,
     2.5
    ],
-   "example": "2016 Toyota Camry 2.5L",
+   "example": "2014 Jeep Grand Cherokee 3.6L V6 (160 amp alternator)",
    "parts_src": [
     {
-     "url": "https://autopartsprime.com/sc/2016-toyota-camry-alternators-batteries-starters",
-     "what": "LOW: Remy 11163 remanufactured $220.58; Quality-Built 10168 reman $247.47; genuine Toyota 27060-0V170 $476.91 discounted"
+     "url": "https://www.extremeterrain.com/jeep-grand-cherokee-alternator-160-amp-ala90130.html",
+     "what": "LOW: store-brand 160 Amp alternator, item JGC33598, 'fits 2011-2020 3.6L Jeep Grand Cherokee WK2', $279.99"
     },
     {
-     "url": "https://www.toyotapartsdeal.com/oem-2016-toyota-camry-alternator.html",
-     "what": "HIGH: genuine Toyota 27060-0V170 MSRP $703.27 (sale $471.42); alternative 27060-0P141 MSRP $420.98 (sale $314.11)"
+     "url": "https://www.jeeppartsdeal.com/parts-select/2014-jeep-grand-cherokee-alternator",
+     "what": "HIGH: genuine Mopar 4801779AI, 160 A, 3.6L, listed for the 2014 Grand Cherokee, MSRP $875.00 (sale $602.70). Higher-output options on the same page: 180 A 4801778AI MSRP $1,170.00; 220 A 4801865AE MSRP $1,245.00"
+    },
+    {
+     "url": "https://www.autopartsprime.com/p/2015-jeep-grand-cherokee-alternator",
+     "what": "Cross-check only, not used: page is for the 2015 model year and does not confirm 2014 fitment. Remy 11069 remanufactured 160 A (3.6L) $237.60; Quality-Built 11572 remanufactured 160 A (3.6L) $237.02; Remy 94188 new 160 A (3.6L) $307.68"
     }
    ],
    "hours_src": [
     {
-     "url": "https://repairpal.com/question/toyota/camry/2007/when-mechaninc-is-replacing-a-bad-alternator-how-long-should-i-expect-it-to-take-742",
-     "what": "A repair shop's answer states 'The book time to replace the alternator on a 07 Camry 4 cyl. is 1 hour' (2007 Camry, earlier generation and 2.4L engine, not the 2016 2.5L)"
-    },
-    {
-     "url": "https://www.carparts.com/blog/how-much-does-it-cost-to-replace-an-alternator-price-ranges-and-smart-ways-to-save-quickref/",
-     "what": "Parts retailer's guide reviewed by an ASE master technician (updated 2025-10-22), not vehicle-specific: states 'Mainstream labor quotes usually cluster around 1-2.5 hours' (used for the high end)"
+     "url": "https://static.nhtsa.gov/odi/rcl/2017/RCRIT-17V741-2657.pdf",
+     "what": "LOW, manufacturer time for the example vehicle: FCA safety recall T75 (NHTSA 17V-741, 2014 Grand Cherokee, Durango, Charger, Challenger and 300 with the 3.6L V6 and 160 amp alternator) states 'Replace alternator assembly (WD / WK models)' op 08-T7-51-83 0.5 hours (WK is the Grand Cherokee); the car models are 0.6 hours. A warranty time is the low end of what a shop bills"
     },
     {
      "url": "https://static.nhtsa.gov/odi/rcl/2014/RCRIT-14V634-9525.pdf",
-     "what": "Cross-check only, not used for the range and not a Camry: FCA recall P60 (NHTSA 14V-634) dealer instructions state warranty time to replace the alternator assembly on 3.6L V6 cars and SUVs: Charger/Challenger/300 op 08-P6-01-82 0.6 hours; Durango/Grand Cherokee op 08-P6-01-83 0.5 hours; add 0.2 hours for AWD. Warranty times are shorter than what a shop normally bills"
+     "what": "Same figure from an earlier campaign: FCA recall P60 (NHTSA 14V-634) dealer instructions state warranty time to replace the alternator assembly on Durango/Grand Cherokee 3.6L, op 08-P6-01-83, 0.5 hours (Charger/Challenger/300 op 08-P6-01-82 0.6 hours; add 0.2 hours for AWD on the cars)"
+    },
+    {
+     "url": "https://www.extremeterrain.com/jeep-grand-cherokee-alternator-160-amp-ala90130.html",
+     "what": "For the example vehicle but a seller's approximate figure, not a book time: states installation time '(approx) 1 Hour' for the 2011-2020 3.6L Grand Cherokee. Sits inside the range used"
+    },
+    {
+     "url": "https://www.carparts.com/blog/how-much-does-it-cost-to-replace-an-alternator-price-ranges-and-smart-ways-to-save-quickref/",
+     "what": "HIGH, not vehicle-specific: parts retailer's guide reviewed by an ASE master technician (updated 2025-10-22) states 'Mainstream labor quotes usually cluster around 1-2.5 hours'"
     }
    ]
   },
@@ -104,6 +112,10 @@
     {
      "url": "https://static.nhtsa.gov/odi/rcl/2016/RCRIT-16V739-6384.pdf",
      "what": "Cross-check only, not used for the range: FCA recall S68 (NHTSA 16V-739) states op 08-S6-81-84 inspect and replace alternator on RAM trucks with the 6.7L Cummins diesel 0.4 hours (warranty time, heavy-duty diesel truck with a top-mounted alternator)"
+    },
+    {
+     "url": "https://static.nhtsa.gov/odi/tsbs/2015/MC-10123503-9999.pdf",
+     "what": "Cross-check only, not used for the range and not an F-150: GM customer satisfaction program 15535 (September 2015, 2015 Chevrolet Silverado Crew Cab with Special Service Package, undersized generator) lists labor op 9101764 'Replace Generator' 0.4 (the bulletin prints the figure without a unit; GM labor times are in hours). A warranty time for a full-size gas pickup, well below what a shop bills"
     },
     {
      "url": "https://www.carparts.com/blog/how-much-does-it-cost-to-replace-an-alternator-price-ranges-and-smart-ways-to-save-quickref/",
@@ -146,9 +158,11 @@
  "src": [
   "https://autopartsprime.com/sc/2015-toyota-corolla-alternators-batteries-starters",
   "https://www.toyotapartsdeal.com/oem-2015-toyota-corolla-alternator.html",
-  "https://autopartsprime.com/sc/2016-toyota-camry-alternators-batteries-starters",
-  "https://www.toyotapartsdeal.com/oem-2016-toyota-camry-alternator.html",
-  "https://repairpal.com/question/toyota/camry/2007/when-mechaninc-is-replacing-a-bad-alternator-how-long-should-i-expect-it-to-take-742",
+  "https://www.extremeterrain.com/jeep-grand-cherokee-alternator-160-amp-ala90130.html",
+  "https://www.jeeppartsdeal.com/parts-select/2014-jeep-grand-cherokee-alternator",
+  "https://www.autopartsprime.com/p/2015-jeep-grand-cherokee-alternator",
+  "https://static.nhtsa.gov/odi/rcl/2017/RCRIT-17V741-2657.pdf",
+  "https://static.nhtsa.gov/odi/rcl/2014/RCRIT-14V634-9525.pdf",
   "https://www.autopartsprime.com/p/2016-ford-f-150-alternator",
   "https://www.fordpartsdeal.com/parts-select/2016-ford-f-150-alternator",
   "https://www.americantrucks.com/f150-alternator-240-amp-apalt1095.html",
@@ -156,9 +170,10 @@
   "https://www.bimmerworld.com/Engine/Alternators/Bosch-Alternator-12317605061-AL9449X-210-amp-N20-N26-F30-228i-320i-328i-428i-528i.html",
   "https://www.autozone.com/diy/qa/how-long-does-it-take-to-put-an-alternator-in",
   "https://www.carparts.com/blog/how-much-does-it-cost-to-replace-an-alternator-price-ranges-and-smart-ways-to-save-quickref/",
-  "https://static.nhtsa.gov/odi/rcl/2014/RCRIT-14V634-9525.pdf",
   "https://static.nhtsa.gov/odi/rcl/2017/RCRIT-17V435-8957.pdf",
-  "https://static.nhtsa.gov/odi/rcl/2016/RCRIT-16V739-6384.pdf"
+  "https://static.nhtsa.gov/odi/rcl/2016/RCRIT-16V739-6384.pdf",
+  "https://static.nhtsa.gov/odi/tsbs/2015/MC-10123503-9999.pdf",
+  "https://static.nhtsa.gov/odi/tsbs/2017/MC-10119119-9999.pdf"
  ],
  "benchmarks": [
   {
@@ -214,8 +229,8 @@
   270,
   975
  ],
- "finding": "The live range of $270-$975 starts too low and stops a little short. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2015 Corolla about $353-$951 (1.0-2.5 hr); midsize 2016 Camry about $341-$1,103 (1.0-2.5 hr); truck 2016 F-150 5.0L about $373-$987 (1.1-2.0 hr); luxury 2015 BMW 328i about $480-$860 (1.0-2.5 hr). The lowest total we can build is $341, and the cheapest remanufactured alternator found for any of the four vehicles was $221 before labor, so a $270 total is not realistic for a shop job; RepairPal's lowest per-model figure is $527. At the top, a list-price Toyota alternator plus 2.5 hours reaches about $1,100, in line with RepairPal's national high of $1,088, so $975 clips real quotes. A range of roughly $340-$1,100 fits mainstream vehicles better. How solid the labor times are: only the Camry has a time from its own model line (a shop quoting a 1.0 hr book time for a 2007 four-cylinder Camry). The Corolla and BMW hours come from two general statements by parts retailers (1-2 hours in most cases; 1-2.5 hours for mainstream quotes), not from a vehicle-specific source. The truck low end is a Chrysler warranty time for a 5.7L V8 car (1.1 hr) and its high end a parts seller's 2-hour install estimate. Manufacturer warranty times we found for easy-to-reach alternators are much shorter (0.5-0.6 hr on Chrysler 3.6L V6 cars and SUVs, 0.4 hr on a RAM diesel), which shows the labor on some vehicles is small, but shops bill more than warranty time. The luxury figure is the weakest and is probably too low: no BMW-specific labor time and no genuine BMW list price were found (the high part price is a remanufactured Bosch unit), and YourMechanic shows about $1,440 for a 328i 2.0T. Luxury/European and hard-to-reach alternators should be described as running well above the main range. Only Jerry's '$259-$491' headline supports the current low end, and Jerry's own table contradicts it.",
+ "finding": "The live range of $270-$975 starts too low and stops short. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2015 Corolla about $353-$951 (1.0-2.5 hr); midsize 2014 Jeep Grand Cherokee 3.6L about $340-$1,275 (0.5-2.5 hr); truck 2016 F-150 5.0L about $373-$987 (1.1-2.0 hr); luxury 2015 BMW 328i about $480-$860 (1.0-2.5 hr). The lowest total we can build is $340, and the cheapest alternator used for any of the four vehicles was $233 before labor, so a $270 total is not realistic for a shop job; RepairPal's lowest per-model figure is $527. At the top, a list-price Toyota alternator plus 2.5 hours reaches about $950 and a list-price Mopar alternator ($875) plus 2.5 hours about $1,275, against RepairPal's national high of $1,088, so $975 clips real quotes. A range of roughly $340-$1,100 fits mainstream vehicles better, with dealer-part jobs running higher. How solid the labor times are: only two of the eight hour figures are for the example vehicle. The midsize low end is now a manufacturer time for the example itself: Chrysler's recall instructions allow 0.5 hr to replace the alternator on the 2014 Grand Cherokee 3.6L (a parts seller says about 1 hour for the same vehicle); its high end is still a general retailer statement. The midsize example was changed from the Camry, for which only a shop's quoted 1.0 hr book time on an older 2007 model had been found, and its parts were re-sourced. The truck high end is a parts seller's 2-hour install estimate for the F-150 5.0L; its low end is a Chrysler warranty time for a 5.7L V8 car (1.1 hr). The Corolla and BMW hours still come from two general statements by parts retailers (1-2 hours in most cases; 1-2.5 hours for mainstream quotes), not from a vehicle-specific source: a further search of manufacturer bulletins found none that prints an alternator replacement time for a common economy or luxury car (Honda, Nissan and some GM bulletins refer dealers to their flat-rate manuals instead of printing the time; the nearest was Kia's 0.6 hr to remove the alternator and change its pulley on the 2014-2016 Forte, which is not an alternator replacement time and is not used). Manufacturer warranty times for easy-to-reach alternators are short (0.5-0.6 hr on Chrysler 3.6L V6 vehicles, 0.4 on a 2015 Silverado, 0.4 hr on a RAM diesel), which shows the labor on some vehicles is small, but shops bill more than warranty time. The luxury figure is the weakest and is probably too low: no BMW-specific labor time and no genuine BMW list price were found (the high part price is a remanufactured Bosch unit), and YourMechanic shows about $1,440 for a 328i 2.0T. Luxury/European and hard-to-reach alternators should be described as running well above the main range. Only Jerry's '$259-$491' headline supports the current low end, and Jerry's own table contradicts it.",
  "confidence": "low",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "extras": "Quotes often add: charging-system diagnosis or battery/alternator test fee, a new serpentine belt and sometimes tensioner, a new battery if the old one was damaged by under- or over-charging, a refundable core charge on remanufactured units, battery registration/coding on some European cars, shop supplies, and sales tax."
 }

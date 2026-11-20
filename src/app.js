@@ -242,7 +242,10 @@ showMy();
   const E=window.EST||{jobs:[],rates:{},nat:[120,160],states:[],rsrc:[]};const norm=t=>t.toLowerCase().replace(/\s*\(.*?\)\s*/g,' ').trim();
   const CL={economy:'Economy or compact car',midsize:'Midsize car or crossover',truck:'Truck or large SUV',luxury:'Luxury car'};
   const estBox=document.getElementById('pcEst'),clsS=document.getElementById('pcCls'),stS=document.getElementById('pcSt');
-  if(clsS){clsS.innerHTML='<option value="">Any kind</option>'+Object.entries(CL).map(([k,l])=>`<option value="${k}">${l}</option>`).join('');stS.innerHTML='<option value="">Whole U.S.</option>'+E.states.map(([k,l])=>`<option value="${k}">${esc(l)}</option>`).join('')}
+  if(clsS){clsS.innerHTML='<option value="">Any kind</option>'+Object.entries(CL).map(([k,l])=>`<option value="${k}">${l}</option>`).join('');stS.innerHTML='<option value="">Whole U.S.</option>'+E.states.map(([k,l])=>`<option value="${k}">${esc(l)}</option>`).join('');
+    // Remember the optional kind of vehicle and state on this device only, so a returning driver does not pick them again.
+    try{const p=JSON.parse(localStorage.getItem('vs_pc')||'{}');if(p.c&&CL[p.c])clsS.value=p.c;if(p.s&&E.rates[p.s])stS.value=p.s}catch(_){}
+    clsS.onchange=stS.onchange=()=>{try{localStorage.setItem('vs_pc',JSON.stringify({c:clsS.value,s:stS.value}))}catch(_){}}}
   const rnd=(n,up)=>{const st=n<500?10:n<2000?25:50;return (up?Math.ceil(n/st):Math.floor(n/st))*st};
   function estR(e,c,st){const r=st&&E.rates[st]?E.rates[st]:E.nat;let lo=1/0,hi=0;const rows=(c?[c]:Object.keys(e.cls)).map(k=>{const x=e.cls[k],a=rnd(x.p[0]+x.h[0]*r[0],false),b=Math.max(rnd(x.p[1]+x.h[1]*r[1],true),a+10);lo=Math.min(lo,a);hi=Math.max(hi,b);return {k,x,a,b}});return {lo,hi,rows,r}}
   let job=null;const ji=document.getElementById('pcJob'),sug=document.getElementById('pcSug'),picked=document.getElementById('pcPicked'),amt=document.getElementById('pcAmt'),goB=document.getElementById('pcGo'),out=document.getElementById('pcOut');
