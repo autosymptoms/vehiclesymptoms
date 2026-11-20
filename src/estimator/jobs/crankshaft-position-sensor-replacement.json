@@ -27,6 +27,10 @@
         {
           "url": "https://static.nhtsa.gov/odi/rcl/2006/RCRIT-06V266-7616.pdf",
           "what": "Comparable older Toyota economy cars with a different engine, not the Corolla: Toyota Special Service Campaign 60G (2006; 2001 to early 2002 Echo and Prius) op 6529F1 \"Replace the Crankshaft Position Sensor\" 0.6 hr/vehicle, which includes 0.1 hour of dealership administrative time. No relearn is mentioned. A warranty time is the low end of what a shop bills. No stated time for the Corolla was found, so this is both ends of the range"
+        },
+        {
+          "url": "https://australiancar.reviews/_pdfs/Nissan_350Z_Z33_NTB03-124.pdf",
+          "what": "Cross-check: a full sensor kit, not one sensor, on a different economy car, read from a copy of the bulletin on a third-party site. Nissan campaign bulletin NTB03-124 (December 19, 2003; 2000-03 Sentra and others) op R30220 \"Install new engine sensor kit\" 0.5 hrs. on the Sentra, Altima, Maxima and Murano (0.8 hrs. on the 350Z); the kit holds a crankshaft position sensor plus one or two camshaft-side sensors. It suggests one easy-to-reach crankshaft sensor on a small car is no more than about half an hour of warranty time, but it is not used as a range end"
         }
       ]
     },
@@ -122,8 +126,8 @@
     },
     "luxury": {
       "parts": [
-        null,
-        null
+        91.37,
+        128.37
       ],
       "hours": [
         null,
@@ -132,8 +136,16 @@
       "example": "2015 Hyundai Genesis 3.8L V6 sedan, chosen because it is the only luxury car for which a maker figure of any kind was found",
       "parts_src": [
         {
+          "url": "https://www.hyundaipartsdeal.com/oem-2015-hyundai-genesis-crankshaft_position_sensor.html",
+          "what": "Genuine Hyundai 39310-3C410 \"Sensor-Crankshaft Angle\" (the part number Hyundai's bulletin names), listed for the 2015 Genesis sedan with the direct-injection (GDI) engine, condition New: MSRP $128.37 (high), online price $91.37 (low). The low end is a genuine sensor at an online discount because no aftermarket price was loaded for this car. The page does not print the engine size, and it lists a second number, 39310-3F010, at the same prices, so confirm by VIN"
+        },
+        {
+          "url": "https://autopartsprime.com/hyundai/sensor-crankshaft-angle/oe-393103c410",
+          "what": "Corroboration: genuine Hyundai 39310-3C410, condition New, fitment table lists the 2008-2016 Genesis sedan with the GDI engine: MSRP $128.37, sold at $95.34. No aftermarket alternative is shown on the page"
+        },
+        {
           "url": "https://australiancar.reviews/_pdfs/Hyundai-Genesis-DH-TSB-15-FL-005.pdf",
-          "what": "Context only, no price: Hyundai TSB 15-FL-005 names the sensor as part 39310-3C410. No priced page for it was loaded, so parts are left null"
+          "what": "Context only, no price: Hyundai TSB 15-FL-005 names the sensor as part 39310-3C410"
         }
       ],
       "hours_src": [
@@ -144,6 +156,18 @@
         {
           "url": "https://static.nhtsa.gov/odi/tsbs/2018/MC-10139292-9999.pdf",
           "what": "Cross-check, not a luxury car, printed with no unit and includes other work: GM Service Update 18085 (March 2018; 2018 Chevrolet Volt) op 9103720 \"Replace crankshaft position sensor and crankshaft position sensor connector (includes inspection)\" 1.7; the procedure also requires a crankshaft position variation learn. Not used"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2016/SB-10076414-5448.pdf",
+          "what": "Cross-check on the unit question only, not a sensor time: Hyundai's own copy of another 2015 Genesis bulletin on NHTSA (16-01-006-2, tire replacement) prints its \"Op. Time\" column the same way, as bare numbers with no unit. So the 0.3 for the crankshaft sensor cannot be shown to be hours from Hyundai's page"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2021/MC-10198143-9999.pdf",
+          "what": "Cross-check, a different part, printed with no unit: Lexus bulletin L-SB-0008-21 (2018-2021 RX350) replaces the crank sensor rotor (the plate the sensor reads), not the sensor, at 7.2 (two-wheel drive) or 7.9 (four-wheel drive). Not used"
+        },
+        {
+          "url": "https://static.nhtsa.gov/odi/tsbs/2017/MC-10137652-9999.pdf",
+          "what": "Context only, no time and no sensor: GM bulletin 17-NA-156 (2017 Cadillac XT5 and Buick LaCrosse 3.6L, code P0336 crankshaft position sensor performance) is a reprogramming and says \"Use Published Labor Operation Time\""
         }
       ]
     }
@@ -171,7 +195,13 @@
     "https://repairpal.com/crankshaft-position-sensor-replacement",
     "https://jerry.ai/car-repair/estimates/crankshaft-position-sensor-replacement/",
     "https://www.yourmechanic.com/estimates/toyota/tacoma/crankshaft-position-sensor-replacement",
-    "https://www.yourmechanic.com/estimates/lexus/is350/crankshaft-position-sensor-replacement"
+    "https://www.yourmechanic.com/estimates/lexus/is350/crankshaft-position-sensor-replacement",
+    "https://australiancar.reviews/_pdfs/Nissan_350Z_Z33_NTB03-124.pdf",
+    "https://www.hyundaipartsdeal.com/oem-2015-hyundai-genesis-crankshaft_position_sensor.html",
+    "https://autopartsprime.com/hyundai/sensor-crankshaft-angle/oe-393103c410",
+    "https://static.nhtsa.gov/odi/tsbs/2016/SB-10076414-5448.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2021/MC-10198143-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2017/MC-10137652-9999.pdf"
   ],
   "benchmarks": [
     {
@@ -208,9 +238,9 @@
     }
   ],
   "live": null,
-  "finding": "There is no live range for this job on the site today (live is null), so this is a first build, not a check. HELD: the luxury class has no usable labor time and no priced part. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2015 Corolla about $175-$241 (0.6 hr); midsize 2018 Chrysler Pacifica front-wheel drive about $121-$277 (0.7-1.0 hr); truck 2016 Tacoma 3.5L V6 about $190-$268 (0.7 hr); luxury not built. The three built totals bracket Jerry ($143-$223) and sit at or below RepairPal ($230-$335). RepairPal carries $144-$211 in labor, which is about 1.0-1.5 hours at this rate, against our 0.6-1.0 hours of warranty time; that difference is expected, since a warranty time is the low end of what a shop bills and a shop usually also charges a minimum and a relearn where the car needs one. A supportable first range for an easy-to-reach sensor on a mainstream vehicle is roughly $120-$335, taking our low and RepairPal's high. It should not be published as a single range: access varies enormously. Chrysler's own times for the same sensor on the same van are 0.7 hour with front-wheel drive and 2.9 hours with all-wheel drive, which adds about $265-$350 in labor, and YourMechanic's Lexus figures ($587-$882) show what a buried sensor costs. How solid the labor times are: the Tacoma time (0.7 hr, of which 0.1 is dealer paperwork) is Toyota's own figure for the example vehicle from its 2017 recall and is the best number here. The Pacifica times are Chrysler's, for the example vehicle, but read from a trade-press summary of the bulletin; the bulletin itself was not found on NHTSA. The Corolla time is borrowed from a 2006 Toyota campaign on the 2001-2002 Echo and Prius, a different engine, so it is weak. None of the three says a crankshaft relearn is included; Hyundai lists the scan-tool step as a separate 0.3 on the Genesis and GM requires a relearn on the Volt, so where a car needs one, expect it to be added. Parts: an aftermarket sensor stated as new was found only for the Pacifica ($36.75); the Corolla and Tacoma low ends are genuine sensors at an online discount, and no aftermarket sensor for the Tacoma 3.5L V6 was found at all, so their low ends are higher than a shop using an aftermarket sensor might quote. What is missing and why: (1) luxury hours: the only maker figure found, Hyundai's 0.3 for the Genesis 3.8L, is printed with no unit and was read from a third-party copy, so it is a cross-check only; GM, Honda, Jaguar Land Rover, Audi and Lexus bulletins loaded either print no time, refer to a published labor guide, or cover a different part (tone wheel, camshaft sensor, rotor); (2) luxury parts: no priced page for the Genesis sensor was loaded; (3) each built class rests on a single stated time, so every range is narrow and understates what shops bill; (4) no full-size pickup time was found, so the truck class is a midsize pickup. To finish: load the Chrysler bulletin itself, find a luxury maker time with a unit (Acura, Infiniti or Cadillac), and load aftermarket prices (Denso, NTK, Standard) from pages that state the part is new. An estimate is never a quote and never a diagnosis.",
+  "finding": "There is no live range for this job on the site today (live is null), so this is a first build, not a check. HELD: the luxury class still has no labor time printed with a unit. Built totals (parts + stated hours x $120-$160/hr, the national middle labor rate used for these checks): economy 2015 Corolla about $175-$241 (0.6 hr); midsize 2018 Chrysler Pacifica front-wheel drive about $121-$277 (0.7-1.0 hr); truck 2016 Tacoma 3.5L V6 about $190-$268 (0.7 hr); luxury not built. The three built totals bracket Jerry ($143-$223) and sit at or below RepairPal ($230-$335). RepairPal carries $144-$211 in labor, which is about 1.0-1.5 hours at this rate, against our 0.6-1.0 hours of warranty time; that difference is expected, since a warranty time is the low end of what a shop bills and a shop usually also charges a minimum and a relearn where the car needs one. A supportable first range for an easy-to-reach sensor on a mainstream vehicle is roughly $120-$335, taking our low and RepairPal's high. It should not be published as a single range: access varies enormously. Chrysler's own times for the same sensor on the same van are 0.7 hour with front-wheel drive and 2.9 hours with all-wheel drive, which adds about $265-$350 in labor, and YourMechanic's Lexus figures ($587-$882) show what a buried sensor costs. How solid the labor times are: the Tacoma time (0.7 hr, of which 0.1 is dealer paperwork) is Toyota's own figure for the example vehicle from its 2017 recall and is the best number here. The Pacifica times are Chrysler's, for the example vehicle, but read from a trade-press summary of the bulletin; the bulletin itself was not found on NHTSA. The Corolla time is borrowed from a 2006 Toyota campaign on the 2001-2002 Echo and Prius, a different engine, so it is weak; a 2003 Nissan campaign that fits a whole sensor kit (crankshaft plus camshaft sensors) on a Sentra in 0.5 hrs. agrees with it in scale but is a cross-check only. None of the three says a crankshaft relearn is included; Hyundai lists the scan-tool step as a separate 0.3 on the Genesis and GM requires a relearn on the Volt, so where a car needs one, expect it to be added. Parts: an aftermarket sensor stated as new was found only for the Pacifica ($36.75); the Corolla, Tacoma and Genesis low ends are genuine sensors at an online discount, and no aftermarket sensor for the Tacoma 3.5L V6 was found at all, so their low ends are higher than a shop using an aftermarket sensor might quote. The luxury parts are now loaded: the genuine Hyundai sensor for the 2015 Genesis lists at $128.37 and sells for $91.37 online. What is missing and why: (1) luxury hours: the only maker figure found, Hyundai's 0.3 for the Genesis 3.8L (plus a separate 0.3 scan-tool step), is printed with no unit and was read from a third-party copy; another Hyundai bulletin for the same car on NHTSA prints its times the same way, with no unit, so it stays a cross-check only. If it is hours, the Genesis would build to roughly $127-$176 for the sensor alone and $163-$224 with the relearn step, but that is not published here. On this pass, bulletins from GM (Cadillac XT5), Lexus (RX350), Infiniti, Honda, Jaguar Land Rover and Ford/Lincoln were loaded and none prints a crankshaft position sensor replacement time with a unit: they print no time, refer to a published labor guide, or cover a different part (the sensor rotor, a reprogramming, a timing chain); (2) each built class rests on a single stated time, so every range is narrow and understates what shops bill; (3) no full-size pickup time was found, so the truck class is a midsize pickup. To finish: find a luxury maker time printed with a unit, load the Chrysler bulletin itself, and load aftermarket prices (Denso, NTK, Standard) from pages that state the part is new. An estimate is never a quote and never a diagnosis.",
   "confidence": "low",
   "checked": "2026-11-20",
   "extras": "A quote often adds a diagnosis fee, because the same stall, no-start or check-engine codes can come from wiring, the connector, the toothed wheel the sensor reads, or the camshaft sensor. It may also add a crankshaft position relearn with a scan tool, a new O-ring or seal, shop supplies and sales tax. Where the sensor sits behind the starter, under the intake or above a driveshaft or transfer case, removing and refitting those parts adds labor (Chrysler allows 2.9 hours on an all-wheel-drive Pacifica against 0.7 with front-wheel drive). A sensor that has seized in its bore and breaks on removal adds time. Shops often suggest replacing the camshaft sensor at the same visit; that is a separate job.",
-  "held_reason": "No usable stated labor time and no priced part for the luxury class; the other three classes each rest on a single stated time."
+  "held_reason": "No labor time printed with a unit for the luxury class (the luxury parts prices are now loaded); the other three classes each rest on a single stated time."
 }
