@@ -1,5 +1,7 @@
 # Estimator accuracy log (newest first)
 
+## Run 2026-11-20 01:26 UTC started
+
 ## Run 2026-11-20 00:27 UTC finished 2026-11-20 00:50 UTC (confidence pass and two new jobs published; about 155 of 200 searches used)
 - Totals: 7 research agents (14 jobs) and 2 fetch agents. 50 job files: 46 pass and are shown (was 44), 4 held. Medium confidence: 12 jobs (was 10).
 - New on the page: oil change ($60–$230 across classes at the national middle rate) and coolant flush ($110–$360). Both low confidence: hours are general statements, not maker times. Oil change finding: shop menu prices of $45–$125 are the better guide; the build's top is list-price oil at an hourly rate.
