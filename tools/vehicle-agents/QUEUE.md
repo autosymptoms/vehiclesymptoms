@@ -430,6 +430,7 @@ These live models have under 80% of their non-recall issues priced, so the price
 - Also during pricing passes: 68 price files cite openlaborproject.com, which later agents found is AI-assisted. Replace those citations with a real source, or drop the price if none can be found (`grep -l openlaborproject src/prices/*.json`).
 - Run note (Nov 20 00:40 UTC run): bruisers.com calls itself an "AI repair estimator"; treat it like openlaborproject. 34 price files cite it (`grep -l bruisers src/prices/*.json`); re-source or drop those prices in later passes. Two new acura-ilx hybrid prices based only on it were dropped this run.
 - Run note (Nov 20 01:10 UTC, batch 4): the shared search budget ran out after ~5 searches per agent and WebFetch refused any URL not returned by the agent's own WebSearch. Batches of 10 agents x 3 models only get ~1 model each done in the second round of a run. Follow-ups found: saturn-sky has ~10 prices noted "Rough estimate" with no parts source (re-source or unprice); chevrolet-bolt-ev has only 10 issues and no common non-recall problems (needs a full issue pass); enginepatrol.com and carwhere.com are cited in several files and may be AI-compiled, check them; bmw-3-series N54 wastegate price cites openlaborproject.
+- Run note (Nov 20 ~05:40 UTC, batch 2): shared search budget ran out after ~5-10 searches per agent; several models dropped below 80% because AI-only prices (enginepatrol/openlaborproject/bruisers) were removed with no replacement. Retry those with fresh budget. Useful recall sources: auto-recalls.justia.com/<make>/<model>/<year>/<campaign>000 and static.nhtsa.gov/odi/rcl/<year>/RCLRPT-<campaign>-*.pdf.
 - Run note (Nov 20 04:40 UTC run, batch 1): 30 models repriced; carwhere-priced recalls set to free [0,0] with real recall sources. Deep files still cite carwhere/enginepatrol on many issues (ram-1500, ram-3500, audi-q7, chevrolet-malibu, bmw-3-series, toyota-tacoma, audi-a4, mazda-rx-8): needs an issue-source pass. Also vet vehicleflaws.com, 8020automotive.com, samarins.com (no prices?), thechargeport.com, forcar.org, carcomplaintdata.com, theweeklydriver.com.
 - Run note (Nov 19 20:40 UTC run): in unattended runs, subagent WebFetch of URLs that did not come from a WebSearch result timed out waiting for permission (RepairPal/CarComplaints/NHTSA PDF links already in the repo). Most `[~]` leftovers below are from that, not from a lack of sources. 65 files still cite openlaborproject (after batch 2). Batch 2 (21:25 UTC) ran out of the shared search budget early; items marked "redo first" got no real research.
 - [~] lexus-lx | Lexus LX | 1996-2025 | pricing pass done Nov 19 (was 33% priced, 16 unpriced; now 63% priced, 9 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later
@@ -570,36 +571,36 @@ These live models have under 80% of their non-recall issues priced, so the price
 - [x] toyota-t100 | Toyota T100 | 1996-1998 | pricing pass done Nov 20 (was 78% priced, 4 unpriced; now 80%+).
 - [x] chevrolet-prizm | Chevrolet Prizm | 1996-2002 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 80%+).
 - [x] lexus-rc | Lexus RC | 2015-2024 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 80%+).
-- [ ] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | pricing pass: 79% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] pontiac-solstice | Pontiac Solstice | 2006-2009 | pricing pass: 79% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] suzuki-aerio | Suzuki Aerio | 2002-2007 | pricing pass: 79% priced, 4 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] ford-bronco | Ford Bronco | 1996-2026 | pricing pass: 0% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] kia-forte | Kia Forte | 2010-2024 | pricing pass: 0% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] jeep-gladiator | Jeep Gladiator | 2020-2026 | pricing pass: 25% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] ford-ranger | Ford Ranger | 1996-2027 | pricing pass: 50% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] hyundai-tucson | Hyundai Tucson | 2005-2026 | pricing pass: 50% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] cadillac-cts | Cadillac CTS | 2003-2019 | pricing pass: 57% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] jeep-compass | Jeep Compass | 2007-2026 | pricing pass: 57% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] kia-sorento | Kia Sorento | 2003-2027 | pricing pass: 57% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] nissan-sentra | Nissan Sentra | 1996-2027 | pricing pass: 63% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] chevrolet-equinox-ev | Chevrolet Equinox EV | 2024-2026 | pricing pass: 67% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] chrysler-cirrus | Chrysler Cirrus | 1996-2000 | pricing pass: 70% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] ford-expedition | Ford Expedition | 1997-2027 | pricing pass: 70% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] hyundai-elantra | Hyundai Elantra | 1996-2026 | pricing pass: 70% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] lexus-hs | Lexus HS 250h | 2010-2012 | pricing pass: 70% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] lincoln-mkt | Lincoln MKT | 2010-2019 | pricing pass: 70% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] daewoo-lanos | Daewoo Lanos | 1999-2002 | pricing pass: 73% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] kia-ev9 | Kia EV9 | 2024-2026 | pricing pass: 73% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] ford-mustang | Ford Mustang | 1996-2026 | pricing pass: 75% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] honda-accord | Honda Accord | 1996-2026 | pricing pass: 75% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] mercedes-benz-sprinter | Mercedes-Benz Sprinter | 2003-2024 | pricing pass: 75% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] oldsmobile-intrigue | Oldsmobile Intrigue | 1998-2002 | pricing pass: 75% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] volkswagen-taos | Volkswagen Taos | 2022-2025 | pricing pass: 75% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] hyundai-entourage | Hyundai Entourage | 2007-2008 | pricing pass: 77% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] isuzu-axiom | Isuzu Axiom | 2002-2004 | pricing pass: 77% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] nissan-murano | Nissan Murano | 2003-2026 | pricing pass: 77% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] chevrolet-silverado-2500hd | Chevrolet Silverado 2500HD | 2001-2026 | pricing pass: 79% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
-- [ ] chevrolet-suburban | Chevrolet Suburban | 1996-2027 | pricing pass: 79% priced, 3 unpriced CLAIMED by scheduled run 2026-11-20 05:10 UTC
+- [~] mercedes-benz-clk | Mercedes-Benz CLK | 1998-2009 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 79% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. fuel pump recall issue years wrong in deep (08V-303 is 2003-04, 2006-08)
+- [~] pontiac-solstice | Pontiac Solstice | 2006-2009 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 63% priced, 7 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] suzuki-aerio | Suzuki Aerio | 2002-2007 | pricing pass done Nov 20 (was 79% priced, 4 unpriced; now 79% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] ford-bronco | Ford Bronco | 1996-2026 | pricing pass done Nov 20 (was 0% priced, 3 unpriced; now 0% priced, 7 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. 4 recall prices removed (unconfirmed recalls)
+- [x] kia-forte | Kia Forte | 2010-2024 | pricing pass done Nov 20 (was 0% priced, 3 unpriced; now every issue priced; all are free recall repairs)
+- [~] jeep-gladiator | Jeep Gladiator | 2020-2026 | pricing pass done Nov 20 (was 25% priced, 3 unpriced; now 25% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] ford-ranger | Ford Ranger | 1996-2027 | pricing pass done Nov 20 (was 50% priced, 3 unpriced; now 0% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. only ~1 of 6 non-recall priced after AI-only prices removed; deep has eng/engs + carwhere issues
+- [~] hyundai-tucson | Hyundai Tucson | 2005-2026 | pricing pass done Nov 20 (was 50% priced, 3 unpriced; now 63% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] cadillac-cts | Cadillac CTS | 2003-2019 | pricing pass done Nov 20 (was 57% priced, 3 unpriced; now 43% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [x] jeep-compass | Jeep Compass | 2007-2026 | pricing pass done Nov 20 (was 57% priced, 3 unpriced; now 80%+).
+- [x] kia-sorento | Kia Sorento | 2003-2027 | pricing pass done Nov 20 (was 57% priced, 3 unpriced; now 80%+).
+- [x] nissan-sentra | Nissan Sentra | 1996-2027 | pricing pass done Nov 20 (was 63% priced, 3 unpriced; now 80%+).
+- [~] chevrolet-equinox-ev | Chevrolet Equinox EV | 2024-2026 | pricing pass done Nov 20 (was 67% priced, 3 unpriced; now 67% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] chrysler-cirrus | Chrysler Cirrus | 1996-2000 | pricing pass done Nov 20 (was 70% priced, 3 unpriced; now 70% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] ford-expedition | Ford Expedition | 1997-2027 | pricing pass done Nov 20 (was 70% priced, 3 unpriced; now 70% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. own oil/brakes/coolant removed (enginepatrol-only); re-source
+- [~] hyundai-elantra | Hyundai Elantra | 1996-2026 | pricing pass done Nov 20 (was 70% priced, 3 unpriced; now 55% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. own maint emptied (enginepatrol-only); re-source
+- [~] lexus-hs | Lexus HS 250h | 2010-2012 | pricing pass done Nov 20 (was 70% priced, 3 unpriced; now 70% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] lincoln-mkt | Lincoln MKT | 2010-2019 | pricing pass done Nov 20 (was 70% priced, 3 unpriced; now 70% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] daewoo-lanos | Daewoo Lanos | 1999-2002 | pricing pass done Nov 20 (was 73% priced, 3 unpriced; now 73% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] kia-ev9 | Kia EV9 | 2024-2026 | pricing pass done Nov 20 (was 73% priced, 3 unpriced; now 73% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] ford-mustang | Ford Mustang | 1996-2026 | pricing pass done Nov 20 (was 75% priced, 3 unpriced; now 44% priced, 9 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. own oil/brakes/battery/coolant removed (enginepatrol-only); 6 recall issues lost their only source
+- [~] honda-accord | Honda Accord | 1996-2026 | pricing pass done Nov 20 (was 75% priced, 3 unpriced; now 64% priced, 4 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] mercedes-benz-sprinter | Mercedes-Benz Sprinter | 2003-2024 | pricing pass done Nov 20 (was 75% priced, 3 unpriced; now 23% priced, 10 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. 3 of 12 non-recall priced after enginepatrol-only prices removed; needs diesel parts+labor sources
+- [~] oldsmobile-intrigue | Oldsmobile Intrigue | 1998-2002 | pricing pass done Nov 20 (was 75% priced, 3 unpriced; now 75% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] volkswagen-taos | Volkswagen Taos | 2022-2025 | pricing pass done Nov 20 (was 75% priced, 3 unpriced; now 75% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] hyundai-entourage | Hyundai Entourage | 2007-2008 | pricing pass done Nov 20 (was 77% priced, 3 unpriced; now 77% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] isuzu-axiom | Isuzu Axiom | 2002-2004 | pricing pass done Nov 20 (was 77% priced, 3 unpriced; now 77% priced, 3 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later.
+- [~] nissan-murano | Nissan Murano | 2003-2026 | pricing pass done Nov 20 (was 77% priced, 3 unpriced; now 64% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. CVT price now rests on truedelta only; verify
+- [x] chevrolet-silverado-2500hd | Chevrolet Silverado 2500HD | 2001-2026 | pricing pass done Nov 20 (was 79% priced, 3 unpriced; now 80%+).
+- [~] chevrolet-suburban | Chevrolet Suburban | 1996-2027 | pricing pass done Nov 20 (was 79% priced, 3 unpriced; now 67% priced, 5 unpriced). Remaining items lacked public cost sources or fetches were blocked; retry later. Transfer case missing a part issue years look wrong (26V-289 is 2026)
 - [ ] dodge-stratus | Dodge Stratus | 1996-2006 | pricing pass: 79% priced, 3 unpriced
 - [ ] fiat-500l | Fiat 500L | 2014-2020 | pricing pass: 79% priced, 3 unpriced
 - [ ] hyundai-xg350 | Hyundai XG300 / XG350 | 2001-2005 | pricing pass: 79% priced, 3 unpriced
