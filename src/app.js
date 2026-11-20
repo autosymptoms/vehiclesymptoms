@@ -266,7 +266,13 @@ showMy();
   function ready(){goB.disabled=!(job&&+amt.value>0)}
   ji.oninput=list;amt.oninput=ready;list();{const sv=pick.get().v;if(sv&&!sv._full&&window.VS_LOAD)window.VS_LOAD(sv.id).then(list)}
   const m$=n=>'$'+Math.round(n).toLocaleString('en-US');
+  const m2c=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2});
   const m2=n=>'$'+(Math.round(n*100)/100).toLocaleString('en-US',{maximumFractionDigits:0});const host=u=>{try{return new URL(u).hostname.replace(/^www\./,'')}catch(e){return 'source'}};
+  // Posted menu prices: what shops print on their own pages for this service. Shown beside the built range, never blended into it.
+  const mSpan=e=>e.menu&&e.menu.length?[Math.min(...e.menu.map(x=>x[2])),Math.max(...e.menu.map(x=>x[3]))]:null;
+  function menuHtml(e){const sp=mSpan(e);if(!sp)return '';const KD={chain:'chain',dealer:'dealer',independent:'independent shop'};
+    return `<h3>What shops advertise</h3><p>Shops usually sell this service at a set menu price, not by parts and hours. On ${e.menu.length} shops' own pages we found it posted at <b>${m$(sp[0])}–${m$(sp[1])}</b>, mostly before tax and fees. Compare your quote with these as well as the range above.</p>
+      <details class="pcr-d"><summary>See the ${e.menu.length} posted prices</summary><p class="muted" style="font-size:13.5px">Read from each shop's own page on ${esc(e.menu[0][7])}. Coupons end and prices change, so open the link to check. These prices are not used to build our range, and listing a shop is not a recommendation.</p><ul class="pcr-src">${e.menu.map(x=>`<li><b>${x[2]===x[3]?m2c(x[2]):m2c(x[2])+'–'+m2c(x[3])}</b> <a href="${esc(x[1])}" target="_blank" rel="noopener nofollow">${esc(x[0])}</a> (${esc((KD[x[5]]||'shop')+', '+x[4])}): ${esc(x[6])}</li>`).join('')}</ul></details>`}
   function estHtml(e,R,c,st){const stn=st?(E.states.find(x=>x[0]===st)||[])[1]:'';const weak=st&&E.rates[st]&&!E.rates[st][2];
     const conf=e.conf==='high'?['Well sourced','every labor time is the maker\'s own for the example vehicle']:e.conf==='medium'?['Estimate','every class has a stated labor time and at least two parts sources']:['Rough estimate','some labor times come from a comparable vehicle or a general guide, not the example vehicle'];
     const rate=`${m2(R.r[0])}–${m2(R.r[1])} an hour (${st?'typical repair shop rate in '+esc(stn)+(weak?', limited data':''):'the national middle: about half of U.S. shops'})`;
@@ -275,6 +281,7 @@ showMy();
     return `<h3>How this range is built <span class="pcr-conf ${e.conf==='low'?'lowc':''}">${conf[0]}</span></h3>
       <p class="muted" style="font-size:13.5px">${esc(e.job)}, ${esc(e.unit)}. Parts run from a good aftermarket part to the dealer's list price. Labor is the stated time multiplied by ${rate}. ${conf[0]}: ${conf[1]}. Last checked ${esc(e.checked)}.</p>
       <div class="pcr-tw"><table class="pcr-t"><thead><tr><th scope="col">Kind of vehicle</th><th scope="col">Parts</th><th scope="col">Labor</th><th scope="col">Total</th></tr></thead><tbody>${rows}</tbody></table></div>
+      ${menuHtml(e)}
       ${c?'':'<p class="muted" style="font-size:13.5px">The typical range above covers all four kinds of vehicle. Pick your kind of vehicle in step 2 to narrow it.</p>'}${st?'<p class="muted" style="font-size:13.5px">State rates are averages across general repair shops. Dealers and big-city shops often charge more; nobody publishes dealer rates by state.</p>':''}
       <h3>What a quote often adds</h3><p>${esc(e.extras)}</p>
       <details class="pcr-d"><summary>Sources for every number (${R.rows.reduce((a,o)=>a+o.x.src.filter(x=>!x[3]).length,0)} links${R.rows.some(o=>o.x.src.some(x=>x[3]))?', plus '+R.rows.reduce((a,o)=>a+o.x.src.filter(x=>x[3]).length,0)+' also checked':''})</summary>${src}<h4>Labor rates</h4><ul class="pcr-src">${E.rsrc.map(u=>`<li><a href="${esc(u)}" target="_blank" rel="noopener nofollow">${esc(host(u))}</a></li>`).join('')}</ul></details>
@@ -287,6 +294,7 @@ showMy();
     else{cls='vhigh';head='Well above typical';txt="That's well above what this job usually costs. Ask for an itemized quote and get a second opinion before you approve it."}
     // Say what the gap between the quote and the built range amounts to, so the driver knows what to ask about. Only for sourced jobs.
     let gapTxt='';if(ER){const hr=n=>(Math.round(n*10)/10).toLocaleString('en-US');if(q>hi){const gp=q-hi,h0=gp/ER.r[1],h1=gp/ER.r[0];gapTxt=`<p class="pcr-gap">Your quote is <b>${m$(gp)}</b> above the top of this range. At ${m2(ER.r[0])}–${m2(ER.r[1])} an hour, that is the same as about ${hr(h0)}${hr(h0)===hr(h1)?'':'–'+hr(h1)} more hours of labor than the stated time. It could also be a dearer part, a higher hourly rate, or extra work. Ask the shop which it is.</p>`}else if(q<lo){gapTxt=`<p class="pcr-gap">Your quote is <b>${m$(lo-q)}</b> below the bottom of this range. Ask whether it covers every part and all the labor, and which brand of part it uses.</p>`}}
+    if(ER){const sp=mSpan(job.est);if(sp)gapTxt+=`<p class="pcr-gap">Shops' posted prices for this service run <b>${m$(sp[0])}–${m$(sp[1])}</b>. Your quote is ${q<sp[0]?'below':q>sp[1]?'above':'inside'} that span.${q>sp[1]?' Ask what it includes that a menu price does not.':''}</p>`}
     const max=Math.max(hi*1.6,q*1.08),L=lo/max*100,W=(hi-lo)/max*100,Q=Math.min(q/max*100,99);
     const s=pick.get();const vname=s.v?(s.y?s.y+' ':'')+s.v.make+' '+s.v.model:'';
     out.innerHTML=`<section class="card pcr ${cls}"><div class="eyebrow">Your result${vname?' · '+esc(vname):''}</div><h2>${head}</h2><p class="pcr-job">${esc(job.job)}: you were quoted <b>${m$(q)}</b>. Typical${ER?(ec?' for '+({economy:'an economy or compact car',midsize:'a midsize car or crossover',truck:'a truck or large SUV',luxury:'a luxury car'})[ec]:'')+(es?' in '+esc((E.states.find(x=>x[0]===es)||[])[1]):''):''}: <b>${m$(lo)}–${m$(hi)}</b>.</p>
