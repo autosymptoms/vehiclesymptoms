@@ -8,3 +8,9 @@ Free consumer car-symptom lookup: symptom search, VIN decoder (NHTSA vPIC), and 
 - Hosted on Vercel; settings are in `vercel.json`.
 
 Vehicle problem content is a draft pending review by a professional technician.
+
+## MotoVisuals repair animations
+
+The site serves a searchable title index at `/repair-animations/`. Technology from TechNet loads when a visitor opens the player. Public website iframe URLs for the approved domain are in `src/animations/config.json`; individual entries use `narrated:<part_id>` or `interactive:<part_id>`. Other entries open the provider's menu with the system and title to look for. The production build requires no API key.
+
+To refresh the English title index, set `MOTOVISUALS_API_KEY` in your local environment and run `node tools/motovisuals-catalog.js`. Review the changes to `src/animations/titles.json` before committing. The refresh records only titles, systems, formats, and provider part IDs. Add or update relevant guide slugs and issue-title matches in `src/animations/topics.js`. The player uses the referrer origin for TechNet's domain approval. A preview hostname needs separate approval in TechNet for playback.
