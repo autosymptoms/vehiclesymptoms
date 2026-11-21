@@ -4,6 +4,7 @@
     --red:#C62F37; --amber:#A86400; --green:#18804A; --shadow:0 1px 2px rgba(16,34,52,.06),0 4px 14px rgba(16,34,52,.05);
   }
   *{box-sizing:border-box}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
   html,body{margin:0;background:var(--bg);color:var(--text);font-family:'Public Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
@@ -192,6 +193,8 @@ details.allm>summary{cursor:pointer;color:var(--blue2);font-weight:600;font-size
 .lbl2{color:var(--muted)}
 .mini{border-left:3px solid var(--amber);padding:6px 10px;margin:8px 0;font-size:14px}
 .summary{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:13px;line-height:1.5;color:var(--body2);font-family:ui-monospace,Menlo,Consolas,monospace;max-height:260px;overflow:auto}
+.share-text{width:100%}
+@media print{.result .summary{max-height:none;overflow:visible}}
 .row-btns{display:flex;gap:10px;align-items:center;margin-top:10px}
 .btn.sm{padding:10px 16px;font-size:14px}
 .btn.ghost{background:none;border:1.5px solid var(--line);color:var(--text)}
@@ -203,7 +206,7 @@ details.allm>summary{cursor:pointer;color:var(--blue2);font-weight:600;font-size
 .srcs{font-size:13px;color:var(--muted);word-break:break-all}
 .hubsec{margin:26px 0}
 .hubsec h2{font-size:20px;margin:0 0 12px}
-@media print{header,footer,.flow-nav,.row-btns,.picker,.shortcuts,#gvm,.fullguide,#emailbox,.mybar{display:none!important}body{background:#fff;color:#000}.card,.summary{border:0;background:#fff;color:#000}}
+@media print{header,footer,.flow-nav,.row-btns,.picker,.shortcuts,#gvm,.fullguide,#emailbox{display:none!important}body{background:#fff;color:#000}.card,.summary{border:0;background:#fff;color:#000}}
 /* mobile fixes */
 .split>*{min-width:0}
 .card{min-width:0;overflow-wrap:anywhere}
@@ -366,6 +369,7 @@ details.allm>summary{cursor:pointer;color:var(--blue2);font-weight:600;font-size
 @media (max-width:960px){.hero-grid{grid-template-columns:1fr;gap:22px}}
 .mycar{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;margin-top:18px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
 .mycar h2{font-size:21px;margin:6px 0 4px}
+.mycar h2 small{font-size:.75em;font-weight:500;color:var(--muted)}
 .mycar .d{color:var(--muted);font-size:14px;margin:0 0 14px;line-height:1.45}
 .ymm-stack{display:grid;gap:8px}
 .ymm-stack select{width:100%}
@@ -389,12 +393,6 @@ details.allm>summary{cursor:pointer;color:var(--blue2);font-weight:600;font-size
 .vh-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .savecar{background:none;border:1px solid var(--line);color:var(--blue2);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
 .savecar.on{color:var(--green);border-color:rgba(52,199,123,.5)}
-.mybar{display:none;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0 0 16px}
-.mybar .mb-ic{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:rgba(10,132,255,.15);color:var(--blue2);flex:none}
-.mybar #myBarTxt{flex:1;min-width:0;font-size:13px;color:var(--muted);line-height:1.3}
-.mybar #myBarTxt b{display:block;color:var(--text);font-size:15px}
-.mybar .mb-go{color:var(--blue2);font-size:24px;font-weight:700}
-@media (max-width:960px){.mybar{display:flex}.hero{padding-top:22px}}
 
 /* ---------- code lookup ---------- */
 .code-big{display:inline-block;background:var(--blue);color:#fff;border-radius:10px;padding:2px 12px;margin-right:8px;font-size:.85em;letter-spacing:.5px}
@@ -466,6 +464,9 @@ details.allm>summary{cursor:pointer;color:var(--blue2);font-weight:600;font-size
 /* ---------- price check ---------- */
 .pc{display:grid;gap:4px;max-width:760px}
 .pc-step{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.pc-step[hidden],.pc-picked[hidden]{display:none}
+.pc-request{display:block;box-sizing:border-box;width:100%;padding:12px;margin:0 0 10px;border:1px solid var(--line);border-radius:10px;font:inherit;color:var(--text);resize:vertical}
+#pcCopyStatus{display:block;margin-top:6px;color:var(--muted)}
 .pc-step:first-child{border-top:0}
 .pc-step .pn{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800}
 .pc-body{flex:1;min-width:0}
@@ -526,6 +527,7 @@ header,.hero,footer{--bg:#0A2340;--panel:#123158;--panel2:#173A66;--line:#2B4C76
 header{background:#0A2340;border-bottom:1px solid #0A2340}
 .hero{background:linear-gradient(165deg,#0A2340 0%,#0F2F57 100%);padding:48px 0 40px}
 .hero:before{opacity:.6}
+@media (max-width:720px){.hero{padding:20px 0 28px}.hero h1{margin-top:0}.hero .sub{margin-bottom:16px}}
 footer{background:#0A2340;border-top:0}
 .card,.pain,.pstep,.tool,.issue,.gcard,.faq,.pguide,.snap,.lcard,.codechips a,.auth li,.compare .col,.pc-sug button{box-shadow:var(--shadow)}
 .lcard{background:var(--panel)}
@@ -577,7 +579,15 @@ a.walk{color:var(--blue)}
 .byline{color:var(--muted);font-size:13px;margin:4px 0 16px}
 .byline a{color:var(--blue)}
 .vbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 14px;box-shadow:var(--shadow)}
-.vbar.edit{flex-direction:column;align-items:stretch}
+.vbar.edit{display:block}
+.vbar.edit>summary{cursor:pointer;font-weight:700}
+.vbar.edit>summary span{font-weight:500;color:var(--muted)}
+.vbar.edit[open]>.picker,.vbar.edit .notlisted{margin-top:10px}
+.flow+.vbar{margin:14px 0 0}
+.result>.vbar{margin:16px 0}
+#guideApp .fq,#guideApp .rt,#vehicle{scroll-margin-top:5rem}
+#guideApp h2[tabindex]:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:3px}
+@media (max-width:720px){#guideApp .fq,#guideApp .rt,#vehicle{scroll-margin-top:8rem}}
 .vb-l{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase}
 .vb-l em{font-style:normal;text-transform:none;letter-spacing:0;font-weight:500}
 .vbar b{font-size:16px}
