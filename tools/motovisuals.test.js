@@ -39,7 +39,7 @@ test('guides offer verified playback and keep an overview distinct from a part',
   assert.equal(lib.forText('Worn brake pads').title,'Brake Pads');
 });
 
-test('catalog separates direct, menu and unavailable titles across search and browser history', async () => {
+test('public directory exposes only playable videos across search, deep links and browser history', async () => {
   const { html, data } = createLibrary().directory();
   const dom = new JSDOM(html + '<script type="application/json" id="mv-data">' + JSON.stringify(data) + '</script>', {
     runScripts:'outside-only', url:'https://www.vehiclesymptoms.com/repair-animations/?animation=narrated%3A908518'
@@ -48,22 +48,24 @@ test('catalog separates direct, menu and unavailable titles across search and br
   try {
     w.HTMLElement.prototype.scrollIntoView = function() {};
     w.eval(fs.readFileSync(require.resolve('../src/animations/browser.js'),'utf8'));
+    assert.equal(d.querySelectorAll('details,select').length,0);
     const content = d.getElementById('mv-content');
-    const search = d.getElementById('mv-search'), format = d.getElementById('mv-format');
+    const search = d.getElementById('mv-search');
     assert.equal(d.querySelectorAll('#mv-groups [data-mv-id]').length,data.items.length);
-    assert.equal(data.items.length,745);
+    assert.equal(data.items.length,23);
     assert.equal(data.items.filter(i => i.url).length,3);
     assert.equal(data.items.filter(i => i.menuLabel).length,21);
-    assert.equal(data.items.filter(i => i.url || i.menuLabel).length,23);
-    assert.equal(d.getElementById('mv-title').textContent,'Wheel Bearing');
-    assert.match(content.textContent,/Catalog only/);
+    assert.ok(data.items.every(i => i.url || i.menuLabel));
+    assert.equal(d.querySelectorAll('#mv-groups a[data-mv-id]').length,23);
+    assert.doesNotMatch(html,/catalog.only|Wheel Bearing/i);
+    assert.equal(w.location.search,'');
+    assert.equal(d.getElementById('mv-viewer').hidden,true);
     assert.equal(content.querySelector('iframe'),null);
-    assert.equal(d.querySelector('[data-mv-featured]').open,true);
+    assert.equal(d.getElementById('mv-count').textContent,'23 videos');
     search.value = 'wheel bearings'; search.dispatchEvent(new w.Event('input'));
-    format.value = 'narrated'; format.dispatchEvent(new w.Event('change'));
-    const visible = [...d.querySelectorAll('.mv-group:not([hidden]) li:not([hidden]) [data-mv-id]')];
-    assert.ok(visible.some(el => el.textContent === 'Wheel Bearing' && el.tagName === 'SPAN'));
-    assert.ok(visible.every(el => el.dataset.mvId.startsWith('narrated:')));
+    assert.equal(d.querySelectorAll('.mv-group:not([hidden]) li:not([hidden])').length,0);
+    search.value = 'brake pads'; search.dispatchEvent(new w.Event('input'));
+    assert.equal(d.getElementById('mv-count').textContent,'1 video');
     search.value=''; search.dispatchEvent(new w.Event('input'));
     d.querySelector('a[data-mv-id="narrated:902541"]').click();
     assert.equal(content.querySelector('iframe').title,'Brake Pads');
