@@ -25,7 +25,8 @@
  "safety": [
   "If the pull started suddenly with a bang, a thump or a corner sitting lower, pull over and don't drive it further.",
   "If you smell burning or see smoke from a wheel, pull over, stop and let it cool. Don't touch the wheel.",
-  "If you have to fight the steering wheel to stay in your lane, slow down and get off the road safely."
+  "If you have to fight the steering wheel to stay in your lane, slow down and get off the road safely.",
+  "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
  ],
  "start": "q_when",
  "nodes": {
@@ -75,11 +76,11 @@
     },
     {
      "a": "It started after hitting a pothole or curb",
-     "go": "r_impact_damage"
+     "go": "r_suspension_failure"
     },
     {
      "a": "None of these / I'm not sure",
-     "go": "r_impact_damage"
+     "go": "r_suspension_failure"
     }
    ]
   },
@@ -130,7 +131,7 @@
    "result": {
     "title": "A flat or very low tire is likely pulling the car",
     "urgency": "stop",
-    "now": "Pull over somewhere safe and stop. Put on the spare or call roadside assistance.",
+    "now": "If a tire suddenly loses pressure, keep both hands on the wheel, steer smoothly and ease off the accelerator gradually. Once stable, slow down and pull clear of traffic. Use the spare only in a safe location or call roadside assistance.",
     "if": [
      "If the tire is only somewhat low, has no visible damage, and you have a portable pump with you, inflating it where you are may be an option. Have it checked for a leak right away. Don't drive on a tire that's flat, has a bulge or keeps losing air.",
      "If the spare is a small temporary one, follow the speed and distance limits printed on it.",
@@ -210,9 +211,8 @@
    "result": {
     "title": "A brake may be sticking on that side",
     "urgency": "stop",
-    "now": "Pull over somewhere safe and let the brakes cool. Don't touch the wheel. Don't drive further until the brakes are checked. Have it towed or call a mobile mechanic.",
+    "now": "Pull over safely and switch off the vehicle. If you suspect a fire, including smoke that continues or visible flames, get everyone at least 100 feet away and clear of traffic and call 911. If there is only a hot smell, stay clear of the wheel and arrange a tow or mobile brake inspection before driving again.",
     "if": [
-     "If you see smoke from a wheel, keep everyone clear and let it cool. Call 911 if you see flames.",
      "If the brake pedal feels soft or goes lower than usual, or the red brake light comes on, don't move the car.",
      "If the parking brake was partly on, release it fully and let everything cool. Overheated brakes can still be weakened, so have them checked before relying on the car."
     ],
@@ -236,8 +236,7 @@
     ],
     "confirm": {
      "you": [
-      "After it has cooled, carefully hold your hand near (not on) each wheel to compare heat. Don't drive just to test it.",
-      "Make sure the parking brake is fully released."
+      "Tell the shop which side pulled or smelled hot before you parked. Stay clear of the brakes and wheels."
      ],
      "shop": [
       "Brake caliper and slide pin inspection",
@@ -372,7 +371,7 @@
    "result": {
     "title": "This may be the slope of the road, not the car",
     "urgency": "diy",
-    "now": "Test on a flat, empty parking lot. Drive straight slowly and loosen your grip on the wheel for a moment. If the car stays straight there, the road slope is a possible cause.",
+    "now": "If you previously noticed a mild drift toward the edge only on sloped roads, the road surface may explain it. Keep both hands on the wheel. If the vehicle pulls on level roads, have the tires and steering checked.",
     "if": [
      "If the car drifts on a flat lot too, check the tire pressures and book an alignment check.",
      "If the steering wheel is off-center when driving straight, have the alignment checked."
@@ -397,8 +396,7 @@
     ],
     "confirm": {
      "you": [
-      "Test on a flat parking lot.",
-      "Check all four tire pressures."
+      "Note whether the drift occurred only on sloped roads. Check the tire pressures while parked."
      ],
      "shop": [
       "Alignment check"
@@ -488,8 +486,8 @@
   "r_worn_parts": {
    "result": {
     "title": "Worn steering or suspension parts may be letting a wheel shift",
-    "urgency": "soon",
-    "now": "Have the steering and front suspension inspected within the next few days. Drive gently until then.",
+    "urgency": "stop",
+    "now": "If the steering is loose or the vehicle pulls with clunking, stop safely and arrange a tow or a mobile front-end inspection before driving again.",
     "if": [
      "If the steering suddenly feels much looser or the car is hard to keep in its lane, stop driving and have it towed.",
      "If parts are replaced, have an alignment done afterward.",
@@ -515,8 +513,7 @@
     ],
     "confirm": {
      "you": [
-      "Look for uneven wear on the inner or outer edges of the front tires.",
-      "Listen for clunks over speed bumps."
+      "Describe the clunks or looseness you already noticed."
      ],
      "shop": [
       "Steering and suspension inspection on a lift",
@@ -593,6 +590,8 @@
  },
  "sources": [
   "https://www.nhtsa.gov/vehicle-safety/tires",
-  "https://www.nhtsa.gov/recalls"
+  "https://www.nhtsa.gov/recalls",
+  "https://assets.goaaa.com/image/upload/v1698431472/AAA_Guide_CarCare_final.pdf",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/"
  ]
 }

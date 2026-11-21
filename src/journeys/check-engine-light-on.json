@@ -190,7 +190,7 @@
    "result": {
     "title": "The car may have gone into a protective low-power mode",
     "urgency": "soon",
-    "now": "Keep driving to a minimum. A tow is the safest option. If you must move it, keep it to a short, gentle trip to a shop on low-speed roads and avoid highways.",
+    "now": "If the vehicle loses power or cannot keep up safely, get out of traffic as soon as it is safe and contact roadside assistance. Follow the manual’s instructions before driving again.",
     "if": [
      "If you can't keep up with traffic or the car hesitates badly when you press the gas, don't drive it. Have it towed.",
      "If the light starts flashing or the engine shakes, pull over and turn the engine off.",
@@ -232,7 +232,7 @@
    "result": {
     "title": "A fuel leak is possible. Don't drive until it's found",
     "urgency": "stop",
-    "now": "Turn the engine off, look under the car for wet spots or dripping fuel, and have the car towed to a shop.",
+    "now": "If you smell raw fuel, stop safely and switch off the engine. Move everyone away from the vehicle and traffic, avoid ignition sources and arrange roadside help. If you suspect a fire, leave the hood closed and call 911.",
     "if": [
      "If you see fuel dripping or pooling, keep everyone away, don't start the car, and call for help.",
      "Not seeing a drip doesn't rule out a leak. Fuel can leak onto hot parts and evaporate before it reaches the ground.",
@@ -258,8 +258,7 @@
     ],
     "confirm": {
      "you": [
-      "Look under the car for wet spots.",
-      "Don't smoke or use flames nearby."
+      "Once safely away from the vehicle, report where you noticed the odor and whether you saw smoke."
      ],
      "shop": [
       "Fuel leak inspection",
@@ -273,9 +272,9 @@
    "result": {
     "title": "A loose or worn gas cap is a common cause",
     "urgency": "diy",
-    "now": "Take the gas cap off, check the rubber seal for cracks, and put it back on until it clicks. Then drive normally for a few days.",
+    "now": "If the light is steady, the car runs normally and the light appeared after refueling, secure the filler cap if your vehicle has one. Check the manual and arrange a diagnostic check if the light remains on.",
     "if": [
-     "If the light hasn't gone off after a week of normal driving, have the code read. It may be another leak in the fuel vapor system.",
+     "If the light stays on or returns, have the stored codes read and the cause tested.",
      "If the car starts running poorly or the light flashes, stop and have it checked.",
      "If you smell fuel strongly, especially inside the car or under the hood, don't drive it. Have it checked."
     ],
@@ -314,8 +313,8 @@
   "r_o2_cat": {
    "result": {
     "title": "Possibly an oxygen sensor or catalytic converter problem",
-    "urgency": "check",
-    "now": "Have the code read and book a check within the next couple of weeks.",
+    "urgency": "soon",
+    "now": "Arrange a prompt diagnostic check. Tell the shop whether the light is steady or comes and goes, and describe any other symptoms. Follow the driving instructions in your vehicle’s manual.",
     "if": [
      "If the rotten egg smell is strong or you notice a rattle under the car, get it checked sooner.",
      "If the car loses power or the exhaust seems blocked, have it checked before driving further. A blocked converter can get very hot.",
@@ -342,7 +341,7 @@
     ],
     "confirm": {
      "you": [
-      "Track your fuel mileage over a couple of fill-ups.",
+      "Report any drop in fuel mileage you have already noticed.",
       "Have the code read."
      ],
      "shop": [
@@ -397,10 +396,10 @@
   "r_intermittent": {
    "result": {
     "title": "Possibly a sensor or wiring fault that comes and goes",
-    "urgency": "check",
-    "now": "Have the code read while the light is on, or ask a shop to read stored codes, and book a check when convenient.",
+    "urgency": "soon",
+    "now": "Arrange a prompt diagnostic check. Tell the shop whether the light is steady or comes and goes, and describe any other symptoms. Follow the driving instructions in your vehicle’s manual.",
     "if": [
-     "If the light starts flashing or the car runs badly, get it checked right away.",
+     "If the light flashes or the car shakes hard, pull over safely, switch off the engine and call for assistance.",
      "If you have an emissions test coming up, get it fixed first. Cars with recent faults often fail.",
      "If you smell raw fuel or burning, or see smoke, pull over, turn the engine off and step away from the car.",
      "If the temperature gauge climbs toward red or a red warning light comes on, pull over and turn the engine off."
@@ -439,8 +438,8 @@
   "r_general_scan": {
    "result": {
     "title": "Get the code read. That's the fastest way to know what it is",
-    "urgency": "check",
-    "now": "Have the trouble code read within the next week or so. Many auto parts stores do it free, or a shop can do it.",
+    "urgency": "soon",
+    "now": "Arrange a prompt diagnostic check. Tell the shop whether the light is steady or comes and goes, and describe any other symptoms. Follow the driving instructions in your vehicle’s manual.",
     "if": [
      "If the light starts flashing or the car shakes, pull over and turn the engine off.",
      "If any red warning light comes on or the temperature gauge rises, pull over and turn the engine off.",
@@ -502,6 +501,9 @@
   ]
  },
  "sources": [
+  "https://owners.honda.com/utility/download?path=%2Fstatic%2Fpdfs%2F2020%2FCivic+Sedan%2F2020_Civic_4D_Dashboard_Details.pdf",
+  "https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?ProcUid=G1841481&Uid=G1841480&buildtype=web&countryCode=USA&div=f&languageCode=en&moidRef=G539493&userMarket=USA&vFilteringEnabled=False&variantid=6303",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/",
   "https://www.aaa.com/autorepair/articles/check-engine-light",
   "https://www.edmunds.com/car-care/what-your-check-engine-light-is-telling-you.html"
  ]

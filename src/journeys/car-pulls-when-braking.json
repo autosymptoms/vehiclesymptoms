@@ -24,7 +24,8 @@
  "safety": [
   "If the brake pedal sinks toward the floor or feels soft, stop driving and have the car towed.",
   "If the red brake warning light comes on while driving, pull over safely and don't continue.",
-  "If you see smoke or smell strong burning from a wheel, pull over and let it cool. Don't touch the wheel."
+  "If you see smoke or smell strong burning from a wheel, pull over and let it cool. Don't touch the wheel.",
+  "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
  ],
  "start": "q_warning_signs",
  "nodes": {
@@ -168,7 +169,7 @@
     "if": [
      "If the grinding only happens for the first few stops after rain or a car wash, it may be light surface rust. Have the brakes inspected anyway, since you also have a pull.",
      "If the pedal also feels soft or sinks, treat it as a brake failure risk and don't move the car.",
-     "If you smell burning or see smoke from a wheel, keep clear and let it cool."
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
     ],
     "why": "Grinding plus a pull usually means one side's pads are gone and metal is scraping on the rotor. That side brakes poorly and unevenly, so the car tugs and stopping distances get longer.",
     "causes": [
@@ -204,9 +205,8 @@
    "result": {
     "title": "A brake caliper may be sticking and dragging on one wheel",
     "urgency": "stop",
-    "now": "Pull over somewhere safe and let the brakes cool. Don't drive further until the brakes are checked. Have it towed or call a mobile mechanic.",
+    "now": "Pull over safely and switch off the vehicle. If you suspect a fire, including smoke that continues or visible flames, get everyone at least 100 feet away and clear of traffic and call 911. If there is only a hot smell, stay clear of the wheel and arrange a tow or mobile brake inspection before driving again.",
     "if": [
-     "If you see smoke from a wheel, keep everyone clear and let it cool. Call 911 if you see flames.",
      "If the brake pedal feels soft or sinks, or the red brake light comes on, don't move the car.",
      "If the parking brake was partly on, release it fully and let everything cool. Overheated brakes can still be weakened, so have them checked before relying on the car."
     ],
@@ -230,8 +230,7 @@
     ],
     "confirm": {
      "you": [
-      "Without touching, check whether one wheel is still giving off much more heat than the others. Don't drive just to test it.",
-      "Compare brake dust on the front wheels."
+      "Tell the shop which side pulled or smelled hot before you parked. Stay clear of the brakes and wheels."
      ],
      "shop": [
       "Caliper piston and slide pin inspection",
@@ -331,7 +330,7 @@
     "if": [
      "If one wheel feels much hotter than the others after a drive, a brake may be dragging. Get it checked within a day or two.",
      "If the steering also feels loose or clunks over bumps, get it checked sooner.",
-     "If you smell burning or see smoke from a wheel, pull over, let it cool and don't drive further until it's checked.",
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle.",
      "If the pedal feels soft or the red brake light comes on, stop driving and have it towed."
     ],
     "why": "A car that drifts while cruising and pulls harder when braking usually has a steady cause, like alignment or a tire problem, that braking makes more noticeable. A brake that's slightly dragging can do the same thing.",
@@ -354,8 +353,7 @@
     ],
     "confirm": {
      "you": [
-      "After a drive, compare how warm each wheel feels by holding your hand near it.",
-      "Look at the front tires for wear on just one edge."
+      "Check tire pressures while safely parked. Tell the shop which way the vehicle pulled and any smell or noise you already noticed."
      ],
      "shop": [
       "Wheel alignment check",
@@ -441,8 +439,7 @@
     ],
     "confirm": {
      "you": [
-      "Check tire pressures.",
-      "Compare the brake dust and wheel warmth on each side after a short drive."
+      "Check tire pressures while safely parked. Tell the shop which way the vehicle pulled and any smell or noise you already noticed."
      ],
      "shop": [
       "Brake inspection with pad and rotor measurement",
@@ -541,7 +538,7 @@
     "if": [
      "If the pedal goes soft, the red brake light comes on, or you hear grinding, stop driving and have it towed.",
      "If the pull is getting stronger, get it checked within a day or two.",
-     "If you smell burning or see smoke from a wheel, pull over, let it cool and don't drive further until it's checked."
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
     ],
     "why": "A car that pulls when braking has an imbalance between the left and right side, in the brakes, tires or suspension. Most causes are straightforward to fix, but some get worse quickly, so it shouldn't wait long.",
     "causes": [
@@ -599,6 +596,9 @@
  },
  "sources": [
   "https://www.nhtsa.gov/recalls",
-  "https://www.kwik-fit.com/blog/how-to-tell-if-your-brake-caliper-is-stuck"
+  "https://www.kwik-fit.com/blog/how-to-tell-if-your-brake-caliper-is-stuck",
+  "https://assets.goaaa.com/image/upload/v1698431472/AAA_Guide_CarCare_final.pdf",
+  "https://mwg.aaa.com/via/car/brake-check-service-tips",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/"
  ]
 }

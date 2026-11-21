@@ -25,7 +25,8 @@
  "safety": [
   "If you smell raw fuel, stop driving, turn the engine off and keep sparks and flames away.",
   "If the check engine light is flashing and the engine shakes, pull over and stop. Driving on can overheat and damage the catalytic converter.",
-  "If a wheel is smoking or gives off a strong burning smell, pull over and let it cool."
+  "If a wheel is smoking or gives off a strong burning smell, pull over and let it cool.",
+  "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
  ],
  "start": "q_signs",
  "nodes": {
@@ -179,9 +180,8 @@
    "result": {
     "title": "A brake may not be releasing and could be dragging the car",
     "urgency": "stop",
-    "now": "Pull over when it's safe, make sure the parking brake is fully released, and let the brakes cool. Don't drive it until the brakes have been checked. A brake that keeps dragging can overheat and lose stopping power. A mobile mechanic or a tow is the safest option.",
+    "now": "Pull over safely and switch off the vehicle. If you suspect a fire, including smoke that continues or visible flames, get everyone at least 100 feet away and clear of traffic and call 911. If there is only a hot smell, stay clear of the wheel and arrange a tow or mobile brake inspection before driving again.",
     "if": [
-     "If a wheel is smoking or too hot to go near, keep everyone away from it until it cools. If you see flames, call 911.",
      "If the car pulls to one side, the brake pedal feels soft or sinks, or the brake warning light is on, don't drive it.",
      "If the parking brake was partly on and releasing it stops the drag, the brakes may still have been overheated. Have them checked before relying on them."
     ],
@@ -205,8 +205,7 @@
     ],
     "confirm": {
      "you": [
-      "Check that the parking brake is fully off.",
-      "After a drive, hold your hand near (not on) each wheel to feel if one is much hotter than the others."
+      "While safely parked, note whether the parking brake was released and describe any smoke or burning smell you already noticed."
      ],
      "shop": [
       "Brake inspection",
@@ -547,6 +546,7 @@
  },
  "sources": [
   "https://fueleconomy.gov/feg/coldweather.shtml",
-  "https://www.fueleconomy.gov/feg/maintain.jsp"
+  "https://www.fueleconomy.gov/feg/maintain.jsp",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/"
  ]
 }

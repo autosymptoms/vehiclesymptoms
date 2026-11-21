@@ -24,7 +24,8 @@
  "safety": [
   "If the brake pedal feels soft, sinks toward the floor, or the car is slow to stop, pull over safely and don't drive on.",
   "If you see clear to brownish oily fluid near a wheel or under the car by the pedal area, don't drive it.",
-  "If you smell burning or see smoke from a wheel, stop and let it cool. A brake may be stuck on."
+  "If you smell burning or see smoke from a wheel, stop and let it cool. A brake may be stuck on.",
+  "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
  ],
  "start": "q_pedal",
  "nodes": {
@@ -64,7 +65,7 @@
     },
     {
      "a": "I'm not sure",
-     "go": "r_parking_brake"
+     "go": "r_brake_unknown"
     }
    ]
   },
@@ -165,8 +166,8 @@
     "urgency": "diy",
     "now": "Release the parking brake all the way. Push a lever fully down, press a foot pedal to release it, or press the electric button with your foot on the brake. Then check that the light goes out.",
     "if": [
-     "If the light stays on with the parking brake fully off, check the brake fluid level next.",
-     "If you drove a long way with the parking brake on and smell burning or see smoke from a rear wheel, pull over, let the brakes cool, and have them checked before driving further.",
+     "If the red brake light stays on after full release, keep the vehicle parked. Arrange a brake inspection where it is or a tow.",
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle.",
      "If the pedal feels soft or sinks, the car is slow to stop or pulls to one side, or you smell burning from a wheel, don't drive it until the brakes are checked."
     ],
     "why": "The same red light shows when the parking brake is on, and a lever pulled up just one click can be enough to turn it on. It's the most common reason for this light and the simplest to fix.",
@@ -203,7 +204,7 @@
    "result": {
     "title": "The electric parking brake may have a fault",
     "urgency": "soon",
-    "now": "Get the electric parking brake checked within a few days. When you park, use Park (or leave it in gear on a manual) and turn the wheels toward the curb on a slope.",
+    "now": "Read the exact warning while parked and follow the owner’s manual. If the red brake-system light stays on, the pedal feels abnormal or the parking brake will not release, keep the vehicle parked and arrange assistance. If only the amber parking-brake fault is on and braking feels normal, contact the shop for the next step.",
     "if": [
      "If the parking brake won't release, the car feels like it's dragging, or you smell burning from a rear wheel, don't drive it. Have it towed or call a mobile mechanic.",
      "If the light came on right after a battery was replaced or jumped, restart the car once. Some systems need a moment to reset.",
@@ -357,9 +358,9 @@
   },
   "r_switch": {
    "result": {
-    "title": "A fluid level sensor or parking brake switch may be giving a false signal",
-    "urgency": "soon",
-    "now": "Before you drive, press the brake pedal firmly with the engine running. If it's firm and high, have the brake system checked within a few days. If it's soft or sinks, don't drive it.",
+    "title": "A persistent red brake warning needs inspection before driving",
+    "urgency": "stop",
+    "now": "Stop safely and keep the vehicle parked if the red brake warning stays on with the parking brake released. Even if the pedal feels normal and fluid is in range, arrange a tow or inspection where it is parked.",
     "if": [
      "If the pedal feels soft or sinks, the car is slow to stop or pulls to one side, or you smell burning from a wheel, don't drive it until the brakes are checked.",
      "If jiggling the parking brake makes the light flicker, the switch may be the cause. Mention that to the shop.",
@@ -385,8 +386,7 @@
     ],
     "confirm": {
      "you": [
-      "Jiggle the parking brake lever or pedal and watch the light.",
-      "Note whether the light flickers on turns or over bumps."
+      "Note whether another warning or dashboard message appeared."
      ],
      "shop": [
       "Parking brake switch test",
@@ -402,7 +402,7 @@
     "urgency": "stop",
     "now": "Don't drive it until the brake fluid and brakes are checked. If you can't check them yourself, have it towed or ask a mobile mechanic to come to you.",
     "if": [
-     "If someone can show you the fluid level and it's between MIN and MAX with a firm pedal, the cause may be less urgent. Have it checked within a few days, and don't drive it if the pedal changes."
+     "If the red brake light remains on with the parking brake released, keep the vehicle parked and arrange an inspection or tow even when the fluid level and pedal feel normal."
     ],
     "why": "With the parking brake off, the red light usually means low brake fluid or a brake system fault. Without knowing the fluid level, there's no safe way to rule out a problem that affects stopping.",
     "causes": [
@@ -459,6 +459,9 @@
  "sources": [
   "https://www.nissan.ie/ownership/car-owner-manual/manuals/iom/xtrail/0t33/e1/2024/brake-warning-light-1.shtml",
   "https://owners-manual.mazda.com/gen/en/mazda3/mazda3_8hc8ee19b/contents/08070306.html",
-  "https://www.nhtsa.gov/recalls"
+  "https://www.nhtsa.gov/recalls",
+  "https://www.mazdausa.com/siteassets/global-resources/vehicle-resources/owner-manuals/2014/mazda3/2014-mazda3-owners-manual-vin-starting-with-3mz.pdf",
+  "https://mwg.aaa.com/via/car/brake-check-service-tips",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/"
  ]
 }

@@ -20,8 +20,9 @@
   "battry light on",
   "battery light on and car died"
  ],
- "intro": "The battery light doesn't usually mean the battery is bad. It means the charging system has stopped keeping the battery charged, most often because of the alternator, its drive belt or a loose connection. The car runs on battery power alone until it goes flat, so knowing what else is happening tells you how much time you have. It's normal for the light to come on briefly when you first turn the key.",
+ "intro": "A battery symbol that stays on while the engine runs, or a charging warning while a hybrid or EV is in READY, can mean the 12-volt system is losing power. A brief lamp check before starting can be normal. If the warning appears on the road, stop at the first safe place and contact roadside assistance.",
  "safety": [
+  "A steady or flickering charging warning while driving calls for a safe stop even if the vehicle feels normal. Ask for assistance before continuing.",
   "If the temperature gauge climbs or the steering suddenly gets heavy, pull over and turn the engine off. The belt that drives the alternator may have broken.",
   "If you smell burning or see smoke from under the hood, pull over, turn the engine off and step away from the car.",
   "If the lights dim and the engine stumbles in traffic, get off the road while you still have power."
@@ -124,7 +125,7 @@
     "urgency": "stop",
     "now": "Get off the road at the first safe spot, turn off the engine, and have the car towed or call roadside assistance.",
     "if": [
-     "If you're on a highway, turn off the A/C, heater fan, radio and heated seats to save power while you get to the shoulder.",
+     "Keep headlights, wipers, defogging and hazard lights available whenever you need them for safety. Switch off optional loads such as heated seats.",
      "If the engine stalls, turn on your hazard lights and steer firmly to the side. Steering and braking will feel heavier."
     ],
     "why": "Dimming lights and electrical glitches mean the alternator isn't charging and the battery is nearly empty. Once the voltage drops too far, the engine can stall without warning and the power steering may stop working.",
@@ -147,8 +148,7 @@
     ],
     "confirm": {
      "you": [
-      "Once the engine is off, check that the belt is in place.",
-      "Check that the battery clamps are tight."
+      "Once safely parked, note the warning and any change in steering, lights or engine temperature."
      ],
      "shop": [
       "Alternator output test",
@@ -162,7 +162,7 @@
    "result": {
     "title": "An electrical part or belt may be overheating",
     "urgency": "stop",
-    "now": "Pull over, turn off the engine, get out, and step away from the car. Call for help if you see smoke or flames.",
+    "now": "Stop safely and shut the vehicle off. If you suspect a fire, leave the hood closed, get everyone away from the vehicle and traffic, and call 911.",
     "if": [
      "If the smell fades and there's no smoke, still don't restart it. Have it towed.",
      "If you see flames, stay well back and call 911."
@@ -198,8 +198,8 @@
   "r_alternator": {
    "result": {
     "title": "The alternator may have stopped charging",
-    "urgency": "soon",
-    "now": "Avoid driving until the charging system is tested. If you must move the car, turn off the A/C, fan, radio and heated seats, and go straight to a shop without shutting off the engine on the way.",
+    "urgency": "stop",
+    "now": "If the charging warning appears while driving, get off the road at the first safe place. Call roadside assistance or your dealer before continuing. There is no dependable time or distance left.",
     "if": [
      "If the lights dim, the gauges act up or the engine stumbles, get off the road right away.",
      "If the temperature gauge rises or the steering suddenly gets heavy, the drive belt may have come off. Pull over, switch off the engine and have it towed.",
@@ -225,8 +225,7 @@
     ],
     "confirm": {
      "you": [
-      "Check that the belt is in place and not cracked or shiny.",
-      "Check that the battery clamps are tight and clean."
+      "Once safely parked, note the warning and any change in steering, lights or engine temperature."
      ],
      "shop": [
       "Alternator output test",
@@ -240,10 +239,10 @@
   "r_flicker": {
    "result": {
     "title": "The charging system may be weak or have a loose connection",
-    "urgency": "soon",
-    "now": "Have the battery and charging system tested within a few days. Keep electrical loads light until then.",
+    "urgency": "stop",
+    "now": "If the charging warning appears while driving, get off the road at the first safe place. Call roadside assistance or your dealer before continuing. There is no dependable time or distance left.",
     "if": [
-     "If the light starts staying on, or the lights dim while driving, treat it as urgent and keep trips as short as possible.",
+     "If lights dim or the engine stumbles, make reaching a safe stopping place your priority. Do not try to make it to a shop.",
      "If the temperature gauge rises or the steering suddenly gets heavy, the drive belt may have come off. Pull over, switch off the engine and have it towed.",
      "If you hear a squeal when the light flickers, the belt may be slipping."
     ],
@@ -267,8 +266,7 @@
     ],
     "confirm": {
      "you": [
-      "Check that the battery clamps are tight.",
-      "Listen for a belt squeal when the light flickers."
+      "Once safely parked, note the warning and any change in steering, lights or engine temperature."
      ],
      "shop": [
       "Alternator output test at idle and higher speed",
@@ -280,12 +278,12 @@
   },
   "r_after_battery_work": {
    "result": {
-    "title": "A loose connection or a deeply drained battery are common causes",
-    "urgency": "diy",
-    "now": "With the engine off, check that both battery clamps are tight and clean, and that no cable was knocked loose during the jump or battery swap.",
+    "title": "The charging warning needs attention after battery work",
+    "urgency": "stop",
+    "now": "If the charging warning appears while driving, get off the road at the first safe place. Call roadside assistance or your dealer before continuing. There is no dependable time or distance left.",
     "if": [
-     "If the clamps were loose and the light goes out after tightening, that was probably the cause. Have the charging system tested if the light comes back.",
-     "If the light stays on with tight clamps, have the battery and alternator tested soon. A dead battery can hide an alternator that's failing.",
+     "Once parked, tell roadside assistance about the jump or battery replacement. A recent repair does not establish why the warning came on.",
+     "Have the 12-volt battery, connections and charging system tested before further driving.",
      "If the temperature gauge rises or the steering suddenly gets heavy, the drive belt may have come off. Pull over, switch off the engine and have it towed."
     ],
     "why": "Battery work often leaves a clamp slightly loose. A badly drained battery can also strain the charging system after a jump. Sometimes the battery went dead in the first place because the alternator was already failing.",
@@ -308,8 +306,7 @@
     ],
     "confirm": {
      "you": [
-      "Tighten and clean the battery clamps.",
-      "Check whether the light goes out after a restart."
+      "Tell roadside assistance about the jump start, battery replacement or other recent work. Do not restart just to see whether the warning clears."
      ],
      "shop": [
       "Battery load test",
@@ -322,8 +319,8 @@
   "r_hybrid": {
    "result": {
     "title": "The system that charges the small 12-volt battery may have a fault",
-    "urgency": "soon",
-    "now": "Have the car checked within a few days, ideally by a shop that works on hybrids or EVs. Keep trips short and electrical loads light until then.",
+    "urgency": "stop",
+    "now": "Stop in a safe place and contact roadside assistance or a dealer familiar with this vehicle before continuing. Follow the dash message and handbook for the 12-volt system. Keep clear of high-voltage cables and components.",
     "if": [
      "If other warning lights or a \"check hybrid system\" message appear, or the car loses power, pull over and call for help.",
      "If the car won't power on at all, it may need a jump of the 12-volt battery. Check the owner's manual for the jump points."
@@ -362,8 +359,8 @@
   "r_general": {
    "result": {
     "title": "The charging system may not be keeping the battery charged",
-    "urgency": "soon",
-    "now": "Keep driving to a minimum and have the battery and alternator tested within a day or two. Many auto parts stores test them free.",
+    "urgency": "stop",
+    "now": "If the charging warning appears while driving, get off the road at the first safe place. Call roadside assistance or your dealer before continuing. There is no dependable time or distance left.",
     "if": [
      "If the lights dim, the car stumbles, the steering gets heavy or the temperature gauge rises, get off the road and turn the engine off.",
      "If the car won't restart after you turn it off, have it towed rather than relying on repeated jump starts."
@@ -388,8 +385,7 @@
     ],
     "confirm": {
      "you": [
-      "Check that the battery clamps are tight.",
-      "With the engine off, look at the belt."
+      "Once safely parked, note the warning and any change in steering, lights or engine temperature."
      ],
      "shop": [
       "Battery load test",
@@ -424,6 +420,9 @@
   ]
  },
  "sources": [
+  "https://owners.honda.com/utility/download?path=%2Fstatic%2Fpdfs%2F2022%2FCivic+Hatchback%2F2022_Civic_5D_Dashboard_Details.pdf",
+  "https://techinfo.honda.com/rjanisis/pubs/OM/AH/A3D42424OM/enu/A3D42424OMEN.PDF",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/",
   "https://mwg.aaa.com/via/car/signs-of-a-bad-alternator",
   "https://www.cars.com/articles/2014/02/why-is-the-battery-light-on"
  ]

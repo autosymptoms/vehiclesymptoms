@@ -26,7 +26,7 @@
   "If you see steam or the temperature gauge is in the red, pull over and turn the engine off.",
   "Never open the radiator or coolant cap on a hot engine. Hot coolant can spray out and burn you.",
   "If you smell raw fuel, turn the engine off, keep flames and sparks away, and don't restart it.",
-  "If you see smoke or smell burning, turn the engine off and step away from the car."
+  "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away."
  ],
  "start": "q_danger",
  "nodes": {
@@ -57,8 +57,8 @@
    ]
   },
   "q_check_gauge": {
-   "q": "With the car safely parked, look at the temperature gauge and under the hood. What do you see?",
-   "help": "Look, but don't open the radiator or coolant cap while the engine is hot.",
+   "q": "What did the dashboard show before you parked?",
+   "help": "Do not open the hood to answer. Choose “I'm not sure” if needed.",
    "opts": [
     {
      "a": "The gauge is high or a temperature warning light is on",
@@ -146,7 +146,7 @@
    "result": {
     "title": "The engine may be overheating, with coolant escaping as steam",
     "urgency": "stop",
-    "now": "Pull over somewhere safe, turn the engine off and let it cool for at least 30 minutes. Don't open the coolant cap. Plan on a tow or a mobile mechanic.",
+    "now": "Pull over safely and switch the engine off. Keep the hood closed while steam or spray is escaping. Leave all coolant caps in place until the engine and radiator are fully cold. Arrange roadside help or a tow before restarting.",
     "if": [
      "If the gauge went into the red, don't restart it even after adding coolant. Running an overheated engine can warp or crack expensive parts.",
      "If the gauge only rose a little and the engine is now cool, you can check the coolant level in the reservoir, but still have the leak found before relying on the car.",
@@ -171,10 +171,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Once the engine is fully cool, check the coolant reservoir level.",
-      "Look for wet spots or residue on hoses and the radiator."
-     ],
+     "you": [],
      "shop": [
       "Cooling system pressure test",
       "Radiator cap pressure test",
@@ -188,10 +185,9 @@
    "result": {
     "title": "A fuel leak is possible. Treat it as a fire risk",
     "urgency": "stop",
-    "now": "Turn the engine off, get everyone out, and keep sparks, flames and cigarettes away. Don't restart it. Have it towed.",
+    "now": "If driving, pull over safely. Switch the engine off and leave it off. Move everyone away from the vehicle and any fuel, keep ignition sources away, and arrange a tow from a safe place. Do not search for the leak.",
     "if": [
-     "If you see fuel dripping or pooling, move well away from the car and call for help.",
-     "If the smell fades quickly and there's no wet spot, it still needs to be checked before you drive it."
+     "If fuel is pooling or spreading, fumes are strong in an enclosed space, or you suspect a fire, get everyone clear and call 911 from outside the area."
     ],
     "why": "Fuel lines on modern engines carry fuel under pressure, so a small crack can hiss or spray. Fuel near a hot engine can catch fire, which is why this is a do-not-drive situation.",
     "causes": [
@@ -225,10 +221,9 @@
    "result": {
     "title": "Fluid may be leaking onto hot engine or exhaust parts",
     "urgency": "stop",
-    "now": "Turn the engine off and step away until the smoke stops. Don't restart it. Have it towed or have a mobile mechanic look at it.",
+    "now": "Pull over safely, turn off the vehicle and get everyone out. Smoke with a burning smell can mean a fire even without visible flames. Stay at least 100 feet away, clear of traffic, and call 911. Leave the hood closed and do not return to the vehicle.",
     "if": [
-     "If you see flames, get everyone away from the car and call 911.",
-     "If the smoke stops quickly and you can see a small oil seep, it still needs to be checked before you drive it again."
+     "Even if the smoke stops, stay away until responders say it is safe. Arrange a tow before using the vehicle again."
     ],
     "why": "A hiss with smoke or a burning smell usually means oil, coolant or another fluid is dripping onto the hot exhaust and boiling off. That can start a fire, and it means the engine is losing fluid it needs.",
     "causes": [
@@ -249,10 +244,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Once cool, check the oil and coolant levels.",
-      "Note the color of the smoke."
-     ],
+     "you": [],
      "shop": [
       "Leak inspection with the engine running",
       "UV dye leak test",
@@ -291,8 +283,7 @@
     ],
     "confirm": {
      "you": [
-      "With the engine off, pump the brake pedal a few times, hold it down, then start the engine. The pedal should sink slightly. If it doesn't, the booster may not be working.",
-      "Listen near the pedal and under the hood while someone presses the brake."
+      "Tell the shop whether the pedal required more effort and whether the hiss changed when braking. Leave testing to the technician."
      ],
      "shop": [
       "Brake booster vacuum test",
@@ -609,6 +600,10 @@
   ]
  },
  "sources": [
-  "https://www.nhtsa.gov/recalls"
+  "https://www.nhtsa.gov/recalls",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/",
+  "https://techinfo.honda.com/rjanisis/pubs/OM/AH/AT902626IOM/enu/details/131293047-15886.html",
+  "https://static.nhtsa.gov/odi/tsbs/2022/MC-10208114-0001.pdf",
+  "https://assets.goaaa.com/image/upload/v1698431472/AAA_Guide_CarCare_final.pdf"
  ]
 }

@@ -23,9 +23,10 @@
   ],
   "intro": "A brake pedal should feel firm and stop at the same point every time. If it feels soft, travels further than usual or slowly sinks, the hydraulic system that makes your brakes work has a problem. Some causes are mild, but several mean the car shouldn't be driven, so the first question is about how bad it is.",
   "safety": [
-    "If the pedal goes to the floor while driving, pump it hard and fast, shift to a lower gear, and apply the parking brake gradually to slow down. Once stopped, don't drive it again; have it towed.",
+    "If the pedal goes to the floor and the car barely slows, steer toward a safe place, downshift if possible and pump the pedal several times to try to regain pressure. If braking still fails, gradually apply a mechanical parking brake, easing it if the wheels skid. For an electronic parking brake, follow your vehicle’s emergency procedure. Once stopped, call for a tow.",
     "If the red BRAKE warning light comes on along with a soft pedal, pull over and stop.",
-    "If you see brake fluid leaking near a wheel or under the car, don't drive it."
+    "If you see brake fluid leaking near a wheel or under the car, don't drive it.",
+    "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
   ],
   "start": "q_severity",
   "nodes": {
@@ -120,9 +121,9 @@
       "result": {
         "title": "Your brakes may be losing pressure. Don't drive the car",
         "urgency": "stop",
-        "now": "Don't drive it. Park somewhere safe, set the parking brake, and have it towed or have a mobile mechanic come to you.",
+        "now": "If the pedal goes to the floor and the car barely slows, steer toward a safe place, downshift if possible and pump the pedal several times to try to regain pressure. If braking still fails, gradually apply a mechanical parking brake, easing it if the wheels skid. For an electronic parking brake, follow your vehicle’s emergency procedure. Once stopped, call for a tow.",
         "if": [
-          "If this happened while driving, the pedal may come back after a few pumps. Don't trust it.",
+          "If the pedal firms up after pumping, keep the vehicle parked. Braking pressure can fail again.",
           "If you see fluid under the car or at a wheel, tell the shop. A burst hose or rusted line is a common cause.",
           "If the red BRAKE light is on, or you smell burning near a wheel, mention it to the shop or tow driver."
         ],
@@ -247,11 +248,11 @@
       "result": {
         "title": "Your brakes may have overheated (brake fade)",
         "urgency": "stop",
-        "now": "Pull over somewhere safe, set the parking brake and let the brakes cool for at least 30 minutes. Braking may take much more force, or may not work well, until they cool. Don't rely on these brakes again until the pedal is firm and the fluid has been checked.",
+        "now": "Pull over as soon as it is safe. Because the pedal went soft after overheating, leave the vehicle parked and arrange a tow or an inspection where it stopped. The fault can return even if the pedal firms up after cooling.",
         "if": [
-          "If the pedal is still soft once the brakes have cooled, don't drive it. The fluid may have boiled or there's another fault. Have it towed.",
-          "If the pedal is firm again after cooling, call a shop or roadside assistance and describe what happened before going any further. Boiled fluid can fade again sooner the next time.",
-          "If you see smoke from a wheel or smell burning, keep everyone back from that wheel until it cools.",
+          "If the pedal stays soft, tell the tow operator that the brakes may have lost pressure.",
+          "Even if the pedal firms up again, have the cause checked where the vehicle is parked or arrange a tow.",
+          "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle.",
           "On long downhills, shift to a lower gear so the engine helps slow the car, instead of riding the brakes."
         ],
         "why": "Hard, repeated braking makes brakes very hot. Brake fluid absorbs moisture over the years, which lowers its boiling point, and boiling fluid forms bubbles that make the pedal soft. The pedal often comes back once things cool, but that doesn't prove the system is healthy. A shop will usually test the fluid for moisture and check the pads and rotors before deciding what needs replacing.",
@@ -274,8 +275,7 @@
         ],
         "confirm": {
           "you": [
-            "Note whether the pedal firms up after the brakes cool.",
-            "Check the fluid color. Dark brown fluid is old."
+            "Tell the shop about the hill, load and change in pedal feel you already noticed."
           ],
           "shop": [
             "Brake fluid boiling point or moisture test",
@@ -330,7 +330,7 @@
       "result": {
         "title": "Old brake fluid that has absorbed moisture can make the pedal feel soft",
         "urgency": "stop",
-        "now": "If the pedal sinks, goes near the floor or the red BRAKE light is on, stop driving and have it towed. Otherwise have the brakes inspected and the fluid tested before driving any distance, and avoid heavy braking.",
+        "now": "Keep the vehicle parked and have the brakes inspected. A soft or unexpectedly low pedal needs a brake-system check even when the fluid looks dark. Arrange mobile service or a tow.",
         "if": [
           "If the pedal gets softer, starts to sink, or goes near the floor, stop driving and have it towed.",
           "If the fluid level is below MIN, or the red BRAKE light comes on, don't drive it until it's inspected. Old fluid doesn't explain a low level.",
@@ -481,6 +481,10 @@
   },
   "sources": [
     "https://www.nhtsa.gov/recalls",
-    "https://prnewswire.com/news-releases/car-care-council-are-your-brakes-trying-to-tell-you-something-300309286.html"
+    "https://prnewswire.com/news-releases/car-care-council-are-your-brakes-trying-to-tell-you-something-300309286.html",
+    "https://www.pa.gov/agencies/dmv/resources/driver-safety-and-vehicle-maintenance/emergency-driving-tactics",
+    "https://mwg.aaa.com/via/car/brake-check-service-tips",
+    "https://owners-manual.mazda.com/gen/en/mazda3/mazda3_8jr6ee20e/contents/05050107.html",
+    "https://www.usfa.fema.gov/prevention/vehicle-fires/"
   ]
 }

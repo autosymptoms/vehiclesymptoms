@@ -24,8 +24,8 @@
  "intro": "A pop or bang from the engine or tailpipe usually means fuel is burning somewhere it shouldn't, either in the intake or in the exhaust. When it happens and what comes with it helps show whether it's likely an expected crackle, a leak, or a misfire that can damage expensive parts. Answer the questions below to see the likely possibilities and how soon to act.",
  "safety": [
   "If the check engine light is flashing, pull over safely and turn off the engine. A severe misfire can overheat the catalytic converter.",
-  "If you see smoke or flames from under the car or the tailpipe, pull over, turn off the engine and get away from the car.",
-  "If you smell exhaust inside the car, open the windows and stop driving it until it's checked. Exhaust contains carbon monoxide.",
+  "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
+  "If exhaust enters the cabin, park safely, switch off and get into fresh air. If anyone has a headache, dizziness, nausea, confusion or unusual sleepiness with exhaust fumes, pull over safely. Get everyone into fresh air and call 911 from there.",
   "If you smell raw fuel, stop the engine and keep sparks and flames away."
  ],
  "start": "q_when",
@@ -242,7 +242,7 @@
     "urgency": "check",
     "now": "Book an exhaust inspection. Mention that it pops when you let off the gas.",
     "if": [
-     "If you smell exhaust inside the car, or feel drowsy or get a headache while driving, stop driving it until it's fixed.",
+     "If anyone has a headache, dizziness, nausea, confusion or unusual sleepiness with exhaust fumes, pull over safely. Get everyone into fresh air and call 911 from there.",
      "If the check engine light comes on or the engine starts running rough, get it checked within a few days."
     ],
     "why": "When you let off the gas, a small amount of unburned fuel goes into the exhaust. If a leak lets fresh air in, that fuel can ignite and pop. A leak usually also makes the exhaust louder or adds a ticking or puffing sound.",
@@ -280,11 +280,11 @@
    "result": {
     "title": "The engine may be getting too much fuel",
     "urgency": "stop",
-    "now": "Turn the engine off. Without restarting it, look and smell for fuel around the engine and under the car. Don't drive it until it's been checked. A strong fuel smell can mean a leak or a stuck injector, which is a fire risk. A mobile mechanic or a tow is the safest option.",
+    "now": "If driving, pull over safely. Switch the engine off and leave it off. Move everyone away from the vehicle and any fuel, keep ignition sources away, and arrange a tow from a safe place. Do not search for the leak.",
     "if": [
-     "If fuel is dripping or pooling, move away from the car and call for help.",
-     "If the check engine light starts flashing, pull over and turn off the engine.",
-     "If there's only black smoke and no fuel smell at all, tell the shop. That points more toward a sensor or mixture problem, but it still needs a code scan before more driving."
+     "If fuel is pooling or spreading, fumes are strong in an enclosed space, or you suspect a fire, get everyone clear and call 911 from outside the area.",
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
+     "Tell the shop if there was black exhaust smoke but no fuel odor."
     ],
     "why": "Extra fuel that doesn't burn in the engine can ignite in the hot exhaust and pop. It also wastes fuel and can overheat and damage the catalytic converter. If you can smell raw fuel, fuel may also be leaking where it can reach hot parts.",
     "causes": [
@@ -305,10 +305,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Look and smell for fuel around the engine and under the car.",
-      "Note any change in fuel economy."
-     ],
+     "you": [],
      "shop": [
       "Code scan and fuel trim data",
       "Oxygen and coolant temperature sensor checks",
@@ -423,6 +420,9 @@
  "sources": [
   "https://www.firestonecompleteautocare.com/blog/maintenance/why-do-cars-backfire/",
   "https://en.wikipedia.org/wiki/Back-fire",
-  "https://www.nhtsa.gov/recalls"
+  "https://www.nhtsa.gov/recalls",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/",
+  "https://static.nhtsa.gov/odi/tsbs/2022/MC-10208114-0001.pdf",
+  "https://www.osha.gov/sites/default/files/publications/CARBONMONOXIDE-FACTSHEET.pdf"
  ]
 }
