@@ -24,26 +24,37 @@ const firstSold=(v,i)=>{for(let y=i.y[0];y<=i.y[1];y++)if(sold(v,y))return y;ret
 // ---------- repair price estimates (src/prices/<id>.json) ----------
 // Range = parts + book hours x labor rate. Rate band from 2025-26 industry surveys (about half of US shops charge $120-$159/hr).
 const RATE=[120,160];let priced=0;
+const EV=require('./tools/evidence.js'),PT=require('./src/powertrain.js');const LEDGER=[];// every price record, shown or withheld (written to audit/generated/price-ledger.json)
 const rnd=(n,up)=>{const st=n<500?10:n<2000?25:50;return (up?Math.ceil(n/st):Math.floor(n/st))*st};
 if(fs.existsSync('src/prices'))for(const f of fs.readdirSync('src/prices').filter(f=>f.endsWith('.json'))){
   const P=JSON.parse(fs.readFileSync('src/prices/'+f,'utf8'));const v=V.find(v=>v.id===P.id);if(!v){console.log('price file for unknown vehicle',f);continue}
   const byT=new Map(P.items.map(x=>[x.t,x]));
   for(const i of v.issues){const x=byT.get(i.t);if(!x)continue;
     const lo=rnd(x.parts[0]+x.hours[0]*RATE[0],false),hi=Math.max(rnd(x.parts[1]+x.hours[1]*RATE[1],true),lo+10);
-    i.cost=(x.parts[1]===0&&x.hours[1]===0)?{job:x.job,free:true,note:x.note||'',recall:true}:{job:x.job,lo:Math.max(lo,0),hi,note:x.note||'',recall:!!x.recall};priced++}
+    if(x.parts[1]===0&&x.hours[1]===0){i.cost={job:x.job,free:true,note:x.note||'',recall:true};LEDGER.push({id:EV.ids.issue(v.id,i.t),family:'vehicle-issue',scope:v.id,job:x.job,lo:0,hi:0,status:'recall-no-charge',reason:'conditional no-charge recall remedy; recall applicability is a claim, not a price'});priced++;continue}
+    const g=EV.priceQualifies(EV.ids.issue(v.id,i.t));LEDGER.push({id:EV.ids.issue(v.id,i.t),family:'vehicle-issue',scope:v.id+' '+i.y.join('-'),job:x.job,lo:Math.max(lo,0),hi,status:g.ok?'shown':'withheld',reason:g.reason||''});
+    i.cost=g.ok?{job:x.job,lo:Math.max(lo,0),hi,note:x.note||'',recall:!!x.recall}:{job:x.job,withheld:true,recall:!!x.recall};priced++}
 }
 // ---------- ownership costs (src/own/<id>.json) ----------
 let ownN=0;
 if(fs.existsSync('src/own'))for(const f of fs.readdirSync('src/own').filter(f=>f.endsWith('.json'))){
   const O=JSON.parse(fs.readFileSync('src/own/'+f,'utf8'));const v=V.find(v=>v.id===O.id);if(!v)continue;
   const order=['oil','front-brakes','rear-brakes','battery','spark-plugs','coolant'];
-  v.own={annual:O.annual?{amount:Math.round(O.annual.amount/10)*10,label:O.annual.label||''}:null,
-    maint:(O.maint||[]).sort((a,b)=>order.indexOf(a.key)-order.indexOf(b.key)).map(m=>{const lo=rnd(m.parts[0]+m.hours[0]*RATE[0],false),hi=Math.max(rnd(m.parts[1]+m.hours[1]*RATE[1],true),lo+10);return {job:m.job,every:m.every,note:m.note||'',lo,hi}})};ownN++}
+  const ga=O.annual?EV.priceQualifies(EV.ids.annual(v.id)):null;if(O.annual)LEDGER.push({id:EV.ids.annual(v.id),family:'annual-average',scope:v.id,job:'Average yearly maintenance and repair',lo:Math.round(O.annual.amount/10)*10,hi:Math.round(O.annual.amount/10)*10,status:ga.ok?'shown':'withheld',reason:ga.reason||''});
+  v.own={annual:O.annual?(ga.ok?{amount:Math.round(O.annual.amount/10)*10,label:O.annual.label||''}:{withheld:true}):null,
+    maint:(O.maint||[]).sort((a,b)=>order.indexOf(a.key)-order.indexOf(b.key)).map(m=>{const lo=rnd(m.parts[0]+m.hours[0]*RATE[0],false),hi=Math.max(rnd(m.parts[1]+m.hours[1]*RATE[1],true),lo+10);
+      const el=PT.eligible(m.job,v,null);const g=EV.priceQualifies(EV.ids.maint(v.id,m.job));
+      LEDGER.push({id:EV.ids.maint(v.id,m.job),family:'maintenance',scope:v.id,job:m.job,lo,hi,status:el.ok===false?'ineligible':g.ok?'shown':'withheld',reason:el.ok===false?el.reason:(g.reason||'')});
+      if(el.ok===false)return null;return g.ok?{job:m.job,every:m.every,note:m.note||'',lo,hi}:{job:m.job,every:m.every,note:m.note||'',withheld:true}}).filter(Boolean)};ownN++}
 const CATS=['Warning Lights','Smoke','Leaks','Noises','Smells','Starting Problems','Driving'],ids=new Set();let bad=0;
 V.forEach(v=>{if(ids.has(v.id)){console.log('DUP',v.id);bad++}ids.add(v.id);
  if(!/^[a-z0-9-]+$/.test(v.id)||v.years[0]<1996||v.years[1]>2027){console.log('BADV',v.id);bad++}
  v.issues=v.issues.filter(i=>{const ok=i.y&&i.y[0]>=v.years[0]&&i.y[1]<=v.years[1]&&i.y[0]<=i.y[1]&&CATS.includes(i.cat)&&['high','med','low'].includes(i.sev)&&i.t&&i.sym&&i.why&&i.next;if(!ok){console.log('dropped bad issue',v.id,i.t);bad++}return ok})});
 V.sort((a,b)=>(a.make+a.model).localeCompare(b.make+b.model));
+// Recall queries per model year (src/recall-map.json). Combined labels resolve to the actual NHTSA model(s); every sold year must be covered.
+{const RM=fs.existsSync('src/recall-map.json')?JSON.parse(fs.readFileSync('src/recall-map.json','utf8')).models:{};
+ for(const v of V){if(RM[v.id])v.rq=RM[v.id].map(r=>({from:r.from,to:r.to,verified:r.verified!==false,queries:r.queries}));
+  if(/ \/ /.test(v.model)){for(let y=v.years[0];y<=v.years[1];y++)if(sold(v,y)&&!(v.rq||[]).some(r=>y>=r.from&&y<=r.to)){console.log('RECALL MAP MISSING',v.id,y);bad++}}}}
 const data='// Generated by build.js — edit files in src/ instead.\nwindow.VEHICLES='+JSON.stringify(V)+';\n';
 fs.writeFileSync('vehicles.js',data);
 const thin=V.reduce((a,v)=>{for(let y=v.years[0];y<=v.years[1];y++)if(sold(v,y)&&v.issues.filter(i=>y>=i.y[0]&&y<=i.y[1]).length<2)a++;return a},0);
@@ -71,12 +82,12 @@ console.log(`${J.length} symptom guides`);
 const tpl=fs.readFileSync('src/template.html','utf8').replace(/{{NMODELS}}/g,String(V.length));
 fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');
 // Phones only download what a page needs: a small vehicle list everywhere, full data per vehicle on demand.
-{const lite=V.map(v=>{const o={};for(const k of Object.keys(v))if(k!=='issues'&&k!=='own'&&k!=='engines')o[k]=v[k];o.issues=[];o.n=v.issues.length;return o});
+{const lite=V.map(v=>{const o={};for(const k of Object.keys(v))if(k!=='issues'&&k!=='own')o[k]=v[k];o.issues=[];o.n=v.issues.length;return o});
  fs.writeFileSync('dist/vehicles.js','// Generated by build.js. Full per-vehicle data lives in /data/v/<id>.json\nwindow.VEHICLES='+JSON.stringify(lite)+';\n'+
   "(function(){const c={};window.VS_LOAD=function(id){const v=(window.VEHICLES||[]).find(x=>x.id===id);if(!v)return Promise.resolve(null);if(v._full)return Promise.resolve(v);"+
   "return c[id]=c[id]||fetch('/data/v/'+id+'.json').then(r=>r.json()).then(d=>{Object.assign(v,d,{_full:true});return v}).catch(()=>v)}})();\n");
  fs.mkdirSync('dist/data/v',{recursive:true});for(const v of V)fs.writeFileSync('dist/data/v/'+v.id+'.json',JSON.stringify({issues:v.issues,own:v.own||null,engines:v.engines||[]}));}fs.writeFileSync('dist/guide-index.js',indexJs);
-for(const f of ['app.js','guide.js','site.css','pdf.js'])fs.copyFileSync('src/'+f,'dist/'+f);
+for(const f of ['app.js','guide.js','site.css','pdf.js','powertrain.js'])fs.copyFileSync('src/'+f,'dist/'+f);
 fs.mkdirSync('dist/vendor',{recursive:true});fs.copyFileSync('src/vendor/jspdf.umd.min.js','dist/vendor/jspdf.umd.min.js');
 fs.mkdirSync('dist/email',{recursive:true});for(const f of fs.readdirSync('src/email'))fs.copyFileSync('src/email/'+f,'dist/email/'+f);
 // ---------- warning lights data (src/lights.js + optional depth in src/lights-deep.json) ----------
@@ -95,7 +106,7 @@ const VERIFY=JSON.parse(fs.readFileSync('src/verify.json','utf8'));
 const VMETA=(VERIFY.google?`<meta name="google-site-verification" content="${VERIFY.google}">`:'')+(VERIFY.bing?`<meta name="msvalidate.01" content="${VERIFY.bing}">`:'');
 const LIGHTSROW=(()=>{const pick=ROWIDS.map(id=>LIGHTS.find(l=>l.id===id)).filter(Boolean);
  return `<div class="lrow">${pick.map(l=>`<a class="lr" href="/warning-lights/${l.id}/">${lIcon(l,38)}<b>${escH(l.name.replace(/ (warning )?light$/i,'').replace(/ \(.*\)$/,''))}</b><span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span></a>`).join('')}<a class="lr lr-all" href="/warning-lights/"><b>All lights</b><span>Red, amber, green and blue</span></a></div>`})();
-const scripts=['vehicles.js','guide-index.js','guide.js','app.js'].map(f=>f==='vehicles.js'?data:f==='guide-index.js'?indexJs:fs.readFileSync('src/'+f,'utf8'));
+const scripts=['vehicles.js','guide-index.js','guide.js','powertrain.js','app.js'].map(f=>f==='vehicles.js'?data:f==='guide-index.js'?indexJs:fs.readFileSync('src/'+f,'utf8'));
 
 // one browser instance renders every vehicle page
 const shell=tpl.replace(/{{[A-Z]+}}/g,'').replace(/<script src="\/[a-z-]+\.js"><\/script>\n?/g,'');
@@ -143,6 +154,10 @@ const codeVeh={};
 for(const v of V)for(const i of v.issues){const t=[i.t,i.sym,i.why,i.next].join(' ');for(const m of new Set(t.match(/\b[PBCU][0-3][0-9A-F]{3}\b/g)||[])){(codeVeh[m]=codeVeh[m]||[]).push({v,i})}}
 const CURG={stop:["Stop driving soon. This can cause damage or be unsafe.","high"],soon:["Get it checked in the next few days","med"],check:["Book a check when convenient","info"]};
 const cpr=k=>{const lo=rnd(k.parts[0]+k.hours[0]*RATE[0],false),hi=Math.max(rnd(k.parts[1]+k.hours[1]*RATE[1],true),lo+10);return '$'+lo.toLocaleString('en-US')+'–$'+hi.toLocaleString('en-US')};
+const WH='Insufficient verified pricing for this vehicle and repair';
+// Code pages: a general repair range is shown only with a qualifying evidence pair; otherwise the price is withheld.
+for(const c of CODES)if(c.cost){const lo=rnd(c.cost.parts[0]+c.cost.hours[0]*RATE[0],false),hi=Math.max(rnd(c.cost.parts[1]+c.cost.hours[1]*RATE[1],true),lo+10),g=EV.priceQualifies(EV.ids.code(c.code));
+  LEDGER.push({id:EV.ids.code(c.code),family:'code-general',scope:'general (all vehicles)',job:c.cost.job,lo,hi,status:g.ok?'shown':'withheld',reason:g.reason||''});c.costOk=g.ok}
 const famName=c=>({P:'Powertrain',B:'Body',C:'Chassis',U:'Network'})[c[0]];
 const JT=Object.fromEntries(J.map(j=>[j.id,j]));
 for(let k=0;k<CODES.length;k++){const c=CODES[k],low=c.code.toLowerCase(),u=CURG[c.sev];
@@ -150,27 +165,27 @@ for(let k=0;k<CODES.length;k++){const c=CODES[k],low=c.code.toLowerCase(),u=CURG
   const veh=(codeVeh[c.code]||[]).slice(0,10);const g=c.guide&&JT[c.guide];
   const drive=c.drive||(c.sev==='stop'?'Stop driving as soon as it is safe and have it checked before going further; this problem can cause damage or affect safety.':c.sev==='soon'?'Get it checked in the next few days and drive gently until then. If the check engine light flashes, the engine runs rough, overheats, loses power or stalls, stop and get help right away.':'Usually you can keep driving while you book a check. If other warning lights come on, or the car starts running or shifting differently, get it checked sooner.');
   const testFirst=c.test_first||'A shop should confirm the fault with a scan tool and a few tests before replacing parts. The code points to where to test, not to a confirmed failed part.';
-  const faq=[{q:`What does ${c.code} mean?`,a:c.plain},{q:`Can I drive with code ${c.code}?`,a:drive},{q:`What causes ${c.code}?`,a:'Common possibilities to test include: '+c.causes.slice(0,4).map(x=>x.name.toLowerCase()).join('; ')+'. A shop should confirm the cause before replacing parts.'}];
+  const faq=[{q:`What does ${c.code} mean?`,a:c.plain},{q:`Can I drive with code ${c.code}?`,a:(c.urgent_if?c.urgent_if+' Otherwise: ':'')+drive},{q:`What causes ${c.code}?`,a:'Common possibilities to test include: '+c.causes.slice(0,4).map(x=>x.name.toLowerCase()).join('; ')+'. A shop should confirm the cause before replacing parts.'}];
   const ld='<script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}).replace(/</g,'\\u003c')+'</script>\n';
   const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/codes/">Code lookup</a> › ${c.code}</div>
 <div class="ghead"><div class="eyebrow">${escH(famName(c.code))} code · ${escH(c.sys)}</div><h1><span class="code-big">${c.code}</span> ${escH(c.title)}</h1></div>
-<div class="urg ${u[1]}"><b>How urgent?</b> ${escH(u[0])}</div>
+${c.urgent_if?`<div class="urg-first" role="alert"><b>Stop-now condition.</b> ${escH(c.urgent_if)}</div>`:''}<div class="urg ${u[1]}"><b>How urgent?</b> ${c.urgent_if?'Otherwise: ':''}${escH(u[0])}</div>
 ${BYLINE('/codes/'+low+'/')}<div id="codeMy"></div>
 <section class="card csec"><h2>What it means</h2><p class="lead2">${escH(c.plain)}</p></section>
-<section class="card csec drivebox" style="border-left-color:${c.sev==='stop'?'#C62F37':c.sev==='soon'?'#D08700':'#0B63CE'}"><h2>Can I keep driving?</h2><p>${escH(drive)}</p></section>
+<section class="card csec drivebox" style="border-left-color:${c.sev==='stop'||c.urgent_if?'#C62F37':c.sev==='soon'?'#D08700':'#0B63CE'}"><h2>Can I keep driving?</h2>${c.urgent_if?`<p><b>${escH(c.urgent_if)}</b></p><p>Otherwise: ${escH(drive)}</p>`:`<p>${escH(drive)}</p>`}</section>
 <section class="card csec"><h2>What to test before replacing parts</h2><p>${escH(testFirst)}</p><ol class="nums">${c.checks.map(x=>`<li>${escH(x)}</li>`).join('')}</ol></section>
 <div class="cgrid">
 <section class="card csec"><h2>Signs you may notice</h2><ul class="dots">${c.symptoms.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section>
 <section class="card csec"><h2>Possible causes</h2><p class="muted" style="margin:0 0 6px">Most likely first. Directions for testing, not confirmed failures.</p><ul class="causes2">${c.causes.map(x=>`<li><span class="ctag ${x.how}">${x.how==='common'?'Common':'Possible'}</span>${escH(x.name)}</li>`).join('')}</ul></section>
 </div>
-<section class="card csec"><h2>Typical repair once the cause is confirmed</h2><p>${escH(c.fix)}</p>${c.cost?`<div class="cost"><div class="cost-top"><span class="cost-l">Typical repair cost</span><span class="cost-v">${cpr(c.cost)}</span></div><div class="cost-job">${escH(c.cost.job)}</div></div><p class="pg-disc" style="margin-top:12px"><b>Estimate only, not a quote.</b> U.S. national average for most vehicles: typical parts plus standard labor time at $120–$160 an hour, researched November 2026. Diagnosis is usually charged separately. Trucks, luxury and European models often cost more.</p>`:''}</section>
+<section class="card csec"><h2>Typical repair once the cause is confirmed</h2><p>${escH(c.fix)}</p>${c.cost&&c.costOk?`<div class="cost"><div class="cost-top"><span class="cost-l">General estimate (all vehicles)</span><span class="cost-v">${cpr(c.cost)}</span></div><div class="cost-job">${escH(c.cost.job)}</div></div><p class="pg-disc" style="margin-top:12px"><b>Estimate only, not a quote.</b> General U.S. reference across many vehicles, not specific to yours. Diagnosis is usually charged separately.</p>`:c.cost?`<div class="cost cost-wh"><div class="cost-top"><span class="cost-l">Repair cost</span><span class="cost-v sm">${WH}</span></div><div class="cost-job">${escH(c.cost.job)}. Ask the shop for a written quote with parts and labor listed separately.</div></div>`:''}</section>
 ${c.examples&&c.examples.length?`<section class="card csec"><h2>Where it shows up</h2><ul class="dots">${c.examples.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section>`:''}
 ${veh.length?`<section class="card csec"><h2>Known on these vehicles</h2><div class="glist">${veh.map(({v,i})=>`<a class="gcard" href="/vehicles/${v.id}/${firstSold(v,i)||''}${firstSold(v,i)?'/':''}"><b>${escH(v.make+' '+v.model)} ${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</b><span>${escH(i.t)}</span></a>`).join('')}</div></section>`:''}
 ${g?`<a class="walk big" href="/symptoms/${g.id}/">Walk through it step by step: ${escH(g.title)} →</a>`:''}
 <section class="csec"><h2 style="font-size:18px">Common questions</h2>${faq.map(f=>`<details class="faq"><summary>${escH(f.q)}</summary><p>${escH(f.a)}</p></details>`).join('')}</section>
 ${fam.length?`<section class="csec"><h2 style="font-size:18px">Related codes</h2><div class="codechips">${fam.map(x=>`<a href="/codes/${x.code.toLowerCase()}/"><b>${x.code}</b> ${escH(x.title)}</a>`).join('')}</div></section>`:''}
 <div class="trust">Trouble codes point to where a problem was detected, not always to the failed part. A scan and a few tests confirm the cause before parts are replaced. This is a general guide, not a diagnosis.</div>`;
-  urls.push(page('/codes/'+low+'/',`${c.code} Code: ${c.title} — Meaning, Causes & Fixes | VehicleSymptoms.com`.slice(0,140),`${c.code} means: ${c.plain}`.slice(0,165),{inner,pageData:ld}));
+  urls.push(page('/codes/'+low+'/',`${c.code} Code: ${c.title} — Meaning, Causes & Fixes | VehicleSymptoms.com`.slice(0,140),(c.urgent_if?`${c.code}: flashing check engine light or hard shaking means get off the road. ${c.plain}`:`${c.code} means: ${c.plain}`).slice(0,165),{inner,pageData:ld}));
 }
 if(CODES.length){
   const groups={};for(const c of CODES){const k=c.code.slice(0,3);(groups[k]=groups[k]||[]).push(c)}
@@ -201,6 +216,9 @@ const SEE={
 const codeSet=new Set(CODES.map(c=>c.code));
 const money=n=>'$'+Number(n).toLocaleString('en-US');
 const rngC=(lo,hi)=>lo===0&&hi===0?'No charge':money(lo)+'–'+money(hi);
+// Warning-light cause prices and diagnosis fees go through the same evidence gate.
+const lPrice=(lid,c)=>{const id=EV.ids.light(lid,c.name),g=EV.priceQualifies(id);LEDGER.push({id,family:'light-cause',scope:'general (all vehicles)',job:c.name,lo:c.lo,hi:c.hi,status:g.ok?'shown':'withheld',reason:g.reason||''});return g.ok?rngC(c.lo,c.hi):'Price not verified'};
+const lDiag=(lid,d)=>{const id=EV.ids.lightDiag(lid),g=EV.priceQualifies(id);LEDGER.push({id,family:'light-diagnosis',scope:'general (all vehicles)',job:'Diagnose '+lid,lo:d[0],hi:d[1],status:g.ok?'shown':'withheld',reason:g.reason||''});return g.ok?rngC(d[0],d[1]):null};
 for(const l of LIGHTS){const u=LSEV[l.sev];const gs=l.guides.filter(g=>JT[g]).map(g=>JT[g]);const cs=l.codes.filter(c=>codeSet.has(c));
   const d=LDEEP[l.id]||{};
   const faq=[{q:`What does the ${l.name.toLowerCase()} mean?`,a:l.meaning},{q:`Can I drive with the ${l.name.toLowerCase()} on?`,a:l.drive},...(d.faqs||[])];
@@ -217,10 +235,10 @@ ${d.diy&&d.diy.length?`<section class="card csec ldiy"><div class="pg-head"><h2>
 ${d.diy.map((x,i)=>`<div class="diy"><div class="diy-n">${i+1}</div><div><b>${escH(x.t)}</b><p>${escH(x.how)}</p><span class="diy-m">${escH(x.mins)} · ${escH(x.tools)}</span></div></div>`).join('')}
 <p class="lsoon-note">Step-by-step repair walkthroughs for the fixes below are on the way.</p></section>`:''}
 ${d.dont&&d.dont.length?`<section class="card csec ldont"><h2>What not to do</h2><ul class="xs">${d.dont.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section>`:''}
-${d.causes2&&d.causes2.length?`<section class="card csec"><div class="pg-head"><h2>What it usually turns out to be</h2><span class="pg-badge">Averages, not quotes</span></div>
+${d.causes2&&d.causes2.length?`<section class="card csec"><div class="pg-head"><h2>What it usually turns out to be</h2></div>
 <p class="pg-sub">Most likely first. Prices are typical US parts-and-labor totals for that repair, not a quote for your vehicle.</p>
-${d.causes2.map(c=>`<div class="c2"><div class="c2-h"><b>${escH(c.name)}</b><span class="c2-p">${rngC(c.lo,c.hi)}</span></div><p><span class="c2-l">How you can tell</span> ${escH(c.tell)}</p><p><span class="c2-l">The repair</span> ${escH(c.fix)}</p></div>`).join('')}
-${d.diag?`<p class="lsoon-note">A shop usually charges ${rngC(d.diag[0],d.diag[1])} just to diagnose this light, and many put that toward the repair.</p>`:''}</section>`:''}
+${d.causes2.map(c=>`<div class="c2"><div class="c2-h"><b>${escH(c.name)}</b><span class="c2-p">${lPrice(l.id,c)}</span></div><p><span class="c2-l">How you can tell</span> ${escH(c.tell)}</p><p><span class="c2-l">The repair</span> ${escH(c.fix)}</p></div>`).join('')}
+${d.diag&&lDiag(l.id,d.diag)?`<p class="lsoon-note">A shop usually charges ${lDiag(l.id,d.diag)} just to diagnose this light, and many put that toward the repair.</p>`:''}</section>`:''}
 ${d.shop?`<section class="card csec"><h2>What a shop will do</h2><p>${escH(d.shop)}</p></section>`:''}
 ${d.reset?`<section class="card csec lreset" id="reset"><h2>How to reset this light</h2><p>${escH(d.reset.how)}</p>${d.reset.note?`<p class="lmuted">${escH(d.reset.note)}</p>`:''}
 ${d.reset.real?(Object.keys(RESETS).length&&/oil|service|maint|tire|tyre/i.test(l.id)?`<div class="lsoon"><p class="eyebrow">Step by step</p><b>Pick your make for the button sequence</b><div class="mkrow">${Object.keys(RESETS).sort((a,b)=>RESETS[a].make.localeCompare(RESETS[b].make)).map(m=>`<a href="/warning-lights/reset/${m}/">${escH(RESETS[m].make)}</a>`).join('')}</div><p class="lsoon-note">Exact steps for every single year and model are still being added. If your make isn't here yet, your owner's manual has the sequence.</p></div>`:`<div class="lsoon"><p class="eyebrow">Coming soon</p><b>Reset steps for your exact vehicle</b><p>We're building the button-by-button reset for each year, make and model. Tell us what you drive and it will be here when it's ready.</p><a class="btn btn-ghost" href="/#vehicle">Pick my vehicle</a></div>`):''}</section>`:''}
@@ -277,11 +295,13 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
  const COMMON=[['Control arm replacement (one side)',/control arm/,/bolt|fastener|bushing|hardware/],['Ball joint replacement',/ball joint/],['Tie rod end replacement',/tie rod/],['Strut or shock absorber replacement',/strut|shock/,/mount only|liftgate|hood|tailgate|trunk|air (spring|strut)/],['Wheel bearing or hub replacement',/wheel bearing|hub (assembly|bearing)|hub and bearing/],['CV axle replacement',/cv axle|cv joint|half ?shaft|axle shaft/],['Sway bar link or bushing replacement',/sway bar|stabilizer (bar|link)/],['Alternator replacement',/alternator/],['Starter replacement',/starter/,/relay|cable|wire|switch|interrupt/],['Water pump replacement',/water pump/],['Radiator replacement',/radiator(?! hose| cap| fan)/],['Radiator fan replacement',/radiator fan|cooling fan/],['Thermostat replacement',/thermostat/,/water pump|head|radiator|timing/],['Fuel pump replacement',/fuel pump/,/relay|module only|driver|control/],['A/C compressor replacement',/a\/c compressor|ac compressor/],['Blower motor replacement',/blower motor/],['Window regulator or motor replacement',/window regulator|window motor/],['Door lock actuator replacement',/lock actuator/],['Power steering pump replacement',/power steering pump/],['Ignition coil replacement',/ignition coil|coil pack/],['Spark plug replacement',/spark plug/],['Timing belt replacement',/timing belt/],['Timing chain replacement',/timing chain/],['Valve cover gasket replacement',/valve cover gasket/],['Head gasket repair',/head gasket/],['Catalytic converter replacement',/catalytic/],['Oxygen sensor replacement',/oxygen sensor|o2 sensor/],['Brake pads and rotors',/pads and rotors|pad and rotor/],['Brake caliper replacement',/caliper/],['Engine or motor mount replacement',/engine mount|motor mount/],['Serpentine belt or tensioner replacement',/serpentine|belt tensioner/],['Wheel speed (ABS) sensor replacement',/wheel speed sensor|abs sensor/],['Heater core replacement',/heater core/],['Intake manifold gasket replacement',/intake manifold gasket/],['Oil pan gasket replacement',/oil pan gasket/],['Rear main seal replacement',/rear main seal/],['Clutch replacement',/clutch (kit|replacement)|replace (the )?clutch/],['Transmission replacement (remanufactured)',/(replace|rebuild).*(transmission|transaxle)|transmission (replacement|rebuild)/,/sensor|solenoid|mount|cooler|line|fluid|valve body|software|seal|switch|module|filter|pan|harness|range|shift|cable|tcm|clutch pack|torque converter only|pump/],['Throttle body cleaning or replacement',/throttle body/],['Mass air flow sensor replacement',/mass air ?flow|maf sensor/],['EGR valve replacement',/egr valve/],['Turbocharger replacement',/turbo(charger)?/,/hose|pipe|line|sensor|solenoid|intercooler|boost|valve|actuator|gasket|clean|pump|wiring|harness|clamp|wastegate|if needed/]];
  const pct=(a,q)=>{a=[...a].sort((x,y)=>x-y);return a[Math.min(a.length-1,Math.floor(q*(a.length-1)))]};
  for(const [name,re,ex] of COMMON){const los=[],his=[];
-   for(const v of V)for(const i of v.issues){const c=i.cost;if(!c||c.free||!(c.lo>0))continue;const j=c.job.toLowerCase();if(/^(inspect|diagnose|check|test)/.test(j))continue;if(re.test(j)&&!(ex&&ex.test(j))){los.push(c.lo);his.push(c.hi)}}
-   if(los.length<5)continue;const lo=rnd(pct(los,.25),false),hi=Math.max(rnd(pct(his,.75),true),lo+10);gen.set(name,[name,lo,hi])}
+   // Computed from the raw (pre-gate) issue figures in the ledger, so the common record is inventoried even while every input is withheld.
+   for(const c of LEDGER.filter(r=>r.family==='vehicle-issue'&&r.lo>0)){const j=c.job.toLowerCase();if(/^(inspect|diagnose|check|test)/.test(j))continue;if(re.test(j)&&!(ex&&ex.test(j))){los.push(c.lo);his.push(c.hi)}}
+   if(los.length<5)continue;const lo=rnd(pct(los,.25),false),hi=Math.max(rnd(pct(his,.75),true),lo+10);const g=EV.priceQualifies(EV.ids.common(name));
+   LEDGER.push({id:EV.ids.common(name),family:'common-general',scope:'general (all vehicles)',job:name,lo,hi,status:g.ok?'shown':'withheld',reason:g.reason||''});if(g.ok)gen.set(name,[name,lo,hi])}
  console.log(gen.size+' common repair price ranges');
  for(const c of CODES)if(c.cost){const k=c.cost.job.replace(/\s*\(.*?\)\s*/g,' ').trim();if(gen.has(k))continue;
-   const lo=rnd(c.cost.parts[0]+c.cost.hours[0]*RATE[0],false),hi=Math.max(rnd(c.cost.parts[1]+c.cost.hours[1]*RATE[1],true),lo+10);gen.set(k,[k,lo,hi])}
+   if(!c.costOk)continue;const lo=rnd(c.cost.parts[0]+c.cost.hours[0]*RATE[0],false),hi=Math.max(rnd(c.cost.parts[1]+c.cost.hours[1]*RATE[1],true),lo+10);gen.set(k,[k,lo,hi])}
  fs.writeFileSync('dist/price-index.js','window.GEN_PRICES='+JSON.stringify([...gen.values()].sort((a,b)=>a[0].localeCompare(b[0]))).replace(/</g,'\\u003c')+';');
  // Sourced estimator (src/estimator): per-job parts prices and stated labor hours by vehicle class, plus state labor rates.
  // Only files that passed review are shown: no "held" status and no nulls. Every number links back to its source.
@@ -290,7 +310,10 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
    const ks=['economy','midsize','truck','luxury'];if(j.status==='held'||!ks.every(k=>j.classes[k]&&okR(j.classes[k].parts)&&okR(j.classes[k].hours))){heldJ.push(j.job);console.log('estimator: not shown (held or incomplete):',f);continue}
    const cls={};for(const k of ks){const c=j.classes[k],seen=new Set(),src=[];for(const x of [...c.parts_src.map(x=>[x,'p']),...c.hours_src.map(x=>[x,'h'])]){const s=x[0];if(!/^https:\/\//.test(s.url)||seen.has(s.url)||/^(not used|not in the range)/i.test(s.what))continue;seen.add(s.url);src.push([s.url,x[1],s.what.length>170?s.what.slice(0,167).replace(/\s+\S*$/,'')+'…':s.what,/cross-check|not used|context only|outlier|not a range end|not in the range|corroboration/i.test(s.what.slice(0,70))?1:0])}
     src.sort((a,b)=>a[3]-b[3]);
+    {const lo=rnd(c.parts[0]+c.hours[0]*RATE[0],false),hi=Math.max(rnd(c.parts[1]+c.hours[1]*RATE[1],true),lo+10),g=EV.priceQualifies(EV.ids.est(f,k));
+     LEDGER.push({id:EV.ids.est(f,k),family:'estimator',scope:k+': '+c.example,job:j.job,lo,hi,status:g.ok?'shown':'withheld',reason:g.reason||''});if(!g.ok)continue}
     cls[k]={p:c.parts,h:c.hours,ex:c.example,src}}
+   if(!Object.keys(cls).length){heldJ.push(j.job);continue}
    // Posted menu prices (maintenance jobs): prices printed on shops' own pages. Shown beside the built range, never blended into it.
    // Entries for a different service are left out; fewer than four matching entries are not shown at all.
    const cut=(t,n)=>t.length>n?t.slice(0,n-3).replace(/\s+\S*$/,'')+'…':t;
@@ -314,7 +337,7 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
     <button class="btn" id="pcGo" type="button" disabled>Check my quote</button></div></div>
 </div>
 <div id="pcOut"></div>
-<p class="pg-disc" style="margin-top:18px"><b>How this works:</b> for the common repairs marked "sourced estimate", we add up the price of the parts (from a good aftermarket part to the dealer's list price) and the labor time a manufacturer or trade source states for the job, multiplied by a typical shop labor rate: your state's, if you pick one, or $120–$160 an hour, what about half of U.S. repair shops charge. Each result shows the parts and labor split, the example vehicle, the date we last checked it and links to every source. Other estimators such as RepairPal and Kelley Blue Book are used only as a cross-check, never as our numbers. For services sold at a menu price, such as an oil change or an alignment, we also list the prices shops post on their own pages; those are shown beside the range and never mixed into it. Other repairs use ranges built from known problems on each vehicle. Dealers and big-city shops often charge more. Diagnosis fees, taxes and shop supplies are usually extra. An estimate is not a quote and not a diagnosis: it is a guide to help you ask good questions.</p>`}));}
+<p class="pg-disc" style="margin-top:18px"><b>How this works:</b> for the common repairs marked "sourced estimate", we add up the price of the parts (from a good aftermarket part to the dealer's list price) and the labor time a manufacturer or trade source states for the job, multiplied by a typical shop labor rate: your state's, if you pick one, or a national typical rate. Each result shows the parts and labor split, the example vehicle, the date we last checked it and links to every source. Other estimators such as RepairPal and Kelley Blue Book are used only as a cross-check, never as our numbers. For services sold at a menu price, such as an oil change or an alignment, we also list the prices shops post on their own pages; those are shown beside the range and never mixed into it. Other repairs use ranges built from known problems on each vehicle. Dealers and big-city shops often charge more. Diagnosis fees, taxes and shop supplies are usually extra. An estimate is not a quote and not a diagnosis: it is a guide to help you ask good questions.</p>`}));}
 
 // hub
 urls.push(page('/symptoms/','All Car Symptom Guides | VehicleSymptoms.com','Step-by-step guides for car problems: won\'t start, warning lights, noises, shaking, leaks, smells, smoke, overheating and more.',{inner:`<div class="crumb"><a href="/">Home</a> › Symptom guides</div><div class="ghead"><h1>Symptom guides</h1><p class="sub">Pick what your car is doing. Each guide asks a few quick questions and tells you how urgent it is and what to do next.</p></div><div id="guideHub">${Object.entries(GL).map(([k,l])=>{const list=J.filter(j=>j.group===k);return list.length?`<section class="hubsec" id="${k}"><h2>${escH(l)}</h2><div class="glist">${list.map(j=>`<a class="gcard" href="/symptoms/${j.id}/"><b>${escH(j.title)}</b><span>${escH(j.h1)}</span></a>`).join('')}</div></section>`:''}).join('')}</div>`}));
@@ -333,7 +356,7 @@ urls.push(page('/about/','About VehicleSymptoms.com','What VehicleSymptoms.com i
 <ul><li><b>Guidance, not a diagnosis.</b> A website can't inspect your car. Possible causes are directions for testing, and we say what a shop should test before replacing parts.</li>
 <li><b>Safety first.</b> When symptoms point to a possible brake, steering, fire or engine-damage risk, we tell you to stop and get help.</li>
 <li><b>Honest about gaps.</b> If we haven't documented problems for a vehicle or year, we say so. A short list is not a reliability rating.</li>
-<li><b>Prices are averages.</b> U.S. national averages from typical parts prices plus standard labor time at $120 to $160 an hour, researched November 2026. Diagnosis, taxes and shop fees are extra. Not a quote.</li>
+<li><b>Prices are averages.</b> U.S. national averages from typical parts prices plus standard labor time at a typical shop labor rate, researched November 2026. Diagnosis, taxes and shop fees are extra. Not a quote.</li>
 <li><b>Free, no sign-up.</b> No ads and no affiliate links.</li></ul>
 <h3>Contact</h3><p>Spotted a mistake or have a question? Email us at <a href="mailto:${CONTACT}">${CONTACT}</a>.</p></div>`}));
 
@@ -349,6 +372,24 @@ for(const v of V){
   }
 }
 const LASTMOD=new Date().toISOString().slice(0,10);
+// Plain make -> model links so every vehicle page is reachable without JavaScript dropdowns.
+{const mk=[...new Set(V.map(v=>v.make))].sort((a,b)=>a.localeCompare(b));const ms=m=>m.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+ urls.push(page('/vehicles/','All Makes and Models: Car Problems, Costs and Recalls | VehicleSymptoms.com','Browse every make and model we cover, 1996 and newer. Pick yours to see known problems and safety recalls by model year.',{inner:`<div class="crumb"><a href="/">Home</a> › All vehicles</div>
+<div class="ghead"><div class="eyebrow">All vehicles</div><h1>Find your car by make and model</h1><p class="sub">${V.length} models from ${mk.length} makes. Pick your model, then your year.</p></div>
+<p class="codechips">${mk.map(m=>`<a href="#${ms(m)}">${escH(m)}</a>`).join('')}</p>
+${mk.map(m=>`<section class="csec" id="${ms(m)}"><h2>${escH(m)}</h2><div class="glist">${V.filter(v=>v.make===m).map(v=>`<a class="gcard" href="/vehicles/${v.id}/"><b>${escH(m+' '+v.model)}</b><span>${v.years[0]}–${v.years[1]}</span></a>`).join('')}</div></section>`).join('')}`}));}
+// Safety-critical instruction inventory: every rendered stop/urgent instruction and each place it appears.
+// The group is the normalized text, so one documented sign-off covers equivalent wording; each context is still listed and tested.
+const SAFE=[];{const grp=t=>'t:'+EV.slug(t).slice(0,70)+':'+require('crypto').createHash('sha1').update(String(t).toLowerCase().replace(/\s+/g,' ').trim()).digest('hex').slice(0,10);
+ const add=(text,context,kind)=>{if(text)SAFE.push({group:grp(text),text,context,kind})};
+ for(const c of CODES){const r='/codes/'+c.code.toLowerCase()+'/';if(c.urgent_if){add(c.urgent_if,r+'#urgent-first','code-urgent-if');add(c.urgent_if,r+'#faq','code-urgent-if')}if(c.sev==='stop'){add(CURG.stop[0],r+'#badge','code-badge');add(c.drive||'default-stop-drive',r+'#drive','code-drive')}}
+ for(const l of LIGHTS)if(l.sev==='stop'||l.sev==='soon'){const r='/warning-lights/'+l.id+'/';add(LSEV[l.sev][0],r+'#badge','light-badge');add(l.drive,r+'#drive','light-drive');const d=LDEEP[l.id]||{};if(d.flash)add(d.flash,r+'#flash','light-flash')}
+ for(const j of J){const r='/symptoms/'+j.id+'/';j.safety.forEach((t,k)=>add(t,r+'#safety-'+k,'guide-safety'));for(const [nid,n] of Object.entries(j.nodes))if(n.result&&(n.result.urgency==='stop'||n.result.urgency==='soon'))add(n.result.now,r+'#'+nid,'guide-result-'+n.result.urgency)}
+ for(const v of V)for(const i of v.issues)if(i.sev==='high')add(i.next,'/vehicles/'+v.id+'/#'+EV.slug(i.t),'vehicle-high-severity')}
+fs.mkdirSync('audit/generated',{recursive:true});fs.writeFileSync('audit/generated/safety-contexts.json',JSON.stringify(SAFE));
+console.log('safety contexts',SAFE.length,'groups',new Set(SAFE.map(x=>x.group)).size);
+fs.mkdirSync('audit/generated',{recursive:true});fs.writeFileSync('audit/generated/price-ledger.json',JSON.stringify(LEDGER));
+{const t={};for(const r of LEDGER){const k=r.family+':'+r.status;t[k]=(t[k]||0)+1}console.log('price ledger',LEDGER.length,JSON.stringify(t))}
 fs.writeFileSync('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(u=>`<url><loc>${SITE}${u}</loc><lastmod>${LASTMOD}</lastmod></url>`).join('\n')+'\n</urlset>\n');
 // search engine verification + IndexNow (src/verify.json)
 {const VF=JSON.parse(fs.readFileSync('src/verify.json','utf8'));
@@ -375,5 +416,5 @@ The site is written for regular drivers, not mechanics. Prices are national aver
 - Safety-critical answers (brakes, overheating, oil pressure, flashing check engine light) tell the driver to stop driving; please keep that advice intact.
 `);
 fs.writeFileSync('dist/robots.txt',`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
-fs.writeFileSync('dist/404.html',tpl.replace(/{{TITLE}}/g,'Page not found | VehicleSymptoms.com').replace(/{{DESC}}/g,'').replace(/{{CANON}}/g,SITE+'/').replace('{{CRED}}','').replace('{{HOMEHIDE}}',' style="display:none"').replace('{{VEHSTYLE}}','').replace('{{PAGEDATA}}','').replace('{{VEHHTML}}','<div class="ghead"><h1>Page not found</h1><p class="sub">That page doesn\'t exist. <a href="/">Go to the homepage</a> or <a href="/symptoms/">browse symptom guides</a>.</p></div>'));
+fs.writeFileSync('dist/404.html',tpl.replace(/{{TITLE}}/g,'Page not found | VehicleSymptoms.com').replace(/{{DESC}}/g,'').replace(/<link rel="canonical"[^>]*>/,'<meta name="robots" content="noindex">').replace(/{{CANON}}/g,SITE+'/').replace('{{CRED}}','').replace('{{HOMEHIDE}}',' style="display:none"').replace('{{VEHSTYLE}}','').replace('{{PAGEDATA}}','').replace('{{VEHHTML}}','<div class="ghead"><h1>Page not found</h1><p class="sub">That page doesn\'t exist. <a href="/">Go to the homepage</a> or <a href="/symptoms/">browse symptom guides</a>.</p></div>'));
 console.log('pages:',urls.length);

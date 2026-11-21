@@ -46,11 +46,13 @@ window.VS_PDF=function(ctx){
   // Ownership snapshot
   h2('Ownership snapshot');
   const own=v.own,serious=list.filter(i=>i.sev==='high').length;
-  const big=list.filter(i=>i.cost&&!i.cost.recall&&!i.cost.free).sort((a,b)=>b.cost.hi-a.cost.hi)[0];
+  const priced=c=>c&&!c.withheld&&!c.free&&typeof c.lo==='number',WH='Insufficient verified pricing for this vehicle and repair';
+  const big=list.filter(i=>priced(i.cost)&&!i.cost.recall).sort((a,b)=>b.cost.hi-a.cost.hi)[0];
   const rec=ctx.recalls,tiles=[];
-  if(own&&own.annual)tiles.push(['Average yearly repair and maintenance',money(own.annual.amount)+' /yr','National average for the '+v.make+' '+v.model+', all years']);
+  if(own&&own.annual&&!own.annual.withheld)tiles.push(['Average yearly repair and maintenance',money(own.annual.amount)+' /yr','National average for the '+v.make+' '+v.model+', all years']);
   tiles.push(['Problems documented'+(year?' for '+year:''),list.length?String(list.length):'Not yet',list.length?(serious?serious+' rated serious':'None on file rated serious'):"We haven't documented issues for this year yet. Not a reliability rating."]);
-  if(year)tiles.push(Array.isArray(rec)?['Model-year safety recalls',String(rec.length),rec.length?'Fixed free at a dealer. Check your VIN.':'None listed under this model name. Check your VIN to be sure.']:['Safety recalls','–','Recall lookup was unavailable. Check your VIN at nhtsa.gov/recalls.']);
+  const recOk=rec&&rec.status==='ok';
+  if(year)tiles.push(recOk?['Model-year safety recalls',String(rec.total),rec.total?'Filed for this model year. Check your VIN.':'NHTSA lists none for this model year. Check your VIN to be sure.']:['Safety recalls','–','Lookup unavailable. Check your VIN at nhtsa.gov/recalls.']);
   if(big)tiles.push(['Highest-cost issue covered here',rng(big.cost),big.cost.job,GREEN]);
   {const gap=8,tw=(CW-gap*(tiles.length-1))/tiles.length,pad=9,iw=tw-pad*2;
    const laid=tiles.map(t=>{font('bold',6.8,MUTED);const a=doc.splitTextToSize(clean(t[0]).toUpperCase(),iw);font('normal',8,BODY);const c=doc.splitTextToSize(clean(t[2]),iw);return{a,c,h:pad*2+a.length*8.8+24+c.length*10.4}});
@@ -62,7 +64,7 @@ window.VS_PDF=function(ctx){
    y+=th+12}
   if(own&&own.maint&&own.maint.length){need(60);para('Routine maintenance costs',{size:11,style:'bold',color:TEXT,after:1});
     para('Model-wide, not specific to one year or engine.',{size:8.5,color:MUTED,after:6});rule(6);
-    own.maint.forEach(x=>row(x.job,x.every+(x.note?' · '+x.note:''),rng(x)))}
+    own.maint.forEach(x=>row(x.job,x.every+(x.note?' · '+x.note:''),x.withheld?'Price not verified':rng(x)))}
   if(ctx.note){y+=2;para(ctx.note,{size:8,color:MUTED,after:2})}
 
   // Known problems: everything for this year and engine, most serious first
@@ -73,30 +75,32 @@ window.VS_PDF=function(ctx){
     font('normal',8,MUTED);doc.text(clean('  ·  '+yrs(i)+'  ·  '+i.sys+(i.eng?'  ·  '+i.eng:'')),M+sw,y,{baseline:'top'});y+=13;
     para(i.t,{size:11.5,style:'bold',color:TEXT,lh:1.25,after:5});
     [["What you'll notice",i.sym],['Why it happens',i.why],['What to do',i.next]].forEach(p=>{if(!p[1])return;label(p[0]);para(p[1],{after:6})});
-    const c=i.cost;if(c){label('Typical repair cost');
-      para((c.free?'No charge under recall':rng(c))+'  ·  '+c.job,{style:'bold',color:TEXT,after:c.recall||c.note?1:4});
+    const c=i.cost;if(c){label(c.withheld?'Repair cost':'Typical repair cost');
+      para((c.withheld?WH:c.free?'No charge if your vehicle is in the recall':rng(c))+'  ·  '+c.job,{style:'bold',color:TEXT,after:c.recall||c.note?1:4});
       if(c.recall)para('May be free under a recall or extended warranty.',{size:8.5,color:MUTED,after:c.note?1:4});
       if(c.note)para(c.note,{size:8.5,color:MUTED,after:4})}
     if(k<sorted.length-1){y+=4;rule(12)}});
 
   // Price guide
   {const seen=new Set(),uniq=list.filter(i=>i.cost&&!seen.has(i.cost.job)&&seen.add(i.cost.job));
-   const pay=uniq.filter(i=>!i.cost.recall&&!i.cost.free).sort((a,b)=>SR[a.sev]-SR[b.sev]||b.cost.hi-a.cost.hi);
-   const rc=uniq.filter(i=>i.cost.recall||i.cost.free);
+   const pay=uniq.filter(i=>priced(i.cost)&&!i.cost.recall).sort((a,b)=>SR[a.sev]-SR[b.sev]||b.cost.hi-a.cost.hi);
+   const rc=uniq.filter(i=>i.cost.free||(i.cost.recall&&!i.cost.withheld)),wh=uniq.filter(i=>i.cost.withheld);
+   if(!pay.length&&wh.length){h2('Price guide',WH+'. No price, chart or verdict is shown for these repairs until two independent, dated price sources are matched to this vehicle.');wh.forEach(i=>row(i.cost.job,SEV[i.sev],'Not verified'))}
    if(pay.length||rc.length){h2('Price guide: what repairs usually cost',pay.length?'Repairs owners of this vehicle may have to pay for, most serious first. Average estimates, low to high.':'No common out-of-pocket repairs on file for this year. The repairs below are normally covered by recalls.');
     if(pay.length)rule(6);pay.forEach(i=>row(i.cost.job,SEV[i.sev],rng(i.cost)));
     if(rc.length){need(60);y+=6;para('Recall repairs: usually free at the dealer',{size:11,style:'bold',color:TEXT,after:1});
       para('Check your VIN. If your vehicle is included, the dealer fixes it at no charge.',{size:8.5,color:MUTED,after:6});rule(6);
-      rc.forEach(i=>row(i.cost.job.replace(/\s*\(recall\)$/i,''),i.cost.free?'':rng(i.cost)+' if you paid','No charge',{rc:GREEN}))}
+      rc.forEach(i=>row(i.cost.job.replace(/\s*\(recall\)$/i,''),'If your vehicle is included','No charge',{rc:GREEN}))}
     if(ctx.disc){y+=2;para('Disclaimer: '+ctx.disc,{size:8,color:MUTED})}}}
 
   // Safety recalls (live from NHTSA when the page loaded)
   if(year){
-    if(Array.isArray(rec)){h2(rec.length+' safety recall'+(rec.length===1?'':'s')+' for the '+name,rec.length?'Recalls filed with NHTSA for this model year. '+(rec.length>12?'Showing the first 12 of '+rec.length+'. ':'')+'Not every vehicle is included in every recall.':'No recalls found under this exact model name.');
-      rec.slice(0,12).forEach((x,k,a)=>{need(70);para([x.NHTSACampaignNumber,(x.Component||'').split(':')[0]].filter(Boolean).join('  ·  '),{size:9.5,style:'bold',color:TEXT,after:4});
-        if(x.Summary){label('Problem');para(x.Summary,{size:9,after:5})}if(x.Remedy){label('Fix');para(x.Remedy,{size:9,after:4})}
-        if(k<a.length-1){y+=3;rule(10)}})}
-    else h2('Safety recalls',"We couldn't reach the government recall database when this was saved. This does not mean there are no recalls.");
+    if(recOk){h2((rec.total?rec.total+' safety recall'+(rec.total===1?'':'s'):'No safety recalls')+' filed for the '+name,(rec.total?'Campaigns NHTSA lists for this model year. Not every vehicle is included, and this does not show whether a recall is open on your car.':'NHTSA returned no campaigns for this model year.')+' Checked '+new Date(rec.checked).toLocaleDateString('en-US')+'.');
+      rec.groups.forEach(g=>{if(rec.groups.length>1){need(30);para(g.label+': '+g.results.length,{size:10.5,style:'bold',color:TEXT,after:4})}
+        g.results.slice(0,12).forEach((x,k,a)=>{need(70);para([x.NHTSACampaignNumber,(x.Component||'').split(':')[0]].filter(Boolean).join('  ·  '),{size:9.5,style:'bold',color:TEXT,after:4});
+          if(x.Summary){label('Problem');para(x.Summary,{size:9,after:5})}if(x.Remedy){label('Fix');para(x.Remedy,{size:9,after:4})}
+          if(k<a.length-1){y+=3;rule(10)}});if(g.results.length>12)para('Showing 12 of '+g.results.length+'. See all at nhtsa.gov/recalls.',{size:8.5,color:MUTED,after:4})})}
+    else h2('Safety recalls: lookup unavailable',"We couldn't confirm the recall list when this was saved. This does not mean there are no recalls.");
     y+=6;para("Check your own vehicle: enter your VIN at nhtsa.gov/recalls to see which recalls apply to it and whether they're still open. Recall repairs are free at a dealer.",{size:9,style:'bold',color:TEXT})}
 
   y+=14;need(50);rule(10);
