@@ -65,17 +65,18 @@ function createLibrary(settings = config) {
       if (!entries.length) return '';
       const rows = entries.map(i => '<li><a data-mv-id="' + esc(recordKey(i)) + '" href="' + esc(link(i)) + '">' +
         esc(i.title) + '</a></li>').join('');
-      return '<details class="mv-group" open><summary>' + esc(name) + '</summary><ul>' + rows + '</ul></details>';
+      return '<section class="mv-group"><h2>' + esc(name) + '</h2><ul>' + rows + '</ul></section>';
     }
     const groups = group('Watch now', direct) + group('Watch through the system menu', overviews);
     return {
       data: { menu, items: playable },
       html: '<div class="crumb"><a href="/">Home</a> › Repair animations</div><div class="ghead"><h1>Repair animations</h1>' +
         '<p class="sub">Watch MotoVisuals videos about vehicle parts and systems.</p></div>' +
-        '<details class="mv-related" id="mv-viewer" data-mv-player hidden><summary id="mv-title"></summary><div id="mv-content"></div></details>' +
-        '<noscript>' + direct.map(i => '<details class="mv-related"><summary>' + esc(i.title) + '</summary>' +
-          '<iframe class="mv-frame mv-video" title="' + esc(i.title) + '" src="' + esc(i.url) + '" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></details>').join('') + '</noscript>' +
-        '<details class="mv-related" data-mv-player><summary>Browse vehicle system overviews</summary>' + player(null) + '</details>' +
+        '<section class="mv-related" id="mv-viewer" aria-labelledby="mv-title" hidden><h2 id="mv-title" tabindex="-1"></h2><div id="mv-content"></div></section>' +
+        '<noscript><style>#mv-directory{display:none}</style>' + direct.map(i => '<section class="mv-related"><h2>' + esc(i.title) + '</h2>' +
+          '<iframe class="mv-frame mv-video" title="' + esc(i.title) + '" src="' + esc(i.url) + '" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></section>').join('') +
+          (overviews.length ? '<h2>Vehicle system videos</h2><iframe class="mv-frame" title="MotoVisuals vehicle system overviews" src="' + esc(menu) +
+            '" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe>' : '') + '</noscript>' +
         '<div id="mv-directory"><label for="mv-search">Find a part or system</label>' +
         '<input type="search" id="mv-search" placeholder="Try brake pads or steering" autocomplete="off" disabled>' +
         '<p id="mv-count" role="status" aria-live="polite"></p><div id="mv-groups">' + groups + '</div></div>'

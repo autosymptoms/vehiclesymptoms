@@ -48,6 +48,7 @@ test('public directory exposes only playable videos across search, deep links an
   try {
     w.HTMLElement.prototype.scrollIntoView = function() {};
     w.eval(fs.readFileSync(require.resolve('../src/animations/browser.js'),'utf8'));
+    assert.equal(d.querySelectorAll('details,select').length,0);
     const content = d.getElementById('mv-content');
     const search = d.getElementById('mv-search');
     assert.equal(d.querySelectorAll('#mv-groups [data-mv-id]').length,data.items.length);

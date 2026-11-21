@@ -39,7 +39,6 @@
         if (!row.hidden) visible++;
       });
       group.hidden = !visible;
-      group.open = visible > 0;
       count += visible;
     });
     document.getElementById('mv-count').textContent = count ? count + (count === 1 ? ' video' : ' videos') : 'No matching videos. Try another part or system.';
@@ -48,7 +47,6 @@
     const item = records.get(id);
     content.replaceChildren();
     viewer.hidden = !item;
-    viewer.open = Boolean(item);
     if (!item) return;
     title.textContent = item.title;
     if (!item.url) {
