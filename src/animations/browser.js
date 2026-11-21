@@ -23,8 +23,7 @@
   const title = document.getElementById('mv-title');
   const content = document.getElementById('mv-content');
   const search = document.getElementById('mv-search');
-  const format = document.getElementById('mv-format');
-  search.disabled = format.disabled = false;
+  search.disabled = false;
   const groups = [...directory.querySelectorAll('.mv-group')].map(group => ({
     group, rows: [...group.querySelectorAll('[data-mv-id]')].map(a => ({ row:a.parentElement, item:records.get(a.dataset.mvId) }))
   }));
@@ -36,14 +35,14 @@
       let visible = 0;
       rows.forEach(({ row, item }) => {
         const words = fold(item.title + ' ' + item.system + ' ' + item.menuLabel);
-        row.hidden = Boolean((format.value && format.value !== item.kind) || !terms.every(t => words.some(w => w.startsWith(t))));
+        row.hidden = !terms.every(t => words.some(w => w.startsWith(t)));
         if (!row.hidden) visible++;
       });
       group.hidden = !visible;
-      group.open = Boolean(visible && (terms.length || format.value || group.hasAttribute('data-mv-featured')));
+      group.open = visible > 0;
       count += visible;
     });
-    document.getElementById('mv-count').textContent = count ? count + (count === 1 ? ' title' : ' titles') : 'No matching titles. Try another part or clear the filter.';
+    document.getElementById('mv-count').textContent = count ? count + (count === 1 ? ' video' : ' videos') : 'No matching videos. Try another part or system.';
   }
   function select(id, focus) {
     const item = records.get(id);
@@ -55,24 +54,27 @@
     if (!item.url) {
       const hint = document.createElement('p');
       hint.className = 'mv-hint';
-      hint.textContent = item.menuLabel ? 'Choose ' + item.menuLabel + ' in the system menu.' : 'Catalog only. This title has no player on this site.';
+      hint.textContent = 'Choose ' + item.menuLabel + ' in the system menu.';
       content.append(hint);
     }
-    if (item.url || item.menuLabel) {
-      const frame = document.createElement('iframe');
-      frame.className = 'mv-frame' + (item.url ? ' mv-video' : '');
-      frame.title = item.url ? item.title : 'MotoVisuals vehicle system overviews';
-      frame.allowFullscreen = true;
-      frame.referrerPolicy = 'strict-origin-when-cross-origin';
-      frame.loading = 'lazy';
-      frame.src = item.url || data.menu;
-      content.append(frame);
-    }
+    const frame = document.createElement('iframe');
+    frame.className = 'mv-frame' + (item.url ? ' mv-video' : '');
+    frame.title = item.url ? item.title : 'MotoVisuals vehicle system overviews';
+    frame.allowFullscreen = true;
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.loading = 'lazy';
+    frame.src = item.url || data.menu;
+    content.append(frame);
     if (focus) title.focus();
   }
   function fromUrl(focus) {
-    const params = new URLSearchParams(location.search);
-    select(params.get('animation'), focus);
+    const url = new URL(location.href);
+    const id = url.searchParams.get('animation');
+    if (id !== null && !records.has(id)) {
+      url.searchParams.delete('animation');
+      history.replaceState(null, '', url);
+    }
+    select(id, focus);
   }
   directory.addEventListener('click', event => {
     const a = event.target.closest('a[data-mv-id]');
@@ -84,7 +86,6 @@
   });
   addEventListener('popstate', () => fromUrl(false));
   search.addEventListener('input', filter);
-  format.addEventListener('change', filter);
   filter();
   fromUrl(false);
 })();

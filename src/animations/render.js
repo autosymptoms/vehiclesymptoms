@@ -58,40 +58,26 @@ function createLibrary(settings = config) {
       player(i) + '<a href="' + library + '">Browse repair animations</a></details>';
   }
   function directory() {
-    const direct = items.filter(i => i.url);
-    const overviews = items.filter(i => i.menuLabel && !i.url);
-    const catalog = new Map();
-    for (const item of items) {
-      if (available(item)) continue;
-      if (!catalog.has(item.system)) catalog.set(item.system, []);
-      catalog.get(item.system).push(item);
-    }
-    function group(name, entries, featured = false) {
+    const playable = items.filter(available);
+    const direct = playable.filter(i => i.url);
+    const overviews = playable.filter(i => !i.url);
+    function group(name, entries) {
       if (!entries.length) return '';
-      const rows = entries.map(i => {
-        const id = ' data-mv-id="' + esc(recordKey(i)) + '"';
-        const title = available(i)
-          ? '<a' + id + ' href="' + esc(link(i)) + '">' + esc(i.title) + '</a>'
-          : '<span' + id + '>' + esc(i.title) + '</span>';
-        const status = i.url ? 'Direct player' : i.menuLabel ? 'In system menu' : 'Catalog only';
-        return '<li>' + title + ' <small>' + esc(i.kind) + ' · ' + status + '</small></li>';
-      }).join('');
-      return '<details class="mv-group"' + (featured ? ' open data-mv-featured' : '') + '><summary>' + esc(name) + '</summary><ul>' + rows + '</ul></details>';
+      const rows = entries.map(i => '<li><a data-mv-id="' + esc(recordKey(i)) + '" href="' + esc(link(i)) + '">' +
+        esc(i.title) + '</a></li>').join('');
+      return '<details class="mv-group" open><summary>' + esc(name) + '</summary><ul>' + rows + '</ul></details>';
     }
-    const groups = group('Watch now', direct, true) + group('Watch through the system menu', overviews) +
-      [...catalog].sort(([a],[b]) => a.localeCompare(b)).map(([name, entries]) => group(name, entries)).join('');
+    const groups = group('Watch now', direct) + group('Watch through the system menu', overviews);
     return {
-      data: { menu, items },
+      data: { menu, items: playable },
       html: '<div class="crumb"><a href="/">Home</a> › Repair animations</div><div class="ghead"><h1>Repair animations</h1>' +
-        '<p class="sub">Watch available repair videos and search the MotoVisuals title catalog. Catalog-only titles have no player on this site.</p></div>' +
+        '<p class="sub">Watch MotoVisuals videos about vehicle parts and systems.</p></div>' +
         '<details class="mv-related" id="mv-viewer" data-mv-player hidden><summary id="mv-title"></summary><div id="mv-content"></div></details>' +
         '<noscript>' + direct.map(i => '<details class="mv-related"><summary>' + esc(i.title) + '</summary>' +
           '<iframe class="mv-frame mv-video" title="' + esc(i.title) + '" src="' + esc(i.url) + '" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe></details>').join('') + '</noscript>' +
         '<details class="mv-related" data-mv-player><summary>Browse vehicle system overviews</summary>' + player(null) + '</details>' +
         '<div id="mv-directory"><label for="mv-search">Find a part or system</label>' +
-        '<input type="search" id="mv-search" placeholder="Try brake pads or wheel bearing" autocomplete="off" disabled>' +
-        '<label for="mv-format">Format</label><select id="mv-format" disabled><option value="">All formats</option>' +
-        '<option value="narrated">Narrated</option><option value="interactive">Interactive</option></select>' +
+        '<input type="search" id="mv-search" placeholder="Try brake pads or steering" autocomplete="off" disabled>' +
         '<p id="mv-count" role="status" aria-live="polite"></p><div id="mv-groups">' + groups + '</div></div>'
     };
   }
