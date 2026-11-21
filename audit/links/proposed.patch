@@ -1,0 +1,1142 @@
+diff --git a/build.js b/build.js
+index 1134dad..4f4cf05 100644
+--- a/build.js
++++ b/build.js
+@@ -74,8 +74,15 @@ J.forEach(j=>{j.related=j.related.filter(r=>jids.has(r)&&r!==j.id)});
+ fs.mkdirSync('api/_data',{recursive:true});
+ fs.writeFileSync('api/_data/journeys.json',JSON.stringify(Object.fromEntries(J.map(j=>[j.id,{id:j.id,title:j.title,start:j.start,nodes:j.nodes}]))));
+ fs.writeFileSync('api/_data/vehicles-lite.json',JSON.stringify(Object.fromEntries(V.map(v=>[v.id,{name:v.make+' '+v.model,y0:v.years[0],y1:v.years[1]}]))));
+-const INDEX=J.map(j=>({id:j.id,title:j.title,h1:j.h1,group:j.group,cat:j.cat,syn:j.synonyms,match:j.issueMatch}));
+-const indexJs='window.GUIDE_INDEX='+JSON.stringify(INDEX)+';\n';
++const INDEX=J.map(j=>({id:j.id,title:j.title,h1:j.h1,group:j.group,cat:j.cat,syn:j.synonyms}));
++// Strict issue->guide links (see src/guide-links.json). Fail the build on a bad pattern or an unknown guide id.
++const GLINKS=JSON.parse(fs.readFileSync('src/guide-links.json','utf8'));
++{const bad=[];for(const p of GLINKS.not)try{new RegExp(p,'i')}catch(e){bad.push('global: '+p)}
++ for(const id of GLINKS.order){const r=GLINKS.guides[id];if(!r){bad.push('order lists '+id+' with no rule');continue}if(!jids.has(id))bad.push('rule for unknown guide '+id);
++   for(const p of [...r.any,...(r.not||[])])try{new RegExp(p,'i')}catch(e){bad.push(id+': '+p)}}
++ for(const id in GLINKS.guides)if(!GLINKS.order.includes(id))bad.push(id+' missing from order');
++ if(bad.length){console.error('guide-links.json problems:\n  '+bad.join('\n  '));process.exit(1)}}
++const indexJs='window.GUIDE_INDEX='+JSON.stringify(INDEX)+';\nwindow.GUIDE_LINKS='+JSON.stringify({not:GLINKS.not,order:GLINKS.order,guides:GLINKS.guides})+';\n';
+ console.log(`${J.length} symptom guides`);
+ 
+ // ---------- output ----------
+diff --git a/src/guide-links.json b/src/guide-links.json
+new file mode 100644
+index 0000000..60aace6
+--- /dev/null
++++ b/src/guide-links.json
+@@ -0,0 +1,1062 @@
++{
++ "_doc": "Strict issue->guide links. A vehicle issue links to a guide only when its TITLE (the problem's name) matches one of the guide's 'any' patterns and none of its 'not' patterns or the global 'not' patterns. Patterns are case-insensitive regular expressions with word boundaries written explicitly. When several guides match, the first guide in 'order' wins. No match means no guide link: an uncertain link is worse than none.",
++ "not": [
++  "\\b(back-?up|rear-?view|rear view|reversing|360|surround[- ]view) camera",
++  "\\bcamera\\b",
++  "\\b(screen|display|touchscreen|infotainment|head-up|instrument display)\\b",
++  "\\bwipers?\\b",
++  "\\bseat ?belts?\\b",
++  "\\bchild seat\\b",
++  "\\bbuckle\\b",
++  "\\blabel\\b",
++  "\\bowner'?s manual\\b",
++  "\\bcertification\\b",
++  "\\b(may|might|could|can) not (come on|light( up)?|work|alert|illuminate|show|appear)\\b",
++  "\\bcome on too late\\b",
++  "\\bset too low\\b",
++  "\\bshow wrongly\\b",
++  "\\bmay not work\\b",
++  "\\bmay not stay on\\b",
++  "\\bmay miss\\b"
++ ],
++ "order": [
++  "check-engine-light-flashing",
++  "check-hybrid-system-warning",
++  "reduced-engine-power-warning",
++  "security-light-flashing-wont-start",
++  "push-button-start-not-working",
++  "key-wont-turn-in-ignition",
++  "abs-light-on",
++  "airbag-light-on",
++  "brake-warning-light-on",
++  "battery-light-on",
++  "oil-pressure-light-on",
++  "tire-pressure-light-on",
++  "traction-control-light-on",
++  "power-steering-warning-light",
++  "transmission-warning-light",
++  "dashboard-lights-all-on",
++  "check-engine-light-on",
++  "four-wheel-drive-not-engaging",
++  "stuck-in-park",
++  "delayed-engagement-into-gear",
++  "car-wont-go-into-gear",
++  "clutch-slipping",
++  "grinding-when-shifting-gears",
++  "transmission-slipping",
++  "harsh-or-hard-shifting",
++  "transmission-fluid-leak",
++  "car-wont-turn-off",
++  "starts-then-dies",
++  "car-dies-when-coming-to-stop",
++  "engine-stalls-while-driving",
++  "hard-to-start-when-cold",
++  "hard-to-start-when-hot",
++  "car-cranks-slowly",
++  "battery-keeps-dying",
++  "car-wont-start",
++  "overheats-only-in-traffic",
++  "temperature-gauge-fluctuating",
++  "engine-overheating",
++  "losing-coolant-no-visible-leak",
++  "steam-from-under-hood",
++  "brake-fluid-leak",
++  "power-steering-fluid-leak",
++  "oil-leak",
++  "water-leak-inside-car",
++  "water-dripping-under-car",
++  "fluid-leak-under-car",
++  "burning-oil-smell",
++  "burning-oil-low-oil-level",
++  "blue-smoke-from-exhaust",
++  "black-smoke-from-exhaust",
++  "white-smoke-from-exhaust",
++  "gas-smell",
++  "exhaust-smell-in-cabin",
++  "rotten-egg-smell",
++  "sweet-smell-from-car",
++  "musty-smell-from-vents",
++  "burning-rubber-smell",
++  "burning-smell",
++  "soft-or-spongy-brake-pedal",
++  "hard-brake-pedal",
++  "car-shakes-when-braking",
++  "car-pulls-when-braking",
++  "brakes-dragging",
++  "grinding-brakes",
++  "squealing-brakes",
++  "steering-hard-to-turn",
++  "whining-when-turning-steering",
++  "creaking-when-turning-steering",
++  "loose-or-wandering-steering",
++  "car-pulls-to-one-side",
++  "steering-wheel-shaking",
++  "vibration-at-highway-speed",
++  "car-shakes-when-accelerating",
++  "car-jerks-when-accelerating",
++  "hesitation-when-accelerating",
++  "loss-of-power-when-accelerating",
++  "engine-sputtering-misfire",
++  "rough-idle-shaking",
++  "engine-revs-high-at-idle",
++  "poor-gas-mileage",
++  "engine-knocking",
++  "engine-ticking",
++  "popping-or-backfiring",
++  "loud-exhaust-roaring",
++  "rattle-under-car",
++  "clicking-when-turning",
++  "clunk-over-bumps",
++  "squeaking-over-bumps",
++  "bouncy-ride",
++  "humming-noise-at-speed",
++  "whining-noise-when-accelerating",
++  "hissing-under-hood",
++  "squeal-on-startup",
++  "uneven-tire-wear",
++  "tire-keeps-losing-air",
++  "ac-blowing-warm-air",
++  "heater-blowing-cold-air",
++  "windows-fogging-up",
++  "headlights-dim-or-flickering",
++  "electrical-accessories-not-working"
++ ],
++ "guides": {
++  "abs-light-on": {
++   "any": [
++    "\\babs (warning )?light\\b",
++    "\\babs (and|or|,) [a-z ,/]*(light|warning)s?\\b",
++    "\\banti-?lock (brake )?(warning )?light\\b"
++   ]
++  },
++  "ac-blowing-warm-air": {
++   "any": [
++    "\\ba/?c (blows|blowing|stops? cooling|not cooling|goes warm|blows warm|blows hot|stops working|quits|warm)\\b",
++    "\\b(no|weak|poor|intermittent) (a/?c|air conditioning|cooling from the a/?c)\\b",
++    "\\bair conditioning (stops|fails|not)\\b",
++    "\\ba/?c (compressor|clutch) (fails?|failure|stops|quits)\\b",
++    "\\bwarm air from the (a/?c|vents)\\b",
++    "\\bblows? (hot|warm) air\\b"
++   ],
++   "not": [
++    "\\bheater\\b"
++   ]
++  },
++  "airbag-light-on": {
++   "any": [
++    "\\b(airbag|air bag|srs)( warning)? light\\b",
++    "\\bsrs warning\\b"
++   ]
++  },
++  "battery-keeps-dying": {
++   "any": [
++    "\\bbattery (keeps )?(drains?|draining|dies|dying|goes dead|runs (down|flat)|keeps going dead)\\b",
++    "\\bdead (12-?v(olt)? )?batter(y|ies)\\b",
++    "\\b(parasitic|battery) drain\\b",
++    "\\bdrains? the (12-?v(olt)? )?battery\\b"
++   ],
++   "not": [
++    "\\bhigh-voltage\\b",
++    "\\bhybrid battery\\b",
++    "\\btraction battery\\b"
++   ]
++  },
++  "battery-light-on": {
++   "any": [
++    "\\b(battery|charging|alternator)( warning)? light\\b",
++    "\\bcharging system warning\\b"
++   ],
++   "not": [
++    "\\bcut out\\b"
++   ]
++  },
++  "black-smoke-from-exhaust": {
++   "any": [
++    "\\bblack smoke\\b",
++    "\\brunning rich\\b",
++    "\\bruns rich\\b"
++   ]
++  },
++  "blue-smoke-from-exhaust": {
++   "any": [
++    "\\b(blue|gr[ae]y|bluish) smoke\\b"
++   ]
++  },
++  "bouncy-ride": {
++   "any": [
++    "\\bbouncy\\b",
++    "\\bbounc(es|ing|y) ride\\b",
++    "\\b(suspension|car|corner|rear|front) (sags|sagging|sits low)\\b",
++    "\\bsags\\b",
++    "\\bsagging\\b",
++    "\\bworn (shocks|struts|shock absorbers)\\b",
++    "\\bshocks? (leak|wear out|worn)\\b",
++    "\\bstruts? (leak|wear out|worn)\\b"
++   ],
++   "not": [
++    "\\bdoor\\b",
++    "\\bheadliner\\b",
++    "\\bliftgate\\b",
++    "\\btailgate\\b",
++    "\\bhood\\b",
++    "\\btrunk\\b",
++    "\\b(seat|seats|dash|dashboard|moonroof|sunroof|trim|panel|door|doors|mirror|mirrors|hood|headliner|liftgate|tailgate|trunk|console|actuator|glove ?box|wheel well|visor)\\b"
++   ]
++  },
++  "brake-fluid-leak": {
++   "any": [
++    "\\bbrake fluid (leaks?|leaking|loss)\\b",
++    "\\bbrake (line|lines|hose|hoses|caliper|master cylinder)s? (can )?(leaks?|leaking|rust through|corrode and leak)\\b",
++    "\\bleaks? brake fluid\\b",
++    "\\bmaster cylinder (seal )?(can )?leaks?\\b"
++   ]
++  },
++  "brake-warning-light-on": {
++   "any": [
++    "\\b(red )?brake (system )?warning light\\b",
++    "\\bbrake light on (the )?dash\\b"
++   ]
++  },
++  "brakes-dragging": {
++   "any": [
++    "\\bbrakes? (drag|dragging|sticks?|sticking|stay on|won'?t release)\\b",
++    "\\b(sticking|seized|seizing|stuck|binding) (brake )?calipers?\\b",
++    "\\bcalipers? (sticks?|sticking|seize|seizes|seizing|bind|binding|drag|dragging)\\b",
++    "\\bparking brake (sticks|sticking|won'?t release|stuck|stays on|drags?|dragging|binds?)\\b"
++   ]
++  },
++  "burning-oil-low-oil-level": {
++   "any": [
++    "\\b(excessive |high )?oil consumption\\b",
++    "\\b(burns|burning|uses|using|consumes|consuming|eats|eating) (excessive |too much |a lot of )?oil\\b(?! smell)",
++    "\\boil level (keeps )?(drops?|dropping|falls|low)\\b",
++    "\\bloses oil\\b",
++    "\\blosing oil\\b"
++   ]
++  },
++  "burning-oil-smell": {
++   "any": [
++    "\\bburning oil smell\\b",
++    "\\boil smell\\b",
++    "\\bsmell of burning oil\\b",
++    "\\boil (leaks? |drips? )?onto the exhaust\\b"
++   ]
++  },
++  "burning-rubber-smell": {
++   "any": [
++    "\\bburning rubber\\b",
++    "\\bburnt rubber\\b",
++    "\\bhot brake smell\\b",
++    "\\bclutch smell\\b"
++   ]
++  },
++  "burning-smell": {
++   "any": [
++    "\\bburning (plastic )?smell\\b",
++    "\\bsmell of burning\\b",
++    "\\bburnt smell\\b",
++    "\\belectrical (burning )?smell\\b"
++   ]
++  },
++  "car-cranks-slowly": {
++   "any": [
++    "\\bslow (crank|cranking|to crank)\\b",
++    "\\bcranks slowly\\b",
++    "\\bcranks slow\\b"
++   ]
++  },
++  "car-dies-when-coming-to-stop": {
++   "any": [
++    "\\b(stall|stalls|stalling|dies|dying|shuts off) (when|while|as you|after) (coming to a stop|stopping|slowing|braking|decelerating|coasting)\\b",
++    "\\b(stall|stalls|stalling|dies) at (a )?(stops?|stop(lights| signs)?|red lights?|idle)\\b",
++    "\\bstalls? (when|while) (idling|stopped)\\b"
++   ]
++  },
++  "car-jerks-when-accelerating": {
++   "any": [
++    "\\bjerk(s|ing|y)?( or [a-z]+)? (when|while|on|during) (accelerating|acceleration|pulling away|taking off|starting off)\\b",
++    "\\b(lurch|lurches|lurching|bucking|bucks) (when|while|on) (accelerating|acceleration|pulling away)\\b",
++    "\\bjerky acceleration\\b"
++   ]
++  },
++  "car-pulls-to-one-side": {
++   "any": [
++    "\\b(car|vehicle|steering) (pulls|pulling|drifts|drifting|veers|veering) to (one side|the (left|right))\\b",
++    "\\bpulls? to (one side|the (left|right))\\b",
++    "\\b(pull|pulling|drift|drifting) (to one side|left|right)\\b"
++   ],
++   "not": [
++    "\\bbrak(e|es|ing)\\b"
++   ]
++  },
++  "car-pulls-when-braking": {
++   "any": [
++    "\\bpulls? (to (one side|the (left|right)) )?(when|while|under|during) brak(ing|es)\\b",
++    "\\bbrak(e|es|ing) pull(s|ing)?\\b",
++    "\\bbrake pull\\b"
++   ]
++  },
++  "car-shakes-when-accelerating": {
++   "any": [
++    "\\b(shake|shakes|shaking|shudder|shudders|shuddering|vibration|vibrates|vibrating)( or [a-z]+)? (when|while|on|during|under) (accelerating|acceleration|pulling away|taking off|launch)\\b",
++    "\\bacceleration (shudder|vibration|shake)\\b"
++   ],
++   "not": [
++    "\\b(seat|seats|dash|dashboard|moonroof|sunroof|trim|panel|door|doors|mirror|mirrors|hood|headliner|liftgate|tailgate|trunk|console|actuator|glove ?box|wheel well|visor)\\b"
++   ]
++  },
++  "car-shakes-when-braking": {
++   "any": [
++    "\\b(shake|shakes|shaking|shudder|shudders|vibration|vibrates|pulsat(es|ing|ion)|pulses|pulsing) (when|while|during|under) brak(ing|es)\\b",
++    "\\bbrake (pedal )?(pulsation|pulsing|pulses|shudder|vibration)\\b",
++    "\\bwarped (brake )?rotors?\\b",
++    "\\bpulsing brake pedal\\b"
++   ]
++  },
++  "car-wont-go-into-gear": {
++   "any": [
++    "\\bwon'?t (go|shift|move) (into|in) (gear|drive|reverse)\\b",
++    "\\bno (drive|reverse|forward)( or (drive|reverse))?\\b",
++    "\\bloss of reverse\\b",
++    "\\b(won'?t|will not|doesn'?t) move in (drive|gear|reverse)\\b",
++    "\\bcan'?t (get|shift) into (gear|reverse|drive)\\b",
++    "\\b(transmission|cvt|gearbox) (will not|won.?t|may not|doesn.?t|does not)( [a-z]+)? engage\\b(?! park)",
++    "\\bwon.?t engage (a )?(gear|drive|reverse)\\b",
++    "\\b(cvt|transmission|automatic|gearbox)\\b.*\\bwon.?t engage\\b"
++   ],
++   "not": [
++    "\\bdrive power\\b",
++    "\\b(electric|hybrid|ev)\\b",
++    "\\b(4wd|awd|4x4|four-wheel|all-wheel|cruise|a/c|radio)\\b"
++   ]
++  },
++  "car-wont-start": {
++   "any": [
++    "\\b(won'?t|will not|doesn'?t|does not|fails to|may not|can'?t) (start|crank)\\b",
++    "\\bno-?(start|crank)\\b",
++    "\\bcrank(s)?,? (but|and) (won'?t|doesn'?t|no) start\\b"
++   ],
++   "not": [
++    "\\bstart button\\b",
++    "\\bpush-?button\\b",
++    "\\bremote start\\b",
++    "\\bstart-?stop\\b",
++    "\\bauto start\\b",
++    "\\bcharg(ing|er|e)\\b",
++    "\\bpower system\\b"
++   ]
++  },
++  "car-wont-turn-off": {
++   "any": [
++    "\\b(engine|car|vehicle|v8|v6|it) (won'?t|will not|doesn'?t|may not) (turn|shut) off\\b",
++    "\\bdieseling\\b",
++    "\\brun-?on\\b",
++    "\\b(engine|car|v8|v6) keeps running after\\b"
++   ]
++  },
++  "check-engine-light-flashing": {
++   "any": [
++    "\\b(flashing|blinking) (check engine|engine) light\\b",
++    "\\bcheck engine light (flashes|flashing|blinks|blinking)\\b"
++   ]
++  },
++  "check-engine-light-on": {
++   "any": [
++    "\\bcheck engine light\\b",
++    "\\bservice engine soon\\b",
++    "\\bengine (warning )?light\\b",
++    "\\bmalfunction indicator\\b"
++   ],
++   "not": [
++    "\\bflash(es|ing)\\b",
++    "\\bblink(s|ing)\\b"
++   ]
++  },
++  "check-hybrid-system-warning": {
++   "any": [
++    "\\bcheck hybrid system\\b",
++    "\\bhybrid system (warning|malfunction|fault)\\b",
++    "\\bservice hybrid\\b"
++   ]
++  },
++  "clicking-when-turning": {
++   "any": [
++    "\\b(click|clicks|clicking|pop|pops|popping)( or [a-z]+)? (when|while|in) turn(ing|s)\\b",
++    "\\bcv (joint|axle) (click|clicks|clicking|noise)\\b"
++   ]
++  },
++  "clunk-over-bumps": {
++   "any": [
++    "\\b(clunk|clunks|clunking|knock|knocks|knocking|thud|thuds)( or [a-z]+)?( noise)? (over|on|from|when going over|when hitting) (bumps|rough roads?|potholes)\\b",
++    "\\bfront[- ]end clunk\\b",
++    "\\bsuspension (clunk|clunks|clunking|knock|knocking)\\b"
++   ],
++   "not": [
++    "\\b(seat|seats|dash|dashboard|moonroof|sunroof|trim|panel|door|doors|mirror|mirrors|hood|headliner|liftgate|tailgate|trunk|console|actuator|glove ?box|wheel well|visor)\\b"
++   ]
++  },
++  "clutch-slipping": {
++   "any": [
++    "\\bclutch (slips|slipping|slippage)\\b",
++    "\\bslipping clutch\\b"
++   ]
++  },
++  "creaking-when-turning-steering": {
++   "any": [
++    "\\b(creak|creaks|creaking|groan|groans|groaning)( or [a-z]+)? (when|while) (turning|steering|parking)\\b",
++    "\\bsteering (creak|creaks|creaking|groan|groans|groaning)\\b"
++   ],
++   "not": [
++    "\\b(seat|seats|dash|dashboard|moonroof|sunroof|trim|panel|door|doors|mirror|mirrors|hood|headliner|liftgate|tailgate|trunk|console|actuator|glove ?box|wheel well|visor)\\b"
++   ]
++  },
++  "dashboard-lights-all-on": {
++   "any": [
++    "\\b(many|multiple|several|all|numerous) (dash(board)? )?warning lights\\b",
++    "\\bwarning lights (all )?(come on|light up|flash) at once\\b",
++    "\\bchristmas tree\\b"
++   ]
++  },
++  "delayed-engagement-into-gear": {
++   "any": [
++    "\\bdelay(ed)? (engagement|engaging|shift|shifts|going|when shifting) (into|in|to)? ?(gear|drive|reverse|d\\b|r\\b)",
++    "\\bdelayed (engagement|shift into (drive|reverse)|reverse|drive)\\b",
++    "\\b(slow|late|delayed) (to engage|engagement)\\b",
++    "\\b(drive|reverse|gear) engagement (delay|is delayed|slow)\\b",
++    "\\bdelay (before|when) (moving|engaging|the car moves)\\b",
++    "\\bdelayed( or [a-z]+)? engagement\\b",
++    "\\b(slow|delayed|late)( or [a-z]+)? engagement (into|of|in) (drive|reverse|gear)\\b",
++    "\\bdelays? (engaging|engagement of) (drive|reverse|gear)\\b",
++    "\\bdelayed( or [a-z]+)? shifts? into (drive|reverse)\\b",
++    "\\bdelay before (reverse|drive|the transmission|gear) engages\\b"
++   ],
++   "not": [
++    "\\b(camera|image|display|screen)\\b"
++   ]
++  },
++  "electrical-accessories-not-working": {
++   "any": [
++    "\\bpower (windows?|locks?|door locks?) (stop|stops|stopped|fail|fails|not working|quit|quits|work intermittently)\\b",
++    "\\bwindows? (regulator|motor)s? (fail|fails|failure|break|breaks)\\b",
++    "\\bdoor lock actuators? (fail|fails|failure)\\b",
++    "\\bradio (stops|stopped|won'?t turn on|dies|fails)\\b"
++   ]
++  },
++  "engine-knocking": {
++   "any": [
++    "\\b(engine|rod|bearing|spark) knock(s|ing)?\\b",
++    "\\bknocking (engine|noise from the engine|from the engine)\\b",
++    "\\bpinging\\b",
++    "\\bdetonation\\b",
++    "\\bpre-?ignition\\b"
++   ],
++   "not": [
++    "\\bsuspension\\b",
++    "\\bbumps\\b",
++    "\\bsensor\\b"
++   ]
++  },
++  "engine-overheating": {
++   "any": [
++    "\\b(engine|motor|v6|v8|it) (can |may )?(overheats?|overheating|runs hot|running hot)\\b",
++    "\\boverheating\\b",
++    "\\boverheats\\b",
++    "\\bruns hot\\b",
++    "\\brunning hot\\b"
++   ],
++   "not": [
++    "\\b(battery|brake|brakes|seat|motor|starter|wiring|harness|module|relay|connector|fuse|cable|charger|charging|inverter|clutch|transmission|cvt|differential|resistor|heater|blower|headlight|horn|fan motor|actuator|switch|bulb|lamp|tail ?light|turbo|exhaust|catalytic)\\b",
++    "\\bcan overheat\\b",
++    "\\bmay overheat\\b",
++    "\\bgears?\\b",
++    "\\breads (hot|high|wrong)\\b",
++    "\\bnot overheating\\b",
++    "\\b(alternator|converter|radio|speaker|ptu|transfer|awd|power transfer|amplifier|charger|cable|plug|socket|outlet|pump motor|electric motor|motor controller)\\b"
++   ]
++  },
++  "engine-revs-high-at-idle": {
++   "any": [
++    "\\bhigh idle\\b",
++    "\\b(idle|idles) (too )?high\\b",
++    "\\b(surging|hunting) idle\\b",
++    "\\bidle (surge|surges|surging|hunts|hunting)\\b",
++    "\\brevs (up )?(on its own|by itself)\\b"
++   ]
++  },
++  "engine-sputtering-misfire": {
++   "any": [
++    "\\bmisfir(e|es|ing)\\b",
++    "\\bsputter(s|ing)?\\b",
++    "\\brough running\\b",
++    "\\bruns rough\\b",
++    "\\brunning rough\\b"
++   ],
++   "not": [
++    "\\bidle\\b",
++    "\\bflash(es|ing)\\b"
++   ]
++  },
++  "engine-stalls-while-driving": {
++   "any": [
++    "\\b(engine|car|vehicle) (can |may )?(stall|stalls|stalling|shut off|shuts off|cut out|cuts out|dies) (while|when) driving\\b",
++    "\\b(stall|stalls|stalling|shut ?off|shuts off) (while|when) driving\\b",
++    "\\b(stall|stalls|stalling|shuts off) at (highway )?speed\\b",
++    "\\bstall the engine\\b",
++    "\\bengine (can |may )?(stall|stalls|stalling|shut off|shuts off|cut out|cuts out)\\b",
++    "\\b(and|or) stall\\b",
++    "\\bstalling\\b",
++    "\\bstalls\\b"
++   ],
++   "not": [
++    "\\b(at|when|while) (idle|idling|stopping|stopped|coming to a stop|slowing)\\b",
++    "\\bafter (starting|start-?up)\\b",
++    "\\bstarts then\\b",
++    "\\bcold start\\b",
++    "\\b(power steering|steering assist|radio|headlights?|lights|wipers?|display|seat)\\b",
++    "\\bidl(e|ing)\\b"
++   ]
++  },
++  "engine-ticking": {
++   "any": [
++    "\\b(tick|ticks|ticking|tap|taps|tapping)\\b"
++   ],
++   "not": [
++    "\\bexhaust\\b",
++    "\\bturn signal\\b",
++    "\\brelay\\b",
++    "\\bclock\\b",
++    "\\b(seat|seats|dash|dashboard|moonroof|sunroof|trim|panel|door|doors|mirror|mirrors|hood|headliner|liftgate|tailgate|trunk|console|actuator|glove ?box|wheel well|visor)\\b",
++    "\\b(windshield|glass|molding|steering|drive unit|electric|wind)\\b"
++   ]
++  },
++  "exhaust-smell-in-cabin": {
++   "any": [
++    "\\bexhaust (smell|fumes|odor) (in|inside|into) the (cabin|car|vehicle)\\b",
++    "\\bexhaust (smell|fumes|odor)\\b",
++    "\\bcarbon monoxide\\b"
++   ]
++  },
++  "fluid-leak-under-car": {
++   "any": [
++    "\\bfluid leak under\\b",
++    "\\bpuddle under\\b"
++   ]
++  },
++  "four-wheel-drive-not-engaging": {
++   "any": [
++    "\\b(4wd|4x4|awd|four-wheel drive|all-wheel drive|4-wheel drive)( system)? (won'?t|will not|doesn'?t|not|fails to|may not) (engage|disengage|work|shift)\\b",
++    "\\bservice (4wd|awd|4x4|4wd system|awd system)\\b",
++    "\\b(4wd|awd|4x4) (warning|light|message|fault)\\b",
++    "\\btransfer case (won'?t|fails to|doesn'?t) (shift|engage)\\b"
++   ]
++  },
++  "gas-smell": {
++   "any": [
++    "\\b(gas|gasoline|fuel|raw fuel|petrol) (smell|odor)\\b",
++    "\\bsmell(s)? (of|like) (gas|gasoline|fuel)\\b"
++   ]
++  },
++  "grinding-brakes": {
++   "any": [
++    "\\bbrakes? (grind|grinds|grinding|scrape|scraping)\\b",
++    "\\b(grind|grinding|scraping)( noise)? (when|while) brak(ing|es)\\b",
++    "\\bmetal-?on-?metal brak"
++   ]
++  },
++  "grinding-when-shifting-gears": {
++   "any": [
++    "\\b(gear|gears|shift|shifts|shifting) (grind|grinds|grinding|clash)\\b",
++    "\\bgrind(s|ing)? (when|while|into|going into) (shifting|gear|first|second|third|reverse)\\b",
++    "\\bsynchro(nizer)?s? (wear|worn|fail|fails|failure)\\b"
++   ]
++  },
++  "hard-brake-pedal": {
++   "any": [
++    "\\b(hard|stiff|firm) brake pedal\\b",
++    "\\bbrake pedal (is |feels |becomes |gets )?(hard|stiff|firm)\\b",
++    "\\b(loss of|reduced|lost|less|no) (power )?brake (assist|boost)\\b",
++    "\\bbrake booster (fails|failure|vacuum loss)\\b",
++    "\\bbrake assist (loss|fails|failure)\\b"
++   ]
++  },
++  "hard-to-start-when-cold": {
++   "any": [
++    "\\bhard (to )?start(ing)? (when|in|on) (cold|the cold|cold weather|cold mornings)\\b",
++    "\\bcold[- ]start (problems?|issues?|stumble|hard start)\\b",
++    "\\bhard cold start(s|ing)?\\b",
++    "\\b(no|won'?t) start in cold\\b"
++   ]
++  },
++  "hard-to-start-when-hot": {
++   "any": [
++    "\\bhard (to )?start(ing)? (when|while) (hot|warm)\\b",
++    "\\bhot[- ]start (problems?|issues?|no-start)\\b",
++    "\\bhard (warm|hot) start(s|ing)?\\b",
++    "\\bhard to restart\\b",
++    "\\b(won'?t|no) (re)?start when (hot|warm)\\b",
++    "\\bhard start(ing)? after (refueling|filling up|getting gas)\\b"
++   ]
++  },
++  "harsh-or-hard-shifting": {
++   "any": [
++    "\\b(harsh|hard|rough|late|erratic|jerky|clunky|delayed) (up|down)?shift(s|ing)?\\b",
++    "\\bshifts (hard|harshly|late|roughly|erratically)\\b",
++    "\\bslams into gear\\b",
++    "\\bshift (shock|flare|quality)\\b",
++    "\\bflar(e|es|ing) (between )?shifts?\\b"
++   ]
++  },
++  "headlights-dim-or-flickering": {
++   "any": [
++    "\\b(headlights?|lights?|dash lights?|interior lights?) (dim|dims|dimming|flicker|flickers|flickering|pulse|pulsing)\\b",
++    "\\b(dim|dimming|flickering) (headlights?|lights)\\b"
++   ],
++   "not": [
++    "\\b(tail ?lights?|parking lights?|running board|dome lights?|door ajar|brake lights?|turn signals?|license|fog lights?|map lights?)\\b",
++    "\\b(tire|tpms|pressure|daytime)\\b"
++   ]
++  },
++  "heater-blowing-cold-air": {
++   "any": [
++    "\\b(no|weak|poor|little|lukewarm) (cabin )?heat\\b",
++    "\\bheater (blows|blowing) cold\\b",
++    "\\bheater (doesn'?t|stops|won'?t|not) (work|working|heat|get hot)\\b",
++    "\\bcold air from (the )?heater\\b"
++   ],
++   "not": [
++    "\\bseat\\b",
++    "\\bsteering wheel\\b",
++    "\\bmirror\\b"
++   ]
++  },
++  "hesitation-when-accelerating": {
++   "any": [
++    "\\bhesitat(e|es|ion|ing)\\b",
++    "\\bstumble(s)? (on|when|during) (acceleration|accelerating)\\b",
++    "\\bflat spot\\b",
++    "\\bdead spot\\b"
++   ]
++  },
++  "hissing-under-hood": {
++   "any": [
++    "\\bhiss(es|ing)?\\b"
++   ]
++  },
++  "humming-noise-at-speed": {
++   "any": [
++    "\\b(hum|hums|humming|growl|growls|growling|drone|droning|roar|roaring|whir|whirring)( or [a-z]+)? (noise )?(at|that rises with|that grows with|that changes with|getting louder with|louder with) (speed|highway speed)\\b",
++    "\\bwheel bearing (noise|hum|humming|growl|growling|roar|wear|failure|fails)\\b",
++    "\\b(worn|failing|failed|noisy|bad) (front |rear )?wheel bearings?\\b",
++    "\\bhub bearing (noise|hum|failure|wear)\\b"
++   ],
++   "not": [
++    "\\b(seat|seats|dash|dashboard|moonroof|sunroof|trim|panel|door|doors|mirror|mirrors|hood|headliner|liftgate|tailgate|trunk|console|actuator|glove ?box|wheel well|visor)\\b"
++   ]
++  },
++  "key-wont-turn-in-ignition": {
++   "any": [
++    "\\bkey (won'?t|will not|doesn'?t|can'?t|may not) (turn|come out|go in)\\b",
++    "\\bkey stuck in (the )?ignition\\b",
++    "\\bignition (lock|cylinder) (sticks|sticking|jams|seizes|binds|won'?t turn)\\b",
++    "\\bsteering (lock|wheel lock)s? (won'?t|doesn'?t|fails to) release\\b"
++   ]
++  },
++  "loose-or-wandering-steering": {
++   "any": [
++    "\\bloose steering\\b",
++    "\\bsteering (feels )?(loose|vague|sloppy|wanders)\\b",
++    "\\b(wandering|wanders|wander)\\b",
++    "\\bplay in the steering\\b",
++    "\\bsteering play\\b"
++   ]
++  },
++  "losing-coolant-no-visible-leak": {
++   "any": [
++    "\\bno (visible |external )?leaks?\\b",
++    "\\bcoolant (loss|consumption)\\b.*\\b(head gasket|white (exhaust )?smoke|egr cooler|oil cooler|cylinders?|liner|cylinder head|into the (cylinders|oil|engine)|burning coolant)\\b",
++    "\\b(head gasket|egr cooler|oil cooler|cylinder head|liner)\\b.*\\bcoolant (loss|consumption)\\b"
++   ],
++   "not": [
++    "\\b(reservoir|hoses?|pipes?|radiator|water pump|thermostat housing|tank)\\b",
++    "\\b(a/?c|refrigerant|oil|fuel|brake)\\b"
++   ]
++  },
++  "loss-of-power-when-accelerating": {
++   "any": [
++    "\\b(loss of|lost|losing|loses|low|lack of|no) (engine )?power\\b",
++    "\\bpower loss\\b",
++    "\\bsluggish acceleration\\b",
++    "\\bweak acceleration\\b",
++    "\\bpoor acceleration\\b"
++   ],
++   "not": [
++    "\\b(steering|brake|electrical|motive|drive|assist|power steering|power to the|window|seat|door|outlet|socket|12-?v|liftgate)\\b",
++    "\\breduced engine power\\b",
++    "\\bengine power reduced\\b",
++    "\\blimp\\b",
++    "\\b(onstar|radio|module|differential|charge|battery|seat|outlet|sunroof|liftgate|telematics|infotainment|audio)\\b"
++   ]
++  },
++  "loud-exhaust-roaring": {
++   "any": [
++    "\\bloud exhaust\\b",
++    "\\bexhaust (gets |becomes )?(loud|louder|roar|roars|roaring)\\b",
++    "\\bexhaust leak\\b"
++   ],
++   "not": [
++    "\\b(smell|fumes|odor|carbon monoxide)\\b"
++   ]
++  },
++  "musty-smell-from-vents": {
++   "any": [
++    "\\b(musty|moldy|mildew|sour|damp)( or [a-z]+)? (smell|odor)\\b",
++    "\\bmold (smell|odor|growth)\\b",
++    "\\bodor from (the )?(a/?c|vents)\\b",
++    "\\b(a/?c|vent|vents) (smell|smells|odor)\\b"
++   ]
++  },
++  "oil-leak": {
++   "any": [
++    "\\b(engine )?oil (leak|leaks|leaking)\\b",
++    "\\bleaks? (engine )?oil\\b",
++    "\\b(valve cover|oil pan|rear main( seal)?|timing cover|oil filter housing|oil cooler|front crank(shaft)? seal|cam(shaft)? seal) (gasket )?(can |may )?(leaks?|leaking|seeps?|seeping)\\b",
++    "\\boil (seep|seeps|seeping)\\b"
++   ],
++   "not": [
++    "\\b(transmission|gear|differential|transfer case|axle|power steering|hydraulic|shock|strut|brake|turbo oil)\\b",
++    "\\boil smell\\b",
++    "\\bonto the exhaust\\b",
++    "\\bcoolant\\b",
++    "\\btransfer box\\b",
++    "\\bgearbox\\b",
++    "\\bangle gear\\b",
++    "\\bpto\\b",
++    "\\b(power transfer|ptu)\\b"
++   ]
++  },
++  "oil-pressure-light-on": {
++   "any": [
++    "\\boil (pressure )?(warning )?light\\b",
++    "\\blow oil pressure\\b",
++    "\\boil pressure (warning|loss|drops?|low)\\b",
++    "\\bloss of oil pressure\\b"
++   ]
++  },
++  "overheats-only-in-traffic": {
++   "any": [
++    "\\boverheat(s|ing)? (in|at|during) (traffic|idle|stop-and-go)\\b",
++    "\\b(cooling|radiator) fans? (fails?|failure|stops?|stopped|won'?t (come on|run|turn on)|not (working|running))\\b"
++   ],
++   "not": [
++    "\\b(battery|inverter|motor|transmission|seat|brake)\\b"
++   ]
++  },
++  "poor-gas-mileage": {
++   "any": [
++    "\\b(poor|bad|low|worse|reduced|dropping|lower) (gas|fuel) (mileage|economy)\\b",
++    "\\b(gas|fuel) (mileage|economy) (drops?|dropped|falls|worse)\\b",
++    "\\bpoor mpg\\b",
++    "\\blow mpg\\b"
++   ]
++  },
++  "popping-or-backfiring": {
++   "any": [
++    "\\bbackfir(e|es|ing)\\b",
++    "\\bafterfire\\b",
++    "\\bexhaust (pops|popping)\\b",
++    "\\bpopping (from|in) the (exhaust|intake)\\b"
++   ]
++  },
++  "power-steering-fluid-leak": {
++   "any": [
++    "\\bpower steering (fluid )?(leak|leaks|leaking)\\b",
++    "\\b(power steering|steering) (pump|hose|line|rack|gear)s? (can )?(leak|leaks|leaking)\\b",
++    "\\bleaks? power steering fluid\\b"
++   ]
++  },
++  "power-steering-warning-light": {
++   "any": [
++    "\\b(power steering|eps|steering)( system)? (warning )?light\\b",
++    "\\bservice power steering\\b",
++    "\\bsteering assist (is )?reduced\\b",
++    "\\bpower steering (assist )?fault (warning|message|light)\\b"
++   ]
++  },
++  "push-button-start-not-working": {
++   "any": [
++    "\\b(push-?button|start button|start\\/stop button|engine start button)( start)? (won'?t|doesn'?t|may not|not|fails to|stops?) (start|work|working|respond)\\b",
++    "\\bkey (fob )?not detected\\b",
++    "\\bno key detected\\b",
++    "\\bkey (fob )?(isn'?t|not) (recognized|detected)\\b"
++   ]
++  },
++  "rattle-under-car": {
++   "any": [
++    "\\b(heat shield|exhaust|catalytic converter|cat) rattl(e|es|ing)\\b",
++    "\\brattl(e|es|ing) (from|under) (the )?(underside|underbody|under the car|exhaust)\\b",
++    "\\bheat shields? (rattle|come loose|loosen|loose)\\b"
++   ],
++   "not": [
++    "\\b(seat|seats|dash|dashboard|moonroof|sunroof|trim|panel|door|doors|mirror|mirrors|hood|headliner|liftgate|tailgate|trunk|console|actuator|glove ?box|wheel well|visor)\\b"
++   ]
++  },
++  "reduced-engine-power-warning": {
++   "any": [
++    "\\breduced engine power\\b",
++    "\\bengine power (is )?reduced\\b",
++    "\\blimp(-| )?(home )?mode\\b",
++    "\\breduced power (warning|mode|message)\\b"
++   ],
++   "not": [
++    "\\b(transmission|gearbox|dsg|s tronic|shift|shifts|automatic)\\b",
++    "\\binstead of\\b",
++    "\\bno-(start|crank)\\b",
++    "\\bwon.?t (start|crank)\\b"
++   ]
++  },
++  "rotten-egg-smell": {
++   "any": [
++    "\\brotten[- ]egg\\b",
++    "\\bsulfur (smell|odor)\\b",
++    "\\bsulphur (smell|odor)\\b"
++   ]
++  },
++  "rough-idle-shaking": {
++   "any": [
++    "\\brough(ly)? idl(e|es|ing)\\b",
++    "\\b(idle|idling) (rough|roughly|shake|shakes|shaking|vibration|vibrates)\\b",
++    "\\b(shake|shakes|shaking|vibration|vibrates|shudder|shudders) (at|when|while) (idle|idling|stopped)\\b",
++    "\\bmisfire at idle\\b"
++   ]
++  },
++  "security-light-flashing-wont-start": {
++   "any": [
++    "\\b(security|theft|anti-?theft|immobilizer|key)( warning)? light (flashes|flashing|blinks|blinking|stays on|on)\\b",
++    "\\bimmobilizer (blocks|prevents|stops) start",
++    "\\banti-?theft (system )?(blocks|prevents|stops) start",
++    "\\bimmobilizer (fault|failure|problem)s?\\b"
++   ]
++  },
++  "soft-or-spongy-brake-pedal": {
++   "any": [
++    "\\b(soft|spongy|low|sinking|mushy) brake pedal\\b",
++    "\\bbrake pedal (is |feels |goes |that )?(soft|spongy|sinks|sinking|to the floor|low|mushy|travels)\\b",
++    "\\bspongy brakes?\\b",
++    "\\bsoft brakes?\\b"
++   ]
++  },
++  "squeal-on-startup": {
++   "any": [
++    "\\b(belt|serpentine belt|drive belt|accessory belt) (squeal|squeals|squealing|chirp|chirps|chirping|squeak|squeaks|squeaking|noise)\\b",
++    "\\b(squeal|squeals|squealing|chirp|chirps|chirping) (on|at|after) (start-?up|startup|cold start)\\b"
++   ]
++  },
++  "squealing-brakes": {
++   "any": [
++    "\\bbrakes? (squeal|squeals|squealing|squeak|squeaks|squeaking)\\b",
++    "\\b(squeal|squeals|squealing|squeak|squeaky|squeaking) brakes?\\b",
++    "\\b(squeal|squealing|squeak|squeaking) (when|while) brak(ing|es)\\b"
++   ]
++  },
++  "squeaking-over-bumps": {
++   "any": [
++    "\\b(squeak|squeaks|squeaking|squeaky|creak|creaks|creaking)( or [a-z]+)? (over|on|when going over) (bumps|speed bumps|rough roads?)\\b",
++    "\\bsuspension (squeak|squeaks|squeaking|creak|creaks|creaking)\\b",
++    "\\bsqueaky suspension\\b"
++   ],
++   "not": [
++    "\\b(seat|seats|dash|dashboard|moonroof|sunroof|trim|panel|door|doors|mirror|mirrors|hood|headliner|liftgate|tailgate|trunk|console|actuator|glove ?box|wheel well|visor)\\b"
++   ]
++  },
++  "stuck-in-park": {
++   "any": [
++    "\\bstuck in park\\b",
++    "\\b(won'?t|will not|can'?t|cannot|doesn'?t|may not) (shift|move|come|get) out of park\\b",
++    "\\bshift(er)? (lock|interlock) (sticks|stuck|fails|failure)\\b",
++    "\\bshifter (stuck|locked|won'?t move)\\b"
++   ]
++  },
++  "steam-from-under-hood": {
++   "any": [
++    "\\bsteam (from|out of|coming from) (under )?the hood\\b",
++    "\\bsteam(s|ing)? from the (engine|radiator|engine bay)\\b",
++    "\\bsmoke from (under )?the hood\\b"
++   ]
++  },
++  "steering-hard-to-turn": {
++   "any": [
++    "\\b(loss of|lost|sudden loss of|reduced|losing|loses|no|intermittent loss of) (power )?steering( assist)?\\b",
++    "\\b(heavy|stiff|hard|tight) steering\\b",
++    "\\bsteering (gets |becomes |is |goes |feels )?(heavy|stiff|hard to turn|tight)\\b",
++    "\\bpower steering (fails|failure|stops working|cuts out|goes out|loss|assist (fails|failure|loss|cuts out))\\b",
++    "\\bsteering assist (fails|failure|loss|cuts out|may (fail|cut out|be lost)|can (fail|cut out))\\b"
++   ],
++   "not": [
++    "\\bwarning light\\b",
++    "\\bsteering wheel (can )?(come off|detach|separate)\\b"
++   ]
++  },
++  "steering-wheel-shaking": {
++   "any": [
++    "\\bsteering wheel (shake|shakes|shaking|shimmy|shimmies|wobble|wobbles|vibration|vibrates|vibrating)\\b",
++    "\\b(shake|shaking|shimmy|vibration|wobble) in the steering wheel\\b",
++    "\\bdeath wobble\\b"
++   ],
++   "not": [
++    "\\bbrak(e|es|ing)\\b",
++    "\\b(seat|seats|dash|dashboard|moonroof|sunroof|trim|panel|door|doors|mirror|mirrors|hood|headliner|liftgate|tailgate|trunk|console|actuator|glove ?box|wheel well|visor)\\b"
++   ]
++  },
++  "sweet-smell-from-car": {
++   "any": [
++    "\\bsweet (smell|odor)\\b",
++    "\\b(coolant|antifreeze) (smell|odor)\\b",
++    "\\bsmells? (of|like) (coolant|antifreeze|syrup)\\b"
++   ]
++  },
++  "temperature-gauge-fluctuating": {
++   "any": [
++    "\\btemp(erature)? gauge (fluctuat(es|ing)|swings|jumps|jumping|goes up and down|moves|bounces|drops|reads wrong|erratic)\\b",
++    "\\b(erratic|fluctuating|jumpy) temp(erature)? gauge\\b",
++    "\\btemp(erature)? gauge reads (hot|high|wrong|incorrectly)\\b"
++   ]
++  },
++  "tire-keeps-losing-air": {
++   "any": [
++    "\\btires? (keep(s)? )?(los(es|ing) air|lose air|going flat|leaks? air|slow leak)\\b",
++    "\\bslow (tire )?leak(s)? (in|from) (the )?tires?\\b",
++    "\\b(valve stem|bead|rim|wheel) (air )?leaks?\\b",
++    "\\bair leak(s)? (from|at) (the )?(wheel|rim|valve stem|tire)\\b"
++   ]
++  },
++  "tire-pressure-light-on": {
++   "any": [
++    "\\btire pressure (warning )?(light|warning|monitor(ing)? (light|warning|fault|false))\\b",
++    "\\btpms (light|warning|fault|sensor)s?\\b",
++    "\\bfalse (low )?tire pressure\\b"
++   ]
++  },
++  "traction-control-light-on": {
++   "any": [
++    "\\b(traction|stability) control (warning )?light\\b",
++    "\\b(esc|esp|tcs|vsc|vdc|stabilitrak|advancetrac) (warning )?light\\b",
++    "\\bservice (stabilitrak|traction control|stability control|esc|advancetrac)\\b"
++   ]
++  },
++  "transmission-fluid-leak": {
++   "any": [
++    "\\btransmission (fluid )?(leak|leaks|leaking)\\b",
++    "\\b(transmission|trans|atf|cvt) (cooler )?(line|lines|hose|hoses|pan|seal|gasket|case)s? (can )?(leak|leaks|leaking)\\b",
++    "\\bleaks? (transmission|atf|cvt) fluid\\b",
++    "\\batf leak\\b"
++   ]
++  },
++  "transmission-slipping": {
++   "any": [
++    "\\btransmission (slips|slipping|slippage)\\b",
++    "\\b(slipping|slips|slip) (out of|between|in) (gear|gears)\\b",
++    "\\b(cvt|automatic|transmission|gearbox)( transmission)? (slips|slipping)\\b",
++    "\\bslipping (transmission|cvt|gears)\\b",
++    "\\bslips? (or|and|,) (shifts|jerks|shudders|flares|fails|hesitates)\\b"
++   ],
++   "not": [
++    "\\bclutch\\b",
++    "\\bslip out of park\\b",
++    "\\bpark\\b"
++   ]
++  },
++  "transmission-warning-light": {
++   "any": [
++    "\\btransmission (warning|temperature|temp|over-?temp|fault|malfunction) (light|warning|message)\\b",
++    "\\b(at|a/t|transmission|trans) (oil )?temp(erature)? (light|warning)\\b",
++    "\\bservice transmission\\b",
++    "\\bcheck transmission\\b",
++    "\\bd4 light\\b",
++    "\\bo/d off light (flashes|flashing|blinks|blinking)\\b"
++   ]
++  },
++  "uneven-tire-wear": {
++   "any": [
++    "\\buneven tire wear\\b",
++    "\\b(uneven|irregular|premature|inner|inside|outer|edge|cupped|cupping|feathered|rapid) (front |rear )?(edge )?tire wear\\b",
++    "\\btires? (wear|wearing) (unevenly|out (early|fast|quickly)|on the (inside|outside))\\b"
++   ]
++  },
++  "vibration-at-highway-speed": {
++   "any": [
++    "\\bvibrat(ion|es|ing) (at|on the) (highway|high|freeway) speeds?\\b",
++    "\\b(highway|high-speed|high speed) (vibration|shake|shimmy)\\b",
++    "\\bshake(s)? at (highway|high) speeds?\\b",
++    "\\bvibration (at|above) \\d+ ?mph\\b"
++   ],
++   "not": [
++    "\\b(seat|seats|dash|dashboard|moonroof|sunroof|trim|panel|door|doors|mirror|mirrors|hood|headliner|liftgate|tailgate|trunk|console|actuator|glove ?box|wheel well|visor)\\b"
++   ]
++  },
++  "water-dripping-under-car": {
++   "any": [
++    "\\bwater drip(s|ping)? (from|under)\\b",
++    "\\b(a\\/c|ac) (condensation|drip(s|ping)?)\\b"
++   ]
++  },
++  "water-leak-inside-car": {
++   "any": [
++    "\\bwater (leak|leaks|leaking|gets?|getting|comes?|coming|intrusion)( in| into| inside)? (in|into|inside) the (cabin|car|interior|footwell|floor|trunk|cargo area)\\b",
++    "\\bwater leaks?( into| inside| in)? (the )?(cabin|interior|footwell|floor|trunk|cargo area)\\b",
++    "\\bwet (carpet|floor|floors|footwell|headliner|interior)\\b",
++    "\\b(sunroof|moonroof) (drains? )?(leak|leaks|clog|clogs|clogged)\\b",
++    "\\b(clogged|blocked) (sunroof|moonroof|a\\/c|cowl|body) drain\\b",
++    "\\bwater leaks?\\b"
++   ],
++   "not": [
++    "\\b(water pump|radiator|coolant|engine|headlight|tail ?lights?|lamps?|lens|lenses|brake light|headlamps?|headlights?|taillights?)\\b"
++   ]
++  },
++  "whining-noise-when-accelerating": {
++   "any": [
++    "\\b(whine|whines|whining|howl|howls|howling)( or [a-z]+)? (when|while|on|during|under) (accelerating|acceleration)\\b",
++    "\\b(differential|diff|rear axle|axle|pinion|transmission|transfer case|cvt|supercharger|turbo) (whine|whines|whining|howl|howls|howling)\\b"
++   ],
++   "not": [
++    "\\b(seat|seats|dash|dashboard|moonroof|sunroof|trim|panel|door|doors|mirror|mirrors|hood|headliner|liftgate|tailgate|trunk|console|actuator|glove ?box|wheel well|visor)\\b",
++    "\\b(coasting|decelerat(ing|ion))\\b"
++   ]
++  },
++  "whining-when-turning-steering": {
++   "any": [
++    "\\b(whine|whines|whining)( or [a-z]+)? (when|while) (turning|steering)\\b",
++    "\\bpower steering (pump )?(whine|whines|whining|noise|noisy|groan|groans|groaning)\\b",
++    "\\bsteering (pump )?(whine|whines|whining)\\b"
++   ]
++  },
++  "white-smoke-from-exhaust": {
++   "any": [
++    "\\bwhite smoke\\b",
++    "\\bsteam from the (exhaust|tailpipe)\\b"
++   ],
++   "not": [
++    "\\b(engine bay|hood)\\b"
++   ]
++  },
++  "windows-fogging-up": {
++   "any": [
++    "\\bwindows? (fog|fogs|fogging)\\b",
++    "\\bwindshield (fog|fogs|fogging)\\b",
++    "\\bfogg(ed|ing|y) (windows?|windshield|glass)\\b",
++    "\\bdefroster (doesn'?t|won'?t|not|fails|stops)\\b"
++   ],
++   "not": [
++    "\\b(headlight|tail ?light|lamp|lens)\\b",
++    "\\brear (window )?defroster\\b",
++    "\\bheated\\b"
++   ]
++  },
++  "starts-then-dies": {
++   "any": [
++    "\\b(starts|start) (and|then|but) (dies|stalls|shuts off|quits)\\b",
++    "\\b(stall|stalls|stalling|dies) (right )?after (starting|start-?up|a cold start)\\b",
++    "\\bwon.?t stay running\\b"
++   ]
++  }
++ }
++}
+\ No newline at end of file
+diff --git a/src/guide.js b/src/guide.js
+index a342cd2..765496f 100644
+--- a/src/guide.js
++++ b/src/guide.js
+@@ -9,7 +9,7 @@ const URG={
+   check:{label:"Book a check when convenient",cls:"info",line:"Not an emergency, but don't ignore it."},
+   diy:{label:"Safe to check yourself first",cls:"low",line:"Start with the simple checks below."}
+ };
+-window.VS_GUIDES={G,GROUPS,URG,esc,search,forIssue,gurl:id=>'/symptoms/'+id+'/'};
++window.VS_GUIDES={G,GROUPS,URG,esc,search,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/'};
+ 
+ // ---- Year / Make / Model picker, used on the homepage and in guide results ----
+ // fill(ySel,mSel,moSel,{year,id},onChange): only offers makes/models actually sold in the chosen year.
+@@ -37,12 +37,21 @@ function search(q,n){
+     if(g.title.toLowerCase().split(' ').some(w=>qt.includes(w)))s+=1;
+     return{g,s}}).filter(o=>o.s>=3).sort((a,b)=>b.s-a.s).slice(0,n||5).map(o=>o.g);
+ }
+-// best guide for a known vehicle problem
+-function forIssue(i){
+-  const hay=(i.t+' '+i.sym).toLowerCase();let best=null,bs=0;
+-  for(const g of G){let s=0,hits=0;if(g.match.cats.includes(i.cat))s+=1;for(const w of g.match.words)if(new RegExp('\\b'+w.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).test(hay)){s+=3;hits++}if(hits&&s>bs){bs=s;best=g}}
+-  return bs>=4?best:null;
+-}
++// ---- known vehicle problem -> guide (strict) ----
++// Rules come from src/guide-links.json (window.GUIDE_LINKS, written by build.js). An issue links to a guide only when its
++// title names that guide's symptom (one of the guide's "any" patterns) and hits no exclusion. No match means no link:
++// a wrong "walk through this symptom" link is worse than none. Keyword overlap in the description is never enough.
++const GL=(function(R){if(!R||!R.order)return null;const rx=p=>new RegExp(p,'i');
++  return{not:(R.not||[]).map(rx),order:R.order.filter(id=>R.guides[id]),g:Object.fromEntries(R.order.filter(id=>R.guides[id]).map(id=>[id,{any:R.guides[id].any.map(rx),not:(R.guides[id].not||[]).map(rx)}]))}})(window.GUIDE_LINKS);
++const normT=t=>String(t==null?'':t).replace(/[\u2018\u2019]/g,"'").replace(/[\u201c\u201d]/g,'"');
++const GBY=Object.fromEntries(G.map(g=>[g.id,g]));
++// does guide <id> describe this issue title? (used by the guide page's "documented problems" list)
++function matchesGuide(id,title){if(!GL||!GL.g[id])return false;const t=normT(title),r=GL.g[id];
++  if(GL.not.some(x=>x.test(t))||r.not.some(x=>x.test(t)))return false;return r.any.some(x=>x.test(t))}
++// the one guide a vehicle issue card links to, or null
++function forIssue(i){if(!GL||!i)return null;const t=normT(i.t);if(GL.not.some(x=>x.test(t)))return null;
++  for(const id of GL.order){const r=GL.g[id];if(!GBY[id]||r.not.some(x=>x.test(t)))continue;if(r.any.some(x=>x.test(t)))return GBY[id]}
++  return null}
+ 
+ // ---- guided flow on /symptoms/<id>/ ----
+ const ASK=["Can I get a written estimate before any work starts?","Is there a charge to diagnose it, and does it count toward the repair?","Will you call me before doing anything that isn't on the estimate?","What warranty comes with the parts and labor? Can I have it in writing?","Can I see or keep the old parts?"];
+@@ -89,8 +98,7 @@ if(J&&root){
+     const r=document.getElementById('restart');if(r)r.onclick=()=>{path=[];cur=J.start;save();draw()};
+     const f=document.getElementById('fresh');if(f)f.onclick=()=>{path=[];cur=J.start;resumed=false;save();draw()};
+   }
+-  const rx=w=>new RegExp('\\b'+w.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+-  function matches(){if(!veh)return[];return veh.issues.filter(i=>(!vyear||(vyear>=i.y[0]&&vyear<=i.y[1]))&&J.issueMatch.words.some(w=>rx(w).test((i.t+' '+i.sym).toLowerCase())))}
++  function matches(){if(!veh)return[];return veh.issues.filter(i=>(!vyear||(vyear>=i.y[0]&&vyear<=i.y[1]))&&matchesGuide(J.id,i.t))}
+   const money=n=>'$'+n.toLocaleString('en-US');
+   function vehicleSection(){
+     if(!veh)return`<p class="muted">Add your year, make and model at the top to see documented problems and typical repair costs for your vehicle.</p>`;

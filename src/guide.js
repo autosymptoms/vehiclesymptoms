@@ -9,7 +9,7 @@ const URG={
   check:{label:"Book a check when convenient",cls:"info",line:"Not an emergency, but don't ignore it."},
   diy:{label:"Safe to check yourself first",cls:"low",line:"Start with the simple checks below."}
 };
-window.VS_GUIDES={G,GROUPS,URG,esc,search,forIssue,gurl:id=>'/symptoms/'+id+'/'};
+window.VS_GUIDES={G,GROUPS,URG,esc,search,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/'};
 
 // ---- Year / Make / Model picker, used on the homepage and in guide results ----
 // fill(ySel,mSel,moSel,{year,id},onChange): only offers makes/models actually sold in the chosen year.
@@ -37,12 +37,21 @@ function search(q,n){
     if(g.title.toLowerCase().split(' ').some(w=>qt.includes(w)))s+=1;
     return{g,s}}).filter(o=>o.s>=3).sort((a,b)=>b.s-a.s).slice(0,n||5).map(o=>o.g);
 }
-// best guide for a known vehicle problem
-function forIssue(i){
-  const hay=(i.t+' '+i.sym).toLowerCase();let best=null,bs=0;
-  for(const g of G){let s=0,hits=0;if(g.match.cats.includes(i.cat))s+=1;for(const w of g.match.words)if(new RegExp('\\b'+w.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).test(hay)){s+=3;hits++}if(hits&&s>bs){bs=s;best=g}}
-  return bs>=4?best:null;
-}
+// ---- known vehicle problem -> guide (strict) ----
+// Rules come from src/guide-links.json (window.GUIDE_LINKS, written by build.js). An issue links to a guide only when its
+// title names that guide's symptom (one of the guide's "any" patterns) and hits no exclusion. No match means no link:
+// a wrong "walk through this symptom" link is worse than none. Keyword overlap in the description is never enough.
+const GL=(function(R){if(!R||!R.order)return null;const rx=p=>new RegExp(p,'i');
+  return{not:(R.not||[]).map(rx),order:R.order.filter(id=>R.guides[id]),g:Object.fromEntries(R.order.filter(id=>R.guides[id]).map(id=>[id,{any:R.guides[id].any.map(rx),not:(R.guides[id].not||[]).map(rx)}]))}})(window.GUIDE_LINKS);
+const normT=t=>String(t==null?'':t).replace(/[\u2018\u2019]/g,"'").replace(/[\u201c\u201d]/g,'"');
+const GBY=Object.fromEntries(G.map(g=>[g.id,g]));
+// does guide <id> describe this issue title? (used by the guide page's "documented problems" list)
+function matchesGuide(id,title){if(!GL||!GL.g[id])return false;const t=normT(title),r=GL.g[id];
+  if(GL.not.some(x=>x.test(t))||r.not.some(x=>x.test(t)))return false;return r.any.some(x=>x.test(t))}
+// the one guide a vehicle issue card links to, or null
+function forIssue(i){if(!GL||!i)return null;const t=normT(i.t);if(GL.not.some(x=>x.test(t)))return null;
+  for(const id of GL.order){const r=GL.g[id];if(!GBY[id]||r.not.some(x=>x.test(t)))continue;if(r.any.some(x=>x.test(t)))return GBY[id]}
+  return null}
 
 // ---- guided flow on /symptoms/<id>/ ----
 const ASK=["Can I get a written estimate before any work starts?","Is there a charge to diagnose it, and does it count toward the repair?","Will you call me before doing anything that isn't on the estimate?","What warranty comes with the parts and labor? Can I have it in writing?","Can I see or keep the old parts?"];
@@ -89,8 +98,7 @@ if(J&&root){
     const r=document.getElementById('restart');if(r)r.onclick=()=>{path=[];cur=J.start;save();draw()};
     const f=document.getElementById('fresh');if(f)f.onclick=()=>{path=[];cur=J.start;resumed=false;save();draw()};
   }
-  const rx=w=>new RegExp('\\b'+w.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
-  function matches(){if(!veh)return[];return veh.issues.filter(i=>(!vyear||(vyear>=i.y[0]&&vyear<=i.y[1]))&&J.issueMatch.words.some(w=>rx(w).test((i.t+' '+i.sym).toLowerCase())))}
+  function matches(){if(!veh)return[];return veh.issues.filter(i=>(!vyear||(vyear>=i.y[0]&&vyear<=i.y[1]))&&matchesGuide(J.id,i.t))}
   const money=n=>'$'+n.toLocaleString('en-US');
   function vehicleSection(){
     if(!veh)return`<p class="muted">Add your year, make and model at the top to see documented problems and typical repair costs for your vehicle.</p>`;

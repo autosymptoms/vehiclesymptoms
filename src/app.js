@@ -188,7 +188,10 @@ async function loadNhtsa(v,year){
     return {status:'unavailable',reason:why,checked:new Date().toISOString()}};
   const M=window.VS_RECALL_QUERIES(v,year);if(!M.queries.length)return fail('no verified model mapping');
   let groups;try{groups=await Promise.all(M.queries.map(async q=>({label:q.label||q.model,query:q,results:await fetchRecalls(q,year)})))}catch(e){return fail(e&&e.message||'error')}
-  const total=groups.reduce((a,g)=>a+g.results.length,0);
+  // Several NHTSA names can cover one vehicle (e.g. 1 SERIES and 128I): merge by label and count each campaign once.
+  {const by=new Map();for(const g of groups){const k=g.label.replace(/\s+/g,' ');const seen=by.get(k)||{label:g.label,query:g.query,results:[],ids:new Set()};for(const x of g.results)if(!seen.ids.has(x.NHTSACampaignNumber)){seen.ids.add(x.NHTSACampaignNumber);seen.results.push(x)}by.set(k,seen)}
+   groups=[...by.values()].map(({ids,...g})=>g)}
+  const total=new Set(groups.flatMap(g=>g.results.map(x=>x.NHTSACampaignNumber))).size;
   if(!total&&!M.verified)return fail('zero results under an unverified model mapping');
   const res={status:'ok',groups,total,checked:new Date().toISOString()};
   const multi=groups.length>1;

@@ -74,8 +74,15 @@ J.forEach(j=>{j.related=j.related.filter(r=>jids.has(r)&&r!==j.id)});
 fs.mkdirSync('api/_data',{recursive:true});
 fs.writeFileSync('api/_data/journeys.json',JSON.stringify(Object.fromEntries(J.map(j=>[j.id,{id:j.id,title:j.title,start:j.start,nodes:j.nodes}]))));
 fs.writeFileSync('api/_data/vehicles-lite.json',JSON.stringify(Object.fromEntries(V.map(v=>[v.id,{name:v.make+' '+v.model,y0:v.years[0],y1:v.years[1]}]))));
-const INDEX=J.map(j=>({id:j.id,title:j.title,h1:j.h1,group:j.group,cat:j.cat,syn:j.synonyms,match:j.issueMatch}));
-const indexJs='window.GUIDE_INDEX='+JSON.stringify(INDEX)+';\n';
+const INDEX=J.map(j=>({id:j.id,title:j.title,h1:j.h1,group:j.group,cat:j.cat,syn:j.synonyms}));
+// Strict issue->guide links (see src/guide-links.json). Fail the build on a bad pattern or an unknown guide id.
+const GLINKS=JSON.parse(fs.readFileSync('src/guide-links.json','utf8'));
+{const bad=[];for(const p of GLINKS.not)try{new RegExp(p,'i')}catch(e){bad.push('global: '+p)}
+ for(const id of GLINKS.order){const r=GLINKS.guides[id];if(!r){bad.push('order lists '+id+' with no rule');continue}if(!jids.has(id))bad.push('rule for unknown guide '+id);
+   for(const p of [...r.any,...(r.not||[])])try{new RegExp(p,'i')}catch(e){bad.push(id+': '+p)}}
+ for(const id in GLINKS.guides)if(!GLINKS.order.includes(id))bad.push(id+' missing from order');
+ if(bad.length){console.error('guide-links.json problems:\n  '+bad.join('\n  '));process.exit(1)}}
+const indexJs='window.GUIDE_INDEX='+JSON.stringify(INDEX)+';\nwindow.GUIDE_LINKS='+JSON.stringify({not:GLINKS.not,order:GLINKS.order,guides:GLINKS.guides})+';\n';
 console.log(`${J.length} symptom guides`);
 
 // ---------- output ----------
@@ -152,7 +159,7 @@ CODES.sort((a,b)=>a.code.localeCompare(b.code));
 // vehicles whose known problems mention a code
 const codeVeh={};
 for(const v of V)for(const i of v.issues){const t=[i.t,i.sym,i.why,i.next].join(' ');for(const m of new Set(t.match(/\b[PBCU][0-3][0-9A-F]{3}\b/g)||[])){(codeVeh[m]=codeVeh[m]||[]).push({v,i})}}
-const CURG={stop:["Stop driving soon. This can cause damage or be unsafe.","high"],soon:["Get it checked in the next few days","med"],check:["Book a check when convenient","info"]};
+const CURG={stop:["Stop driving as soon as it's safe. This can cause damage or be unsafe.","high"],soon:["Get it checked in the next few days","med"],check:["Book a check when convenient","info"]};
 const cpr=k=>{const lo=rnd(k.parts[0]+k.hours[0]*RATE[0],false),hi=Math.max(rnd(k.parts[1]+k.hours[1]*RATE[1],true),lo+10);return '$'+lo.toLocaleString('en-US')+'–$'+hi.toLocaleString('en-US')};
 const WH='Insufficient verified pricing for this vehicle and repair';
 // Code pages: a general repair range is shown only with a qualifying evidence pair; otherwise the price is withheld.
@@ -163,7 +170,7 @@ const JT=Object.fromEntries(J.map(j=>[j.id,j]));
 for(let k=0;k<CODES.length;k++){const c=CODES[k],low=c.code.toLowerCase(),u=CURG[c.sev];
   const fam=CODES.filter(x=>x.code.slice(0,3)===c.code.slice(0,3)&&x.code!==c.code).slice(0,12);
   const veh=(codeVeh[c.code]||[]).slice(0,10);const g=c.guide&&JT[c.guide];
-  const drive=c.drive||(c.sev==='stop'?'Stop driving as soon as it is safe and have it checked before going further; this problem can cause damage or affect safety.':c.sev==='soon'?'Get it checked in the next few days and drive gently until then. If the check engine light flashes, the engine runs rough, overheats, loses power or stalls, stop and get help right away.':'Usually you can keep driving while you book a check. If other warning lights come on, or the car starts running or shifting differently, get it checked sooner.');
+  const drive=c.drive||(c.sev==='stop'?'Stop driving as soon as it is safe and have it checked before going further; this problem can cause damage or affect safety.':c.sev==='soon'?'If the check engine light flashes, the engine runs rough, overheats, loses power or stalls, pull over when it is safe and get help. Otherwise get it checked in the next few days and drive gently until then.':'Usually you can keep driving while you book a check. If other warning lights come on, or the car starts running or shifting differently, get it checked sooner.');
   const testFirst=c.test_first||'A shop should confirm the fault with a scan tool and a few tests before replacing parts. The code points to where to test, not to a confirmed failed part.';
   const faq=[{q:`What does ${c.code} mean?`,a:c.plain},{q:`Can I drive with code ${c.code}?`,a:(c.urgent_if?c.urgent_if+' Otherwise: ':'')+drive},{q:`What causes ${c.code}?`,a:'Common possibilities to test include: '+c.causes.slice(0,4).map(x=>x.name.toLowerCase()).join('; ')+'. A shop should confirm the cause before replacing parts.'}];
   const ld='<script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}).replace(/</g,'\\u003c')+'</script>\n';

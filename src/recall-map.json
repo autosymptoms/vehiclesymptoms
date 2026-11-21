@@ -1,76 +1,98 @@
 {
  "generated": "2026-11-21",
- "note": "verified:true only where the NHTSA name was confirmed on 2026-11-21 (Integra 2023: recallsByVehicle Count 2; Rivian 2023: products list shows R1T and R1S). All other ranges are candidate names pending NHTSA confirmation; zero results under them show 'Lookup unavailable'.",
+ "source": "NHTSA api.nhtsa.gov products/vehicle/models and recalls/recallsByVehicle",
  "models": {
   "acura-rsx-integra": [
    {
     "from": 1996,
     "to": 2001,
-    "verified": false,
     "queries": [
      {
       "make": "ACURA",
       "model": "INTEGRA",
       "label": "Integra"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 1996 ACURA issueType=r lists INTEGRA; products/vehicle/models 1999 ACURA issueType=r lists INTEGRA; products/vehicle/models 2001 ACURA issueType=r lists INTEGRA; accessed 2026-11-21"
    },
    {
     "from": 2002,
     "to": 2006,
-    "verified": false,
     "queries": [
      {
       "make": "ACURA",
       "model": "RSX",
       "label": "RSX"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2002 ACURA issueType=r lists RSX; products/vehicle/models 2006 ACURA issueType=r lists RSX; recallsByVehicle 2004 ACURA RSX Count 4; accessed 2026-11-21"
    },
    {
     "from": 2023,
     "to": 2024,
-    "verified": true,
     "queries": [
      {
       "make": "ACURA",
       "model": "INTEGRA",
       "label": "Integra"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "recallsByVehicle 2023 ACURA INTEGRA Count 2; recallsByVehicle 2024 ACURA INTEGRA Count 3; products/vehicle/models 2024 ACURA issueType=r lists INTEGRA; accessed 2026-11-21"
    }
   ],
   "acura-rl-rlx": [
    {
     "from": 1996,
     "to": 2012,
-    "verified": false,
     "queries": [
      {
       "make": "ACURA",
       "model": "RL",
       "label": "RL"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 1996 ACURA issueType=r lists RL; products/vehicle/models 2006 ACURA issueType=r lists RL; products/vehicle/models 2012 ACURA issueType=r lists RL; accessed 2026-11-21"
    },
    {
     "from": 2014,
     "to": 2020,
-    "verified": false,
     "queries": [
      {
       "make": "ACURA",
       "model": "RLX",
       "label": "RLX"
+     },
+     {
+      "make": "ACURA",
+      "model": "RLX SPORT HYBRID",
+      "label": "RLX Sport Hybrid"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2014 ACURA issueType=r lists RLX, RLX SPORT HYBRID; products/vehicle/models 2020 ACURA issueType=r lists RLX; recallsByVehicle 2014 ACURA RLX Count 5; accessed 2026-11-21"
    }
   ],
   "alfa-romeo-giulia": [
    {
     "from": 2017,
+    "to": 2017,
+    "queries": [
+     {
+      "make": "ALFA ROMEO",
+      "model": "GIULIA",
+      "label": "Giulia"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2017 ALFA ROMEO issueType=r lists GIULIA (no STELVIO; Stelvio launched as 2018 model); accessed 2026-11-21"
+   },
+   {
+    "from": 2018,
     "to": 2025,
-    "verified": false,
     "queries": [
      {
       "make": "ALFA ROMEO",
@@ -79,249 +101,547 @@
      },
      {
       "make": "ALFA ROMEO",
+      "model": "GIULIA QUADRIFOGLIO",
+      "label": "Giulia Quadrifoglio"
+     },
+     {
+      "make": "ALFA ROMEO",
       "model": "STELVIO",
       "label": "Stelvio"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2018 ALFA ROMEO issueType=r lists GIULIA, GIULIA QUADRIFOGLIO, STELVIO; recallsByVehicle 2018 ALFA ROMEO GIULIA Count 9; recallsByVehicle 2018 ALFA ROMEO STELVIO Count 11; recallsByVehicle 2025 ALFA ROMEO GIULIA Count 1; recallsByVehicle 2025 ALFA ROMEO STELVIO Count 2; accessed 2026-11-21"
    }
   ],
   "bmw-2-series": [
    {
     "from": 2008,
     "to": 2013,
-    "verified": false,
     "queries": [
      {
       "make": "BMW",
       "model": "1 SERIES",
       "label": "1 Series"
+     },
+     {
+      "make": "BMW",
+      "model": "128I",
+      "label": "128i"
+     },
+     {
+      "make": "BMW",
+      "model": "135I",
+      "label": "135i"
+     },
+     {
+      "make": "BMW",
+      "model": "135IS",
+      "label": "135is"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2008 BMW issueType=r lists 128I/135I; products/vehicle/models 2013 BMW issueType=r lists 128I, 135I, 135IS; recallsByVehicle 2010 BMW 1 SERIES Count 3; recallsByVehicle 2010 BMW 128I Count 7; recallsByVehicle 2010 BMW 135I Count 4; NHTSA name 128I/135I (2008-2010) cannot be queried because the slash breaks the URL, so 128I and 135I are queried separately; accessed 2026-11-21"
    },
    {
     "from": 2014,
-    "to": 2025,
-    "verified": false,
+    "to": 2015,
     "queries": [
+     {
+      "make": "BMW",
+      "model": "228I",
+      "label": "228i"
+     },
+     {
+      "make": "BMW",
+      "model": "228I XDRIVE",
+      "label": "228i xDrive"
+     },
+     {
+      "make": "BMW",
+      "model": "M235I",
+      "label": "M235i"
+     },
      {
       "make": "BMW",
       "model": "2 SERIES",
       "label": "2 Series"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2014 BMW issueType=r lists 228I, M235I; products/vehicle/models 2015 BMW issueType=r lists 228I XDRIVE, M235I; accessed 2026-11-21"
+   },
+   {
+    "from": 2016,
+    "to": 2021,
+    "queries": [
+     {
+      "make": "BMW",
+      "model": "2 SERIES",
+      "label": "2 Series"
+     },
+     {
+      "make": "BMW",
+      "model": "M2",
+      "label": "M2"
+     },
+     {
+      "make": "BMW",
+      "model": "M240I",
+      "label": "M240i"
+     },
+     {
+      "make": "BMW",
+      "model": "M2 COMPETITION",
+      "label": "M2 Competition"
+     },
+     {
+      "make": "BMW",
+      "model": "2 SERIES GRAN",
+      "label": "2 Series Gran Coupe"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2016 BMW issueType=r lists 2 SERIES; products/vehicle/models 2018 BMW issueType=r lists 2 SERIES, M2, M240I; products/vehicle/models 2020 BMW issueType=r lists 2 SERIES, 2 SERIES GRAN, M2 COMPETITION; products/vehicle/models 2021 BMW issueType=r lists 2 SERIES, 2 SERIES GRAN, M2 COMPETITION; accessed 2026-11-21"
+   },
+   {
+    "from": 2022,
+    "to": 2025,
+    "queries": [
+     {
+      "make": "BMW",
+      "model": "2 SERIES COUPE",
+      "label": "2 Series Coupe"
+     },
+     {
+      "make": "BMW",
+      "model": "2 SERIES GRAN COUPE",
+      "label": "2 Series Gran Coupe"
+     },
+     {
+      "make": "BMW",
+      "model": "M2",
+      "label": "M2"
+     },
+     {
+      "make": "BMW",
+      "model": "M2 COUPE",
+      "label": "M2 Coupe"
+     },
+     {
+      "make": "BMW",
+      "model": "M240I",
+      "label": "M240i"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2022 BMW issueType=r lists 2 SERIES COUPE, 2 SERIES GRAN COUPE; products/vehicle/models 2023 BMW issueType=r lists 2 SERIES COUPE, 2 SERIES GRAN COUPE, M2; products/vehicle/models 2025 BMW issueType=r lists 2 SERIES GRAN COUPE, M240I; accessed 2026-11-21"
    }
   ],
   "bmw-6-8-series": [
    {
     "from": 2004,
-    "to": 2018,
-    "verified": false,
+    "to": 2010,
     "queries": [
      {
       "make": "BMW",
       "model": "6 SERIES",
       "label": "6 Series"
+     },
+     {
+      "make": "BMW",
+      "model": "M6",
+      "label": "M6"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2004 BMW issueType=r lists 6 SERIES; products/vehicle/models 2006 BMW issueType=r lists 6 SERIES, M6; products/vehicle/models 2010 BMW issueType=r lists 6 SERIES; accessed 2026-11-21"
+   },
+   {
+    "from": 2012,
+    "to": 2018,
+    "queries": [
+     {
+      "make": "BMW",
+      "model": "640I",
+      "label": "640i"
+     },
+     {
+      "make": "BMW",
+      "model": "640I XDRIVE",
+      "label": "640i xDrive"
+     },
+     {
+      "make": "BMW",
+      "model": "650I",
+      "label": "650i"
+     },
+     {
+      "make": "BMW",
+      "model": "650I XDRIVE",
+      "label": "650i xDrive"
+     },
+     {
+      "make": "BMW",
+      "model": "650XI",
+      "label": "650xi"
+     },
+     {
+      "make": "BMW",
+      "model": "M6",
+      "label": "M6"
+     },
+     {
+      "make": "BMW",
+      "model": "6 SERIES",
+      "label": "6 Series"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2012 BMW issueType=r lists 640I, 650I, 650XI; products/vehicle/models 2014 BMW issueType=r lists 640I, 640I XDRIVE, 650I, 650I XDRIVE, 650XI, M6; products/vehicle/models 2018 BMW issueType=r lists 6 SERIES, M6; accessed 2026-11-21"
    },
    {
     "from": 2019,
     "to": 2026,
-    "verified": false,
     "queries": [
      {
       "make": "BMW",
       "model": "8 SERIES",
       "label": "8 Series"
+     },
+     {
+      "make": "BMW",
+      "model": "8 SERIES GRAN",
+      "label": "8 Series Gran Coupe"
+     },
+     {
+      "make": "BMW",
+      "model": "M8",
+      "label": "M8"
+     },
+     {
+      "make": "BMW",
+      "model": "M8 CONVERTIBLE",
+      "label": "M8 Convertible"
+     },
+     {
+      "make": "BMW",
+      "model": "M8 GRAN",
+      "label": "M8 Gran Coupe"
+     },
+     {
+      "make": "BMW",
+      "model": "8 SERIES COUPE",
+      "label": "8 Series Coupe"
+     },
+     {
+      "make": "BMW",
+      "model": "8 SERIES CONVERTIBLE",
+      "label": "8 Series Convertible"
+     },
+     {
+      "make": "BMW",
+      "model": "8 SERIES GRAN COUPE",
+      "label": "8 Series Gran Coupe"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2020 BMW issueType=r lists 8 SERIES, 8 SERIES GRAN, M8, M8 CONVERTIBLE, M8 GRAN; products/vehicle/models 2024 BMW issueType=r lists 8 SERIES COUPE, 8 SERIES CONVERTIBLE, 8 SERIES GRAN COUPE; recallsByVehicle 2020 BMW M8 Count 3; recallsByVehicle 2020 BMW 8 SERIES returned HTTP 4xx; accessed 2026-11-21",
+    "missing": "2019 (products 2019 BMW issueType=c shows no 8 Series names; 6 Series Gran Turismo may also be 2019) and 2026 (products 2026 BMW issueType=r lists no 8 Series) not confirmed; recallsByVehicle 2020 8 SERIES failed although products lists it"
    }
   ],
   "bmw-z3-z4": [
    {
     "from": 1996,
     "to": 2002,
-    "verified": false,
     "queries": [
      {
       "make": "BMW",
       "model": "Z3",
       "label": "Z3"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 1996 BMW issueType=r lists Z3; products/vehicle/models 2002 BMW issueType=r lists Z3; accessed 2026-11-21"
    },
    {
     "from": 2003,
-    "to": 2026,
-    "verified": false,
+    "to": 2008,
     "queries": [
      {
       "make": "BMW",
       "model": "Z4",
       "label": "Z4"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2003 BMW issueType=r lists Z4; products/vehicle/models 2008 BMW issueType=r lists Z4; recallsByVehicle 2008 BMW Z4 Count 2; accessed 2026-11-21"
+   },
+   {
+    "from": 2009,
+    "to": 2016,
+    "queries": [
+     {
+      "make": "BMW",
+      "model": "Z4",
+      "label": "Z4"
+     },
+     {
+      "make": "BMW",
+      "model": "Z4 SDRIVE28I",
+      "label": "Z4 sDrive28i"
+     },
+     {
+      "make": "BMW",
+      "model": "Z4 SDRIVE35I",
+      "label": "Z4 sDrive35i"
+     },
+     {
+      "make": "BMW",
+      "model": "Z4 SDRIVE35IS",
+      "label": "Z4 sDrive35is"
+     }
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2012 BMW issueType=r lists Z4 SDRIVE28I, Z4 SDRIVE35I, Z4 SDRIVE35IS; products/vehicle/models 2015 BMW issueType=r lists Z4 SDRIVE28I, Z4 SDRIVE35I, Z4 SDRIVE35IS; accessed 2026-11-21",
+    "missing": "2009-2011 names not seen (2009 list showed no Z4; 2009-2011 may be Z4 SDRIVE30I/35I); 2016 not observed"
+   },
+   {
+    "from": 2019,
+    "to": 2026,
+    "queries": [
+     {
+      "make": "BMW",
+      "model": "Z4",
+      "label": "Z4"
+     },
+     {
+      "make": "BMW",
+      "model": "Z4 M40I",
+      "label": "Z4 M40i"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2020 BMW issueType=r lists Z4; recallsByVehicle 2020 BMW Z4 Count 6; products/vehicle/models 2024 BMW issueType=r lists Z4 M40I; products/vehicle/models 2025 BMW issueType=r lists Z4; 2019 and 2026 not individually observed; accessed 2026-11-21"
    }
   ],
   "cadillac-deville-dts": [
    {
     "from": 1996,
     "to": 2005,
-    "verified": false,
     "queries": [
      {
       "make": "CADILLAC",
       "model": "DEVILLE",
       "label": "DeVille"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 1996 CADILLAC issueType=r lists DEVILLE; products/vehicle/models 2004 CADILLAC issueType=r lists DEVILLE; products/vehicle/models 2005 CADILLAC issueType=r lists DEVILLE; accessed 2026-11-21"
    },
    {
     "from": 2006,
     "to": 2011,
-    "verified": false,
     "queries": [
      {
       "make": "CADILLAC",
       "model": "DTS",
       "label": "DTS"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2006 CADILLAC issueType=r lists DTS; products/vehicle/models 2011 CADILLAC issueType=r lists DTS; recallsByVehicle 2006 CADILLAC DTS Count 4; accessed 2026-11-21"
    }
   ],
   "cadillac-sts-seville": [
    {
     "from": 1996,
     "to": 2004,
-    "verified": false,
     "queries": [
      {
       "make": "CADILLAC",
       "model": "SEVILLE",
       "label": "Seville"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 1996 CADILLAC issueType=r lists SEVILLE; products/vehicle/models 2004 CADILLAC issueType=r lists SEVILLE; accessed 2026-11-21"
    },
    {
     "from": 2005,
     "to": 2011,
-    "verified": false,
     "queries": [
      {
       "make": "CADILLAC",
       "model": "STS",
       "label": "STS"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2005 CADILLAC issueType=r lists STS; products/vehicle/models 2011 CADILLAC issueType=r lists STS; recallsByVehicle 2005 CADILLAC STS Count 3; accessed 2026-11-21"
    }
   ],
   "ford-f-450-f-550": [
    {
     "from": 1999,
     "to": 2026,
-    "verified": false,
     "queries": [
      {
       "make": "FORD",
+      "model": "F-450 SD",
+      "label": "F-450 Super Duty (chassis cab)"
+     },
+     {
+      "make": "FORD",
+      "model": "F-550 SD",
+      "label": "F-550 Super Duty"
+     },
+     {
+      "make": "FORD",
       "model": "F-450",
-      "label": "F-450"
+      "label": "F-450 (pickup)"
      },
      {
       "make": "FORD",
       "model": "F-550",
       "label": "F-550"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "recallsByVehicle 1999 FORD F-450 SD Count 11; products/vehicle/models 2017 FORD issueType=r lists F-450, F-450 SD, F-550, F-550 SD; recallsByVehicle 2017 FORD F-450 Count 4; recallsByVehicle 2017 FORD F-550 SD Count 8; products/vehicle/models 2026 FORD issueType=r lists F-450 SD, F-550 SD; plain F-450/F-550 names not seen for 1999 or 2026 (harmless extra queries); accessed 2026-11-21"
    }
   ],
   "ford-freestyle-taurus-x": [
    {
     "from": 2005,
     "to": 2007,
-    "verified": false,
     "queries": [
      {
       "make": "FORD",
       "model": "FREESTYLE",
       "label": "Freestyle"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "recallsByVehicle 2005 FORD FREESTYLE Count 2; accessed 2026-11-21",
+    "missing": "2007 not confirmed: recallsByVehicle 2007 FREESTYLE HTTP 4xx; products 2007 FORD r/c (truncated lists) did not show FREESTYLE"
    },
    {
     "from": 2008,
     "to": 2009,
-    "verified": false,
     "queries": [
      {
       "make": "FORD",
       "model": "TAURUS X",
       "label": "Taurus X"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2008 FORD issueType=r lists TAURUS X; recallsByVehicle 2009 FORD TAURUS X Count 1; accessed 2026-11-21"
    }
   ],
   "hyundai-xg350": [
    {
     "from": 2001,
     "to": 2001,
-    "verified": false,
     "queries": [
      {
       "make": "HYUNDAI",
       "model": "XG300",
       "label": "XG300"
+     },
+     {
+      "make": "HYUNDAI",
+      "model": "XG300L",
+      "label": "XG300L"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2001 HYUNDAI issueType=r lists XG300, XG300L; recallsByVehicle 2001 HYUNDAI XG300 Count 4; accessed 2026-11-21"
    },
    {
     "from": 2002,
     "to": 2005,
-    "verified": false,
     "queries": [
      {
       "make": "HYUNDAI",
       "model": "XG350",
       "label": "XG350"
+     },
+     {
+      "make": "HYUNDAI",
+      "model": "XG 350",
+      "label": "XG350"
+     },
+     {
+      "make": "HYUNDAI",
+      "model": "XG300",
+      "label": "XG300"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "recallsByVehicle 2002 HYUNDAI XG350 Count 3; products/vehicle/models 2002 HYUNDAI issueType=r lists XG300, XG300L, XG 350; products/vehicle/models 2005 HYUNDAI issueType=r lists XG 350; recallsByVehicle 2002 \"XG 350\" HTTP 4xx; accessed 2026-11-21",
+    "missing": "2005 spelling unresolved (summary showed \"XG 350\"; with-space form failed for 2002); need recallsByVehicle 2005 XG350"
    }
   ],
   "infiniti-qx50": [
    {
     "from": 2008,
-    "to": 2013,
-    "verified": false,
+    "to": 2012,
     "queries": [
      {
       "make": "INFINITI",
       "model": "EX35",
       "label": "EX35"
-     },
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2008 INFINITI issueType=r lists EX35; products/vehicle/models 2011 INFINITI issueType=r lists EX35; recallsByVehicle 2010 INFINITI EX35 Count 1; 2010 also lists EX35 WAGON; accessed 2026-11-21"
+   },
+   {
+    "from": 2013,
+    "to": 2013,
+    "queries": [
      {
       "make": "INFINITI",
       "model": "EX37",
       "label": "EX37"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2013 INFINITI issueType=r lists EX37; recallsByVehicle 2013 EX37 returned HTTP 4xx; accessed 2026-11-21"
    },
    {
     "from": 2014,
-    "to": 2023,
-    "verified": false,
+    "to": 2017,
     "queries": [
      {
       "make": "INFINITI",
       "model": "QX50",
       "label": "QX50"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2014 INFINITI issueType=r lists QX50; products/vehicle/models 2017 INFINITI issueType=r lists QX50; accessed 2026-11-21"
+   },
+   {
+    "from": 2019,
+    "to": 2023,
+    "queries": [
+     {
+      "make": "INFINITI",
+      "model": "QX50",
+      "label": "QX50"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2019 INFINITI issueType=r lists QX50; products/vehicle/models 2023 INFINITI issueType=r lists QX50; accessed 2026-11-21"
    }
   ],
   "infiniti-fx-qx70": [
    {
     "from": 2003,
-    "to": 2013,
-    "verified": false,
+    "to": 2008,
     "queries": [
      {
       "make": "INFINITI",
@@ -332,6 +652,19 @@
       "make": "INFINITI",
       "model": "FX45",
       "label": "FX45"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2003 INFINITI issueType=r lists FX35, FX45; products/vehicle/models 2008 INFINITI issueType=r lists FX35/45; recallsByVehicle 2004 INFINITI FX35 Count 7; recallsByVehicle 2004 INFINITI FX45 Count 7; NHTSA combined name FX35/45 cannot be queried (slash); accessed 2026-11-21"
+   },
+   {
+    "from": 2009,
+    "to": 2013,
+    "queries": [
+     {
+      "make": "INFINITI",
+      "model": "FX35",
+      "label": "FX35"
      },
      {
       "make": "INFINITI",
@@ -343,38 +676,69 @@
       "model": "FX37",
       "label": "FX37"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2010 INFINITI issueType=r lists FX35/50; products/vehicle/models 2011 INFINITI issueType=r lists FX35, FX50; products/vehicle/models 2013 INFINITI issueType=r lists FX35, FX37; accessed 2026-11-21"
    },
    {
     "from": 2014,
     "to": 2017,
-    "verified": false,
     "queries": [
      {
       "make": "INFINITI",
       "model": "QX70",
       "label": "QX70"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2014 INFINITI issueType=r lists QX70; products/vehicle/models 2017 INFINITI issueType=r lists QX70; recallsByVehicle 2015 INFINITI QX70 Count 1; accessed 2026-11-21"
    }
   ],
   "infiniti-g35-g37": [
    {
     "from": 2003,
     "to": 2007,
-    "verified": false,
     "queries": [
      {
       "make": "INFINITI",
       "model": "G35",
       "label": "G35"
+     },
+     {
+      "make": "INFINITI",
+      "model": "G35 COUPE",
+      "label": "G35 Coupe"
+     },
+     {
+      "make": "INFINITI",
+      "model": "G35 SEDAN",
+      "label": "G35 Sedan"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2003 INFINITI issueType=r lists G35; products/vehicle/models 2006 INFINITI issueType=r lists G35 COUPE, G35 SEDAN; recallsByVehicle 2005 INFINITI G35 Count 1; accessed 2026-11-21"
    },
    {
     "from": 2008,
+    "to": 2008,
+    "queries": [
+     {
+      "make": "INFINITI",
+      "model": "G35",
+      "label": "G35 Sedan"
+     },
+     {
+      "make": "INFINITI",
+      "model": "G37",
+      "label": "G37"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2008 INFINITI issueType=r lists G35, G37; accessed 2026-11-21"
+   },
+   {
+    "from": 2009,
     "to": 2013,
-    "verified": false,
     "queries": [
      {
       "make": "INFINITI",
@@ -383,43 +747,59 @@
      },
      {
       "make": "INFINITI",
-      "model": "G35",
-      "label": "G35"
+      "model": "G25",
+      "label": "G25"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2010 INFINITI issueType=r lists G37; products/vehicle/models 2011 INFINITI issueType=r lists G37, G25; products/vehicle/models 2013 INFINITI issueType=r lists G37; recallsByVehicle 2012 INFINITI G37 Count 1; accessed 2026-11-21"
    }
   ],
   "infiniti-i30-i35": [
    {
     "from": 1996,
     "to": 2001,
-    "verified": false,
     "queries": [
      {
       "make": "INFINITI",
       "model": "I30",
       "label": "I30"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 1996 INFINITI issueType=r lists I30; products/vehicle/models 2001 INFINITI issueType=r lists I30; accessed 2026-11-21"
    },
    {
     "from": 2002,
     "to": 2004,
-    "verified": false,
     "queries": [
      {
       "make": "INFINITI",
       "model": "I35",
       "label": "I35"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2002 INFINITI issueType=r lists I35; products/vehicle/models 2004 INFINITI issueType=r lists I35; recallsByVehicle 2002 INFINITI I35 Count 5; accessed 2026-11-21"
    }
   ],
   "infiniti-m-q70": [
    {
     "from": 2003,
-    "to": 2013,
-    "verified": false,
+    "to": 2004,
+    "queries": [
+     {
+      "make": "INFINITI",
+      "model": "M45",
+      "label": "M45"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2003 INFINITI issueType=r lists M45; products/vehicle/models 2004 INFINITI issueType=r lists M45; accessed 2026-11-21"
+   },
+   {
+    "from": 2006,
+    "to": 2010,
     "queries": [
      {
       "make": "INFINITI",
@@ -430,7 +810,15 @@
       "make": "INFINITI",
       "model": "M45",
       "label": "M45"
-     },
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2006 INFINITI issueType=r lists M35/45; products/vehicle/models 2010 INFINITI issueType=r lists M35/45; recallsByVehicle 2008 INFINITI M35 Count 6; combined name M35/45 cannot be queried (slash); M45 for 2006-2010 not separately tested; accessed 2026-11-21"
+   },
+   {
+    "from": 2011,
+    "to": 2013,
+    "queries": [
      {
       "make": "INFINITI",
       "model": "M37",
@@ -440,53 +828,72 @@
       "make": "INFINITI",
       "model": "M56",
       "label": "M56"
+     },
+     {
+      "make": "INFINITI",
+      "model": "M35 HEV",
+      "label": "M35h"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2011 INFINITI issueType=r lists M37, M56; products/vehicle/models 2013 INFINITI issueType=r lists M37, M56, M35 HEV; accessed 2026-11-21"
    },
    {
     "from": 2014,
     "to": 2019,
-    "verified": false,
     "queries": [
      {
       "make": "INFINITI",
       "model": "Q70",
       "label": "Q70"
+     },
+     {
+      "make": "INFINITI",
+      "model": "Q70 HYBRID",
+      "label": "Q70 Hybrid"
+     },
+     {
+      "make": "INFINITI",
+      "model": "Q70L",
+      "label": "Q70L"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2014 INFINITI issueType=r lists Q70, Q70 HYBRID; products/vehicle/models 2019 INFINITI issueType=r lists Q70, Q70L; recallsByVehicle 2015 INFINITI Q70 Count 1; accessed 2026-11-21"
    }
   ],
   "infiniti-qx80": [
    {
     "from": 2004,
     "to": 2013,
-    "verified": false,
     "queries": [
      {
       "make": "INFINITI",
       "model": "QX56",
       "label": "QX56"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2004 INFINITI issueType=r lists QX56; products/vehicle/models 2013 INFINITI issueType=r lists QX56; recallsByVehicle 2010 INFINITI QX56 Count 3; accessed 2026-11-21"
    },
    {
     "from": 2014,
     "to": 2026,
-    "verified": false,
     "queries": [
      {
       "make": "INFINITI",
       "model": "QX80",
       "label": "QX80"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2014 INFINITI issueType=r lists QX80; products/vehicle/models 2026 INFINITI issueType=r lists QX80; recallsByVehicle 2014 INFINITI QX80 Count 4; accessed 2026-11-21"
    }
   ],
   "jeep-grand-wagoneer-wagoneer": [
    {
     "from": 2022,
-    "to": 2026,
-    "verified": false,
+    "to": 2022,
     "queries": [
      {
       "make": "JEEP",
@@ -498,239 +905,484 @@
       "model": "GRAND WAGONEER",
       "label": "Grand Wagoneer"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2022 JEEP issueType=r lists WAGONEER, GRAND WAGONEER; recallsByVehicle 2022 JEEP WAGONEER Count 10; recallsByVehicle 2022 JEEP GRAND WAGONEER Count 10; accessed 2026-11-21"
+   },
+   {
+    "from": 2023,
+    "to": 2025,
+    "queries": [
+     {
+      "make": "JEEP",
+      "model": "WAGONEER",
+      "label": "Wagoneer"
+     },
+     {
+      "make": "JEEP",
+      "model": "WAGONEER L",
+      "label": "Wagoneer L"
+     },
+     {
+      "make": "JEEP",
+      "model": "GRAND WAGONEER",
+      "label": "Grand Wagoneer"
+     },
+     {
+      "make": "JEEP",
+      "model": "GRAND WAGONEER L",
+      "label": "Grand Wagoneer L"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2023 JEEP issueType=r lists WAGONEER, WAGONEER L, GRAND WAGONEER, GRAND WAGONEER L; products/vehicle/models 2025 JEEP issueType=r lists WAGONEER, WAGONEER L, GRAND WAGONEER; WAGONEER S (electric) deliberately excluded; accessed 2026-11-21"
+   },
+   {
+    "from": 2026,
+    "to": 2026,
+    "queries": [
+     {
+      "make": "JEEP",
+      "model": "GRAND WAGONEER ICE",
+      "label": "Grand Wagoneer"
+     },
+     {
+      "make": "JEEP",
+      "model": "GRAND WAGONEER L ICE",
+      "label": "Grand Wagoneer L"
+     },
+     {
+      "make": "JEEP",
+      "model": "WAGONEER",
+      "label": "Wagoneer"
+     },
+     {
+      "make": "JEEP",
+      "model": "GRAND WAGONEER",
+      "label": "Grand Wagoneer"
+     }
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2026 JEEP issueType=r lists GRAND WAGONEER ICE, GRAND WAGONEER L ICE (no plain WAGONEER); recallsByVehicle 2026 WAGONEER and GRAND WAGONEER ICE both HTTP 4xx; accessed 2026-11-21",
+    "missing": "2026 Wagoneer name not found; GRAND WAGONEER ICE listed but recall query failed; need products 2026 JEEP issueType=c and a working recallsByVehicle call"
    }
   ],
   "land-rover-discovery": [
    {
     "from": 1996,
-    "to": 2004,
-    "verified": false,
+    "to": 1998,
     "queries": [
      {
       "make": "LAND ROVER",
       "model": "DISCOVERY",
       "label": "Discovery"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 1996 LAND ROVER issueType=r lists \"DISCOVERY SERIES\" (possibly truncated); accessed 2026-11-21",
+    "missing": "exact 1996-1998 name unclear (\"DISCOVERY SERIES\" vs \"DISCOVERY\"); need recallsByVehicle 1997 LAND ROVER DISCOVERY"
+   },
+   {
+    "from": 1999,
+    "to": 2004,
+    "queries": [
+     {
+      "make": "LAND ROVER",
+      "model": "DISCOVERY",
+      "label": "Discovery"
+     },
+     {
+      "make": "LAND ROVER",
+      "model": "DISCOVERY II",
+      "label": "Discovery II"
+     },
+     {
+      "make": "LAND ROVER",
+      "model": "DISCOVERY SERIES II",
+      "label": "Discovery Series II"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 1999 LAND ROVER issueType=r lists DISCOVERY, DISCOVERY II; products/vehicle/models 2000 LAND ROVER issueType=r lists DISCOVERY, DISCOVERY II; products/vehicle/models 2004 LAND ROVER issueType=r lists DISCOVERY SERIES II; accessed 2026-11-21"
    },
    {
     "from": 2005,
     "to": 2009,
-    "verified": false,
     "queries": [
      {
       "make": "LAND ROVER",
       "model": "LR3",
       "label": "LR3"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2005 LAND ROVER issueType=r lists LR3; products/vehicle/models 2009 LAND ROVER issueType=r lists LR3; recallsByVehicle 2005 LAND ROVER LR3 Count 5; accessed 2026-11-21"
    },
    {
     "from": 2010,
     "to": 2016,
-    "verified": false,
     "queries": [
      {
       "make": "LAND ROVER",
       "model": "LR4",
       "label": "LR4"
+     },
+     {
+      "make": "LAND ROVER",
+      "model": "LR4 (5 SEAT)",
+      "label": "LR4 5-seat"
+     },
+     {
+      "make": "LAND ROVER",
+      "model": "LR4 (7 SEAT)",
+      "label": "LR4 7-seat"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2010 LAND ROVER issueType=r lists LR4; products/vehicle/models 2013 LAND ROVER issueType=r lists LR4 (5 SEAT), LR4 (7 SEAT); products/vehicle/models 2016 LAND ROVER issueType=r lists LR4 (7 SEAT); recallsByVehicle 2016 LAND ROVER LR4 Count 2; accessed 2026-11-21"
    },
    {
     "from": 2017,
-    "to": 2025,
-    "verified": false,
+    "to": 2017,
     "queries": [
      {
       "make": "LAND ROVER",
       "model": "DISCOVERY",
       "label": "Discovery"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products 2017 LAND ROVER issueType=r and c list only DISCOVERY SPORT, not DISCOVERY; accessed 2026-11-21",
+    "missing": "2017 Discovery (5th gen) name not seen; need recallsByVehicle 2017 LAND ROVER DISCOVERY"
+   },
+   {
+    "from": 2018,
+    "to": 2024,
+    "queries": [
+     {
+      "make": "LAND ROVER",
+      "model": "DISCOVERY",
+      "label": "Discovery"
+     }
+    ],
+    "verified": true,
+    "evidence": "recallsByVehicle 2018 LAND ROVER DISCOVERY Count 4; products/vehicle/models 2020 LAND ROVER issueType=r lists DISCOVERY; recallsByVehicle 2024 LAND ROVER DISCOVERY Count 5; accessed 2026-11-21"
+   },
+   {
+    "from": 2025,
+    "to": 2025,
+    "queries": [
+     {
+      "make": "LAND ROVER",
+      "model": "DISCOVERY",
+      "label": "Discovery"
+     },
+     {
+      "make": "LAND ROVER",
+      "model": "LAND ROVER DISCOVERY",
+      "label": "Discovery"
+     }
+    ],
+    "verified": false,
+    "evidence": "products 2025 LAND ROVER issueType=r uses \"LAND ROVER ...\" prefixed names and lists no Discovery (only DISCOVERY SPORT); accessed 2026-11-21",
+    "missing": "2025 naming changed to prefixed form; need products 2025 LAND ROVER issueType=c or recallsByVehicle 2025 DISCOVERY"
    }
   ],
   "lincoln-corsair-mkc": [
    {
     "from": 2015,
     "to": 2019,
-    "verified": false,
     "queries": [
      {
       "make": "LINCOLN",
       "model": "MKC",
       "label": "MKC"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2015 LINCOLN issueType=r lists MKC; products/vehicle/models 2019 LINCOLN issueType=r lists MKC; accessed 2026-11-21"
    },
    {
     "from": 2020,
-    "to": 2026,
-    "verified": false,
+    "to": 2024,
     "queries": [
      {
       "make": "LINCOLN",
       "model": "CORSAIR",
       "label": "Corsair"
+     },
+     {
+      "make": "LINCOLN",
+      "model": "CORSAIR PHEV",
+      "label": "Corsair Grand Touring"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "recallsByVehicle 2020 LINCOLN CORSAIR Count 16; recallsByVehicle 2024 LINCOLN CORSAIR Count 4; accessed 2026-11-21"
+   },
+   {
+    "from": 2025,
+    "to": 2026,
+    "queries": [
+     {
+      "make": "LINCOLN",
+      "model": "CORSAIR GAS",
+      "label": "Corsair"
+     },
+     {
+      "make": "LINCOLN",
+      "model": "CORSAIR PHEV",
+      "label": "Corsair Grand Touring"
+     },
+     {
+      "make": "LINCOLN",
+      "model": "CORSAIR",
+      "label": "Corsair"
+     }
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2025 LINCOLN issueType=r lists CORSAIR GAS, CORSAIR PHEV; accessed 2026-11-21",
+    "missing": "2026 not observed"
    }
   ],
   "lincoln-mkx-nautilus": [
    {
     "from": 2007,
     "to": 2018,
-    "verified": false,
     "queries": [
      {
       "make": "LINCOLN",
       "model": "MKX",
       "label": "MKX"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2007 LINCOLN issueType=r lists MKX; products/vehicle/models 2018 LINCOLN issueType=r lists MKX; accessed 2026-11-21"
    },
    {
     "from": 2019,
     "to": 2025,
-    "verified": false,
     "queries": [
      {
       "make": "LINCOLN",
       "model": "NAUTILUS",
       "label": "Nautilus"
+     },
+     {
+      "make": "LINCOLN",
+      "model": "NAUTILUS FHEV",
+      "label": "Nautilus Hybrid"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2019 LINCOLN issueType=r lists NAUTILUS; recallsByVehicle 2019 LINCOLN NAUTILUS Count 8; products/vehicle/models 2025 LINCOLN issueType=r lists NAUTILUS, NAUTILUS FHEV; accessed 2026-11-21"
    }
   ],
   "mercedes-benz-gl-gls": [
    {
     "from": 2007,
     "to": 2016,
-    "verified": false,
     "queries": [
      {
       "make": "MERCEDES-BENZ",
       "model": "GL-CLASS",
       "label": "GL-Class"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2007 MERCEDES-BENZ issueType=r lists GL-CLASS; products/vehicle/models 2012 MERCEDES-BENZ issueType=r lists GL-CLASS; products/vehicle/models 2016 MERCEDES-BENZ issueType=r lists GL-CLASS; every MERCEDES-BENZ recallsByVehicle call (incl. GL-CLASS, GL450 2012) returned HTTP 4xx; accessed 2026-11-21"
    },
    {
     "from": 2017,
     "to": 2024,
-    "verified": false,
     "queries": [
      {
       "make": "MERCEDES-BENZ",
       "model": "GLS-CLASS",
       "label": "GLS-Class"
+     },
+     {
+      "make": "MERCEDES-BENZ",
+      "model": "GL450",
+      "label": "GL450 (2017 listing)"
+     },
+     {
+      "make": "MERCEDES-BENZ",
+      "model": "GL350",
+      "label": "GL350 (2017 listing)"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2017 MERCEDES-BENZ issueType=r lists GLS-CLASS, GL450, GL350; products/vehicle/models 2021 MERCEDES-BENZ issueType=r lists GLS-CLASS; accessed 2026-11-21",
+    "missing": "2024 not confirmed (products 2024 r/c lists looked truncated, no GLS); MB recall queries all failed"
    }
   ],
   "mercedes-benz-gle": [
    {
     "from": 1998,
     "to": 2015,
-    "verified": false,
     "queries": [
      {
       "make": "MERCEDES-BENZ",
-      "model": "M-CLASS",
+      "model": "ML-CLASS",
       "label": "M-Class"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 1998 MERCEDES-BENZ issueType=r lists ML-CLASS; products/vehicle/models 2007 MERCEDES-BENZ issueType=r lists ML-CLASS; products/vehicle/models 2012 MERCEDES-BENZ issueType=r lists ML-CLASS; candidate name M-CLASS is wrong; accessed 2026-11-21",
+    "missing": "2015 not confirmed (products 2015 r/c lists looked truncated); MB recall queries all failed"
    },
    {
     "from": 2016,
     "to": 2024,
-    "verified": false,
     "queries": [
      {
       "make": "MERCEDES-BENZ",
       "model": "GLE-CLASS",
       "label": "GLE-Class"
+     },
+     {
+      "make": "MERCEDES-BENZ",
+      "model": "GLE CLASS",
+      "label": "GLE-Class"
+     },
+     {
+      "make": "MERCEDES-BENZ",
+      "model": "GLE-CLASS COUPE",
+      "label": "GLE Coupe"
+     },
+     {
+      "make": "MERCEDES-BENZ",
+      "model": "GLE-CLASS HYBRID",
+      "label": "GLE Hybrid"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2016 MERCEDES-BENZ issueType=r lists GLE-CLASS, GLE-CLASS COUPE, GLE-CLASS HYBRID; products/vehicle/models 2020 MERCEDES-BENZ issueType=r lists GLE-CLASS; products/vehicle/models 2021 MERCEDES-BENZ issueType=r lists GLE CLASS (no hyphen), GLE-CLASS COUPE; accessed 2026-11-21",
+    "missing": "2024 not confirmed; MB recall queries all failed"
    }
   ],
   "mercedes-benz-slk-slc": [
    {
     "from": 1998,
     "to": 2016,
-    "verified": false,
     "queries": [
      {
       "make": "MERCEDES-BENZ",
       "model": "SLK-CLASS",
       "label": "SLK-Class"
-     },
-     {
-      "make": "MERCEDES-BENZ",
-      "model": "SLC-CLASS",
-      "label": "SLC-Class"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2007 MERCEDES-BENZ issueType=r lists SLK-CLASS; products/vehicle/models 2012 MERCEDES-BENZ issueType=r lists SLK-CLASS; products/vehicle/models 2016 MERCEDES-BENZ issueType=r lists SLK-CLASS; SLC-CLASS first appears 2017 (outside site range) so it was dropped; accessed 2026-11-21",
+    "missing": "1998 not confirmed (1998 list showed only C230, ML-CLASS); MB recall queries all failed"
    }
   ],
   "nissan-350z-370z": [
    {
     "from": 2003,
     "to": 2008,
-    "verified": false,
     "queries": [
      {
       "make": "NISSAN",
       "model": "350Z",
       "label": "350Z"
+     },
+     {
+      "make": "NISSAN",
+      "model": "350Z ROADSTER",
+      "label": "350Z Roadster"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2003 NISSAN issueType=r lists 350Z; recallsByVehicle 2005 NISSAN 350Z Count 2; 350Z ROADSTER seen 2009; 2008 not individually observed; accessed 2026-11-21"
    },
    {
     "from": 2009,
-    "to": 2020,
-    "verified": false,
+    "to": 2009,
     "queries": [
      {
       "make": "NISSAN",
       "model": "370Z",
       "label": "370Z"
+     },
+     {
+      "make": "NISSAN",
+      "model": "350Z ROADSTER",
+      "label": "350Z Roadster"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2009 NISSAN issueType=r lists 350Z ROADSTER, 370Z; accessed 2026-11-21"
+   },
+   {
+    "from": 2010,
+    "to": 2020,
+    "queries": [
+     {
+      "make": "NISSAN",
+      "model": "370Z",
+      "label": "370Z"
+     },
+     {
+      "make": "NISSAN",
+      "model": "370Z ROADSTER",
+      "label": "370Z Roadster"
+     }
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2012 NISSAN issueType=r lists 370Z, 370Z ROADSTER; products/vehicle/models 2015 NISSAN issueType=r lists 370Z, 370Z ROADSTER; recallsByVehicle 370Z 2009/2012 and 370Z ROADSTER 2012 all HTTP 4xx; accessed 2026-11-21",
+    "missing": "2020 not observed (2020 r list had no 370Z); recall queries for 370Z failed though products lists it"
    },
    {
     "from": 2023,
     "to": 2024,
-    "verified": false,
     "queries": [
      {
       "make": "NISSAN",
       "model": "Z",
       "label": "Z"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "recallsByVehicle 2023 NISSAN Z Count 2; products/vehicle/models 2024 NISSAN issueType=r lists Z; accessed 2026-11-21"
    }
   ],
   "nissan-nv": [
    {
     "from": 2012,
     "to": 2021,
-    "verified": false,
     "queries": [
      {
       "make": "NISSAN",
       "model": "NV",
-      "label": "NV Cargo / Passenger"
+      "label": "NV"
+     },
+     {
+      "make": "NISSAN",
+      "model": "NV1500",
+      "label": "NV1500"
+     },
+     {
+      "make": "NISSAN",
+      "model": "NV2500",
+      "label": "NV2500"
+     },
+     {
+      "make": "NISSAN",
+      "model": "NV3500",
+      "label": "NV3500"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "recallsByVehicle 2012 NISSAN NV Count 4; recallsByVehicle 2016 NISSAN NV Count 1; products/vehicle/models 2013 NISSAN issueType=r lists NV1500; products/vehicle/models 2020 NISSAN issueType=r lists \"NV1500, NV2500, NV3500\" (one value), NV200 CARGO; products/vehicle/models 2021 NISSAN issueType=r lists \"NV1500, NV2500, NV3500\", \"NV3500 PASSGENGER VAN\" (sic); NV200 is a different vehicle and excluded; accessed 2026-11-21",
+    "missing": "2021 not confirmed: recallsByVehicle 2021 NV HTTP 4xx; NV1500 2013 and NV2500 2012/NV2500 HD 2016 also failed; the 2020-2021 combined value contains commas and could not be queried"
    }
   ],
   "plymouth-voyager": [
    {
     "from": 1996,
     "to": 2000,
-    "verified": false,
     "queries": [
      {
       "make": "PLYMOUTH",
@@ -742,52 +1394,61 @@
       "model": "GRAND VOYAGER",
       "label": "Grand Voyager"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "recallsByVehicle 1996 PLYMOUTH VOYAGER Count 15; recallsByVehicle 1996 PLYMOUTH GRAND VOYAGER Count 11; products/vehicle/models 2000 PLYMOUTH issueType=r lists VOYAGER, GRAND VOYAGER; accessed 2026-11-21"
    }
   ],
   "pontiac-montana": [
    {
     "from": 1997,
-    "to": 1998,
-    "verified": false,
+    "to": 1999,
     "queries": [
      {
       "make": "PONTIAC",
       "model": "TRANS SPORT",
       "label": "Trans Sport"
+     },
+     {
+      "make": "PONTIAC",
+      "model": "MONTANA",
+      "label": "Montana"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 1997 PONTIAC issueType=r lists TRANS SPORT, MONTANA; products/vehicle/models 1998 PONTIAC issueType=r lists TRANS SPORT, MONTANA; products/vehicle/models 1999 PONTIAC issueType=r lists MONTANA, TRANS SPORT; accessed 2026-11-21"
    },
    {
-    "from": 1999,
+    "from": 2000,
     "to": 2006,
-    "verified": false,
     "queries": [
      {
       "make": "PONTIAC",
       "model": "MONTANA",
       "label": "Montana"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2006 PONTIAC issueType=r lists MONTANA; recallsByVehicle 2006 PONTIAC MONTANA Count 2; 2000 not individually observed (bracketed by 1999 and 2006); accessed 2026-11-21"
    }
   ],
   "porsche-boxster-cayman": [
    {
     "from": 1997,
     "to": 2005,
-    "verified": false,
     "queries": [
      {
       "make": "PORSCHE",
       "model": "BOXSTER",
       "label": "Boxster"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 1997 PORSCHE issueType=r lists BOXSTER; products/vehicle/models 2006 PORSCHE issueType=r lists BOXSTER; 2005 bracketed by 1997 and 2006; accessed 2026-11-21"
    },
    {
     "from": 2006,
-    "to": 2025,
-    "verified": false,
+    "to": 2016,
     "queries": [
      {
       "make": "PORSCHE",
@@ -798,49 +1459,71 @@
       "make": "PORSCHE",
       "model": "CAYMAN",
       "label": "Cayman"
+     },
+     {
+      "make": "PORSCHE",
+      "model": "CAYMAN S",
+      "label": "Cayman S"
+     },
+     {
+      "make": "PORSCHE",
+      "model": "CAYMAN GTS",
+      "label": "Cayman GTS"
+     },
+     {
+      "make": "PORSCHE",
+      "model": "CAYMAN GT4",
+      "label": "Cayman GT4"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2006 PORSCHE issueType=r lists BOXSTER, CAYMAN S; products/vehicle/models 2016 PORSCHE issueType=r lists CAYMAN, CAYMAN GT4, CAYMAN GTS, CAYMAN S (no BOXSTER); recallsByVehicle 2006 BOXSTER and CAYMAN S both HTTP 4xx; accessed 2026-11-21",
+    "missing": "Boxster 2016 and plain CAYMAN 2006 not seen; trim-level names (e.g. BOXSTER S, BOXSTER SPYDER) may also exist; no recall query succeeded"
+   },
+   {
+    "from": 2017,
+    "to": 2025,
+    "queries": [
+     {
+      "make": "PORSCHE",
+      "model": "718 BOXSTER",
+      "label": "718 Boxster"
+     },
+     {
+      "make": "PORSCHE",
+      "model": "718 CAYMAN",
+      "label": "718 Cayman"
+     },
+     {
+      "make": "PORSCHE",
+      "model": "982 718 CAYMAN S",
+      "label": "718 Cayman S"
+     },
+     {
+      "make": "PORSCHE",
+      "model": "982 718 CAYMAN GTS 4.0",
+      "label": "718 Cayman GTS 4.0"
+     },
+     {
+      "make": "PORSCHE",
+      "model": "982 718 GT4 RS",
+      "label": "718 Cayman GT4 RS"
+     },
+     {
+      "make": "PORSCHE",
+      "model": "982 718 CAYMAN STYLE EDITION",
+      "label": "718 Cayman Style Edition"
+     }
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2017 PORSCHE issueType=r lists 718 BOXSTER, 718 CAYMAN; recallsByVehicle 2017 PORSCHE 718 BOXSTER Count 6; recallsByVehicle 2017 PORSCHE 718 CAYMAN Count 4; products/vehicle/models 2025 PORSCHE issueType=r lists 982 718 CAYMAN S, 982 718 CAYMAN GTS 4.0, 982 718 GT4 RS, 982 718 CAYMAN STYLE EDITION; accessed 2026-11-21",
+    "missing": "NHTSA switched to trim-level \"982 718 ...\" names by 2025; years 2018-2024 and Boxster trim names for 2025 not enumerated"
    }
   ],
   "rivian-r1s-r1t": [
    {
     "from": 2022,
-    "to": 2022,
-    "verified": false,
-    "queries": [
-     {
-      "make": "RIVIAN",
-      "model": "R1T",
-      "label": "R1T"
-     },
-     {
-      "make": "RIVIAN",
-      "model": "R1S",
-      "label": "R1S"
-     }
-    ]
-   },
-   {
-    "from": 2023,
-    "to": 2023,
-    "verified": true,
-    "queries": [
-     {
-      "make": "RIVIAN",
-      "model": "R1T",
-      "label": "R1T"
-     },
-     {
-      "make": "RIVIAN",
-      "model": "R1S",
-      "label": "R1S"
-     }
-    ]
-   },
-   {
-    "from": 2024,
     "to": 2026,
-    "verified": false,
     "queries": [
      {
       "make": "RIVIAN",
@@ -852,40 +1535,44 @@
       "model": "R1S",
       "label": "R1S"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2022 RIVIAN issueType=r lists R1T, R1S; recallsByVehicle 2022 RIVIAN R1T Count 12; recallsByVehicle 2022 RIVIAN R1S Count 13; products/vehicle/models 2026 RIVIAN issueType=r lists R1S, R1T; accessed 2026-11-21"
    }
   ],
   "scion-im": [
    {
     "from": 2016,
     "to": 2016,
-    "verified": false,
     "queries": [
      {
       "make": "SCION",
       "model": "IM",
       "label": "iM"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2016 SCION issueType=r lists IM; recallsByVehicle 2016 SCION IM Count 1; accessed 2026-11-21"
    },
    {
     "from": 2017,
     "to": 2018,
-    "verified": false,
     "queries": [
      {
       "make": "TOYOTA",
       "model": "COROLLA IM",
       "label": "Corolla iM"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "recallsByVehicle 2017 TOYOTA COROLLA IM Count 1; recallsByVehicle 2018 COROLLA IM HTTP 4xx; accessed 2026-11-21",
+    "missing": "2018 not confirmed"
    }
   ],
   "suzuki-grand-vitara": [
    {
     "from": 1999,
-    "to": 2013,
-    "verified": false,
+    "to": 2004,
     "queries": [
      {
       "make": "SUZUKI",
@@ -897,52 +1584,72 @@
       "model": "VITARA",
       "label": "Vitara"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 1999 SUZUKI issueType=r lists GRAND VITARA; products/vehicle/models 2002 SUZUKI issueType=r lists VITARA, GRAND VITARA; recallsByVehicle 2002 SUZUKI GRAND VITARA Count 4; recallsByVehicle 2002 VITARA HTTP 4xx; GRAND VITARA XL-7 is a different vehicle and excluded; accessed 2026-11-21",
+    "missing": "VITARA not seen for 1999 or 2004"
+   },
+   {
+    "from": 2005,
+    "to": 2013,
+    "queries": [
+     {
+      "make": "SUZUKI",
+      "model": "GRAND VITARA",
+      "label": "Grand Vitara"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2007 SUZUKI issueType=r lists GRAND VITARA; products/vehicle/models 2013 SUZUKI issueType=r lists GRAND VITARA; accessed 2026-11-21"
    }
   ],
   "toyota-gr86": [
    {
     "from": 2013,
     "to": 2016,
-    "verified": false,
     "queries": [
      {
       "make": "SCION",
       "model": "FR-S",
       "label": "Scion FR-S"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2013 SCION issueType=r lists FR-S; recallsByVehicle 2013 SCION FR-S Count 4; products/vehicle/models 2016 SCION issueType=r lists FR-S; accessed 2026-11-21"
    },
    {
     "from": 2017,
     "to": 2020,
-    "verified": false,
     "queries": [
      {
       "make": "TOYOTA",
       "model": "86",
       "label": "86"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2017 TOYOTA issueType=r lists 86; recallsByVehicle 2017 TOYOTA 86 Count 2; recallsByVehicle 2020 86 HTTP 4xx; accessed 2026-11-21",
+    "missing": "2020 not confirmed"
    },
    {
     "from": 2022,
     "to": 2025,
-    "verified": false,
     "queries": [
      {
       "make": "TOYOTA",
       "model": "GR86",
       "label": "GR86"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2022 TOYOTA issueType=r lists GR86; recallsByVehicle 2022 TOYOTA GR86 Count 1; recallsByVehicle 2025 GR86 HTTP 4xx; accessed 2026-11-21",
+    "missing": "2025 not confirmed"
    }
   ],
   "toyota-prius-c-v": [
    {
     "from": 2012,
-    "to": 2019,
-    "verified": false,
+    "to": 2017,
     "queries": [
      {
       "make": "TOYOTA",
@@ -954,14 +1661,42 @@
       "model": "PRIUS V",
       "label": "Prius v"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2012 TOYOTA issueType=r lists PRIUS V (no PRIUS C); products/vehicle/models 2017 TOYOTA issueType=r lists PRIUS C, PRIUS V; recallsByVehicle 2017 TOYOTA PRIUS C Count 1; recallsByVehicle 2017 TOYOTA PRIUS V Count 1; recallsByVehicle 2012 PRIUS C HTTP 4xx; accessed 2026-11-21",
+    "missing": "PRIUS C not confirmed for 2012"
+   },
+   {
+    "from": 2018,
+    "to": 2019,
+    "queries": [
+     {
+      "make": "TOYOTA",
+      "model": "PRIUS C",
+      "label": "Prius c"
+     }
+    ],
+    "verified": true,
+    "evidence": "recallsByVehicle 2019 TOYOTA PRIUS C Count 1; Prius v ended after 2017; 2018 bracketed by 2017 and 2019; accessed 2026-11-21"
    }
   ],
   "volvo-s40-v50": [
    {
     "from": 2000,
+    "to": 2004,
+    "queries": [
+     {
+      "make": "VOLVO",
+      "model": "S40",
+      "label": "S40"
+     }
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2000 VOLVO issueType=r lists S40; products/vehicle/models 2003 VOLVO issueType=r lists S40; V50 began 2005 (V40 wagon not part of this label); 2004 not individually observed; accessed 2026-11-21"
+   },
+   {
+    "from": 2005,
     "to": 2011,
-    "verified": false,
     "queries": [
      {
       "make": "VOLVO",
@@ -973,14 +1708,15 @@
       "model": "V50",
       "label": "V50"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2006 VOLVO issueType=r lists S40, V50; recallsByVehicle 2006 VOLVO V50 Count 3; products/vehicle/models 2011 VOLVO issueType=r lists S40, V50; recallsByVehicle 2011 VOLVO S40 Count 2; 2005 not individually observed; accessed 2026-11-21"
    }
   ],
   "volvo-s90-v90": [
    {
     "from": 1997,
     "to": 1998,
-    "verified": false,
     "queries": [
      {
       "make": "VOLVO",
@@ -992,12 +1728,14 @@
       "model": "V90",
       "label": "V90"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 1997 VOLVO issueType=r lists S90 (no V90); accessed 2026-11-21",
+    "missing": "V90 1997-1998 and S90 1998 not seen (1998 list showed no S90/V90)"
    },
    {
     "from": 2017,
     "to": 2023,
-    "verified": false,
     "queries": [
      {
       "make": "VOLVO",
@@ -1006,17 +1744,83 @@
      },
      {
       "make": "VOLVO",
+      "model": "S90 T5",
+      "label": "S90 T5"
+     },
+     {
+      "make": "VOLVO",
+      "model": "S90 T6",
+      "label": "S90 T6"
+     },
+     {
+      "make": "VOLVO",
+      "model": "S90 T8",
+      "label": "S90 T8"
+     },
+     {
+      "make": "VOLVO",
+      "model": "S90 B6",
+      "label": "S90 B6"
+     },
+     {
+      "make": "VOLVO",
+      "model": "S90PHEV",
+      "label": "S90 Recharge"
+     },
+     {
+      "make": "VOLVO",
       "model": "V90",
       "label": "V90"
+     },
+     {
+      "make": "VOLVO",
+      "model": "V90 T5",
+      "label": "V90 T5"
+     },
+     {
+      "make": "VOLVO",
+      "model": "V90 T6",
+      "label": "V90 T6"
+     },
+     {
+      "make": "VOLVO",
+      "model": "V90 CC",
+      "label": "V90 Cross Country"
+     },
+     {
+      "make": "VOLVO",
+      "model": "V90CC",
+      "label": "V90 Cross Country"
      }
-    ]
+    ],
+    "verified": false,
+    "evidence": "products/vehicle/models 2017 VOLVO issueType=r lists S90 T5, S90 T6, V90 CC; products/vehicle/models 2018 VOLVO issueType=r lists S90 T5, S90 T6, S90 T8, V90 T5, V90 T6, V90 CC, V90CC; recallsByVehicle 2018 VOLVO S90 Count 2; recallsByVehicle 2018 VOLVO V90 Count 1; products/vehicle/models 2023 VOLVO issueType=r lists S90 B6, S90PHEV; recallsByVehicle 2018 S90 T6 HTTP 4xx; accessed 2026-11-21",
+    "missing": "trim-level names vary by year; V90 wagon end year and 2019-2022 names not enumerated; trim-name recall queries failed while plain S90/V90 worked"
    }
   ],
   "volvo-v70-xc70": [
    {
     "from": 1998,
-    "to": 2016,
+    "to": 2002,
+    "queries": [
+     {
+      "make": "VOLVO",
+      "model": "V70",
+      "label": "V70"
+     },
+     {
+      "make": "VOLVO",
+      "model": "V70XC",
+      "label": "V70 XC (Cross Country)"
+     }
+    ],
     "verified": false,
+    "evidence": "products/vehicle/models 2000 VOLVO issueType=r lists V70, V70XC; products/vehicle/models 2002 VOLVO issueType=r lists V70, V70XC; accessed 2026-11-21",
+    "missing": "1998 not seen (1998 list showed no V70)"
+   },
+   {
+    "from": 2003,
+    "to": 2010,
     "queries": [
      {
       "make": "VOLVO",
@@ -1027,8 +1831,28 @@
       "make": "VOLVO",
       "model": "XC70",
       "label": "XC70"
+     },
+     {
+      "make": "VOLVO",
+      "model": "V70XC",
+      "label": "V70 XC (2003 listing)"
      }
-    ]
+    ],
+    "verified": true,
+    "evidence": "products/vehicle/models 2003 VOLVO issueType=r lists V70, V70XC; products/vehicle/models 2006 VOLVO issueType=r lists V70, XC70; recallsByVehicle 2006 VOLVO XC70 Count 3; 2010 not individually observed; accessed 2026-11-21"
+   },
+   {
+    "from": 2011,
+    "to": 2016,
+    "queries": [
+     {
+      "make": "VOLVO",
+      "model": "XC70",
+      "label": "XC70"
+     }
+    ],
+    "verified": true,
+    "evidence": "recallsByVehicle 2016 VOLVO XC70 Count 2; V70 left the US market after 2010; 2011 not individually observed; accessed 2026-11-21"
    }
   ]
  }
