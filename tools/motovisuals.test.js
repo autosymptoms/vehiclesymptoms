@@ -24,19 +24,25 @@ test('catalog import keeps labels for nested entries, deduplicates IDs and drops
   assert.throws(() => catalogEntries({ error:'Unavailable' },'narrated'));
 });
 
-test('topic matching separates named brake and wheel-bearing problems', () => {
+test('guides offer verified playback and keep an overview distinct from a part', () => {
   const lib = createLibrary();
   assert.equal(lib.guide.get('grinding-brakes').title,'Brake Pads');
-  assert.equal(lib.guide.get('humming-noise-at-speed').title,'Wheel Bearing');
-  assert.equal(lib.forText('Front wheel bearings growl').title,'Wheel Bearing');
+  assert.equal(lib.guide.get('humming-noise-at-speed').title,'Suspension System');
+  assert.match(lib.contextual(lib.guide.get('humming-noise-at-speed')), /Vehicle system overview · Suspension System/);
+  assert.equal(lib.guide.get('brakes-dragging').title,'Brake System');
+  assert.equal(lib.guide.get('overheats-only-in-traffic').title,'Cooling System');
+  assert.match(lib.contextual(lib.guide.get('overheats-only-in-traffic')), /Vehicle system overview · Cooling System/);
+  assert.equal(lib.guide.has('clutch-slipping'),false);
+  assert.equal(lib.forText('Front wheel bearings growl'),undefined);
   assert.equal(lib.forText('Throwout bearing noise'),undefined);
-  assert.equal(lib.forText('Parking brake module').title,'Parking Brake');
+  assert.equal(lib.forText('Parking brake module'),undefined);
+  assert.equal(lib.forText('Worn brake pads').title,'Brake Pads');
 });
 
-test('directory search, direct players, menu fallback and browser back', async () => {
+test('catalog separates direct, menu and unavailable titles across search and browser history', async () => {
   const { html, data } = createLibrary().directory();
   const dom = new JSDOM(html + '<script type="application/json" id="mv-data">' + JSON.stringify(data) + '</script>', {
-    runScripts:'outside-only', url:'https://www.vehiclesymptoms.com/repair-animations/'
+    runScripts:'outside-only', url:'https://www.vehiclesymptoms.com/repair-animations/?animation=narrated%3A908518'
   });
   const w = dom.window, d = w.document;
   try {
@@ -44,23 +50,31 @@ test('directory search, direct players, menu fallback and browser back', async (
     w.eval(fs.readFileSync(require.resolve('../src/animations/browser.js'),'utf8'));
     const content = d.getElementById('mv-content');
     const search = d.getElementById('mv-search'), format = d.getElementById('mv-format');
+    assert.equal(d.querySelectorAll('#mv-groups [data-mv-id]').length,data.items.length);
+    assert.equal(data.items.length,745);
+    assert.equal(data.items.filter(i => i.url).length,3);
+    assert.equal(data.items.filter(i => i.menuLabel).length,21);
+    assert.equal(data.items.filter(i => i.url || i.menuLabel).length,23);
+    assert.equal(d.getElementById('mv-title').textContent,'Wheel Bearing');
+    assert.match(content.textContent,/Catalog only/);
     assert.equal(content.querySelector('iframe'),null);
+    assert.equal(d.querySelector('[data-mv-featured]').open,true);
     search.value = 'wheel bearings'; search.dispatchEvent(new w.Event('input'));
     format.value = 'narrated'; format.dispatchEvent(new w.Event('change'));
-    const visible = [...d.querySelectorAll('.mv-group:not([hidden]) li:not([hidden]) a')];
-    const wheel = visible.find(a => a.textContent === 'Wheel Bearing');
-    assert.ok(wheel);
-    assert.ok(visible.every(a => a.dataset.mvId.startsWith('narrated:')));
-    wheel.click();
-    assert.equal(content.querySelector('iframe').title,'Wheel Bearing');
-    assert.equal(content.querySelector('iframe').src, data.items.find(i => i.title === 'Wheel Bearing' && i.kind === 'narrated').url);
-    const entry = data.items.find(i => !i.url);
-    d.querySelector('[data-mv-id="' + entry.kind + ':' + entry.id + '"]').click();
+    const visible = [...d.querySelectorAll('.mv-group:not([hidden]) li:not([hidden]) [data-mv-id]')];
+    assert.ok(visible.some(el => el.textContent === 'Wheel Bearing' && el.tagName === 'SPAN'));
+    assert.ok(visible.every(el => el.dataset.mvId.startsWith('narrated:')));
+    search.value=''; search.dispatchEvent(new w.Event('input'));
+    d.querySelector('a[data-mv-id="narrated:902541"]').click();
+    assert.equal(content.querySelector('iframe').title,'Brake Pads');
+    assert.equal(content.querySelector('iframe').src,data.items.find(i=>i.id==='902541' && i.kind==='narrated').url);
+    d.querySelector('a[data-mv-id="narrated:909201"]').click();
     assert.equal(content.querySelector('iframe').src,data.menu);
-    assert.ok(content.textContent.includes(entry.system));
+    assert.equal(d.getElementById('mv-title').textContent,'Spring Check');
+    assert.match(content.textContent,/Choose Checks in the system menu/);
     const popped = new Promise(resolve => w.addEventListener('popstate',resolve,{once:true}));
     w.history.back(); await popped;
-    assert.equal(content.querySelector('iframe').title,'Wheel Bearing');
+    assert.equal(content.querySelector('iframe').title,'Brake Pads');
     search.value='no such title exists'; search.dispatchEvent(new w.Event('input'));
     assert.ok(d.getElementById('mv-count').textContent.startsWith('No matching'));
   } finally { w.close(); }

@@ -35,12 +35,12 @@
     groups.forEach(({ group, rows }) => {
       let visible = 0;
       rows.forEach(({ row, item }) => {
-        const words = fold(item.title + ' ' + item.system);
+        const words = fold(item.title + ' ' + item.system + ' ' + item.menuLabel);
         row.hidden = Boolean((format.value && format.value !== item.kind) || !terms.every(t => words.some(w => w.startsWith(t))));
         if (!row.hidden) visible++;
       });
       group.hidden = !visible;
-      group.open = Boolean(visible && (terms.length || format.value));
+      group.open = Boolean(visible && (terms.length || format.value || group.hasAttribute('data-mv-featured')));
       count += visible;
     });
     document.getElementById('mv-count').textContent = count ? count + (count === 1 ? ' title' : ' titles') : 'No matching titles. Try another part or clear the filter.';
@@ -48,31 +48,26 @@
   function select(id, focus) {
     const item = records.get(id);
     content.replaceChildren();
-    title.textContent = item ? item.title : 'Open the full MotoVisuals menu';
-    if (item && !item.url) {
+    viewer.hidden = !item;
+    viewer.open = Boolean(item);
+    if (!item) return;
+    title.textContent = item.title;
+    if (!item.url) {
       const hint = document.createElement('p');
       hint.className = 'mv-hint';
-      hint.textContent = 'In the MotoVisuals menu, choose ' + item.system + ' and look for ' + item.title + '.';
+      hint.textContent = item.menuLabel ? 'Choose ' + item.menuLabel + ' in the system menu.' : 'Catalog only. This title has no player on this site.';
       content.append(hint);
     }
-    const template = document.createElement('template');
-    const frame = document.createElement('iframe');
-    frame.className = 'mv-frame' + (item && item.url ? ' mv-video' : '');
-    frame.title = item && item.url ? item.title : 'MotoVisuals repair animation menu';
-    frame.allowFullscreen = true;
-    frame.referrerPolicy = 'strict-origin-when-cross-origin';
-    frame.loading = 'lazy';
-    frame.src = item && item.url || data.menu;
-    template.content.append(frame);
-    content.append(template);
-    if (item) {
-      const reset = document.createElement('a');
-      reset.href = '/repair-animations/';
-      reset.textContent = 'Back to the full menu';
-      content.append(reset);
+    if (item.url || item.menuLabel) {
+      const frame = document.createElement('iframe');
+      frame.className = 'mv-frame' + (item.url ? ' mv-video' : '');
+      frame.title = item.url ? item.title : 'MotoVisuals vehicle system overviews';
+      frame.allowFullscreen = true;
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.loading = 'lazy';
+      frame.src = item.url || data.menu;
+      content.append(frame);
     }
-    viewer.open = Boolean(item);
-    if (viewer.open) loadPlayer(viewer);
     if (focus) title.focus();
   }
   function fromUrl(focus) {
