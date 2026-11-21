@@ -9,7 +9,7 @@ const URG={
   check:{label:"Book a check when convenient",cls:"info",line:"Not an emergency, but don't ignore it."},
   diy:{label:"Safe to check yourself first",cls:"low",line:"Start with the simple checks below."}
 };
-window.VS_GUIDES={G,GROUPS,URG,esc,search,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/'};
+window.VS_GUIDES={G,GROUPS,URG,esc,search,clarifySearch,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/'};
 
 // ---- Year / Make / Model picker, used on the homepage and in guide results ----
 // fill(ySel,mSel,moSel,{year,id},onChange): only offers makes/models actually sold in the chosen year.
@@ -27,15 +27,120 @@ window.YMM=function(ys,ms,mos,init,onChange){
 };
 
 // ---- search: ranks guides against free text ----
-const STOP=new Set('the a an my is it its and or of to in on when i car vehicle truck it\'s im i\'m with from at some keeps very really just'.split(' '));
-const toks=t=>t.toLowerCase().replace(/[^a-z0-9' ]/g,' ').split(/\s+/).filter(w=>w.length>2&&!STOP.has(w));
-function search(q,n){
-  const ql=' '+q.toLowerCase().replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ')+' ',qt=toks(q);if(!qt.length)return[];
-  return G.map(g=>{let s=0;
-    for(const syn of g.syn){const sl=syn.toLowerCase();if(ql.includes(' '+sl+' ')||ql.includes(sl))s+=6+sl.split(' ').length;}
-    const hay=(g.title+' '+g.syn.join(' ')).toLowerCase();for(const w of qt){if(hay.includes(w))s+=2;const st=w.replace(/(ing|es|s|ed)$/,'');if(st.length>3&&st!==w&&hay.includes(st))s+=1;}
-    if(g.title.toLowerCase().split(' ').some(w=>qt.includes(w)))s+=1;
-    return{g,s}}).filter(o=>o.s>=3).sort((a,b)=>b.s-a.s).slice(0,n||5).map(o=>o.g);
+// Score each title or alias as a phrase. Words from unrelated aliases on the same guide
+// should never combine to create an apparently exact match.
+const searchNoise = new Set(('a an the i my me this that is are was were it its on and to in of or when at ' +
+  'with as from while under car truck vehicle has have had why does did do just really very keeps ' +
+  'like little looks looking there theres see saw some something makes making getting suddenly up').split(' '));
+const searchWords = {
+  lights:'light', pictures:'light', picture:'light', icon:'light', symbol:'light', indicator:'light',
+  dashboard:'dash', shimmies:'shake', shimmy:'shake', shudders:'shake', shudder:'shake',
+  shakes:'shake', shaking:'shake', shaky:'shake', vibrates:'shake', vibration:'shake', vibrating:'shake',
+  wobbles:'shake', wobble:'shake', wobbling:'shake', brakes:'brake', braking:'brake',
+  noises:'noise', sounds:'sound', smells:'smell', eggs:'egg', grinding:'grind', grinds:'grind',
+  squealing:'squeal', squeals:'squeal', squeaking:'squeak', squeaks:'squeak',
+  starts:'start', starting:'start', clicks:'click', clicking:'click', clicked:'click',
+  leaks:'leak', leaking:'leak', turns:'turn', turning:'turn', accelerating:'accelerate',
+  freeway:'highway', interstate:'highway', motor:'engine', quit:'stalls', quits:'stalls',
+  flashes:'flashing', blinking:'flashing', blinks:'flashing'
+};
+function literalSymptom(text){
+  return String(text).toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+}
+function symptomWords(text){
+  const words = literalSymptom(text)
+    .replace(/\b(?:isnt|not|never) (?:flashing|blinking)\b|\b(?:doesnt|does not) (?:flash|blink)\b/g,'steady')
+    .replace(/\b(?:will not)\b/g,'wont')
+    .replace(/\b(?:came|comes|coming|turned) on\b/g,' ')
+    .replace(/\b(?:slow|slows|slowing) down\b/g,'stopping')
+    .replace(/\b(?:step|stepping|press|pressing|hit|hitting) (?:on )?(?:the |my )?(gas|accelerator)\b/g,'accelerate')
+    .trim().split(/\s+/);
+  return [...new Set(words.filter(word=>word && !searchNoise.has(word)).map(word=>Object.hasOwn(searchWords,word)?searchWords[word]:word))];
+}
+// Additional observations that lead into existing guides.
+const everydayPhrases={
+  'car-wont-start':['It just clicks when I try to start it','A clicking sound when I try to start'],
+  'vibration-at-highway-speed':['Steering wheel shakes on the highway'],
+  'fluid-leak-under-car':['Puddle where I parked','Puddle on my driveway','Puddle in my parking spot']
+};
+let searchIndex;
+function getSearchIndex(){
+  if(searchIndex)return searchIndex;
+  const frequencies=new Map();
+  const guides=G.map(guide=>{
+    const phrases=[guide.title,...guide.syn,...(everydayPhrases[guide.id] || [])].map(text=>({literal:literalSymptom(text),words:symptomWords(text)}))
+      .filter(phrase=>phrase.words.length);
+    for(const word of new Set(phrases.flatMap(phrase=>phrase.words)))frequencies.set(word,(frequencies.get(word)||0)+1);
+    return {guide,phrases};
+  });
+  // Common terms such as "light" carry less evidence than a word like "battery".
+  const weight=word=>1+Math.log((G.length+1)/((frequencies.get(word)||0)+1));
+  searchIndex={weight,guides:guides.map(({guide,phrases})=>({guide,
+    phrases:phrases.map(({literal,words})=>({literal,words,weight:words.reduce((sum,word)=>sum+weight(word),0)}))}))};
+  return searchIndex;
+}
+function search(q,n=5){
+  const words=symptomWords(q);
+  if(!words.length)return [];
+  const {guides,weight}=getSearchIndex();
+  const query=new Set(words),literal=literalSymptom(q),total=words.reduce((sum,word)=>sum+weight(word),0);
+  const ranked=guides.map(({guide,phrases})=>{
+    let best=0;
+    for(const phrase of phrases){
+      const matched=phrase.words.filter(word=>query.has(word));
+      if(words.length>1 && matched.length<2)continue;
+      const overlap=matched.reduce((sum,word)=>sum+weight(word),0);
+      const score=2*overlap/(total+phrase.weight);
+      best=Math.max(best,score+(phrase.literal===literal?0.08:0));
+    }
+    return {guide,score:best};
+  }).filter(match=>match.score>=0.54).sort((a,b)=>b.score-a.score);
+  if(!ranked.length)return [];
+  return ranked.filter(match=>match.score>=ranked[0].score-0.13).slice(0,n).map(match=>match.guide);
+}
+
+// Ask for a detail the driver can observe only when the wording leaves it open.
+const searchQuestions=[
+  {signal:['light','warning'],allowed:['light','warning','dash','red','orange','yellow','amber','flashing','lit','appeared','showed','got'],
+    question:'Which dashboard symbol do you see?',choices:[
+      ['A battery with a plus and minus','battery-light-on'],['An oil can','oil-pressure-light-on'],
+      ['An engine outline or “check engine”','check-engine-light-on'],['See all dashboard symbols','/warning-lights/']]},
+  {signal:['shake'],allowed:['shake','wheel','whole','feels','feel','driving','drive'],
+    question:'When do you feel the shaking?',choices:[
+      ['When I brake','car-shakes-when-braking'],['When I speed up','car-shakes-when-accelerating'],
+      ['At highway speed','vibration-at-highway-speed'],['While stopped','rough-idle-shaking'],['Browse other shaking symptoms','/symptoms/#shake']]},
+  {signal:['noise','sound','helicopter'],context:['speed','faster','highway','accelerate','mph'],
+    allowed:['noise','sound','helicopter','speed','faster','go','going','gets','get','louder','driving','drive','highway','accelerate','mph','strange','weird'],
+    question:'What do you hear as the car speeds up?',choices:[
+      ['A hum or roar that gets louder with road speed','humming-noise-at-speed'],
+      ['A high-pitched whine when I press the gas','whining-noise-when-accelerating'],
+      ['A loud rumble from the exhaust','loud-exhaust-roaring'],['Browse other noises','/symptoms/#noise']]},
+  {signal:['noise','sound'],allowed:['noise','sound','weird','strange','funny','loud','hear','hearing','driving','drive'],
+    question:'What does the noise sound like?',choices:[
+      ['Grinding when I brake','grinding-brakes'],['Clicking when I turn','clicking-when-turning'],
+      ['Clunking over bumps','clunk-over-bumps'],['Browse other noises','/symptoms/#noise']]},
+  {signal:['smell'],allowed:['smell','weird','strange','funny','bad','odd','driving','drive','inside'],
+    question:'What does the smell remind you of?',choices:[
+      ['Gasoline','gas-smell'],['Something burning','burning-smell'],['Sweet syrup','sweet-smell-from-car'],
+      ['Rotten eggs','rotten-egg-smell'],['Browse other smells','/symptoms/#leaksmell']]},
+  {signal:['smoke'],allowed:['smoke','coming','out','blowing','driving','drive'],
+    question:'Where do you see the smoke, and what color is it?',choices:[
+      ['Under the hood','steam-from-under-hood'],['White smoke from the tailpipe','white-smoke-from-exhaust'],
+      ['Blue or gray smoke from the tailpipe','blue-smoke-from-exhaust'],['Black smoke from the tailpipe','black-smoke-from-exhaust'],
+      ['Browse other smoke symptoms','/symptoms/#leaksmell']]},
+  {signal:['leak'],allowed:['leak','fluid','liquid','somewhere'],
+    question:'Where do you see the fluid?',choices:[
+      ['Under the car','fluid-leak-under-car'],['Water inside the car','water-leak-inside-car'],
+      ['Browse other leaks','/symptoms/#leaksmell']]},
+  {signal:['died','dies','stalls'],allowed:['engine','died','dies','stalls','out','cut'],
+    question:'When does the engine stop?',choices:[
+      ['Right after starting','starts-then-dies'],['While driving','engine-stalls-while-driving'],
+      ['When coming to a stop','car-dies-when-coming-to-stop'],['It won’t start now','car-wont-start']]}
+];
+function clarifySearch(q){
+  const words=symptomWords(q);
+  return searchQuestions.find(rule=>words.some(word=>rule.signal.includes(word)) &&
+    (!rule.context || words.some(word=>rule.context.includes(word))) && words.every(word=>rule.allowed.includes(word))) || null;
 }
 // ---- known vehicle problem -> guide (strict) ----
 // Rules come from src/guide-links.json (window.GUIDE_LINKS, written by build.js). An issue links to a guide only when its
@@ -71,47 +176,72 @@ if(J&&root){
   const vname=()=>veh?((vyear?vyear+' ':'')+veh.make+' '+veh.model):'';
   function vehBar(){
     if(veh&&!editingVeh)return`<div class="vbar"><span class="vb-l">Your vehicle</span><b>${esc(vname())}</b><button class="linkbtn" id="vChange">Change</button></div>`;
-    return`<div class="vbar edit"><span class="vb-l">Your vehicle <em>(optional)</em></span><div class="picker ymm"><select id="gy" aria-label="Year"></select><select id="gm" aria-label="Make"></select><select id="gv" aria-label="Model"></select></div>
-      <details class="notlisted"><summary>My vehicle isn't listed</summary><p>Our vehicle library covers 100 popular models from 1996 on, and it's still growing. You can keep going without a vehicle: the guide's questions and safety advice apply to any car or truck.</p></details></div>`;
+    return`<details class="vbar edit"${editingVeh?' open':''}><summary>${editingVeh?'Change your vehicle':'Add your vehicle'} <span>(optional)</span></summary><div class="picker ymm"><select id="gy" aria-label="Year"></select><select id="gm" aria-label="Make"></select><select id="gv" aria-label="Model"></select></div>
+      <details class="notlisted"><summary>My vehicle isn't listed</summary><p>The vehicle library lists ${V.length} models. You can continue with the symptom questions if yours is missing.</p></details></details>`;
   }
   function wireVeh(after){
-    const c=document.getElementById('vChange');if(c)c.onclick=()=>{editingVeh=true;after()};
-    const gy=document.getElementById('gy');if(gy){const pick=window.YMM(gy,document.getElementById('gm'),document.getElementById('gv'),veh?{id:veh.id,year:vyear}:null,()=>{const s=pick.get();if(s.v){veh=s.v;vyear=s.y;editingVeh=false;save();after()}})}
+    const c=document.getElementById('vChange');if(c)c.onclick=()=>{editingVeh=true;after();document.getElementById('gy').focus()};
+    const gy=document.getElementById('gy');if(gy){const pick=window.YMM(gy,document.getElementById('gm'),document.getElementById('gv'),veh?{id:veh.id,year:vyear}:null,()=>{const s=pick.get();if(s.v){veh=s.v;vyear=s.y;editingVeh=false;save();after();document.getElementById('vChange').focus()}})}
   }
   function crumbs(){
     if(!path.length)return'';
     return`<div class="answers"><span class="vb-l">Your answers</span>${path.map((p,i)=>`<button class="ans" data-i="${i}" title="Change this answer"><span>${esc(p.q)}</span><b>${esc(p.a)}</b></button>`).join('')}</div>`;
   }
-  function wireCrumbs(){root.querySelectorAll('.ans').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;cur=path[i].k;path=path.slice(0,i);save();draw()})}
-  function draw(){
+  function wireCrumbs(){root.querySelectorAll('.ans').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;cur=path[i].k;path=path.slice(0,i);save();draw(true)})}
+  function draw(focusStep=false){
     const n=node(cur);
-    const top=(resumed&&path.length?`<div class="resumed">Picked up where you left off. <button class="linkbtn" id="fresh">Start fresh</button></div>`:'')+vehBar();
+    const top=resumed&&path.length?`<div class="resumed">Picked up where you left off. <button class="linkbtn" id="fresh">Start fresh</button></div>`:'';
     if(n.q){
-      root.innerHTML=`${top}<div class="flow card"><div class="step-n">Question ${path.length+1}</div>${crumbs()}<h2 class="fq">${esc(n.q)}</h2>${n.help?`<p class="help">${esc(n.help)}</p>`:''}
+      root.innerHTML=`${top}<div class="flow card"><div class="step-n" id="stepNumber">Question ${path.length+1}</div>${crumbs()}<h2 class="fq" tabindex="-1" aria-describedby="stepNumber">${esc(n.q)}</h2>${n.help?`<p class="help">${esc(n.help)}</p>`:''}
       <div class="opts">${n.opts.map((o,i)=>`<button class="opt${/not sure/i.test(o.a)?' unsure':''}" data-i="${i}">${esc(o.a)}</button>`).join('')}</div>
-      ${path.length?`<div class="flow-nav"><button class="linkbtn" id="back">← Back</button><button class="linkbtn" id="restart">Start over</button></div>`:''}</div>`;
-      root.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const o=n.opts[+b.dataset.i];path.push({k:cur,q:n.q,a:o.a,i:+b.dataset.i});cur=o.go;resumed=false;save();draw();root.scrollIntoView({behavior:'smooth',block:'start'})});
+      ${path.length?`<div class="flow-nav"><button class="linkbtn" id="back">← Back</button><button class="linkbtn" id="restart">Start over</button></div>`:''}</div>${vehBar()}`;
+      root.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const o=n.opts[+b.dataset.i];path.push({k:cur,q:n.q,a:o.a,i:+b.dataset.i});cur=o.go;resumed=false;save();draw(true)});
       wireCrumbs();
     } else drawResult(n.result,top);
     wireVeh(draw);
-    const b=document.getElementById('back');if(b)b.onclick=()=>{const p=path.pop();cur=p?p.k:J.start;save();draw()};
-    const r=document.getElementById('restart');if(r)r.onclick=()=>{path=[];cur=J.start;save();draw()};
-    const f=document.getElementById('fresh');if(f)f.onclick=()=>{path=[];cur=J.start;resumed=false;save();draw()};
+    const b=document.getElementById('back');if(b)b.onclick=()=>{const p=path.pop();cur=p?p.k:J.start;save();draw(true)};
+    const r=document.getElementById('restart');if(r)r.onclick=()=>{path=[];cur=J.start;save();draw(true)};
+    const f=document.getElementById('fresh');if(f)f.onclick=()=>{path=[];cur=J.start;resumed=false;save();draw(true)};
+    if(focusStep){
+      const heading=root.querySelector('.fq, .rt');
+      heading.focus({preventScroll:true});
+      heading.scrollIntoView({block:'start'});
+    }
   }
   function matches(){if(!veh)return[];return veh.issues.filter(i=>(!vyear||(vyear>=i.y[0]&&vyear<=i.y[1]))&&matchesGuide(J.id,i.t))}
   const money=n=>'$'+n.toLocaleString('en-US');
   function vehicleSection(){
-    if(!veh)return`<p class="muted">Add your year, make and model at the top to see documented problems and typical repair costs for your vehicle.</p>`;
+    if(!veh)return`<p class="muted">Add your year, make and model above to see documented problems and typical repair costs for your vehicle.</p>`;
     const list=matches(),nm=vname(),link=`/vehicles/${veh.id}/${vyear?vyear+'/':''}`;
     if(!list.length)return`<p class="muted">We haven't documented a problem on the ${esc(nm)} that matches this symptom. That doesn't rule anything out; the general guidance above applies. <a href="${link}">See what we've documented for the ${esc(nm)} →</a></p>`;
     return`<p class="muted">Documented problems on the ${esc(nm)} that can cause symptoms like this. They're known patterns to discuss with your shop, not a diagnosis of your car.</p>${list.slice(0,4).map(i=>`<div class="mini"><b>${esc(i.t)}</b> <span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><div>${esc(i.sym)}</div>${i.cost&&i.cost.withheld?`<div class="mcost muted">Repair (${esc(i.cost.job)}): insufficient verified pricing for this vehicle and repair.</div>`:i.cost?(i.cost.free?`<div class="mcost">Repair: no charge if your vehicle is in the recall</div>`:`<div class="mcost">Typical repair (${esc(i.cost.job)}): <b>${money(i.cost.lo)}–${money(i.cost.hi)}</b>${i.cost.recall?' · may be covered by a recall or extended warranty':''}</div>`):`<div class="mcost muted">No reliable cost range on file for this one yet.</div>`}</div>`).join('')}<p class="fine">Costs are U.S. national averages (parts plus standard labor at a typical shop labor rate), researched November 2026. Diagnosis is usually charged separately. Not a quote.</p><a href="${link}">Everything we've documented for the ${esc(nm)} →</a>`;
+  }
+  function observations(){
+    return path.flatMap(({k,i})=>{
+      const question=node(k);
+      const choice=question?.opts?.[i];
+      return choice ? [question.q+' → '+choice.a] : [];
+    });
+  }
+  function messageForFamily(r){
+    return [
+      J.title+(veh?' · '+vname():''),
+      'Urgency: '+URG[r.urgency].label,
+      'What to do next: '+r.now,
+      '',
+      'Guide result: '+r.title,
+      'What I noticed:',
+      ...observations(),
+      ...(r.if.length?['','Watch for:',...r.if]:[])
+    ].join('\n');
   }
   function summary(r){
     const nm=veh?vname():'(add year, make and model)';
     return['SUMMARY FOR MY MECHANIC (from VehicleSymptoms.com)',
       'Not a confirmed diagnosis: please test before replacing parts.','',
-      'Vehicle: '+nm,'Main concern: '+J.title,'What I noticed:',...path.map(p=>'  - '+p.q+' → '+p.a),'',
+      'Vehicle: '+nm,'Main concern: '+J.title,'What I noticed:',...observations().map(line=>'  - '+line),'',
       'How urgent the guide rated it: '+URG[r.urgency].label,
+      'What to do next: '+r.now,
       ...(r.if.length?['Warning signs to watch for:',...r.if.map(x=>'  - '+x)]:[]),
       'Possible causes the guide listed: '+r.causes.map(c=>c.name).join('; '),
       'Tests a shop usually does: '+r.confirm.shop.join('; '),'',
@@ -120,9 +250,13 @@ if(J&&root){
   function drawResult(r,top){
     const u=URG[r.urgency];
     root.innerHTML=`${top}<div class="result card">
-      <div class="urg ${u.cls}"><span>${esc(u.label)}</span></div>
-      <h2 class="rt">${esc(r.title)}</h2>
-      <section class="rsec"><h3>What to do next</h3><p>${esc(r.now)}</p>${r.if.length?`<ul class="ifs">${r.if.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</section>
+      <div class="urg ${u.cls}" id="resultUrgency"><span>${esc(u.label)}</span></div>
+      <h2 class="rt" tabindex="-1" aria-describedby="resultUrgency">${esc(r.title)}</h2>
+      <section class="rsec"><h3>What to do next</h3><p>${esc(r.now)}</p>
+        <div class="row-btns"><button type="button" class="btn sm" id="shareResult">Text this result</button><span class="muted" id="shareStatus" role="status"></span>
+          <textarea class="summary share-text" id="shareText" aria-label="Result to copy into a text message" rows="6" readonly hidden></textarea></div>
+        ${r.if.length?`<ul class="ifs">${r.if.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</section>
+      ${vehBar()}
       <section class="rsec"><h3>Possible causes</h3><p class="muted" style="margin:0 0 8px">Directions for testing, not confirmed failures.</p>${r.causes.map(c=>`<div class="cause"><b>${esc(c.name)}</b>${c.clues?`<div><span class="lbl2">Points here:</span> ${esc(c.clues)}</div>`:''}${c.against?`<div><span class="lbl2">Less likely if:</span> ${esc(c.against)}</div>`:''}</div>`).join('')}</section>
       <details class="rmore"><summary>Why this happens</summary><p>${esc(r.why)}</p></details>
       <details class="rmore"><summary>What you can check, and what a shop will test</summary><div class="two"><div><h4>You can check</h4><ul>${r.confirm.you.map(x=>`<li>${esc(x)}</li>`).join('')||'<li>Nothing safe to check yourself. Leave it to a technician.</li>'}</ul></div><div><h4>A shop will usually test</h4><ul>${r.confirm.shop.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div></details>
@@ -137,6 +271,31 @@ if(J&&root){
       <div class="flow-nav"><button class="linkbtn" id="back">← Change my last answer</button><button class="linkbtn" id="restart">Start over</button></div>
     </div>`;
     wireCrumbs();
+    document.getElementById('shareResult').onclick=async()=>{
+      const text=messageForFamily(r);
+      const status=document.getElementById('shareStatus');
+      const field=document.getElementById('shareText');
+      status.textContent='';
+      field.hidden=true;
+      if(typeof navigator.share==='function'){
+        try{
+          await navigator.share({text});
+          return;
+        }catch(error){
+          if(error?.name==='AbortError')return;
+        }
+      }
+      try{
+        await navigator.clipboard.writeText(text);
+        status.textContent='Result copied. Paste it into a text message.';
+      }catch{
+        field.value=text;
+        field.hidden=false;
+        field.focus();
+        field.select();
+        status.textContent='Copy the selected result and paste it into a text message.';
+      }
+    };
     document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(summary(r));document.getElementById('copied').textContent='Copied'}catch(e){document.getElementById('copied').textContent='Select the text above and copy it'}};
     document.getElementById('print').onclick=()=>{root.querySelectorAll('details.rmore').forEach(d=>d.open=true);try{window.print()}catch(e){}};
     const ef=document.getElementById('emailForm');if(ef)ef.onsubmit=async e=>{e.preventDefault();const m=document.getElementById('emailMsg'),btn=ef.querySelector('button');btn.disabled=true;m.textContent='Sending…';

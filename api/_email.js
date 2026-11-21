@@ -6,7 +6,7 @@ const SITE = 'https://www.vehiclesymptoms.com';
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 const URG = {
-  stop: { label: "Stop: don't drive it", color: '#D93A3F', tint: '#FDECEC',
+  stop: { label: "Stop — don't drive it", color: '#D93A3F', tint: '#FDECEC',
     stakes: 'Driving on this can turn a smaller repair into a much bigger one, or leave you stranded somewhere worse.' },
   soon: { label: 'Get it checked in the next few days', color: '#C77700', tint: '#FFF4E0',
     stakes: 'Problems like this usually get worse, and more expensive, the longer they wait.' },
@@ -78,6 +78,8 @@ ${card(`<p style="${FONT}margin:0 0 4px;font-size:18px;font-weight:bold;color:#0
 <p style="${FONT}margin:0 0 8px;font-size:14px;color:#1B2733"><b>Vehicle:</b> ${esc(vname || 'Not specified')}</p>
 <p style="${FONT}margin:0 0 8px;font-size:14px;color:#1B2733"><b>Main concern:</b> ${esc(j.title)}</p>
 ${steps.length ? `<p style="${FONT}margin:0 0 4px;font-size:14px;color:#1B2733"><b>What I noticed:</b></p><table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 8px">${noticed}</table>` : ''}
+<p style="${FONT}margin:0 0 8px;font-size:14px;color:#1B2733"><b>Urgency:</b> ${esc(u.label)}</p>
+<p style="${FONT}margin:0 0 8px;font-size:14px;line-height:1.45;color:#1B2733"><b>What to do next:</b> ${esc(r.now)}</p>
 <p style="${FONT}margin:0 0 8px;font-size:14px;line-height:1.45;color:#1B2733"><b>Possible causes to check:</b> ${esc(r.causes.map(c => c.name).join('; '))}</p>
 <p style="${FONT}margin:0;font-size:14px;line-height:1.45;color:#1B2733"><b>Tests a shop usually does:</b> ${esc(r.confirm.shop.join('; '))}</p>
 </td></tr></table>`, 'border-color:#0A84FF;border-width:2px')}
@@ -127,6 +129,8 @@ SHOW THIS TO YOUR MECHANIC
 Vehicle: ${vname || 'Not specified'}
 Main concern: ${j.title}
 ${steps.map(s => '- ' + s[0] + ' ' + s[1]).join('\n')}
+Urgency: ${u.label}
+What to do next: ${r.now}
 Possible causes to check: ${r.causes.map(c => c.name).join('; ')}
 Tests a shop usually does: ${r.confirm.shop.join('; ')}
 

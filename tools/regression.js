@@ -70,6 +70,42 @@ async function quote(qs,term,amount,state){const p=load('/price-check/',{est:EST
  for(const [n,id,y,exp] of cases){const v=g(id);const e=v?PT.eligible('Spark plug replacement',v,y):{ok:'missing'};T('PRC-PT-'+n.replace(/\W+/g,'-'),'Spark plugs eligibility for '+n+' ('+id+' '+y+') = '+exp,v&&e.ok===exp,JSON.stringify(e))}
  const e2=PT.eligible('Spark plug replacement',g('ram-2500'),2015,(g('ram-2500').engines.find(e=>/cummins|diesel/i.test(e.name)&&2015>=e.y[0]&&2015<=e.y[1])||{}).k);T('PRC-PT-diesel-engine','Diesel engine chosen: spark plugs do not apply',e2.ok===false,JSON.stringify(e2))}
 
+{const r=await quote('?v=toyota-camry&y=2015','spark plug',311,'CT');await r.go();
+ T('PRC-BOUNDARY','A quote just above the displayed range is labeled above it',r.d.querySelector('#pcOut h2')?.textContent==='Above the estimated range');
+ r.p.dom.window.close()}
+// A shop request must work before the driver knows a price or picks a listed repair.
+{
+ const p=load('/price-check/',{qs:'?v=toyota-camry&y=2017&repair=unexpected+rattle'});await sleep(30);
+ const d=p.doc,request=d.getElementById('pcRequest'),copy=d.getElementById('pcCopy');
+ T('PRC-REQUEST','Unmatched free text produces a vehicle-specific shop request before a quote',
+   request.value.includes('2017 Toyota Camry')&&request.value.includes('unexpected rattle')&&
+   d.getElementById('pcQuoteStep').hidden&&/No matching repair/.test(d.getElementById('pcSug').textContent));
+ let copied='';Object.defineProperty(p.w.navigator,'clipboard',{value:{writeText:async value=>{copied=value}}});
+ copy.click();await sleep(0);
+ T('PRC-COPY','Copy writes the displayed request',copied===request.value&&/copied/.test(d.getElementById('pcCopyStatus').textContent));
+ p.w.navigator.clipboard.writeText=async()=>{throw new Error('unavailable')};copy.click();await sleep(0);
+ T('PRC-MANUAL','When clipboard access fails, the full message is selected for manual copying',
+   request.selectionStart===0&&request.selectionEnd===request.value.length&&/selected/.test(d.getElementById('pcCopyStatus').textContent));
+ p.dom.window.close();
+}
+{
+ const records=JSON.parse(fs.readFileSync(path.join(__dirname,'../src/evidence/quote-references.json'),'utf8'));
+ const valid=[];
+ for(const ref of records){
+   const qs='?'+new URLSearchParams({v:ref.vehicleId,y:String(ref.year),repair:ref.job});
+   const p=load('/price-check/',{qs});await sleep(25);
+   const links=[...p.doc.querySelectorAll('#pcSourceLinks a')].map(a=>a.href);
+   valid.push(links.length===ref.sources.length&&ref.sources.every(source=>links.includes(source.url))&&
+     p.doc.getElementById('pcRequest').value.includes(ref.job)&&p.doc.getElementById('pcQuoteStep').hidden);
+   p.dom.window.close();
+ }
+ T('PRC-SOURCES','Every researched vehicle/year/repair opens its exact source links without a local price verdict',records.length>0&&valid.every(Boolean),valid.filter(Boolean).length+'/'+records.length);
+ const first=records[0],qs='?'+new URLSearchParams({v:first.vehicleId,repair:first.job});
+ const p=load('/price-check/',{qs});await sleep(25);
+ T('PRC-SCOPE','A model-only URL cannot assume a year or expose exact-year references',!p.doc.getElementById('pcY').value&&!p.doc.querySelector('#pcSourceLinks a'));
+ p.dom.window.close();
+}
+
 // ---- Price display: no withheld numbers or charts in public output ----
 {const p=load('/vehicles/toyota-camry/2015/',{});await sleep(300);const h=p.doc.getElementById('vehicleView').innerHTML;
  T('PRC-07','Vehicle page shows no price bars or ranges for withheld prices',!/class="pg-bar"/.test(h)&&/Insufficient verified pricing for this vehicle and repair/.test(h),'')

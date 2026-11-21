@@ -147,7 +147,7 @@ if (animations) {
 }
 const HOMEFAQ=[...fs.readFileSync('src/template.html','utf8').matchAll(/<details class="faq"><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)].map(m=>({'@type':'Question',name:m[1],acceptedAnswer:{'@type':'Answer',text:m[2]}}));
 const homeLd='<script type="application/ld+json">'+JSON.stringify([{'@context':'https://schema.org','@type':'WebSite',name:'VehicleSymptoms.com',url:SITE+'/'},{'@context':'https://schema.org','@type':'FAQPage',mainEntity:HOMEFAQ}]).replace(/</g,'\\u003c')+'</script>\n';
-urls.push(page('/',"What's Wrong With My Car? Free Car Symptom Help | VehicleSymptoms.com",'Free, plain-English help for car problems: what to check, how urgent it may be, typical repair costs and what to ask your mechanic. From people who fix cars.',{home:true,pageData:homeLd}));
+urls.push(page('/',"What's Wrong With My Car? Free Car Symptom Help | VehicleSymptoms.com",'Free, plain-English help for car problems: what to check, how urgent it may be and what to ask your mechanic. From people who fix cars.',{home:true,pageData:homeLd}));
 
 const srcLabel=u=>{const m=u.replace(/^https?:\/\/(www\.)?/,'').split(/[?#]/)[0].split('/').filter(Boolean);const host=m[0];const slug=(m.slice(1).reverse().find(x=>/[a-z]{3}/i.test(x))||'').replace(/\.(html?|php|aspx?|pdf)$/i,'').replace(/[-_]+/g,' ').trim();return slug?host+': '+slug.charAt(0).toUpperCase()+slug.slice(1):host};
 // symptom guide pages
@@ -203,7 +203,7 @@ ${BYLINE('/codes/'+low+'/')}<div id="codeMy"></div>
 <section class="card csec"><h2>Signs you may notice</h2><ul class="dots">${c.symptoms.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section>
 <section class="card csec"><h2>Possible causes</h2><p class="muted" style="margin:0 0 6px">Most likely first. Directions for testing, not confirmed failures.</p><ul class="causes2">${c.causes.map(x=>`<li><span class="ctag ${x.how}">${x.how==='common'?'Common':'Possible'}</span>${escH(x.name)}</li>`).join('')}</ul></section>
 </div>
-<section class="card csec"><h2>Typical repair once the cause is confirmed</h2><p>${escH(c.fix)}</p>${c.cost&&c.costOk?`<div class="cost"><div class="cost-top"><span class="cost-l">General estimate (all vehicles)</span><span class="cost-v">${cpr(c.cost)}</span></div><div class="cost-job">${escH(c.cost.job)}</div></div><p class="pg-disc" style="margin-top:12px"><b>Estimate only, not a quote.</b> General U.S. reference across many vehicles, not specific to yours. Diagnosis is usually charged separately.</p>`:c.cost?`<div class="cost cost-wh"><div class="cost-top"><span class="cost-l">Repair cost</span><span class="cost-v sm">${WH}</span></div><div class="cost-job">${escH(c.cost.job)}. Ask the shop for a written quote with parts and labor listed separately.</div></div>`:''}</section>
+<section class="card csec"><h2>Typical repair once the cause is confirmed</h2><p>${escH(c.fix)}</p>${c.cost&&c.costOk?`<div class="cost"><div class="cost-top"><span class="cost-l">General estimate (all vehicles)</span><span class="cost-v">${cpr(c.cost)}</span></div><div class="cost-job">${escH(c.cost.job)}</div></div><p class="pg-disc" style="margin-top:12px"><b>Estimate only, not a quote.</b> General U.S. reference across many vehicles, not specific to yours. Diagnosis is usually charged separately.</p>`:c.cost?`<div class="cost cost-wh"><div class="cost-top"><span class="cost-l">Repair cost</span><span class="cost-v sm">${WH}</span></div><div class="cost-job">${escH(c.cost.job)}. <a href="/price-check/?repair=${encodeURIComponent(c.cost.job)}#pcApp">Prepare an itemized shop request</a>.</div></div>`:''}</section>
 ${c.examples&&c.examples.length?`<section class="card csec"><h2>Where it shows up</h2><ul class="dots">${c.examples.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section>`:''}
 ${veh.length?`<section class="card csec"><h2>Known on these vehicles</h2><div class="glist">${veh.map(({v,i})=>`<a class="gcard" href="/vehicles/${v.id}/${firstSold(v,i)||''}${firstSold(v,i)?'/':''}"><b>${escH(v.make+' '+v.model)} ${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</b><span>${escH(i.t)}</span></a>`).join('')}</div></section>`:''}
 ${g?`<a class="walk big" href="/symptoms/${g.id}/">Walk through it step by step: ${escH(g.title)} →</a>`:''}
@@ -319,6 +319,21 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
 {const gen=new Map();
  // Common repairs: typical range drawn from every sourced, priced job in src/prices (25th percentile of low ends to 75th of high ends).
  // Grows automatically as models are added. A job needs at least 5 priced examples to be listed.
+ const references=JSON.parse(fs.readFileSync('src/evidence/quote-references.json','utf8'));
+ const referenceKeys=new Set();
+ for(const ref of references){
+   const vehicle=V.find(v=>v.id===ref.vehicleId);
+   const key=[ref.vehicleId,ref.year,ref.job].join('|');
+   if(!vehicle||!Number.isInteger(ref.year)||ref.year<vehicle.years[0]||ref.year>vehicle.years[1]||
+      (vehicle.gaps||[]).some(([lo,hi])=>ref.year>=lo&&ref.year<=hi)||!ref.job||referenceKeys.has(key)||
+      !Array.isArray(ref.aliases)||!ref.aliases.every(a=>typeof a==='string')||!Array.isArray(ref.sources)||!ref.sources.length)
+     throw new Error('Invalid quote reference: '+key);
+   for(const source of ref.sources){
+     if(!source.name||!source.scope||!/^https:\/\//.test(source.url)||!/^\d{4}-\d{2}-\d{2}$/.test(source.checked))
+       throw new Error('Invalid quote source: '+key);
+   }
+   referenceKeys.add(key);
+ }
  const COMMON=[['Control arm replacement (one side)',/control arm/,/bolt|fastener|bushing|hardware/],['Ball joint replacement',/ball joint/],['Tie rod end replacement',/tie rod/],['Strut or shock absorber replacement',/strut|shock/,/mount only|liftgate|hood|tailgate|trunk|air (spring|strut)/],['Wheel bearing or hub replacement',/wheel bearing|hub (assembly|bearing)|hub and bearing/],['CV axle replacement',/cv axle|cv joint|half ?shaft|axle shaft/],['Sway bar link or bushing replacement',/sway bar|stabilizer (bar|link)/],['Alternator replacement',/alternator/],['Starter replacement',/starter/,/relay|cable|wire|switch|interrupt/],['Water pump replacement',/water pump/],['Radiator replacement',/radiator(?! hose| cap| fan)/],['Radiator fan replacement',/radiator fan|cooling fan/],['Thermostat replacement',/thermostat/,/water pump|head|radiator|timing/],['Fuel pump replacement',/fuel pump/,/relay|module only|driver|control/],['A/C compressor replacement',/a\/c compressor|ac compressor/],['Blower motor replacement',/blower motor/],['Window regulator or motor replacement',/window regulator|window motor/],['Door lock actuator replacement',/lock actuator/],['Power steering pump replacement',/power steering pump/],['Ignition coil replacement',/ignition coil|coil pack/],['Spark plug replacement',/spark plug/],['Timing belt replacement',/timing belt/],['Timing chain replacement',/timing chain/],['Valve cover gasket replacement',/valve cover gasket/],['Head gasket repair',/head gasket/],['Catalytic converter replacement',/catalytic/],['Oxygen sensor replacement',/oxygen sensor|o2 sensor/],['Brake pads and rotors',/pads and rotors|pad and rotor/],['Brake caliper replacement',/caliper/],['Engine or motor mount replacement',/engine mount|motor mount/],['Serpentine belt or tensioner replacement',/serpentine|belt tensioner/],['Wheel speed (ABS) sensor replacement',/wheel speed sensor|abs sensor/],['Heater core replacement',/heater core/],['Intake manifold gasket replacement',/intake manifold gasket/],['Oil pan gasket replacement',/oil pan gasket/],['Rear main seal replacement',/rear main seal/],['Clutch replacement',/clutch (kit|replacement)|replace (the )?clutch/],['Transmission replacement (remanufactured)',/(replace|rebuild).*(transmission|transaxle)|transmission (replacement|rebuild)/,/sensor|solenoid|mount|cooler|line|fluid|valve body|software|seal|switch|module|filter|pan|harness|range|shift|cable|tcm|clutch pack|torque converter only|pump/],['Throttle body cleaning or replacement',/throttle body/],['Mass air flow sensor replacement',/mass air ?flow|maf sensor/],['EGR valve replacement',/egr valve/],['Turbocharger replacement',/turbo(charger)?/,/hose|pipe|line|sensor|solenoid|intercooler|boost|valve|actuator|gasket|clean|pump|wiring|harness|clamp|wastegate|if needed/]];
  const pct=(a,q)=>{a=[...a].sort((x,y)=>x-y);return a[Math.min(a.length-1,Math.floor(q*(a.length-1)))]};
  for(const [name,re,ex] of COMMON){const los=[],his=[];
@@ -355,19 +370,34 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
   // Labor rates, the national rate band and their sources are published only when at least one estimator job is shown;
   // with no job shown they would be unbacked price figures (benchmarks and menu prices travel inside shown jobs only).
   const anyJob=est.length>0;
-  fs.writeFileSync('dist/price-est.js','window.EST='+JSON.stringify(anyJob?{jobs:est,held:heldJ,vc,rates,nat:RATE,states:Object.keys(STN).filter(k=>rates[k]).map(k=>[k,STN[k]]),rsrc}:{jobs:[],held:heldJ,vc,rates:{},nat:null,states:[],rsrc:[]}).replace(/</g,'\\u003c')+';');
+  fs.writeFileSync('dist/price-est.js','window.EST='+JSON.stringify({references,...(anyJob?{jobs:est,held:heldJ,vc,rates,nat:RATE,states:Object.keys(STN).filter(k=>rates[k]).map(k=>[k,STN[k]]),rsrc}:{jobs:[],held:heldJ,vc,rates:{},nat:null,states:[],rsrc:[]})}).replace(/</g,'\\u003c')+';');
   console.log(est.length+' sourced estimator jobs, '+Object.keys(rates).length+' state labor rates')}
- urls.push(page('/price-check/','Is My Car Repair Quote Fair? Free Price Check | VehicleSymptoms.com','Got a repair quote? Enter your vehicle, the repair and the price to see how it compares with typical costs, plus the questions to ask your shop.',{pageData:'<script src="/price-index.js"></script>\n<script src="/price-est.js"></script>\n',inner:`<div class="crumb"><a href="/">Home</a> › Price check</div>
-<div class="ghead"><div class="eyebrow">Price check</div><h1>Is my repair quote fair?</h1><p class="sub">Enter your vehicle, the repair and the price you were quoted. We'll show how it compares with what that job typically costs, and what to ask your shop.</p></div>
+ const hasPrice=LEDGER.some(row=>row.status==='shown'&&['vehicle-issue','maintenance','estimator','common-general','code-general'].includes(row.family));
+ const coverage=hasPrice?'Select a repair to see whether we have a verified range that applies to it.':'We do not currently have a verified repair price range to compare with your quote.';
+ const referenceGroups=new Map();
+ for(const ref of references){
+   const v=V.find(v=>v.id===ref.vehicleId),name=ref.year+' '+v.make+' '+v.model;
+   if(!referenceGroups.has(name))referenceGroups.set(name,[]);
+   const query=new URLSearchParams({v:v.id,y:ref.year,repair:ref.job});
+   referenceGroups.get(name).push(`<li><a href="/price-check/?${escH(query.toString())}#pcApp">${escH(ref.job)}</a></li>`);
+ }
+ const sourceList=references.length?`<details class="pg-more"><summary>Repairs with estimator links</summary>${[...referenceGroups].map(([name,links])=>`<h3>${escH(name)}</h3><ul>${links.join('')}</ul>`).join('')}</details>`:'';
+ urls.push(page('/price-check/','Repair Quote Help and Price Check | VehicleSymptoms.com','Prepare a written estimate request for your mechanic and check which pricing sources cover your repair.',{pageData:'<script src="/price-index.js"></script>\n<script src="/price-est.js"></script>\n',inner:`<div class="crumb"><a href="/">Home</a> › Price check</div>
+<div class="ghead"><div class="eyebrow">Price check</div><h1>Get a repair quote you can compare</h1><p class="sub">Enter the work your shop suggested, or describe what you noticed. You can copy a request for an itemized estimate before you have a price.</p></div>
+<div class="card"><h2>Price coverage</h2><p>${coverage}</p>${sourceList}</div>
 <div class="card pc" id="pcApp">
   <div class="pc-step"><span class="pn">1</span><div class="pc-body"><h2>Your vehicle</h2><div id="pcGarage" class="pc-garage"></div>
     <div class="ymm-row"><select id="pcY" aria-label="Year"></select><select id="pcM" aria-label="Make" disabled></select><select id="pcMo" aria-label="Model" disabled></select></div></div></div>
-  <div class="pc-step"><span class="pn">2</span><div class="pc-body"><h2>The repair</h2><input id="pcJob" type="search" placeholder="Start typing, e.g. brakes, alternator, water pump" autocomplete="off" aria-label="Repair"><div id="pcSug" class="pc-sug"></div><div id="pcPicked" class="pc-picked" hidden></div><div id="pcEst" class="pc-est" hidden><label>Kind of vehicle <span>(optional)</span><select id="pcCls" aria-label="Kind of vehicle"></select></label><label>Your state <span>(optional)</span><select id="pcSt" aria-label="Your state"></select></label></div></div></div>
-  <div class="pc-step"><span class="pn">3</span><div class="pc-body"><h2>Your quote</h2><div class="pc-q"><span>$</span><input id="pcAmt" type="number" inputmode="decimal" min="0" placeholder="Total quoted, parts and labor" aria-label="Quoted price"></div>
+  <div class="pc-step"><span class="pn">2</span><div class="pc-body"><h2>The repair</h2><input id="pcJob" type="search" maxlength="240" placeholder="e.g. front brake pads, or a squeak when braking" autocomplete="off" aria-label="Repair"><div id="pcSug" class="pc-sug"></div><div id="pcPicked" class="pc-picked" hidden></div><div id="pcEst" class="pc-est" hidden><label>Kind of vehicle <span>(optional)</span><select id="pcCls" aria-label="Kind of vehicle"></select></label><label>Your state <span>(optional)</span><select id="pcSt" aria-label="Your state"></select></label></div></div></div>
+  <div id="pcSourceLinks"></div>
+  <div class="pc-step"><span class="pn">3</span><div class="pc-body"><h2><label for="pcRequest">Your message to the shop</label></h2>
+    <textarea class="pc-request" id="pcRequest" readonly rows="6">Could you give me a written estimate? Please list the parts and labor separately, include any diagnostic fee, tax and shop fees, and tell me the total and warranty before I approve the work.</textarea>
+    <button class="btn ghost" id="pcCopy" type="button">Copy shop request</button><span id="pcCopyStatus" role="status"></span></div></div>
+  <div class="pc-step" id="pcQuoteStep" hidden><span class="pn">4</span><div class="pc-body"><h2>Compare your quote</h2><div class="pc-q"><span>$</span><input id="pcAmt" type="number" inputmode="decimal" min="0" placeholder="Total quoted, parts and labor" aria-label="Quoted price"></div>
     <button class="btn" id="pcGo" type="button" disabled>Check my quote</button></div></div>
 </div>
 <div id="pcOut"></div>
-<p class="pg-disc" style="margin-top:18px"><b>How this works:</b> for the common repairs marked "sourced estimate", we add up the price of the parts (from a good aftermarket part to the dealer's list price) and the labor time a manufacturer or trade source states for the job, multiplied by a typical shop labor rate: your state's, if you pick one, or a national typical rate. Each result shows the parts and labor split, the example vehicle, the date we last checked it and links to every source. Other estimators such as RepairPal and Kelley Blue Book are used only as a cross-check, never as our numbers. For services sold at a menu price, such as an oil change or an alignment, we also list the prices shops post on their own pages; those are shown beside the range and never mixed into it. Other repairs use ranges built from known problems on each vehicle. Dealers and big-city shops often charge more. Diagnosis fees, taxes and shop supplies are usually extra. An estimate is not a quote and not a diagnosis: it is a guide to help you ask good questions.</p>`}));}
+<p class="pg-disc" style="margin-top:18px">For a local price, ask a shop to quote your vehicle, the same repair and the same parts quality. We show a comparison only when the supporting sources cover the repair. An outside estimator may ask for your ZIP code and engine. <a href="https://consumer.ftc.gov/articles/0211-auto-repair-basics">FTC guide to written estimates and repair charges</a>.</p>`}));}
 
 // hub
 urls.push(page('/symptoms/','All Car Symptom Guides | VehicleSymptoms.com','Step-by-step guides for car problems: won\'t start, warning lights, noises, shaking, leaks, smells, smoke, overheating and more.',{inner:`<div class="crumb"><a href="/">Home</a> › Symptom guides</div><div class="ghead"><h1>Symptom guides</h1><p class="sub">Pick what your car is doing. Each guide asks a few quick questions and tells you how urgent it is and what to do next.</p></div><div id="guideHub">${Object.entries(GL).map(([k,l])=>{const list=J.filter(j=>j.group===k);return list.length?`<section class="hubsec" id="${k}"><h2>${escH(l)}</h2><div class="glist">${list.map(j=>`<a class="gcard" href="/symptoms/${j.id}/"><b>${escH(j.title)}</b><span>${escH(j.h1)}</span></a>`).join('')}</div></section>`:''}).join('')}</div>`}));
@@ -430,7 +460,7 @@ fs.writeFileSync('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<ur
 // a plain-language summary for AI assistants (llms.txt)
 fs.writeFileSync('dist/llms.txt',`# VehicleSymptoms.com
 
-> Free, plain-English help for drivers: describe what your car is doing and get how urgent it is, the likely causes, typical repair costs and what to ask your mechanic. No sign-up, no ads, nothing to buy.
+> Free, plain-English help for drivers: describe what your car is doing and get how urgent it is, possible causes and what to ask your mechanic. No sign-up, no ads, nothing to buy.
 
 The site is written for regular drivers, not mechanics. Prices are national averages, not quotes. Nothing here is a confirmed diagnosis.
 
@@ -440,7 +470,7 @@ The site is written for regular drivers, not mechanics. Prices are national aver
 - [Warning lights](${SITE}/warning-lights/): ${LIGHTS.length} dashboard lights with what each means, whether it is safe to keep driving, safe checks a driver can do, likely causes with cost ranges, and how to reset reminder lights.
 - [Reset steps by make](${SITE}/warning-lights/reset/): oil change / maintenance reminder and tire pressure light reset procedures for ${Object.keys(RESETS).length} makes.
 - [Trouble code lookup](${SITE}/codes/): ${CODES.length} OBD-II codes in plain English with causes, what to check first and whether it is safe to drive.
-- [Is my quote fair?](${SITE}/price-check/): compare a repair quote against typical price ranges.
+- [Get help with a repair quote](${SITE}/price-check/): prepare an itemized shop request and check price coverage for a repair.
 
 ## Notes for assistants
 - Cite the specific page that answers the question; every page has a stable URL.

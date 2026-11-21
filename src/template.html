@@ -41,21 +41,20 @@
   <div class="hero">
     <div class="wrap hero-grid" style="position:relative">
     <div class="hero-main">
-      <a class="mybar" id="myBar" href="#vehicle"><span class="mb-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17l1.5-5h9L18 17M7.5 12 9 8h6l1.5 4"/><circle cx="8" cy="17.5" r="1.5"/><circle cx="16" cy="17.5" r="1.5"/></svg></span><span id="myBarTxt"><b>Start with your vehicle</b> Year, make and model</span><span class="mb-go">›</span></a>
-      <p class="eyebrow">Free help from people who fix cars</p>
-      <{{HOMEH1}}>Understand what your car <em>may be telling you.</em></{{HOMEH1C}}>
-      <p class="sub">Get free, clear guidance on what to check, how urgent it may be, what repairs typically cost, and what to ask your mechanic. Start by telling us what's happening.</p>
+      <{{HOMEH1}}>What’s happening <em>with your car?</em></{{HOMEH1C}}>
+      <p class="sub">Describe what you notice to find out how urgent it may be, what to check and what to ask a mechanic.</p>
       <div class="search">
-        <label class="search-label" for="helpInput">What is your car doing? Type it here:</label>
+        <label class="search-label" for="helpInput">Describe a symptom</label>
         <form id="helpForm" autocomplete="off">
           <span class="search-field">
             <svg class="search-ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
-            <input id="helpInput" type="search" placeholder="e.g. shakes when I brake">
+            <input id="helpInput" type="search" aria-controls="helpResults" placeholder="e.g. shakes when I brake">
           </span>
-          <button class="btn" type="submit">Help me understand my car</button>
+          <button class="btn" type="submit">Find a guide</button>
         </form>
+        <div class="sr-only" id="helpStatus" role="status" aria-live="polite" aria-atomic="true"></div>
         <div class="results" id="helpResults"></div>
-        <p class="sc-label">Or tap what's happening:</p>
+        <p class="sc-label">Or choose a symptom</p>
         <div class="shortcuts">
           <a class="sc" href="/symptoms/car-wont-start/">Won't start</a>
           <a class="sc" href="/warning-lights/">Warning light</a>
@@ -75,9 +74,8 @@
     <aside class="mycar" id="vehicle">
       <div id="mycarSaved" hidden></div>
       <div id="mycarPick">
-        <p class="eyebrow">Start with your vehicle</p>
-        <h2>What do you drive?</h2>
-        <p class="d">See its known problems, repair costs, upkeep and recalls.</p>
+        <h2>Add your vehicle <small>(optional)</small></h2>
+        <p class="d">Check known problems, upkeep and recalls for your model.</p>
         <form class="ymm-stack" id="pickForm">
           <select id="pickYear" aria-label="Year"></select>
           <select id="pickMake" aria-label="Make" disabled></select>
@@ -101,7 +99,7 @@
         <div>
           <p class="eyebrow">What is this light?</p>
           <h2>A light came on. Here's what it means.</h2>
-          <p class="lead">Tap the symbol that matches your dashboard. Each light tells you how urgent it is, what usually causes it, what you can check yourself and what a repair typically costs.</p>
+          <p class="lead">Tap the symbol that matches your dashboard. Find out what the light can mean, what to check and when to ask for help.</p>
         </div>
         <a class="btn btn-ghost" href="/warning-lights/">See every dashboard light</a>
       </div>
@@ -113,7 +111,7 @@
     <div class="wrap tools">
       <a class="tool" href="/warning-lights/"><span class="ti" style="color:#FFB020"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8l18 32H6z"/><path d="M24 20v10"/><circle cx="24" cy="35" r="1.3" fill="currentColor"/></svg></span><span><b>Warning lights</b>What's that light on my dash?</span></a>
       <a class="tool" href="/codes/"><span class="ti" style="color:#5AB0FF"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="32" height="24" rx="3"/><path d="M15 20h4M15 28h10M27 20h6"/></svg></span><span><b>Code lookup</b>What does P0420 mean?</span></a>
-      <a class="tool" href="/price-check/"><span class="ti" style="color:#34C77B"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><path d="M29 18c-1-2-3-3-5-3-3 0-5 2-5 4 0 6 11 3 11 9 0 2-2 4-6 4-2 0-4-1-5-3M24 12v3M24 33v3"/></svg></span><span><b>Price check</b>Is my repair quote fair?</span></a>
+      <a class="tool" href="/price-check/"><span class="ti" style="color:#34C77B"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><path d="M29 18c-1-2-3-3-5-3-3 0-5 2-5 4 0 6 11 3 11 9 0 2-2 4-6 4-2 0-4-1-5-3M24 12v3M24 33v3"/></svg></span><span><b>Price check</b>Get help with a shop quote</span></a>
     </div>
   </section>
 
@@ -149,7 +147,7 @@
       <h2>Three steps to a clear answer</h2>
       <div class="plan">
         <div class="pstep"><span class="pn">1</span><h3>Tell us what it's doing</h3><p>Type it in your own words, or pick your year, make and model.</p></div>
-        <div class="pstep"><span class="pn">2</span><h3>Get clear guidance</h3><p>How urgent it may be, the possible causes, and what repairs typically cost for your vehicle.</p></div>
+        <div class="pstep"><span class="pn">2</span><h3>Get clear guidance</h3><p>See how urgent it may be, what could cause it and what to ask a mechanic.</p></div>
         <div class="pstep"><span class="pn">3</span><h3>Walk into the shop prepared</h3><p>Take a ready-made summary to your mechanic, so you know what to ask and what to expect.</p></div>
       </div>
       <p class="plan-cta"><a class="btn" href="#top" id="planCta">Start with what your car is doing</a></p>
@@ -167,7 +165,7 @@
       <h2>What changes when you know</h2>
       <div class="compare">
         <div class="col without"><h3>Guessing</h3><ul><li>Worrying every time you start the car</li><li>Driving on a problem that should have stopped you</li><li>Approving a repair you don't understand</li><li>A surprise bill at the counter</li></ul></div>
-        <div class="col with"><h3>Knowing</h3><ul><li>You know if it's safe to drive today</li><li>You fix small problems before they get big</li><li>You can talk it through with your mechanic</li><li>You have a fair idea of the cost before you go</li></ul></div>
+        <div class="col with"><h3>Knowing</h3><ul><li>You know if it's safe to drive today</li><li>You fix small problems before they get big</li><li>You can talk it through with your mechanic</li><li>You can ask for an itemized estimate before approving work</li></ul></div>
       </div>
     </div>
   </section>
@@ -177,7 +175,7 @@
       <h2>Common questions</h2>
       <details class="faq"><summary>What's wrong with my car?</summary><p>Start by describing what you notice: a noise, a smell, a warning light, shaking, or a leak, and when it happens. Our symptom guides ask a few quick questions and narrow it down to the most likely causes, with an urgency rating so you know whether it's safe to keep driving.</p></details>
       <details class="faq"><summary>Is it safe to drive my car?</summary><p>Every result starts with an urgency rating: stop now, get it checked within a few days, book a check when convenient, or safe to check yourself first. If a red warning light is flashing, you smell fuel or burning, or the brakes or steering feel wrong, pull over safely and get help.</p></details>
-      <details class="faq"><summary>How much will the repair cost?</summary><p>Vehicle pages show an average cost range for common repairs on that model, based on typical parts prices and standard labor times. Your shop's price will depend on your area, the parts used and what they find, so treat it as a guide, not a quote.</p></details>
+      <details class="faq"><summary>How much will the repair cost?</summary><p>The price checker lists outside estimator links for the vehicles and repairs it covers. For any repair, you can copy a message asking a shop for the parts, labor, fees and total before you approve the work.</p></details>
       <details class="faq"><summary>Does this replace a mechanic?</summary><p>No. It helps you understand the problem and how urgent it is, and gives you a summary to take to a mechanic. A professional inspection is the only way to confirm a diagnosis.</p></details>
       <details class="faq"><summary>Is it really free?</summary><p>Yes. No sign-up and no fees. If you'd like a copy of your result, you can email it to yourself; we don't send marketing email.</p></details>
     </div>
