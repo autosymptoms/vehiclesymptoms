@@ -29,6 +29,8 @@ function submit(query){
 }
 
 const searches = [
+  ['there’s a puddle where I parked','fluid-leak-under-car'],['there is a puddle under my car','fluid-leak-under-car'],
+  ['puddle on my driveway','fluid-leak-under-car'],['found a puddle in my parking spot','fluid-leak-under-car'],
   ['my car will not start','car-wont-start'],['battery light came on','battery-light-on'],['battery light just came on','battery-light-on'],
   ['the red battery picture came on','battery-light-on'],['a red light looks like a little oil can','oil-pressure-light-on'],
   ['airbag light came on after moving seat','airbag-light-on'],['my car shimmies when I slow down','car-shakes-when-braking'],
@@ -43,6 +45,7 @@ for(const [query,id] of searches){
   assert.equal(first,'/symptoms/'+id+'/',query);
 }
 const clarifications=[
+  ['it sounds like a helicopter when I go faster','What do you hear as the car speeds up?','/symptoms/humming-noise-at-speed/'],
   ['my car died','When does the engine stop?','/symptoms/engine-stalls-while-driving/'],
   ['smoke is coming out of the car','Where do you see the smoke, and what color is it?','/symptoms/steam-from-under-hood/'],
   ['my car smells strange','What does the smell remind you of?','/symptoms/rotten-egg-smell/'],

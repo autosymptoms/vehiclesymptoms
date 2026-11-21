@@ -60,7 +60,8 @@ function symptomWords(text){
 // Additional observations that lead into existing guides.
 const everydayPhrases={
   'car-wont-start':['It just clicks when I try to start it','A clicking sound when I try to start'],
-  'vibration-at-highway-speed':['Steering wheel shakes on the highway']
+  'vibration-at-highway-speed':['Steering wheel shakes on the highway'],
+  'fluid-leak-under-car':['Puddle where I parked','Puddle on my driveway','Puddle in my parking spot']
 };
 let searchIndex;
 function getSearchIndex(){
@@ -108,6 +109,12 @@ const searchQuestions=[
     question:'When do you feel the shaking?',choices:[
       ['When I brake','car-shakes-when-braking'],['When I speed up','car-shakes-when-accelerating'],
       ['At highway speed','vibration-at-highway-speed'],['While stopped','rough-idle-shaking'],['Browse other shaking symptoms','/symptoms/#shake']]},
+  {signal:['noise','sound','helicopter'],context:['speed','faster','highway','accelerate','mph'],
+    allowed:['noise','sound','helicopter','speed','faster','go','going','gets','get','louder','driving','drive','highway','accelerate','mph','strange','weird'],
+    question:'What do you hear as the car speeds up?',choices:[
+      ['A hum or roar that gets louder with road speed','humming-noise-at-speed'],
+      ['A high-pitched whine when I press the gas','whining-noise-when-accelerating'],
+      ['A loud rumble from the exhaust','loud-exhaust-roaring'],['Browse other noises','/symptoms/#noise']]},
   {signal:['noise','sound'],allowed:['noise','sound','weird','strange','funny','loud','hear','hearing','driving','drive'],
     question:'What does the noise sound like?',choices:[
       ['Grinding when I brake','grinding-brakes'],['Clicking when I turn','clicking-when-turning'],
@@ -133,7 +140,7 @@ const searchQuestions=[
 function clarifySearch(q){
   const words=symptomWords(q);
   return searchQuestions.find(rule=>words.some(word=>rule.signal.includes(word)) &&
-    words.every(word=>rule.allowed.includes(word))) || null;
+    (!rule.context || words.some(word=>rule.context.includes(word))) && words.every(word=>rule.allowed.includes(word))) || null;
 }
 // ---- known vehicle problem -> guide (strict) ----
 // Rules come from src/guide-links.json (window.GUIDE_LINKS, written by build.js). An issue links to a guide only when its
