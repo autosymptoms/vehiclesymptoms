@@ -1,5 +1,5 @@
 {
- "ran": "2026-11-21T06:29:23.998Z",
+ "ran": "2026-11-21T07:29:09.044Z",
  "results": [
   {
    "id": "REC-01",
@@ -53,7 +53,7 @@
    "id": "REC-09",
    "desc": "Single-name model without a verified mapping is flagged unverified (zero would show Lookup unavailable)",
    "pass": true,
-   "detail": "{\"verified\":false,\"queries\":[{\"make\":\"HONDA\",\"model\":\"CIVIC\",\"label\":\"Civic\"}]}"
+   "detail": "{\"verified\":false,\"queries\":[{\"make\":\"ACURA\",\"model\":\"CL\",\"label\":\"CL\"}]}"
   },
   {
    "id": "REC-10",
@@ -174,6 +174,42 @@
    "desc": "P0300 FAQ structured data leads with the flashing/shaking condition",
    "pass": true,
    "detail": "If the check engine light is flashing or the engine is shaking hard, pull over w"
+  },
+  {
+   "id": "PRC-09",
+   "desc": "Tesla Model Y \"spark\" search (real held list) says it does not apply, not \"no sourced range\"",
+   "pass": true,
+   "detail": "Spark plug replacement (general test estimate): This repair does not apply to a battery-electric vehicle."
+  },
+  {
+   "id": "GDE-01",
+   "desc": "Guide result with a vehicle picked renders without error (withheld prices)",
+   "pass": true,
+   "detail": "Your vehicle2015 Toyota CamryChange\n      Safe to check yourself first\n      Probably surface rust on the rotors scrapin"
+  },
+  {
+   "id": "URG-p2300",
+   "desc": "P2300: stop condition before the softer badge",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "URG-p2335",
+   "desc": "P2335: stop condition before the softer badge",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "URG-p06d1",
+   "desc": "P06D1: stop condition before the softer badge",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "HTML-01",
+   "desc": "Inner pages have exactly one <h1> and no malformed closing tags",
+   "pass": true,
+   "detail": ""
   }
  ]
 }

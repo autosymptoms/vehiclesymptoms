@@ -1,0 +1,32 @@
+PASS REC-01 2023 Acura Integra shows the 2 NHTSA campaigns (fixture 2026-11-21)
+PASS REC-02 Combined label is never sent to NHTSA
+PASS REC-03 Integra 2023 is queried as INTEGRA
+PASS REC-04 HTTP error shows Lookup unavailable with official VIN lookup, never 0
+PASS REC-05 Malformed response (Count mismatch) shows Lookup unavailable
+PASS REC-06 Result for a different vehicle is rejected (Lookup unavailable)
+PASS REC-07 Network failure shows Lookup unavailable
+PASS REC-08 Rivian R1T / R1S is resolved to separate R1S and R1T lookups
+PASS REC-09 Single-name model without a verified mapping is flagged unverified (zero would show Lookup unavailable)
+PASS REC-10 Integra/RSX name change mapped by year (1999 INTEGRA, 2004 RSX, 2023 INTEGRA)
+PASS PRC-01 2023 Tesla Model Y: spark plug job is not suggested
+PASS PRC-02 2023 Tesla Model Y: driver is told the repair does not apply to a battery-electric vehicle
+PASS PRC-03 2023 Tesla Model Y CT $400: no $310–$440 range and no verdict
+PASS PRC-04 2015 Toyota Camry (gasoline): spark plug estimate is still offered and gets a verdict
+PASS PRC-05 Changing the state after a quote clears the verdict
+PASS PRC-06 Changing the quote amount clears the old verdict
+PASS PRC-PT-gas Spark plugs eligibility for gas (toyota-camry 2015) = true
+PASS PRC-PT-diesel-spark-plugs Spark plugs eligibility for diesel spark plugs (ram-2500 2015) = null
+PASS PRC-PT-hybrid Spark plugs eligibility for hybrid (toyota-prius 2015) = true
+PASS PRC-PT-plug-in-hybrid Spark plugs eligibility for plug-in hybrid (chevrolet-volt 2014) = true
+PASS PRC-PT-battery-electric Spark plugs eligibility for battery-electric (tesla-model-y 2023) = false
+PASS PRC-PT-diesel-engine Diesel engine chosen: spark plugs do not apply
+PASS PRC-07 Vehicle page shows no price bars or ranges for withheld prices
+PASS PRC-08 Per-vehicle data file carries no withheld lo/hi figures
+PASS URG-p0300 P0300: flashing/shaking stop condition renders before the softer badge, near the top
+PASS URG-p0301 P0301: flashing/shaking stop condition renders before the softer badge, near the top
+PASS URG-p0304 P0304: flashing/shaking stop condition renders before the softer badge, near the top
+PASS URG-p0316 P0316: flashing/shaking stop condition renders before the softer badge, near the top
+PASS URG-ld P0300 FAQ structured data leads with the flashing/shaking condition
+
+29/29 passed
+exit 0

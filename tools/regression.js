@@ -41,7 +41,7 @@ const empty=k=>{const [mk,md,y]=k.split('|');return {Count:0,Message:'Results re
  const q=p.calls.filter(u=>/nhtsa/.test(u)).map(u=>new URL(u).searchParams.get('model')).sort().join(',');
  T('REC-08','Rivian R1T / R1S is resolved to separate R1S and R1T lookups',q==='R1S,R1T',q)}
 {// unverified default mapping with zero results must not show 0
- const w=load('/vehicles/acura-rsx-integra/2023/',{fetch:()=>new Promise(()=>{})}).w;const v=w.VEHICLES.find(x=>x.id==='honda-civic')||w.VEHICLES.find(x=>!/ \/ /.test(x.model)&&!(x.rq||[]).length);
+ const w=load('/vehicles/acura-rsx-integra/2023/',{fetch:()=>new Promise(()=>{})}).w;const v=w.VEHICLES.find(x=>!/ \/ /.test(x.model)&&!(x.rq||[]).length);
  const M=w.VS_RECALL_QUERIES(v,2020);T('REC-09','Single-name model without a verified mapping is flagged unverified (zero would show Lookup unavailable)',M.verified===false&&M.queries.length===1,JSON.stringify(M))}
 {const w=load('/vehicles/acura-rsx-integra/2023/',{fetch:()=>new Promise(()=>{})}).w;const v=w.VEHICLES.find(x=>x.id==='acura-rsx-integra');
  const m=y=>(w.VS_RECALL_QUERIES(v,y).queries[0]||{}).model;T('REC-10','Integra/RSX name change mapped by year (1999 INTEGRA, 2004 RSX, 2023 INTEGRA)',m(1999)==='INTEGRA'&&m(2004)==='RSX'&&m(2023)==='INTEGRA',[m(1999),m(2004),m(2023)].join(','))}
@@ -80,6 +80,14 @@ for(const code of ['p0300','p0301','p0304','p0316']){const h=fs.readFileSync(D('
   const a=main.indexOf('urg-first'),b=main.indexOf('class="urg ');T('URG-'+code,code.toUpperCase()+': flashing/shaking stop condition renders before the softer badge, near the top',a>0&&a<b&&a<2500,'first='+a+' badge='+b)}
 {const h=fs.readFileSync(D('codes/p0300/index.html'),'utf8');const ld=JSON.parse(h.match(/<script type="application\/ld\+json">(.*?)<\/script>/)[1]);const a=ld.mainEntity.find(q=>/Can I drive/.test(q.name)).acceptedAnswer.text;
  T('URG-ld','P0300 FAQ structured data leads with the flashing/shaking condition',/^If the check engine light is flashing/.test(a),a.slice(0,80))}
+
+// ---- QA follow-ups (2026-11-21) ----
+{const r=await quote('?v=tesla-model-y&y=2023','spark',400,'CT');T('PRC-09','Tesla Model Y "spark" search (real held list) says it does not apply, not "no sourced range"',/does not apply to a battery-electric/i.test(r.sug)&&!/No sourced range yet for[^.]*spark/i.test(r.sug),r.sug.slice(0,200))}
+{const p=load('/symptoms/grinding-brakes/',{qs:'?v=toyota-camry&y=2015'});await sleep(300);let err='';p.w.addEventListener('error',e=>{err=e.message});
+ const b=[...p.doc.querySelectorAll('#guideApp .opt')];let n=0;while(b.length&&n<6){b[0].click();await sleep(30);n++;const nb=[...p.doc.querySelectorAll('#guideApp .opt')];if(!nb.length)break;b.splice(0,b.length,...nb)}
+ const t=p.doc.getElementById('guideApp').textContent;T('GDE-01','Guide result with a vehicle picked renders without error (withheld prices)',!err&&t.length>200&&!/NaN|undefined/.test(t),err||t.slice(0,120))}
+for(const code of ['p2300','p2335','p06d1']){const h=fs.readFileSync(D('codes/'+code+'/index.html'),'utf8');const main=h.slice(h.indexOf('code-big'));const a=main.indexOf('urg-first'),b=main.indexOf('class="urg ');T('URG-'+code,code.toUpperCase()+': stop condition before the softer badge',a>0&&a<b)}
+{const h=fs.readFileSync(D('codes/p0300/index.html'),'utf8');T('HTML-01','Inner pages have exactly one <h1> and no malformed closing tags',(h.match(/<h1[\s>]/g)||[]).length===1&&!/<\/p class=/.test(h)&&!/{{HOMEH1/.test(h))}
 
 fs.mkdirSync(path.join(__dirname,'../audit/generated'),{recursive:true});
 fs.writeFileSync(path.join(__dirname,'../audit/generated/regression-results.json'),JSON.stringify({ran:new Date().toISOString(),results},null,1));

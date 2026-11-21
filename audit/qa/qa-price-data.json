@@ -1,0 +1,50 @@
+[
+ {
+  "id": "QA-PRC-DATA-1",
+  "desc": "no withheld object in dist/data/v/*.json carries lo/hi/amount (570 files, 13467 withheld objects)",
+  "pass": true,
+  "evidence": "none"
+ },
+ {
+  "id": "QA-PRC-DATA-2",
+  "desc": "no non-free numeric price objects at all in dist/data/v (all prices are withheld in this build)",
+  "pass": true,
+  "evidence": "0 found; ; free-with-number=0"
+ },
+ {
+  "id": "QA-PRC-DATA-INFO",
+  "desc": "dollar strings inside prose of dist/data/v files (not structured prices)",
+  "pass": true,
+  "evidence": "244 files, 1134 occurrences"
+ },
+ {
+  "id": "QA-PRC-EST",
+  "desc": "dist/price-est.js ships no estimator jobs (jobs=0, held=84)",
+  "pass": true,
+  "evidence": "jobs=0"
+ },
+ {
+  "id": "QA-PRC-EST-SPARK",
+  "desc": "spark plug job is in the held list (so a search still mentions it)",
+  "pass": true,
+  "evidence": "Spark plug replacement"
+ },
+ {
+  "id": "QA-PRC-GEN",
+  "desc": "GEN_PRICES (general fallback prices) is empty",
+  "pass": true,
+  "evidence": "[]"
+ },
+ {
+  "id": "QA-PRC-PDF",
+  "desc": "PDF code path prints no \"$<number>\" for any vehicle/year (8051 PDFs generated with stub)",
+  "pass": false,
+  "evidence": "2623 PDFs with dollar figures; acura-cl/all: $80 $110 | acura-cl/1997: $80 $110 | acura-cl/1998: $80 $110 | acura-cl/1999: $80 $110 | acura-cl/2000: $80 $110 | acura-cl/2001: $80 $110"
+ },
+ {
+  "id": "QA-PRC-PDF-ERR",
+  "desc": "PDF generation threw no errors and printed no undefined/NaN",
+  "pass": true,
+  "evidence": "0: "
+ }
+]

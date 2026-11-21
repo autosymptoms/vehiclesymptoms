@@ -1,6 +1,6 @@
 {
- "checked": "2026-11-21T06:29:39.029Z",
- "revision": "2509662d15700f10e13f5ab269cbb733988e142f (+uncommitted changes)",
+ "checked": "2026-11-21T07:29:16.601Z",
+ "revision": "01f429a5fd62559aff4de3894f779fd1d31ae396 (+uncommitted changes)",
  "checks": {
   "prices": {
    "records": 19819,
@@ -14,122 +14,21 @@
   },
   "public_dollar_figures": {
    "files_scanned": 11158,
-   "files_with_unbacked_figures": 2759,
-   "distinct_unbacked_figures": 500,
-   "examples": [
-    [
-     "$300",
-     319
-    ],
-    [
-     "$150",
-     284
-    ],
-    [
-     "$500",
-     221
-    ],
-    [
-     "$400",
-     218
-    ],
-    [
-     "$200",
-     208
-    ],
-    [
-     "$250",
-     191
-    ],
-    [
-     "$140",
-     190
-    ],
-    [
-     "$384",
-     183
-    ],
-    [
-     "$307",
-     151
-    ],
-    [
-     "$600",
-     141
-    ],
-    [
-     "$100",
-     129
-    ],
-    [
-     "$222",
-     129
-    ],
-    [
-     "$350",
-     123
-    ],
-    [
-     "$377",
-     120
-    ],
-    [
-     "$335",
-     114
-    ],
-    [
-     "$210",
-     106
-    ],
-    [
-     "$322",
-     104
-    ],
-    [
-     "$370",
-     102
-    ],
-    [
-     "$397",
-     101
-    ],
-    [
-     "$190",
-     98
-    ],
-    [
-     "$160",
-     94
-    ],
-    [
-     "$430",
-     92
-    ],
-    [
-     "$331",
-     88
-    ],
-    [
-     "$450",
-     86
-    ],
-    [
-     "$352",
-     85
-    ]
-   ]
+   "files_with_unbacked_figures": 0,
+   "distinct_unbacked_figures": 0,
+   "examples": []
   },
   "safety": {
    "instruction_groups": 7524,
-   "rendered_contexts": 8083,
-   "contexts_without_signoff": 8083,
+   "rendered_contexts": 8157,
+   "contexts_without_signoff": 8157,
    "groups_without_signoff": 7524
   },
   "recalls": {
    "combined_label_year_pages": 561,
    "combined_verified": 399,
    "all_year_pages": 7175,
-   "all_with_verified_mapping": 399,
+   "all_with_verified_mapping": 2169,
    "note": "Year pages without a verified mapping show results only after a validated non-empty lookup; zero shows as Lookup unavailable."
   },
   "claims": {
@@ -145,16 +44,15 @@
    "note": "Structural tests (status, canonical, title, H1, links) do not verify content."
   },
   "regressions": {
-   "total": 29,
-   "passed": 29
+   "total": 35,
+   "passed": 35
   }
  },
  "blocked": [
   "prices: 15177 price records withheld pending evidence (audit items stay open)",
-  "public-dollar-figures: 2759 public files contain dollar figures with no shown price record or verified claim (labor rates, disclaimers, benchmarks)",
-  "safety: 8083 rendered safety-critical contexts in 7524 groups have no documented qualified sign-off",
+  "safety: 8157 rendered safety-critical contexts in 7524 groups have no documented qualified sign-off",
   "recalls: 162 combined-label year pages lack a verified NHTSA mapping",
-  "recalls: 6776 of 7175 year pages have no verified mapping (zero results there show as Lookup unavailable)",
+  "recalls: 5006 of 7175 year pages have no verified mapping (zero results there show as Lookup unavailable)",
   "claims: 15110 of 15110 vehicle issue claims have not been checked against their cited evidence"
  ],
  "release": "BLOCKED"

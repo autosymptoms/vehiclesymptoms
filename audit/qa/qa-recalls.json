@@ -1,0 +1,92 @@
+[
+ {
+  "id": "QA-REC-1",
+  "desc": "2023 Integra queries model=INTEGRA make=ACURA year=2023",
+  "pass": true,
+  "evidence": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ACURA&model=INTEGRA&modelYear=2023"
+ },
+ {
+  "id": "QA-REC-2",
+  "desc": "validated 2-result response shows 2 (tile and box, both campaigns listed)",
+  "pass": true,
+  "evidence": "tile=2 box=2 safety recalls filed for the 2023 Acura Integra / RSXThese are campaigns NHTSA lists for this model year. Not every ve"
+ },
+ {
+  "id": "QA-REC-3",
+  "desc": "duplicate campaign rows are counted once",
+  "pass": true,
+  "evidence": "tile=1"
+ },
+ {
+  "id": "QA-REC-ERR HTTP 500",
+  "desc": "shows Lookup unavailable + NHTSA VIN link, never 0",
+  "pass": true,
+  "evidence": "tile=— box=Safety recalls: lookup unavailableWe couldn't confirm the recall list for the 2023 Acura Integra / RSX just now. This does not mean there ar"
+ },
+ {
+  "id": "QA-REC-ERR HTTP 200 but non-JSON",
+  "desc": "shows Lookup unavailable + NHTSA VIN link, never 0",
+  "pass": true,
+  "evidence": "tile=— box=Safety recalls: lookup unavailableWe couldn't confirm the recall list for the 2023 Acura Integra / RSX just now. This does not mean there ar"
+ },
+ {
+  "id": "QA-REC-ERR malformed: results not array",
+  "desc": "shows Lookup unavailable + NHTSA VIN link, never 0",
+  "pass": true,
+  "evidence": "tile=— box=Safety recalls: lookup unavailableWe couldn't confirm the recall list for the 2023 Acura Integra / RSX just now. This does not mean there ar"
+ },
+ {
+  "id": "QA-REC-ERR malformed: Count missing",
+  "desc": "shows Lookup unavailable + NHTSA VIN link, never 0",
+  "pass": true,
+  "evidence": "tile=— box=Safety recalls: lookup unavailableWe couldn't confirm the recall list for the 2023 Acura Integra / RSX just now. This does not mean there ar"
+ },
+ {
+  "id": "QA-REC-ERR malformed: bad campaign number",
+  "desc": "shows Lookup unavailable + NHTSA VIN link, never 0",
+  "pass": true,
+  "evidence": "tile=— box=Safety recalls: lookup unavailableWe couldn't confirm the recall list for the 2023 Acura Integra / RSX just now. This does not mean there ar"
+ },
+ {
+  "id": "QA-REC-ERR mismatched year",
+  "desc": "shows Lookup unavailable + NHTSA VIN link, never 0",
+  "pass": true,
+  "evidence": "tile=— box=Safety recalls: lookup unavailableWe couldn't confirm the recall list for the 2023 Acura Integra / RSX just now. This does not mean there ar"
+ },
+ {
+  "id": "QA-REC-ERR mismatched make",
+  "desc": "shows Lookup unavailable + NHTSA VIN link, never 0",
+  "pass": true,
+  "evidence": "tile=— box=Safety recalls: lookup unavailableWe couldn't confirm the recall list for the 2023 Acura Integra / RSX just now. This does not mean there ar"
+ },
+ {
+  "id": "QA-REC-ERR network reject",
+  "desc": "shows Lookup unavailable + NHTSA VIN link, never 0",
+  "pass": true,
+  "evidence": "tile=— box=Safety recalls: lookup unavailableWe couldn't confirm the recall list for the 2023 Acura Integra / RSX just now. This does not mean there ar"
+ },
+ {
+  "id": "QA-REC-ERR timeout (abort after 10 s, timers accelerated)",
+  "desc": "shows Lookup unavailable + NHTSA VIN link, never 0",
+  "pass": true,
+  "evidence": "tile=— box=Safety recalls: lookup unavailableWe couldn't confirm the recall list for the 2023 Acura Integra / RSX just now. This does not mean there ar"
+ },
+ {
+  "id": "QA-REC-RIV",
+  "desc": "Rivian 2023 queries R1T and R1S (separately) and totals 2 distinct campaigns",
+  "pass": true,
+  "evidence": "R1T,R1S tile=2"
+ },
+ {
+  "id": "QA-REC-RIV-PART",
+  "desc": "Rivian with one failed lookup shows Lookup unavailable",
+  "pass": true,
+  "evidence": "Safety recalls: lookup unavailableWe couldn't confirm the recall list for the 2023 Rivian R1T / R1S just now. This does "
+ },
+ {
+  "id": "QA-REC-SLASH",
+  "desc": "no model value containing \"/\" sent from any of 561 combined-label year pages",
+  "pass": true,
+  "evidence": "pages=561 queries=1294 bad="
+ }
+]

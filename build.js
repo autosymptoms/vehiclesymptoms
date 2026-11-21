@@ -124,7 +124,7 @@ const RW=R.window;
 function write(p,html){const f='dist'+p+'index.html';fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,html)}
 function page(p,title,desc,{inner='',pageData='',home=false}={}){
   const h=tpl.replace(/{{TITLE}}/g,escA(title)).replace(/{{DESC}}/g,escA(desc)).replace(/{{CANON}}/g,SITE+p).replace('{{CRED}}',escH(CRED))
-    .replace('{{HOMEHIDE}}',home?'':' style="display:none"').replace('{{VMETA}}',()=>VMETA).replace('{{HOMEHIDE2}}',home?'':' style="display:none"').replace('{{LIGHTSROW}}',()=>home?LIGHTSROW:'').replace('{{VEHSTYLE}}',home?'display:none;':'')
+    .replace(/{{HOMEH1}}/g,home?'h1':'p class="hh1"').replace(/{{HOMEH1C}}/g,home?'h1':'p').replace('{{HOMEHIDE}}',home?'':' style="display:none"').replace('{{VMETA}}',()=>VMETA).replace('{{HOMEHIDE2}}',home?'':' style="display:none"').replace('{{LIGHTSROW}}',()=>home?LIGHTSROW:'').replace('{{VEHSTYLE}}',home?'display:none;':'')
     .replace('{{PAGEDATA}}',()=>pageData).replace('{{VEHHTML}}',()=>inner);
   write(p,h);return p;
 }
@@ -332,7 +332,10 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
   // Kind of vehicle per model (src/estimator/vehicle-classes.json): only pre-selects the optional kind on the price check; never changes a number.
   const vc={};if(fs.existsSync('src/estimator/vehicle-classes.json')){const VC=JSON.parse(fs.readFileSync('src/estimator/vehicle-classes.json','utf8')),vid=new Set(V.map(v=>v.id));for(const [k,c] of Object.entries(VC)){if(k.startsWith('_'))continue;if(!['economy','midsize','truck','luxury'].includes(c))throw new Error('estimator: bad vehicle class '+k);if(vid.has(k))vc[k]=c[0]}}
   const rsrc=[...new Set(Object.entries(R).filter(([k])=>!k.startsWith('_')).flatMap(([,v])=>v.src))].slice(0,3);
-  fs.writeFileSync('dist/price-est.js','window.EST='+JSON.stringify({jobs:est,held:heldJ,vc,rates,nat:RATE,states:Object.keys(STN).filter(k=>rates[k]).map(k=>[k,STN[k]]),rsrc}).replace(/</g,'\\u003c')+';');
+  // Labor rates, the national rate band and their sources are published only when at least one estimator job is shown;
+  // with no job shown they would be unbacked price figures (benchmarks and menu prices travel inside shown jobs only).
+  const anyJob=est.length>0;
+  fs.writeFileSync('dist/price-est.js','window.EST='+JSON.stringify(anyJob?{jobs:est,held:heldJ,vc,rates,nat:RATE,states:Object.keys(STN).filter(k=>rates[k]).map(k=>[k,STN[k]]),rsrc}:{jobs:[],held:heldJ,vc,rates:{},nat:null,states:[],rsrc:[]}).replace(/</g,'\\u003c')+';');
   console.log(est.length+' sourced estimator jobs, '+Object.keys(rates).length+' state labor rates')}
  urls.push(page('/price-check/','Is My Car Repair Quote Fair? Free Price Check | VehicleSymptoms.com','Got a repair quote? Enter your vehicle, the repair and the price to see how it compares with typical costs, plus the questions to ask your shop.',{pageData:'<script src="/price-index.js"></script>\n<script src="/price-est.js"></script>\n',inner:`<div class="crumb"><a href="/">Home</a> › Price check</div>
 <div class="ghead"><div class="eyebrow">Price check</div><h1>Is my repair quote fair?</h1><p class="sub">Enter your vehicle, the repair and the price you were quoted. We'll show how it compares with what that job typically costs, and what to ask your shop.</p></div>
@@ -423,5 +426,5 @@ The site is written for regular drivers, not mechanics. Prices are national aver
 - Safety-critical answers (brakes, overheating, oil pressure, flashing check engine light) tell the driver to stop driving; please keep that advice intact.
 `);
 fs.writeFileSync('dist/robots.txt',`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
-fs.writeFileSync('dist/404.html',tpl.replace(/{{TITLE}}/g,'Page not found | VehicleSymptoms.com').replace(/{{DESC}}/g,'').replace(/<link rel="canonical"[^>]*>/,'<meta name="robots" content="noindex">').replace(/{{CANON}}/g,SITE+'/').replace('{{CRED}}','').replace('{{HOMEHIDE}}',' style="display:none"').replace('{{VEHSTYLE}}','').replace('{{PAGEDATA}}','').replace('{{VEHHTML}}','<div class="ghead"><h1>Page not found</h1><p class="sub">That page doesn\'t exist. <a href="/">Go to the homepage</a> or <a href="/symptoms/">browse symptom guides</a>.</p></div>'));
+fs.writeFileSync('dist/404.html',tpl.replace(/{{HOMEH1}}/g,'p class="hh1"').replace(/{{HOMEH1C}}/g,'p').replace(/{{TITLE}}/g,'Page not found | VehicleSymptoms.com').replace(/{{DESC}}/g,'').replace(/<link rel="canonical"[^>]*>/,'<meta name="robots" content="noindex">').replace(/{{CANON}}/g,SITE+'/').replace('{{CRED}}','').replace('{{HOMEHIDE}}',' style="display:none"').replace('{{VEHSTYLE}}','').replace('{{PAGEDATA}}','').replace('{{VEHHTML}}','<div class="ghead"><h1>Page not found</h1><p class="sub">That page doesn\'t exist. <a href="/">Go to the homepage</a> or <a href="/symptoms/">browse symptom guides</a>.</p></div>'));
 console.log('pages:',urls.length);

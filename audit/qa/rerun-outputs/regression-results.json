@@ -1,0 +1,179 @@
+{
+ "ran": "2026-11-21T07:03:00.785Z",
+ "results": [
+  {
+   "id": "REC-01",
+   "desc": "2023 Acura Integra shows the 2 NHTSA campaigns (fixture 2026-11-21)",
+   "pass": true,
+   "detail": "tile=Model-year safety recalls2See details · filed for this model year · check your VIN | has23V=true has24V=true"
+  },
+  {
+   "id": "REC-02",
+   "desc": "Combined label is never sent to NHTSA",
+   "pass": true,
+   "detail": "/data/v/acura-rsx-integra.json https://api.nhtsa.gov/recalls/recallsByVehicle?make=ACURA&model=INTEGRA&modelYear=2023"
+  },
+  {
+   "id": "REC-03",
+   "desc": "Integra 2023 is queried as INTEGRA",
+   "pass": true,
+   "detail": "/data/v/acura-rsx-integra.json https://api.nhtsa.gov/recalls/recallsByVehicle?make=ACURA&model=INTEGRA&modelYear=2023"
+  },
+  {
+   "id": "REC-04",
+   "desc": "HTTP error shows Lookup unavailable with official VIN lookup, never 0",
+   "pass": true,
+   "detail": "Safety recalls: lookup unavailableWe couldn't confirm the recall list for the 2023 Acura Integra / RSX just now. This does not mean there are no recalls. Enter "
+  },
+  {
+   "id": "REC-05",
+   "desc": "Malformed response (Count mismatch) shows Lookup unavailable",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "REC-06",
+   "desc": "Result for a different vehicle is rejected (Lookup unavailable)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "REC-07",
+   "desc": "Network failure shows Lookup unavailable",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "REC-08",
+   "desc": "Rivian R1T / R1S is resolved to separate R1S and R1T lookups",
+   "pass": true,
+   "detail": "R1S,R1T"
+  },
+  {
+   "id": "REC-09",
+   "desc": "Single-name model without a verified mapping is flagged unverified (zero would show Lookup unavailable)",
+   "pass": true,
+   "detail": "{\"verified\":false,\"queries\":[{\"make\":\"HONDA\",\"model\":\"CIVIC\",\"label\":\"Civic\"}]}"
+  },
+  {
+   "id": "REC-10",
+   "desc": "Integra/RSX name change mapped by year (1999 INTEGRA, 2004 RSX, 2023 INTEGRA)",
+   "pass": true,
+   "detail": "INTEGRA,RSX,INTEGRA"
+  },
+  {
+   "id": "PRC-01",
+   "desc": "2023 Tesla Model Y: spark plug job is not suggested",
+   "pass": true,
+   "detail": "Spark plug replacement (general test estimate): This repair does not apply to a battery-electric vehicle."
+  },
+  {
+   "id": "PRC-02",
+   "desc": "2023 Tesla Model Y: driver is told the repair does not apply to a battery-electric vehicle",
+   "pass": true,
+   "detail": "Spark plug replacement (general test estimate): This repair does not apply to a battery-electric vehicle."
+  },
+  {
+   "id": "PRC-03",
+   "desc": "2023 Tesla Model Y CT $400: no $310–$440 range and no verdict",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "PRC-04",
+   "desc": "2015 Toyota Camry (gasoline): spark plug estimate is still offered and gets a verdict",
+   "pass": true,
+   "detail": "Your result · 2015 Toyota CamryHigher than typicalSpark plug replacement (general test estimate): you were quoted $400. Typical for a midsize car or crossover in Connecticut: $160–$310.\n      Your quo"
+  },
+  {
+   "id": "PRC-05",
+   "desc": "Changing the state after a quote clears the verdict",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "PRC-06",
+   "desc": "Changing the quote amount clears the old verdict",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "PRC-PT-gas",
+   "desc": "Spark plugs eligibility for gas (toyota-camry 2015) = true",
+   "pass": true,
+   "detail": "{\"ok\":true,\"powertrains\":[\"gas\",\"hev\"]}"
+  },
+  {
+   "id": "PRC-PT-diesel-spark-plugs",
+   "desc": "Spark plugs eligibility for diesel spark plugs (ram-2500 2015) = null",
+   "pass": true,
+   "detail": "{\"ok\":null,\"powertrains\":[\"gas\",\"diesel\"],\"reason\":\"Whether this repair applies depends on the engine. This model year was sold as gasoline and diesel.\"}"
+  },
+  {
+   "id": "PRC-PT-hybrid",
+   "desc": "Spark plugs eligibility for hybrid (toyota-prius 2015) = true",
+   "pass": true,
+   "detail": "{\"ok\":true,\"powertrains\":[\"hev\"]}"
+  },
+  {
+   "id": "PRC-PT-plug-in-hybrid",
+   "desc": "Spark plugs eligibility for plug-in hybrid (chevrolet-volt 2014) = true",
+   "pass": true,
+   "detail": "{\"ok\":true,\"powertrains\":[\"phev\"]}"
+  },
+  {
+   "id": "PRC-PT-battery-electric",
+   "desc": "Spark plugs eligibility for battery-electric (tesla-model-y 2023) = false",
+   "pass": true,
+   "detail": "{\"ok\":false,\"powertrains\":[\"bev\"],\"reason\":\"This repair does not apply to a battery-electric vehicle.\"}"
+  },
+  {
+   "id": "PRC-PT-diesel-engine",
+   "desc": "Diesel engine chosen: spark plugs do not apply",
+   "pass": true,
+   "detail": "{\"ok\":false,\"powertrains\":[\"diesel\"],\"reason\":\"This repair does not apply to a diesel vehicle.\"}"
+  },
+  {
+   "id": "PRC-07",
+   "desc": "Vehicle page shows no price bars or ranges for withheld prices",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "PRC-08",
+   "desc": "Per-vehicle data file carries no withheld lo/hi figures",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "URG-p0300",
+   "desc": "P0300: flashing/shaking stop condition renders before the softer badge, near the top",
+   "pass": true,
+   "detail": "first=88 badge=427"
+  },
+  {
+   "id": "URG-p0301",
+   "desc": "P0301: flashing/shaking stop condition renders before the softer badge, near the top",
+   "pass": true,
+   "detail": "first=74 badge=413"
+  },
+  {
+   "id": "URG-p0304",
+   "desc": "P0304: flashing/shaking stop condition renders before the softer badge, near the top",
+   "pass": true,
+   "detail": "first=74 badge=413"
+  },
+  {
+   "id": "URG-p0316",
+   "desc": "P0316: flashing/shaking stop condition renders before the softer badge, near the top",
+   "pass": true,
+   "detail": "first=99 badge=438"
+  },
+  {
+   "id": "URG-ld",
+   "desc": "P0300 FAQ structured data leads with the flashing/shaking condition",
+   "pass": true,
+   "detail": "If the check engine light is flashing or the engine is shaking hard, pull over w"
+  }
+ ]
+}

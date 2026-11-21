@@ -1,0 +1,86 @@
+[
+ {
+  "id": "QA-URG-p0300",
+  "desc": "P0300 (P0300 Random/Multiple Cylinder Misfire Detected): first urgency element after code H1 is the stop condition",
+  "pass": true,
+  "evidence": "first=urg-first :: Stop-now condition. If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. D"
+ },
+ {
+  "id": "QA-URG-LD-p0300",
+  "desc": "P0300: FAQ JSON-LD drive answer opens with the stop condition",
+  "pass": true,
+  "evidence": "ans=If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. Don't keep driving; a"
+ },
+ {
+  "id": "QA-URG-p0302",
+  "desc": "P0302 (P0302 Cylinder 2 Misfire Detected): first urgency element after code H1 is the stop condition",
+  "pass": true,
+  "evidence": "first=urg-first :: Stop-now condition. If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. D"
+ },
+ {
+  "id": "QA-URG-LD-p0302",
+  "desc": "P0302: FAQ JSON-LD drive answer opens with the stop condition",
+  "pass": true,
+  "evidence": "ans=If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. Don't keep driving; a"
+ },
+ {
+  "id": "QA-URG-p0306",
+  "desc": "P0306 (P0306 Cylinder 6 Misfire Detected): first urgency element after code H1 is the stop condition",
+  "pass": true,
+  "evidence": "first=urg-first :: Stop-now condition. If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. D"
+ },
+ {
+  "id": "QA-URG-LD-p0306",
+  "desc": "P0306: FAQ JSON-LD drive answer opens with the stop condition",
+  "pass": true,
+  "evidence": "ans=If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. Don't keep driving; a"
+ },
+ {
+  "id": "QA-URG-p0308",
+  "desc": "P0308 (P0308 Cylinder 8 Misfire Detected): first urgency element after code H1 is the stop condition",
+  "pass": true,
+  "evidence": "first=urg-first :: Stop-now condition. If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. D"
+ },
+ {
+  "id": "QA-URG-LD-p0308",
+  "desc": "P0308: FAQ JSON-LD drive answer opens with the stop condition",
+  "pass": true,
+  "evidence": "ans=If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. Don't keep driving; a"
+ },
+ {
+  "id": "QA-URG-p0351",
+  "desc": "P0351 (P0351 Ignition Coil \"A\" Primary/Secondary Circuit): first urgency element after code H1 is the stop condition",
+  "pass": true,
+  "evidence": "first=urg-first :: Stop-now condition. If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. D"
+ },
+ {
+  "id": "QA-URG-LD-p0351",
+  "desc": "P0351: FAQ JSON-LD drive answer opens with the stop condition",
+  "pass": true,
+  "evidence": "ans=If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. Don't keep driving; a"
+ },
+ {
+  "id": "QA-URG-p0335",
+  "desc": "P0335 (P0335 Crankshaft Position Sensor \"A\" Circuit): first urgency element after code H1 is the stop condition",
+  "pass": true,
+  "evidence": "first=urg-first :: Stop-now condition. If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. D"
+ },
+ {
+  "id": "QA-URG-LD-p0335",
+  "desc": "P0335: FAQ JSON-LD drive answer opens with the stop condition",
+  "pass": true,
+  "evidence": "ans=If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. Don't keep driving; a"
+ },
+ {
+  "id": "QA-URG-SWEEP",
+  "desc": "misfire/ignition/crank/cam-titled code pages with stop-first element: 52/154",
+  "pass": false,
+  "evidence": "missing: p000a \"A\" Camshaft Position Slow Response (Bank 1); p000b \"B\" Camshaft Position Slow Response (Bank 1); p000c \"A\" Camshaft Position Slow Response (Bank 2); p000d \"B\" Camshaft Position Slow Response (Bank 2); p0010 \"A\" Camshaft Position Actuator Circuit (Bank 1); p0011 \"A\" Camshaft Position - Timing Over-Advanced or System Performance (Bank 1); p0012 \"A\" Camshaft Position - Timing Over-Ret"
+ },
+ {
+  "id": "QA-URG-CONTRA",
+  "desc": "no drive box repeats the flashing-light case under \"Otherwise\" with softer advice",
+  "pass": false,
+  "evidence": "7 pages, e.g. p0300 p0351 p0352 p0353 p0354 p0355 p0356"
+ }
+]

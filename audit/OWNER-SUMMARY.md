@@ -18,11 +18,13 @@
 | Item | Count / denominator | Evidence needed |
 |---|---|---|
 | Prices withheld (no RepairPal + independent pair) | 15,177 of 19,819 price records (4,614 conditional recall no-charge, 28 ineligible) | RepairPal data license/export by YMM+engine+job with ZIP/date; second leg from Mitchell/ALLDATA if terms allow publishing |
-| Dollar figures in prose | 2,759 public files | Rewrite or evidence each figure |
-| Safety sign-off | 8,083 contexts, 198 reviewer groups (audit/safety/safety-groups.csv) | Qualified human (e.g. ASE Master) signs each group in src/evidence/safety-signoff.json |
-| Recall mappings unverified | 162 of 561 combined-label year pages; 6,776 single-name year pages | NHTSA name confirmation per make/year (audit/recalls/NOTES.md); Mercedes recall queries fail at NHTSA |
+| Safety sign-off | 8,157 rendered contexts in the release gate (7,524 exact-text groups); the safety agent's broader inventory is 18,726 contexts in 198 reviewer groups (audit/safety/safety-groups.csv) — the two inventories still need to be unified | Qualified human (e.g. ASE Master) signs each group in src/evidence/safety-signoff.json |
+| Recall mappings unverified | 162 of 561 combined-label year pages; 5,006 of 7,175 year pages overall (2,169 verified, incl. 215 single-name models) | NHTSA name confirmation per make/year (audit/recalls/NOTES.md); Mercedes recall queries fail at NHTSA |
 | Vehicle issue claims unchecked | 15,110 of 15,110 | Open each cited source and confirm wording/year/engine |
 | Wrong links on guide pages' vehicle lists | 89,882 of 121,143 pairs flagged (now filtered by the strict matcher) | Re-run audit/links/enumerate.js after build to recount |
 
 ## Next single action
 Provide a RepairPal data license/export (or written permission) — it unblocks the largest group of withheld prices.
+
+## Pass 3 (QA follow-ups, 2026-11-21)
+Independent QA (audit/qa/QA-REPORT.md) found, and this pass fixed: guide results crashed on withheld prices when a vehicle was picked (safety advice did not render; also live before this pass); Tesla "spark" search showed "no sourced range" instead of "does not apply"; 37 ignition-coil circuit codes (P2300–P2335, P06D1) buried the stop condition; malformed hidden H1 tag; 2,759 public files with unbacked dollar figures (now 0; 268 maintenance notes are now empty — see audit/pricing/text/changes.csv). Still open from QA: 7 pages where the "Otherwise:" drive text repeats softer flashing-light advice; ledger omits 556 rows in 4 families (benchmark, menu, labor-rate, code-copied ranges) that are no longer published.

@@ -1,0 +1,161 @@
+{
+ "checked": "2026-11-21T07:03:02.646Z",
+ "revision": "01f429a5fd62559aff4de3894f779fd1d31ae396 (+uncommitted changes)",
+ "checks": {
+  "prices": {
+   "records": 19819,
+   "byStatus": {
+    "withheld": 15177,
+    "recall-no-charge": 4614,
+    "ineligible": 28
+   },
+   "shown_without_evidence": 0,
+   "withheld_pending_evidence": 15177
+  },
+  "public_dollar_figures": {
+   "files_scanned": 11158,
+   "files_with_unbacked_figures": 2759,
+   "distinct_unbacked_figures": 500,
+   "examples": [
+    [
+     "$300",
+     319
+    ],
+    [
+     "$150",
+     284
+    ],
+    [
+     "$500",
+     221
+    ],
+    [
+     "$400",
+     218
+    ],
+    [
+     "$200",
+     208
+    ],
+    [
+     "$250",
+     191
+    ],
+    [
+     "$140",
+     190
+    ],
+    [
+     "$384",
+     183
+    ],
+    [
+     "$307",
+     151
+    ],
+    [
+     "$600",
+     141
+    ],
+    [
+     "$100",
+     129
+    ],
+    [
+     "$222",
+     129
+    ],
+    [
+     "$350",
+     123
+    ],
+    [
+     "$377",
+     120
+    ],
+    [
+     "$335",
+     114
+    ],
+    [
+     "$210",
+     106
+    ],
+    [
+     "$322",
+     104
+    ],
+    [
+     "$370",
+     102
+    ],
+    [
+     "$397",
+     101
+    ],
+    [
+     "$190",
+     98
+    ],
+    [
+     "$160",
+     94
+    ],
+    [
+     "$430",
+     92
+    ],
+    [
+     "$331",
+     88
+    ],
+    [
+     "$450",
+     86
+    ],
+    [
+     "$352",
+     85
+    ]
+   ]
+  },
+  "safety": {
+   "instruction_groups": 7524,
+   "rendered_contexts": 8083,
+   "contexts_without_signoff": 8083,
+   "groups_without_signoff": 7524
+  },
+  "recalls": {
+   "combined_label_year_pages": 561,
+   "combined_verified": 399,
+   "all_year_pages": 7175,
+   "all_with_verified_mapping": 399,
+   "note": "Year pages without a verified mapping show results only after a validated non-empty lookup; zero shows as Lookup unavailable."
+  },
+  "claims": {
+   "vehicle_issue_claims": 15110,
+   "reviewed_verified": 0,
+   "unreviewed": 15110,
+   "note": "Codes, lights, guides, ownership counts and privacy promises are tracked in audit/claims-inventory.csv."
+  },
+  "routes": {
+   "sitemap_routes": 10573,
+   "structurally_tested_pass": 10573,
+   "untested_or_failing": 0,
+   "note": "Structural tests (status, canonical, title, H1, links) do not verify content."
+  },
+  "regressions": {
+   "total": 29,
+   "passed": 29
+  }
+ },
+ "blocked": [
+  "prices: 15177 price records withheld pending evidence (audit items stay open)",
+  "public-dollar-figures: 2759 public files contain dollar figures with no shown price record or verified claim (labor rates, disclaimers, benchmarks)",
+  "safety: 8083 rendered safety-critical contexts in 7524 groups have no documented qualified sign-off",
+  "recalls: 162 combined-label year pages lack a verified NHTSA mapping",
+  "recalls: 6776 of 7175 year pages have no verified mapping (zero results there show as Lookup unavailable)",
+  "claims: 15110 of 15110 vehicle issue claims have not been checked against their cited evidence"
+ ],
+ "release": "BLOCKED"
+}

@@ -1,0 +1,110 @@
+[
+ {
+  "id": "QA-PRC-TY-PROD \"spark plug\"",
+  "desc": "2023 Model Y, production data: no spark-plug button, no $ figure, no verdict",
+  "pass": true,
+  "evidence": "sug=No match yet. Try a simpler word, like \"brake\", \"pump\" or \"sensor\".No sourced range yet for Spark plug replacement: we have not found enough public parts prices and stated labor times to build one we can stand behind. Ask the shop for the parts and labor split"
+ },
+ {
+  "id": "QA-PRC-TY-PROD-MSG",
+  "desc": "2023 Model Y, production data: driver told spark plugs \"does not apply\" to a battery-electric vehicle",
+  "pass": false,
+  "evidence": "sug=No match yet. Try a simpler word, like \"brake\", \"pump\" or \"sensor\".No sourced range yet for Spark plug replacement: we have not found enough public parts prices and stated labor times to build one we can stand behind. Ask the shop for the parts and labor split and the hours they are charging."
+ },
+ {
+  "id": "QA-PRC-TY-PROD \"spark plugs\"",
+  "desc": "2023 Model Y, production data: no spark-plug button, no $ figure, no verdict",
+  "pass": true,
+  "evidence": "sug=No match yet. Try a simpler word, like \"brake\", \"pump\" or \"sensor\"."
+ },
+ {
+  "id": "QA-PRC-TY-PROD \"plugs\"",
+  "desc": "2023 Model Y, production data: no spark-plug button, no $ figure, no verdict",
+  "pass": true,
+  "evidence": "sug=No match yet. Try a simpler word, like \"brake\", \"pump\" or \"sensor\"."
+ },
+ {
+  "id": "QA-PRC-TY-FIX",
+  "desc": "2023 Model Y (fixture with a spark-plug estimate): not offered, says does not apply to battery-electric",
+  "pass": true,
+  "evidence": "Spark plug replacement (QA estimate): This repair does not apply to a battery-electric vehicle."
+ },
+ {
+  "id": "QA-PRC-TY-GO",
+  "desc": "Get-verdict button stays disabled for Model Y (no job selectable)",
+  "pass": true,
+  "evidence": "disabled=true"
+ },
+ {
+  "id": "QA-PRC-GAS",
+  "desc": "2015 Camry (gasoline) with fixture: spark plug offered and gets a verdict",
+  "pass": true,
+  "evidence": "Your result · 2015 Toyota CamryWithin the typical rangeSpark plug replacement (QA estimate): you were quoted $300. Typical for a midsize car or crossover: $170–"
+ },
+ {
+  "id": "QA-PRC-GAS-OWN",
+  "desc": "2015 Camry own (withheld) spark plug job: offered, result says Insufficient verified pricing, no range/verdict",
+  "pass": true,
+  "evidence": "Your result · 2015 Toyota CamryInsufficient verified pricing for this vehicle and repairSpark plug replacement: you were quoted $300.We have not matched this repair to two independent, dated price sou"
+ },
+ {
+  "id": "QA-PRC-CLR-STATE",
+  "desc": "verdict clears when state changes",
+  "pass": true,
+  "evidence": ""
+ },
+ {
+  "id": "QA-PRC-REQUOTE",
+  "desc": "requote after state change produces a verdict again",
+  "pass": true,
+  "evidence": "Your result · 2015 Toyota CamryHigher than typicalSpark plug replacement (QA est"
+ },
+ {
+  "id": "QA-PRC-CLR-AMT",
+  "desc": "verdict clears when amount changes",
+  "pass": true,
+  "evidence": ""
+ },
+ {
+  "id": "QA-PRC-CLR-CLASS",
+  "desc": "verdict clears when kind of vehicle changes",
+  "pass": true,
+  "evidence": ""
+ },
+ {
+  "id": "QA-PRC-CLR-YEAR",
+  "desc": "verdict clears when the vehicle year changes",
+  "pass": true,
+  "evidence": ""
+ },
+ {
+  "id": "QA-PRC-CLR-VEH",
+  "desc": "switching vehicle Camry -> 2023 Model Y clears verdict and spark plugs become \"does not apply\"",
+  "pass": true,
+  "evidence": "before=Your result · 2023 Toyota CamryWithin th after=\"\" sug=Spark plug replacement (QA estimate): This repair does not apply to a battery-electric vehicle."
+ },
+ {
+  "id": "QA-PRC-VPAGE /vehicles/tesla-model-y/2023/",
+  "desc": "rendered vehicle view has no dollar figures and no spark plug job",
+  "pass": true,
+  "evidence": "dollars="
+ },
+ {
+  "id": "QA-PRC-VPAGE /vehicles/toyota-camry/2015/",
+  "desc": "rendered vehicle view has no dollar figures",
+  "pass": true,
+  "evidence": "dollars="
+ },
+ {
+  "id": "QA-PRC-VPAGE /vehicles/acura-ilx/2016/",
+  "desc": "rendered vehicle view has no dollar figures",
+  "pass": false,
+  "evidence": "dollars=$264 $338 $293 $345"
+ },
+ {
+  "id": "QA-PRC-VPAGE /vehicles/acura-cl/1999/",
+  "desc": "rendered vehicle view has no dollar figures",
+  "pass": false,
+  "evidence": "dollars=$80 $110"
+ }
+]
