@@ -7,8 +7,70 @@ const {JSDOM}=require('jsdom');
 const animations = require('./src/animations/render').createLibrary();
 const SITE='https://www.vehiclesymptoms.com';
 const CONTACT='autosymptoms@gmail.com';
-const BYLINE=(p)=>`<p class="byline">VehicleSymptoms team · Updated November 2026 · <a href="/about/">How we work</a> · <a href="mailto:${CONTACT}?subject=${encodeURIComponent('Mistake on '+p)}">Report a mistake</a></p>`;
+const BYLINE='<p class="byline">VehicleSymptoms team · Updated November 2026 · <a href="/about/">How we work</a> · <a href="/about/#contact">Contact the team</a></p>';
 const CRED='Built by people who fix cars. Guides are written for drivers and checked against recalls, service bulletins and repair records.';
+
+const {createHash}=require('node:crypto');
+const publisherNames=require('./src/source-publishers.json');
+const publisherAliases={'Cars.com':'Cars Commerce','FuelEconomy.gov':'U.S. Department of Energy'};
+const knownPublishers=new Set(Object.values(publisherNames).map(name=>publisherAliases[name]||name));
+const isExternal=value=>/(?:\b[a-z][a-z0-9+.-]*:\s*\/\/|\b(?:mailto|tel|sms|javascript|file|blob):|\bdata:[^,\s]*,|\bwww\.|(?:^|[\s"'(=])\/\/[a-z0-9]|\b[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.(?:com|org|gov|edu|net|info|biz|io|co|us|ca|uk|au|de|jp|app|site|auto|autos|repair|shop|inc|news)\b|\b[a-z0-9][a-z0-9.-]*\.[a-z]{2,63}(?=[/?#])|^(?:[a-z0-9-]+\.)+[a-z]{2,63}$)/i.test(value);
+function publisherLabel(source){
+  if(typeof source!=='string')return null;
+  const name=publisherAliases[source]||source;
+  if(knownPublishers.has(name))return name;
+  let host;
+  try{host=new URL(source).hostname.toLowerCase().replace(/^www\./,'')}catch{return null}
+  while(host.includes('.')){
+    const label=publisherNames[host];
+    if(label)return publisherAliases[label]||label;
+    host=host.slice(host.indexOf('.')+1);
+  }
+  return null;
+}
+const publishers=sources=>[...new Set(sources.map(publisherLabel).filter(Boolean))];
+function assertPublicData(value,context){
+  if(typeof value==='string'){
+    if(isExternal(value))throw new Error('Outside URL in public data: '+context);
+  }else if(value&&typeof value==='object'){
+    for(const [key,child] of Object.entries(value)){
+      if(isExternal(key))throw new Error('Outside URL in public data key: '+context);
+      assertPublicData(child,context+'.'+key);
+    }
+  }
+}
+function publicJson(value,context){
+  const serialized=JSON.stringify(value,(key,item)=>{
+    if((key==='src'||key==='sources')&&Array.isArray(item)&&item.every(v=>typeof v==='string'))return publishers(item);
+    return item;
+  });
+  assertPublicData(JSON.parse(serialized),context);
+  return serialized;
+}
+const instructionRows=JSON.parse(fs.readFileSync('src/onsite-instructions.json','utf8'));
+if(!Array.isArray(instructionRows)||!instructionRows.length)throw new Error('Expected reviewed on-site instructions');
+const instructionMap=new Map(),appliedInstructions=new Set();
+const instructionKey=(id,title,field)=>JSON.stringify([id,title,field]);
+for(const row of instructionRows){
+  if(!row||Object.keys(row).sort().join(',')!=='after,before,field,id,title'||
+    !/^[a-z0-9-]+$/.test(row.id)||typeof row.title!=='string'||!row.title.trim()||
+    !['next','note'].includes(row.field)||!/^[0-9a-f]{64}$/.test(row.before)||
+    typeof row.after!=='string'||!row.after.trim()||isExternal(row.after)||isExternal(row.title))
+    throw new Error('Invalid reviewed on-site instruction');
+  const key=instructionKey(row.id,row.title,row.field);
+  if(instructionMap.has(key))throw new Error('Duplicate reviewed instruction: '+key);
+  instructionMap.set(key,row);
+}
+function applyInstruction(id,record,field){
+  const key=instructionKey(id,record.t,field),edit=instructionMap.get(key);
+  if(!edit)return;
+  if(appliedInstructions.has(key))throw new Error('Ambiguous source instruction: '+key);
+  if(typeof record[field]!=='string'||createHash('sha256').update(record[field],'utf8').digest('hex')!==edit.before)
+    throw new Error('Source instruction changed; review required: '+key);
+  if(record[field]===edit.after)throw new Error('Instruction already matches replacement: '+key);
+  record[field]=edit.after;
+  appliedInstructions.add(key);
+}
 
 // ---------- vehicles ----------
 const files=['src/vehicles.js',...fs.readdirSync('src/batches').filter(f=>/^batch\d+\.js$/.test(f)).sort((a,b)=>parseInt(a.slice(5))-parseInt(b.slice(5))).map(f=>'src/batches/'+f)];
@@ -18,6 +80,7 @@ let V=window.VEHICLES;
 const deepDir='src/deep';let deepN=0;
 if(fs.existsSync(deepDir))for(const f of fs.readdirSync(deepDir).filter(f=>f.endsWith('.json'))){
   try{const d=JSON.parse(fs.readFileSync(path.join(deepDir,f),'utf8'));const k=V.findIndex(v=>v.id===d.id);if(k>=0){V[k]=d;deepN++}else{V.push(d);deepN++}}catch(e){console.log('BAD deep file',f,e.message)}}
+for(const v of V)for(const issue of v.issues)applyInstruction(v.id,issue,'next');
 // Years a model was not sold in the US (src/gaps.json): no year page, not offered in pickers.
 {const G=JSON.parse(fs.readFileSync('src/gaps.json','utf8'));for(const v of V){if(G[v.id])v.gaps=G[v.id];else delete v.gaps}}
 const sold=(v,y)=>y>=v.years[0]&&y<=v.years[1]&&!(v.gaps||[]).some(g=>y>=g[0]&&y<=g[1]);
@@ -29,12 +92,17 @@ const EV=require('./tools/evidence.js'),PT=require('./src/powertrain.js');const 
 const rnd=(n,up)=>{const st=n<500?10:n<2000?25:50;return (up?Math.ceil(n/st):Math.floor(n/st))*st};
 if(fs.existsSync('src/prices'))for(const f of fs.readdirSync('src/prices').filter(f=>f.endsWith('.json'))){
   const P=JSON.parse(fs.readFileSync('src/prices/'+f,'utf8'));const v=V.find(v=>v.id===P.id);if(!v){console.log('price file for unknown vehicle',f);continue}
+  for(const item of P.items)applyInstruction(P.id,item,'note');
   const byT=new Map(P.items.map(x=>[x.t,x]));
   for(const i of v.issues){const x=byT.get(i.t);if(!x)continue;
     const lo=rnd(x.parts[0]+x.hours[0]*RATE[0],false),hi=Math.max(rnd(x.parts[1]+x.hours[1]*RATE[1],true),lo+10);
     if(x.parts[1]===0&&x.hours[1]===0){i.cost={job:x.job,free:true,note:x.note||'',recall:true};LEDGER.push({id:EV.ids.issue(v.id,i.t),family:'vehicle-issue',scope:v.id,job:x.job,lo:0,hi:0,status:'recall-no-charge',reason:'conditional no-charge recall remedy; recall applicability is a claim, not a price'});priced++;continue}
     const g=EV.priceQualifies(EV.ids.issue(v.id,i.t));LEDGER.push({id:EV.ids.issue(v.id,i.t),family:'vehicle-issue',scope:v.id+' '+i.y.join('-'),job:x.job,lo:Math.max(lo,0),hi,status:g.ok?'shown':'withheld',reason:g.reason||''});
     i.cost=g.ok?{job:x.job,lo:Math.max(lo,0),hi,note:x.note||'',recall:!!x.recall}:{job:x.job,withheld:true,recall:!!x.recall};priced++}
+}
+if(appliedInstructions.size!==instructionMap.size){
+  const missed=[...instructionMap.keys()].filter(key=>!appliedInstructions.has(key));
+  throw new Error('Unmatched reviewed instructions ('+missed.length+'): '+missed.slice(0,5).join(', '));
 }
 // ---------- ownership costs (src/own/<id>.json) ----------
 let ownN=0;
@@ -60,7 +128,7 @@ if (animations) for (const v of V) for (const issue of v.issues) {
   const item = animations.forText(issue.t);
   if (item) issue.animation = { title: item.title, href: animations.link(item) };
 }
-const data='// Generated by build.js — edit files in src/ instead.\nwindow.VEHICLES='+JSON.stringify(V)+';\n';
+const data='// Generated by build.js — edit files in src/ instead.\nwindow.VEHICLES='+publicJson(V,'vehicles')+';\n';
 fs.writeFileSync('vehicles.js',data);
 const thin=V.reduce((a,v)=>{for(let y=v.years[0];y<=v.years[1];y++)if(sold(v,y)&&v.issues.filter(i=>y>=i.y[0]&&y<=i.y[1]).length<2)a++;return a},0);
 for(const v of V)for(const i of v.issues)if(firstSold(v,i)===null)console.log('issue only in not-sold years',v.id,i.t,i.y);
@@ -77,8 +145,8 @@ for(const f of fs.readdirSync(JDIR).filter(f=>f.endsWith('.json')).sort()){
 const jids=new Set(J.map(j=>j.id));
 J.forEach(j=>{j.related=j.related.filter(r=>jids.has(r)&&r!==j.id)});
 fs.mkdirSync('api/_data',{recursive:true});
-fs.writeFileSync('api/_data/journeys.json',JSON.stringify(Object.fromEntries(J.map(j=>[j.id,{id:j.id,title:j.title,start:j.start,nodes:j.nodes}]))));
-fs.writeFileSync('api/_data/vehicles-lite.json',JSON.stringify(Object.fromEntries(V.map(v=>[v.id,{name:v.make+' '+v.model,y0:v.years[0],y1:v.years[1]}]))));
+fs.writeFileSync('api/_data/journeys.json',publicJson(Object.fromEntries(J.map(j=>[j.id,{id:j.id,title:j.title,start:j.start,nodes:j.nodes}])), 'guide email data'));
+fs.writeFileSync('api/_data/vehicles-lite.json',publicJson(Object.fromEntries(V.map(v=>[v.id,{name:v.make+' '+v.model,y0:v.years[0],y1:v.years[1]}])), 'vehicle email index'));
 const INDEX=J.map(j=>({id:j.id,title:j.title,h1:j.h1,group:j.group,cat:j.cat,syn:j.synonyms}));
 // Strict issue->guide links (see src/guide-links.json). Fail the build on a bad pattern or an unknown guide id.
 const GLINKS=JSON.parse(fs.readFileSync('src/guide-links.json','utf8'));
@@ -87,7 +155,7 @@ const GLINKS=JSON.parse(fs.readFileSync('src/guide-links.json','utf8'));
    for(const p of [...r.any,...(r.not||[])])try{new RegExp(p,'i')}catch(e){bad.push(id+': '+p)}}
  for(const id in GLINKS.guides)if(!GLINKS.order.includes(id))bad.push(id+' missing from order');
  if(bad.length){console.error('guide-links.json problems:\n  '+bad.join('\n  '));process.exit(1)}}
-const indexJs='window.GUIDE_INDEX='+JSON.stringify(INDEX)+';\nwindow.GUIDE_LINKS='+JSON.stringify({not:GLINKS.not,order:GLINKS.order,guides:GLINKS.guides})+';\n';
+const indexJs='window.GUIDE_INDEX='+publicJson(INDEX,'guide index')+';\nwindow.GUIDE_LINKS='+JSON.stringify({not:GLINKS.not,order:GLINKS.order,guides:GLINKS.guides})+';\n';
 console.log(`${J.length} symptom guides`);
 
 // ---------- output ----------
@@ -97,10 +165,10 @@ const tpl=fs.readFileSync('src/template.html','utf8')
 fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');
 // Phones only download what a page needs: a small vehicle list everywhere, full data per vehicle on demand.
 {const lite=V.map(v=>{const o={};for(const k of Object.keys(v))if(k!=='issues'&&k!=='own')o[k]=v[k];o.issues=[];o.n=v.issues.length;return o});
- fs.writeFileSync('dist/vehicles.js','// Generated by build.js. Full per-vehicle data lives in /data/v/<id>.json\nwindow.VEHICLES='+JSON.stringify(lite)+';\n'+
+ fs.writeFileSync('dist/vehicles.js','// Generated by build.js. Full per-vehicle data lives in /data/v/<id>.json\nwindow.VEHICLES='+publicJson(lite,'vehicle index')+';\n'+
   "(function(){const c={};window.VS_LOAD=function(id){const v=(window.VEHICLES||[]).find(x=>x.id===id);if(!v)return Promise.resolve(null);if(v._full)return Promise.resolve(v);"+
   "return c[id]=c[id]||fetch('/data/v/'+id+'.json').then(r=>r.json()).then(d=>{Object.assign(v,d,{_full:true});return v}).catch(()=>v)}})();\n");
- fs.mkdirSync('dist/data/v',{recursive:true});for(const v of V)fs.writeFileSync('dist/data/v/'+v.id+'.json',JSON.stringify({issues:v.issues,own:v.own||null,engines:v.engines||[]}));}fs.writeFileSync('dist/guide-index.js',indexJs);
+ fs.mkdirSync('dist/data/v',{recursive:true});for(const v of V)fs.writeFileSync('dist/data/v/'+v.id+'.json',publicJson({issues:v.issues,own:v.own||null,engines:v.engines||[]},'vehicle '+v.id));}fs.writeFileSync('dist/guide-index.js',indexJs);
 for(const f of ['app.js','guide.js','site.css','pdf.js','powertrain.js'])fs.copyFileSync('src/'+f,'dist/'+f);
 fs.mkdirSync('dist/vendor',{recursive:true});fs.copyFileSync('src/vendor/jspdf.umd.min.js','dist/vendor/jspdf.umd.min.js');
 fs.mkdirSync('dist/email',{recursive:true});for(const f of fs.readdirSync('src/email'))fs.copyFileSync('src/email/'+f,'dist/email/'+f);
@@ -145,11 +213,15 @@ if (animations) {
   urls.push(page('/repair-animations/', 'Repair Animations | VehicleSymptoms.com',
     'Browse MotoVisuals animations to see how vehicle parts and systems work.', {inner: directory.html, pageData}));
 }
+const sound = require('./src/sounds/page.js');
+if (!J.some(j => j.id === sound.guide)) throw new Error('Missing guide for the car sound recording');
+urls.push(page('/sounds/', 'Car Sounds | VehicleSymptoms.com', 'Listen to a real whir inside a moving car and open the matching symptom guide.', {inner: sound.html}));
+fs.copyFileSync('src/sounds/'+sound.clip, 'dist/sounds/'+sound.clip);
 const HOMEFAQ=[...fs.readFileSync('src/template.html','utf8').matchAll(/<details class="faq"><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)].map(m=>({'@type':'Question',name:m[1],acceptedAnswer:{'@type':'Answer',text:m[2]}}));
 const homeLd='<script type="application/ld+json">'+JSON.stringify([{'@context':'https://schema.org','@type':'WebSite',name:'VehicleSymptoms.com',url:SITE+'/'},{'@context':'https://schema.org','@type':'FAQPage',mainEntity:HOMEFAQ}]).replace(/</g,'\\u003c')+'</script>\n';
 urls.push(page('/',"What's Wrong With My Car? Free Car Symptom Help | VehicleSymptoms.com",'Free, plain-English help for car problems: what to check, how urgent it may be and what to ask your mechanic. From people who fix cars.',{home:true,pageData:homeLd}));
 
-const srcLabel=u=>{const m=u.replace(/^https?:\/\/(www\.)?/,'').split(/[?#]/)[0].split('/').filter(Boolean);const host=m[0];const slug=(m.slice(1).reverse().find(x=>/[a-z]{3}/i.test(x))||'').replace(/\.(html?|php|aspx?|pdf)$/i,'').replace(/[-_]+/g,' ').trim();return slug?host+': '+slug.charAt(0).toUpperCase()+slug.slice(1):host};
+function sourceCredits(sources){return publishers(sources).map(escH).join(' · ')||'Editorial evidence on file'}
 // symptom guide pages
 const GL={start:"Won't start",light:"Warning light",noise:"Noise",shake:"Shaking",leaksmell:"Leak, smell or smoke",hot:"Running hot",drive:"Driving & handling"};
 const UL={stop:["Stop — don't drive it","high"],soon:["Get it checked in the next few days","med"],check:["Book a check when convenient","info"],diy:["Safe to check yourself first","low"]};
@@ -160,14 +232,15 @@ for(const j of J){
   const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/symptoms/">Symptom guides</a> › ${escH(j.title)}</div>
 <div class="ghead"><div class="eyebrow">${escH(GL[j.group])}</div><h1>${escH(j.h1)}</h1><p class="sub">${escH(j.intro)}</p></div>
 ${j.safety.length?`<div class="safety"><b>Stop and get help right away if:</b><ul>${j.safety.map(s=>`<li>${escH(s)}</li>`).join('')}</ul></div>`:''}
-${BYLINE('/symptoms/'+j.id+'/')}<div id="guideApp"><div class="flow card"><div class="step-n">Question 1</div><h2 class="fq">${escH(firstQ.q)}</h2>${firstQ.help?`<p class="help">${escH(firstQ.help)}</p>`:''}<div class="opts">${firstQ.opts.map(o=>`<button class="opt">${escH(o.a)}</button>`).join('')}</div></div></div>
+${j.id===sound.guide?`<p><a href="/sounds/#${sound.section}">Hear a whir inside a moving car</a></p>`:''}
+${BYLINE}<div id="guideApp"><div class="flow card"><div class="step-n">Question 1</div><h2 class="fq">${escH(firstQ.q)}</h2>${firstQ.help?`<p class="help">${escH(firstQ.help)}</p>`:''}<div class="opts">${firstQ.opts.map(o=>`<button class="opt">${escH(o.a)}</button>`).join('')}</div></div></div>
 ${animation}
 <div class="fullguide"><h2 style="font-size:20px">Full guide: every possible outcome</h2><p class="muted" style="margin-top:-4px">Prefer to read it all? Here's every result this guide can reach.</p>
 ${results.map(r=>`<details><summary>${escH(r.title)}<span class="urg ${UL[r.urgency][1]}">${UL[r.urgency][0]}</span></summary><div class="fg"><p><b>What to do now:</b> ${escH(r.now)}</p><p><b>Why:</b> ${escH(r.why)}</p><p><b>Possible causes:</b> ${r.causes.map(c=>escH(c.name)).join('; ')}.</p><p><b>A shop will usually test:</b> ${r.confirm.shop.map(escH).join('; ')}.</p></div></details>`).join('\n')}
 ${j.related.length?`<h2 style="font-size:20px;margin-top:26px">Related guides</h2><div class="glist">${j.related.map(id=>{const r=J.find(x=>x.id===id);return`<a class="gcard" href="/symptoms/${r.id}/"><b>${escH(r.title)}</b><span>${escH(r.h1)}</span></a>`}).join('')}</div>`:''}
-<p class="srcs" style="margin-top:22px">Sources and references: ${j.sources.map(s=>/^https?:/.test(s)?`<a href="${escA(s)}" rel="nofollow noopener" target="_blank">${escH(srcLabel(s))}</a>`:escH(s)).join(' · ')}</p>
+<p class="srcs" style="margin-top:22px">Sources and references: ${sourceCredits(j.sources)}</p>
 <div class="trust" style="margin-top:18px">This guide helps you understand what may be going on and how urgent it is. It doesn't replace an in-person inspection.</div></div>`;
-  urls.push(page(`/symptoms/${j.id}/`,`${j.h1.replace(/\?$/,'')}? Causes & What to Do | VehicleSymptoms.com`.replace('??','?'),j.metaDesc,{inner,pageData:`${animation ? animationScript : ''}<script>window.JOURNEY=${JSON.stringify(j).replace(/</g,'\\u003c')};</script>\n`}));
+  urls.push(page(`/symptoms/${j.id}/`,`${j.h1.replace(/\?$/,'')}? Causes & What to Do | VehicleSymptoms.com`.replace('??','?'),j.metaDesc,{inner,pageData:`${animation ? animationScript : ''}<script>window.JOURNEY=${publicJson(j,'guide '+j.id).replace(/</g,'\\u003c')};</script>\n`}));
 }
 // ---------- trouble codes (src/codes/*.json) ----------
 const CODES=[];const cseen=new Set();
@@ -195,7 +268,7 @@ for(let k=0;k<CODES.length;k++){const c=CODES[k],low=c.code.toLowerCase(),u=CURG
   const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/codes/">Code lookup</a> › ${c.code}</div>
 <div class="ghead"><div class="eyebrow">${escH(famName(c.code))} code · ${escH(c.sys)}</div><h1><span class="code-big">${c.code}</span> ${escH(c.title)}</h1></div>
 ${c.urgent_if?`<div class="urg-first" role="alert"><b>Stop-now condition.</b> ${escH(c.urgent_if)}</div>`:''}<div class="urg ${u[1]}"><b>How urgent?</b> ${c.urgent_if?'Otherwise: ':''}${escH(u[0])}</div>
-${BYLINE('/codes/'+low+'/')}<div id="codeMy"></div>
+${BYLINE}<div id="codeMy"></div>
 <section class="card csec"><h2>What it means</h2><p class="lead2">${escH(c.plain)}</p></section>
 <section class="card csec drivebox" style="border-left-color:${c.sev==='stop'||c.urgent_if?'#C62F37':c.sev==='soon'?'#D08700':'#0B63CE'}"><h2>Can I keep driving?</h2>${c.urgent_if?`<p><b>${escH(c.urgent_if)}</b></p><p>Otherwise: ${escH(drive)}</p>`:`<p>${escH(drive)}</p>`}</section>
 <section class="card csec"><h2>What to test before replacing parts</h2><p>${escH(testFirst)}</p><ol class="nums">${c.checks.map(x=>`<li>${escH(x)}</li>`).join('')}</ol></section>
@@ -252,7 +325,7 @@ for(const l of LIGHTS){const u=LSEV[l.sev];const gs=l.guides.filter(g=>JT[g]).ma
   const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/warning-lights/">Warning lights</a> › ${escH(l.name)}</div>
 <div class="lhead"><div class="lbig" style="border-color:${LCOL[l.color]}55">${lIcon(l,72)}</div><div><div class="eyebrow">${escH(LCOLNAME[l.color])}</div><h1>${escH(l.name)}</h1>${l.aka.length?`<p class="muted" style="margin:4px 0 0">Also called: ${l.aka.map(escH).join(', ')}</p>`:''}</div></div>
 <div class="urg ${u[1]}"><b>How urgent?</b> ${escH(u[0])}</div>
-${BYLINE('/warning-lights/'+l.id+'/')}<section class="card csec"><h2>What it means</h2><p class="lead2">${escH(l.meaning)}</p>${d.look?`<p class="lmuted">${escH(d.look)}</p>`:''}</section>
+${BYLINE}<section class="card csec"><h2>What it means</h2><p class="lead2">${escH(l.meaning)}</p>${d.look?`<p class="lmuted">${escH(d.look)}</p>`:''}</section>
 <section class="card csec drivebox" style="border-left-color:${LCOL[l.color]}"><h2>Can I keep driving?</h2><p>${escH(l.drive)}</p>${d.flash?`<p class="lflash"><b>If it's flashing or blinking:</b> ${escH(d.flash)}</p>`:''}</section>
 <div class="cgrid"><section class="card csec"><h2>What to do now</h2><ol class="nums">${l.todo.map(x=>`<li>${escH(x)}</li>`).join('')}</ol></section>
 <section class="card csec"><h2>Common causes</h2><ul class="dots">${l.causes.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section></div>
@@ -272,7 +345,7 @@ ${d.reset.real?(Object.keys(RESETS).length&&/oil|service|maint|tire|tyre/i.test(
 ${gs.length?`<section class="csec"><h2 style="font-size:18px">Walk through it step by step</h2><div class="glist">${gs.map(g=>`<a class="gcard" href="/symptoms/${g.id}/"><b>${escH(g.title)}</b><span>${escH(g.h1)}</span></a>`).join('')}</div></section>`:''}
 ${cs.length?`<section class="csec"><h2 style="font-size:18px">Trouble codes often stored with this light</h2><div class="codechips">${cs.map(c=>{const x=CODES.find(y=>y.code===c);return `<a href="/codes/${c.toLowerCase()}/"><b>${c}</b> ${escH(x.title)}</a>`}).join('')}</div></section>`:''}
 <section class="csec"><h2 style="font-size:18px">Common questions</h2>${faq.map((f,i)=>`<details class="faq"${i===0?' open':''}><summary>${escH(f.q)}</summary><p>${escH(f.a)}</p></details>`).join('')}</section>
-${d.src&&d.src.length?`<p class="lsrc">Sources: ${d.src.map(s=>`<a href="${escA(s)}" target="_blank" rel="noopener nofollow">${escH(srcLabel(s))}</a>`).join(' · ')}</p>`:''}
+${d.src&&d.src.length?`<p class="lsrc">Sources: ${sourceCredits(d.src)}</p>`:''}
 ${(SEE[l.id]||[]).length?`<section class="csec"><h2 style="font-size:18px">Not your light? These get mixed up with it</h2><div class="lrow">${(SEE[l.id]||[]).map(x=>LIGHTS.find(y=>y.id===x)).filter(Boolean).map(x=>`<a class="lr" href="/warning-lights/${x.id}/">${lIcon(x,34)}<b>${escH(x.name.replace(/ (warning )?light$/i,''))}</b><span class="lsev ${LSEV[x.sev][1]}">${escH(LSEV[x.sev][0])}</span></a>`).join('')}</div></section>`:''}
 <div class="trust">Symbols vary a little between makes. Your owner's manual shows the exact lights for your vehicle. This is a general guide, not a diagnosis.</div>`;
   urls.push(page('/warning-lights/'+l.id+'/',`${l.name}: What It Means & Can You Drive? | VehicleSymptoms.com`,`${l.meaning} ${l.drive}`.slice(0,165),{inner,pageData:ld+(animation ? animationScript : '')}));
@@ -291,7 +364,7 @@ console.log(`${LIGHTS.length} warning lights`);
 // ---------- reset pages (src/resets.json) ----------
 if(Object.keys(RESETS).length){
   const mkeys=Object.keys(RESETS).sort((a,b)=>RESETS[a].make.localeCompare(RESETS[b].make));
-  const varBlock=(s,title)=>s?`<section class="card csec"><h2>${escH(title)}</h2>${s.variants.map((x,i)=>`<div class="rvar"><div class="rv-h"><span class="rv-n">${i+1}</span><b>${escH(x.when)}</b></div><ol class="nums">${x.steps.map(t=>`<li>${escH(t)}</li>`).join('')}</ol>${x.note?`<p class="lmuted">${escH(x.note)}</p>`:''}</div>`).join('')}${s.src&&s.src.length?`<p class="lsrc">Sources: ${s.src.map(u=>`<a href="${escA(u)}" target="_blank" rel="noopener nofollow">${escH(srcLabel(u))}</a>`).join(' · ')}</p>`:''}</section>`:'';
+  const varBlock=(s,title)=>s?`<section class="card csec"><h2>${escH(title)}</h2>${s.variants.map((x,i)=>`<div class="rvar"><div class="rv-h"><span class="rv-n">${i+1}</span><b>${escH(x.when)}</b></div><ol class="nums">${x.steps.map(t=>`<li>${escH(t)}</li>`).join('')}</ol>${x.note?`<p class="lmuted">${escH(x.note)}</p>`:''}</div>`).join('')}${s.src&&s.src.length?`<p class="lsrc">Sources: ${sourceCredits(s.src)}</p>`:''}</section>`:'';
   for(const m of mkeys){const r=RESETS[m];const models=V.filter(v=>v.make===r.make);
     const faq=[{q:`How do I reset the oil change light on a ${r.make}?`,a:(r.oil&&r.oil.variants[0]?r.oil.variants[0].steps.join(' '):'')},
                {q:`How do I reset the tire pressure light on a ${r.make}?`,a:(r.tpms&&r.tpms.variants[0]?r.tpms.variants[0].steps.join(' '):'')}].filter(f=>f.a);
@@ -299,7 +372,7 @@ if(Object.keys(RESETS).length){
     const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/warning-lights/">Warning lights</a> › <a href="/warning-lights/reset/">Reset a light</a> › ${escH(r.make)}</div>
 <div class="ghead"><div class="eyebrow">Reset a reminder light</div><h1>How to reset the oil change and tire pressure lights on a ${escH(r.make)}</h1>
 <p class="sub">These two lights are reminders, not faults. Do the work first, then reset. Everything else on your dash is a warning, and clearing it does not fix anything.</p></div>
-${BYLINE('/warning-lights/reset/'+m+'/')}
+${BYLINE}
 ${varBlock(r.oil,'Oil change or maintenance reminder')}
 ${varBlock(r.tpms,'Tire pressure (TPMS) light')}
 ${r.notes?`<section class="card csec"><h2>Worth knowing on a ${escH(r.make)}</h2><p>${escH(r.notes)}</p></section>`:''}
@@ -320,12 +393,19 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
  // Common repairs: typical range drawn from every sourced, priced job in src/prices (25th percentile of low ends to 75th of high ends).
  // Grows automatically as models are added. A job needs at least 5 priced examples to be listed.
  const references=JSON.parse(fs.readFileSync('src/evidence/quote-references.json','utf8'));
+ const shopQuestions={
+   'Brake pad replacement (pads only, one axle)':'Which axle needs pads? Please list any rotor work as a separate item.',
+   'Cabin air filter replacement':'Does this include the passenger-compartment filter and the labor to install it?',
+   'Engine air filter replacement':'Does this include the engine intake filter and the labor to install it?',
+   'Spark plug replacement':'Which engine is this quote for, and how many spark plugs does it include?',
+   'Tire rotation':'Is this for tire rotation alone? Please list balancing separately if you recommend it.'
+ };
  const referenceKeys=new Set();
  for(const ref of references){
    const vehicle=V.find(v=>v.id===ref.vehicleId);
    const key=[ref.vehicleId,ref.year,ref.job].join('|');
    if(!vehicle||!Number.isInteger(ref.year)||ref.year<vehicle.years[0]||ref.year>vehicle.years[1]||
-      (vehicle.gaps||[]).some(([lo,hi])=>ref.year>=lo&&ref.year<=hi)||!ref.job||referenceKeys.has(key)||
+      (vehicle.gaps||[]).some(([lo,hi])=>ref.year>=lo&&ref.year<=hi)||!shopQuestions[ref.job]||referenceKeys.has(key)||
       !Array.isArray(ref.aliases)||!ref.aliases.every(a=>typeof a==='string')||!Array.isArray(ref.sources)||!ref.sources.length)
      throw new Error('Invalid quote reference: '+key);
    for(const source of ref.sources){
@@ -334,6 +414,10 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
    }
    referenceKeys.add(key);
  }
+ // Keep dated evidence and URLs in the source ledger. Publish the service question and attribution.
+ const repairNotes=references.map(({vehicleId,year,job,aliases,sources})=>({
+   vehicleId,year,job,aliases,question:shopQuestions[job],sources:sources.map(({name,checked})=>({name,checked}))
+ }));
  const COMMON=[['Control arm replacement (one side)',/control arm/,/bolt|fastener|bushing|hardware/],['Ball joint replacement',/ball joint/],['Tie rod end replacement',/tie rod/],['Strut or shock absorber replacement',/strut|shock/,/mount only|liftgate|hood|tailgate|trunk|air (spring|strut)/],['Wheel bearing or hub replacement',/wheel bearing|hub (assembly|bearing)|hub and bearing/],['CV axle replacement',/cv axle|cv joint|half ?shaft|axle shaft/],['Sway bar link or bushing replacement',/sway bar|stabilizer (bar|link)/],['Alternator replacement',/alternator/],['Starter replacement',/starter/,/relay|cable|wire|switch|interrupt/],['Water pump replacement',/water pump/],['Radiator replacement',/radiator(?! hose| cap| fan)/],['Radiator fan replacement',/radiator fan|cooling fan/],['Thermostat replacement',/thermostat/,/water pump|head|radiator|timing/],['Fuel pump replacement',/fuel pump/,/relay|module only|driver|control/],['A/C compressor replacement',/a\/c compressor|ac compressor/],['Blower motor replacement',/blower motor/],['Window regulator or motor replacement',/window regulator|window motor/],['Door lock actuator replacement',/lock actuator/],['Power steering pump replacement',/power steering pump/],['Ignition coil replacement',/ignition coil|coil pack/],['Spark plug replacement',/spark plug/],['Timing belt replacement',/timing belt/],['Timing chain replacement',/timing chain/],['Valve cover gasket replacement',/valve cover gasket/],['Head gasket repair',/head gasket/],['Catalytic converter replacement',/catalytic/],['Oxygen sensor replacement',/oxygen sensor|o2 sensor/],['Brake pads and rotors',/pads and rotors|pad and rotor/],['Brake caliper replacement',/caliper/],['Engine or motor mount replacement',/engine mount|motor mount/],['Serpentine belt or tensioner replacement',/serpentine|belt tensioner/],['Wheel speed (ABS) sensor replacement',/wheel speed sensor|abs sensor/],['Heater core replacement',/heater core/],['Intake manifold gasket replacement',/intake manifold gasket/],['Oil pan gasket replacement',/oil pan gasket/],['Rear main seal replacement',/rear main seal/],['Clutch replacement',/clutch (kit|replacement)|replace (the )?clutch/],['Transmission replacement (remanufactured)',/(replace|rebuild).*(transmission|transaxle)|transmission (replacement|rebuild)/,/sensor|solenoid|mount|cooler|line|fluid|valve body|software|seal|switch|module|filter|pan|harness|range|shift|cable|tcm|clutch pack|torque converter only|pump/],['Throttle body cleaning or replacement',/throttle body/],['Mass air flow sensor replacement',/mass air ?flow|maf sensor/],['EGR valve replacement',/egr valve/],['Turbocharger replacement',/turbo(charger)?/,/hose|pipe|line|sensor|solenoid|intercooler|boost|valve|actuator|gasket|clean|pump|wiring|harness|clamp|wastegate|if needed/]];
  const pct=(a,q)=>{a=[...a].sort((x,y)=>x-y);return a[Math.min(a.length-1,Math.floor(q*(a.length-1)))]};
  for(const [name,re,ex] of COMMON){const los=[],his=[];
@@ -344,33 +428,29 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
  console.log(gen.size+' common repair price ranges');
  for(const c of CODES)if(c.cost){const k=c.cost.job.replace(/\s*\(.*?\)\s*/g,' ').trim();if(gen.has(k))continue;
    if(!c.costOk)continue;const lo=rnd(c.cost.parts[0]+c.cost.hours[0]*RATE[0],false),hi=Math.max(rnd(c.cost.parts[1]+c.cost.hours[1]*RATE[1],true),lo+10);gen.set(k,[k,lo,hi])}
- fs.writeFileSync('dist/price-index.js','window.GEN_PRICES='+JSON.stringify([...gen.values()].sort((a,b)=>a[0].localeCompare(b[0]))).replace(/</g,'\\u003c')+';');
+ fs.writeFileSync('dist/price-index.js','window.GEN_PRICES='+publicJson([...gen.values()].sort((a,b)=>a[0].localeCompare(b[0])),'general repair costs').replace(/</g,'\\u003c')+';');
  // Sourced estimator (src/estimator): per-job parts prices and stated labor hours by vehicle class, plus state labor rates.
  // Only files that passed review are shown: no "held" status and no nulls. Every number links back to its source.
  {const ED='src/estimator/jobs',est=[],heldJ=[];const okR=a=>Array.isArray(a)&&a.length===2&&a.every(n=>typeof n==='number'&&n>=0)&&a[0]<=a[1];
   if(fs.existsSync(ED))for(const f of fs.readdirSync(ED).filter(f=>f.endsWith('.json')).sort()){const j=JSON.parse(fs.readFileSync(ED+'/'+f,'utf8'));
    const ks=['economy','midsize','truck','luxury'];if(j.status==='held'||!ks.every(k=>j.classes[k]&&okR(j.classes[k].parts)&&okR(j.classes[k].hours))){heldJ.push(j.job);console.log('estimator: not shown (held or incomplete):',f);continue}
-   const cls={};for(const k of ks){const c=j.classes[k],seen=new Set(),src=[];for(const x of [...c.parts_src.map(x=>[x,'p']),...c.hours_src.map(x=>[x,'h'])]){const s=x[0];if(!/^https:\/\//.test(s.url)||seen.has(s.url)||/^(not used|not in the range)/i.test(s.what))continue;seen.add(s.url);src.push([s.url,x[1],s.what.length>170?s.what.slice(0,167).replace(/\s+\S*$/,'')+'…':s.what,/cross-check|not used|context only|outlier|not a range end|not in the range|corroboration/i.test(s.what.slice(0,70))?1:0])}
+   const cls={};for(const k of ks){const c=j.classes[k],seen=new Set(),src=[];for(const x of [...c.parts_src.map(x=>[x,'p']),...c.hours_src.map(x=>[x,'h'])]){const s=x[0];if(!/^https:\/\//.test(s.url)||seen.has(s.url)||/^(not used|not in the range)/i.test(s.what))continue;seen.add(s.url);const publisher=publisherLabel(s.url);if(!publisher)continue;src.push([publisher,x[1],x[1]==='p'?'Parts reference':'Labor reference',/cross-check|not used|context only|outlier|not a range end|not in the range|corroboration/i.test(s.what.slice(0,70))?1:0])}
     src.sort((a,b)=>a[3]-b[3]);
     {const lo=rnd(c.parts[0]+c.hours[0]*RATE[0],false),hi=Math.max(rnd(c.parts[1]+c.hours[1]*RATE[1],true),lo+10),g=EV.priceQualifies(EV.ids.est(f,k));
      LEDGER.push({id:EV.ids.est(f,k),family:'estimator',scope:k+': '+c.example,job:j.job,lo,hi,status:g.ok?'shown':'withheld',reason:g.reason||''});if(!g.ok)continue}
     cls[k]={p:c.parts,h:c.hours,ex:c.example,src}}
    if(!Object.keys(cls).length){heldJ.push(j.job);continue}
-   // Posted menu prices (maintenance jobs): prices printed on shops' own pages. Shown beside the built range, never blended into it.
-   // Entries for a different service are left out; fewer than four matching entries are not shown at all.
-   const cut=(t,n)=>t.length>n?t.slice(0,n-3).replace(/\s+\S*$/,'')+'…':t;
-   const mn=(Array.isArray(j.menu)?j.menu:[]).filter(m=>m&&typeof m.lo==='number'&&typeof m.hi==='number'&&m.lo>0&&m.lo<=m.hi&&/^https:\/\//.test(m.url)&&m.name&&m.where&&!/^different service/i.test(m.what||'')).sort((x,y)=>x.lo-y.lo||x.hi-y.hi).map(m=>[m.name,m.url,m.lo,m.hi,m.where,m.kind||'',cut(m.what||'',200),m.date||j.checked]);
-   est.push({job:j.job,aka:Array.isArray(j.aka)?j.aka.filter(a=>typeof a==='string'):[],note:typeof j.note==='string'?j.note:'',unit:j.unit,conf:j.confidence,checked:j.checked,extras:j.extras,cls,menu:mn.length>=4?mn:[],bm:(j.benchmarks||[]).filter(b=>typeof b.lo==='number'&&typeof b.hi==='number'&&/^https:\/\//.test(b.url)).map(b=>[b.name,b.url,b.lo,b.hi])})}
+   est.push({job:j.job,aka:Array.isArray(j.aka)?j.aka.filter(a=>typeof a==='string'):[],note:typeof j.note==='string'?j.note:'',unit:j.unit,conf:j.confidence,checked:j.checked,extras:j.extras,cls})}
   const R=JSON.parse(fs.readFileSync('src/estimator/rates.json','utf8')),rates={};for(const [k,v] of Object.entries(R))if(!k.startsWith('_')&&okR(v.indep))rates[k]=[v.indep[0],v.indep[1],v.confidence==='medium'?1:0];
   const STN={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'District of Columbia',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
   for(const k of Object.keys(rates))if(!STN[k])throw new Error('estimator: unknown state '+k);
   // Kind of vehicle per model (src/estimator/vehicle-classes.json): only pre-selects the optional kind on the price check; never changes a number.
   const vc={};if(fs.existsSync('src/estimator/vehicle-classes.json')){const VC=JSON.parse(fs.readFileSync('src/estimator/vehicle-classes.json','utf8')),vid=new Set(V.map(v=>v.id));for(const [k,c] of Object.entries(VC)){if(k.startsWith('_'))continue;if(!['economy','midsize','truck','luxury'].includes(c))throw new Error('estimator: bad vehicle class '+k);if(vid.has(k))vc[k]=c[0]}}
-  const rsrc=[...new Set(Object.entries(R).filter(([k])=>!k.startsWith('_')).flatMap(([,v])=>v.src))].slice(0,3);
+  const rsrc=[...new Set(Object.entries(R).filter(([k])=>!k.startsWith('_')).flatMap(([,v])=>publishers(v.src)))].slice(0,3);
   // Labor rates, the national rate band and their sources are published only when at least one estimator job is shown;
-  // with no job shown they would be unbacked price figures (benchmarks and menu prices travel inside shown jobs only).
+  // with no job shown they would be unbacked price figures.
   const anyJob=est.length>0;
-  fs.writeFileSync('dist/price-est.js','window.EST='+JSON.stringify({references,...(anyJob?{jobs:est,held:heldJ,vc,rates,nat:RATE,states:Object.keys(STN).filter(k=>rates[k]).map(k=>[k,STN[k]]),rsrc}:{jobs:[],held:heldJ,vc,rates:{},nat:null,states:[],rsrc:[]})}).replace(/</g,'\\u003c')+';');
+  fs.writeFileSync('dist/price-est.js','window.EST='+publicJson({references:repairNotes,...(anyJob?{jobs:est,held:heldJ,vc,rates,nat:RATE,states:Object.keys(STN).filter(k=>rates[k]).map(k=>[k,STN[k]]),rsrc}:{jobs:[],held:heldJ,vc,rates:{},nat:null,states:[],rsrc:[]})},'quote estimator').replace(/</g,'\\u003c')+';');
   console.log(est.length+' sourced estimator jobs, '+Object.keys(rates).length+' state labor rates')}
  const hasPrice=LEDGER.some(row=>row.status==='shown'&&['vehicle-issue','maintenance','estimator','common-general','code-general'].includes(row.family));
  const coverage=hasPrice?'Select a repair to see whether we have a verified range that applies to it.':'We do not currently have a verified repair price range to compare with your quote.';
@@ -381,15 +461,15 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
    const query=new URLSearchParams({v:v.id,y:ref.year,repair:ref.job});
    referenceGroups.get(name).push(`<li><a href="/price-check/?${escH(query.toString())}#pcApp">${escH(ref.job)}</a></li>`);
  }
- const sourceList=references.length?`<details class="pg-more"><summary>Repairs with estimator links</summary>${[...referenceGroups].map(([name,links])=>`<h3>${escH(name)}</h3><ul>${links.join('')}</ul>`).join('')}</details>`:'';
- urls.push(page('/price-check/','Repair Quote Help and Price Check | VehicleSymptoms.com','Prepare a written estimate request for your mechanic and check which pricing sources cover your repair.',{pageData:'<script src="/price-index.js"></script>\n<script src="/price-est.js"></script>\n',inner:`<div class="crumb"><a href="/">Home</a> › Price check</div>
+ const sourceList=references.length?`<details class="pg-more"><summary>Vehicle-specific questions for your shop</summary>${[...referenceGroups].map(([name,links])=>`<h3>${escH(name)}</h3><ul>${links.join('')}</ul>`).join('')}</details>`:'';
+ urls.push(page('/price-check/','Repair Quote Help and Price Check | VehicleSymptoms.com','Prepare a written estimate request for your mechanic and compare what a repair quote includes.',{pageData:'<script src="/price-index.js"></script>\n<script src="/price-est.js"></script>\n',inner:`<div class="crumb"><a href="/">Home</a> › Price check</div>
 <div class="ghead"><div class="eyebrow">Price check</div><h1>Get a repair quote you can compare</h1><p class="sub">Enter the work your shop suggested, or describe what you noticed. You can copy a request for an itemized estimate before you have a price.</p></div>
 <div class="card"><h2>Price coverage</h2><p>${coverage}</p>${sourceList}</div>
 <div class="card pc" id="pcApp">
   <div class="pc-step"><span class="pn">1</span><div class="pc-body"><h2>Your vehicle</h2><div id="pcGarage" class="pc-garage"></div>
     <div class="ymm-row"><select id="pcY" aria-label="Year"></select><select id="pcM" aria-label="Make" disabled></select><select id="pcMo" aria-label="Model" disabled></select></div></div></div>
   <div class="pc-step"><span class="pn">2</span><div class="pc-body"><h2>The repair</h2><input id="pcJob" type="search" maxlength="240" placeholder="e.g. front brake pads, or a squeak when braking" autocomplete="off" aria-label="Repair"><div id="pcSug" class="pc-sug"></div><div id="pcPicked" class="pc-picked" hidden></div><div id="pcEst" class="pc-est" hidden><label>Kind of vehicle <span>(optional)</span><select id="pcCls" aria-label="Kind of vehicle"></select></label><label>Your state <span>(optional)</span><select id="pcSt" aria-label="Your state"></select></label></div></div></div>
-  <div id="pcSourceLinks"></div>
+  <div id="pcServiceNotes"></div>
   <div class="pc-step"><span class="pn">3</span><div class="pc-body"><h2><label for="pcRequest">Your message to the shop</label></h2>
     <textarea class="pc-request" id="pcRequest" readonly rows="6">Could you give me a written estimate? Please list the parts and labor separately, include any diagnostic fee, tax and shop fees, and tell me the total and warranty before I approve the work.</textarea>
     <button class="btn ghost" id="pcCopy" type="button">Copy shop request</button><span id="pcCopyStatus" role="status"></span></div></div>
@@ -397,29 +477,29 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
     <button class="btn" id="pcGo" type="button" disabled>Check my quote</button></div></div>
 </div>
 <div id="pcOut"></div>
-<p class="pg-disc" style="margin-top:18px">For a local price, ask a shop to quote your vehicle, the same repair and the same parts quality. We show a comparison only when the supporting sources cover the repair. An outside estimator may ask for your ZIP code and engine. <a href="https://consumer.ftc.gov/articles/0211-auto-repair-basics">FTC guide to written estimates and repair charges</a>.</p>`}));}
+<p class="pg-disc" style="margin-top:18px">For a local price, ask a shop to quote your vehicle, the same repair and the same parts quality. We show a comparison only when the supporting sources cover the repair. The written-estimate guidance draws on the Federal Trade Commission’s <cite>Auto Repair Basics</cite>.</p>`}));}
 
 // hub
-urls.push(page('/symptoms/','All Car Symptom Guides | VehicleSymptoms.com','Step-by-step guides for car problems: won\'t start, warning lights, noises, shaking, leaks, smells, smoke, overheating and more.',{inner:`<div class="crumb"><a href="/">Home</a> › Symptom guides</div><div class="ghead"><h1>Symptom guides</h1><p class="sub">Pick what your car is doing. Each guide asks a few quick questions and tells you how urgent it is and what to do next.</p></div><div id="guideHub">${Object.entries(GL).map(([k,l])=>{const list=J.filter(j=>j.group===k);return list.length?`<section class="hubsec" id="${k}"><h2>${escH(l)}</h2><div class="glist">${list.map(j=>`<a class="gcard" href="/symptoms/${j.id}/"><b>${escH(j.title)}</b><span>${escH(j.h1)}</span></a>`).join('')}</div></section>`:''}).join('')}</div>`}));
+urls.push(page('/symptoms/','All Car Symptom Guides | VehicleSymptoms.com','Step-by-step guides for car problems: won\'t start, warning lights, noises, shaking, leaks, smells, smoke, overheating and more.',{inner:`<div class="crumb"><a href="/">Home</a> › Symptom guides</div><div class="ghead"><h1>Symptom guides</h1><p class="sub">Pick what your car is doing. Each guide asks a few quick questions and tells you how urgent it is and what to do next.</p></div><div id="guideHub">${Object.entries(GL).map(([k,l])=>{const list=J.filter(j=>j.group===k);return list.length?`<section class="hubsec" id="${k}"><h2>${escH(l)}</h2>${k==='noise'?'<p><a href="/sounds/">Listen to a car sound</a></p>':''}<div class="glist">${list.map(j=>`<a class="gcard" href="/symptoms/${j.id}/"><b>${escH(j.title)}</b><span>${escH(j.h1)}</span></a>`).join('')}</div></section>`:''}).join('')}</div>`}));
 
 // privacy, about / our standards, contact
 urls.push(page('/privacy/','Privacy | VehicleSymptoms.com','How VehicleSymptoms.com handles your information.',{inner:`<div class="crumb"><a href="/">Home</a> › Privacy</div><div class="ghead"><h1>Privacy</h1><p class="sub">Short version: we collect as little as possible and never sell your information.</p></div>
 <div class="card prose"><h3>No account, no sign-up</h3><p>You can use everything on the site without an account.</p>
 <h3>"My garage" and saved progress</h3><p>If you save a vehicle to "My garage", or start a symptom guide, those details are stored only in your own browser on your device (browser local storage and session storage). They are not sent to us. To clear them, remove vehicles with the ✕ in My garage, or clear this site's data in your browser settings.</p>
-<h3>Emailing yourself a result</h3><p>If you ask us to email you a result, we use your address to send it through our email provider, Resend, and we keep your address in our email provider's contact list, marked as not subscribed. We don't send you marketing email. To have your address deleted, email <a href="mailto:${CONTACT}">${CONTACT}</a> and we'll remove it.</p>
+<h3>Emailing yourself a result</h3><p>If you ask us to email you a result, we use your address to send it through our email provider, Resend, and we keep your address in our email provider's contact list, marked as not subscribed. We don't send you marketing email. For deletion requests, our contact details are below.</p>
 <h3>VIN and recall lookups</h3><p>VINs are decoded directly by the U.S. government's free NHTSA database from your browser. We don't store them. Recall information comes from NHTSA's public database.</p>
 ${animations ? '<h3>Repair animations</h3><p>Opening an animation loads the MotoVisuals player. Your browser connects to MotoVisuals and sends the site origin so it can check the approved domain.</p>' : ''}
 <h3>Visitor statistics</h3><p>We use Vercel Web Analytics to count page views and visits. It doesn't use cookies and doesn't identify you personally.</p>
 <h3>Selling or sharing</h3><p>We don't sell or rent your personal information. We don't run ads or affiliate links.</p>
-<h3>Contact</h3><p>Email <a href="mailto:${CONTACT}">${CONTACT}</a> with questions or removal requests.</p><p class="muted">Last updated November 2026.</p></div>`}));
-urls.push(page('/about/','About VehicleSymptoms.com','What VehicleSymptoms.com is, how our guides and prices work, and how to reach us.',{inner:`<div class="crumb"><a href="/">Home</a> › About</div><div class="ghead"><div class="eyebrow">About</div><h1>About VehicleSymptoms.com</h1><p class="sub">Free, plain-English help for drivers with a car problem: what to check, how urgent it may be, what repairs typically cost, and what to ask your mechanic.</p></div>
+<h3>Contact</h3><p>Privacy contact<span aria-hidden="true"> · </span><span>${CONTACT}</span></p><p class="muted">Last updated November 2026.</p></div>`}));
+urls.push(page('/about/','About VehicleSymptoms.com','What VehicleSymptoms.com is, how our guides and prices work, and how to reach us.',{inner:`<div class="crumb"><a href="/">Home</a> › About</div><div class="ghead"><div class="eyebrow">About</div><h1>About VehicleSymptoms.com</h1><p class="sub">Free, plain-English help for drivers with a car problem: what to check, how urgent it may be, what to ask about a repair and how to compare an itemized quote.</p></div>
 <div class="card prose"><h3>How we work</h3>
 <ul><li><b>Guidance, not a diagnosis.</b> A website can't inspect your car. Possible causes are directions for testing, and we say what a shop should test before replacing parts.</li>
 <li><b>Safety first.</b> When symptoms point to a possible brake, steering, fire or engine-damage risk, we tell you to stop and get help.</li>
 <li><b>Honest about gaps.</b> If we haven't documented problems for a vehicle or year, we say so. A short list is not a reliability rating.</li>
-<li><b>Prices are averages.</b> U.S. national averages from typical parts prices plus standard labor time at a typical shop labor rate, researched November 2026. Diagnosis, taxes and shop fees are extra. Not a quote.</li>
+<li><b>Repair quotes.</b> Prepare an itemized shop request for any repair. Selected vehicles and repairs have questions about the scope of the work. We display a price range only when its evidence meets our publication rules.</li>
 <li><b>Free, no sign-up.</b> No ads and no affiliate links.</li></ul>
-<h3>Contact</h3><p>Spotted a mistake or have a question? Email us at <a href="mailto:${CONTACT}">${CONTACT}</a>.</p></div>`}));
+<h3 id="contact">Contact</h3><p>Questions and corrections<span aria-hidden="true"> · </span><span>${CONTACT}</span></p></div>`}));
 
 // vehicle pages
 for(const v of V){
@@ -462,12 +542,13 @@ fs.writeFileSync('dist/llms.txt',`# VehicleSymptoms.com
 
 > Free, plain-English help for drivers: describe what your car is doing and get how urgent it is, possible causes and what to ask your mechanic. No sign-up, no ads, nothing to buy.
 
-The site is written for regular drivers, not mechanics. Prices are national averages, not quotes. Nothing here is a confirmed diagnosis.
+The site is written for regular drivers, not mechanics. The quote checker prepares itemized shop requests. A price range requires corroborating evidence. Nothing here is a confirmed diagnosis.
 
 ## Main sections
-- [Symptom guides](${SITE}/symptoms/): ${JT?Object.keys(JT).length:100} step-by-step guides (shakes when braking, won't start, overheating, noises, smells, leaks). Each asks a few questions and ends with urgency, likely causes, cost ranges and a summary to show a mechanic.
-- [Vehicles](${SITE}/vehicles/): ${V.length} popular models, 1996 to 2027, with a page per model year listing documented problems by engine, safety recalls, repair price estimates and yearly ownership cost.
-- [Warning lights](${SITE}/warning-lights/): ${LIGHTS.length} dashboard lights with what each means, whether it is safe to keep driving, safe checks a driver can do, likely causes with cost ranges, and how to reset reminder lights.
+- [Car sounds](${SITE}/sounds/): listen to a recorded whir inside a moving car.
+- [Symptom guides](${SITE}/symptoms/): ${JT?Object.keys(JT).length:100} step-by-step guides (shakes when braking, won't start, overheating, noises, smells, leaks). Each asks a few questions and ends with urgency, likely causes and a summary to show a mechanic.
+- [Vehicles](${SITE}/vehicles/): ${V.length} popular models, 1996 to 2027, with a page per model year listing documented problems by engine, model-year safety recalls and repair information.
+- [Warning lights](${SITE}/warning-lights/): ${LIGHTS.length} dashboard lights with what each means, whether it is safe to keep driving, safe checks a driver can do, possible causes and how to reset reminder lights.
 - [Reset steps by make](${SITE}/warning-lights/reset/): oil change / maintenance reminder and tire pressure light reset procedures for ${Object.keys(RESETS).length} makes.
 - [Trouble code lookup](${SITE}/codes/): ${CODES.length} OBD-II codes in plain English with causes, what to check first and whether it is safe to drive.
 - [Get help with a repair quote](${SITE}/price-check/): prepare an itemized shop request and check price coverage for a repair.
@@ -478,4 +559,11 @@ The site is written for regular drivers, not mechanics. Prices are national aver
 `);
 fs.writeFileSync('dist/robots.txt',`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 fs.writeFileSync('dist/404.html',tpl.replace(/{{HOMEH1}}/g,'p class="hh1"').replace(/{{HOMEH1C}}/g,'p').replace(/{{TITLE}}/g,'Page not found | VehicleSymptoms.com').replace(/{{DESC}}/g,'').replace(/<link rel="canonical"[^>]*>/,'<meta name="robots" content="noindex">').replace(/{{CANON}}/g,SITE+'/').replace('{{CRED}}','').replace('{{HOMEHIDE}}',' style="display:none"').replace('{{VEHSTYLE}}','').replace('{{PAGEDATA}}','').replace('{{VEHHTML}}','<div class="ghead"><h1>Page not found</h1><p class="sub">That page doesn\'t exist. <a href="/">Go to the homepage</a> or <a href="/symptoms/">browse symptom guides</a>.</p></div>'));
+// Verify the actual vehicle payloads written to disk, including newly added models.
+const vehicleFiles=fs.readdirSync('dist/data/v').filter(file=>file.endsWith('.json')).sort();
+const expectedFiles=V.map(v=>v.id+'.json').sort();
+if(vehicleFiles.length!==expectedFiles.length||vehicleFiles.some((f,i)=>f!==expectedFiles[i]))
+  throw new Error('Public vehicle payload inventory mismatch');
+for(const f of vehicleFiles)assertPublicData(JSON.parse(fs.readFileSync(path.join('dist/data/v',f),'utf8')),f);
+console.log('Public data checked:',vehicleFiles.length,'vehicle files and',appliedInstructions.size,'reviewed instructions');
 console.log('pages:',urls.length);

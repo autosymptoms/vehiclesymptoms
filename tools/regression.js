@@ -30,7 +30,9 @@ const empty=k=>{const [mk,md,y]=k.split('|');return {Count:0,Message:'Results re
  T('REC-02','Combined label is never sent to NHTSA',p.calls.filter(u=>/nhtsa/.test(u)).every(u=>!/%2F|\//.test(new URL(u).searchParams.get('model'))),p.calls.join(' '));
  T('REC-03','Integra 2023 is queried as INTEGRA',p.calls.some(u=>/model=INTEGRA&/.test(u)),p.calls.join(' '))}
 {const p=load('/vehicles/acura-rsx-integra/2023/',{fetch:nh(()=>({status:503}))});await sleep(300);
- const t=p.doc.getElementById('nhtsa').textContent;T('REC-04','HTTP error shows Lookup unavailable with official VIN lookup, never 0',/lookup unavailable/i.test(t)&&/NHTSA's official recall lookup/.test(t)&&!/No safety recalls/.test(t),t.slice(0,160))}
+ const box=p.doc.getElementById('nhtsa'),t=box.textContent;
+ T('REC-04','HTTP error shows an unknown recall count, a retry and an on-site VIN question',/lookup unavailable/i.test(t)&&/unknown/.test(t)&&!!box.querySelector('button')&&!!box.querySelector('#recQuestion')&&!box.querySelector('a[href^="http"]')&&!/No safety recalls/.test(t),t.slice(0,220))}
+
 {const p=load('/vehicles/acura-rsx-integra/2023/',{fetch:()=>Promise.resolve({ok:true,status:200,json:async()=>({Count:3,results:[]})})});await sleep(300);
  T('REC-05','Malformed response (Count mismatch) shows Lookup unavailable',/lookup unavailable/i.test(p.doc.getElementById('nhtsa').textContent))}
 {const p=load('/vehicles/acura-rsx-integra/2023/',{fetch:nh(k=>({Count:1,results:[Object.assign({},FIX['ACURA|INTEGRA|2023'].results[0],{Model:'RDX'})]}))});await sleep(300);
@@ -45,6 +47,35 @@ const empty=k=>{const [mk,md,y]=k.split('|');return {Count:0,Message:'Results re
  const M=w.VS_RECALL_QUERIES(v,2020);T('REC-09','Single-name model without a verified mapping is flagged unverified (zero would show Lookup unavailable)',M.verified===false&&M.queries.length===1,JSON.stringify(M))}
 {const w=load('/vehicles/acura-rsx-integra/2023/',{fetch:()=>new Promise(()=>{})}).w;const v=w.VEHICLES.find(x=>x.id==='acura-rsx-integra');
  const m=y=>(w.VS_RECALL_QUERIES(v,y).queries[0]||{}).model;T('REC-10','Integra/RSX name change mapped by year (1999 INTEGRA, 2004 RSX, 2023 INTEGRA)',m(1999)==='INTEGRA'&&m(2004)==='RSX'&&m(2023)==='INTEGRA',[m(1999),m(2004),m(2023)].join(','))}
+
+// A transient failure can recover in place. Test more than twelve campaigns so the rest
+// remain readable on the page and in the saved PDF, including the individual VIN caveat.
+{
+ let attempts=0;const fixed=FIX['ACURA|INTEGRA|2023'].results[0];
+ const thirteen=Array.from({length:13},(_,i)=>({...fixed,NHTSACampaignNumber:'23V'+String(i+1).padStart(6,'0')}));
+ const sourceUrl='https://manufacturer.example/recall-campaign';
+ thirteen[12].Summary='Test agency text with a literal <a href="'+sourceUrl+'">record reference</a>.';
+ thirteen[12].Remedy='Park outside until the dealer completes the repair. Source reference '+sourceUrl+'.';
+ const p=load('/vehicles/acura-rsx-integra/2023/',{fetch:nh(()=>++attempts===1?{status:503}:{Count:13,results:thirteen})});
+ await sleep(300);const box=p.doc.getElementById('nhtsa');
+ [...box.querySelectorAll('button')].find(b=>b.textContent.includes('Retry')).click();
+ await p.w.VS_PAGE.ready;
+ T('REC-RETRY','Retry restores validated campaigns including details beyond the first twelve',
+   attempts===2&&/13 safety recalls/.test(box.textContent)&&/Show 1 more campaign/.test(box.textContent)&&/23V000013/.test(box.textContent)&&p.w.VS_PAGE.recalls.total===13);
+ T('REC-SOURCE-TEXT','Agency text retains the remedy and original reference as inert text',
+   !box.querySelector('a[href^="https:"]')&&box.textContent.includes(sourceUrl)&&box.textContent.includes('Park outside until the dealer completes the repair.'));
+ box.querySelector('#recCopy').click();await sleep(0);
+ T('REC-MSG','VIN-specific question can be copied locally on a successful lookup',
+   box.querySelector('#recQuestion').value.includes('2023 Acura')&&/selected/.test(box.querySelector('#recCopyStatus').textContent));
+ p.w.TextEncoder=TextEncoder;p.w.TextDecoder=TextDecoder;
+ p.w.eval(fs.readFileSync(D('vendor/jspdf.umd.min.js'),'utf8'));
+ const Pdf=p.w.jspdf.jsPDF;let output='';
+ p.w.jspdf.jsPDF=function(options){const doc=new Pdf(options);doc.save=()=>{output=doc.output()};return doc};
+ p.w.eval(fs.readFileSync(D('pdf.js'),'utf8'));p.w.VS_PDF(p.w.VS_PAGE);
+ T('REC-PDF','PDF retains all campaigns and the agency remedy without creating external link annotations',
+   output.includes('23V000013')&&output.includes('Question for your dealer')&&output.includes('Park outside')&&!output.includes('/Subtype /Link')&&!output.includes('nhtsa.gov/recalls'));
+ p.w.close();
+}
 
 // ---- Price check eligibility ----
 const job={job:'Spark plug replacement (general test estimate)',aka:['Replace spark plugs'],note:'',unit:'per job (all cylinders)',conf:'medium',checked:'TEST FIXTURE',extras:'',menu:[],bm:[],
@@ -94,15 +125,15 @@ async function quote(qs,term,amount,state){const p=load('/price-check/',{est:EST
  for(const ref of records){
    const qs='?'+new URLSearchParams({v:ref.vehicleId,y:String(ref.year),repair:ref.job});
    const p=load('/price-check/',{qs});await sleep(25);
-   const links=[...p.doc.querySelectorAll('#pcSourceLinks a')].map(a=>a.href);
-   valid.push(links.length===ref.sources.length&&ref.sources.every(source=>links.includes(source.url))&&
-     p.doc.getElementById('pcRequest').value.includes(ref.job)&&p.doc.getElementById('pcQuoteStep').hidden);
+   const notes=p.doc.getElementById('pcServiceNotes'),question=notes.querySelector('p')?.textContent;
+   valid.push(Boolean(question)&&!notes.querySelector('a')&&ref.sources.every(source=>notes.textContent.includes(source.name)&&notes.textContent.includes(source.checked))&&
+     p.doc.getElementById('pcRequest').value.includes(question)&&p.doc.getElementById('pcRequest').value.includes(ref.job)&&p.doc.getElementById('pcQuoteStep').hidden);
    p.dom.window.close();
  }
- T('PRC-SOURCES','Every researched vehicle/year/repair opens its exact source links without a local price verdict',records.length>0&&valid.every(Boolean),valid.filter(Boolean).length+'/'+records.length);
+ T('PRC-SOURCES','Each matched repair provides a local, source-credited question in the shop request without a price verdict',records.length>0&&valid.every(Boolean),valid.filter(Boolean).length+'/'+records.length);
  const first=records[0],qs='?'+new URLSearchParams({v:first.vehicleId,repair:first.job});
  const p=load('/price-check/',{qs});await sleep(25);
- T('PRC-SCOPE','A model-only URL cannot assume a year or expose exact-year references',!p.doc.getElementById('pcY').value&&!p.doc.querySelector('#pcSourceLinks a'));
+ T('PRC-SCOPE','A model-only URL cannot assume a year or expose exact-year references',!p.doc.getElementById('pcY').value&&!p.doc.getElementById('pcServiceNotes').textContent.trim());
  p.dom.window.close();
 }
 

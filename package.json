@@ -2,10 +2,11 @@
   "name": "vehiclesymptoms",
   "private": true,
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js && node tools/check-visitor-links.js"
   },
   "devDependencies": {
     "jsdom": "^24.0.0",
+    "parse5": "^7.3.0",
     "puppeteer-core": "^25.18.1"
   }
 }
