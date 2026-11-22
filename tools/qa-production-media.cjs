@@ -193,31 +193,41 @@ async function main() {
     doc.window.close();
     const menu = await page.$$eval('#mv-directory a[data-mv-id]', as => as.map(a => [a.dataset.mvId,a.textContent.trim().replace(/\s+/g,' ')]));
     assert.equal(expected.length, 23); assert.equal(new Set(menu.map(x => x[0])).size, 23); assert.deepEqual(menu, expected);
-    const docToken = crypto.randomUUID();
-    await page.evaluate(token => { document.documentElement.dataset.productionQa = token; }, docToken);
     for (const [id,title] of menu) await check('animation ' + title, async () => {
       assert(/^[\w:-]+$/.test(id));
-      const link = await page.$('#mv-directory a[data-mv-id="' + id + '"]');
+      await page.goto(origin+'/repair-animations/', {waitUntil:'domcontentloaded'});
+      await page.waitForSelector('#mv-search:not([disabled])');
+      const token = crypto.randomUUID();
+      await page.evaluate(t => { document.documentElement.dataset.productionQa=t; }, token);
+      const selector = '#mv-directory a[data-mv-id="'+id+'"]';
+      const link = await page.waitForSelector(selector, {visible:true});
       const selected = await link.evaluate(a => a.href);
       assert.equal(new URL(selected).origin, origin);
-      await link.click();
-      await page.waitForFunction(name => document.querySelector('#mv-title')?.textContent === name, {}, title);
-      const el = await page.waitForSelector('#mv-content iframe', {visible:true});
-      assert.deepEqual(await el.evaluate(f => [...f.sandbox].sort()), ['allow-same-origin','allow-scripts']);
-      assert(approved.includes(await el.evaluate(f => f.src)), 'unapproved player source');
-      const frame = await el.contentFrame(); assert(frame, 'no embedded frame');
-      const hint = await page.$eval('#mv-content', e => e.querySelector('.mv-hint')?.textContent.trim() || '');
-      if (hint) {
-        const label = hint.match(/^Choose (.+) in the system menu\.$/)?.[1];
-        assert(label, 'unrecognized system menu cue'); await (await control(frame,'a',label)).click();
-      } else {
-        await (await control(frame,'.StartSplashDefaultPlayButton',null)).click();
-      }
-      const clip = await control(frame,'video',null);
-      const advanced = await clock(clip);
-      assert.equal(await page.evaluate(() => document.documentElement.dataset.productionQa), docToken, 'top document was replaced');
-      assert.equal(page.url(), selected, 'outer page left the selected title');
-      assert.deepEqual(exits, []);
+      const aim=await link.evaluate(async a => {
+        a.scrollIntoView({behavior:'instant',block:'center'});
+        await new Promise(requestAnimationFrame);
+        const r=a.getBoundingClientRect(), x=r.x+r.width/2, y=r.y+r.height/2;
+        return {x,y,hit:a.contains(document.elementFromPoint(x,y))};
+      });
+      assert(aim.hit,'directory choice is covered');
+      await page.mouse.click(aim.x,aim.y);
+      await page.waitForFunction(wanted => location.href===wanted, {timeout:5000}, selected)
+        .catch(() => {throw new Error('directory selection did not navigate to '+selected+'; current '+page.url());});
+      const heading=await page.$eval('#mv-title',e=>e.textContent.trim()); assert.equal(heading,title,'selected heading');
+      const el = await page.waitForSelector('#mv-content iframe', {visible:true, timeout:8000});
+      await el.evaluate(e=>e.scrollIntoView({behavior:'instant',block:'center'}));
+      assert.deepEqual(await el.evaluate(e=>[...e.sandbox].sort()),['allow-same-origin','allow-scripts']);
+      assert(approved.includes(await el.evaluate(e=>e.src)),'unapproved player');
+      const frame=await el.contentFrame(); assert(frame,'no embedded frame');
+      const hint=await page.$eval('#mv-content',e=>e.querySelector('.mv-hint')?.textContent.trim()||'');
+      const label=hint ? hint.match(/^Choose (.+) in the system menu\.$/)?.[1] : null;
+      if(hint)assert(label,'unrecognized menu cue');
+      const button=await control(frame,label?'a':'.StartSplashDefaultPlayButton',label);
+      await button.evaluate(e=>e.click());
+      const video=await control(frame,'video',null);
+      const advanced=await clock(video);
+      assert.equal(await page.evaluate(()=>document.documentElement.dataset.productionQa),token,'outer document replaced');
+      assert.equal(page.url(),selected);assert.deepEqual(exits,[]);
       return advanced;
     });
     await check('page containment', async () => { assert.deepEqual(exits, []); assert.equal((await browser.pages()).length <= 2, true, 'unexpected browser tab'); });
