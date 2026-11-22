@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="email=no,address=no,url=no">
 <title>{{TITLE}}</title>
 <meta name="description" content="{{DESC}}">
 <link rel="canonical" href="{{CANON}}">
@@ -58,15 +59,16 @@
         <div class="shortcuts">
           <a class="sc" href="/symptoms/car-wont-start/">Won't start</a>
           <a class="sc" href="/warning-lights/">Warning light</a>
-          <a class="sc" href="/sounds/">Car sounds</a>
+          <a class="sc" href="/symptoms/#noise">Strange noise</a>
           <a class="sc" href="/symptoms/#shake">Shaking</a>
           <a class="sc" href="/symptoms/#leaksmell">Leak or smell</a>
           <a class="sc" href="/symptoms/engine-overheating/">Running hot</a>
         </div>
+        <p class="fine"><a href="/sounds/">Car sounds</a> · Listen to a whir recorded inside a moving car.</p>
         <ul class="proof">
           <li><b>100</b> step-by-step symptom guides</li>
           <li><b>{{NMODELS}}</b> popular models, 1996 to 2027</li>
-          <li><b>Free</b> VIN and safety recall lookup</li>
+          <li><b>Free</b> VIN decoding and model-year recall information</li>
           <li><b>No</b> sign-up, ever</li>
         </ul>
       </div>
@@ -75,7 +77,7 @@
       <div id="mycarSaved" hidden></div>
       <div id="mycarPick">
         <h2>Add your vehicle <small>(optional)</small></h2>
-        <p class="d">Check known problems, upkeep and recalls for your model.</p>
+        <p class="d">Check known problems, upkeep and recall campaigns for your model and year.</p>
         <form class="ymm-stack" id="pickForm">
           <select id="pickYear" aria-label="Year"></select>
           <select id="pickMake" aria-label="Make" disabled></select>
@@ -85,7 +87,7 @@
         <details class="vin-d"><summary>My vehicle isn't listed</summary><p class="note">Our library covers {{NMODELS}} popular models from 1996 on and is still growing. You can start a symptom guide without selecting a vehicle. Check your owner's manual for model-specific warnings and procedures.</p></details>
         <details class="vin-d"><summary>Or use your VIN</summary>
           <form id="vinForm"><input id="vinInput" maxlength="17" placeholder="17-character VIN" aria-label="VIN"><button class="btn" type="submit">Decode</button></form>
-          <p class="note">On the driver's door sticker or the dash at the base of the windshield. Decoded with the free NHTSA database; we don't store it.</p>
+          <p class="note">Find it on the driver’s door label or at the base of the windshield. The NHTSA decoder identifies your vehicle. Recall listings cover the model year. A dealer can confirm which recalls remain open on your VIN.</p>
         </details>
         <div class="vin-out" id="vinOut"></div>
       </div>
@@ -175,7 +177,7 @@
       <h2>Common questions</h2>
       <details class="faq"><summary>What's wrong with my car?</summary><p>Start by describing what you notice: a noise, a smell, a warning light, shaking, or a leak, and when it happens. Our symptom guides ask a few quick questions and narrow it down to the most likely causes, with an urgency rating so you know whether it's safe to keep driving.</p></details>
       <details class="faq"><summary>Is it safe to drive my car?</summary><p>If the oil pressure warning comes on or the engine overheats, pull over safely and switch off the engine. A flashing check engine light, hard shaking, a charging-system warning, impaired braking or steering, or a fuel or burning smell also calls for a safe stop. Follow the dashboard message and owner’s manual, and call for assistance before continuing. A steady check engine light on an otherwise normally running car needs a prompt check.</p></details>
-      <details class="faq"><summary>How much will the repair cost?</summary><p>The price checker lists outside estimator links for the vehicles and repairs it covers. For any repair, you can copy a message asking a shop for the parts, labor, fees and total before you approve the work.</p></details>
+      <details class="faq"><summary>How much will the repair cost?</summary><p>Use the price checker to prepare an itemized estimate request for parts, labor, fees and the total. For selected vehicles and repairs, it also explains which services to compare on your quote.</p></details>
       <details class="faq"><summary>Does this replace a mechanic?</summary><p>No. It helps you understand the problem and how urgent it is, and gives you a summary to take to a mechanic. A professional inspection is the only way to confirm a diagnosis.</p></details>
       <details class="faq"><summary>Is it really free?</summary><p>Yes. No sign-up and no fees. If you'd like a copy of your result, you can email it to yourself; we don't send marketing email.</p></details>
     </div>
@@ -195,7 +197,7 @@
 <footer>
   <div class="wrap row">
     <div>© 2026 VehicleSymptoms.com</div>
-    <div>Educational information only — not professional advice. · <a href="/#about" style="color:var(--blue2)">About</a> · <a href="/privacy/" style="color:var(--blue2)">Privacy</a>{{ANIMATIONLINK}}</div>
+    <div>Educational information only — not professional advice. · <a href="/about/" style="color:var(--blue2)">About</a> · <a href="/privacy/" style="color:var(--blue2)">Privacy</a>{{ANIMATIONLINK}}</div>
   </div>
 </footer>
 

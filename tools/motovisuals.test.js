@@ -14,6 +14,27 @@ test('only provider-issued website player endpoints can be rendered', () => {
   assert.equal(createLibrary({ menu: '', individual: {} }), null);
 });
 
+function assertOnsitePlayer(frame) {
+  assert.deepEqual(frame.getAttribute('sandbox')?.split(/\s+/).sort(), ['allow-same-origin', 'allow-scripts']);
+  assert.equal(new URL(frame.src).origin, 'https://technet.motovisuals.com');
+  assert.equal(frame.getAttribute('referrerpolicy'),'strict-origin-when-cross-origin');
+  assert.ok(frame.hasAttribute('allowfullscreen'));
+}
+
+test('contextual, fallback and directory players restrict navigation to the frame', () => {
+  const lib = createLibrary();
+  const { html } = lib.directory();
+  const directory = new JSDOM('<body>' + html).window.document;
+  const fallback = directory.querySelectorAll('noscript iframe');
+  assert.equal(fallback.length,4);
+  fallback.forEach(assertOnsitePlayer);
+  for (const item of [lib.guide.get('grinding-brakes'), lib.guide.get('humming-noise-at-speed')]) {
+    const fragment = new JSDOM('<body>' + lib.contextual(item)).window.document;
+    assertOnsitePlayer(fragment.querySelector('template').content.querySelector('iframe'));
+    assertOnsitePlayer(fragment.querySelector('noscript iframe'));
+  }
+});
+
 test('catalog import keeps labels for nested entries, deduplicates IDs and drops private fields', () => {
   const child = { part_id: '2', en_US: 'Brake Pads', description_en_US: 'private description' };
   const data = { root: { part_id:'1', en_US:'Brake System', children:{ child, duplicate:child } } };
@@ -74,9 +95,11 @@ test('public directory exposes only playable videos across search, deep links an
     assert.equal(content.querySelector('iframe').src,data.menu);
     assert.equal(d.getElementById('mv-title').textContent,'Spring Check');
     assert.match(content.textContent,/Choose Checks in the system menu/);
+    assertOnsitePlayer(content.querySelector('iframe'));
     const popped = new Promise(resolve => w.addEventListener('popstate',resolve,{once:true}));
     w.history.back(); await popped;
     assert.equal(content.querySelector('iframe').title,'Brake Pads');
+    assertOnsitePlayer(content.querySelector('iframe'));
     search.value='no such title exists'; search.dispatchEvent(new w.Event('input'));
     assert.ok(d.getElementById('mv-count').textContent.startsWith('No matching'));
   } finally { w.close(); }

@@ -88,7 +88,7 @@ ${steps.length ? `<p style="${FONT}margin:0 0 4px;font-size:14px;color:#1B2733">
 
 <tr><td align="center" style="padding:8px 24px 6px">
   ${btn(guideLink, 'Open your guide again')}
-  <p style="${FONT}margin:14px 0 0;font-size:14px;color:#43546A"><a href="${vehLink}" style="color:#0A6FD6;font-weight:bold;text-decoration:underline">${v ? 'See common problems and recalls for your ' + esc(vname) : 'Look up your vehicle or VIN for free'}</a></p>
+  <p style="${FONT}margin:14px 0 0;font-size:14px;color:#43546A"><a href="${vehLink}" style="color:#0A6FD6;font-weight:bold;text-decoration:underline">${v ? 'See documented problems and model-year recall information for your ' + esc(vname) : 'Find your vehicle by year, make and model'}</a></p>
 </td></tr>
 
 <tr><td style="padding:22px 24px 6px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#0B2440" style="background:#0B2440;border-radius:12px"><tr><td style="padding:18px 20px">
