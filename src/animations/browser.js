@@ -59,7 +59,8 @@
     frame.className = 'mv-frame' + (item.url ? ' mv-video' : '');
     frame.title = item.url ? item.title : 'MotoVisuals vehicle system overviews';
     frame.allowFullscreen = true;
-    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+    frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
     frame.loading = 'lazy';
     frame.src = item.url || data.menu;
     content.append(frame);

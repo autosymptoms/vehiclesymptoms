@@ -52,7 +52,7 @@ window.VS_PDF=function(ctx){
   if(own&&own.annual&&!own.annual.withheld)tiles.push(['Average yearly repair and maintenance',money(own.annual.amount)+' /yr','National average for the '+v.make+' '+v.model+', all years']);
   tiles.push(['Problems documented'+(year?' for '+year:''),list.length?String(list.length):'Not yet',list.length?(serious?serious+' rated serious':'None on file rated serious'):"We haven't documented issues for this year yet. Not a reliability rating."]);
   const recOk=rec&&rec.status==='ok';
-  if(year)tiles.push(recOk?['Model-year safety recalls',String(rec.total),rec.total?'Filed for this model year. Check your VIN.':'NHTSA lists none for this model year. Check your VIN to be sure.']:['Safety recalls','–','Lookup unavailable. Check your VIN at nhtsa.gov/recalls.']);
+  if(year)tiles.push(recOk?['Model-year safety recalls',String(rec.total),rec.total?'Filed for this model year. Individual VIN status unknown.':'None listed for this model year. Individual VIN status unknown.']:['Safety recalls','–','NHTSA campaign count unavailable. Individual VIN status unknown.']);
   if(big)tiles.push(['Highest-cost issue covered here',rng(big.cost),big.cost.job,GREEN]);
   {const gap=8,tw=(CW-gap*(tiles.length-1))/tiles.length,pad=9,iw=tw-pad*2;
    const laid=tiles.map(t=>{font('bold',6.8,MUTED);const a=doc.splitTextToSize(clean(t[0]).toUpperCase(),iw);font('normal',8,BODY);const c=doc.splitTextToSize(clean(t[2]),iw);return{a,c,h:pad*2+a.length*8.8+24+c.length*10.4}});
@@ -89,7 +89,7 @@ window.VS_PDF=function(ctx){
    if(pay.length||rc.length){h2('Price guide: what repairs usually cost',pay.length?'Repairs owners of this vehicle may have to pay for, most serious first. Average estimates, low to high.':'No common out-of-pocket repairs on file for this year. The repairs below are normally covered by recalls.');
     if(pay.length)rule(6);pay.forEach(i=>row(i.cost.job,SEV[i.sev],rng(i.cost)));
     if(rc.length){need(60);y+=6;para('Recall repairs: usually free at the dealer',{size:11,style:'bold',color:TEXT,after:1});
-      para('Check your VIN. If your vehicle is included, the dealer fixes it at no charge.',{size:8.5,color:MUTED,after:6});rule(6);
+      para('A dealer can confirm coverage by VIN. An eligible safety recall repair is provided at no charge.',{size:8.5,color:MUTED,after:6});rule(6);
       rc.forEach(i=>row(i.cost.job.replace(/\s*\(recall\)$/i,''),'If your vehicle is included','No charge',{rc:GREEN}))}
     if(ctx.disc){y+=2;para('Disclaimer: '+ctx.disc,{size:8,color:MUTED})}}}
 
@@ -97,11 +97,13 @@ window.VS_PDF=function(ctx){
   if(year){
     if(recOk){h2((rec.total?rec.total+' safety recall'+(rec.total===1?'':'s'):'No safety recalls')+' filed for the '+name,(rec.total?'Campaigns NHTSA lists for this model year. Not every vehicle is included, and this does not show whether a recall is open on your car.':'NHTSA returned no campaigns for this model year.')+' Checked '+new Date(rec.checked).toLocaleDateString('en-US')+'.');
       rec.groups.forEach(g=>{if(rec.groups.length>1){need(30);para(g.label+': '+g.results.length,{size:10.5,style:'bold',color:TEXT,after:4})}
-        g.results.slice(0,12).forEach((x,k,a)=>{need(70);para([x.NHTSACampaignNumber,(x.Component||'').split(':')[0]].filter(Boolean).join('  ·  '),{size:9.5,style:'bold',color:TEXT,after:4});
+        g.results.forEach((x,k,a)=>{need(70);para([x.NHTSACampaignNumber,(x.Component||'').split(':')[0]].filter(Boolean).join('  ·  '),{size:9.5,style:'bold',color:TEXT,after:4});
           if(x.Summary){label('Problem');para(x.Summary,{size:9,after:5})}if(x.Remedy){label('Fix');para(x.Remedy,{size:9,after:4})}
-          if(k<a.length-1){y+=3;rule(10)}});if(g.results.length>12)para('Showing 12 of '+g.results.length+'. See all at nhtsa.gov/recalls.',{size:8.5,color:MUTED,after:4})})}
+          if(k<a.length-1){y+=3;rule(10)}})})}
     else h2('Safety recalls: lookup unavailable',"We couldn't confirm the recall list when this was saved. This does not mean there are no recalls.");
-    y+=6;para("Check your own vehicle: enter your VIN at nhtsa.gov/recalls to see which recalls apply to it and whether they're still open. Recall repairs are free at a dealer.",{size:9,style:'bold',color:TEXT})}
+    y+=6;para('A model-year search cannot confirm whether your VIN is included or whether a recall repair was completed.',{size:9,color:TEXT});
+    para('Question for your dealer: Could you check my '+name+' by VIN for any open safety recalls and tell me which repairs are outstanding?',{size:9,style:'bold',color:TEXT})}
+
 
   y+=14;need(50);rule(10);
   para("This is a general guide based on widely reported problems. Not every vehicle is affected, and it doesn't replace an in-person diagnosis.",{size:8.5,color:MUTED});
