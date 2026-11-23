@@ -83,65 +83,70 @@ function getSearchIndex(){
 // ---- emergencies: checked before any ordinary word matching ----
 // Plain-language danger phrases must put the urgent guide first, with the immediate safe action shown
 // before anything else. Order matters: the first rule that matches supplies the "do this now" text.
-const notStopping='(?! (?:running|beeping|making|shaking|ticking|clicking|squealing|squeaking|smoking|leaking|dripping|overheating|idling|cranking|revving|turning|honking|chiming|dinging|rattling))';
+const notStopping='(?! (?:\\w+ing|the|my|it|its)\\b)';
 const emergencyRules=[
-  {id:'brakes',
+  {id:'brakes',topic:/brak/i,
     rx:new RegExp('\\bbrakes? (?:are |is |have |has |just |completely |totally )*(?:stopped|stop|quit|quits|failed|fail|failing|gave out|went out|gone|out|not working|dont work|do not work|doesnt work|does not work|arent working|wont work|isnt working|wont stop)\\b'+
-      '|\\b(?:no|lost|losing|lose|without) (?:my |the |any )?brakes?\\b|\\bbrake failure\\b'+
-      '|\\b(?:wont|cant|will not|cannot|can not|couldnt|doesnt|does not|isnt) (?:stop|slow down|slow)\\b'+notStopping+
+      '|\\b(?:no|lost|losing|lose|without) (?:my |the |any )?brakes?\\b(?! lights?\\b)|\\bbrake failure\\b'+
+      '|(?:^|\\b(?:car|it|truck|vehicle|suv|van|brakes?|i|we)\\s+)(?:wont|cant|will not|cannot|can not|couldnt|doesnt|does not|isnt) (?:stop|slow down|slow)\\b'+notStopping+
       '|\\bpedal (?:goes |went |going |sinks |sank |dropped |drops )?(?:all the way )?(?:to|on) the floor\\b'),
     guides:['soft-or-spongy-brake-pedal','brake-warning-light-on','brake-fluid-leak'],
     now:'If your brakes fail while driving: pump the pedal hard and fast, shift to a lower gear, and pull the parking brake on gradually. Turn on your hazard lights and steer to a safe spot. Once stopped, don’t drive it again. Have it towed.'},
-  {id:'fire',
+  {id:'fire',topic:/burn|smoke|steam|fire/i,
     rx:/\b(?:on fire|fire|flames?|flaming|caught fire|catching fire|burning up)\b/,
     guides:['burning-smell','steam-from-under-hood'],
     now:'If you see flames or smoke from under the hood: pull over, turn the engine off, get everyone out and at least 100 feet away, and call 911. Don’t open the hood.'},
-  {id:'exhaust',
+  {id:'exhaust',topic:/exhaust|fume|smell/i,
     rx:/\b(?:carbon monoxide|exhaust (?:smell|fumes?|inside|in the car|in the cabin|getting in)|fumes? (?:inside|in the car|in the cabin)|smell(?:s|ing)? (?:like )?exhaust)\b|\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b.*\b(?:exhaust|fumes?|smell)\b|\b(?:exhaust|fumes?)\b.*\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b/,
     guides:['exhaust-smell-in-cabin'],
     now:'If anyone has a headache, dizziness, nausea, confusion or feels sleepy, this may be carbon monoxide poisoning. Get everyone into fresh air right away and call 911 from outside the car.'},
-  {id:'gas',
+  {id:'gas',topic:/gas|fuel/i,
     rx:/\b(?:gas|gasoline|fuel) (?:smell|smells|smelling|leak|leaks|leaking|dripping|puddle)\b|\bsmell(?:s|ing)? (?:like |of )?(?:gas|gasoline|fuel)\b|\bleaking (?:gas|gasoline|fuel)\b/,
     guides:['gas-smell'],
     now:'If you smell strong fuel or see it dripping: don’t start the engine (turn it off if it’s running), keep sparks and cigarettes away, and move away from the car. Call 911 if the smell is strong or fuel is pooling.'},
-  {id:'stall',
+  {id:'stall',topic:/stall|dies|shut|power|start/i,
     rx:/\b(?:died|dies|dying|stalled|stalls|stalling|shut off|shuts off|shut down|shuts down|cut out|cuts out|turned off|turns off|quit|quits|lost power|loses power)\b.*\b(?:highway|freeway|interstate|driving|road|traffic)\b|\b(?:highway|freeway|interstate|driving)\b.*\b(?:died|stalled|shut off|shut down|cut out|turned off|quit)\b/,
     guides:['engine-stalls-while-driving'],
     now:'If the engine dies while you’re moving: turn on your hazard lights, shift to neutral, keep a firm grip (steering and brakes get much heavier) and steer to the shoulder. Once stopped, get well away from traffic if it’s safe to do so.'},
-  {id:'cel-flashing',
+  {id:'cel-flashing',topic:/engine|misfire|shak/i,
     rx:/\b(?:check engine|engine light|engine warning|cel|service engine)\b.*\b(?:flash|flashing|blinking|blink|blinks|flashes)\b|\b(?:flash|flashing|blinking|blink|blinks|flashes)\b.*\b(?:check engine|engine light|engine warning|cel|service engine)\b/,
     guides:['check-engine-light-flashing'],
     now:'A flashing check engine light means a severe misfire that can overheat the exhaust and start a fire. Ease off the gas, pull over when it’s safe and turn the engine off. Don’t keep driving.'},
-  {id:'oil',
-    rx:/\b(?:red |low )?oil (?:pressure|light|warning|can|lamp)\b(?!.*\b(?:change|life|service|maintenance|reset|due)\b)|\b(?:red|low) oil\b(?!.*\b(?:change|life|service|maintenance|reset|due)\b)/,
+  {id:'oil',topic:/oil/i,
+    rx:/\b(?:red |low )?oil (?:pressure|light|warning|can|lamp|symbol|icon)\b(?!.*\b(?:change|life|service|maintenance|reset|due|leak|leaking|under|puddle)\b)/,
     guides:['oil-pressure-light-on'],
     now:'A red oil light while the engine is running means low oil pressure. Pull over as soon as it’s safe and turn the engine off. Driving on can wreck the engine within minutes.'},
-  {id:'overheat',
+  {id:'overheat',skip:/\btransmission\b|\btrans temp\b/,topic:/overheat|temperature|coolant|steam/i,
     rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b/,
     guides:['engine-overheating','steam-from-under-hood'],
     now:'If the engine is overheating: pull over when it’s safe and turn the engine off. Never open the radiator or coolant cap while it’s hot. Wait at least 30 minutes.'},
-  {id:'blowout',
+  {id:'blowout',topic:/tire|flat/i,
     rx:/\b(?:blow ?out|blew out|tire (?:exploded|burst|popped|blew)|flat tire while driving)\b/,
     guides:['tire-keeps-losing-air'],
     now:'If a tire blows out: hold the steering wheel firmly, keep going straight, and ease off the gas. Don’t slam the brakes. Brake gently once you’ve slowed down, then pull fully off the road.'},
-  {id:'steering',
-    rx:/\b(?:steering (?:locked|locked up|went out|failed|stopped working|gone)|lost (?:my |the )?steering|cant steer|wont steer|steering wheel (?:locked|wont turn))\b/,
+  {id:'steering',topic:/steer/i,
+    rx:/\b(?:steering (?:went out|failed|stopped working|gone)|lost (?:my |the )?steering|cant steer|steering (?:wheel )?(?:locked|locked up|wont turn)\b.*\b(?:driving|moving|highway|road))\b/,
     guides:['steering-hard-to-turn','loose-or-wandering-steering'],
     now:'If you lose steering control: grip the wheel firmly with both hands, ease off the gas, brake gently, turn on your hazard lights and steer to a safe stop. Don’t drive it again until it’s checked.'}
 ];
+// Words that say something failed without saying what (they matched the radio guide to "brakes stopped working").
+const emergencyGeneric=new Set(['stopped','stop','working','work','wont','not','dont','doesnt','light','warning','on','out','failed','went','gone','quit','stalls','died']);
 function emergency(q){
   const text=literalSymptom(q).replace(/\bwill not\b/g,'wont').replace(/\bcan not\b|\bcannot\b/g,'cant')
     .replace(/\b(?:isnt|is not|not|never|no longer|stopped) (?:flashing|blinking)\b|\b(?:doesnt|does not|didnt|did not) (?:flash|blink)\b/g,'steady');
-  const hits=emergencyRules.filter(rule=>rule.rx.test(text));
+  const hits=emergencyRules.filter(rule=>rule.rx.test(text)&&!(rule.skip&&rule.skip.test(text)));
   if(!hits.length)return null;
   const ids=[...new Set(hits.flatMap(rule=>rule.guides))].filter(id=>G.some(g=>g.id===id));
-  return {rule:hits[0].id,now:hits[0].now,also:hits.slice(1).map(rule=>rule.now),guides:ids.map(id=>G.find(g=>g.id===id))};
+  return {rule:hits[0].id,now:hits[0].now,also:hits.slice(1).map(rule=>rule.now),guides:ids.map(id=>G.find(g=>g.id===id)),
+    related:g=>hits.some(rule=>rule.topic.test(g.title+' '+g.h1))||
+      symptomWords(g.title).some(word=>!emergencyGeneric.has(word)&&symptomWords(q).includes(word))};
 }
 function search(q,n=5){
   const urgent=emergency(q);
   const ordinary=searchWords_(q,n);
   if(!urgent)return ordinary;
-  return [...urgent.guides,...ordinary.filter(g=>!urgent.guides.includes(g))].slice(0,n);
+  // Other word matches only if they're about the same danger (no radio guide under "brakes stopped working").
+  return [...urgent.guides,...ordinary.filter(g=>!urgent.guides.includes(g)&&urgent.related(g))].slice(0,n);
 }
 function searchWords_(q,n=5){
   const words=symptomWords(q);

@@ -95,8 +95,11 @@ for(const [query,id] of emergencies){
   assert.ok(result.querySelector('.urgentnow'),query+' should show the urgent safety step');
   assert.equal(result.querySelector('.glist a').getAttribute('href'),'/symptoms/'+id+'/',query);
 }
-for(const query of ['check engine light is not flashing','my car won’t stop beeping','car won’t stop running','squealing brakes','misfire'])
+for(const query of ['check engine light is not flashing','my car won’t stop beeping','car won’t stop running','squealing brakes','misfire',
+  'shocks won’t stop bouncing','steering wheel locked','red oil under car','stuck in park no brake lights','transmission overheating light','oil change light'])
   assert.equal(window.VS_GUIDES.emergency(query),null,query+' is not an emergency');
+// Under an emergency, unrelated guides that only share words like "stopped working" must not be listed.
+assert.ok(!window.VS_GUIDES.search('my brakes stopped working',5).some(g=>g.id==='electrical-accessories-not-working'));
 const co=submit('exhaust smell in the car');
 assert.match(co.querySelector('.urgentnow').textContent,/call 911/);
 
