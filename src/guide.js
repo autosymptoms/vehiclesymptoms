@@ -103,7 +103,7 @@ const emergencyRules=[
     // Tailpipe smoke ("white smoke from exhaust") is not a fire emergency unless flames are mentioned.
     skip:/^(?!.*\b(?:fire|flames?|flaming)\b).*\b(?:exhaust|tailpipe|tail pipe|muffler|white|blue|black|gray|grey|idle|idling|startup|start up|starting|cold start|turbo|puff|burning oil|oil change)\b/,
     guides:['burning-smell','steam-from-under-hood'],
-    now:'If you see flames or smoke from under the hood: pull over, turn the engine off, get everyone out and at least 100 feet away, and call 911. Don’t open the hood.'},
+    now:'If you see smoke and think your car may be on fire, pull over as soon as it’s safe and turn off the engine. Get everyone out. Leave the hood closed. Move at least 100 feet from the car and stay away from traffic. Call 911 from a safe spot, even if you can’t see flames.'},
   {id:'exhaust',topic:/exhaust|fume|smell/i,
     rx:/\b(?:carbon monoxide|exhaust (?:smell|fumes?|inside|in the car|in the cabin|getting in)|fumes? (?:inside|in the car|in the cabin)|smell(?:s|ing)? (?:like )?exhaust)\b|\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b.*\b(?:exhaust|fumes?|smell)\b|\b(?:exhaust|fumes?)\b.*\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b|\b(?:headaches?|dizzy|dizziness|nausea|nauseous|lightheaded|light headed)\b.*\b(?:driving|in (?:the |my )?car|in (?:the |my )?truck|inside the car|while i drive|when i drive)\b/,
     guides:['exhaust-smell-in-cabin'],
