@@ -158,7 +158,7 @@ for (const f of htmlFiles) {
 }
 
 // ---------- sitemap ----------
-const sm = fs.existsSync(path.join(ROOT, 'sitemap.xml')) ? fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8') : '';
+const sm = fs.readdirSync(ROOT).filter(f => /^sitemap-.+\.xml$/.test(f)).map(f => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('\n');
 const smUrls = [...sm.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map(m => decode(m[1]));
 const smRoutes = new Set(), smOffsite = [];
 for (const u of smUrls) { try { const x = new URL(u); if (x.origin !== ORIGIN) smOffsite.push(u); smRoutes.add(x.pathname); } catch (e) { smOffsite.push(u); } }
