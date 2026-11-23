@@ -20,6 +20,15 @@ Only these two. Never write steps for clearing a check engine, brake, ABS, airba
 - Every oil variant starts with a step saying to reset only after the oil and filter were actually changed (or the service was done). Every tpms variant starts with setting all tires (and a monitored spare) to the cold pressure on the driver's door jamb sticker. If the light blinks for about a minute then stays on, that is a system fault that a reset will not clear: say so in a note when relevant.
 - No web addresses, brand domain names or phone numbers inside the text fields. Sources go only in `src`.
 
+## What worked for earlier agents (read this, it saves budget)
+- Only open links that come up in search results. Web addresses you build yourself, and `?page=N` links typed by hand on manualowl/manualslib/manualsdir, often fail or load the wrong page. Shell downloads (curl) of manual sites are blocked; use the page fetch tool.
+- Short official guides are the cheapest source and name the model and year on the cover:
+  - Toyota/Lexus/Scion "Quick Reference Guide" PDFs on assets.sia.toyota.com (search: `"Quick Reference Guide" <model> <year> site:assets.sia.toyota.com`). They have the TPMS reset; the oil reset is in the full owner's manual.
+  - GM "Getting to Know Your <year> <model>" guides on contentdelivery.ext.gm.com (Chevrolet, GMC, Buick, Cadillac, Pontiac, Saturn, Hummer).
+  - Hyundai and Genesis: ownersmanual.hyundai.com / ownersmanual.genesis.com single-topic pages (find them through search). Kia: ownersmanual.kia.com. Mazda: owners-manual.mazda.com. Nissan: nissanusa.com owner manual and quick reference guide PDFs.
+- A full owner's manual PDF is huge; use its table of contents to find the section, and read with character offsets rather than starting from page 1.
+- Cover the newest generations first, then go back. Bracket two years of the same generation whenever you can.
+
 ## Model file format — `src/resets/models/<vehicle-id>.json`
 Use the exact vehicle id you were given. One file per model. Example:
 
