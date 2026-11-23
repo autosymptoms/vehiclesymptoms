@@ -1,0 +1,76 @@
+{
+  "make": "Lincoln",
+  "oil": {
+    "variants": [
+      {
+        "when": "Roughly 2018 and newer models with arrow and OK buttons on the steering wheel, such as the 2021 Navigator",
+        "steps": [
+          "Reset only after the oil and filter have been changed.",
+          "Turn the ignition on and use the steering wheel display controls to bring up the main menu in the instrument cluster.",
+          "Scroll to Settings, press the right arrow, then scroll to Vehicle.",
+          "Press the right arrow again and scroll to Oil Life.",
+          "Press and hold OK until the cluster shows Reset Successful and the oil life reads 100%. If it says Not Reset or Reset Cancelled, try again."
+        ]
+      },
+      {
+        "when": "Newest models with a Settings menu on the screen, such as the 2026 Nautilus",
+        "steps": [
+          "Reset only after the oil and filter have been changed.",
+          "Switch the ignition on and open the Settings menu.",
+          "Press Vehicle Settings, then Oil Life.",
+          "Press and hold OK until the display confirms the reset."
+        ]
+      },
+      {
+        "when": "Roughly 2007 to 2014 models with SETUP and RESET message center buttons, such as the 2010 MKZ, 2011 MKS and 2012 Navigator",
+        "steps": [
+          "Reset only after the oil and filter have been changed.",
+          "Turn the ignition on.",
+          "Press and release SETUP until the message center shows OIL LIFE XXX% HOLD RESET = NEW.",
+          "Press and hold RESET for about two seconds, then let go. The oil life returns to 100%."
+        ],
+        "note": "Pressing RESET again while OIL LIFE SET TO XXX% is showing lowers the starting value by 10% each time. Leave it at 100% unless you want shorter intervals."
+      }
+    ],
+    "src": [
+      "https://www.dezosmanuals.com/wp-content/uploads/2021/09/2021-Lincoln-Navigator-OM.pdf",
+      "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/2026-Nautilus-OM-enUSA-V1.pdf",
+      "https://www.manualsdir.com/manuals/164314/lincoln-2010-mkz.html?page=22",
+      "https://www.manualsdir.com/manuals/162858/lincoln-2011-mks.html?page=21",
+      "https://www.manualowl.com/am/Lincoln/2012-Navigator/Manual/4401?page=22",
+      "https://www.lincolncanada.com/support/how-tos/oil-change/oil-change-reminder/how-does-the-intelligent-oil-life-monitor-work"
+    ]
+  },
+  "tpms": {
+    "variants": [
+      {
+        "when": "Most Lincolns with a tire pressure light, such as the 2009 to 2011 Town Car and the 2011 and 2021 Navigator",
+        "steps": [
+          "Set all four tires to the cold pressure on the driver's door jamb sticker.",
+          "Drive for at least two minutes above 20 mph (32 km/h).",
+          "The light goes out by itself once the system reads the corrected pressures. There is no reset button.",
+          "If the tires are set correctly, the spare is not in use and the light stays on, have a dealer check the system."
+        ],
+        "note": "If the light flashes for about a minute at start-up and then stays on, the system has a fault that adding air will not fix. A temporary spare also keeps the light on until the repaired tire goes back on."
+      },
+      {
+        "when": "Newest models with a tire pressure reset in the touchscreen Settings, such as the 2026 Nautilus",
+        "steps": [
+          "Set all four tires to the cold pressure on the driver's door jamb sticker.",
+          "Switch the ignition on and press Settings on the center touchscreen.",
+          "Open Vehicle Settings and select Tire Pressure.",
+          "Press and hold the reset control until the system confirms the reset."
+        ],
+        "note": "On these models the manual says to run the reset every time a tire is replaced or the pressures are adjusted."
+      }
+    ],
+    "src": [
+      "https://www.manualowl.com/am/Lincoln/2011-Town%20Car/Manual/4333?page=164",
+      "https://www.manualowl.com/am/Lincoln/2009-Town%20Car/Manual/4251?page=164",
+      "https://www.manualsdir.com/manuals/164414/lincoln-2011-navigator.html?page=200",
+      "https://www.dezosmanuals.com/wp-content/uploads/2021/09/2021-Lincoln-Navigator-OM.pdf",
+      "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/2026-Nautilus-OM-enUSA-V1.pdf"
+    ]
+  },
+  "notes": "Lincoln uses a calculated oil life reminder, so it never clears itself after an oil change: it has to be reset by hand, and the menu wording changes by model year. On most years the tire pressure light has no reset and goes out after a short drive once the tires are set right; the newest touchscreen models add a reset in Settings."
+}

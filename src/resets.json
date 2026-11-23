@@ -66,6 +66,26 @@
   },
   "notes": "Acura uses the same Maintenance Minder codes as Honda, so reset only the item that was actually serviced. Which TPMS a given Acura has matters more than the model year alone: if the screen shows a pressure for each tire it is a sensor system, and if it only warns about low pressure it is the indirect system that needs calibration."
  },
+ "alfa-romeo": {
+  "make": "Alfa Romeo",
+  "tpms": {
+   "variants": [
+    {
+     "when": "Giulia (seen in the 2017 owner's guide): sensors in the wheels, no reset button or menu",
+     "steps": [
+      "Set all four tires to the cold pressure on the sticker in the driver's door opening.",
+      "Drive normally. The system picks up the new pressures by itself, which can take up to about 20 minutes above 15 mph.",
+      "Once all tires read at or above the sticker pressure, the tire light turns off on its own."
+     ],
+     "note": "If the tire light flashes for about a minute and then stays on, the system has a fault and may not warn you of low pressure. Setting the pressures will not clear it; have the system checked."
+    }
+   ],
+   "src": [
+    "https://www.alfaromeousa.com/content/dam/alfausa/uploads/owner-manuals/QV/2017-Alfa_Romeo-Giulia-UG-3rd.pdf"
+   ]
+  },
+  "notes": "The 2017 Giulia owner's guide explains the oil change light but gives no reset steps for it, so the oil reminder reset is not listed yet."
+ },
  "audi": {
   "make": "Audi",
   "oil": {
@@ -613,6 +633,30 @@
   },
   "notes": "Dodge shares its cluster and oil life software with Jeep, Chrysler and Ram, so the same two oil reset methods cover the whole line. Oil life is based on how the vehicle is driven rather than a fixed mileage counter. Neither of these lights needs a scan tool unless a TPMS sensor itself has been replaced."
  },
+ "fiat": {
+  "make": "Fiat",
+  "oil": {
+   "variants": [
+    {
+     "when": "Fiat 500 and 500X (seen in the 2013 500 and the 2016 and 2019 500X owner's manuals)",
+     "steps": [
+      "Reset only after the oil and filter have actually been changed.",
+      "Switch the ignition on without starting the engine. With push-button start, press START/STOP without touching the brake.",
+      "Slowly press the accelerator pedal all the way down and let it up, three times, all within about 10 seconds.",
+      "Switch the ignition off again.",
+      "Start the engine. If the oil change message comes back, the reset did not take, so repeat the steps."
+     ],
+     "note": "Pressing the MENU button only hides the message for now; it does not reset the reminder."
+    }
+   ],
+   "src": [
+    "https://www.manualsdir.com/manuals/675780/fiat-2013-500.html?page=80",
+    "https://manualslib.com/manual/971591/Fiat-500x-2016.html?page=139",
+    "https://manualslib.com/manual/1658815/Fiat-500x-2019.html?page=114"
+   ]
+  },
+  "notes": "On the US Fiat 500 and 500X the oil change message is cleared with the accelerator pedal, not a dash button. We have not yet confirmed the tire pressure light procedure from a Fiat owner's manual."
+ },
  "ford": {
   "make": "Ford",
   "oil": {
@@ -700,6 +744,48 @@
    ]
   },
   "notes": "Ford's reminder is a calculated oil life monitor, so it will not clear itself after an oil change. Ford has no TPMS reset button: on most models the light clears by driving once pressures are right, and only trucks and SUVs with different front and rear pressures need the hazard-flasher relearn after a rotation. Menu wording changes by model year."
+ },
+ "genesis": {
+  "make": "Genesis",
+  "oil": {
+   "variants": [
+    {
+     "when": "Models with the Oil Change Reminder on the infotainment screen (checked: 2023 GV70, 2025 G70 2.5T, 2026 GV80)",
+     "steps": [
+      "Reset only after the engine oil and filter have actually been changed. Resetting early makes the reminder show the wrong oil life.",
+      "With the vehicle parked and switched on, open the Oil Change Reminder (oil life) page on the infotainment screen. On the 2023 GV70 it is under Setup, Vehicle, Cluster.",
+      "Select Reset.",
+      "When asked whether the engine oil has been changed, select Yes, and check that oil life reads 100%."
+     ],
+     "note": "The reminder does not replace the maintenance schedule. Change the oil on schedule even if no warning has appeared."
+    }
+   ],
+   "src": [
+    "https://owners.genesis.com/genesis/us/mygenesis/manuals/glovebox-manual/2023/gv70/2023-GV70-Reference-Guide.pdf",
+    "https://ownersmanual.genesis.com/full_webhelp/JX/2026/en_US/id7a15225afb1.html",
+    "https://ownersmanual.genesis.com/full_webhelp/IK/2025/en_US/id04839e1183c.html"
+   ]
+  },
+  "tpms": {
+   "variants": [
+    {
+     "when": "Models showing each tire's pressure in the cluster, with no reset button (checked: 2021–2023 G70, 2021 G80, 2023 GV70)",
+     "steps": [
+      "Set all four tires to the cold pressure on the label on the driver's door pillar.",
+      "There is no reset button: drive normally and the pressures appear in the cluster after a short distance.",
+      "Check that all four readings match the door label. The low pressure light should go out once the system reads the corrected pressures."
+     ],
+     "note": "A tire pressure light that blinks for about a minute and then stays on means a system fault, which correct pressures will not clear."
+    }
+   ],
+   "src": [
+    "https://owners.genesis.com/genesis/us/mygenesis/manuals/glovebox-manual/2021/g70/2021-G70-Quick-Reference-Guide.pdf",
+    "https://owners.genesis.com/genesis/us/mygenesis/manuals/glovebox-manual/2023/g70/2023-G70-Quick-Reference-Guide.pdf",
+    "https://owners.genesis.com/genesis/us/mygenesis/manuals/glovebox-manual/2021/g80/2021-G80-Quick-Reference-Guide.pdf",
+    "https://owners.genesis.com/genesis/us/mygenesis/manuals/glovebox-manual/2023/gv70/2023-GV70-Reference-Guide.pdf"
+   ]
+  },
+  "notes": "Genesis tire pressure systems learn new pressures by themselves while driving, so there is nothing to press. The oil reminder, where fitted, is reset from the infotainment screen, and only after the oil has actually been changed."
  },
  "gmc": {
   "make": "GMC",
@@ -856,6 +942,53 @@
   },
   "notes": "Honda's Maintenance Minder shows a letter and number code, such as A1 or B12, for the work that is due; reset only the item you actually did so the rest stays on the books. Most Hondas built after about 2015 use indirect TPMS, so the tire light needs a calibration rather than a sensor relearn."
  },
+ "hummer": {
+  "make": "Hummer",
+  "oil": {
+   "variants": [
+    {
+     "when": "H2 (for example 2006): accelerator pedal method, with or without the Driver Information Center",
+     "steps": [
+      "Reset only after the engine oil and filter have actually been changed.",
+      "Turn the key to RUN with the engine off.",
+      "Slowly push the accelerator pedal all the way down and let it up three times within five seconds.",
+      "OIL LIFE RESET should flash for about 10 seconds while the system resets.",
+      "Turn the key to LOCK. If CHANGE ENGINE OIL comes back at the next start, repeat the steps."
+     ]
+    },
+    {
+     "when": "H3 (for example 2007): instrument cluster reset stem",
+     "steps": [
+      "Reset only after the engine oil and filter have actually been changed.",
+      "With the engine off, turn the key to On.",
+      "Press and release the reset stem until OIL LIFE shows.",
+      "When OIL LIFE and RESET take turns on the display, press and hold the stem until several beeps sound.",
+      "Turn the key off."
+     ]
+    }
+   ],
+   "src": [
+    "https://www.manualowl.com/am/Hummer/2006-H2/Manual/692?page=348",
+    "https://contentdelivery.ext.gm.com/content/dam/cope/en_us/public/pdf_assets/active/quick_reference_manuals_browse/2007GTKH3.pdf"
+   ]
+  },
+  "tpms": {
+   "variants": [
+    {
+     "when": "H3 with a low tire pressure light (for example 2007)",
+     "steps": [
+      "Set all four tires to the cold pressure on the Tire and Loading Information label on the driver's door.",
+      "There is no reset button. The light stays on until the pressure is corrected, then goes off on its own.",
+      "Clearing the CHECK TIRE PRESSURE message only hides it until the next start if a tire is still low."
+     ]
+    }
+   ],
+   "src": [
+    "https://contentdelivery.ext.gm.com/content/dam/cope/en_us/public/pdf_assets/active/quick_reference_manuals_browse/2007GTKH3.pdf"
+   ]
+  },
+  "notes": "Hummer used the GM Oil Life System. The H2 resets with the accelerator pedal method and the H3 with the reset stem on the instrument cluster."
+ },
  "hyundai": {
   "make": "Hyundai",
   "oil": {
@@ -998,6 +1131,28 @@
   },
   "notes": "Infiniti shares Nissan's hardware, so the maintenance menu is a distance counter you set yourself and the low tire pressure light is a real pressure warning rather than a service reminder. Infiniti manuals send owners to the retailer for a system reset after a wheel or sensor change instead of giving a button sequence."
  },
+ "jaguar": {
+  "make": "Jaguar",
+  "tpms": {
+   "variants": [
+    {
+     "when": "Jaguar models with a sensor in each wheel (for example the 2011 XF)",
+     "steps": [
+      "Set all four tires to the cold pressure on the driver's door jamb sticker, using an accurate gauge.",
+      "There is no reset button. The warning clears once the tires are at the correct pressure and the system reads them again.",
+      "Drive above about 18 mph for at least 10 minutes so every wheel is checked.",
+      "If a sensor or wheel was replaced, drive for at least 15 minutes, then leave the car parked for 15 minutes so the new sensor is learned.",
+      "If the warning stays on after that, have the tires and system checked by a qualified shop."
+     ],
+     "note": "If the light flashes first and then stays on, or a tire pressure monitoring system fault message shows, the system has a fault that setting pressures will not clear."
+    }
+   ],
+   "src": [
+    "https://www.jaguar.co.uk/content/dam/jdx/pdfs/uk/XF_Owners_Handbook_11MY.pdf"
+   ]
+  },
+  "notes": "Jaguar tire pressure systems use wheel sensors and relearn by driving, with no driver reset button. The handbook we opened shows a SERVICE REQUIRED message when the service distance is reached but gives no driver reset, so ask the shop that did the service to reset it."
+ },
  "jeep": {
   "make": "Jeep",
   "oil": {
@@ -1130,6 +1285,30 @@
   },
   "notes": "Kia does not show an oil life reading on most US models; it uses a mileage and time Service Interval countdown that an owner or dealer resets. Tire pressure is always handled in the cluster, never in the touchscreen."
  },
+ "land-rover": {
+  "make": "Land Rover",
+  "tpms": {
+   "variants": [
+    {
+     "when": "Land Rover models with a sensor in each wheel (for example 2017 Evoque and 2023 Range Rover)",
+     "steps": [
+      "Set all four tires, and a monitored full-size spare if fitted, to the cold pressure on the driver's door jamb sticker.",
+      "There is no reset button. The system reads each sensor by itself, so correct pressures are what clear the light.",
+      "Check the tire pressure monitoring load setting in the vehicle menus and match it to how loaded the vehicle is (light or normal, or normal or heavy, depending on the model).",
+      "If a wheel or tire was removed or swapped, drive for at least 15 minutes so the system can relearn.",
+      "Drive above about 16 to 18 mph. A low-pressure warning should clear within about 5 to 10 minutes.",
+      "If the light stays on after that, have the tires and system checked by a qualified shop."
+     ],
+     "note": "If the light flashes for about a minute or more and then stays on, the system has a fault or cannot read a sensor. Setting pressures will not clear that."
+    }
+   ],
+   "src": [
+    "https://sb952effb4c14a0dc.jimcontent.com/download/version/1705265269/module/9695589682/name/Range%20Rover%20Evoque%20Owner's%20Manual.pdf",
+    "https://blownfuse.co/land-rover/new-range-rover/2023-land-rover-new-range-rover-tyre-pressure-monitoring-system-tpms-owner-manual/"
+   ]
+  },
+  "notes": "Land Rover tire pressure systems use a sensor in each wheel and relearn by driving, with no driver reset button. The owner's handbooks we opened say the service reminder countdown is reset when a service is completed but give no steps a driver can follow, so ask the shop that did the oil change to reset it."
+ },
  "lexus": {
   "make": "Lexus",
   "oil": {
@@ -1193,6 +1372,82 @@
    ]
   },
   "notes": "Lexus uses Toyota's systems, and the owner's manual treats the oil maintenance data, the Maintenance Required message and the tire pressure warning system as three separate things to reset. A tire pressure light that blinks for about a minute and then stays on is a sensor or system fault that needs a shop."
+ },
+ "lincoln": {
+  "make": "Lincoln",
+  "oil": {
+   "variants": [
+    {
+     "when": "Roughly 2018 and newer models with arrow and OK buttons on the steering wheel, such as the 2021 Navigator",
+     "steps": [
+      "Reset only after the oil and filter have been changed.",
+      "Turn the ignition on and use the steering wheel display controls to bring up the main menu in the instrument cluster.",
+      "Scroll to Settings, press the right arrow, then scroll to Vehicle.",
+      "Press the right arrow again and scroll to Oil Life.",
+      "Press and hold OK until the cluster shows Reset Successful and the oil life reads 100%. If it says Not Reset or Reset Cancelled, try again."
+     ]
+    },
+    {
+     "when": "Newest models with a Settings menu on the screen, such as the 2026 Nautilus",
+     "steps": [
+      "Reset only after the oil and filter have been changed.",
+      "Switch the ignition on and open the Settings menu.",
+      "Press Vehicle Settings, then Oil Life.",
+      "Press and hold OK until the display confirms the reset."
+     ]
+    },
+    {
+     "when": "Roughly 2007 to 2014 models with SETUP and RESET message center buttons, such as the 2010 MKZ, 2011 MKS and 2012 Navigator",
+     "steps": [
+      "Reset only after the oil and filter have been changed.",
+      "Turn the ignition on.",
+      "Press and release SETUP until the message center shows OIL LIFE XXX% HOLD RESET = NEW.",
+      "Press and hold RESET for about two seconds, then let go. The oil life returns to 100%."
+     ],
+     "note": "Pressing RESET again while OIL LIFE SET TO XXX% is showing lowers the starting value by 10% each time. Leave it at 100% unless you want shorter intervals."
+    }
+   ],
+   "src": [
+    "https://www.dezosmanuals.com/wp-content/uploads/2021/09/2021-Lincoln-Navigator-OM.pdf",
+    "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/2026-Nautilus-OM-enUSA-V1.pdf",
+    "https://www.manualsdir.com/manuals/164314/lincoln-2010-mkz.html?page=22",
+    "https://www.manualsdir.com/manuals/162858/lincoln-2011-mks.html?page=21",
+    "https://www.manualowl.com/am/Lincoln/2012-Navigator/Manual/4401?page=22",
+    "https://www.lincolncanada.com/support/how-tos/oil-change/oil-change-reminder/how-does-the-intelligent-oil-life-monitor-work"
+   ]
+  },
+  "tpms": {
+   "variants": [
+    {
+     "when": "Most Lincolns with a tire pressure light, such as the 2009 to 2011 Town Car and the 2011 and 2021 Navigator",
+     "steps": [
+      "Set all four tires to the cold pressure on the driver's door jamb sticker.",
+      "Drive for at least two minutes above 20 mph (32 km/h).",
+      "The light goes out by itself once the system reads the corrected pressures. There is no reset button.",
+      "If the tires are set correctly, the spare is not in use and the light stays on, have a dealer check the system."
+     ],
+     "note": "If the light flashes for about a minute at start-up and then stays on, the system has a fault that adding air will not fix. A temporary spare also keeps the light on until the repaired tire goes back on."
+    },
+    {
+     "when": "Newest models with a tire pressure reset in the touchscreen Settings, such as the 2026 Nautilus",
+     "steps": [
+      "Set all four tires to the cold pressure on the driver's door jamb sticker.",
+      "Switch the ignition on and press Settings on the center touchscreen.",
+      "Open Vehicle Settings and select Tire Pressure.",
+      "Press and hold the reset control until the system confirms the reset."
+     ],
+     "note": "On these models the manual says to run the reset every time a tire is replaced or the pressures are adjusted."
+    }
+   ],
+   "src": [
+    "https://www.manualowl.com/am/Lincoln/2011-Town%20Car/Manual/4333?page=164",
+    "https://www.manualowl.com/am/Lincoln/2009-Town%20Car/Manual/4251?page=164",
+    "https://www.manualsdir.com/manuals/164414/lincoln-2011-navigator.html?page=200",
+    "https://www.dezosmanuals.com/wp-content/uploads/2021/09/2021-Lincoln-Navigator-OM.pdf",
+    "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/2026-Nautilus-OM-enUSA-V1.pdf"
+   ]
+  },
+  "notes": "Lincoln uses a calculated oil life reminder, so it never clears itself after an oil change: it has to be reset by hand, and the menu wording changes by model year. On most years the tire pressure light has no reset and goes out after a short drive once the tires are set right; the newest touchscreen models add a reset in Settings."
  },
  "mazda": {
   "make": "Mazda",
@@ -1349,6 +1604,139 @@
   },
   "notes": "Mercedes tracks the service reminder as a date as well as a distance, so a car driven very little can still call for service. An accidental ASSYST reset can only be put right by a shop with Mercedes diagnostic equipment, so do the service first."
  },
+ "mercury": {
+  "make": "Mercury",
+  "oil": {
+   "variants": [
+    {
+     "when": "About 2009–2011 Milan, Mariner and Sable with a message center and SETUP and RESET buttons",
+     "steps": [
+      "Reset only after the oil and filter have actually been changed.",
+      "Turn the ignition to ON. The engine does not need to be running.",
+      "Press SETUP until the message center shows the oil life screen, worded like OIL LIFE XXX% HOLD RESET = NEW.",
+      "Press and hold RESET for about two seconds, then let go. Oil life goes back to 100%."
+     ],
+     "note": "Tapping RESET while OIL LIFE SET TO XXX% is showing lowers the starting value 10% per tap. Leave it at 100% unless your shop advised otherwise."
+    },
+    {
+     "when": "About 2009–2011 Grand Marquis and 2009 Mountaineer, where the screen asks HOLD RESET IF NEW OIL",
+     "steps": [
+      "Reset only after the oil and filter have actually been changed.",
+      "Turn the ignition to ON.",
+      "Press SETUP repeatedly until the message center reaches the oil life item.",
+      "Press RESET until the display asks HOLD RESET IF NEW OIL.",
+      "Press and hold RESET for a few seconds until the display confirms oil life is set to 100%."
+     ]
+    }
+   ],
+   "src": [
+    "https://www.fordservicecontent.com/Ford_Content/catalog/owner_guides/11mlnog1e.pdf",
+    "https://manualowl.com/am/Mercury/2010-Mariner/Manual/4644?page=21",
+    "https://www.manualowl.com/am/Mercury/2009-Sable/Manual/4620?page=90",
+    "https://www.fordservicecontent.com/ford_content/catalog/owner_guides/09grnog1e.pdf",
+    "https://www.fordservicecontent.com/Ford_Content/catalog/owner_guides/09mntog2e.pdf"
+   ]
+  },
+  "tpms": {
+   "variants": [
+    {
+     "when": "Mercury models with a tire pressure monitoring system (for example Mariner from 2006, Mountaineer and Milan in later years)",
+     "steps": [
+      "Set all four tires to the cold pressure on the sticker in the driver's door opening.",
+      "Drive above 20 mph for at least two minutes.",
+      "The light goes out on its own once the system reads good pressures. There is no reset button or menu for it.",
+      "If the tires are set correctly, the spare is not on the car, and the light stays on, have the system checked."
+     ],
+     "note": "If the light flashes for about a minute at start-up and then stays on, that is a system fault that a reset or more air will not clear. The temporary spare has no sensor, so the light stays on while it is fitted."
+    }
+   ],
+   "src": [
+    "https://www.fordservicecontent.com/Ford_Content/catalog/owner_guides/11mlnog1e.pdf",
+    "https://www.fordservicecontent.com/Ford_Content/catalog/owner_guides/09mntog2e.pdf",
+    "https://www.manualowl.com/am/Mercury/2009-Mariner/Manual/4606?page=177",
+    "https://www.manualowl.com/am/Mercury/2006-Mariner/Manual/4470?page=150"
+   ]
+  },
+  "notes": "Mercury models are twins of Ford models of the same years (Milan and Fusion, Mariner and Escape, Mountaineer and Explorer, Sable and Taurus, Grand Marquis and Crown Victoria), so the Ford steps usually apply. Many older Mercury models have no oil life item in the message center. If yours has none, change the oil by the mileage schedule in the owner guide."
+ },
+ "mini": {
+  "make": "MINI",
+  "tpms": {
+   "variants": [
+    {
+     "when": "Cars with a menu on the center screen (seen in 2016, 2021 and 2024 owner's manuals; the menu is called Vehicle Info on older cars and My MINI on newer ones)",
+     "steps": [
+      "Set all four tires to the cold pressure on the sticker in the driver's door opening.",
+      "Start the engine but do not drive off.",
+      "On the center screen, open Vehicle Info or My MINI, then Vehicle status, then Tire Pressure Monitor.",
+      "Select Perform reset.",
+      "Drive away. The new pressures are saved by themselves after several minutes of driving, and the reset resumes if you stop partway."
+     ],
+     "note": "If the tire light flashes and then stays on, the system cannot watch the tires. Try the reset once more; if it keeps happening, have the system checked."
+    },
+    {
+     "when": "Older cars set from the button on the end of the turn signal lever (seen in 2008 Hardtop and 2016 Countryman and Paceman owner's manuals)",
+     "steps": [
+      "Set all four tires to the cold pressure on the sticker in the driver's door opening.",
+      "Start the engine but stay parked.",
+      "Tap the button on the end of the turn signal lever until SET/INFO shows, then press and hold it until the display changes.",
+      "Tap the button until the tire symbol shows with RESET, then press and hold it until the display changes.",
+      "Drive off. The system finishes while you drive; on cars with wheel sensors this takes a short drive above about 20 mph."
+     ],
+     "note": "Do not reset with snow chains on or with a space-saver spare fitted."
+    }
+   ],
+   "src": [
+    "https://www.manualslib.com/manual/976417/Mini-2016-Mini.html?page=85",
+    "https://minipub-prod.bmwgroup.com/content/dam/mini/PDF/archiveownermanuals/MY21/2021_HARDTOP_2_DOOR.pdf",
+    "https://minipub-prod.bmwgroup.com/content/dam/mini/PDF/archiveownermanuals/2024/MY24_MINI_F60.pdf",
+    "https://www.manualsdir.com/manuals/746148/mini-2008-cooper.html?page=62",
+    "https://minipub-prod.bmwgroup.com/content/dam/mini/PDF/archiveownermanuals/my16/2016_MINI_Countryman_Paceman_owner_manual.pdf"
+   ]
+  },
+  "notes": "MINI owner's manuals show the service reminders (for example under Vehicle status, Service required) but give no driver reset for the oil service reminder; they say a service advisor reads the service data from the key. So only the tire pressure reset is listed. Reset the tire monitor after every pressure change and after any tire or wheel change."
+ },
+ "mitsubishi": {
+  "make": "Mitsubishi",
+  "oil": {
+   "variants": [
+    {
+     "when": "Models with a service reminder (wrench symbol) in the multi-information display, such as the 2019 Outlander and Mirage",
+     "steps": [
+      "Reset only after the oil and filter have been changed or the scheduled service was done.",
+      "Leave the ignition OFF. The reminder cannot be cleared with the ignition ON.",
+      "Tap the multi-information display switch on the instrument cluster until the service reminder screen with the wrench symbol appears.",
+      "Press and hold the switch (about 1 to 2 seconds, depending on the model) until the wrench symbol flashes.",
+      "While it is flashing, tap the switch once. The dashes change to CLEAR and the time and distance to the next service appear."
+     ],
+     "note": "If nothing is pressed for about 10 seconds the screen backs out. When service is due the display shows dashes instead of the time and distance left."
+    }
+   ],
+   "src": [
+    "https://mitsubishi-motors.co.uk/wp-content/uploads/2021/06/19MY-Outlander-Petrol-Owners-Manual.pdf",
+    "https://mitsubishi-motors.co.uk/wp-content/uploads/2021/06/19MY-Mirage-Owners-Manual.pdf"
+   ]
+  },
+  "tpms": {
+   "variants": [
+    {
+     "when": "North American models with a pressure sensor in each wheel, such as the 2008–2013 Outlander and 2011–2013 and 2017 Outlander Sport",
+     "steps": [
+      "Set all four tires to the cold pressure on the driver's door jamb sticker, and check the spare if it is monitored.",
+      "Drive normally. There is no reset button: the light goes out by itself after a few minutes of driving once the pressures are right.",
+      "If it stays on after about 10 minutes of driving, recheck the pressures and look for a slow leak or puncture."
+     ],
+     "note": "If the light blinks for about a minute and then stays on, the system has a fault or a wheel without a working sensor is fitted; a reset will not clear it. New sensors must be registered by a shop with a scan tool."
+    }
+   ],
+   "src": [
+    "https://www.moderntiredealer.com/industry-news/service/article/11534104/tpms-mitsubishi-outlander-and-outlander-sport-2014-04-21",
+    "https://manualmachine.com/mitsubishi/outlandersport2017/2309961-owners-manual",
+    "https://moderntiredealer.com/industry-news/service/article/33005801/tpms-mitsubishi-mirage-2022"
+   ]
+  },
+  "notes": "Mitsubishi's service reminder is cleared with the single switch on the instrument cluster, with the ignition off. North American Mitsubishis checked here have no driver TPMS reset: the light clears itself after driving once the pressures are corrected."
+ },
  "nissan": {
   "make": "Nissan",
   "oil": {
@@ -1427,6 +1815,72 @@
    ]
   },
   "notes": "Nissan's maintenance menu counts down a distance you set yourself, so resetting it is only meaningful after the oil is really changed. The low tire pressure light is a true pressure warning on every Nissan sold here, not a service reminder, and it clears after correct inflation and a short drive rather than from a button."
+ },
+ "oldsmobile": {
+  "make": "Oldsmobile",
+  "oil": {
+   "variants": [
+    {
+     "when": "Many later Oldsmobiles, such as the 2002 Intrigue and Bravada and the 2004 Alero: accelerator pedal method",
+     "steps": [
+      "Reset only after the engine oil and filter have actually been changed.",
+      "Turn the key to ON or RUN with the engine off.",
+      "Slowly push the accelerator pedal all the way down and let it up three times within five seconds.",
+      "The change oil light flashes, or chimes sound and the light goes out, to show the reset worked.",
+      "Turn the key off and start the engine. If the change oil light comes back, repeat the steps."
+     ]
+    },
+    {
+     "when": "Oldsmobiles with a Driver Information Center trip/reset button, such as the 2002 Silhouette",
+     "steps": [
+      "Reset only after the engine oil and filter have actually been changed.",
+      "Turn the key to RUN with the engine off.",
+      "Press the trip/reset button until OIL shows in the display.",
+      "Press and hold the trip/reset button for about five seconds until it reads 100.",
+      "Turn the key off. If the change engine oil message comes back, repeat the steps."
+     ]
+    },
+    {
+     "when": "2002 Alero: RESET button in the instrument panel fuse block",
+     "steps": [
+      "Reset only after the engine oil and filter have actually been changed.",
+      "Turn the key to ON.",
+      "Press the RESET button in the instrument panel fuse block on the driver's side.",
+      "When the CHANGE OIL light starts to flash, press and hold the RESET button again until the chimes sound and the light goes out."
+     ]
+    }
+   ],
+   "src": [
+    "https://manualowl.com/am/Oldsmobile/2002-Intrigue/Manual/998?page=272",
+    "https://www.manualsdir.com/manuals/746487/oldsmobile-2002-bravada.html?page=304",
+    "https://manualowl.com/am/Oldsmobile/2004-Alero/Manual/1002?page=239",
+    "https://manualowl.com/am/Oldsmobile/2002-Silhouette/Manual/999?page=357",
+    "https://www.manualsdir.com/manuals/746488/oldsmobile-2002-alero.html?page=256"
+   ]
+  },
+  "notes": "Oldsmobile used the GM Oil Life System on many models, and the reset method differs by model and year, so check the owner's manual for your car."
+ },
+ "polestar": {
+  "make": "Polestar",
+  "tpms": {
+   "variants": [
+    {
+     "when": "Polestar 2 (indirect tire pressure monitoring, set from the center display)",
+     "steps": [
+      "With the car switched off, set all four tires to the cold pressure on the decal on the driver's door pillar.",
+      "Switch the car on and keep it standing still.",
+      "On the center display, tap the car symbol, then More, then Car status, then Store pressure, and confirm.",
+      "Drive above about 22 mph (35 km/h) until the progress animation on the center display disappears."
+     ]
+    }
+   ],
+   "src": [
+    "https://www.polestar.com/uk/manual/polestar-2/2024/article/e6d99846681fbab5c0a8015179e6cbde/",
+    "https://www.polestar.com/uk/manual/polestar-2/2023/article/e6d99846681fbab5c0a8015179e6cbde/",
+    "https://www.polestar.com/au/manual/polestar-2/2025/article/e6d99846681fbab5c0a8015179e6cbde/"
+   ]
+  },
+  "notes": "Polestar cars are fully electric, so there is no oil change reminder. The tire pressure system must store new pressures after every inflation or tire change."
  },
  "pontiac": {
   "make": "Pontiac",
@@ -1557,6 +2011,150 @@
   },
   "notes": "Ram oil change reminders are mileage and driving based, not an oil quality sensor, so the reset only tells the truck you did the work. Diesel trucks also track an exhaust filter service that is separate and is not reset this way."
  },
+ "rivian": {
+  "make": "Rivian",
+  "tpms": {
+   "variants": [
+    {
+     "when": "R1T (owner's guide for early-2024 software); no reset step",
+     "steps": [
+      "Set all four tires to the cold pressure on the driver's door jamb placard.",
+      "Drive above about 18 mph; it can take up to 10 minutes before the driver display shows the pressures again.",
+      "Check the pressures on the driver display. The low pressure warning should clear once all tires read correctly."
+     ],
+     "note": "A tire pressure light that flashes for about a minute and then stays on is a system fault for Rivian service."
+    }
+   ],
+   "src": [
+    "https://assets.rivian.com/2md5qhoeajym/530xs9hu11xOKefT2JrvA5/ffb832d7d797f94746f6abfc4e2303df/r1t-og-en-us-20240108.pdf"
+   ]
+  },
+  "notes": "Rivian vehicles are electric, so there is no oil change reminder. The tire pressure system learns new pressures while driving, with nothing to reset."
+ },
+ "saab": {
+  "make": "Saab",
+  "oil": {
+   "variants": [
+    {
+     "when": "9-5 (about 1999–2004) with the service message on the SID display",
+     "steps": [
+      "Reset only after the service, including the oil and filter change, has been done.",
+      "Turn the ignition on so the service message is showing on the SID. It can only be cleared while it is showing.",
+      "Press and hold the CLR (CLEAR) button for at least 8 seconds.",
+      "Let go once the beep confirms the reset."
+     ]
+    },
+    {
+     "when": "9-3 using the SET and CLR buttons (2008) or the CUSTOMIZE button and INFO dial (2006)",
+     "steps": [
+      "Reset only after the service, including the oil and filter change, has been done.",
+      "Turn the ignition to ON without starting the engine.",
+      "SET-button cars: hold SET until a tone sounds, scroll to Time for Service, press SET and choose YES.",
+      "CUSTOMIZE-button cars: press CUSTOMIZE, then use the INFO dial to choose System Settings, Service Info and Reset Service Ind., and confirm Yes."
+     ]
+    },
+    {
+     "when": "9-7X with the Driver Information Center (2005)",
+     "steps": [
+      "Reset only after the oil and filter have been changed.",
+      "With the ignition on, press the fuel button on the Driver Information Center until ENGINE OIL LIFE shows.",
+      "Hold the select button for about five seconds until OIL LIFE RESET appears.",
+      "If the change engine oil light comes back at the next start, repeat the steps."
+     ]
+    }
+   ],
+   "src": [
+    "https://saabwisonline.com/9-5-9600/1999/3-electrical-system/saab-information-display-sid/technical-description/service-message",
+    "https://saabwisonline.com/9-5-9600/2004/3-electrical-system/saab-information-display-sid/service/service-message-petrol-driven-cars",
+    "https://www.manualsdir.com/manuals/746391/saab-2008-9-3.html?page=96",
+    "https://www.manualowl.com/am/Saab/2006-9-3/Manual/1140?page=101",
+    "https://www.manualslib.com/manual/232265/Saab-2005-9-7x.html?page=270"
+   ]
+  },
+  "notes": "Saab's service reminder is reset by the driver from the SID or the settings menu, and only after the service is done. The 9-7X uses GM's oil life system, and the 9-2X is closely related to the Subaru Impreza."
+ },
+ "saturn": {
+  "make": "Saturn",
+  "oil": {
+   "variants": [
+    {
+     "when": "Many Saturns, for example the 2005–2010 VUE: accelerator pedal method",
+     "steps": [
+      "Reset only after the engine oil and filter have actually been changed.",
+      "Turn the key to RUN (ON) with the engine off.",
+      "Push the accelerator pedal all the way down and let it up three times within five seconds.",
+      "The change oil light flashes or goes out to show the reset worked.",
+      "If the light comes back on and stays on at the next key-on, repeat the steps."
+     ]
+    },
+    {
+     "when": "Saturns with a Driver Information Center, such as the 2009 AURA and SKY or an OUTLOOK with DIC buttons",
+     "steps": [
+      "Reset only after the engine oil and filter have actually been changed.",
+      "Turn the ignition on with the engine off and the vehicle in Park.",
+      "Use the DIC buttons to reach the oil life screen (on the AURA and SKY, press the information and reset buttons together and scroll to OIL LIFE RESET).",
+      "Press and hold the reset (set/reset) button until 100% or ACKNOWLEDGED shows.",
+      "Turn the ignition off and check that the oil message does not return at the next start."
+     ]
+    },
+    {
+     "when": "Saturns that show oil life in the odometer display, such as the 2005 ION or an OUTLOOK without DIC buttons",
+     "steps": [
+      "Reset only after the engine oil and filter have actually been changed.",
+      "Turn the key to RUN.",
+      "Press the trip odometer reset stem until the oil life display shows.",
+      "Press and hold the stem until the oil life reads 100% or the chimes sound.",
+      "If the oil message comes back at the next start, repeat the steps."
+     ]
+    }
+   ],
+   "src": [
+    "https://www.manualowl.com/am/Saturn/2008-VUE/Manual/7094?page=273",
+    "https://contentdelivery.ext.gm.com/content/dam/cope/en_us/public/pdf_assets/active/quick_reference_manuals_browse/GTK2009AURA.pdf",
+    "https://contentdelivery.ext.gm.com/content/dam/cope/en_us/public/pdf_assets/active/quick_reference_manuals_browse/GTK2005IONA.pdf",
+    "https://www.manualowl.com/am/Saturn/2008-Outlook/Manual/1166?page=333"
+   ]
+  },
+  "tpms": {
+   "variants": [
+    {
+     "when": "Late-model Saturns with a low tire pressure light (for example the 2009 AURA and SKY and the 2010 VUE)",
+     "steps": [
+      "Set all four tires to the cold pressure on the Tire and Loading Information label on the driver's side (cold means parked three hours or driven under a mile).",
+      "There is no reset button. The light stays on until the pressure is corrected, then goes off on its own.",
+      "Clearing the CHECK TIRE PRESSURE message only hides it until the next start if a tire is still low."
+     ],
+     "note": "If the light flashes for about a minute and then stays on, the system has a fault that adding air will not fix. After a tire rotation the sensors must be matched to their new positions."
+    }
+   ],
+   "src": [
+    "https://contentdelivery.ext.gm.com/content/dam/cope/en_us/public/pdf_assets/active/quick_reference_manuals_browse/GTK2009AURA.pdf",
+    "https://contentdelivery.ext.gm.com/content/dam/cope/en_us/public/pdf_assets/active/owners_manuals_browse/2k10vue.pdf"
+   ]
+  },
+  "notes": "Saturn used the GM Oil Life System, so the reminder is based on how the engine is used, not a fixed mileage. The reset method depends on the model and year: the accelerator pedal method, the Driver Information Center buttons, or the trip odometer stem."
+ },
+ "scion": {
+  "make": "Scion",
+  "tpms": {
+   "variants": [
+    {
+     "when": "Models with a tire pressure SET (reset) switch (checked: 2014–2015 tC, 2010 xB)",
+     "steps": [
+      "Set all four tires to the cold pressure on the driver's door jamb label.",
+      "Park, turn the ignition to ON, and press and hold the SET switch until the tire pressure light blinks three times.",
+      "Leave the car sitting for a few minutes so the system finishes storing the new pressures."
+     ],
+     "note": "Repeat after rotating or replacing tires. A light that flashes for about a minute and then stays on is a system fault that needs a dealer."
+    }
+   ],
+   "src": [
+    "https://assets.sia.toyota.com/publications/en/om-s/OM1471QRG/pdf/2014-Scion-tCQRG.pdf",
+    "https://www.manualslib.com/manual/1091660/Scion-Xb-2010.html"
+   ]
+  },
+  "notes": "Scion tire pressure systems remember whatever pressures are in the tires when the SET switch is held, so always set the pressures correctly first."
+ },
  "subaru": {
   "make": "Subaru",
   "oil": {
@@ -1626,6 +2224,55 @@
    ]
   },
   "notes": "Subaru does not use an oil life monitor on most of its cars, so the oil message is usually a simple mileage reminder. A flashing tire pressure light that then stays on means the system has a fault, not low air, and needs to be scanned."
+ },
+ "suzuki": {
+  "make": "Suzuki",
+  "oil": {
+   "variants": [
+    {
+     "when": "2007 XL7 (GM-based, engine oil life system)",
+     "steps": [
+      "Reset only after the engine oil and filter have actually been changed.",
+      "With the engine off, turn the key to RUN.",
+      "Within five seconds, push the accelerator pedal slowly to the floor and let it up, three times. The change engine oil light flashes while it resets.",
+      "When the light stops flashing, turn the key to LOCK, then start the engine. If the change oil light comes back and stays on, repeat the steps."
+     ],
+     "note": "Reset it at every oil change. If it is reset by mistake, have the oil changed within 3,000 miles of the last service."
+    }
+   ],
+   "src": [
+    "https://www.manualowl.com/am/Suzuki/2007-XL7/Manual/1242?page=192"
+   ]
+  },
+  "tpms": {
+   "variants": [
+    {
+     "when": "Suzuki-built models with a low tire pressure light: SX4 (2009), Grand Vitara (2007, 2011), Kizashi (2010)",
+     "steps": [
+      "Set all four tires to the cold pressure on the tire information placard on the driver's door jamb.",
+      "Turn the ignition on and drive normally. Once the pressures are right the light goes out by itself; there is no reset button.",
+      "If the light comes back soon after filling, check for a leaking or flat tire.",
+      "At high altitude the light may stay on at the placard pressure; a little extra air clears it."
+     ],
+     "note": "If the light flashes for about a minute and then stays on, the system has a fault that adding air will not fix; have a dealer check it."
+    },
+    {
+     "when": "2009 XL7 (GM-based, pressures shown on the information center)",
+     "steps": [
+      "Set all four tires to the cold pressure on the driver's door jamb placard.",
+      "Drive normally. The light and check-tire message clear on their own once each tire is at the right pressure.",
+      "After a tire rotation or a new sensor, the system must relearn sensor positions; a dealer can do this, or follow the learn mode in the owner's manual."
+     ]
+    }
+   ],
+   "src": [
+    "https://www.manualowl.com/am/Suzuki/2009-SX4/Manual/1248?page=173",
+    "https://www.manualowl.com/am/Suzuki/2011-Grand%20Vitara/Manual/1359?page=141",
+    "https://www.manualowl.com/am/Suzuki/2010-Kizashi/Manual/1250?page=167",
+    "https://www.manualowl.com/am/Suzuki/2009-XL7/Manual/1249?page=111"
+   ]
+  },
+  "notes": "On the Suzuki-built SX4, Grand Vitara and Kizashi there is no driver reset for the tire pressure light: it clears once the tires are filled correctly. The GM-built XL7 has an engine oil life reminder that the driver resets after each oil change."
  },
  "tesla": {
   "make": "Tesla",
@@ -1858,5 +2505,67 @@
    ]
   },
   "notes": "Because most Volkswagens use an indirect tire pressure system, the light comes back if you only add air without storing the new pressures. Resetting an oil reminder changes the counter and nothing else, so follow the maintenance schedule rather than the light."
+ },
+ "volvo": {
+  "make": "Volvo",
+  "oil": {
+   "variants": [
+    {
+     "when": "2014–2016 S60, S80, V60, XC60 and XC70 (service message in the instrument cluster)",
+     "steps": [
+      "Reset only after the oil and filter have been changed (or the scheduled service was done).",
+      "Switch the ignition to position I without starting the engine. On keyless cars, press START briefly without touching the brake.",
+      "Press and hold the OK button on the end of the left steering-column stalk.",
+      "Keep holding it and switch the ignition to position II. On keyless cars, hold START for about 2 to 3 seconds, still without the brake.",
+      "Keep holding OK for about 10 seconds until the information light starts to flash, then let go. A chime confirms the reset.",
+      "Switch the ignition off and leave it off for at least 3 minutes so the car's modules shut down normally."
+     ],
+     "note": "If the message does not clear, repeat the steps while holding the RESET button on the same stalk together with OK; repair technicians report that OK alone does not always work."
+    },
+    {
+     "when": "C30 and other P1-platform cars (S40, V50, C70) with a key ignition",
+     "steps": [
+      "Reset only after the oil and filter have been changed (or the scheduled service was done).",
+      "Turn the key to position I without starting the engine.",
+      "Press and hold the trip meter reset button.",
+      "Keep holding it, turn the key to position II, and let go when the amber information light flashes. A chime confirms the reset."
+     ]
+    }
+   ],
+   "src": [
+    "https://www.identifix.com/common-car-problems/common-volvo-issue-maintenance-reminder-rest-procedure/",
+    "https://www.fcpeuro.com/blog/how-to-reset-the-service-light-on-a-p1-volvo-s40-c30-c70-v50"
+   ]
+  },
+  "tpms": {
+   "variants": [
+    {
+     "when": "Models with the Car Status app on the center touchscreen (checked on 2018–2019 XC40, XC60, XC90, S60 and S90)",
+     "steps": [
+      "Set all four tires to the cold pressure on the tire placard on the driver's door pillar, with the car switched off. These cars have no monitored spare.",
+      "Start the car and leave it parked with the engine running. The button you need only works while the car is standing still.",
+      "On the center display, open the Car Status app from App view and tap TPMS.",
+      "Tap Calibrate (on cars built from about late 2018 the button may read Store pressure), then tap OK to confirm you checked all four tires.",
+      "Drive normally above about 22 mph (35 km/h). The system learns the new pressures while you drive; the tire symbols on the screen turn from gray to green when it has enough data.",
+      "Let it finish in the same drive. If you switch off before it completes, do the steps again."
+     ],
+     "note": "This is an indirect system: until new pressures are stored it cannot warn correctly, so repeat this after every tire change or pressure adjustment. If the screen says storing was unsuccessful, try again. If the tire pressure symbol flashes for about a minute and then stays on, the system has a fault that this procedure will not clear; have it checked by a qualified shop."
+    },
+    {
+     "when": "Older models with tire pressure sensors in the wheels (for example the 2016 S80)",
+     "steps": [
+      "Set all four tires to the cold pressure on the tire placard on the driver's door pillar.",
+      "Drive for several minutes at 20 mph (30 km/h) or faster. The warning clears and the light goes out on its own; there is no reset button."
+     ]
+    }
+   ],
+   "src": [
+    "https://volvocars.com/en-ca/support/car/xc90/2018/article/2aff77d692f7bf93c0a801516882e042",
+    "https://volvocars.com/en-ca/support/car/xc60/18w17/article/73e14f8cc7f8d151c0a81f6f7932e5d8_c16e2a6e902332cac0a8cc8a37f81057_22daa2aac8ee9cb4c0a8cc8e62e73faf_2aff77d692f7bf93c0a801516882e042",
+    "https://www.volvocars.com/nz/support/topics/use-your-car/good-to-know/error-message-from-the-tyre-pressure-monitoring-system-in-the-driver-display-e.g.-after-changing-a-tyre-or-for-low-tyre-pressure",
+    "https://www.volvocars.com/us/support/car/s80/article/1ae4fe81aa12abd6c0a801e80019ab1c/"
+   ]
+  },
+  "notes": "On Volvos from about 2016 on (XC90, then the other redesigned models) the service message tells you to contact a workshop, and the owner's manual pages we checked give no driver reset for it. Newer Volvo tire pressure systems must store new pressures after every inflation or tire change."
  }
 }
