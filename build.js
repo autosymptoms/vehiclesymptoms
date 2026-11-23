@@ -187,7 +187,7 @@ const escH=t=>String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').re
 const VERIFY=JSON.parse(fs.readFileSync('src/verify.json','utf8'));
 const VMETA=(VERIFY.google?`<meta name="google-site-verification" content="${VERIFY.google}">`:'')+(VERIFY.bing?`<meta name="msvalidate.01" content="${VERIFY.bing}">`:'');
 const LIGHTSROW=(()=>{const pick=ROWIDS.map(id=>LIGHTS.find(l=>l.id===id)).filter(Boolean);
- return `<div class="lrow">${pick.map(l=>`<a class="lr" href="/warning-lights/${l.id}/">${lIcon(l,38)}<b>${escH(l.name.replace(/ (warning )?light$/i,'').replace(/ \(.*\)$/,''))}</b><span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span></a>`).join('')}<a class="lr lr-all" href="/warning-lights/"><b>All lights</b><span>Red, amber, green and blue</span></a></div>`})();
+ return `<div class="lrow dashboard-lights">${pick.map(l=>`<a class="lr" href="/warning-lights/${l.id}/">${lIcon(l,56)}<b>${escH(l.name.replace(/ \(.*\)$/,'').replace(/ light$/i,'').replace(/ warning$/i, l.id === 'master-warning-light' ? ' warning' : ''))}</b><span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span></a>`).join('')}<a class="lr lr-all" href="/warning-lights/"><b>All lights</b><span>Red, amber, green and blue</span></a></div>`})();
 const scripts=['vehicles.js','guide-index.js','guide.js','powertrain.js','app.js'].map(f=>f==='vehicles.js'?data:f==='guide-index.js'?indexJs:fs.readFileSync('src/'+f,'utf8'));
 
 // one browser instance renders every vehicle page
