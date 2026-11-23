@@ -199,13 +199,19 @@ const LSEV={stop:["Stop driving as soon as it's safe","high"],soon:["Get it chec
 const LCOLNAME={red:'Red: serious, act now',amber:'Amber/yellow: check soon',green:'Green: system on',blue:'Blue: information'};
 const lIcon=(l,size)=>`<svg class="licon" width="${size}" height="${size}" viewBox="0 0 48 48" fill="none" style="color:${LCOL[l.color]}" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${l.icon}</svg>`;
 // the row of most-looked-up lights shown high on the home page
+// Lights where one observation changes the advice: the card asks it, and the light page opens with it.
+// Wording of each choice follows the linked guide (the flashing guide's first safety line; the steady guide's intro).
+const FIRSTQ={'check-engine-light':{card:'Steady or flashing?',q:'First: is it steady or flashing?',
+  help:'Flashing means blinking on and off, about once a second. The advice is different, so start here.',
+  opts:[{a:'Flashing or blinking',d:'The most urgent check engine warning. If the engine is shaking, pull over as soon as it is safe and turn it off.',href:'/symptoms/check-engine-light-flashing/',cls:'hi'},
+        {a:'Steady (lit, not blinking)',d:'A stored fault. Often not an emergency, but how the car is driving decides how soon to act.',href:'/symptoms/check-engine-light-on/',cls:'md'}]}};
 const ROWIDS=['check-engine-light','oil-pressure-light','engine-temperature-light','battery-light','brake-warning-light','tire-pressure-light','abs-light','airbag-light','service-light','oil-change-light','traction-control-light','master-warning-light'];
 const escA=t=>String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 const escH=t=>String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const VERIFY=JSON.parse(fs.readFileSync('src/verify.json','utf8'));
 const VMETA=(VERIFY.google?`<meta name="google-site-verification" content="${VERIFY.google}">`:'')+(VERIFY.bing?`<meta name="msvalidate.01" content="${VERIFY.bing}">`:'');
 const LIGHTSROW=(()=>{const pick=ROWIDS.map(id=>LIGHTS.find(l=>l.id===id)).filter(Boolean);
- return `<div class="lrow dashboard-lights">${pick.map(l=>`<a class="lr" href="/warning-lights/${l.id}/">${lIcon(l,56)}<b>${escH(l.name.replace(/ \(.*\)$/,'').replace(/ light$/i,'').replace(/ warning$/i, l.id === 'master-warning-light' ? ' warning' : ''))}</b><span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span></a>`).join('')}<a class="lr lr-all" href="/warning-lights/"><b>All lights</b><span>Red, amber, green and blue</span></a></div>`})();
+ return `<div class="lrow dashboard-lights">${pick.map(l=>`<a class="lr${FIRSTQ[l.id]?' lr-q':''}" href="/warning-lights/${l.id}/${FIRSTQ[l.id]?'#first':''}">${lIcon(l,56)}<b>${escH(l.name.replace(/ \(.*\)$/,'').replace(/ light$/i,'').replace(/ warning$/i, l.id === 'master-warning-light' ? ' warning' : ''))}</b>${FIRSTQ[l.id]?`<span class="lsev lq">${escH(FIRSTQ[l.id].card)}</span>`:`<span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span>`}</a>`).join('')}<a class="lr lr-all" href="/warning-lights/"><b>All lights</b><span>Red, amber, green and blue</span></a></div>`})();
 const scripts=['vehicles.js','guide-index.js','guide.js','powertrain.js','app.js'].map(f=>f==='vehicles.js'?data:f==='guide-index.js'?indexJs:fs.readFileSync('src/'+f,'utf8'));
 
 // one browser instance renders every vehicle page
@@ -346,7 +352,8 @@ for(const l of LIGHTS){const u=LSEV[l.sev];const gs=l.guides.filter(g=>JT[g]).ma
   const ld='<script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}).replace(/</g,'\\u003c')+'</script>\n';
   const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/warning-lights/">Warning lights</a> › ${escH(l.name)}</div>
 <div class="lhead"><div class="lbig" style="border-color:${LCOL[l.color]}55">${lIcon(l,72)}</div><div><div class="eyebrow">${escH(LCOLNAME[l.color])}</div><h1>${escH(l.name)}</h1>${l.aka.length?`<p class="muted" style="margin:4px 0 0">Also called: ${l.aka.map(escH).join(', ')}</p>`:''}</div></div>
-<div class="urg ${u[1]}"><b>How urgent?</b> ${escH(u[0])}</div>
+${FIRSTQ[l.id]?(f=>`<section class="card csec firstq" id="first"><h2>${escH(f.q)}</h2><p class="pg-sub">${escH(f.help)}</p><div class="fq-opts">${f.opts.map(o=>`<a class="fq-o ${o.cls}" href="${o.href}"><b>${escH(o.a)}</b><span>${escH(o.d)}</span></a>`).join('')}</div></section>`)(FIRSTQ[l.id]):''}
+<div class="urg ${u[1]}"><b>How urgent?</b> ${FIRSTQ[l.id]?'If steady: ':''}${escH(u[0])}</div>
 ${BYLINE}<section class="card csec"><h2>What it means</h2><p class="lead2">${escH(l.meaning)}</p>${d.look?`<p class="lmuted">${escH(d.look)}</p>`:''}</section>
 <section class="card csec drivebox" style="border-left-color:${LCOL[l.color]}"><h2>Can I keep driving?</h2><p>${escH(l.drive)}</p>${d.flash?`<p class="lflash"><b>If it's flashing or blinking:</b> ${escH(d.flash)}</p>`:''}</section>
 <div class="cgrid"><section class="card csec"><h2>What to do now</h2><ol class="nums">${l.todo.map(x=>`<li>${escH(x)}</li>`).join('')}</ol></section>
@@ -372,7 +379,7 @@ ${(SEE[l.id]||[]).length?`<section class="csec"><h2 style="font-size:18px">Not y
 <div class="trust">Symbols vary a little between makes. Your owner's manual shows the exact lights for your vehicle. This is a general guide, not a diagnosis.</div>`;
   urls.push(page('/warning-lights/'+l.id+'/',`${l.name}: What It Means & Can You Drive? | VehicleSymptoms.com`,`${l.meaning} ${l.drive}`.slice(0,165),{inner,pageData:ld+(animation ? animationScript : '')}));
 }
-const lcard=l=>`<a class="lcard c-${l.color}" href="/warning-lights/${l.id}/" data-c="${l.color}">${lIcon(l,44)}<b>${escH(l.name.replace(/ \(.*\)$/,''))}</b><span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span></a>`;
+const lcard=l=>`<a class="lcard c-${l.color}" href="/warning-lights/${l.id}/${FIRSTQ[l.id]?'#first':''}" data-c="${l.color}">${lIcon(l,44)}<b>${escH(l.name.replace(/ \(.*\)$/,''))}</b>${FIRSTQ[l.id]?`<span class="lsev lq">${escH(FIRSTQ[l.id].card)}</span>`:`<span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span>`}</a>`;
 urls.push(page('/warning-lights/','Dashboard Warning Lights: What Each Light Means | VehicleSymptoms.com','Every common dashboard warning light explained: what it means, whether you can keep driving, and what to do now. Red, amber, green and blue lights.',{inner:`<div class="crumb"><a href="/">Home</a> › Warning lights</div>
 <div class="ghead"><div class="eyebrow">Warning lights</div><h1>Which light is on?</h1><p class="sub">Tap the symbol that matches your dashboard. Each light tells you what it means, whether it's safe to keep driving, what you can check yourself, what the repair usually costs and how to reset it when resetting is the right thing to do.</p></div>
 <div class="lkey"><span><i style="background:#FF5A5F"></i>Red: serious, act now</span><span><i style="background:#FFB020"></i>Amber: check soon</span><span><i style="background:#34C77B"></i>Green or blue: information</span></div>

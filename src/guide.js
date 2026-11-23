@@ -9,7 +9,7 @@ const URG={
   check:{label:"Book a check when convenient",cls:"info",line:"Not an emergency, but don't ignore it."},
   diy:{label:"Safe to check yourself first",cls:"low",line:"Start with the simple checks below."}
 };
-window.VS_GUIDES={G,GROUPS,URG,esc,search,clarifySearch,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/'};
+window.VS_GUIDES={G,GROUPS,URG,esc,search,clarifySearch,noticeFirst:()=>noticeFirst,askFollow:k=>askFollow[k]||null,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/'};
 
 // ---- Year / Make / Model picker, used on the homepage and in guide results ----
 // fill(ySel,mSel,moSel,{year,id},onChange): only offers makes/models actually sold in the chosen year.
@@ -137,7 +137,23 @@ const searchQuestions=[
       ['Right after starting','starts-then-dies'],['While driving','engine-stalls-while-driving'],
       ['When coming to a stop','car-dies-when-coming-to-stop'],['It won’t start now','car-wont-start']]}
 ];
+// For drivers who can't name the problem yet ("my car is acting funny"): one easy question about what they noticed first.
+const noticeFirst={question:'What did you notice first?',choices:[
+  ['A sound','/symptoms/#noise'],['A smell or smoke','/symptoms/#leaksmell'],['A light on the dashboard','/warning-lights/'],
+  ['A puddle or drip under the car','fluid-leak-under-car'],['A change in how it drives','?drive'],['It won’t start','car-wont-start']]};
+// Follow-up for "a change in how it drives": still things a driver can feel, no part names.
+const askFollow={drive:{question:'What feels different?',choices:[
+  ['It shakes or vibrates','/symptoms/#shake'],['It pulls to one side','car-pulls-to-one-side'],
+  ['The brake pedal feels soft, sinks or feels hard','/symptoms/#drive'],['The steering feels heavy or loose','/symptoms/#drive'],
+  ['It feels weak, hesitates or jerks','loss-of-power-when-accelerating'],['It shifts roughly or late','harsh-or-hard-shifting'],
+  ['Something else','/symptoms/#drive']]}};
+const vagueWords=new Set(('my the a an i im its it is was are be been has have had with in on of to for and or but just really kind sort bit little '+
+  'car cars vehicle truck suv van auto something somethings thing things stuff wrong right off funny weird weirdly strange odd acting act acts acted '+
+  'up seems seem feels feel feeling going whats what dont do does doing know not sure unsure idk think lately today suddenly sudden all problem problems '+
+  'issue issues help broken messed working work normal normally behaving like').split(' '));
+function isVague(q){const w=literalSymptom(q).split(' ').filter(Boolean);return w.length>0&&w.every(x=>vagueWords.has(x))}
 function clarifySearch(q){
+  if(isVague(q))return noticeFirst;
   const words=symptomWords(q);
   return searchQuestions.find(rule=>words.some(word=>rule.signal.includes(word)) &&
     (!rule.context || words.some(word=>rule.context.includes(word))) && words.every(word=>rule.allowed.includes(word))) || null;

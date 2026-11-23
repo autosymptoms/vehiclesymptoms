@@ -297,6 +297,14 @@ document.getElementById('vinForm').addEventListener('submit',async e=>{
 
 
 // ---- homepage: "What is your car doing?" ----
+// A clarifying question as a row of easy choices; a target is a guide id or a site path.
+// A target starting with "?" opens a follow-up question in place (window.VS_GUIDES.askFollow).
+function askHtml(question,qs){return `<p><b>${esc(question.question)}</b></p><div class="nm-cats">${question.choices.map(([label,target])=>{
+  if(target.startsWith('?'))return `<a href="/symptoms/#drive" data-ask="${esc(target.slice(1))}" data-qs="${esc(qs||'')}">${esc(label)}</a>`;
+  const href=target.startsWith('/')?target:gurl(target)+(qs||'');return `<a href="${esc(href)}">${esc(label)}</a>`}).join('')}</div>`}
+document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('[data-ask]');if(!a)return;const f=window.VS_GUIDES.askFollow(a.dataset.ask);if(!f)return;
+  e.preventDefault();const box=a.closest('.results')||a.parentNode.parentNode;box.innerHTML=askHtml(f,a.dataset.qs);const st=document.getElementById('helpStatus');if(st)st.textContent=f.question+' Choose an answer below.';
+  const first=box.querySelector('a');if(first)first.focus()});
 const hf=document.getElementById('helpForm');
 if(hf){
   const hi=document.getElementById('helpInput'),out=document.getElementById('helpResults'),status=document.getElementById('helpStatus');
@@ -315,20 +323,21 @@ if(hf){
     const gs=question?[]:searchGuides(symptom,5);
     if(gs.length===1){location.href=gurl(gs[0].id)+qs;return}
     if(question){
-      out.innerHTML=`<p><b>${esc(question.question)}</b></p><div class="nm-cats">${question.choices.map(([label,target])=>{
-        const href=target.startsWith('/')?target:gurl(target)+qs;
-        return `<a href="${esc(href)}">${esc(label)}</a>`;
-      }).join('')}</div>`;
+      out.innerHTML=askHtml(question,qs);
     }else{
       out.innerHTML=gs.length?`<p><b>Which guide fits what you noticed?</b></p><div class="glist">${gs.map(g=>`<a class="gcard" href="${gurl(g.id)}${qs}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}</div>${v?`<p class="muted">Or see <a href="${url(v,y)}">known problems for the ${y?y+' ':''}${esc(v.make+' '+v.model)}</a>.</p>`:''}`
         :v?`<p>We don't have a guide for that wording yet. <a href="${url(v,y)}">See known problems for the ${esc(v.make+' '+v.model)} →</a></p>`
-      :`<div class="nomatch"><p><b>We couldn't match that wording yet.</b> Pick what's closest:</p><div class="nm-cats"><a href="/symptoms/#start">Won't start or stalls</a><a href="/warning-lights/">A warning light is on</a><a href="/symptoms/#noise">A noise</a><a href="/symptoms/#shake">Shaking or vibration</a><a href="/symptoms/#leaksmell">A leak, smell or smoke</a><a href="/symptoms/#hot">Running hot</a><a href="/symptoms/#drive">Driving, braking or steering feels wrong</a><a href="/codes/">I have a trouble code</a></div><p class="muted" style="margin-top:8px">Or describe it differently, for example: "squeal when braking", "shakes at highway speed", "clicks when I turn the key".</p></div>`;
+      :`<div class="nomatch"><p class="muted" style="margin:0 0 6px">We couldn't match that wording yet. That's OK, one easy question:</p>${askHtml(window.VS_GUIDES.noticeFirst(),'')}<p class="muted" style="margin-top:8px">Have a trouble code from a scanner? <a href="/codes/">Look it up</a>. Or describe it differently, for example: "squeal when braking", "shakes at highway speed", "clicks when I turn the key".</p></div>`;
     }
     out.classList.add('show');
     if(status)status.textContent=question?question.question+' Choose an answer below.':
       gs.length?gs.length+' matching guides. Choose a guide below.':
-      v?'No matching guide. A link to known problems for your vehicle is available.':'No matching guide. Choose a symptom category below.';
+      v?'No matching guide. A link to known problems for your vehicle is available.':'What did you notice first? Choose an answer below.';
   });
+  // "I'm not sure" chip: ask what they noticed first instead of making them name the problem.
+  const ns=document.getElementById('notSure');
+  if(ns)ns.addEventListener('click',e=>{e.preventDefault();out.innerHTML=askHtml(window.VS_GUIDES.noticeFirst(),'');out.classList.add('show');
+    if(status)status.textContent='What did you notice first? Choose an answer below.';const f=out.querySelector('a');if(f)f.focus()});
 }
 
 // StoryBrand homepage: CTA buttons jump to the symptom box and focus it
