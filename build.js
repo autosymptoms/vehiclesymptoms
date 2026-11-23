@@ -515,11 +515,13 @@ for(const v of V){
   const nm=v.make+' '+v.model;
   const render=y=>{RW.eval(`state.q='';state.tab='All';renderVehicle(VEHICLES.find(x=>x.id==='${v.id}'),${y||null})`);return RW.document.getElementById('vehicleView').innerHTML};
   const copy = modelSearchCopy[v.id];
-  const title = copy ? copy[0] : `${nm} Problems by Year — Known Issues`;
+  const title = copy ? copy[0] : `${nm} Common Problems by Model Year`;
   urls.push(page(`/vehicles/${v.id}/`,`${title} | VehicleSymptoms.com`,copy?.[1] ?? `Known ${nm} problems from ${v.years[0]} to ${v.years[1]}: ${v.issues.slice(0,3).map(i=>i.t.toLowerCase()).join('; ')}. Symptoms, causes and what to do.`.slice(0,300),{inner:render(null)}));
   for(let y=v.years[0];y<=v.years[1];y++){if(!sold(v,y))continue;
     const is=v.issues.filter(i=>y>=i.y[0]&&y<=i.y[1]);
-    urls.push(page(`/vehicles/${v.id}/${y}/`,`${y} ${nm} Problems & Symptoms | VehicleSymptoms.com`,
+    const systems = [...new Set(is.map(issue => issue.sys).filter(Boolean))];
+    const subject = systems.length ? systems.slice(0, 2).join(' & ') + ' Problems' : 'Symptoms & Recall Lookup';
+    urls.push(page(`/vehicles/${v.id}/${y}/`,`${y} ${nm}: ${subject} | VehicleSymptoms.com`,
       (is.length?`${is.length} known problem${is.length>1?'s':''} for the ${y} ${nm}: ${is.slice(0,3).map(i=>i.t.toLowerCase()).join('; ')}. Plus safety recalls and what to do.`:`Common symptoms, safety recalls and what to do for the ${y} ${nm}. Free, plain-English guide.`).slice(0,300),{inner:render(y)}));
   }
 }
