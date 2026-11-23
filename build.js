@@ -4,10 +4,12 @@
 // 3. Pages: home, /symptoms/ hub, /symptoms/<id>/, /vehicles/<id>/, /vehicles/<id>/<year>/, sitemap.
 const fs=require('fs'),path=require('path');
 const {JSDOM}=require('jsdom');
-const animations = require('./src/animations/render').createLibrary();
+// Repair animations are switched off for now (Daniel, Nov 22 2026). Everything in src/animations is kept;
+// set SHOW_ANIMATIONS to true to bring them back.
+const SHOW_ANIMATIONS=false;
+const animations = SHOW_ANIMATIONS ? require('./src/animations/render').createLibrary() : null;
 const SITE='https://www.vehiclesymptoms.com';
-const CONTACT='autosymptoms@gmail.com';
-const BYLINE='<p class="byline">VehicleSymptoms team · Updated November 2026 · <a href="/about/">How we work</a> · <a href="/about/#contact">Contact the team</a></p>';
+const BYLINE='<p class="byline">VehicleSymptoms team · Updated November 2026 · <a href="/about/">How we work</a></p>';
 const CRED='Built by people who fix cars. Guides are written for drivers and checked against recalls, service bulletins and repair records.';
 
 const {createHash}=require('node:crypto');
@@ -491,23 +493,22 @@ if(SHOW_PRICES){const gen=new Map();
 // hub
 urls.push(page('/symptoms/','All Car Symptom Guides | VehicleSymptoms.com','Step-by-step guides for car problems: won\'t start, warning lights, noises, shaking, leaks, smells, smoke, overheating and more.',{inner:`<div class="crumb"><a href="/">Home</a> › Symptom guides</div><div class="ghead"><h1>Symptom guides</h1><p class="sub">Pick what your car is doing. Each guide asks a few quick questions and tells you how urgent it is and what to do next.</p></div><div id="guideHub">${Object.entries(GL).map(([k,l])=>{const list=J.filter(j=>j.group===k);return list.length?`<section class="hubsec" id="${k}"><h2>${escH(l)}</h2>${k==='noise'?'<p><a href="/sounds/">Listen to a car sound</a></p>':''}<div class="glist">${list.map(j=>`<a class="gcard" href="/symptoms/${j.id}/"><b>${escH(j.title)}</b><span>${escH(j.h1)}</span></a>`).join('')}</div></section>`:''}).join('')}</div>`}));
 
-// privacy, about / our standards, contact
+// privacy, about / our standards
 urls.push(page('/privacy/','Privacy | VehicleSymptoms.com','How VehicleSymptoms.com handles your information.',{inner:`<div class="crumb"><a href="/">Home</a> › Privacy</div><div class="ghead"><h1>Privacy</h1><p class="sub">Short version: we collect as little as possible and never sell your information.</p></div>
 <div class="card prose"><h3>No account, no sign-up</h3><p>You can use everything on the site without an account.</p>
 <h3>"My garage" and saved progress</h3><p>If you save a vehicle to "My garage", or start a symptom guide, those details are stored only in your own browser on your device (browser local storage and session storage). They are not sent to us. To clear them, remove vehicles with the ✕ in My garage, or clear this site's data in your browser settings.</p>
-<h3>Emailing yourself a result</h3><p>If you ask us to email you a result, we use your address to send it through our email provider, Resend, and we keep your address in our email provider's contact list, marked as not subscribed. We don't send you marketing email. For deletion requests, our contact details are below.</p>
+<h3>Emailing yourself a result</h3><p>If you ask us to email you a result, we use your address to send it through our email provider, Resend, and we keep your address in our email provider's contact list, marked as not subscribed. We don't send you marketing email.</p>
 <h3>VIN and recall lookups</h3><p>VINs are decoded directly by the U.S. government's free NHTSA database from your browser. We don't store them. Recall information comes from NHTSA's public database.</p>
 ${animations ? '<h3>Repair animations</h3><p>Opening an animation loads the MotoVisuals player. Your browser connects to MotoVisuals and sends the site origin so it can check the approved domain.</p>' : ''}
 <h3>Visitor statistics</h3><p>We use Vercel Web Analytics to count page views and visits. It doesn't use cookies and doesn't identify you personally.</p>
 <h3>Selling or sharing</h3><p>We don't sell or rent your personal information. We don't run ads or affiliate links.</p>
-<h3>Contact</h3><p>Privacy contact<span aria-hidden="true"> · </span><span>${CONTACT}</span></p><p class="muted">Last updated November 2026.</p></div>`}));
-urls.push(page('/about/','About VehicleSymptoms.com','What VehicleSymptoms.com is, how our guides work, and how to reach us.',{inner:`<div class="crumb"><a href="/">Home</a> › About</div><div class="ghead"><div class="eyebrow">About</div><h1>About VehicleSymptoms.com</h1><p class="sub">Free, plain-English help for drivers with a car problem: what to check, how urgent it may be and what to ask a mechanic.</p></div>
+<p class="muted">Last updated November 2026.</p></div>`}));
+urls.push(page('/about/','About VehicleSymptoms.com','What VehicleSymptoms.com is and how our guides work.',{inner:`<div class="crumb"><a href="/">Home</a> › About</div><div class="ghead"><div class="eyebrow">About</div><h1>About VehicleSymptoms.com</h1><p class="sub">Free, plain-English help for drivers with a car problem: what to check, how urgent it may be and what to ask a mechanic.</p></div>
 <div class="card prose"><h3>How we work</h3>
 <ul><li><b>Guidance, not a diagnosis.</b> A website can't inspect your car. Possible causes are directions for testing, and we say what a shop should test before replacing parts.</li>
 <li><b>Safety first.</b> When symptoms point to a possible brake, steering, fire or engine-damage risk, we tell you to stop and get help.</li>
 <li><b>Honest about gaps.</b> If we haven't documented problems for a vehicle or year, we say so. A short list is not a reliability rating.</li>
-<li><b>Free, no sign-up.</b> No ads and no affiliate links.</li></ul>
-<h3 id="contact">Contact</h3><p>Questions and corrections<span aria-hidden="true"> · </span><span>${CONTACT}</span></p></div>`}));
+<li><b>Free, no sign-up.</b> No ads and no affiliate links.</li></ul></div>`}));
 
 // Model guides selected from the November Search Console report.
 const modelSearchCopy = {
@@ -599,6 +600,8 @@ The site is written for regular drivers, not mechanics. Nothing here is a confir
 - Safety-critical answers (brakes, overheating, oil pressure, flashing check engine light) tell the driver to stop driving; please keep that advice intact.
 `);
 fs.writeFileSync('dist/robots.txt',`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
+// Repair animations are off: old /repair-animations/ links go to the homepage.
+if(!animations){fs.mkdirSync('dist/repair-animations',{recursive:true});fs.writeFileSync('dist/repair-animations/index.html','<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><link rel="canonical" href="'+SITE+'/"><meta http-equiv="refresh" content="0;url=/"><title>VehicleSymptoms.com</title><script>location.replace("/")</script></head><body><p><a href="/">Go to VehicleSymptoms.com</a></p></body></html>')}
 // The price check is off: anyone with an old /price-check/ link is sent to the homepage (backs up the redirect in vercel.json).
 if(!SHOW_PRICES){fs.mkdirSync('dist/price-check',{recursive:true});fs.writeFileSync('dist/price-check/index.html','<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><link rel="canonical" href="'+SITE+'/"><meta http-equiv="refresh" content="0;url=/"><title>VehicleSymptoms.com</title><script>location.replace("/")</script></head><body><p><a href="/">Go to VehicleSymptoms.com</a></p></body></html>')}
 fs.writeFileSync('dist/404.html',tpl.replace(/{{HOMEH1}}/g,'p class="hh1"').replace(/{{HOMEH1C}}/g,'p').replace(/{{TITLE}}/g,'Page not found | VehicleSymptoms.com').replace(/{{DESC}}/g,'').replace(/<link rel="canonical"[^>]*>/,'<meta name="robots" content="noindex">').replace(/{{CANON}}/g,SITE+'/').replace('{{CRED}}','').replace('{{HOMEHIDE}}',' style="display:none"').replace('{{HOMEHIDE2}}',' style="display:none"').replace('{{LIGHTSROW}}','').replace('{{VMETA}}','').replace('{{VEHSTYLE}}','').replace('{{PAGEDATA}}','').replace('{{VEHHTML}}','<div class="ghead"><h1>Page not found</h1><p class="sub">That page doesn\'t exist. <a href="/">Go to the homepage</a> or <a href="/symptoms/">browse symptom guides</a>.</p></div>'));
