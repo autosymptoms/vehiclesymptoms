@@ -49,6 +49,6 @@ checkNoiseLink();
 hub.window.eval(read('guide-index.js'));
 hub.window.eval(read('guide.js'));
 checkNoiseLink();
-assert.ok(read('sitemap.xml').includes('/sounds/</loc>'));
+assert.ok(read('sitemap-pages.xml').includes('/sounds/</loc>'));
 for (const page of [soundPage,guide,home,hub]) page.window.close();
 console.log('PASS local audio, original recording hash, credit, internal links, guide round trip, all six shortcuts, hydrated noise hub and sitemap.');

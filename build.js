@@ -197,10 +197,13 @@ R.window.fetch=()=>new Promise(()=>{});R.window.scrollTo=()=>{};R.window.HTMLEle
 const RW=R.window;
 
 function write(p,html){const f='dist'+p+'index.html';fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,html)}
+const PAGEHASH={};
 function page(p,title,desc,{inner='',pageData='',home=false}={}){
   const h=tpl.replace(/{{TITLE}}/g,escA(title)).replace(/{{DESC}}/g,escA(desc)).replace(/{{CANON}}/g,SITE+p).replace('{{CRED}}',escH(CRED))
     .replace(/{{HOMEH1}}/g,home?'h1':'p class="hh1"').replace(/{{HOMEH1C}}/g,home?'h1':'p').replace('{{HOMEHIDE}}',home?'':' style="display:none"').replace('{{VMETA}}',()=>VMETA).replace('{{HOMEHIDE2}}',home?'':' style="display:none"').replace('{{LIGHTSROW}}',()=>home?LIGHTSROW:'').replace('{{VEHSTYLE}}',home?'display:none;':'')
     .replace('{{PAGEDATA}}',()=>pageData).replace('{{VEHHTML}}',()=>inner);
+  // Fingerprint of this page's own content (not the shared template), used for its sitemap lastmod date.
+  PAGEHASH[p]=createHash('sha1').update(JSON.stringify([title,desc,inner,pageData,home])).digest('hex').slice(0,16);
   write(p,h);return p;
 }
 const urls=[];
@@ -525,7 +528,6 @@ for(const v of V){
       (is.length?`${is.length} known problem${is.length>1?'s':''} for the ${y} ${nm}: ${is.slice(0,3).map(i=>i.t.toLowerCase()).join('; ')}. Plus safety recalls and what to do.`:`Common symptoms, safety recalls and what to do for the ${y} ${nm}. Free, plain-English guide.`).slice(0,300),{inner:render(y)}));
   }
 }
-const LASTMOD=new Date().toISOString().slice(0,10);
 // Plain make -> model links so every vehicle page is reachable without JavaScript dropdowns.
 {const mk=[...new Set(V.map(v=>v.make))].sort((a,b)=>a.localeCompare(b));const ms=m=>m.toLowerCase().replace(/[^a-z0-9]+/g,'-');
  urls.push(page('/vehicles/','All Makes and Models: Car Problems, Costs and Recalls | VehicleSymptoms.com','Browse every make and model we cover, 1996 and newer. Pick yours to see known problems and safety recalls by model year.',{inner:`<div class="crumb"><a href="/">Home</a> › All vehicles</div>
@@ -544,12 +546,34 @@ fs.mkdirSync('audit/generated',{recursive:true});fs.writeFileSync('audit/generat
 console.log('safety contexts',SAFE.length,'groups',new Set(SAFE.map(x=>x.group)).size);
 fs.mkdirSync('audit/generated',{recursive:true});fs.writeFileSync('audit/generated/price-ledger.json',JSON.stringify(LEDGER));
 {const t={};for(const r of LEDGER){const k=r.family+':'+r.status;t[k]=(t[k]||0)+1}console.log('price ledger',LEDGER.length,JSON.stringify(t))}
-fs.writeFileSync('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(u=>`<url><loc>${SITE}${u}</loc><lastmod>${LASTMOD}</lastmod></url>`).join('\n')+'\n</urlset>\n');
+// Sitemaps: one file per section, listed in a sitemap index at /sitemap.xml.
+// lastmod is the date a page's own content last changed. src/lastmod.json keeps each page's content
+// fingerprint and date; a page only gets a new date when its fingerprint changes. Commit the updated
+// src/lastmod.json with content changes so the dates stick (the build rewrites it).
+const TODAY=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
+const LM_FILE='src/lastmod.json';
+const LM_OLD=fs.existsSync(LM_FILE)?JSON.parse(fs.readFileSync(LM_FILE,'utf8')):{};
+const LM={};
+for(const u of urls){const h=PAGEHASH[u];if(!h)throw new Error('No content fingerprint for '+u);
+  const o=LM_OLD[u];LM[u]=o&&o.h===h?o:{h,d:TODAY}}
+fs.writeFileSync(LM_FILE,'{\n'+Object.keys(LM).sort().map(u=>JSON.stringify(u)+':'+JSON.stringify(LM[u])).join(',\n')+'\n}\n');
+const SECTIONS=[['symptoms',u=>u.startsWith('/symptoms/')],['warning-lights',u=>u.startsWith('/warning-lights/')],['codes',u=>u.startsWith('/codes/')],['vehicles',u=>u.startsWith('/vehicles/')],['pages',()=>true]];
+const bySection=new Map(SECTIONS.map(([n])=>[n,[]]));
+for(const u of urls)bySection.get(SECTIONS.find(([,t])=>t(u))[0]).push(u);
+const sitemapIndex=[];
+for(const [name,list] of bySection){if(!list.length)continue;
+  if(list.length>50000)throw new Error('Sitemap section '+name+' is over 50,000 URLs; split it');
+  const file=`sitemap-${name}.xml`;
+  fs.writeFileSync('dist/'+file,'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+list.map(u=>`<url><loc>${SITE}${u}</loc><lastmod>${LM[u].d}</lastmod></url>`).join('\n')+'\n</urlset>\n');
+  sitemapIndex.push(`<sitemap><loc>${SITE}/${file}</loc><lastmod>${list.map(u=>LM[u].d).sort().pop()}</lastmod></sitemap>`);
+  console.log('sitemap',file,list.length);}
+fs.writeFileSync('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+sitemapIndex.join('\n')+'\n</sitemapindex>\n');
 // search engine verification + IndexNow (src/verify.json)
 {const VF=JSON.parse(fs.readFileSync('src/verify.json','utf8'));
  if(VF.indexnow)fs.writeFileSync(`dist/${VF.indexnow}.txt`,VF.indexnow);
  fs.writeFileSync('dist/urls.json',JSON.stringify(urls.map(u=>SITE+u)));
- fs.mkdirSync('api/_data',{recursive:true});fs.writeFileSync('api/_data/urls.json',JSON.stringify(urls.map(u=>SITE+u)));}
+ fs.mkdirSync('api/_data',{recursive:true});fs.writeFileSync('api/_data/urls.json',JSON.stringify(urls.map(u=>SITE+u)));
+ fs.writeFileSync('api/_data/lastmod.json',JSON.stringify(Object.fromEntries(urls.map(u=>[SITE+u,LM[u].d]))));}
 // a plain-language summary for AI assistants (llms.txt)
 fs.writeFileSync('dist/llms.txt',`# VehicleSymptoms.com
 

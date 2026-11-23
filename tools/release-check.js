@@ -55,7 +55,7 @@ out.checks.claims={vehicle_issue_claims:claims,reviewed_verified:reviewed,unrevi
 if(reviewed<claims)fail('claims',(claims-reviewed)+' of '+claims+' vehicle issue claims have not been checked against their cited evidence');
 
 // 6. Routes and regressions need test results.
-const sm=fs.readFileSync(R('dist/sitemap.xml'),'utf8').match(/<loc>[^<]+<\/loc>/g).map(x=>x.slice(5,-6).replace('https://www.vehiclesymptoms.com',''));
+const sm=fs.readdirSync(R('dist')).filter(f=>/^sitemap-.+\.xml$/.test(f)).flatMap(f=>fs.readFileSync(R('dist/'+f),'utf8').match(/<loc>[^<]+<\/loc>/g)).map(x=>x.slice(5,-6).replace('https://www.vehiclesymptoms.com',''));
 const RT=fs.existsSync(R('audit/generated/route-tests.json'))?JSON.parse(fs.readFileSync(R('audit/generated/route-tests.json'),'utf8')):{};
 const untested=sm.filter(u=>!RT[u]||RT[u].status!=='pass');
 out.checks.routes={sitemap_routes:sm.length,structurally_tested_pass:sm.length-untested.length,untested_or_failing:untested.length,note:'Structural tests (status, canonical, title, H1, links) do not verify content.'};
