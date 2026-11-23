@@ -47,7 +47,6 @@ for(const [query,id] of searches){
 const clarifications=[
   ['it sounds like a helicopter when I go faster','What do you hear as the car speeds up?','/symptoms/humming-noise-at-speed/'],
   ['my car died','When does the engine stop?','/symptoms/engine-stalls-while-driving/'],
-  ['smoke is coming out of the car','Where do you see the smoke, and what color is it?','/symptoms/steam-from-under-hood/'],
   ['my car smells strange','What does the smell remind you of?','/symptoms/rotten-egg-smell/'],
   ['my car is leaking','Where do you see the fluid?','/symptoms/fluid-leak-under-car/'],
   ['a red dashboard light just came on','Which dashboard symbol do you see?','/warning-lights/'],
@@ -90,7 +89,10 @@ const emergencies=[
   ['I smell gas','gas-smell'],['engine is overheating','engine-overheating'],['tire blew out','tire-keeps-losing-air'],
   ['P0300 and check engine light flashing','check-engine-light-flashing'],['my gas pedal is stuck','engine-revs-high-at-idle'],
   ['my car is accelerating on its own','engine-revs-high-at-idle'],['my accelerator is stuck','engine-revs-high-at-idle'],
-  ['red oil light and a leak','oil-pressure-light-on']
+  ['red oil light and a leak','oil-pressure-light-on'],
+  ['breaks dont work','soft-or-spongy-brake-pedal'],['my breaks went out','soft-or-spongy-brake-pedal'],['check engin lite flashin','check-engine-light-flashing'],
+  ['overheting','engine-overheating'],['smoke inside the car','burning-smell'],['headache when driving','exhaust-smell-in-cabin'],['dizzy in car','exhaust-smell-in-cabin'],
+  ['temperature light flashing','engine-overheating']
 ];
 for(const [query,id] of emergencies){
   const result=submit(query);
@@ -103,6 +105,11 @@ for(const query of ['check engine light is not flashing','my car won’t stop be
   assert.equal(window.VS_GUIDES.emergency(query),null,query+' is not an emergency');
 // Under an emergency, unrelated guides that only share words like "stopped working" must not be listed.
 assert.ok(!window.VS_GUIDES.search('my brakes stopped working',5).some(g=>g.id==='electrical-accessories-not-working'));
+// Vague danger wording shows the safety step first, then the easy question.
+{const r=submit('smoke is coming out of the car');assert.ok(r.querySelector('.urgentnow'));
+ assert.ok(r.textContent.includes('Where do you see the smoke, and what color is it?'));
+ assert.ok([...r.querySelectorAll('a')].some(a=>a.getAttribute('href')==='/symptoms/steam-from-under-hood/'));}
+for(const query of ['white smoke from exhaust','blue smoke at startup','black smoke'])assert.equal(window.VS_GUIDES.emergency(query),null,query+' is not a fire emergency');
 // A trouble code with a danger sign keeps the code lookup as a link under the safety step.
 assert.ok([...submit('P0300 and check engine light flashing').querySelectorAll('.glist a')].some(a=>a.getAttribute('href')==='/codes/?q=P0300'));
 submit('P0300');assert.equal(location.href,'/codes/?q=P0300','a code on its own still goes to code lookup');

@@ -122,8 +122,8 @@ function resetSection(v,year,name){
   const block=(list,title)=>{const L=pick(list);if(!L.length)return '';return `<h3 class="rs-h">${title}</h3>${L.map((x,i)=>`<div class="rvar"><div class="rv-h">${L.length>1?`<span class="rv-n">${i+1}</span>`:''}<b>${esc(x.when)}</b></div>${x.none?'':`<ol class="nums">${x.steps.map(t=>`<li>${esc(t)}</li>`).join('')}</ol>`}${x.note?`<p class="lmuted">${esc(x.note)}</p>`:''}${x.src&&x.src.length?`<p class="lsrc">Source: ${x.src.map(esc).join(' · ')}</p>`:''}</div>`).join('')}`};
   const oil=r?block(r.oil,'Oil change or maintenance reminder'):'',tp=r?block(r.tpms,'Tire pressure (TPMS) light'):'';
   const mkLink=mk?`<a class="walk" href="/warning-lights/reset/${mk}/">Reset steps for other ${esc(v.make)} models →</a>`:'';
-  if(!oil&&!tp)return mk?`<section class="card csec" id="reset"><h2>Reset the oil change or tire pressure light</h2><p>We have not checked the exact steps for ${year?'the '+esc(name):'this model'} yet. The usual ${esc(v.make)} steps are here: <a href="/warning-lights/reset/${mk}/">how to reset the oil change and tire pressure lights on a ${esc(v.make)}</a>.</p></section>`:'';
-  return `<section class="card csec" id="reset"><h2>How to reset the oil change and tire pressure lights${year?' on a '+esc(name):''}</h2><p class="pg-sub">These are reminders, not faults. Do the oil change or set the tire pressures first, then reset.${year?'':' Pick your model year above to see only the steps for your car.'}</p>${oil}${tp}${r.notes?`<p class="lmuted">${esc(r.notes)}</p>`:''}<p class="lmuted">Button names can differ by trim. Your owner's manual is the final word for your exact car. If the light comes straight back, or a tire pressure light blinks and then stays on, something else needs checking.</p>${mkLink}</section>`;
+  if(!oil&&!tp)return mk?`<section class="card csec" id="reset"><h2>Reset the oil change or tire pressure light</h2><p>We have not checked the exact steps for ${year?'the '+esc(name):'this model'} yet. The usual ${esc(v.make)} steps are here: <a href="/warning-lights/reset/${mk}/">how to reset the oil change and tire pressure lights on ${/^[aeiou]/i.test(String(esc(v.make)))?'an':'a'} ${esc(v.make)}</a>.</p></section>`:'';
+  return `<section class="card csec" id="reset"><h2>How to reset the oil change and tire pressure lights${year?' on '+(/^[aeiou]/i.test(name)?'an ':'a ')+esc(name):''}</h2><p class="pg-sub">These are reminders, not faults. Do the oil change or set the tire pressures first, then reset.${year?'':' Pick your model year above to see only the steps for your car.'}</p>${oil}${tp}${r.notes?`<p class="lmuted">${esc(r.notes)}</p>`:''}<p class="lmuted">Button names can differ by trim. Your owner's manual is the final word for your exact car. If the light comes straight back, or a tire pressure light blinks and then stays on, something else needs checking.</p>${mkLink}</section>`;
 }
 function issueCard(i){return `<div class="issue"><div class="meta"><span class="sev ${i.sev}">${SEV[i.sev]}</span><span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><span class="pill">${esc(i.sys)}</span>${i.eng?`<span class="pill">${esc(i.eng)}</span>`:''}</div>
 <h3>${esc(i.t)}</h3><dl><div><dt>What you'll notice</dt><dd>${esc(i.sym)}</dd></div><div><dt>Why it happens</dt><dd>${esc(i.why)}</dd></div><div><dt>What to do</dt><dd>${esc(i.next)}</dd></div></dl>${costLine(i.cost,i._v,i._y)}${i.animation?`<a class="mv-issue" href="${esc(i.animation.href)}">Repair animation · ${esc(i.animation.title)}</a>`:''}${(g=>g?`<a class="walk" href="${gurl(g.id)}?v=${i._v||''}${i._y?'&y='+i._y:''}">Walk through this symptom: ${esc(g.title)} →</a>`:'')(forIssue(i))}</div>`}
@@ -324,11 +324,13 @@ if(hf){
     if(urgent){
       // Danger first: the immediate safe action, then the most urgent guide, then anything else that matched.
       const gs=searchGuides(symptom,5);
-      out.innerHTML=`<div class="safety urgentnow" role="alert"><b>Do this first</b><p>${esc(urgent.now)}</p>${urgent.also.map(t=>`<p>${esc(t)}</p>`).join('')}</div>`+
+      // Vague wording ("smoke is coming out of the car"): safety step first, then the easy where/what question.
+      const ask=window.VS_GUIDES.clarifySearch(symptom.replace(cm?cm[0]:'',' '));
+      out.innerHTML=`<div class="safety urgentnow" role="alert"><b>Do this first</b><p>${esc(urgent.now)}</p>${urgent.also.map(t=>`<p>${esc(t)}</p>`).join('')}</div>`+(ask?askHtml(ask,qs):
         `<p><b>Then follow the guide:</b></p><div class="glist">${gs.map((g,i)=>`<a class="gcard${i===0?' first':''}" href="${gurl(g.id)}${qs}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}`+
-        `${cm?`<a class="gcard" href="/codes/?q=${cm[1].toUpperCase()}"><b>Look up ${esc(cm[1].toUpperCase())}</b><span>What this trouble code means</span></a>`:''}</div>`;
+        `${cm?`<a class="gcard" href="/codes/?q=${cm[1].toUpperCase()}"><b>Look up ${esc(cm[1].toUpperCase())}</b><span>What this trouble code means</span></a>`:''}</div>`);
       out.classList.add('show');
-      if(status)status.textContent='Urgent safety step shown first. '+urgent.now;
+      if(status)status.textContent='Urgent safety step shown first. '+urgent.now+(ask?' '+ask.question:'');
       return;
     }
     const question=window.VS_GUIDES.clarifySearch(symptom);
@@ -375,9 +377,22 @@ showMy();
   document.querySelectorAll('#lgrid .lcard').forEach(a=>{const k=a.dataset.c;a.hidden=!(c==='all'||k===c||(c==='info'&&(k==='green'||k==='blue')))});
   const s=document.getElementById('lsearch');if(s)s.value='';const n=document.getElementById('lnone');if(n)n.hidden=true})})();
 (function(){const s=document.getElementById('lsearch');if(!s)return;
-  s.oninput=()=>{const q=s.value.trim().toLowerCase();let shown=0;
-    document.querySelectorAll('#lgrid .lcard').forEach(a=>{const t=(a.textContent+' '+(a.getAttribute('href')||'')).toLowerCase();const hit=!q||t.includes(q);a.hidden=!hit;if(hit)shown++});
-    const n=document.getElementById('lnone');if(n)n.hidden=!!shown;
+  // Match each word the visitor typed against the light's names and how its symbol looks ("oil can", "thermometer").
+  const filler=new Set('a an the my is it its on of in with and or that this like looks look shaped shape symbol icon sign light lights lit dash dashboard warning came come comes just car cars little small yellow orange red'.split(' '));
+  const words=q=>q.toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,' ').trim().split(' ').filter(w=>w&&!filler.has(w));
+  s.oninput=()=>{const q=s.value.trim();const qw=words(q);let shown=0;
+    document.querySelectorAll('#lgrid .lcard').forEach(a=>{const k=(a.dataset.k||a.textContent.toLowerCase()).split(' ');
+      const hit=!qw.length||qw.every(w=>k.some(x=>x===w||(w.length>=3&&x.startsWith(w))||(w.length>3&&w.endsWith('s')&&x===w.slice(0,-1))));a.hidden=!hit;if(hit)shown++});
+    const n=document.getElementById('lnone');
+    if(n){n.hidden=!!shown||!q;
+      // Never a dead end: the safety rule for red lights, symptom guides that match, and the color filters.
+      if(!shown&&q){const G=window.VS_GUIDES,urgent=G&&G.emergency(q),gs=G?G.search(q,4):[];
+        n.innerHTML=(urgent?`<div class="safety urgentnow" role="alert"><b>Do this first</b><p>${esc(urgent.now)}</p></div>`:'')+
+          `<p><b>No symbol matched “${esc(q)}”.</b> If the light is red, pull over when it's safe and turn the engine off, then find it below.</p>`+
+          `<div class="nm-cats"><button type="button" class="nm-cat" data-c="red">Show red lights</button><button type="button" class="nm-cat" data-c="amber">Show amber lights</button><button type="button" class="nm-cat" data-c="info">Green or blue lights</button></div>`+
+          (gs.length?`<p><b>Or follow a guide for what the car is doing:</b></p><div class="glist">${gs.map(g=>`<a class="gcard" href="${gurl(g.id)}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}</div>`:
+            `<p><a href="/">Describe what the car is doing instead →</a></p>`);
+        n.querySelectorAll('button[data-c]').forEach(b=>b.onclick=()=>{const t=document.querySelector('#lfilter button[data-c="'+b.dataset.c+'"]');if(t)t.click();const g=document.getElementById('lgrid');if(g)g.scrollIntoView({block:'start'})})}}
     const f=document.getElementById('lfilter');if(f&&q)f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.c==='all'))}})();
 // "Is my quote fair?" price check
 (function(){const app=document.getElementById('pcApp');if(!app)return;

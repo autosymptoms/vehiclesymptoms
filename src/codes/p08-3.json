@@ -138,7 +138,7 @@
   "common": true,
   "plain": "The transmission computer sees hydraulic pressure lower than it should be. Low pressure lets clutches slip and can quickly damage the transmission.",
   "sys": "Transmission",
-  "sev": "stop",
+  "sev": "soon",
   "symptoms": [
    "Slipping or delayed shifts",
    "Check engine light on",
@@ -189,8 +189,10 @@
    "https://www.carwhere.com/obd-codes/p0868",
    "https://www.mvwautotechniek.nl/en/obd-foutcodes/"
   ],
-  "drive": "Limit driving. Low transmission fluid pressure can burn up clutches quickly, so check for leaks and low fluid. If it slips, is slow to go into gear, runs hot or goes into limp mode, stop driving and have it towed or checked right away instead of pushing on.",
-  "test_first": "Check fluid level and look for leaks, then measure actual line pressure with a gauge and compare it to the sensor reading before replacing the sensor, pump or valve body."
+  "drive": "Check for leaks and low fluid. If it shifts normally, keep trips short and gentle and get it checked in the next few days.",
+  "test_first": "Check fluid level and look for leaks, then measure actual line pressure with a gauge and compare it to the sensor reading before replacing the sensor, pump or valve body.",
+  "urgent_group": "trans-pressure",
+  "urgent_if": "If the transmission slips, is slow to go into gear, runs hot or goes into limp mode, stop driving and have it towed. Low fluid pressure can burn up the clutches quickly."
  },
  {
   "code": "P0869",

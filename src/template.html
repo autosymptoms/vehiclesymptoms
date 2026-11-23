@@ -24,7 +24,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/site.css">
-<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};
+// Don't count automated test browsers, or anyone who sets localStorage va-disable (the site owner's own checks).
+window.va('beforeSend',function(e){try{if(navigator.webdriver||localStorage.getItem('va-disable'))return null}catch(x){}return e});</script>
 <script defer src="/_vercel/insights/script.js"></script>
 {{VMETA}}
 </head>

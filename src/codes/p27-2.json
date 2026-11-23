@@ -903,7 +903,7 @@
   "title": "Torque Converter Clutch Pressure Control Solenoid Control Circuit Stuck On",
   "plain": "The computer thinks the torque converter clutch pressure control solenoid circuit is stuck on. This solenoid controls the lock-up clutch in the torque converter, which links the engine directly to the transmission at cruising speed.",
   "sys": "Transmission",
-  "sev": "stop",
+  "sev": "soon",
   "common": false,
   "symptoms": [
    "Check engine light on",
@@ -940,8 +940,10 @@
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
   ],
-  "drive": "Be careful. If the converter stays locked, the engine can stall when you stop, leaving you with heavy steering and harder braking. If it stalls or nearly stalls, don't keep driving; have it towed. If it only shudders, limit driving and get it checked soon.",
-  "test_first": "Confirm with a scanner whether lockup stays applied at stops, check the solenoid and its wiring for a short, and check the fluid and valve body before replacing the converter."
+  "drive": "If it only shudders and never stalls, drive gently, avoid highways and get it checked in the next few days.",
+  "test_first": "Confirm with a scanner whether lockup stays applied at stops, check the solenoid and its wiring for a short, and check the fluid and valve body before replacing the converter.",
+  "urgent_group": "converter-stall",
+  "urgent_if": "If the engine stalls or nearly stalls when you come to a stop, don't keep driving: steering and braking get much heavier without the engine. Have it towed."
  },
  {
   "code": "P2759",

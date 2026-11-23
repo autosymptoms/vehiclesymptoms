@@ -1178,7 +1178,7 @@
   "title": "Torque Converter Clutch Solenoid Circuit Stuck On",
   "plain": "The torque converter clutch is staying locked when it should release, which can stall the engine as you come to a stop.",
   "sys": "Transmission",
-  "sev": "stop",
+  "sev": "soon",
   "common": false,
   "symptoms": [
    "Engine stalls or nearly stalls when stopping",
@@ -1221,8 +1221,10 @@
    "https://ricksfreeautorepairadvice.com/generic-obdii-p-codes-p0700-p0799-definitions-and-causes/",
    "https://www.aa1car.com/trouble-codes/codes_799.htm"
   ],
-  "drive": "Be careful. A converter that stays locked can stall the engine when you stop, leaving you with heavy steering and harder braking in traffic. If it stalls or nearly stalls, don't keep driving; have it towed or move it only a short, low-traffic distance to a shop.",
-  "test_first": "Confirm with a scanner whether the converter stays locked when stopping, then check the solenoid and its wiring for a short, and the valve body for sticking or debris."
+  "drive": "If it only shudders and never stalls, drive gently, avoid highways and get it checked in the next few days.",
+  "test_first": "Confirm with a scanner whether the converter stays locked when stopping, then check the solenoid and its wiring for a short, and the valve body for sticking or debris.",
+  "urgent_group": "converter-stall",
+  "urgent_if": "If the engine stalls or nearly stalls when you come to a stop, don't keep driving: steering and braking get much heavier without the engine. Have it towed."
  },
  {
   "code": "P0743",

@@ -62,6 +62,8 @@ const everydayPhrases={
   'car-wont-start':['It just clicks when I try to start it','A clicking sound when I try to start'],
   'vibration-at-highway-speed':['Steering wheel shakes on the highway'],
   'car-wont-turn-off':['Car wont stop running','Engine wont shut off'],
+  'engine-overheating':['Thermometer light on','Temperature light on','Temp light on','Thermometer in water light'],
+  'brake-warning-light-on':['Emergency brake light on','Handbrake light on','Parking brake light on'],
   'fluid-leak-under-car':['Puddle where I parked','Puddle on my driveway','Puddle in my parking spot']
 };
 let searchIndex;
@@ -97,11 +99,13 @@ const emergencyRules=[
     guides:['engine-revs-high-at-idle'],
     now:'If the car speeds up on its own or the gas pedal sticks: press the brake firmly and hold it (don’t pump), shift to neutral, and steer to a safe spot. Once stopped, turn the engine off. With a push-button start you may need to hold the button for a few seconds. Check that a floor mat isn’t trapping the pedal, and don’t drive it again until it’s checked.'},
   {id:'fire',topic:/burn|smoke|steam|fire/i,
-    rx:/\b(?:on fire|fire|flames?|flaming|caught fire|catching fire|burning up)\b/,
+    rx:/\b(?:on fire|fire|flames?|flaming|caught fire|catching fire|burning up)\b|\bsmok(?:e|es|ing|ey|y)\b/,
+    // Tailpipe smoke ("white smoke from exhaust") is not a fire emergency unless flames are mentioned.
+    skip:/^(?!.*\b(?:fire|flames?|flaming)\b).*\b(?:exhaust|tailpipe|tail pipe|muffler|white|blue|black|gray|grey|idle|idling|startup|start up|starting|cold start|turbo|puff|burning oil|oil change)\b/,
     guides:['burning-smell','steam-from-under-hood'],
     now:'If you see flames or smoke from under the hood: pull over, turn the engine off, get everyone out and at least 100 feet away, and call 911. Don’t open the hood.'},
   {id:'exhaust',topic:/exhaust|fume|smell/i,
-    rx:/\b(?:carbon monoxide|exhaust (?:smell|fumes?|inside|in the car|in the cabin|getting in)|fumes? (?:inside|in the car|in the cabin)|smell(?:s|ing)? (?:like )?exhaust)\b|\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b.*\b(?:exhaust|fumes?|smell)\b|\b(?:exhaust|fumes?)\b.*\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b/,
+    rx:/\b(?:carbon monoxide|exhaust (?:smell|fumes?|inside|in the car|in the cabin|getting in)|fumes? (?:inside|in the car|in the cabin)|smell(?:s|ing)? (?:like )?exhaust)\b|\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b.*\b(?:exhaust|fumes?|smell)\b|\b(?:exhaust|fumes?)\b.*\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b|\b(?:headaches?|dizzy|dizziness|nausea|nauseous|lightheaded|light headed)\b.*\b(?:driving|in (?:the |my )?car|in (?:the |my )?truck|inside the car|while i drive|when i drive)\b/,
     guides:['exhaust-smell-in-cabin'],
     now:'If anyone has a headache, dizziness, nausea, confusion or feels sleepy, this may be carbon monoxide poisoning. Get everyone into fresh air right away and call 911 from outside the car.'},
   {id:'gas',topic:/gas|fuel/i,
@@ -121,7 +125,7 @@ const emergencyRules=[
     guides:['oil-pressure-light-on'],
     now:'A red oil light while the engine is running means low oil pressure. Pull over as soon as it’s safe and turn the engine off. Driving on can wreck the engine within minutes.'},
   {id:'overheat',skip:/\btransmission\b|\btrans temp\b/,topic:/overheat|temperature|coolant|steam/i,
-    rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b/,
+    rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up|flashing|blinking)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b/,
     guides:['engine-overheating','steam-from-under-hood'],
     now:'If the engine is overheating: pull over when it’s safe and turn the engine off. Never open the radiator or coolant cap while it’s hot. Wait at least 30 minutes.'},
   {id:'blowout',topic:/tire|flat/i,
@@ -134,14 +138,21 @@ const emergencyRules=[
     now:'If you lose steering control: grip the wheel firmly with both hands, ease off the gas, brake gently, turn on your hazard lights and steer to a safe stop. Don’t drive it again until it’s checked.'}
 ];
 // Words that say something failed without saying what (they matched the radio guide to "brakes stopped working").
-const emergencyGeneric=new Set(['stopped','stop','working','work','wont','not','dont','doesnt','light','warning','on','out','failed','went','gone','quit','stalls','died']);
+const emergencyGeneric=new Set(['flashing','blinking','flash','stopped','stop','working','work','wont','not','dont','doesnt','light','warning','on','out','failed','went','gone','quit','stalls','died']);
+// Common misspellings and texting shortcuts, so "my breaks went out" or "check engin lite flashin" still get the safety step.
+const emergencySpelling=[[/\bbreaks?\b/g,m=>m==='breaks'?'brakes':'brake'],[/\bbrakeing\b/g,'braking'],[/\bengin\b/g,'engine'],[/\blite\b/g,'light'],[/\blites\b/g,'lights'],
+  [/\bflashin\b/g,'flashing'],[/\bblinkin\b/g,'blinking'],[/\bsmokin\b/g,'smoking'],[/\bsmokeing\b/g,'smoking'],[/\boverhe+t(?:ing|in)\b/g,'overheating'],[/\boverhe+ating\b/g,'overheating'],
+  [/\bover heating\b/g,'overheating'],[/\bdont\b/g,'dont'],[/\bwont\b/g,'wont'],[/\bcuz\b/g,'because'],[/\bexaust\b/g,'exhaust'],[/\bexhuast\b/g,'exhaust'],[/\bpetal\b/g,'pedal'],[/\bgass\b/g,'gas']];
 function emergency(q){
-  const text=literalSymptom(q).replace(/\bwill not\b/g,'wont').replace(/\bcan not\b|\bcannot\b/g,'cant')
+  let text=literalSymptom(q);
+  for(const [rx,to] of emergencySpelling)text=text.replace(rx,to);
+  text=text.replace(/\bwill not\b/g,'wont').replace(/\bcan not\b|\bcannot\b/g,'cant')
     .replace(/\b(?:isnt|is not|not|never|no longer|stopped) (?:flashing|blinking)\b|\b(?:doesnt|does not|didnt|did not) (?:flash|blink)\b/g,'steady');
   const hits=emergencyRules.filter(rule=>rule.rx.test(text)&&!(rule.skip&&rule.skip.test(text)));
   if(!hits.length)return null;
   const ids=[...new Set(hits.flatMap(rule=>rule.guides))].filter(id=>G.some(g=>g.id===id));
   return {rule:hits[0].id,now:hits[0].now,also:hits.slice(1).map(rule=>rule.now),guides:ids.map(id=>G.find(g=>g.id===id)),
+    sharesWord:g=>[g.title,...(g.syn||[])].some(t=>symptomWords(t).some(w=>!emergencyGeneric.has(w)&&symptomWords(q).includes(w))),
     related:g=>hits.some(rule=>rule.topic.test(g.title+' '+g.h1))||
       symptomWords(g.title).some(word=>!emergencyGeneric.has(word)&&symptomWords(q).includes(word))};
 }
@@ -150,7 +161,8 @@ function search(q,n=5){
   const ordinary=searchWords_(q,n);
   if(!urgent)return ordinary;
   // Other word matches only if they're about the same danger (no radio guide under "brakes stopped working").
-  return [...urgent.guides,...ordinary.filter(g=>!urgent.guides.includes(g)&&urgent.related(g))].slice(0,n);
+  // The best plain word match is also kept when it shares a real symptom word ("smoke from wheel" keeps brakes dragging).
+  return [...urgent.guides,...ordinary.filter((g,i)=>!urgent.guides.includes(g)&&(urgent.related(g)||(i===0&&urgent.sharesWord(g))))].slice(0,n);
 }
 function searchWords_(q,n=5){
   const words=symptomWords(q);
@@ -294,7 +306,8 @@ if(J&&root){
     if(focusStep){
       const heading=root.querySelector('.fq, .rt');
       heading.focus({preventScroll:true});
-      heading.scrollIntoView({block:'start'});
+      // On a result, bring the urgency label into view too, not just the title under it.
+      (root.querySelector('#resultUrgency')||heading).scrollIntoView({block:'start'});
     }
   }
   function matches(){if(!veh)return[];return veh.issues.filter(i=>(!vyear||(vyear>=i.y[0]&&vyear<=i.y[1]))&&matchesGuide(J.id,i.t))}
