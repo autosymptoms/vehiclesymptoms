@@ -12,6 +12,15 @@ function openPage(route) {
   return new JSDOM(read(route+'index.html'), {url:origin+route, runScripts:'outside-only'});
 }
 
+// While the sounds page is switched off (SHOW_SOUNDS in build.js), /sounds/ must only send visitors home
+// and nothing on the site may link to it.
+if (/http-equiv="refresh"/.test(read('/sounds/index.html'))) {
+  for (const route of ['/symptoms/', '/symptoms/humming-noise-at-speed/', '/'])
+    assert.ok(!read(route+'index.html').includes('href="/sounds/'), route+' still links to the sounds page');
+  assert.ok(!read('llms.txt').includes('/sounds/'));
+  console.log('PASS sounds page is off: /sounds/ redirects home and no page links to it.');
+  process.exit(0);
+}
 const soundPage = openPage('/sounds/');
 const main = soundPage.window.document.getElementById('vehicleView');
 const audio = main.querySelectorAll('audio');

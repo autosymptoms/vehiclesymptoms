@@ -4,13 +4,13 @@
 // 3. Pages: home, /symptoms/ hub, /symptoms/<id>/, /vehicles/<id>/, /vehicles/<id>/<year>/, sitemap.
 const fs=require('fs'),path=require('path');
 const {JSDOM}=require('jsdom');
-// Repair animations are switched off for now (Daniel, Nov 22 2026). Everything in src/animations is kept;
+// Repair animations are switched off for now (owner decision, Nov 22 2026). Everything in src/animations is kept;
 // set SHOW_ANIMATIONS to true to bring them back.
 const SHOW_ANIMATIONS=false;
 const animations = SHOW_ANIMATIONS ? require('./src/animations/render').createLibrary() : null;
 const SITE='https://www.vehiclesymptoms.com';
 const BYLINE='<p class="byline">VehicleSymptoms team · Updated November 2026 · <a href="/about/">How we work</a></p>';
-const CRED='Built by people who fix cars. Guides are written for drivers and checked against recalls, service bulletins and repair records.';
+const CRED='Plain-English guides for drivers, based on NHTSA safety and recall information, owner\'s manuals and published service information. A starting point, not a diagnosis.';
 
 const {createHash}=require('node:crypto');
 const publisherNames=require('./src/source-publishers.json');
@@ -90,7 +90,7 @@ const firstSold=(v,i)=>{for(let y=i.y[0];y<=i.y[1];y++)if(sold(v,y))return y;ret
 // ---------- repair price estimates (src/prices/<id>.json) ----------
 // Range = parts + book hours x labor rate. Rate band from 2025-26 industry surveys (about half of US shops charge $120-$159/hr).
 const RATE=[120,160];let priced=0;
-// Prices are switched off site-wide (Daniel, Nov 22 2026): no repair costs, price guide, ownership costs or price check anywhere.
+// Prices are switched off site-wide (owner decision, Nov 22 2026): no repair costs, price guide, ownership costs or price check anywhere.
 // The price data stays in src/ so this can be turned back on later by setting SHOW_PRICES to true.
 const SHOW_PRICES=false;
 const EV=require('./tools/evidence.js'),PT=require('./src/powertrain.js');const LEDGER=[];// every price record, shown or withheld (written to audit/generated/price-ledger.json)
@@ -188,6 +188,8 @@ fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');
   "return c[id]=c[id]||fetch('/data/v/'+id+'.json').then(r=>r.json()).then(d=>{Object.assign(v,d,{_full:true});return v}).catch(()=>v)}})();\n");
  fs.mkdirSync('dist/data/v',{recursive:true});for(const v of V)fs.writeFileSync('dist/data/v/'+v.id+'.json',publicJson({issues:v.issues,own:v.own||null,engines:v.engines||[],reset:v.reset||null},'vehicle '+v.id));}fs.writeFileSync('dist/guide-index.js',indexJs);
 for(const f of ['app.js','guide.js','site.css','pdf.js','powertrain.js'])fs.copyFileSync('src/'+f,'dist/'+f);
+// Browser tab icons and the image shown when a page link is shared.
+for(const [from,to] of [['favicon.ico','favicon.ico'],['favicon.svg','favicon.svg'],['icon-180.png','apple-touch-icon.png'],['icon-192.png','icon-192.png'],['og-image.png','og-image.png']])fs.copyFileSync('src/brand/'+from,'dist/'+to);
 fs.mkdirSync('dist/vendor',{recursive:true});fs.copyFileSync('src/vendor/jspdf.umd.min.js','dist/vendor/jspdf.umd.min.js');
 fs.mkdirSync('dist/email',{recursive:true});for(const f of fs.readdirSync('src/email'))fs.copyFileSync('src/email/'+f,'dist/email/'+f);
 // ---------- warning lights data (src/lights.js + optional depth in src/lights-deep.json) ----------
@@ -195,6 +197,7 @@ const LIGHTS=require('./src/lights.js');
 const RESETS=fs.existsSync('src/resets.json')?JSON.parse(fs.readFileSync('src/resets.json','utf8')):{};
 const LDEEP=fs.existsSync('src/lights-deep.json')?JSON.parse(fs.readFileSync('src/lights-deep.json','utf8')):{};
 const LCOL={red:'#FF5A5F',amber:'#FFB020',green:'#34C77B',blue:'#5AB0FF'};
+const lsev=l=>l.sevLabel?[l.sevLabel,l.sevClass||LSEV[l.sev][1]]:LSEV[l.sev];
 const LSEV={stop:["Stop driving as soon as it's safe","high"],soon:["Get it checked soon","med"],check:["Check it when you can","info"],info:["Information only","low"]};
 const LCOLNAME={red:'Red: serious, act now',amber:'Amber/yellow: check soon',green:'Green: system on',blue:'Blue: information'};
 const lIcon=(l,size)=>`<svg class="licon" width="${size}" height="${size}" viewBox="0 0 48 48" fill="none" style="color:${LCOL[l.color]}" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${l.icon}</svg>`;
@@ -211,7 +214,7 @@ const escH=t=>String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').re
 const VERIFY=JSON.parse(fs.readFileSync('src/verify.json','utf8'));
 const VMETA=(VERIFY.google?`<meta name="google-site-verification" content="${VERIFY.google}">`:'')+(VERIFY.bing?`<meta name="msvalidate.01" content="${VERIFY.bing}">`:'');
 const LIGHTSROW=(()=>{const pick=ROWIDS.map(id=>LIGHTS.find(l=>l.id===id)).filter(Boolean);
- return `<div class="lrow dashboard-lights">${pick.map(l=>`<a class="lr${FIRSTQ[l.id]?' lr-q':''}" href="/warning-lights/${l.id}/${FIRSTQ[l.id]?'#first':''}">${lIcon(l,56)}<b>${escH(l.name.replace(/ \(.*\)$/,'').replace(/ light$/i,'').replace(/ warning$/i, l.id === 'master-warning-light' ? ' warning' : ''))}</b>${FIRSTQ[l.id]?`<span class="lsev lq">${escH(FIRSTQ[l.id].card)}</span>`:`<span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span>`}</a>`).join('')}<a class="lr lr-all" href="/warning-lights/"><b>All lights</b><span>Red, amber, green and blue</span></a></div>`})();
+ return `<div class="lrow dashboard-lights">${pick.map(l=>`<a class="lr${FIRSTQ[l.id]?' lr-q':''}" href="/warning-lights/${l.id}/${FIRSTQ[l.id]?'#first':''}">${lIcon(l,56)}<b>${escH(l.name.replace(/ \(.*\)$/,'').replace(/ light$/i,'').replace(/ warning$/i, l.id === 'master-warning-light' ? ' warning' : ''))}</b>${FIRSTQ[l.id]?`<span class="lsev lq">${escH(FIRSTQ[l.id].card)}</span>`:`<span class="lsev ${lsev(l)[1]}">${escH(lsev(l)[0])}</span>`}</a>`).join('')}<a class="lr lr-all" href="/warning-lights/"><b>All lights</b><span>Red, amber, green and blue</span></a></div>`})();
 const scripts=['vehicles.js','guide-index.js','guide.js','powertrain.js','app.js'].map(f=>f==='vehicles.js'?data:f==='guide-index.js'?indexJs:fs.readFileSync('src/'+f,'utf8'));
 
 // one browser instance renders every vehicle page
@@ -222,7 +225,11 @@ const RW=R.window;
 
 function write(p,html){const f='dist'+p+'index.html';fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,html)}
 const PAGEHASH={};
-function page(p,title,desc,{inner='',pageData='',home=false}={}){
+// Shorten a meta description at a sentence or word boundary instead of mid-word.
+function clip(text,max=160){text=String(text).replace(/\s+/g,' ').trim();if(text.length<=max)return text;const cut=text.slice(0,max+1);
+  const end=Math.max(cut.lastIndexOf('. '),cut.lastIndexOf('? '),cut.lastIndexOf('! '));if(end>max*0.55)return cut.slice(0,end+1);
+  return cut.slice(0,cut.lastIndexOf(' ')).replace(/[\s,;:–—-]+$/,'')+'…';}
+function page(p,title,desc,{inner='',pageData='',home=false}={}){desc=clip(desc,300);
   const h=tpl.replace(/{{TITLE}}/g,escA(title)).replace(/{{DESC}}/g,escA(desc)).replace(/{{CANON}}/g,SITE+p).replace('{{CRED}}',escH(CRED))
     .replace(/{{HOMEH1}}/g,home?'h1':'p class="hh1"').replace(/{{HOMEH1C}}/g,home?'h1':'p').replace('{{HOMEHIDE}}',home?'':' style="display:none"').replace('{{VMETA}}',()=>VMETA).replace('{{HOMEHIDE2}}',home?'':' style="display:none"').replace('{{LIGHTSROW}}',()=>home?LIGHTSROW:'').replace('{{VEHSTYLE}}',home?'display:none;':'')
     .replace('{{PAGEDATA}}',()=>pageData).replace('{{VEHHTML}}',()=>inner);
@@ -240,18 +247,22 @@ if (animations) {
   urls.push(page('/repair-animations/', 'Repair Animations | VehicleSymptoms.com',
     'Browse MotoVisuals animations to see how vehicle parts and systems work.', {inner: directory.html, pageData}));
 }
+// The car sounds page is off for now (only one recording, cause unconfirmed). src/sounds is kept; set SHOW_SOUNDS to true to bring it back.
+const SHOW_SOUNDS=false;
 const sound = require('./src/sounds/page.js');
+if (SHOW_SOUNDS) {
 if (!J.some(j => j.id === sound.guide)) throw new Error('Missing guide for the car sound recording');
 urls.push(page('/sounds/', 'Car Sounds | VehicleSymptoms.com', 'Listen to a real whir inside a moving car and open the matching symptom guide.', {inner: sound.html}));
 fs.copyFileSync('src/sounds/'+sound.clip, 'dist/sounds/'+sound.clip);
+}
 const HOMEFAQ=[...fs.readFileSync('src/template.html','utf8').matchAll(/<details class="faq"><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)].map(m=>({'@type':'Question',name:m[1],acceptedAnswer:{'@type':'Answer',text:m[2]}}));
 const homeLd='<script type="application/ld+json">'+JSON.stringify([{'@context':'https://schema.org','@type':'WebSite',name:'VehicleSymptoms.com',url:SITE+'/'},{'@context':'https://schema.org','@type':'FAQPage',mainEntity:HOMEFAQ}]).replace(/</g,'\\u003c')+'</script>\n';
-urls.push(page('/',"What's Wrong With My Car? Free Car Symptom Help | VehicleSymptoms.com",'Free, plain-English help for car problems: what to check, how urgent it may be and what to ask your mechanic. From people who fix cars.',{home:true,pageData:homeLd}));
+urls.push(page('/',"What's Wrong With My Car? Free Car Symptom Help | VehicleSymptoms.com",'Free, plain-English help for car problems: what to check, how urgent it may be and what to ask your mechanic. No sign-up needed.',{home:true,pageData:homeLd}));
 
 function sourceCredits(sources){return publishers(sources).map(escH).join(' · ')||'Editorial evidence on file'}
 // symptom guide pages
 const GL={start:"Won't start",light:"Warning light",noise:"Noise",shake:"Shaking",leaksmell:"Leak, smell or smoke",hot:"Running hot",drive:"Driving & handling"};
-const UL={stop:["Stop — don't drive it","high"],soon:["Get it checked in the next few days","med"],check:["Book a check when convenient","info"],diy:["Safe to check yourself first","low"]};
+const UL={stop:["Stop — don't drive it","high"],soon:["Get it checked in the next few days","med"],check:["Book a check when convenient","info"],diy:["Check it yourself first","low"]};
 for(const j of J){
   const results=Object.values(j.nodes).filter(n=>n.result).map(n=>n.result);
   const firstQ=j.nodes[j.start];
@@ -259,7 +270,7 @@ for(const j of J){
   const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/symptoms/">Symptom guides</a> › ${escH(j.title)}</div>
 <div class="ghead"><div class="eyebrow">${escH(GL[j.group])}</div><h1>${escH(j.h1)}</h1><p class="sub">${escH(j.intro)}</p></div>
 ${j.safety.length?`<div class="safety"><b>Stop and get help right away if:</b><ul>${j.safety.map(s=>`<li>${escH(s)}</li>`).join('')}</ul></div>`:''}
-${j.id===sound.guide?`<p><a href="/sounds/#${sound.section}">Hear a whir inside a moving car</a></p>`:''}
+${SHOW_SOUNDS&&j.id===sound.guide?`<p><a href="/sounds/#${sound.section}">Hear a whir inside a moving car</a></p>`:''}
 ${BYLINE}<div id="guideApp"><div class="flow card"><div class="step-n">Question 1</div><h2 class="fq">${escH(firstQ.q)}</h2>${firstQ.help?`<p class="help">${escH(firstQ.help)}</p>`:''}<div class="opts">${firstQ.opts.map(o=>`<button class="opt">${escH(o.a)}</button>`).join('')}</div></div></div>
 ${animation}
 <div class="fullguide"><h2 style="font-size:20px">Full guide: every possible outcome</h2><p class="muted" style="margin-top:-4px">Prefer to read it all? Here's every result this guide can reach.</p>
@@ -290,15 +301,17 @@ for(let k=0;k<CODES.length;k++){const c=CODES[k],low=c.code.toLowerCase(),u=CURG
   const fam=CODES.filter(x=>x.code.slice(0,3)===c.code.slice(0,3)&&x.code!==c.code).slice(0,12);
   const veh=(codeVeh[c.code]||[]).slice(0,10);const g=c.guide&&JT[c.guide];
   const drive=c.drive||(c.sev==='stop'?'Stop driving as soon as it is safe and have it checked before going further; this problem can cause damage or affect safety.':c.sev==='soon'?'If the check engine light flashes, the engine runs rough, overheats, loses power or stalls, pull over when it is safe and get help. Otherwise get it checked in the next few days and drive gently until then.':'Usually you can keep driving while you book a check. If other warning lights come on, or the car starts running or shifting differently, get it checked sooner.');
+  // With an urgent condition shown first, the "Otherwise" text must only cover the non-urgent case.
+  const otherwise=c.urgent_if?(drive.split(/(?<=\.)\s+/).filter(x=>!/flash|blink|shak|stall|overheat/i.test(x)).join(' ')||'If none of that applies and the car drives normally, drive gently and get it checked in the next few days.'):drive;
   const testFirst=c.test_first||'A shop should confirm the fault with a scan tool and a few tests before replacing parts. The code points to where to test, not to a confirmed failed part.';
-  const faq=[{q:`What does ${c.code} mean?`,a:c.plain},{q:`Can I drive with code ${c.code}?`,a:(c.urgent_if?c.urgent_if+' Otherwise: ':'')+drive},{q:`What causes ${c.code}?`,a:'Common possibilities to test include: '+c.causes.slice(0,4).map(x=>x.name.toLowerCase()).join('; ')+'. A shop should confirm the cause before replacing parts.'}];
+  const faq=[{q:`What does ${c.code} mean?`,a:c.plain},{q:`Can I drive with code ${c.code}?`,a:(c.urgent_if?c.urgent_if+' Otherwise: '+otherwise:drive)},{q:`What causes ${c.code}?`,a:'Common possibilities to test include: '+c.causes.slice(0,4).map(x=>x.name.toLowerCase()).join('; ')+'. A shop should confirm the cause before replacing parts.'}];
   const ld='<script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}).replace(/</g,'\\u003c')+'</script>\n';
   const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/codes/">Code lookup</a> › ${c.code}</div>
 <div class="ghead"><div class="eyebrow">${escH(famName(c.code))} code · ${escH(c.sys)}</div><h1><span class="code-big">${c.code}</span> ${escH(c.title)}</h1></div>
 ${c.urgent_if?`<div class="urg-first" role="alert"><b>Stop-now condition.</b> ${escH(c.urgent_if)}</div>`:''}<div class="urg ${u[1]}"><b>How urgent?</b> ${c.urgent_if?'Otherwise: ':''}${escH(u[0])}</div>
 ${BYLINE}<div id="codeMy"></div>
 <section class="card csec"><h2>What it means</h2><p class="lead2">${escH(c.plain)}</p></section>
-<section class="card csec drivebox" style="border-left-color:${c.sev==='stop'||c.urgent_if?'#C62F37':c.sev==='soon'?'#D08700':'#0B63CE'}"><h2>Can I keep driving?</h2>${c.urgent_if?`<p><b>${escH(c.urgent_if)}</b></p><p>Otherwise: ${escH(drive)}</p>`:`<p>${escH(drive)}</p>`}</section>
+<section class="card csec drivebox" style="border-left-color:${c.sev==='stop'||c.urgent_if?'#C62F37':c.sev==='soon'?'#D08700':'#0B63CE'}"><h2>Can I keep driving?</h2>${c.urgent_if?`<p><b>${escH(c.urgent_if)}</b></p><p>Otherwise: ${escH(otherwise)}</p>`:`<p>${escH(drive)}</p>`}</section>
 <section class="card csec"><h2>What to test before replacing parts</h2><p>${escH(testFirst)}</p><ol class="nums">${c.checks.map(x=>`<li>${escH(x)}</li>`).join('')}</ol></section>
 <div class="cgrid">
 <section class="card csec"><h2>Signs you may notice</h2><ul class="dots">${c.symptoms.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section>
@@ -310,8 +323,9 @@ ${veh.length?`<section class="card csec"><h2>Known on these vehicles</h2><div cl
 ${g?`<a class="walk big" href="/symptoms/${g.id}/">Walk through it step by step: ${escH(g.title)} →</a>`:''}
 <section class="csec"><h2 style="font-size:18px">Common questions</h2>${faq.map(f=>`<details class="faq"><summary>${escH(f.q)}</summary><p>${escH(f.a)}</p></details>`).join('')}</section>
 ${fam.length?`<section class="csec"><h2 style="font-size:18px">Related codes</h2><div class="codechips">${fam.map(x=>`<a href="/codes/${x.code.toLowerCase()}/"><b>${x.code}</b> ${escH(x.title)}</a>`).join('')}</div></section>`:''}
+<p class="lsrc">Sources: SAE J2012 standard trouble code definitions · National Highway Traffic Safety Administration (NHTSA) recall database. Vehicle-specific notes are reported patterns, not confirmed for every vehicle, so check open recalls for your VIN.</p>
 <div class="trust">Trouble codes point to where a problem was detected, not always to the failed part. A scan and a few tests confirm the cause before parts are replaced. This is a general guide, not a diagnosis.</div>`;
-  urls.push(page('/codes/'+low+'/',`${c.code} Code: ${c.title} — Meaning, Causes & Fixes | VehicleSymptoms.com`.slice(0,140),(c.urgent_if?`${c.code}: flashing check engine light or hard shaking means get off the road. ${c.plain}`:`${c.code} means: ${c.plain}`).slice(0,165),{inner,pageData:ld}));
+  urls.push(page('/codes/'+low+'/',`${c.code} Code: ${c.title} — Meaning, Causes & Fixes | VehicleSymptoms.com`.slice(0,140),(c.urgent_if?`${c.code}: flashing check engine light or hard shaking means get off the road. ${c.plain}`:`${c.code} means: ${c.plain}`).replace(/^(.*)$/s,m=>clip(m,160)),{inner,pageData:ld}));
 }
 if(CODES.length){
   const groups={};for(const c of CODES){const k=c.code.slice(0,3);(groups[k]=groups[k]||[]).push(c)}
@@ -345,7 +359,7 @@ const rngC=(lo,hi)=>lo===0&&hi===0?'No charge':money(lo)+'–'+money(hi);
 // Warning-light cause prices and diagnosis fees go through the same evidence gate.
 const lPrice=(lid,c)=>{const id=EV.ids.light(lid,c.name),g=EV.priceQualifies(id);LEDGER.push({id,family:'light-cause',scope:'general (all vehicles)',job:c.name,lo:c.lo,hi:c.hi,status:g.ok?'shown':'withheld',reason:g.reason||''});return g.ok?rngC(c.lo,c.hi):'Price not verified'};
 const lDiag=(lid,d)=>{const id=EV.ids.lightDiag(lid),g=EV.priceQualifies(id);LEDGER.push({id,family:'light-diagnosis',scope:'general (all vehicles)',job:'Diagnose '+lid,lo:d[0],hi:d[1],status:g.ok?'shown':'withheld',reason:g.reason||''});return g.ok?rngC(d[0],d[1]):null};
-for(const l of LIGHTS){const u=LSEV[l.sev];const gs=l.guides.filter(g=>JT[g]).map(g=>JT[g]);const cs=l.codes.filter(c=>codeSet.has(c));
+for(const l of LIGHTS){const u=lsev(l);const gs=l.guides.filter(g=>JT[g]).map(g=>JT[g]);const cs=l.codes.filter(c=>codeSet.has(c));
   const d=LDEEP[l.id]||{};
   const animation = animations?.contextual(animations.guide.get(l.id)) || '';
   const faq=[{q:`What does the ${l.name.toLowerCase()} mean?`,a:l.meaning},{q:`Can I drive with the ${l.name.toLowerCase()} on?`,a:l.drive},...(d.faqs||[])];
@@ -362,7 +376,7 @@ ${animation}
 ${d.diy&&d.diy.length?`<section class="card csec ldiy"><div class="pg-head"><h2>Checks you can do yourself</h2><span class="pg-badge">Safe, no tools in most cases</span></div>
 <p class="pg-sub">Do these with the car parked and the engine off and cool. If anything looks or smells hot, wait.</p>
 ${d.diy.map((x,i)=>`<div class="diy"><div class="diy-n">${i+1}</div><div><b>${escH(x.t)}</b><p>${escH(x.how)}</p><span class="diy-m">${escH(x.mins)} · ${escH(x.tools)}</span></div></div>`).join('')}
-<p class="lsoon-note">Step-by-step repair walkthroughs for the fixes below are on the way.</p></section>`:''}
+</section>`:''}
 ${d.dont&&d.dont.length?`<section class="card csec ldont"><h2>What not to do</h2><ul class="xs">${d.dont.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section>`:''}
 ${d.causes2&&d.causes2.length?`<section class="card csec"><div class="pg-head"><h2>What it usually turns out to be</h2></div>
 <p class="pg-sub">Most likely first.${SHOW_PRICES?' Prices are typical US parts-and-labor totals for that repair, not a quote for your vehicle.':''}</p>
@@ -377,11 +391,11 @@ ${cs.length?`<section class="csec"><h2 style="font-size:18px">Trouble codes ofte
 ${d.src&&d.src.length?`<p class="lsrc">Sources: ${sourceCredits(d.src)}</p>`:''}
 ${(SEE[l.id]||[]).length?`<section class="csec"><h2 style="font-size:18px">Not your light? These get mixed up with it</h2><div class="lrow">${(SEE[l.id]||[]).map(x=>LIGHTS.find(y=>y.id===x)).filter(Boolean).map(x=>`<a class="lr" href="/warning-lights/${x.id}/">${lIcon(x,34)}<b>${escH(x.name.replace(/ (warning )?light$/i,''))}</b><span class="lsev ${LSEV[x.sev][1]}">${escH(LSEV[x.sev][0])}</span></a>`).join('')}</div></section>`:''}
 <div class="trust">Symbols vary a little between makes. Your owner's manual shows the exact lights for your vehicle. This is a general guide, not a diagnosis.</div>`;
-  urls.push(page('/warning-lights/'+l.id+'/',`${l.name}: What It Means & Can You Drive? | VehicleSymptoms.com`,`${l.meaning} ${l.drive}`.slice(0,165),{inner,pageData:ld+(animation ? animationScript : '')}));
+  urls.push(page('/warning-lights/'+l.id+'/',`${l.name}: What It Means & Can You Drive? | VehicleSymptoms.com`,clip(`${l.meaning} ${l.drive}`,160),{inner,pageData:ld+(animation ? animationScript : '')}));
 }
-const lcard=l=>`<a class="lcard c-${l.color}" href="/warning-lights/${l.id}/${FIRSTQ[l.id]?'#first':''}" data-c="${l.color}">${lIcon(l,44)}<b>${escH(l.name.replace(/ \(.*\)$/,''))}</b>${FIRSTQ[l.id]?`<span class="lsev lq">${escH(FIRSTQ[l.id].card)}</span>`:`<span class="lsev ${LSEV[l.sev][1]}">${escH(LSEV[l.sev][0])}</span>`}</a>`;
+const lcard=l=>`<a class="lcard c-${l.color}" href="/warning-lights/${l.id}/${FIRSTQ[l.id]?'#first':''}" data-c="${l.color}">${lIcon(l,44)}<b>${escH(l.name.replace(/ \(.*\)$/,''))}</b>${FIRSTQ[l.id]?`<span class="lsev lq">${escH(FIRSTQ[l.id].card)}</span>`:`<span class="lsev ${lsev(l)[1]}">${escH(lsev(l)[0])}</span>`}</a>`;
 urls.push(page('/warning-lights/','Dashboard Warning Lights: What Each Light Means | VehicleSymptoms.com','Every common dashboard warning light explained: what it means, whether you can keep driving, and what to do now. Red, amber, green and blue lights.',{inner:`<div class="crumb"><a href="/">Home</a> › Warning lights</div>
-<div class="ghead"><div class="eyebrow">Warning lights</div><h1>Which light is on?</h1><p class="sub">Tap the symbol that matches your dashboard. Each light tells you what it means, whether it's safe to keep driving, what you can check yourself, what the repair usually costs and how to reset it when resetting is the right thing to do.</p></div>
+<div class="ghead"><div class="eyebrow">Warning lights</div><h1>Which light is on?</h1><p class="sub">Tap the symbol that matches your dashboard. Each light tells you what it means, how urgent it is, what you can check yourself and how to reset it when resetting is the right thing to do.</p></div>
 <div class="lkey"><span><i style="background:#FF5A5F"></i>Red: serious, act now</span><span><i style="background:#FFB020"></i>Amber: check soon</span><span><i style="background:#34C77B"></i>Green or blue: information</span></div>
 <div class="codesearch"><input id="lsearch" type="search" placeholder="Search a light by name, like &quot;oil&quot; or &quot;ABS&quot;" aria-label="Search warning lights"></div>
 <div class="lfilter" id="lfilter"><button class="on" data-c="all">All</button><button data-c="red">Red</button><button data-c="amber">Amber</button><button data-c="info">Green / blue</button></div>
@@ -413,7 +427,7 @@ ${models.filter(v=>!v.reset).length?`<section class="csec"><h2 style="font-size:
   urls.push(page('/warning-lights/reset/','How to Reset a Service or Tire Pressure Light | VehicleSymptoms.com','Reset the oil change, maintenance and tire pressure lights by make. Plain-English steps, free, no sign-up.',{inner:`<div class="crumb"><a href="/">Home</a> › <a href="/warning-lights/">Warning lights</a> › Reset a light</div>
 <div class="ghead"><div class="eyebrow">Reset a reminder light</div><h1>Which make are you resetting?</h1><p class="sub">Only reminder lights are meant to be reset: the oil change or maintenance message, and the tire pressure light after you have set the pressures. Do the work first, then reset.</p></div>
 <div class="lrow">${mkeys.map(m=>`<a class="lr lr-all" href="/warning-lights/reset/${m}/"><b>${escH(RESETS[m].make)}</b><span>${[RESETS[m].oil?'Oil change':'',RESETS[m].tpms?'tire pressure':''].filter(Boolean).join(' · ').replace(/^t/,'T')||'Reminder notes'}</span></a>`).join('')}</div>
-<section class="csec"><h2 style="font-size:18px">Lights you should not just clear</h2><p class="pg-sub">A check engine light, an oil pressure light, a brake light or an airbag light is a fault. Clearing it hides the warning until the fault sets it again.</p><div class="glist">${['check-engine-light','oil-pressure-light','brake-warning-light','airbag-light'].map(id=>{const l=LIGHTS.find(x=>x.id===id);return l?`<a class="gcard" href="/warning-lights/${id}/"><b>${escH(l.name)}</b><span>${escH(LSEV[l.sev][0])}</span></a>`:''}).join('')}</div></section>`}));
+<section class="csec"><h2 style="font-size:18px">Lights you should not just clear</h2><p class="pg-sub">A check engine light, an oil pressure light, a brake light or an airbag light is a fault. Clearing it hides the warning until the fault sets it again.</p><div class="glist">${['check-engine-light','oil-pressure-light','brake-warning-light','airbag-light'].map(id=>{const l=LIGHTS.find(x=>x.id===id);return l?`<a class="gcard" href="/warning-lights/${id}/"><b>${escH(l.name)}</b><span>${escH(lsev(l)[0])}</span></a>`:''}).join('')}</div></section>`}));
   console.log(`${mkeys.length} reset-by-make pages`);
 }
 
@@ -510,7 +524,7 @@ if(SHOW_PRICES){const gen=new Map();
 <p class="pg-disc" style="margin-top:18px">For a local price, ask a shop to quote your vehicle, the same repair and the same parts quality. We show a comparison only when the supporting sources cover the repair. The written-estimate guidance draws on the Federal Trade Commission’s <cite>Auto Repair Basics</cite>.</p>`}));}
 
 // hub
-urls.push(page('/symptoms/','All Car Symptom Guides | VehicleSymptoms.com','Step-by-step guides for car problems: won\'t start, warning lights, noises, shaking, leaks, smells, smoke, overheating and more.',{inner:`<div class="crumb"><a href="/">Home</a> › Symptom guides</div><div class="ghead"><h1>Symptom guides</h1><p class="sub">Pick what your car is doing. Each guide asks a few quick questions and tells you how urgent it is and what to do next.</p></div><div id="guideHub">${Object.entries(GL).map(([k,l])=>{const list=J.filter(j=>j.group===k);return list.length?`<section class="hubsec" id="${k}"><h2>${escH(l)}</h2>${k==='noise'?'<p><a href="/sounds/">Listen to a car sound</a></p>':''}<div class="glist">${list.map(j=>`<a class="gcard" href="/symptoms/${j.id}/"><b>${escH(j.title)}</b><span>${escH(j.h1)}</span></a>`).join('')}</div></section>`:''}).join('')}</div>`}));
+urls.push(page('/symptoms/','All Car Symptom Guides | VehicleSymptoms.com','Step-by-step guides for car problems: won\'t start, warning lights, noises, shaking, leaks, smells, smoke, overheating and more.',{inner:`<div class="crumb"><a href="/">Home</a> › Symptom guides</div><div class="ghead"><h1>Symptom guides</h1><p class="sub">Pick what your car is doing. Each guide asks a few quick questions and tells you how urgent it is and what to do next.</p></div><div id="guideHub">${Object.entries(GL).map(([k,l])=>{const list=J.filter(j=>j.group===k);return list.length?`<section class="hubsec" id="${k}"><h2>${escH(l)}</h2>${SHOW_SOUNDS&&k==='noise'?'<p><a href="/sounds/">Listen to a car sound</a></p>':''}<div class="glist">${list.map(j=>`<a class="gcard" href="/symptoms/${j.id}/"><b>${escH(j.title)}</b><span>${escH(j.h1)}</span></a>`).join('')}</div></section>`:''}).join('')}</div>`}));
 
 // privacy, about / our standards
 urls.push(page('/privacy/','Privacy | VehicleSymptoms.com','How VehicleSymptoms.com handles your information.',{inner:`<div class="crumb"><a href="/">Home</a> › Privacy</div><div class="ghead"><h1>Privacy</h1><p class="sub">Short version: we collect as little as possible and never sell your information.</p></div>
@@ -527,6 +541,7 @@ urls.push(page('/about/','About VehicleSymptoms.com','What VehicleSymptoms.com i
 <ul><li><b>Guidance, not a diagnosis.</b> A website can't inspect your car. Possible causes are directions for testing, and we say what a shop should test before replacing parts.</li>
 <li><b>Safety first.</b> When symptoms point to a possible brake, steering, fire or engine-damage risk, we tell you to stop and get help.</li>
 <li><b>Honest about gaps.</b> If we haven't documented problems for a vehicle or year, we say so. A short list is not a reliability rating.</li>
+<li><b>Where our information comes from.</b> Guides draw on NHTSA safety and recall data, owner's manuals and published service and safety information. Each page lists its sources, and we update pages when we find something better.</li>
 <li><b>Free, no sign-up.</b> No ads and no affiliate links.</li></ul></div>`}));
 
 // Model guides selected from the November Search Console report.
@@ -544,13 +559,13 @@ for(const v of V){
   const render=y=>{RW.eval(`state.q='';state.tab='All';renderVehicle(VEHICLES.find(x=>x.id==='${v.id}'),${y||null})`);return RW.document.getElementById('vehicleView').innerHTML};
   const copy = modelSearchCopy[v.id];
   const title = copy ? copy[0] : `${nm} Common Problems by Model Year`;
-  urls.push(page(`/vehicles/${v.id}/`,`${title} | VehicleSymptoms.com`,copy?.[1] ?? `Known ${nm} problems from ${v.years[0]} to ${v.years[1]}: ${v.issues.slice(0,3).map(i=>i.t.toLowerCase()).join('; ')}. Symptoms, causes and what to do.`.slice(0,300),{inner:render(null)}));
+  urls.push(page(`/vehicles/${v.id}/`,`${title} | VehicleSymptoms.com`,copy?.[1] ?? `Known ${nm} problems from ${v.years[0]} to ${v.years[1]}: ${v.issues.slice(0,3).map(i=>i.t.toLowerCase()).join('; ')}. Symptoms, causes and what to do.`,{inner:render(null)}));
   for(let y=v.years[0];y<=v.years[1];y++){if(!sold(v,y))continue;
     const is=v.issues.filter(i=>y>=i.y[0]&&y<=i.y[1]);
     const systems = [...new Set(is.map(issue => issue.sys).filter(Boolean))];
     const subject = systems.length ? systems.slice(0, 2).join(' & ') + ' Problems' : 'Symptoms & Recall Lookup';
     urls.push(page(`/vehicles/${v.id}/${y}/`,`${y} ${nm}: ${subject} | VehicleSymptoms.com`,
-      (is.length?`${is.length} known problem${is.length>1?'s':''} for the ${y} ${nm}: ${is.slice(0,3).map(i=>i.t.toLowerCase()).join('; ')}. Plus safety recalls and what to do.`:`Common symptoms, safety recalls and what to do for the ${y} ${nm}. Free, plain-English guide.`).slice(0,300),{inner:render(y)}));
+      (is.length?`${is.length} known problem${is.length>1?'s':''} for the ${y} ${nm}: ${is.slice(0,3).map(i=>i.t.toLowerCase()).join('; ')}. Plus safety recalls and what to do.`:`Common symptoms, safety recalls and what to do for the ${y} ${nm}. Free, plain-English guide.`),{inner:render(y)}));
   }
 }
 // Plain make -> model links so every vehicle page is reachable without JavaScript dropdowns.
@@ -564,7 +579,7 @@ ${mk.map(m=>`<section class="csec" id="${ms(m)}"><h2>${escH(m)}</h2><div class="
 const SAFE=[];{const grp=t=>'t:'+EV.slug(t).slice(0,70)+':'+require('crypto').createHash('sha1').update(String(t).toLowerCase().replace(/\s+/g,' ').trim()).digest('hex').slice(0,10);
  const add=(text,context,kind)=>{if(text)SAFE.push({group:grp(text),text,context,kind})};
  for(const c of CODES){const r='/codes/'+c.code.toLowerCase()+'/';if(c.urgent_if){add(c.urgent_if,r+'#urgent-first','code-urgent-if');add(c.urgent_if,r+'#faq','code-urgent-if')}if(c.sev==='stop'){add(CURG.stop[0],r+'#badge','code-badge');add(c.drive||'default-stop-drive',r+'#drive','code-drive')}}
- for(const l of LIGHTS)if(l.sev==='stop'||l.sev==='soon'){const r='/warning-lights/'+l.id+'/';add(LSEV[l.sev][0],r+'#badge','light-badge');add(l.drive,r+'#drive','light-drive');const d=LDEEP[l.id]||{};if(d.flash)add(d.flash,r+'#flash','light-flash')}
+ for(const l of LIGHTS)if(l.sev==='stop'||l.sev==='soon'){const r='/warning-lights/'+l.id+'/';add(lsev(l)[0],r+'#badge','light-badge');add(l.drive,r+'#drive','light-drive');const d=LDEEP[l.id]||{};if(d.flash)add(d.flash,r+'#flash','light-flash')}
  for(const j of J){const r='/symptoms/'+j.id+'/';j.safety.forEach((t,k)=>add(t,r+'#safety-'+k,'guide-safety'));for(const [nid,n] of Object.entries(j.nodes))if(n.result&&(n.result.urgency==='stop'||n.result.urgency==='soon'))add(n.result.now,r+'#'+nid,'guide-result-'+n.result.urgency)}
  for(const v of V)for(const i of v.issues)if(i.sev==='high')add(i.next,'/vehicles/'+v.id+'/#'+EV.slug(i.t),'vehicle-high-severity')}
 fs.mkdirSync('audit/generated',{recursive:true});fs.writeFileSync('audit/generated/safety-contexts.json',JSON.stringify(SAFE));
@@ -607,10 +622,9 @@ fs.writeFileSync('dist/llms.txt',`# VehicleSymptoms.com
 The site is written for regular drivers, not mechanics. Nothing here is a confirmed diagnosis.
 
 ## Main sections
-- [Car sounds](${SITE}/sounds/): listen to a recorded whir inside a moving car.
-- [Symptom guides](${SITE}/symptoms/): ${JT?Object.keys(JT).length:100} step-by-step guides (shakes when braking, won't start, overheating, noises, smells, leaks). Each asks a few questions and ends with urgency, likely causes and a summary to show a mechanic.
+${SHOW_SOUNDS?`- [Car sounds](${SITE}/sounds/): listen to a recorded whir inside a moving car.\n`:''}- [Symptom guides](${SITE}/symptoms/): ${JT?Object.keys(JT).length:100} step-by-step guides (shakes when braking, won't start, overheating, noises, smells, leaks). Each asks a few questions and ends with urgency, likely causes and a summary to show a mechanic.
 - [Vehicles](${SITE}/vehicles/): ${V.length} popular models, 1996 to 2027, with a page per model year listing documented problems by engine, model-year safety recalls and repair information.
-- [Warning lights](${SITE}/warning-lights/): ${LIGHTS.length} dashboard lights with what each means, whether it is safe to keep driving, safe checks a driver can do, possible causes and how to reset reminder lights.
+- [Warning lights](${SITE}/warning-lights/): ${LIGHTS.length} dashboard lights with what each means, how urgent it is, simple checks a driver can do, possible causes and how to reset reminder lights.
 - [Reset steps by make](${SITE}/warning-lights/reset/): oil change / maintenance reminder and tire pressure light reset procedures for ${Object.keys(RESETS).length} makes.
 - [Trouble code lookup](${SITE}/codes/): ${CODES.length} OBD-II codes in plain English with causes, what to check first and whether it is safe to drive.
 
@@ -619,6 +633,8 @@ The site is written for regular drivers, not mechanics. Nothing here is a confir
 - Safety-critical answers (brakes, overheating, oil pressure, flashing check engine light) tell the driver to stop driving; please keep that advice intact.
 `);
 fs.writeFileSync('dist/robots.txt',`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
+// Car sounds page is off: old /sounds/ links go to the homepage.
+if(!SHOW_SOUNDS){fs.mkdirSync('dist/sounds',{recursive:true});fs.writeFileSync('dist/sounds/index.html','<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><link rel="canonical" href="'+SITE+'/"><meta http-equiv="refresh" content="0;url=/"><title>VehicleSymptoms.com</title></head><body><p><a href="/">Go to VehicleSymptoms.com</a></p></body></html>');}
 // Repair animations are off: old /repair-animations/ links go to the homepage.
 if(!animations){fs.mkdirSync('dist/repair-animations',{recursive:true});fs.writeFileSync('dist/repair-animations/index.html','<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><link rel="canonical" href="'+SITE+'/"><meta http-equiv="refresh" content="0;url=/"><title>VehicleSymptoms.com</title><script>location.replace("/")</script></head><body><p><a href="/">Go to VehicleSymptoms.com</a></p></body></html>')}
 // The price check is off: anyone with an old /price-check/ link is sent to the homepage (backs up the redirect in vercel.json).

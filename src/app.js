@@ -148,7 +148,7 @@ function renderVehicle(v,year){
   const mslug=v.make.toLowerCase().replace(/[^a-z0-9]+/g,'-');
   let ylinks='';for(let y=v.years[1];y>=v.years[0];y--)if(soldY(v,y))ylinks+=y===year?`<span aria-current="page"><b>${y}</b></span>`:`<a href="${url(v,y)}">${y}</a>`;
   el.innerHTML=`<div class="crumb"><a href="/">Home</a> › <a href="/vehicles/#${mslug}">${esc(v.make)}</a> › ${year?`<a href="${url(v)}">${esc(v.model)}</a> › ${year}`:esc(v.model)}</div>
-  <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div><div class="vh-btns"><button type="button" class="savecar dl" data-dl>Download this page (PDF)</button>${year?`<button type="button" class="savecar" id="saveCar">+ Save to my garage</button>`:''}</div></div><h1>${year?'Your '+esc(name):esc(name)}<span class="h1s">problems and recalls</span></h1>
+  <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div><div class="vh-btns"><button type="button" class="savecar dl" data-dl>Download this page (PDF)</button>${year?`<button type="button" class="savecar" id="saveCar">+ Save to my garage</button>`:''}</div></div><h1>${year?'Your '+esc(name):esc(name)} <span class="h1s">problems and recalls</span></h1>
   <p class="sub">${year?`What we've documented about the ${esc(name)}: problems owners and shops report, and safety recalls.`:`Problems reported across ${v.years[0]}–${v.years[1]}. Pick your model year below to see what applies to your vehicle.`}${v.alt?' '+esc(v.alt.replace(/\.$/,''))+'.':''}</p></div>
   <p class="byline">VehicleSymptoms team · Updated November 2026 · <a href="/about/">How we work</a></p>
   <div class="yearbar"><label for="vy" style="color:var(--muted);font-size:14px">Model year</label><select id="vy">${yopts}</select>${engs.length>1?`<label for="ve" style="color:var(--muted);font-size:14px;margin-left:6px">Engine</label><select id="ve"><option value="">All engines</option>${engs.map(e=>`<option value="${e.k}" ${e.k===esel?'selected':''}>${esc(e.name)}</option>`).join('')}</select>`:''}</div><nav class="ylinks" aria-label="${esc(v.make+' '+v.model)} model years">${ylinks}</nav>${engs.length>1&&!esel&&list.some(i=>i.engs)?`<p class="enghint">Pick your engine to hide problems that only affect other engines. Not sure? It is on the sticker under the hood or in the owner's manual.</p>`:''}${esel?`<p class="enghint on">Showing problems for the <b>${esc(ename)}</b> plus everything that applies to every ${esc(v.model)}${allN>list.length?' ('+(allN-list.length)+' other-engine issue'+(allN-list.length>1?'s':'')+' hidden)':''}.</p>`:''}
@@ -319,6 +319,16 @@ if(hf){
     const qs=v?`?v=${v.id}${y?'&y='+y:''}`:'';
     // Remove the matched vehicle and year so "2012 Honda Civic shakes" can ask about timing.
     const symptom=v?q.replace(vehicleMatch.text,' ').replace(/\b(?:19|20)\d{2}\b/g,' '):q;
+    const urgent=window.VS_GUIDES.emergency(symptom);
+    if(urgent){
+      // Danger first: the immediate safe action, then the most urgent guide, then anything else that matched.
+      const gs=searchGuides(symptom,5);
+      out.innerHTML=`<div class="safety urgentnow" role="alert"><b>Do this first</b><p>${esc(urgent.now)}</p>${urgent.also.map(t=>`<p>${esc(t)}</p>`).join('')}</div>`+
+        `<p><b>Then follow the guide:</b></p><div class="glist">${gs.map((g,i)=>`<a class="gcard${i===0?' first':''}" href="${gurl(g.id)}${qs}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}</div>`;
+      out.classList.add('show');
+      if(status)status.textContent='Urgent safety step shown first. '+urgent.now;
+      return;
+    }
     const question=window.VS_GUIDES.clarifySearch(symptom);
     const gs=question?[]:searchGuides(symptom,5);
     if(gs.length===1){location.href=gurl(gs[0].id)+qs;return}

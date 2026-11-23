@@ -1,6 +1,6 @@
 # Runbook: one vehicle-model batch run
 
-Daniel asked for this to run unattended every 4 hours. Each run should add as many vehicle models as it can, review them, publish them to the live site, and repeat until it runs out of time or limits. Don't stop after one batch if there is room for another.
+The owner asked for this to run unattended every 4 hours. Each run should add as many vehicle models as it can, review them, publish them to the live site, and repeat until it runs out of time or limits. Don't stop after one batch if there is room for another.
 
 ## 1. Set up
 1. Attach and clone the repo autosymptoms/vehiclesymptoms (push access), then `npm ci`.
@@ -27,17 +27,17 @@ Daniel asked for this to run unattended every 4 hours. Each run should add as ma
 1. Run `npm run build`. Expect no `BAD`, `DUP` or `dropped` lines.
 2. Serve dist on port 8788 (`npx http-server dist -p 8788 -s &`), then run `node tools/qa.js`. It must show "broken internal links: none" and search checks 20/20.
 3. Update QUEUE.md: published ids get `[x]`.
-4. Commit on a branch with a clear message listing the models, then push that branch to `main`. Daniel approved publishing these model batches directly to the live site.
+4. Commit on a branch with a clear message listing the models, then push that branch to `main`. The owner approved publishing these model batches directly to the live site.
 5. Wait about 3 minutes, then confirm the Vercel commit status is success: `gh api repos/autosymptoms/vehiclesymptoms/commits/<sha>/status`.
 
 ## 5. Price-check metrics
-For every batch, run `node tools/vehicle-agents/price-stats.js` before and after, and put both lines in the summary to Daniel. It reports the share of non-recall issues with a real price, how many are diagnosis-only or rough, and models under 80% priced. For pricing-pass batches, also spot-check 3 random new prices against a YourMechanic or RepairPal page for the same car and job, and note any that land outside the sourced range.
+For every batch, run `node tools/vehicle-agents/price-stats.js` before and after, and put both lines in the summary to the owner. It reports the share of non-recall issues with a real price, how many are diagnosis-only or rough, and models under 80% priced. For pricing-pass batches, also spot-check 3 random new prices against a YourMechanic or RepairPal page for the same car and job, and note any that land outside the sourced range.
 
 ## 6. Repeat
 Go back to step 2 with the next models while time and limits allow.
 
 ## 7. Report
-Before ending, send Daniel a short summary with SendUserMessage, covering:
+Before ending, send the owner a short summary with SendUserMessage, covering:
 - models added
 - current total model count
 - anything held back, and why
@@ -47,5 +47,5 @@ Before ending, send Daniel a short summary with SendUserMessage, covering:
 ## Rules
 - Write problems only from real sources, in original wording. Never invent problems, years or prices.
 - Never cite au7o.io or other AI-written content sites.
-- The site must stay anonymous: nothing tying it to Daniel Stewart or Oceanside Auto.
+- The site must stay anonymous: nothing tying it to the owner or any other business.
 - Don't change site design or other pages in these runs. Only vehicle data and the queue.

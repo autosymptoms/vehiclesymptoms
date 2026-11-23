@@ -634,7 +634,7 @@ These live models have under 80% of their non-recall issues priced, so the price
 - Next run order: (a) price the new unpriced deepen issues (kia-optima P1326, mustang hood paint, ranger throttle/seat belt, cherokee 2023 bulletins); (b) hyundai-sonata thin-years deepen; (c) pricing retries for [~] models with "search budget ran out"; (d) carwhere swap in remaining deep files (`grep -l carwhere src/deep/*.json`).
 
 ## After the queue is empty: deepen existing models
-**Daniel approved this Nov 19 2026.** Order for the next runs: (1) the pricing pass above, (2) the two leftovers (merge kia-cadenza-k5 issues into kia-optima; chevrolet-caprice 1996), (3) this list in order. Use the same BRIEF, review and publish steps; agents edit the existing model files instead of creating new ones.
+**The owner approved this Nov 19 2026.** Order for the next runs: (1) the pricing pass above, (2) the two leftovers (merge kia-cadenza-k5 issues into kia-optima; chevrolet-caprice 1996), (3) this list in order. Use the same BRIEF, review and publish steps; agents edit the existing model files instead of creating new ones.
 - Extend models that end early (2026/2027) once real problems exist for those years. See the project doc vehicles/model-coverage.md.
 - Fill thin years: any sold year with fewer than 3 issues (run check-vehicle.js on every id).
 - Raise models with fewer than 20 issues: dodge-caliber, dodge-neon, nissan-juke, jeep-gladiator, ford-flex, hyundai-santa-cruz. | done Nov 20 08:54 run for caliber, neon, juke, flex, santa-cruz (+ chevrolet-bolt-ev 10->22). jeep-gladiator done Nov 20 12:40 run (24 issues, 78% priced)

@@ -7,9 +7,9 @@ const URG={
   stop:{label:"Stop — don't drive it",cls:"high",line:"Don't drive it until it's checked."},
   soon:{label:"Get it checked in the next few days",cls:"med",line:"Drive only if you must, gently and close to home."},
   check:{label:"Book a check when convenient",cls:"info",line:"Not an emergency, but don't ignore it."},
-  diy:{label:"Safe to check yourself first",cls:"low",line:"Start with the simple checks below."}
+  diy:{label:"Check it yourself first",cls:"low",line:"Start with the simple checks below."}
 };
-window.VS_GUIDES={G,GROUPS,URG,esc,search,clarifySearch,noticeFirst:()=>noticeFirst,askFollow:k=>askFollow[k]||null,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/'};
+window.VS_GUIDES={G,GROUPS,URG,esc,search,emergency,clarifySearch,noticeFirst:()=>noticeFirst,askFollow:k=>askFollow[k]||null,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/'};
 
 // ---- Year / Make / Model picker, used on the homepage and in guide results ----
 // fill(ySel,mSel,moSel,{year,id},onChange): only offers makes/models actually sold in the chosen year.
@@ -61,6 +61,7 @@ function symptomWords(text){
 const everydayPhrases={
   'car-wont-start':['It just clicks when I try to start it','A clicking sound when I try to start'],
   'vibration-at-highway-speed':['Steering wheel shakes on the highway'],
+  'car-wont-turn-off':['Car wont stop running','Engine wont shut off'],
   'fluid-leak-under-car':['Puddle where I parked','Puddle on my driveway','Puddle in my parking spot']
 };
 let searchIndex;
@@ -79,7 +80,70 @@ function getSearchIndex(){
     phrases:phrases.map(({literal,words})=>({literal,words,weight:words.reduce((sum,word)=>sum+weight(word),0)}))}))};
   return searchIndex;
 }
+// ---- emergencies: checked before any ordinary word matching ----
+// Plain-language danger phrases must put the urgent guide first, with the immediate safe action shown
+// before anything else. Order matters: the first rule that matches supplies the "do this now" text.
+const notStopping='(?! (?:running|beeping|making|shaking|ticking|clicking|squealing|squeaking|smoking|leaking|dripping|overheating|idling|cranking|revving|turning|honking|chiming|dinging|rattling))';
+const emergencyRules=[
+  {id:'brakes',
+    rx:new RegExp('\\bbrakes? (?:are |is |have |has |just |completely |totally )*(?:stopped|stop|quit|quits|failed|fail|failing|gave out|went out|gone|out|not working|dont work|do not work|doesnt work|does not work|arent working|wont work|isnt working|wont stop)\\b'+
+      '|\\b(?:no|lost|losing|lose|without) (?:my |the |any )?brakes?\\b|\\bbrake failure\\b'+
+      '|\\b(?:wont|cant|will not|cannot|can not|couldnt|doesnt|does not|isnt) (?:stop|slow down|slow)\\b'+notStopping+
+      '|\\bpedal (?:goes |went |going |sinks |sank |dropped |drops )?(?:all the way )?(?:to|on) the floor\\b'),
+    guides:['soft-or-spongy-brake-pedal','brake-warning-light-on','brake-fluid-leak'],
+    now:'If your brakes fail while driving: pump the pedal hard and fast, shift to a lower gear, and pull the parking brake on gradually. Turn on your hazard lights and steer to a safe spot. Once stopped, don’t drive it again. Have it towed.'},
+  {id:'fire',
+    rx:/\b(?:on fire|fire|flames?|flaming|caught fire|catching fire|burning up)\b/,
+    guides:['burning-smell','steam-from-under-hood'],
+    now:'If you see flames or smoke from under the hood: pull over, turn the engine off, get everyone out and at least 100 feet away, and call 911. Don’t open the hood.'},
+  {id:'exhaust',
+    rx:/\b(?:carbon monoxide|exhaust (?:smell|fumes?|inside|in the car|in the cabin|getting in)|fumes? (?:inside|in the car|in the cabin)|smell(?:s|ing)? (?:like )?exhaust)\b|\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b.*\b(?:exhaust|fumes?|smell)\b|\b(?:exhaust|fumes?)\b.*\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b/,
+    guides:['exhaust-smell-in-cabin'],
+    now:'If anyone has a headache, dizziness, nausea, confusion or feels sleepy, this may be carbon monoxide poisoning. Get everyone into fresh air right away and call 911 from outside the car.'},
+  {id:'gas',
+    rx:/\b(?:gas|gasoline|fuel) (?:smell|smells|smelling|leak|leaks|leaking|dripping|puddle)\b|\bsmell(?:s|ing)? (?:like |of )?(?:gas|gasoline|fuel)\b|\bleaking (?:gas|gasoline|fuel)\b/,
+    guides:['gas-smell'],
+    now:'If you smell strong fuel or see it dripping: don’t start the engine (turn it off if it’s running), keep sparks and cigarettes away, and move away from the car. Call 911 if the smell is strong or fuel is pooling.'},
+  {id:'stall',
+    rx:/\b(?:died|dies|dying|stalled|stalls|stalling|shut off|shuts off|shut down|shuts down|cut out|cuts out|turned off|turns off|quit|quits|lost power|loses power)\b.*\b(?:highway|freeway|interstate|driving|road|traffic)\b|\b(?:highway|freeway|interstate|driving)\b.*\b(?:died|stalled|shut off|shut down|cut out|turned off|quit)\b/,
+    guides:['engine-stalls-while-driving'],
+    now:'If the engine dies while you’re moving: turn on your hazard lights, shift to neutral, keep a firm grip (steering and brakes get much heavier) and steer to the shoulder. Once stopped, get well away from traffic if it’s safe to do so.'},
+  {id:'cel-flashing',
+    rx:/\b(?:check engine|engine light|engine warning|cel|service engine)\b.*\b(?:flash|flashing|blinking|blink|blinks|flashes)\b|\b(?:flash|flashing|blinking|blink|blinks|flashes)\b.*\b(?:check engine|engine light|engine warning|cel|service engine)\b/,
+    guides:['check-engine-light-flashing'],
+    now:'A flashing check engine light means a severe misfire that can overheat the exhaust and start a fire. Ease off the gas, pull over when it’s safe and turn the engine off. Don’t keep driving.'},
+  {id:'oil',
+    rx:/\b(?:red |low )?oil (?:pressure|light|warning|can|lamp)\b(?!.*\b(?:change|life|service|maintenance|reset|due)\b)|\b(?:red|low) oil\b(?!.*\b(?:change|life|service|maintenance|reset|due)\b)/,
+    guides:['oil-pressure-light-on'],
+    now:'A red oil light while the engine is running means low oil pressure. Pull over as soon as it’s safe and turn the engine off. Driving on can wreck the engine within minutes.'},
+  {id:'overheat',
+    rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b/,
+    guides:['engine-overheating','steam-from-under-hood'],
+    now:'If the engine is overheating: pull over when it’s safe and turn the engine off. Never open the radiator or coolant cap while it’s hot. Wait at least 30 minutes.'},
+  {id:'blowout',
+    rx:/\b(?:blow ?out|blew out|tire (?:exploded|burst|popped|blew)|flat tire while driving)\b/,
+    guides:['tire-keeps-losing-air'],
+    now:'If a tire blows out: hold the steering wheel firmly, keep going straight, and ease off the gas. Don’t slam the brakes. Brake gently once you’ve slowed down, then pull fully off the road.'},
+  {id:'steering',
+    rx:/\b(?:steering (?:locked|locked up|went out|failed|stopped working|gone)|lost (?:my |the )?steering|cant steer|wont steer|steering wheel (?:locked|wont turn))\b/,
+    guides:['steering-hard-to-turn','loose-or-wandering-steering'],
+    now:'If you lose steering control: grip the wheel firmly with both hands, ease off the gas, brake gently, turn on your hazard lights and steer to a safe stop. Don’t drive it again until it’s checked.'}
+];
+function emergency(q){
+  const text=literalSymptom(q).replace(/\bwill not\b/g,'wont').replace(/\bcan not\b|\bcannot\b/g,'cant')
+    .replace(/\b(?:isnt|is not|not|never|no longer|stopped) (?:flashing|blinking)\b|\b(?:doesnt|does not|didnt|did not) (?:flash|blink)\b/g,'steady');
+  const hits=emergencyRules.filter(rule=>rule.rx.test(text));
+  if(!hits.length)return null;
+  const ids=[...new Set(hits.flatMap(rule=>rule.guides))].filter(id=>G.some(g=>g.id===id));
+  return {rule:hits[0].id,now:hits[0].now,also:hits.slice(1).map(rule=>rule.now),guides:ids.map(id=>G.find(g=>g.id===id))};
+}
 function search(q,n=5){
+  const urgent=emergency(q);
+  const ordinary=searchWords_(q,n);
+  if(!urgent)return ordinary;
+  return [...urgent.guides,...ordinary.filter(g=>!urgent.guides.includes(g))].slice(0,n);
+}
+function searchWords_(q,n=5){
   const words=symptomWords(q);
   if(!words.length)return [];
   const {guides,weight}=getSearchIndex();
@@ -123,7 +187,7 @@ const searchQuestions=[
     question:'What does the smell remind you of?',choices:[
       ['Gasoline','gas-smell'],['Something burning','burning-smell'],['Sweet syrup','sweet-smell-from-car'],
       ['Rotten eggs','rotten-egg-smell'],['Browse other smells','/symptoms/#leaksmell']]},
-  {signal:['smoke'],allowed:['smoke','coming','out','blowing','driving','drive'],
+  {signal:['smoke'],allowed:['smoke','coming','out','blowing','driving','drive','idle','idling','startup','start','exhaust','tailpipe'],
     question:'Where do you see the smoke, and what color is it?',choices:[
       ['Under the hood','steam-from-under-hood'],['White smoke from the tailpipe','white-smoke-from-exhaust'],
       ['Blue or gray smoke from the tailpipe','blue-smoke-from-exhaust'],['Black smoke from the tailpipe','black-smoke-from-exhaust'],
@@ -132,7 +196,7 @@ const searchQuestions=[
     question:'Where do you see the fluid?',choices:[
       ['Under the car','fluid-leak-under-car'],['Water inside the car','water-leak-inside-car'],
       ['Browse other leaks','/symptoms/#leaksmell']]},
-  {signal:['died','dies','stalls'],allowed:['engine','died','dies','stalls','out','cut'],
+  {signal:['died','dies','stalls'],allowed:['engine','died','dies','stalls','out','cut','idling','idle','sometimes','randomly','keeps'],
     question:'When does the engine stop?',choices:[
       ['Right after starting','starts-then-dies'],['While driving','engine-stalls-while-driving'],
       ['When coming to a stop','car-dies-when-coming-to-stop'],['It won’t start now','car-wont-start']]}
@@ -230,7 +294,7 @@ if(J&&root){
     if(!veh)return`<p class="muted">Add your year, make and model above to see documented problems for your vehicle.</p>`;
     const list=matches(),nm=vname(),link=`/vehicles/${veh.id}/${vyear?vyear+'/':''}`;
     if(!list.length)return`<p class="muted">We haven't documented a problem on the ${esc(nm)} that matches this symptom. That doesn't rule anything out; the general guidance above applies. <a href="${link}">See what we've documented for the ${esc(nm)} →</a></p>`;
-    return`<p class="muted">Documented problems on the ${esc(nm)} that can cause symptoms like this. They're known patterns to discuss with your shop, not a diagnosis of your car.</p>${list.slice(0,4).map(i=>`<div class="mini"><b>${esc(i.t)}</b> <span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><div>${esc(i.sym)}</div>${i.cost&&i.cost.withheld?`<div class="mcost muted">Repair (${esc(i.cost.job)}): insufficient verified pricing for this vehicle and repair.</div>`:i.cost?(i.cost.free?`<div class="mcost">Repair: no charge if your vehicle is in the recall</div>`:`<div class="mcost">Typical repair (${esc(i.cost.job)}): <b>${money(i.cost.lo)}–${money(i.cost.hi)}</b>${i.cost.recall?' · may be covered by a recall or extended warranty':''}</div>`):`<div class="mcost muted">No reliable cost range on file for this one yet.</div>`}</div>`).join('')}<p class="fine">Costs are U.S. national averages (parts plus standard labor at a typical shop labor rate), researched November 2026. Diagnosis is usually charged separately. Not a quote.</p><a href="${link}">Everything we've documented for the ${esc(nm)} →</a>`;
+    return`<p class="muted">Documented problems on the ${esc(nm)} that can cause symptoms like this. They're known patterns to discuss with your shop, not a diagnosis of your car.</p>${list.slice(0,4).map(i=>`<div class="mini"><b>${esc(i.t)}</b> <span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><div>${esc(i.sym)}</div>${i.cost&&i.cost.withheld?`<div class="mcost muted">Repair (${esc(i.cost.job)}): insufficient verified pricing for this vehicle and repair.</div>`:i.cost?(i.cost.free?`<div class="mcost">Repair: no charge if your vehicle is in the recall</div>`:`<div class="mcost">Typical repair (${esc(i.cost.job)}): <b>${money(i.cost.lo)}–${money(i.cost.hi)}</b>${i.cost.recall?' · may be covered by a recall or extended warranty':''}</div>`):''}</div>`).join('')}${list.slice(0,4).some(i=>i.cost&&!i.cost.withheld)?'<p class="fine">Costs are U.S. national averages (parts plus standard labor at a typical shop labor rate), researched November 2026. Diagnosis is usually charged separately. Not a quote.</p>':''}<a href="${link}">Everything we've documented for the ${esc(nm)} →</a>`;
   }
   function observations(){
     return path.flatMap(({k,i})=>{
@@ -277,7 +341,7 @@ if(J&&root){
       <details class="rmore"><summary>Why this happens</summary><p>${esc(r.why)}</p></details>
       <details class="rmore"><summary>What you can check, and what a shop will test</summary><div class="two"><div><h4>You can check</h4><ul>${r.confirm.you.map(x=>`<li>${esc(x)}</li>`).join('')||'<li>Nothing safe to check yourself. Leave it to a technician.</li>'}</ul></div><div><h4>A shop will usually test</h4><ul>${r.confirm.shop.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div></details>
       <details class="rmore"${veh?' open':''}><summary>${veh?'Known problems for your '+esc(vname()):'Known problems for your vehicle'}</summary><div id="gvm">${vehicleSection()}</div></details>
-      <details class="rmore"><summary>Questions to ask before you approve a repair</summary><ul class="dots">${ASK.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="fine">Based on the U.S. Federal Trade Commission's auto repair tips. <a href="/price-check/${veh?'?v='+veh.id+(vyear?'&y='+vyear:''):''}">Got a quote? Check if it's fair →</a></p></details>
+      <details class="rmore"><summary>Questions to ask before you approve a repair</summary><ul class="dots">${ASK.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="fine">Based on the U.S. Federal Trade Commission's auto repair tips.</p></details>
       <section class="rsec"><h3>Summary for your mechanic</h3><pre class="summary" id="sum">${esc(summary(r))}</pre>
         <div class="row-btns"><button class="btn sm" id="copy">Copy summary</button><button class="btn ghost sm" id="print">Print</button><span id="copied" class="muted"></span></div></section>
       <section class="rsec emailbox" id="emailbox" ${EMAIL_ON?'':'hidden'}><h3>Email this to yourself</h3><p class="muted" style="margin:0 0 10px">Get this result and your mechanic summary in your inbox, so it's handy at the shop.</p>

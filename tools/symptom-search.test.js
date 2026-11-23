@@ -78,6 +78,28 @@ for(const query of ['2016 Volt battery light','2016 Chevrolet Volt battery light
 assert.equal(submit('').textContent,'');
 assert.equal(document.getElementById('helpStatus').textContent,'');
 
+// Danger phrases: the homepage must show the immediate safe action first and list the urgent guide first.
+const emergencies=[
+  ['my brakes stopped working','soft-or-spongy-brake-pedal'],['brakes failed','soft-or-spongy-brake-pedal'],
+  ['my brakes don’t work','soft-or-spongy-brake-pedal'],['my car won’t stop','soft-or-spongy-brake-pedal'],
+  ['brake pedal goes to the floor','soft-or-spongy-brake-pedal'],['my brakes are out','soft-or-spongy-brake-pedal'],
+  ['red oil light','oil-pressure-light-on'],['my car is on fire','burning-smell'],
+  ['my car shakes and the check engine light is flashing','check-engine-light-flashing'],
+  ['flashing check engine light and shaking','check-engine-light-flashing'],
+  ['my car died on the highway','engine-stalls-while-driving'],['smell exhaust inside the car and have a headache','exhaust-smell-in-cabin'],
+  ['I smell gas','gas-smell'],['engine is overheating','engine-overheating'],['tire blew out','tire-keeps-losing-air']
+];
+for(const [query,id] of emergencies){
+  const result=submit(query);
+  assert.equal(location.href,'',query+' should not redirect past the safety step');
+  assert.ok(result.querySelector('.urgentnow'),query+' should show the urgent safety step');
+  assert.equal(result.querySelector('.glist a').getAttribute('href'),'/symptoms/'+id+'/',query);
+}
+for(const query of ['check engine light is not flashing','my car won’t stop beeping','car won’t stop running','squealing brakes','misfire'])
+  assert.equal(window.VS_GUIDES.emergency(query),null,query+' is not an emergency');
+const co=submit('exhaust smell in the car');
+assert.match(co.querySelector('.urgentnow').textContent,/call 911/);
+
 let aliases=0;
 for(const j of journeys){
   for(const phrase of j.synonyms){
