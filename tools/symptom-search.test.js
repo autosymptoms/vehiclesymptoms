@@ -87,7 +87,10 @@ const emergencies=[
   ['my car shakes and the check engine light is flashing','check-engine-light-flashing'],
   ['flashing check engine light and shaking','check-engine-light-flashing'],
   ['my car died on the highway','engine-stalls-while-driving'],['smell exhaust inside the car and have a headache','exhaust-smell-in-cabin'],
-  ['I smell gas','gas-smell'],['engine is overheating','engine-overheating'],['tire blew out','tire-keeps-losing-air']
+  ['I smell gas','gas-smell'],['engine is overheating','engine-overheating'],['tire blew out','tire-keeps-losing-air'],
+  ['P0300 and check engine light flashing','check-engine-light-flashing'],['my gas pedal is stuck','engine-revs-high-at-idle'],
+  ['my car is accelerating on its own','engine-revs-high-at-idle'],['my accelerator is stuck','engine-revs-high-at-idle'],
+  ['red oil light and a leak','oil-pressure-light-on']
 ];
 for(const [query,id] of emergencies){
   const result=submit(query);
@@ -100,6 +103,10 @@ for(const query of ['check engine light is not flashing','my car won’t stop be
   assert.equal(window.VS_GUIDES.emergency(query),null,query+' is not an emergency');
 // Under an emergency, unrelated guides that only share words like "stopped working" must not be listed.
 assert.ok(!window.VS_GUIDES.search('my brakes stopped working',5).some(g=>g.id==='electrical-accessories-not-working'));
+// A trouble code with a danger sign keeps the code lookup as a link under the safety step.
+assert.ok([...submit('P0300 and check engine light flashing').querySelectorAll('.glist a')].some(a=>a.getAttribute('href')==='/codes/?q=P0300'));
+submit('P0300');assert.equal(location.href,'/codes/?q=P0300','a code on its own still goes to code lookup');
+location.href='';
 const co=submit('exhaust smell in the car');
 assert.match(co.querySelector('.urgentnow').textContent,/call 911/);
 

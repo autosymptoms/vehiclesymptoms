@@ -313,18 +313,20 @@ if(hf){
     const q=hi.value.trim();
     if(!q){out.innerHTML='';out.classList.remove('show');if(status)status.textContent='';return}
     const cm=q.match(/\b([PBCU][0-3][0-9A-F]{3})\b/i);
-    if(cm){location.href='/codes/?q='+cm[1].toUpperCase();return}
+    // A code alone goes to code lookup; a code plus a danger sign ("P0300 and the light is flashing") shows the safety step first.
+    if(cm&&!window.VS_GUIDES.emergency(q.replace(cm[0],' '))){location.href='/codes/?q='+cm[1].toUpperCase();return}
     const vehicleMatch=findVehicle(q),v=vehicleMatch?.vehicle;
     const year=(q.match(/\b(?:19|20)\d{2}\b/)||[])[0],y=v?clampYear(v,+year):null;
     const qs=v?`?v=${v.id}${y?'&y='+y:''}`:'';
     // Remove the matched vehicle and year so "2012 Honda Civic shakes" can ask about timing.
     const symptom=v?q.replace(vehicleMatch.text,' ').replace(/\b(?:19|20)\d{2}\b/g,' '):q;
-    const urgent=window.VS_GUIDES.emergency(symptom);
+    const urgent=window.VS_GUIDES.emergency(cm?symptom.replace(cm[0],' '):symptom);
     if(urgent){
       // Danger first: the immediate safe action, then the most urgent guide, then anything else that matched.
       const gs=searchGuides(symptom,5);
       out.innerHTML=`<div class="safety urgentnow" role="alert"><b>Do this first</b><p>${esc(urgent.now)}</p>${urgent.also.map(t=>`<p>${esc(t)}</p>`).join('')}</div>`+
-        `<p><b>Then follow the guide:</b></p><div class="glist">${gs.map((g,i)=>`<a class="gcard${i===0?' first':''}" href="${gurl(g.id)}${qs}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}</div>`;
+        `<p><b>Then follow the guide:</b></p><div class="glist">${gs.map((g,i)=>`<a class="gcard${i===0?' first':''}" href="${gurl(g.id)}${qs}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}`+
+        `${cm?`<a class="gcard" href="/codes/?q=${cm[1].toUpperCase()}"><b>Look up ${esc(cm[1].toUpperCase())}</b><span>What this trouble code means</span></a>`:''}</div>`;
       out.classList.add('show');
       if(status)status.textContent='Urgent safety step shown first. '+urgent.now;
       return;

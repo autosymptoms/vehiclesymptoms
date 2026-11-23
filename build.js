@@ -206,7 +206,7 @@ const lIcon=(l,size)=>`<svg class="licon" width="${size}" height="${size}" viewB
 // Wording of each choice follows the linked guide (the flashing guide's first safety line; the steady guide's intro).
 const FIRSTQ={'check-engine-light':{card:'Steady or flashing?',q:'First: is it steady or flashing?',
   help:'Flashing means blinking on and off, about once a second. The advice is different, so start here.',
-  opts:[{a:'Flashing or blinking',d:'The most urgent check engine warning. If the engine is shaking, pull over as soon as it is safe and turn it off.',href:'/symptoms/check-engine-light-flashing/',cls:'hi'},
+  opts:[{a:'Flashing or blinking',d:'The most urgent check engine warning. Pull over as soon as it is safe and turn the engine off, even if the engine feels smooth.',href:'/symptoms/check-engine-light-flashing/',cls:'hi'},
         {a:'Steady (lit, not blinking)',d:'A stored fault. Often not an emergency, but how the car is driving decides how soon to act.',href:'/symptoms/check-engine-light-on/',cls:'md'}]}};
 const ROWIDS=['check-engine-light','oil-pressure-light','engine-temperature-light','battery-light','brake-warning-light','tire-pressure-light','abs-light','airbag-light','service-light','oil-change-light','traction-control-light','master-warning-light'];
 const escA=t=>String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
