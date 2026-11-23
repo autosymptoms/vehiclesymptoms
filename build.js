@@ -501,11 +501,22 @@ urls.push(page('/about/','About VehicleSymptoms.com','What VehicleSymptoms.com i
 <li><b>Free, no sign-up.</b> No ads and no affiliate links.</li></ul>
 <h3 id="contact">Contact</h3><p>Questions and corrections<span aria-hidden="true"> · </span><span>${CONTACT}</span></p></div>`}));
 
+// Model guides selected from the November Search Console report.
+const modelSearchCopy = {
+  "honda-accord": ["Honda Accord Common Problems by Year", "Looking at a used Honda Accord? Choose a model year to see reported problems, symptoms to watch for and questions to ask before buying."],
+  "mazda-mazda6": ["Mazda6 Common Problems by Year, Including 2016", "Explore common Mazda6 problems by model year. Select the 2016 Mazda6 or another year to check symptoms and see what to ask a mechanic."],
+  "mercedes-benz-c-class": ["Mercedes-Benz C-Class Common Problems by Year", "Researching a used Mercedes-Benz C-Class? Choose the model year, then check which listed issues match the engine and symptoms of the car you are considering."],
+  "audi-q5": ["Used Audi Q5 Common Problems by Model Year", "Compare reported Audi Q5 problems by year. Choose the year of a used Q5 to review symptoms and questions to bring to a pre-purchase inspection."],
+  "honda-civic": ["Used Honda Civic Common Problems by Year", "Choose a Honda Civic model year to see reported faults, the symptoms a driver might notice and what to ask about a used Civic."],
+};
+
 // vehicle pages
 for(const v of V){
   const nm=v.make+' '+v.model;
   const render=y=>{RW.eval(`state.q='';state.tab='All';renderVehicle(VEHICLES.find(x=>x.id==='${v.id}'),${y||null})`);return RW.document.getElementById('vehicleView').innerHTML};
-  urls.push(page(`/vehicles/${v.id}/`,`${nm} Problems by Year — Known Issues | VehicleSymptoms.com`,`Known ${nm} problems from ${v.years[0]} to ${v.years[1]}: ${v.issues.slice(0,3).map(i=>i.t.toLowerCase()).join('; ')}. Symptoms, causes and what to do.`.slice(0,300),{inner:render(null)}));
+  const copy = modelSearchCopy[v.id];
+  const title = copy ? copy[0] : `${nm} Problems by Year — Known Issues`;
+  urls.push(page(`/vehicles/${v.id}/`,`${title} | VehicleSymptoms.com`,copy?.[1] ?? `Known ${nm} problems from ${v.years[0]} to ${v.years[1]}: ${v.issues.slice(0,3).map(i=>i.t.toLowerCase()).join('; ')}. Symptoms, causes and what to do.`.slice(0,300),{inner:render(null)}));
   for(let y=v.years[0];y<=v.years[1];y++){if(!sold(v,y))continue;
     const is=v.issues.filter(i=>y>=i.y[0]&&y<=i.y[1]);
     urls.push(page(`/vehicles/${v.id}/${y}/`,`${y} ${nm} Problems & Symptoms | VehicleSymptoms.com`,
