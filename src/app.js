@@ -115,6 +115,16 @@ function snapshot(v,year,list,name){
   const m=own&&own.maint&&own.maint.length?`<div class="maint"><h3>Routine maintenance costs <small>(model-wide, not specific to one year or engine)</small></h3><div class="mt">${own.maint.map(x=>`<div class="mrow"><div><b>${esc(x.job)}</b><span>${esc(x.every)}${x.note?' · '+esc(x.note):''}</span></div><span class="mv">${x.withheld?`<small>Price not verified<br><a href="${quoteRequestUrl(x.job,v.id,year)}">Ask for an estimate</a></small>`:rngTxt(x)}</span></div>`).join('')}</div></div>`:'';
   return `<section class="snap"><div class="snap-h"><h2>At a glance</h2></div><div class="tiles">${tiles.join('')}</div>${m}<p class="snap-note">${SNAP_NOTE}</p></section>`;
 }
+// Oil change / maintenance reminder and tire pressure light reset steps for this model (and year), from src/resets/models.
+function resetSection(v,year,name){
+  const r=v.reset,mk=v.resetMake;if(!r&&!mk)return '';
+  const pick=list=>(list||[]).filter(x=>!year||(year>=x.years[0]&&year<=x.years[1]));
+  const block=(list,title)=>{const L=pick(list);if(!L.length)return '';return `<h3 class="rs-h">${title}</h3>${L.map((x,i)=>`<div class="rvar"><div class="rv-h">${L.length>1?`<span class="rv-n">${i+1}</span>`:''}<b>${esc(x.when)}</b></div>${x.none?'':`<ol class="nums">${x.steps.map(t=>`<li>${esc(t)}</li>`).join('')}</ol>`}${x.note?`<p class="lmuted">${esc(x.note)}</p>`:''}${x.src&&x.src.length?`<p class="lsrc">Source: ${x.src.map(esc).join(' · ')}</p>`:''}</div>`).join('')}`};
+  const oil=r?block(r.oil,'Oil change or maintenance reminder'):'',tp=r?block(r.tpms,'Tire pressure (TPMS) light'):'';
+  const mkLink=mk?`<a class="walk" href="/warning-lights/reset/${mk}/">Reset steps for other ${esc(v.make)} models →</a>`:'';
+  if(!oil&&!tp)return mk?`<section class="card csec" id="reset"><h2>Reset the oil change or tire pressure light</h2><p>We have not checked the exact steps for ${year?'the '+esc(name):'this model'} yet. The usual ${esc(v.make)} steps are here: <a href="/warning-lights/reset/${mk}/">how to reset the oil change and tire pressure lights on a ${esc(v.make)}</a>.</p></section>`:'';
+  return `<section class="card csec" id="reset"><h2>How to reset the oil change and tire pressure lights${year?' on a '+esc(name):''}</h2><p class="pg-sub">These are reminders, not faults. Do the oil change or set the tire pressures first, then reset.${year?'':' Pick your model year above to see only the steps for your car.'}</p>${oil}${tp}${r.notes?`<p class="lmuted">${esc(r.notes)}</p>`:''}<p class="lmuted">Button names can differ by trim. Your owner's manual is the final word for your exact car. If the light comes straight back, or a tire pressure light blinks and then stays on, something else needs checking.</p>${mkLink}</section>`;
+}
 function issueCard(i){return `<div class="issue"><div class="meta"><span class="sev ${i.sev}">${SEV[i.sev]}</span><span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><span class="pill">${esc(i.sys)}</span>${i.eng?`<span class="pill">${esc(i.eng)}</span>`:''}</div>
 <h3>${esc(i.t)}</h3><dl><div><dt>What you'll notice</dt><dd>${esc(i.sym)}</dd></div><div><dt>Why it happens</dt><dd>${esc(i.why)}</dd></div><div><dt>What to do</dt><dd>${esc(i.next)}</dd></div></dl>${costLine(i.cost,i._v,i._y)}${i.animation?`<a class="mv-issue" href="${esc(i.animation.href)}">Repair animation · ${esc(i.animation.title)}</a>`:''}${(g=>g?`<a class="walk" href="${gurl(g.id)}?v=${i._v||''}${i._y?'&y='+i._y:''}">Walk through this symptom: ${esc(g.title)} →</a>`:'')(forIssue(i))}</div>`}
 
@@ -149,6 +159,7 @@ function renderVehicle(v,year){
   ${sorted.map(i=>issueCard(Object.assign({},i,{_v:v.id,_y:year}))).join('')}
   ${snapshot(v,year,list,name)}
   ${priceGuide(list,name)}
+  ${resetSection(v,year,name)}
   <div class="livebox" id="nhtsa"><b>Safety recalls${year?' for the '+esc(name):''}</b><br>${year?'Checking the NHTSA recall database…':'Pick a model year to see its safety recalls.'}</div>
   <div class="dlbox"><div><b>Keep a copy of this page</b><span>Download every problem and the recalls for ${year?'your ':'the '}${esc(name)} as a PDF you can save, print or bring to your shop.</span></div><button type="button" class="btn" data-dl>Download this page (PDF)</button></div>
   <div class="trust">This page is a general guide based on widely reported problems. Not every vehicle is affected, and it doesn't replace an in-person diagnosis.</div>`;
