@@ -88,6 +88,9 @@ const firstSold=(v,i)=>{for(let y=i.y[0];y<=i.y[1];y++)if(sold(v,y))return y;ret
 // ---------- repair price estimates (src/prices/<id>.json) ----------
 // Range = parts + book hours x labor rate. Rate band from 2025-26 industry surveys (about half of US shops charge $120-$159/hr).
 const RATE=[120,160];let priced=0;
+// Prices are switched off site-wide (Daniel, Nov 22 2026): no repair costs, price guide, ownership costs or price check anywhere.
+// The price data stays in src/ so this can be turned back on later by setting SHOW_PRICES to true.
+const SHOW_PRICES=false;
 const EV=require('./tools/evidence.js'),PT=require('./src/powertrain.js');const LEDGER=[];// every price record, shown or withheld (written to audit/generated/price-ledger.json)
 const rnd=(n,up)=>{const st=n<500?10:n<2000?25:50;return (up?Math.ceil(n/st):Math.floor(n/st))*st};
 if(fs.existsSync('src/prices'))for(const f of fs.readdirSync('src/prices').filter(f=>f.endsWith('.json'))){
@@ -100,6 +103,7 @@ if(fs.existsSync('src/prices'))for(const f of fs.readdirSync('src/prices').filte
     const g=EV.priceQualifies(EV.ids.issue(v.id,i.t));LEDGER.push({id:EV.ids.issue(v.id,i.t),family:'vehicle-issue',scope:v.id+' '+i.y.join('-'),job:x.job,lo:Math.max(lo,0),hi,status:g.ok?'shown':'withheld',reason:g.reason||''});
     i.cost=g.ok?{job:x.job,lo:Math.max(lo,0),hi,note:x.note||'',recall:!!x.recall}:{job:x.job,withheld:true,recall:!!x.recall};priced++}
 }
+if(!SHOW_PRICES)for(const v of V)for(const i of v.issues)delete i.cost;
 if(appliedInstructions.size!==instructionMap.size){
   const missed=[...instructionMap.keys()].filter(key=>!appliedInstructions.has(key));
   throw new Error('Unmatched reviewed instructions ('+missed.length+'): '+missed.slice(0,5).join(', '));
@@ -115,6 +119,7 @@ if(fs.existsSync('src/own'))for(const f of fs.readdirSync('src/own').filter(f=>f
       const el=PT.eligible(m.job,v,null);const g=EV.priceQualifies(EV.ids.maint(v.id,m.job));
       LEDGER.push({id:EV.ids.maint(v.id,m.job),family:'maintenance',scope:v.id,job:m.job,lo,hi,status:el.ok===false?'ineligible':g.ok?'shown':'withheld',reason:el.ok===false?el.reason:(g.reason||'')});
       if(el.ok===false)return null;return g.ok?{job:m.job,every:m.every,note:m.note||'',lo,hi}:{job:m.job,every:m.every,note:m.note||'',withheld:true}}).filter(Boolean)};ownN++}
+if(!SHOW_PRICES)for(const v of V)delete v.own;
 const CATS=['Warning Lights','Smoke','Leaks','Noises','Smells','Starting Problems','Driving'],ids=new Set();let bad=0;
 V.forEach(v=>{if(ids.has(v.id)){console.log('DUP',v.id);bad++}ids.add(v.id);
  if(!/^[a-z0-9-]+$/.test(v.id)||v.years[0]<1996||v.years[1]>2027){console.log('BADV',v.id);bad++}
@@ -259,6 +264,7 @@ const WH='Insufficient verified pricing for this vehicle and repair';
 // Code pages: a general repair range is shown only with a qualifying evidence pair; otherwise the price is withheld.
 for(const c of CODES)if(c.cost){const lo=rnd(c.cost.parts[0]+c.cost.hours[0]*RATE[0],false),hi=Math.max(rnd(c.cost.parts[1]+c.cost.hours[1]*RATE[1],true),lo+10),g=EV.priceQualifies(EV.ids.code(c.code));
   LEDGER.push({id:EV.ids.code(c.code),family:'code-general',scope:'general (all vehicles)',job:c.cost.job,lo,hi,status:g.ok?'shown':'withheld',reason:g.reason||''});c.costOk=g.ok}
+if(!SHOW_PRICES)for(const c of CODES)delete c.cost;
 const famName=c=>({P:'Powertrain',B:'Body',C:'Chassis',U:'Network'})[c[0]];
 const JT=Object.fromEntries(J.map(j=>[j.id,j]));
 for(let k=0;k<CODES.length;k++){const c=CODES[k],low=c.code.toLowerCase(),u=CURG[c.sev];
@@ -293,7 +299,7 @@ if(CODES.length){
   const common=CODES.filter(c=>c.common);
   const idx='window.CODE_INDEX='+JSON.stringify(CODES.map(c=>[c.code,c.title,c.sys])).replace(/</g,'\\u003c')+';';
   fs.writeFileSync('dist/codes-index.js',idx);
-  urls.push(page('/codes/','Car Trouble Code Lookup (OBD-II): What Every Code Means | VehicleSymptoms.com','Look up any OBD-II trouble code like P0420 or P0300. Plain-English meaning, how urgent it is, common causes, what to check first and typical repair cost.',{pageData:'<script src="/codes-index.js"></script>\n',inner:`<div class="crumb"><a href="/">Home</a> › Code lookup</div>
+  urls.push(page('/codes/','Car Trouble Code Lookup (OBD-II): What Every Code Means | VehicleSymptoms.com','Look up any OBD-II trouble code like P0420 or P0300. Plain-English meaning, how urgent it is, common causes, and what to check first.',{pageData:'<script src="/codes-index.js"></script>\n',inner:`<div class="crumb"><a href="/">Home</a> › Code lookup</div>
 <div class="ghead"><div class="eyebrow">Code lookup</div><h1>What does your trouble code mean?</h1><p class="sub">Type the code from your scanner or parts-store scan, like <b>P0420</b> or <b>P0300</b>. You'll get the meaning in plain English, how urgent it is, the likely causes and what to check first.</p></div>
 <form class="codesearch" id="codeForm" autocomplete="off"><input id="codeQ" type="search" placeholder="Enter a code, e.g. P0420, or a word like misfire" aria-label="Trouble code"><button class="btn" type="submit">Look it up</button></form>
 <div id="codeRes" class="glist" style="margin-top:12px"></div>
@@ -339,9 +345,9 @@ ${d.diy.map((x,i)=>`<div class="diy"><div class="diy-n">${i+1}</div><div><b>${es
 <p class="lsoon-note">Step-by-step repair walkthroughs for the fixes below are on the way.</p></section>`:''}
 ${d.dont&&d.dont.length?`<section class="card csec ldont"><h2>What not to do</h2><ul class="xs">${d.dont.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section>`:''}
 ${d.causes2&&d.causes2.length?`<section class="card csec"><div class="pg-head"><h2>What it usually turns out to be</h2></div>
-<p class="pg-sub">Most likely first. Prices are typical US parts-and-labor totals for that repair, not a quote for your vehicle.</p>
-${d.causes2.map(c=>`<div class="c2"><div class="c2-h"><b>${escH(c.name)}</b><span class="c2-p">${lPrice(l.id,c)}</span></div><p><span class="c2-l">How you can tell</span> ${escH(c.tell)}</p><p><span class="c2-l">The repair</span> ${escH(c.fix)}</p></div>`).join('')}
-${d.diag&&lDiag(l.id,d.diag)?`<p class="lsoon-note">A shop usually charges ${lDiag(l.id,d.diag)} just to diagnose this light, and many put that toward the repair.</p>`:''}</section>`:''}
+<p class="pg-sub">Most likely first.${SHOW_PRICES?' Prices are typical US parts-and-labor totals for that repair, not a quote for your vehicle.':''}</p>
+${d.causes2.map(c=>`<div class="c2"><div class="c2-h"><b>${escH(c.name)}</b>${SHOW_PRICES?`<span class="c2-p">${lPrice(l.id,c)}</span>`:''}</div><p><span class="c2-l">How you can tell</span> ${escH(c.tell)}</p><p><span class="c2-l">The repair</span> ${escH(c.fix)}</p></div>`).join('')}
+${SHOW_PRICES&&d.diag&&lDiag(l.id,d.diag)?`<p class="lsoon-note">A shop usually charges ${lDiag(l.id,d.diag)} just to diagnose this light, and many put that toward the repair.</p>`:''}</section>`:''}
 ${d.shop?`<section class="card csec"><h2>What a shop will do</h2><p>${escH(d.shop)}</p></section>`:''}
 ${d.reset?`<section class="card csec lreset" id="reset"><h2>How to reset this light</h2><p>${escH(d.reset.how)}</p>${d.reset.note?`<p class="lmuted">${escH(d.reset.note)}</p>`:''}
 ${d.reset.real?(Object.keys(RESETS).length&&/oil|service|maint|tire|tyre/i.test(l.id)?`<div class="lsoon"><p class="eyebrow">Step by step</p><b>Pick your make for the button sequence</b><div class="mkrow">${Object.keys(RESETS).sort((a,b)=>RESETS[a].make.localeCompare(RESETS[b].make)).map(m=>`<a href="/warning-lights/reset/${m}/">${escH(RESETS[m].make)}</a>`).join('')}</div><p class="lsoon-note">Exact steps for every single year and model are still being added. If your make isn't here yet, your owner's manual has the sequence.</p></div>`:`<div class="lsoon"><p class="eyebrow">Coming soon</p><b>Reset steps for your exact vehicle</b><p>We're building the button-by-button reset for each year, make and model. Tell us what you drive and it will be here when it's ready.</p><a class="btn btn-ghost" href="/#vehicle">Pick my vehicle</a></div>`):''}</section>`:''}
@@ -391,8 +397,8 @@ ${models.length?`<section class="csec"><h2 style="font-size:18px">${escH(r.make)
 }
 
 
-// ---------- "Is my quote fair?" price check ----------
-{const gen=new Map();
+// ---------- "Is my quote fair?" price check (off while SHOW_PRICES is false; /price-check/ redirects home in vercel.json) ----------
+if(SHOW_PRICES){const gen=new Map();
  // Common repairs: typical range drawn from every sourced, priced job in src/prices (25th percentile of low ends to 75th of high ends).
  // Grows automatically as models are added. A job needs at least 5 priced examples to be listed.
  const references=JSON.parse(fs.readFileSync('src/evidence/quote-references.json','utf8'));
@@ -495,12 +501,11 @@ ${animations ? '<h3>Repair animations</h3><p>Opening an animation loads the Moto
 <h3>Visitor statistics</h3><p>We use Vercel Web Analytics to count page views and visits. It doesn't use cookies and doesn't identify you personally.</p>
 <h3>Selling or sharing</h3><p>We don't sell or rent your personal information. We don't run ads or affiliate links.</p>
 <h3>Contact</h3><p>Privacy contact<span aria-hidden="true"> · </span><span>${CONTACT}</span></p><p class="muted">Last updated November 2026.</p></div>`}));
-urls.push(page('/about/','About VehicleSymptoms.com','What VehicleSymptoms.com is, how our guides and prices work, and how to reach us.',{inner:`<div class="crumb"><a href="/">Home</a> › About</div><div class="ghead"><div class="eyebrow">About</div><h1>About VehicleSymptoms.com</h1><p class="sub">Free, plain-English help for drivers with a car problem: what to check, how urgent it may be, what to ask about a repair and how to compare an itemized quote.</p></div>
+urls.push(page('/about/','About VehicleSymptoms.com','What VehicleSymptoms.com is, how our guides work, and how to reach us.',{inner:`<div class="crumb"><a href="/">Home</a> › About</div><div class="ghead"><div class="eyebrow">About</div><h1>About VehicleSymptoms.com</h1><p class="sub">Free, plain-English help for drivers with a car problem: what to check, how urgent it may be and what to ask a mechanic.</p></div>
 <div class="card prose"><h3>How we work</h3>
 <ul><li><b>Guidance, not a diagnosis.</b> A website can't inspect your car. Possible causes are directions for testing, and we say what a shop should test before replacing parts.</li>
 <li><b>Safety first.</b> When symptoms point to a possible brake, steering, fire or engine-damage risk, we tell you to stop and get help.</li>
 <li><b>Honest about gaps.</b> If we haven't documented problems for a vehicle or year, we say so. A short list is not a reliability rating.</li>
-<li><b>Repair quotes.</b> Prepare an itemized shop request for any repair. Selected vehicles and repairs have questions about the scope of the work. We display a price range only when its evidence meets our publication rules.</li>
 <li><b>Free, no sign-up.</b> No ads and no affiliate links.</li></ul>
 <h3 id="contact">Contact</h3><p>Questions and corrections<span aria-hidden="true"> · </span><span>${CONTACT}</span></p></div>`}));
 
@@ -530,7 +535,7 @@ for(const v of V){
 }
 // Plain make -> model links so every vehicle page is reachable without JavaScript dropdowns.
 {const mk=[...new Set(V.map(v=>v.make))].sort((a,b)=>a.localeCompare(b));const ms=m=>m.toLowerCase().replace(/[^a-z0-9]+/g,'-');
- urls.push(page('/vehicles/','All Makes and Models: Car Problems, Costs and Recalls | VehicleSymptoms.com','Browse every make and model we cover, 1996 and newer. Pick yours to see known problems and safety recalls by model year.',{inner:`<div class="crumb"><a href="/">Home</a> › All vehicles</div>
+ urls.push(page('/vehicles/','All Makes and Models: Car Problems and Recalls | VehicleSymptoms.com','Browse every make and model we cover, 1996 and newer. Pick yours to see known problems and safety recalls by model year.',{inner:`<div class="crumb"><a href="/">Home</a> › All vehicles</div>
 <div class="ghead"><div class="eyebrow">All vehicles</div><h1>Find your car by make and model</h1><p class="sub">${V.length} models from ${mk.length} makes. Pick your model, then your year.</p></div>
 <p class="codechips">${mk.map(m=>`<a href="#${ms(m)}">${escH(m)}</a>`).join('')}</p>
 ${mk.map(m=>`<section class="csec" id="${ms(m)}"><h2>${escH(m)}</h2><div class="glist">${V.filter(v=>v.make===m).map(v=>`<a class="gcard" href="/vehicles/${v.id}/"><b>${escH(m+' '+v.model)}</b><span>${v.years[0]}–${v.years[1]}</span></a>`).join('')}</div></section>`).join('')}`}));}
@@ -579,7 +584,7 @@ fs.writeFileSync('dist/llms.txt',`# VehicleSymptoms.com
 
 > Free, plain-English help for drivers: describe what your car is doing and get how urgent it is, possible causes and what to ask your mechanic. No sign-up, no ads, nothing to buy.
 
-The site is written for regular drivers, not mechanics. The quote checker prepares itemized shop requests. A price range requires corroborating evidence. Nothing here is a confirmed diagnosis.
+The site is written for regular drivers, not mechanics. Nothing here is a confirmed diagnosis.
 
 ## Main sections
 - [Car sounds](${SITE}/sounds/): listen to a recorded whir inside a moving car.
@@ -588,7 +593,6 @@ The site is written for regular drivers, not mechanics. The quote checker prepar
 - [Warning lights](${SITE}/warning-lights/): ${LIGHTS.length} dashboard lights with what each means, whether it is safe to keep driving, safe checks a driver can do, possible causes and how to reset reminder lights.
 - [Reset steps by make](${SITE}/warning-lights/reset/): oil change / maintenance reminder and tire pressure light reset procedures for ${Object.keys(RESETS).length} makes.
 - [Trouble code lookup](${SITE}/codes/): ${CODES.length} OBD-II codes in plain English with causes, what to check first and whether it is safe to drive.
-- [Get help with a repair quote](${SITE}/price-check/): prepare an itemized shop request and check price coverage for a repair.
 
 ## Notes for assistants
 - Cite the specific page that answers the question; every page has a stable URL.

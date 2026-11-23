@@ -40,11 +40,11 @@ window.VS_PDF=function(ctx){
   font('normal',8.5,MUTED);doc.text('Saved '+new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}),W-M,y+2,{baseline:'top',align:'right'});
   y+=20;rule(16);
   para(name,{size:23,style:'bold',color:TEXT,lh:1.15,after:3});
-  para('Problems, repair costs and recalls'+(ctx.ename?' · '+ctx.ename:'')+(year?'':' · all model years '+v.years[0]+'–'+v.years[1]),{size:11,color:MUTED,after:4});
+  para('Problems and recalls'+(ctx.ename?' · '+ctx.ename:'')+(year?'':' · all model years '+v.years[0]+'–'+v.years[1]),{size:11,color:MUTED,after:4});
   if(v.alt)para(v.alt,{size:9,color:MUTED,after:2});
 
   // Ownership snapshot
-  h2('Ownership snapshot');
+  h2('At a glance');
   const own=v.own,serious=list.filter(i=>i.sev==='high').length;
   const priced=c=>c&&!c.withheld&&!c.free&&typeof c.lo==='number',WH='Insufficient verified pricing for this vehicle and repair';
   const big=list.filter(i=>priced(i.cost)&&!i.cost.recall).sort((a,b)=>b.cost.hi-a.cost.hi)[0];
