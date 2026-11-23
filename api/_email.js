@@ -7,7 +7,7 @@ const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&am
 
 const URG = {
   stop: { label: "Stop — don't drive it", color: '#D93A3F', tint: '#FDECEC',
-    stakes: 'Driving on this can turn a smaller repair into a much bigger one, or leave you stranded somewhere worse.' },
+    stakes: 'Follow the stop instructions above before arranging an inspection or a tow.' },
   soon: { label: 'Get it checked in the next few days', color: '#C77700', tint: '#FFF4E0',
     stakes: 'Problems like this usually get worse, and more expensive, the longer they wait.' },
   check: { label: 'Book a check when convenient', color: '#0A6FD6', tint: '#E8F2FF',
@@ -15,6 +15,8 @@ const URG = {
   diy: { label: 'Safe to check yourself first', color: '#1F8A53', tint: '#E6F6EE',
     stakes: 'There is a good chance you can check this yourself and save a trip to the shop.' },
 };
+
+const safetyNote = 'If braking or steering changes suddenly, pull over safely and call for help. If you suspect a vehicle fire, stop safely, switch off, and get everyone at least 100 feet away, clear of traffic. Call 911 and leave the hood closed.';
 
 const FONT = "font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;";
 const h3 = t => `<p style="${FONT}margin:0 0 8px;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;font-weight:bold;color:#5B6B7D">${t}</p>`;
@@ -99,7 +101,7 @@ ${steps.length ? `<p style="${FONT}margin:0 0 4px;font-size:14px;color:#1B2733">
 </td></tr>
 
 <tr><td style="padding:18px 28px 26px">
-  <p style="${FONT}margin:0;font-size:12px;line-height:1.55;color:#6B7B8D">This is a general guide, not a diagnosis. If a red warning light is flashing, you smell fuel or burning, or the brakes or steering feel wrong, pull over safely and get help.</p>
+  <p style="${FONT}margin:0;font-size:12px;line-height:1.55;color:#6B7B8D">This is a general guide, not a diagnosis. ${safetyNote}</p>
   <p style="${FONT}margin:10px 0 0;font-size:12px;line-height:1.55;color:#6B7B8D">You got this email because you asked VehicleSymptoms.com to send you this result. We don’t send marketing email. <a href="${SITE}/privacy/" style="color:#6B7B8D;text-decoration:underline">Privacy</a></p>
 </td></tr>
 
@@ -136,7 +138,9 @@ Tests a shop usually does: ${r.confirm.shop.join('; ')}
 
 Open your guide again: ${guideLink}
 
-A general guide, not a diagnosis. You got this because you asked VehicleSymptoms.com to send it.`;
+A general guide, not a diagnosis. ${safetyNote}
+
+You got this because you asked VehicleSymptoms.com to send it.`;
 
   return { subject: `Your result: ${j.title}${vname ? ' (' + vname + ')' : ''}`, html, text };
 };

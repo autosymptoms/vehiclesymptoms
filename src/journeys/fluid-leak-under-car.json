@@ -21,12 +21,12 @@
   "blue fluid leaking from car",
   "car leaking oil or coolant"
  ],
- "intro": "Most leaks can be identified by color, feel and where the puddle is. Some are harmless, like water from the air conditioning, while a brake or fuel leak means the car shouldn't be driven. Start with the safety question below, then we'll help you name the fluid.",
+ "intro": "The location and appearance of a puddle can help a shop identify it. Water from the air conditioning may be harmless. Suspected brake-fluid or fuel leaks need attention before driving.",
  "safety": [
   "If the brake pedal feels soft or sinks, don't drive the car.",
   "If you smell gasoline or see fuel dripping, don't start the car and keep sparks and flames away.",
   "If the temperature gauge is in the red or you see steam, pull over and turn the engine off.",
-  "Coolant tastes sweet and is poisonous to pets and children. Clean up puddles."
+  "Keep children and pets away from puddles. Avoid skin contact and never taste an unknown fluid."
  ],
  "start": "q_urgent",
  "nodes": {
@@ -61,7 +61,7 @@
   },
   "q_color": {
    "q": "What color is the fluid?",
-   "help": "Dab some onto a white paper towel or slide white cardboard under the drip. Colors are much easier to see on white. Also rub a drop between your fingers to feel whether it's watery or slick.",
+   "help": "From beside the parked car, note the color on the ground or on white cardboard if it is already beneath it. Avoid contact with unknown fluid. You can choose “I'm not sure.”",
    "opts": [
     {
      "a": "Clear and watery, with no smell",
@@ -168,10 +168,10 @@
    "result": {
     "title": "A possible fuel leak is a fire risk",
     "urgency": "stop",
-    "now": "Don't start the car. Keep sparks, flames and cigarettes away, and have it towed to a shop.",
+    "now": "If driving, pull over safely. Switch the engine off and leave it off. Move everyone away from the vehicle and any fuel, keep ignition sources away, and arrange a tow from a safe place. Do not search for the leak.",
     "if": [
-     "If fuel is pouring or pooling, move everyone away from the car and call the fire department.",
-     "If the smell only happens right after filling up and fades quickly, the gas cap may not be sealing. Have a technician confirm there's no leak."
+     "If fuel is pooling or spreading, fumes are strong in an enclosed space, or you suspect a fire, get everyone clear and call 911 from outside the area.",
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away."
     ],
     "why": "Gasoline is thin, evaporates quickly and has a strong smell. A leak near a hot exhaust or a spark can start a fire, so the car shouldn't run until the leak is found and fixed.",
     "causes": [
@@ -192,9 +192,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "From a safe distance, note where the drip or smell is strongest."
-     ],
+     "you": [],
      "shop": [
       "Fuel system leak inspection",
       "Fuel line and tank inspection",
@@ -247,11 +245,9 @@
    "result": {
     "title": "The engine may be dangerously low on oil",
     "urgency": "stop",
-    "now": "Turn the engine off and leave it off. After a few minutes, check the dipstick. If it's low, add the oil type listed in your owner's manual. If you can't, have it towed.",
+    "now": "Pull over safely, switch the engine off and leave it off. With a leak and an oil-pressure warning, arrange a tow or on-site inspection before restarting.",
     "if": [
-     "If the light stays on after the level is correct, or you hear ticking or knocking, don't run the engine. Have it towed.",
-     "If oil is pouring out, don't refill and restart. Have it towed.",
-     "Even if the light goes out after topping up, a leak big enough to leave a puddle can drain the oil again quickly. Have the leak checked before driving any distance."
+     "A normal dipstick level does not confirm oil pressure. Tell the shop about any ticking or knocking."
     ],
     "why": "The oil pressure light means oil isn't reaching the engine with enough pressure to protect it. Running even briefly like that can ruin the engine. A leak big enough to leave a puddle can drain the oil quickly.",
     "causes": [
@@ -273,8 +269,7 @@
     ],
     "confirm": {
      "you": [
-      "Check the oil level with the engine off and the car on level ground.",
-      "If the oil was just changed, look for a loose drain plug or oil filter."
+      "From beside the parked vehicle, note the size of the puddle and any warning you saw."
      ],
      "shop": [
       "Oil level and leak inspection",
@@ -288,7 +283,7 @@
    "result": {
     "title": "Possibly just water from the air conditioning",
     "urgency": "diy",
-    "now": "Rub a drop between your fingers. If it's clear, odorless and not slippery, and you've been using the A/C or defroster, it's most likely normal A/C condensation, which doesn't need a repair.",
+    "now": "Clear water near the front passenger side after using the A/C can be normal condensation. Observe the spot from beside the car. If it is colored, leaves an oily patch, or any reservoir is low, have the leak identified before relying on the vehicle.",
     "if": [
      "If it feels slippery, smells sweet or has any color, it isn't plain water. Go back and pick the color instead.",
      "If water is collecting on the passenger-side floor inside the car, the A/C drain may be blocked. Book a check."
@@ -396,7 +391,6 @@
     "confirm": {
      "you": [
       "Note whether the spot is under the middle or the front of the car.",
-      "Rub a drop between your fingers: oily means transmission or power steering fluid, watery and sweet means coolant.",
       "Check fluid levels where your owner's manual shows a dipstick or reservoir."
      ],
      "shop": [
@@ -478,8 +472,7 @@
     ],
     "confirm": {
      "you": [
-      "Fill the reservoir and look under it for drips.",
-      "Smell the fluid: window cleaner means washer fluid, sweet means coolant."
+      "Fill the reservoir and look under it for drips."
      ],
      "shop": [
       "Washer reservoir, pump and hose inspection"
@@ -533,7 +526,7 @@
    "result": {
     "title": "A drip toward the back is often exhaust water, axle oil or fuel",
     "urgency": "check",
-    "now": "If it's clear water dripping from the tailpipe, that's usually normal condensation. Otherwise, note its color and smell and book a check when convenient.",
+    "now": "Clear water at the tailpipe may be condensation. For other fluid, note the color and location from beside the vehicle and have the leak identified. If fuel is suspected, keep everyone clear and leave the engine off.",
     "if": [
      "If it smells like gasoline, don't start the car. Have it towed.",
      "If it's slick and right next to a rear wheel, it may be brake fluid. Don't drive the car until it's checked.",
@@ -564,8 +557,7 @@
     ],
     "confirm": {
      "you": [
-      "Note whether the drip comes from the tailpipe or from under the car.",
-      "Smell the fluid from a safe distance."
+      "Note whether the drip comes from the tailpipe or from under the car."
      ],
      "shop": [
       "Undercarriage leak inspection",
@@ -641,6 +633,10 @@
  },
  "sources": [
   "https://cluballiance.aaa.com/the-extra-mile/articles/prepare/car/identify-leaks-like-a-pro",
-  "https://www.acg.aaa.com/connect/blogs/4c/auto/guide-to-automotive-leaks"
+  "https://www.acg.aaa.com/connect/blogs/4c/auto/guide-to-automotive-leaks",
+  "https://static.nhtsa.gov/odi/tsbs/2022/MC-10208114-0001.pdf",
+  "https://www.poison.org/first-aid-for-poisonings",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/",
+  "https://assets.goaaa.com/image/upload/v1698431472/AAA_Guide_CarCare_final.pdf"
  ]
 }

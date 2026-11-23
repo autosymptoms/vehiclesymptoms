@@ -21,9 +21,9 @@
   "oil presure light on",
   "oil light on but oil is full"
  ],
- "intro": "The red oil can light means the engine isn't getting enough oil pressure. Without pressure, metal parts grind together, and serious damage can happen in minutes. It's different from a yellow low-oil-level light or an oil-change reminder. Answer a few questions to find out how serious it is and what to do.",
+ "intro": "A low oil pressure warning with the engine running calls for a safe stop and immediate engine shutdown, even if the light flickers or the dipstick reads full. Read the exact dash message. An oil level warning and a scheduled oil-change reminder have different instructions.",
  "safety": [
-  "If the red oil light stays on while driving, pull over as soon as it's safe and turn the engine off.",
+  "If the oil pressure warning appears or flickers while the engine is running, pull over safely and switch the engine off. If the oil level is correct, the warning persists, or you cannot check it, leave the engine off and arrange roadside help.",
   "If the engine starts knocking, tapping loudly or grinding, turn it off right away and don't restart it.",
   "If you see smoke or oil spraying under the hood, turn the engine off and step away from the car."
  ],
@@ -31,7 +31,7 @@
  "nodes": {
   "q_when": {
    "q": "Which of these best describes the oil light?",
-   "help": "The oil pressure light usually looks like an old-fashioned oil can with a drip. It's normal for it to light up briefly when you first turn the key, then go out once the engine starts.",
+   "help": "Use the exact message or match the symbol in the owner’s manual. If you cannot identify it while the engine is running, stop safely and switch off first.",
    "opts": [
     {
      "a": "It's red and stays on while I'm driving or idling",
@@ -50,7 +50,7 @@
      "go": "r_after_oil_change"
     },
     {
-     "a": "It's yellow or orange, or a message says oil level low or oil change due",
+     "a": "The message specifically says low oil LEVEL, oil life, or oil change due",
      "go": "r_level_or_service"
     },
     {
@@ -364,11 +364,11 @@
   },
   "r_level_or_service": {
    "result": {
-    "title": "Probably a low oil level warning or an oil change reminder",
+    "title": "Follow the message for oil level or scheduled service",
     "urgency": "diy",
-    "now": "Check the oil level on the dipstick, or in the dash menu if your car has no dipstick, and top it up if it's low. If it's a maintenance message, book an oil change.",
+    "now": "For a low oil level message, park safely and check the oil level as your manual directs before continuing. For an oil-life or service-due reminder, schedule the indicated service. If the message mentions oil pressure or STOP ENGINE, or you are unsure, stop safely, switch off the engine and get help.",
     "if": [
-     "If the light turns red, or the oil can light comes on with a warning to stop, pull over and turn the engine off.",
+     "If the pressure warning appears or returns with the engine running, stop safely and turn off the engine.",
      "If you keep needing to add oil, have it checked for a leak or oil burning.",
      "If the engine starts ticking or knocking, turn it off and have it checked before driving again."
     ],
@@ -466,6 +466,9 @@
   ]
  },
  "sources": [
+  "https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?ProcUid=G1841481&Uid=G1841480&buildtype=web&countryCode=USA&div=f&languageCode=en&moidRef=G539493&userMarket=USA&vFilteringEnabled=False&variantid=6303",
+  "https://techinfo.honda.com/rjanisis/pubs/OM/AH/AT202222OM/enu/AT202222OM.PDF",
+  "https://www.volkswagen.co.uk/en/owners-and-services/my-car/warning-light/engine-oil-level.html",
   "https://mwg.aaa.com/via/car/oil-pressure-light",
   "https://mwg.aaa.com/automotive/articles/low-engine-oil-pressure-causes-symptoms-how-to-fix"
  ]

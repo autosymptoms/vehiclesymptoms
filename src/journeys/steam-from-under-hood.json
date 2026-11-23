@@ -20,21 +20,21 @@
   "car smoking after oil change",
   "smoke under the hood wont stop"
  ],
- "intro": "Steam or smoke from under the hood can be anything from harmless water burning off to an engine that's badly overheating or a fire starting. The color, the smell and your temperature gauge tell you which. Answer the questions below to find out how serious it is and what to do right now.",
+ "intro": "Steam can come from the cooling system; smoke can signal a fire. They can be hard to tell apart. Use what you already noticed from safety. The questions cover warning lights, recent conditions and next steps.",
  "safety": [
-  "If you see flames or the smoke keeps getting thicker, get everyone out, move well away from the car and call 911. Don't open the hood.",
+  "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
   "Never open the radiator cap or coolant tank cap on a hot engine. The coolant is under pressure and can spray out and burn you.",
   "If the temperature gauge is in the red, pull over and turn off the engine as soon as it's safe.",
-  "Wait until steam has stopped before opening the hood, and keep your face and hands back when you do."
+  "Keep the hood closed while steam or spray is escaping. If you cannot tell steam from smoke, stay away and call 911 if a fire is possible."
  ],
  "start": "q_danger",
  "nodes": {
   "q_danger": {
-   "q": "Do you see either of these right now?",
+   "q": "Do you suspect a fire, or is the engine overheating?",
    "help": "The temperature gauge usually has a C (cold) and H (hot) or a thermometer symbol. Some cars only have a red or blue thermometer warning light instead of a gauge.",
    "opts": [
     {
-     "a": "Flames, or dark smoke that keeps getting thicker",
+     "a": "I see flames, smoke with a burning smell, or other signs of a possible fire",
      "go": "r_fire"
     },
     {
@@ -52,8 +52,8 @@
    ]
   },
   "q_smell": {
-   "q": "What does it smell like?",
-   "help": "Stand a few steps back from the front of the car. Don't put your face near the engine.",
+   "q": "What odor did you notice before you moved away?",
+   "help": "Stay away from escaping vapor or smoke. Choose “I'm not sure” if you did not notice an odor.",
    "opts": [
     {
      "a": "Sweet, a bit like syrup or maple",
@@ -78,8 +78,8 @@
    ]
   },
   "q_coolant": {
-   "q": "When you look (from a safe distance), what do you see?",
-   "help": "Coolant (antifreeze) is usually green, orange, pink, blue or yellow and feels slimy. The overflow tank is the see-through plastic bottle with MIN and MAX marks.",
+   "q": "What did you already notice from a safe distance?",
+   "help": "Keep the hood closed while steam or coolant is escaping. You can choose “I'm not sure.”",
    "opts": [
     {
      "a": "Coolant spraying or pouring out, or a big puddle forming fast",
@@ -128,9 +128,9 @@
    "result": {
     "title": "This could be an engine fire starting. Get away from the car",
     "urgency": "stop",
-    "now": "Turn off the engine, get everyone out and at least 100 feet away, and call 911. Don't open the hood and don't go back for belongings.",
+    "now": "Pull over safely, turn off the vehicle and get everyone out. Smoke with a burning smell can mean a fire even without visible flames. Stay at least 100 feet away, clear of traffic, and call 911. Leave the hood closed and do not return to the vehicle.",
     "if": [
-     "If the smoke stops on its own, still don't restart the car. Have it towed and inspected before anyone drives it."
+     "Even if the smoke stops, stay away until responders say it is safe. Arrange a tow before using the vehicle again."
     ],
     "why": "Flames or thick, darkening smoke mean something is burning, not just steam. Opening the hood lets in a rush of air that can make a fire flare up suddenly, and fuel lines and tires can burn quickly.",
     "causes": [
@@ -164,11 +164,11 @@
    "result": {
     "title": "The engine is overheating. Stop now to avoid serious damage",
     "urgency": "stop",
-    "now": "Pull over as soon as it's safe, turn off the engine and let it cool for at least 30 minutes. Don't open the radiator cap. Have the car towed or call a mobile mechanic.",
+    "now": "Pull over safely and switch the engine off. Keep the hood closed while steam or spray is escaping. Leave all coolant caps in place until the engine and radiator are fully cold. Arrange roadside help or a tow before restarting.",
     "if": [
      "If you're in a dangerous spot and need a moment to reach a safe place, turn the heater to full hot with the fan on high. It pulls some heat away from the engine.",
      "If the coolant tank is empty once the engine is cool, there's a leak or another fault behind it. Topping it up doesn't fix the cause, so still have it checked before relying on the car.",
-     "If you see flames or the smoke turns dark and thick, get everyone away from the car and call 911."
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away."
     ],
     "why": "Steam with the gauge in the red means the engine is running far hotter than it's designed to. Keeping it running can warp the cylinder head or blow the head gasket, turning a simple repair into a major one.",
     "causes": [
@@ -194,10 +194,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Once fully cool, check the coolant level in the overflow tank.",
-      "Look under the front of the car for a coolant puddle."
-     ],
+     "you": [],
      "shop": [
       "Cooling system pressure test",
       "Radiator fan and fan circuit test",
@@ -211,10 +208,10 @@
    "result": {
     "title": "A coolant hose, the radiator or the water pump may be leaking badly",
     "urgency": "stop",
-    "now": "Turn off the engine and stay back while it cools. Don't restart it. Have the car towed or have a mobile mechanic come to you.",
+    "now": "Pull over safely and switch the engine off. Keep the hood closed while steam or spray is escaping. Leave all coolant caps in place until the engine and radiator are fully cold. Arrange roadside help or a tow before restarting.",
     "if": [
      "If the temperature gauge was already climbing before you stopped, mention it to the shop so they check for heat damage too.",
-     "If you see flames or the smoke turns dark and thick, get everyone away from the car and call 911."
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away."
     ],
     "why": "When coolant is pouring out, the engine will lose most of it within minutes and overheat quickly. Running it even a short distance this way can cause serious engine damage.",
     "causes": [
@@ -235,9 +232,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "From a safe distance, note where the coolant is coming from."
-     ],
+     "you": [],
      "shop": [
       "Visual inspection of hoses, radiator and water pump",
       "Cooling system pressure test",
@@ -250,7 +245,7 @@
    "result": {
     "title": "Coolant boiling over usually means the engine is overheating",
     "urgency": "stop",
-    "now": "Turn off the engine and let it cool for at least 30 minutes without opening any caps. Then have the car towed or call a mobile mechanic.",
+    "now": "Pull over safely and switch the engine off. Keep the hood closed while steam or spray is escaping. Leave all coolant caps in place until the engine and radiator are fully cold. Arrange roadside help or a tow before restarting.",
     "if": [
      "If the gauge reads normal, don't trust it. When coolant is low, the sensor can read low even though the engine is very hot.",
      "If you see bubbles in the tank with the engine running and fully warm, tell the shop. That can be a sign of a head gasket leak."
@@ -279,10 +274,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Once fully cool, check the coolant level.",
-      "Look for drips under the front of the car."
-     ],
+     "you": [],
      "shop": [
       "Cooling system pressure test",
       "Radiator cap pressure test",
@@ -295,13 +287,11 @@
   "r_coolant_leak": {
    "result": {
     "title": "Coolant may be leaking onto hot engine parts",
-    "urgency": "soon",
-    "now": "Don't drive until you've checked the coolant level with the engine fully cool. If it's between MIN and MAX, top it up with the type listed in your owner's manual and get the leak checked within a few days. If the tank is empty or well below MIN, have it inspected before driving.",
+    "urgency": "stop",
+    "now": "Pull over safely and switch the engine off. Keep the hood closed while steam or spray is escaping. Leave all coolant caps in place until the engine and radiator are fully cold. Arrange roadside help or a tow before restarting.",
     "if": [
-     "If the level drops noticeably between checks, or the temperature gauge rises above its usual spot, stop driving and have it towed.",
-     "If the gauge reaches the red, a temperature warning light comes on, or the heater suddenly blows cold, pull over and turn off the engine.",
-     "If the steam gets heavier or keeps pouring out, stop and let the engine cool before going any further.",
-     "If you also see white smoke from the tailpipe with a sweet smell, get it checked right away. That can mean coolant is leaking inside the engine."
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
+     "Tell roadside assistance about any puddle, steam or coolant loss you already saw."
     ],
     "why": "A sweet smell or steam with a normal temperature gauge often comes from a small amount of coolant dripping or seeping onto hot parts and steaming off. Leaks tend to grow, and running low on coolant will make the engine overheat. When coolant is very low, the gauge can also read normal even though the engine is hot, so the level check matters more than the gauge.",
     "causes": [
@@ -328,9 +318,7 @@
     ],
     "confirm": {
      "you": [
-      "Check the coolant level when the engine is cold, and note it each day.",
-      "Look for colored drips under the front of the car after it's parked overnight.",
-      "Watch the temperature gauge on every drive."
+      "Check the coolant level through the marked reservoir only when the engine is fully cold."
      ],
      "shop": [
       "Cooling system pressure test",
@@ -343,13 +331,11 @@
   "r_oil_on_exhaust": {
    "result": {
     "title": "Oil may be dripping onto the hot exhaust",
-    "urgency": "soon",
-    "now": "Once the engine is cool, check the oil level on the dipstick and top it up if it's low. Get the leak looked at within a few days, and sooner if the smoke doesn't fade.",
+    "urgency": "stop",
+    "now": "Pull over safely, switch the engine off and move everyone away. If there is smoke with a burning smell, follow the fire warning and call 911 from at least 100 feet away. If the smoke has already stopped, keep the engine off and arrange a tow or inspection where it is.",
     "if": [
-     "If it started right after an oil change, a little spilled oil can smoke for a drive or two. If it continues, ask the shop that did the work to check the oil filter, drain plug and filler cap.",
-     "If the oil level is below the minimum mark, or you see oil dripping steadily, don't drive until it's been checked.",
-     "If the oil pressure warning light comes on or the engine starts knocking, pull over and turn it off right away.",
-     "If the smoke gets thick or you see flames, get out, move away and call 911."
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
+     "Even if the smoke stops, stay away until responders say it is safe. Arrange a tow before using the vehicle again."
     ],
     "why": "Oil smoking on the exhaust gives off a heavy, sharp burning smell and bluish-white smoke. Common causes are a leaking gasket or a loose part, but oil on hot parts is a fire risk and the engine can run low on oil.",
     "causes": [
@@ -370,11 +356,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Check the oil level on the dipstick with the engine off and cool.",
-      "Make sure the oil filler cap is on tight.",
-      "Look for wet, oily areas on top of and under the engine."
-     ],
+     "you": [],
      "shop": [
       "Oil leak inspection (sometimes with UV dye)",
       "Valve cover gasket inspection",
@@ -387,11 +369,9 @@
    "result": {
     "title": "Something may be melting or a belt may be burning. Don't keep running it",
     "urgency": "stop",
-    "now": "Turn off the engine and don't restart it. Once it's cool, look for anything stuck to the exhaust. Have the car towed if you can't find a simple cause.",
+    "now": "Pull over safely, turn off the vehicle and get everyone out. Smoke with a burning smell can mean a fire even without visible flames. Stay at least 100 feet away, clear of traffic, and call 911. Leave the hood closed and do not return to the vehicle.",
     "if": [
-     "If you find a plastic bag or debris melted onto the exhaust and nothing else looks damaged, have a mechanic confirm it's clear before you rely on the car.",
-     "If the smell is coming from one wheel instead of the hood, a brake may be dragging. Don't drive on it.",
-     "If you see flames or the smoke gets thicker, get everyone away from the car and call 911."
+     "Even if the smoke stops, stay away until responders say it is safe. Arrange a tow before using the vehicle again."
     ],
     "why": "Burning rubber or plastic smells mean something that shouldn't be getting hot is. A belt slipping on a seized pulley, melting wiring, or debris on the exhaust can each start a fire if you keep going.",
     "causes": [
@@ -412,10 +392,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Once cool, look under the car at the exhaust for melted plastic.",
-      "Check that the drive belt is in place and not shredded."
-     ],
+     "you": [],
      "shop": [
       "Drive belt and pulley inspection",
       "Wiring and fuse inspection",
@@ -430,10 +407,10 @@
     "urgency": "diy",
     "now": "Watch it for a few minutes. If the steam fades, has no smell and the temperature gauge stays in its normal spot, water burning off is the likely explanation. Check the coolant level the next time the engine is cold.",
     "if": [
-     "If it keeps steaming after 10 to 15 minutes of driving in dry weather, check the coolant level once the engine is cool.",
+     "If vapor returns in dry weather, park safely and switch off. Have the cooling system checked before driving again.",
      "If you notice a sweet smell, or the coolant level is below MIN, treat it as a coolant leak and get it checked.",
      "If the gauge climbs toward the red or a temperature warning light comes on, pull over and turn off the engine.",
-     "If the smoke turns dark, smells burnt or gets thicker, stop and get away from the car."
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away."
     ],
     "why": "Rain, a car wash or splashing through puddles leaves water on the hot engine and exhaust. It turns to light, odorless white steam that disappears quickly. That's common and usually stops on its own once things dry out.",
     "causes": [
@@ -498,10 +475,9 @@
    "result": {
     "title": "Treat it as overheating until you know it isn't",
     "urgency": "stop",
-    "now": "Pull over when it's safe, turn off the engine and wait at least 30 minutes before opening the hood. Don't open the radiator cap.",
+    "now": "Pull over safely and switch the engine off. Keep the hood closed. If smoke or a burning odor makes you suspect a fire, get everyone at least 100 feet away, clear of traffic, and call 911. If it is steam, stay back until it clears and arrange roadside help before restarting.",
     "if": [
-     "If you see flames or the smoke grows, get everyone away and call 911.",
-     "If, once cool, the coolant and oil levels are full, there are no leaks and nothing smells burnt, it may have been water steaming off. Have a mechanic confirm before you rely on the car."
+     "If you called the fire department, wait away from the vehicle until responders say it is safe."
     ],
     "why": "Without knowing the temperature reading or the smell, it's hard to rule out overheating, and driving an overheating engine can ruin it quickly. Stopping costs a few minutes; guessing wrong can cost the engine.",
     "causes": [
@@ -522,10 +498,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Once cool, check the coolant and oil levels.",
-      "Look under the car for fresh drips."
-     ],
+     "you": [],
      "shop": [
       "Cooling system pressure test",
       "Oil and coolant leak inspection",
@@ -561,6 +534,7 @@
  },
  "sources": [
   "https://www.usfa.fema.gov/prevention/vehicle-fires",
-  "https://www.acg.aaa.com/connect/blogs/5c/auto/why-is-my-car-overheating"
+  "https://www.acg.aaa.com/connect/blogs/5c/auto/why-is-my-car-overheating",
+  "https://techinfo.honda.com/rjanisis/pubs/OM/AH/AT902626IOM/enu/details/131293047-15886.html"
  ]
 }

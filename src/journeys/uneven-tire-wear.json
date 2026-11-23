@@ -24,8 +24,8 @@
  "intro": "The way a tire wears is a record of how it's been running. Edge wear, center wear, one-sided wear and choppy patches each point to a different cause, from tire pressure to alignment to worn suspension parts. Answer a few questions to narrow down the likely cause and how urgent it is.",
  "safety": [
   "If you can see fabric or steel cords, or a bulge on any tire, don't drive on it. Use the spare or call for help.",
-  "If the tread is worn down to the wear bars, replace the tire soon. Grip in rain and snow drops sharply.",
-  "If you hear clunking from the front end and the steering feels loose, have it checked before driving at speed."
+  "If tread is level with the wear bars or measures 2/32 inch or less anywhere, take that tire out of service. Arrange replacement before driving on it again.",
+  "If steering feels loose and the front end clunks, stop safely and arrange a steering and suspension inspection before driving again."
  ],
  "start": "q_tread_left",
  "nodes": {
@@ -147,9 +147,9 @@
   },
   "r_replace_soon": {
    "result": {
-    "title": "The tire is at or near the end of its life",
-    "urgency": "soon",
-    "now": "Plan to replace the tire within a few days. Drive gently, leave extra following distance, and avoid heavy rain or snow if you can.",
+    "title": "Tread worn to the wear bars needs replacement now",
+    "urgency": "stop",
+    "now": "At a wear bar or 2/32 inch or less, the tire is unsafe. Replace it before driving on it again. Use a suitable spare only if you can fit it safely, or call roadside assistance.",
     "if": [
      "If cords or a bulge appear, stop driving on it and use the spare.",
      "If the low spot is on one edge or in patches, have the alignment and suspension checked so new tires don't wear the same way.",
@@ -419,10 +419,10 @@
   "r_flat_spot": {
    "result": {
     "title": "A single flat spot often comes from a skid or a sticking brake",
-    "urgency": "check",
-    "now": "Have the tire and the brake on that wheel checked when convenient.",
+    "urgency": "stop",
+    "now": "If a patch is bald or down to a wear bar, take the tire out of service. Fit a suitable spare in a safe place or call roadside assistance. Have the tire and brake checked before driving again.",
     "if": [
-     "If that wheel feels much hotter than the others after driving, or the car pulls when braking, the brake may be dragging. Get it checked within a day or two.",
+     "If you already noticed one wheel unusually hot or the vehicle pulled under braking, leave it parked and tell the shop.",
      "If the flat spot goes deep or you feel a thump at speed, have the tire inspected. It may need replacing.",
      "If you smell burning or see smoke from a wheel, or the brake pedal feels different, pull over and have it checked before driving further."
     ],
@@ -446,7 +446,7 @@
     ],
     "confirm": {
      "you": [
-      "After a drive, hold your hand near (not on) each wheel to feel for one that's much hotter."
+      "While parked safely, inspect the visible tread for the bald spot or exposed cords."
      ],
      "shop": [
       "Brake inspection",

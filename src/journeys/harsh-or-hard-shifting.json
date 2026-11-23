@@ -26,7 +26,7 @@
  "safety": [
   "If you smell burning or see smoke, pull over, turn the engine off and step away from the car.",
   "If the car suddenly won't move or loses drive, get to the side of the road and have it towed.",
-  "If a transmission temperature warning comes on, pull over when it's safe and let it cool."
+  "If a transmission temperature warning comes on, stop safely and follow the cooling instructions in the dashboard message or owner's manual."
  ],
  "start": "q_signs",
  "nodes": {
@@ -179,7 +179,7 @@
     "urgency": "stop",
     "now": "Pull over when it's safe, turn the engine off and have the car towed.",
     "if": [
-     "If you see smoke, step away from the car. Fluid dripping on the exhaust can catch fire.",
+     "If you suspect a fire, turn the engine off once stopped, get everyone out, move at least 100 feet away from the vehicle and traffic, and call 911. Leave the hood closed.",
      "If it's only a few drops and there's no burning smell, check the level once the car is parked and cool, but still have it inspected before using the car.",
      "If the car loses drive or won't go into gear, don't try to restart and move it. Wait for the tow."
     ],
@@ -217,11 +217,10 @@
    "result": {
     "title": "The transmission may be overheating, or it has flagged a fault",
     "urgency": "stop",
-    "now": "Pull over when it's safe, put it in Park and let it cool. Then have it towed or call a mobile mechanic.",
+    "now": "Pull over as soon as it is safe. Once stopped, follow the exact transmission cooling instructions on the dashboard or in your owner's manual. Some vehicles need the engine off and others need it running in Park. Stay parked and call roadside assistance or a mobile mechanic. Tell them the exact warning and arrange an inspection before driving again.",
     "if": [
-     "If the light goes off after cooling, it still needs checking before you rely on the car.",
-     "If you smell burning or see smoke, turn the engine off and step away from the car.",
-     "If the car loses drive or the transmission slips, don't try to keep moving it. Wait for the tow."
+     "If you suspect a fire, turn the engine off once stopped, get everyone out, move at least 100 feet away from the vehicle and traffic, and call 911. Leave the hood closed.",
+     "If the engine temperature gauge is high too, switch the engine off once stopped. If the warning clears, keep the car parked for the inspection."
     ],
     "why": "Overheated transmission fluid breaks down and stops protecting the parts inside, which leads to harsh shifts, slipping and lasting damage. A warning light plus harsh shifting suggests the problem is already active, not just starting.",
     "causes": [
@@ -649,6 +648,9 @@
  "sources": [
   "https://www.acg.aaa.com/connect/blogs/5c/auto/how-to-check-and-maintain-your-transmission-fluid",
   "https://cars.com/articles/here-are-7-common-signs-of-transmission-failure-521043/",
-  "https://www.nhtsa.gov/recalls"
+  "https://www.nhtsa.gov/recalls",
+  "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/CG3654en-201909-20200128135830.pdf",
+  "https://ownersmanual.hyundai.com/full_webhelp/cn7/2026/en_us/id_glz_xft_4wb.html",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/"
  ]
 }

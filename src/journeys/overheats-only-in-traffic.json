@@ -47,8 +47,8 @@
    ]
   },
   "q_fan_running": {
-   "q": "With the engine warm and idling and the A/C turned on, is the radiator fan spinning?",
-   "help": "Look through the grille or open the hood and look behind the radiator. On most cars, turning on the A/C makes the electric fan run. Stay well clear of the blades.",
+   "q": "Did you already notice whether the cooling fan was running when the temperature rose?",
+   "help": "Use only a previous observation. Do not start the engine, open a hot hood or touch a fan to find out. Choose “I'm not sure” if needed.",
    "opts": [
     {
      "a": "No, it isn't spinning at all",
@@ -111,7 +111,7 @@
    "result": {
     "title": "It's overheating. Stop before it damages the engine",
     "urgency": "stop",
-    "now": "Pull over somewhere safe, turn the engine off and let it cool for at least 30 minutes. Then have it towed or call a mobile mechanic.",
+    "now": "Pull over safely and switch the engine off. Keep the hood closed while steam or spray is escaping. Leave all coolant caps in place until the engine and radiator are fully cold. Arrange roadside help or a tow before restarting.",
     "if": [
      "If you can't pull over yet, turn the A/C off and the heater on full hot with the fan on high. It pulls some heat away from the engine.",
      "If the oil pressure light comes on or the engine knocks, shut it off immediately.",
@@ -137,10 +137,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Once cool, check the overflow tank level and look for drips.",
-      "Note whether the fan was running when it overheated."
-     ],
+     "you": [],
      "shop": [
       "Cooling fan and relay test",
       "Cooling system pressure test",
@@ -153,10 +150,9 @@
    "result": {
     "title": "The cooling fan may not be turning on",
     "urgency": "stop",
-    "now": "Avoid driving it until the fan works, because without the fan it will overheat whenever you're stopped or in slow traffic. With the engine off, check the fan fuse. If the fuse is fine or the fan still won't run, have a mobile mechanic look at it or have it towed.",
+    "now": "Pull over safely if the temperature is rising and switch the engine off. Leave it off and arrange a cooling-system inspection before driving again. A mobile mechanic or tow avoids another overheat.",
     "if": [
-     "If the gauge reaches the red, a temperature warning comes on, or you see steam, pull over and turn the engine off right away.",
-     "If a fuse is blown, replacing it may get the fan working, but a fuse that blows again means something is drawing too much current. A shop will usually test the fan motor and wiring before replacing parts."
+     "If the gauge reaches the red, a temperature warning comes on, or you see steam, pull over and turn the engine off right away."
     ],
     "why": "When you're stopped there's no air rushing through the radiator, so the fan has to pull air through. A fan that never runs explains overheating that only happens in traffic and clears up once you're moving.",
     "causes": [
@@ -178,8 +174,7 @@
     ],
     "confirm": {
      "you": [
-      "Check the fan fuse in the under-hood fuse box, using the diagram on the lid or in your owner's manual.",
-      "Turn on the A/C with the engine warm and see whether the fan starts."
+      "With the engine off and fully cold, read the coolant level through the marked reservoir if it is visible. Leave the fan, its wiring and any belts untouched."
      ],
      "shop": [
       "Fan motor power and ground test",
@@ -192,11 +187,10 @@
   "r_fan_weak": {
    "result": {
     "title": "The cooling fan may be running, but not hard enough",
-    "urgency": "soon",
-    "now": "Have the fans checked within the next few days, and avoid long idling until then.",
+    "urgency": "stop",
+    "now": "Pull over safely if the temperature is rising and switch the engine off. Leave it off and arrange a cooling-system inspection before driving again. A mobile mechanic or tow avoids another overheat.",
     "if": [
      "If the gauge climbs toward the red, a temperature warning comes on, or you see steam, pull over and turn the engine off.",
-     "If the high fan speed never kicks in, the fault is often a relay or resistor rather than the motor.",
      "If you notice a sweet smell or coolant dripping, have it checked before driving again."
     ],
     "why": "Many cars use two fans or two fan speeds. If one fan or the high speed isn't working, there's enough airflow on a mild day but not in heat, heavy traffic or with the A/C on.",
@@ -219,7 +213,7 @@
     ],
     "confirm": {
      "you": [
-      "With the engine warm and the A/C on, check whether both fans spin."
+      "With the engine off and fully cold, read the coolant level through the marked reservoir if it is visible. Leave the fan, its wiring and any belts untouched."
      ],
      "shop": [
       "Fan speed and current draw test",
@@ -232,8 +226,8 @@
   "r_fan_clutch": {
    "result": {
     "title": "A worn fan clutch is a common cause",
-    "urgency": "soon",
-    "now": "Get the fan clutch checked within the next few days, and avoid towing and long idling until then.",
+    "urgency": "stop",
+    "now": "Pull over safely if the temperature is rising and switch the engine off. Leave it off and arrange a cooling-system inspection before driving again. A mobile mechanic or tow avoids another overheat.",
     "if": [
      "If the gauge reaches the red, a temperature warning comes on, or you see steam, pull over and turn the engine off.",
      "If the fan wobbles or the blades are cracked, don't drive it. A broken fan can damage the radiator."
@@ -258,8 +252,7 @@
     ],
     "confirm": {
      "you": [
-      "With the engine off and cold, give the fan a push and see how freely it spins.",
-      "Look for cracks or missing pieces in the fan shroud."
+      "With the engine off and fully cold, read the coolant level through the marked reservoir if it is visible. Leave the fan, its wiring and any belts untouched."
      ],
      "shop": [
       "Fan clutch engagement test",
@@ -298,8 +291,7 @@
     ],
     "confirm": {
      "you": [
-      "Top up and mark the level, then check it again after a few days.",
-      "Put cardboard under the engine overnight to spot drips."
+      "Check the coolant level through the marked reservoir only when the engine is fully cold."
      ],
      "shop": [
       "Cooling system pressure test",
@@ -311,12 +303,12 @@
   },
   "r_check_coolant": {
    "result": {
-    "title": "Start by checking the coolant and the fan",
-    "urgency": "diy",
-    "now": "With the engine fully cold, check that the overflow tank is between MIN and MAX. Then warm the engine, turn on the A/C, and see whether the radiator fan spins.",
+    "title": "Check the cold coolant level and arrange an inspection",
+    "urgency": "stop",
+    "now": "Leave the engine off. Once it is fully cold, read the coolant reservoir level from outside the tank. A normal level cannot rule out a cooling fault. Have the car inspected before driving again.",
     "if": [
      "If the coolant is low, top it up with the right coolant once the engine is cold, and have it checked before relying on the car.",
-     "If the fan doesn't spin, get the fan checked before driving in traffic.",
+     "Ask the shop to test fan operation. Leave the engine off until it is checked.",
      "If the gauge reaches the red, a temperature warning comes on, or you see steam at any point, pull over and turn the engine off."
     ],
     "why": "Overheating only at idle usually comes down to a fan that isn't moving enough air or a cooling system that's low on coolant. Both are quick checks once you know where to look, as long as the engine is cold for the coolant check and you stay clear of the fan.",
@@ -339,8 +331,7 @@
     ],
     "confirm": {
      "you": [
-      "Check the coolant level when cold.",
-      "Watch for the fan with the engine warm and the A/C on."
+      "With the engine off and fully cold, read the coolant level through the marked reservoir if it is visible. Leave the fan, its wiring and any belts untouched."
      ],
      "shop": [
       "Cooling fan test",
@@ -352,10 +343,9 @@
   "r_blocked_airflow": {
    "result": {
     "title": "Not enough air is getting through the radiator",
-    "urgency": "check",
-    "now": "Look at the front of the radiator and A/C condenser through the grille for leaves, bugs or dirt, and book a cooling system check.",
+    "urgency": "stop",
+    "now": "Pull over safely if the temperature is rising and switch the engine off. Leave it off and arrange a cooling-system inspection before driving again. A mobile mechanic or tow avoids another overheat.",
     "if": [
-     "If you find debris, gently rinse it with a garden hose at low pressure. Don't use a pressure washer, which can flatten the fins.",
      "If the gauge starts reaching the red, a temperature warning comes on, or you see steam, pull over, turn the engine off, and have it checked before driving again."
     ],
     "why": "The A/C condenser sits in front of the radiator and shares the same airflow. When both the engine and the A/C struggle only at idle, something is limiting the air the fan can pull through, or the fan isn't pulling as hard as it should.",
@@ -378,8 +368,7 @@
     ],
     "confirm": {
      "you": [
-      "Look through the grille at the condenser and radiator.",
-      "Check that the plastic shroud around the fan is intact."
+      "With the engine off and fully cold, read the coolant level through the marked reservoir if it is visible. Leave the fan, its wiring and any belts untouched."
      ],
      "shop": [
       "Fan speed test",
@@ -392,8 +381,8 @@
   "r_internal_flow": {
    "result": {
     "title": "The radiator or coolant flow may be weak",
-    "urgency": "soon",
-    "now": "Get the cooling system checked within the next few days, and avoid long idling until then.",
+    "urgency": "stop",
+    "now": "Pull over safely if the temperature is rising and switch the engine off. Leave it off and arrange a cooling-system inspection before driving again. A mobile mechanic or tow avoids another overheat.",
     "if": [
      "If it starts running hot at highway speed too, stop driving it and have it towed.",
      "If the heater blows cold while the gauge is high, coolant isn't circulating. Don't drive it.",
@@ -419,7 +408,7 @@
     ],
     "confirm": {
      "you": [
-      "Note how long it takes to heat up at idle."
+      "With the engine off and fully cold, read the coolant level through the marked reservoir if it is visible. Leave the fan, its wiring and any belts untouched."
      ],
      "shop": [
       "Radiator temperature scan with an infrared thermometer",
@@ -433,11 +422,10 @@
   "r_unsure": {
    "result": {
     "title": "Often a fan or airflow problem. Have it checked",
-    "urgency": "soon",
-    "now": "Book a cooling system check within the next few days, and avoid idling and heavy traffic until then.",
+    "urgency": "stop",
+    "now": "Pull over safely if the temperature is rising and switch the engine off. Leave it off and arrange a cooling-system inspection before driving again. A mobile mechanic or tow avoids another overheat.",
     "if": [
-     "If the gauge reaches the red or you see steam, pull over and turn the engine off.",
-     "If you can safely see that the fan never spins with the engine hot, tell the shop. It narrows things down fast."
+     "If the gauge reaches the red or you see steam, pull over and turn the engine off."
     ],
     "why": "Running hot only when stopped means the cooling system can't get rid of heat without help from moving air. The fan, airflow through the radiator, or coolant flow is the usual cause.",
     "causes": [
@@ -459,7 +447,7 @@
     ],
     "confirm": {
      "you": [
-      "Check the coolant level when cold."
+      "With the engine off and fully cold, read the coolant level through the marked reservoir if it is visible. Leave the fan, its wiring and any belts untouched."
      ],
      "shop": [
       "Cooling fan test",
@@ -494,6 +482,8 @@
  },
  "sources": [
   "https://www.aaa.com/autorepair/articles/car-overheating-8-causes-and-solutions",
-  "https://www.aa1car.com/carQA/cooling_system_faqs.htm"
+  "https://www.aa1car.com/carQA/cooling_system_faqs.htm",
+  "https://techinfo.honda.com/rjanisis/pubs/OM/AH/AT902626IOM/enu/details/131293047-15886.html",
+  "https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?ProcUid=G1830389&Uid=G1847290&buildtype=web&countryCode=USA&div=f&languageCode=en&moidRef=G1827055&userMarket=USA&vFilteringEnabled=False&variantid=4486"
  ]
 }

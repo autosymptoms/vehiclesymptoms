@@ -26,7 +26,8 @@
   "If you see smoke from a wheel or smell strong burning, pull over safely and let the brakes cool before going near them.",
   "If the brake pedal goes soft or sinks, or the car is much harder to stop, stop driving and have it towed.",
   "If the red brake warning light stays on with the parking brake fully released, have the brakes checked before driving.",
-  "Never touch a brake rotor or wheel to test it. It can be hot enough to burn you."
+  "Never touch a brake rotor or wheel to test it. It can be hot enough to burn you.",
+  "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
  ],
  "start": "q_what_happens",
  "nodes": {
@@ -112,9 +113,8 @@
    "result": {
     "title": "A brake may be overheating, possibly from sticking on",
     "urgency": "stop",
-    "now": "Pull over somewhere safe, turn off the engine and let the brakes cool for at least 30 minutes. Then have the car towed or call a mobile mechanic.",
+    "now": "Pull over safely and switch off the vehicle. If you suspect a fire, including smoke that continues or visible flames, get everyone at least 100 feet away and clear of traffic and call 911. If there is only a hot smell, stay clear of the wheel and arrange a tow or mobile brake inspection before driving again.",
     "if": [
-     "If there are flames, get everyone away from the car and call 911.",
      "If it happened only after a long, steep downhill with heavy braking and all the wheels were hot, the brakes may have overheated from use rather than sticking. Overheating can still damage pads, rotors and fluid, so have them checked before driving further. On long hills, use a lower gear.",
      "If the brake pedal felt soft, sank, or the car took longer to stop, the brakes may not work normally even after cooling. Don't drive it.",
      "If you see fluid around the inside of a wheel, tell the shop. A brake fluid leak can lead to brake failure."
@@ -139,8 +139,7 @@
     ],
     "confirm": {
      "you": [
-      "Make sure the parking brake is fully released.",
-      "Once cool, look for fluid around the inside of each wheel."
+      "Tell the shop what you saw from a safe distance."
      ],
      "shop": [
       "Caliper and slide pin inspection",
@@ -158,7 +157,7 @@
     "if": [
      "If the brakes release after the car sits and cools, then drag again after driving, tell the shop. It can point to the master cylinder or the brake fluid.",
      "If anyone recently added fluid, tell the shop what was used. The wrong fluid can make seals swell.",
-     "If you smell burning or see smoke from any wheel, keep everyone clear of the hot wheels and let them cool before anyone goes near them."
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
     ],
     "why": "When every wheel drags at once, the cause is often in the parts shared by all four brakes: the master cylinder, the brake booster, or the fluid itself. Brakes that won't release can overheat quickly and then fade when you need them.",
     "causes": [
@@ -191,10 +190,10 @@
   "r_caliper": {
    "result": {
     "title": "A sticking brake caliper is a likely cause",
-    "urgency": "soon",
-    "now": "Have the brakes checked within a few days. Drive only short, gentle trips until then.",
+    "urgency": "stop",
+    "now": "If the brake is still dragging, a wheel is unusually hot or the vehicle pulls, stop safely and keep it parked. Arrange a tow or an inspection where it is before driving again.",
     "if": [
-     "If you smell burning or see smoke, stop and let it cool, then have it towed.",
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle.",
      "If the pull gets stronger, the pedal feels soft or different, or the car takes longer to stop, stop driving it and have it towed.",
      "If the red brake warning light comes on, stop driving and have the brakes checked before going further."
     ],
@@ -218,8 +217,7 @@
     ],
     "confirm": {
      "you": [
-      "After a short drive, compare how much heat each wheel gives off, without touching them.",
-      "Look for brown or black brake dust heavier on one wheel."
+      "From a safe spot, note which wheel appeared affected and tell the shop about any recent brake work."
      ],
      "shop": [
       "Raise the car and spin each wheel by hand",
@@ -233,11 +231,11 @@
   "r_parking_brake": {
    "result": {
     "title": "The parking brake may not be fully releasing",
-    "urgency": "soon",
-    "now": "Make sure the lever or pedal is fully released, then have the rear brakes checked within a few days. Drive only short, gentle trips until then.",
+    "urgency": "stop",
+    "now": "If the brake is still dragging, a wheel is unusually hot or the vehicle pulls, stop safely and keep it parked. Arrange a tow or an inspection where it is before driving again.",
     "if": [
      "If it's stuck after a cold, wet night, it may free up once the car warms. Have the cables checked anyway, since it will likely happen again.",
-     "If you smell burning or see smoke from the rear, stop and have it towed.",
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle.",
      "If the red brake light stays on after the parking brake is fully released, or the pedal feels soft, don't drive it until the brakes are checked. That can mean low brake fluid."
     ],
     "why": "Parking brake cables can rust or freeze, and the springs or parts inside rear brakes can stick. When they don't fully release, the rear brakes keep rubbing, overheat and wear quickly.",
@@ -260,8 +258,7 @@
     ],
     "confirm": {
      "you": [
-      "Check the lever or pedal goes all the way to its released position.",
-      "Compare heat from the rear wheels after a short drive, without touching them."
+      "From a safe spot, note which wheel appeared affected and tell the shop about any recent brake work."
      ],
      "shop": [
       "Parking brake cable inspection",
@@ -357,10 +354,10 @@
   "r_after_repair": {
    "result": {
     "title": "Something from the recent brake work may be binding",
-    "urgency": "soon",
-    "now": "Take it back to the shop that did the work within a few days, and tell them which wheel is hot or noisy. Drive only short, gentle trips until then.",
+    "urgency": "stop",
+    "now": "If the brake is still dragging, a wheel is unusually hot or the vehicle pulls, stop safely and keep it parked. Arrange a tow or an inspection where it is before driving again.",
     "if": [
-     "If you smell burning or see smoke, stop and have it towed.",
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle.",
      "If the pedal feels soft or sinks, stop driving and have it towed.",
      "If the red brake warning light comes on or the car takes longer to stop, stop driving and have it towed."
     ],
@@ -384,7 +381,7 @@
     ],
     "confirm": {
      "you": [
-      "Note which wheel is warmest after a short drive, without touching it."
+      "From a safe spot, note which wheel appeared affected and tell the shop about any recent brake work."
      ],
      "shop": [
       "Recheck pad fit and slide pins",
@@ -402,7 +399,7 @@
     "if": [
      "If you hear a hum or growl that changes when you steer, a wheel bearing is a possibility. Get it checked sooner.",
      "If the engine revs but the car is slow to pick up speed, the transmission may be slipping.",
-     "If you notice a burning smell, smoke, or one wheel much hotter than the others, treat it as a dragging brake: pull over, let it cool, and don't drive further until it's checked.",
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle.",
      "If the brake pedal feels high, hard, soft or different, have the brakes checked before driving further."
     ],
     "why": "If no wheel is hotter than the others, a single sticking brake is less likely, but the hand test is rough and can't rule it out. Low tires, a worn wheel bearing, or an engine or transmission problem can also make a car feel sluggish or coast poorly. A shop can spin each wheel on a lift to check.",
@@ -439,10 +436,10 @@
   "r_unsure": {
    "result": {
     "title": "Have the brakes checked to find which wheel is dragging",
-    "urgency": "soon",
-    "now": "Make sure the parking brake is fully released, then have the brakes inspected within a few days. Drive only short, gentle trips until then.",
+    "urgency": "stop",
+    "now": "If the brake is still dragging, a wheel is unusually hot or the vehicle pulls, stop safely and keep it parked. Arrange a tow or an inspection where it is before driving again.",
     "if": [
-     "If you notice smoke, a strong burning smell, or the pedal feels different, stop driving and have it towed.",
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle.",
      "If the car pulls to one side, get it checked within a few days.",
      "If the red brake warning light comes on, have the brakes checked before driving further."
     ],
@@ -466,8 +463,7 @@
     ],
     "confirm": {
      "you": [
-      "Check the parking brake is fully released.",
-      "Look for one wheel with much more brake dust than the others."
+      "From a safe spot, note which wheel appeared affected and tell the shop about any recent brake work."
      ],
      "shop": [
       "Spin each wheel by hand on a lift",
@@ -503,6 +499,9 @@
  },
  "sources": [
   "https://knowhow.napaonline.com/what-are-the-signs-of-a-frozen-brake-caliper/",
-  "https://prnewswire.com/news-releases/car-care-council-are-your-brakes-trying-to-tell-you-something-300309286.html"
+  "https://prnewswire.com/news-releases/car-care-council-are-your-brakes-trying-to-tell-you-something-300309286.html",
+  "https://mwg.aaa.com/via/car/brake-check-service-tips",
+  "https://assets.goaaa.com/image/upload/v1698431472/AAA_Guide_CarCare_final.pdf",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/"
  ]
 }

@@ -24,7 +24,8 @@
  "safety": [
   "If the brake pedal feels soft, sinks toward the floor, or the red brake warning light comes on, stop driving and get help.",
   "If you smell burning or see smoke from a wheel, pull over safely and let the brakes cool. Don't keep driving.",
-  "If you hear loud metal-on-metal grinding when braking, stop driving it. Your brakes may be worn through."
+  "If you hear loud metal-on-metal grinding when braking, stop driving it. Your brakes may be worn through.",
+  "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
  ],
  "start": "q_warning",
  "nodes": {
@@ -110,7 +111,7 @@
      "If the red brake warning light is on or the brake fluid is low, that adds to the evidence of a leak or worn brakes. Don't top it off and drive.",
      "Not finding a leak doesn't mean the brakes are safe. Fluid can leak inside the system or somewhere you can't see.",
      "If the car pulls hard to one side, a caliper or brake hose on one side may be stuck or failing.",
-     "If you smell burning or see smoke from a wheel, keep away from it until it cools."
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
     ],
     "why": "A soft or sinking pedal can mean the brakes don't have enough hydraulic pressure to stop the car, and a hard pull can mean one side is braking much more than the other. Either can get worse without warning, so the car shouldn't be driven until it's inspected.",
     "causes": [
@@ -152,7 +153,7 @@
     "if": [
      "If the grinding only happened once after the car sat in the rain, it may have been surface rust. If it happens again, or you're unsure, have the brakes inspected before driving further.",
      "If the brake pedal also feels soft or sinks, the red brake light is on, or the car pulls hard, don't drive it at all.",
-     "If you smell burning or see smoke from a wheel, keep away from it until it cools."
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
     ],
     "why": "Grinding when braking often means the pad material is gone and metal is scraping the rotor. That can reduce braking power and quickly gouges the rotor, which causes shaking. The longer it goes, the worse and more costly the damage. A shop will measure the pads and rotors to confirm what is worn.",
     "causes": [
@@ -188,9 +189,8 @@
    "result": {
     "title": "A brake may be sticking and overheating",
     "urgency": "stop",
-    "now": "Pull over safely and let the brakes cool. Then have the car towed or have a mobile mechanic check it.",
+    "now": "Pull over safely and switch off the vehicle. If you suspect a fire, including smoke that continues or visible flames, get everyone at least 100 feet away and clear of traffic and call 911. If there is only a hot smell, stay clear of the wheel and arrange a tow or mobile brake inspection before driving again.",
     "if": [
-     "If you see flames or heavy smoke, get away from the car and call for help.",
      "If the pedal feels soft, sinks, or braking takes much more force, don't drive it. Overheated brakes can fade.",
      "Even if the smell happened once after a long downhill stretch and goes away after cooling, have the brakes inspected before driving far. A brake that overheats once can do it again."
     ],
@@ -214,8 +214,7 @@
     ],
     "confirm": {
      "you": [
-      "Make sure the parking brake is fully released.",
-      "After the car cools, carefully hold your hand near (not on) each wheel to compare heat."
+      "Tell the shop which side pulled or smelled hot before you parked. Stay clear of the brakes and wheels."
      ],
      "shop": [
       "Caliper and slide pin inspection",
@@ -413,6 +412,7 @@
  },
  "sources": [
   "https://www.powerstop.com/resources/pulsing-vibrating-brake-pedal-dtv/",
-  "https://www.nhtsa.gov/recalls"
+  "https://www.nhtsa.gov/recalls",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/"
  ]
 }

@@ -23,8 +23,8 @@
  ],
  "intro": "An engine that won't shut off can be anything from a normal cooling fan to a shifter that isn't quite in Park to an electrical fault that keeps the engine powered. What you see and hear right after you switch off narrows it down quickly. Answer the questions below for possible causes and the safest next step.",
  "safety": [
-  "If the engine won't stop in a garage, open the garage door and get everyone out. Exhaust fumes can build up quickly.",
-  "If the engine revs higher and higher on its own, get people away from the vehicle and call for help.",
+  "If the engine stays on in a garage, get everyone into fresh air, including anyone in an attached home. Call 911 from outside if a carbon monoxide alarm sounds or anyone feels ill.",
+  "If engine speed rises uncontrollably while parked, get everyone away from the vehicle and call 911 from a safe place.",
   "If the gas pedal sticks while driving, shift to Neutral, brake firmly, steer to a safe spot, then shut the engine off."
  ],
  "start": "q_what_happens",
@@ -137,12 +137,10 @@
    "result": {
     "title": "An electrical fault may be keeping the engine powered",
     "urgency": "stop",
-    "now": "Don't drive it. Put it in Park with the parking brake on, turn the key to ON and back to OFF firmly, and if it keeps running, call roadside assistance or a mobile mechanic.",
+    "now": "Once safely stopped, keep your foot on the brake, secure the vehicle with the parking brake, and use the normal shutdown procedure in your owner's manual. If the engine stays on, call roadside assistance.",
     "if": [
-     "If you're comfortable with the fuse box, pulling the fuel pump fuse or relay (shown in the owner's manual) will usually make the engine stall within a few seconds.",
-     "If it's a manual, you can stall it: with the parking brake on and your foot hard on the brake, put it in a high gear and release the clutch.",
-     "If it's in a closed space, open the doors or garage door right away and get everyone out.",
-     "If you smell burning plastic or see smoke from the dash, steering column or fuse box, get out, step away and call for help."
+     "If the engine stays on in a garage, get everyone into fresh air, including anyone in an attached home. Call 911 from outside if a carbon monoxide alarm sounds or anyone feels ill.",
+     "If you suspect a fire, get everyone out and at least 100 feet away, clear of traffic. Call 911 and leave the hood closed."
     ],
     "why": "On a modern car, turning the key off cuts power to the fuel and ignition systems. If the engine keeps running normally, something is still feeding that power, often a worn ignition switch or a relay stuck closed. A shop will test the switch, relays and wiring to find which. Until it's fixed, you can't count on being able to shut the engine off.",
     "causes": [
@@ -347,10 +345,10 @@
    "result": {
     "title": "The Start/Stop button or keyless system isn't responding",
     "urgency": "check",
-    "now": "Press and hold the Start/Stop button for a few seconds. That shuts off most cars even when a quick press doesn't. Book a check when convenient.",
+    "now": "Once safely parked, follow the shutdown procedure in your own vehicle's manual. If the engine still runs, secure the vehicle and call roadside assistance.",
     "if": [
-     "If holding the button doesn't shut it off, don't leave it running and don't drive it. Call roadside assistance or a mobile mechanic.",
-     "If the key fob battery is weak, replace it. Some cars act oddly when they can't read the fob."
+     "If the engine stays on in a garage, get everyone into fresh air, including anyone in an attached home. Call 911 from outside if a carbon monoxide alarm sounds or anyone feels ill.",
+     "If you suspect a fire, get clear of the vehicle and call 911."
     ],
     "why": "Push-button systems use a switch and a computer to decide when to shut down. A sticky button, a weak fob battery or a module fault can stop a short press from working, while a long press often overrides it.",
     "causes": [
@@ -372,9 +370,7 @@
     ],
     "confirm": {
      "you": [
-      "Try holding the button down for a few seconds.",
-      "Replace the key fob battery.",
-      "Check the owner's manual for the shutdown procedure."
+      "Check the instrument panel for a message about Park or the key fob and consult the owner's manual."
      ],
      "shop": [
       "Code scan of the keyless system",
@@ -428,11 +424,10 @@
    "result": {
     "title": "This may be a diesel engine runaway, which is an emergency",
     "urgency": "stop",
-    "now": "Get everyone away from the vehicle. If it's a manual and you can do it safely, hold the brakes hard, put it in the highest gear and release the clutch to stall the engine.",
+    "now": "If the parked engine is racing on its own and the normal shutdown control hasn't stopped it, get everyone away from the vehicle and traffic. Call 911 from a safe place. Do not try to stall the engine or work under the hood.",
     "if": [
-     "If there's fire or heavy smoke, move well away and call 911.",
-     "If the engine stops, don't restart it. Have it towed to a shop.",
-     "Don't reach into the engine bay or try to block the air intake by hand. The engine can pull in loose items and the parts are very hot."
+     "If you suspect a fire, keep everyone at least 100 feet away and leave the hood closed.",
+     "If the engine stops, leave it off and arrange a tow."
     ],
     "why": "A diesel engine can keep running and speeding up on fuel it isn't supposed to get, most often engine oil. The key can't shut off that fuel supply, and the engine can overspeed until it fails badly.",
     "causes": [
@@ -466,7 +461,7 @@
    "result": {
     "title": "Find out whether the engine is truly still running",
     "urgency": "check",
-    "now": "After switching off, watch the tachometer and check for exhaust at the tailpipe. Then book a check and tell the shop what you saw.",
+    "now": "When safely parked outdoors, use the dashboard to tell the shop what stayed on. If the engine is still running and normal shutdown doesn't work, call roadside assistance.",
     "if": [
      "If the engine clearly keeps running with the key off, don't drive it. Call roadside assistance or a mobile mechanic.",
      "If it's just a fan or whirring noise that stops within several minutes, that's often normal. Mention it to the shop if the temperature gauge has been running high."
@@ -491,7 +486,7 @@
     ],
     "confirm": {
      "you": [
-      "Record a short video with sound right after you switch off. It helps the shop a lot."
+      "From a safe place, tell the shop what you noticed."
      ],
      "shop": [
       "Code scan",
@@ -526,6 +521,9 @@
  },
  "sources": [
   "https://en.wikipedia.org/wiki/Dieseling",
-  "https://www.nhtsa.gov/recalls"
+  "https://www.nhtsa.gov/recalls",
+  "https://vehicleinfo.mopar.com/assets/publications/en-us/Ram/2022/2500_3500/om_html/GUID-A668696D-BF20-4007-85BA-37160B0FC27F.html",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/",
+  "https://stacks.cdc.gov/view/cdc/151490/cdc_151490_DS1.pdf"
  ]
 }

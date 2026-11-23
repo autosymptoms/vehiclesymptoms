@@ -214,7 +214,7 @@
   "faqs": [
    {
     "q": "Do my brakes still work with the ABS light on?",
-    "a": "Yes. Your ordinary brakes are separate and still work normally, which is why this light is amber and not red. What you have lost is the anti-lock part, the bit that stops the wheels locking up in a panic stop. Leave more room, brake earlier and more gently, and get it looked at soon."
+    "a": "If the red brake light is also on, the fluid is low or braking feels weak or different, stop safely and arrange a tow. If only the amber ABS light is on and braking feels normal, anti-lock assistance may be unavailable. Leave extra stopping distance and contact a shop promptly."
    },
    {
     "q": "Will I fail inspection with the ABS light on?",
@@ -222,7 +222,7 @@
    },
    {
     "q": "Is it safe to drive with the ABS light on in rain or snow?",
-    "a": "It is riskier than usual, and that is the part people underestimate. With the anti-lock system off, a hard stop on a wet or icy road can lock the wheels, and locked wheels will not steer. Slow down, double your following distance, and brake in steady light pressure rather than one hard push."
+    "a": "If braking feels weak or different, or the red brake light is also on, stop safely and arrange a tow. With only the amber ABS light, wheels may lock under hard braking, especially on slippery roads. Avoid unnecessary trips in poor conditions and arrange inspection."
    },
    {
     "q": "The ABS light came on right after I had tires or wheels done. Why?",
@@ -236,43 +236,26 @@
   "src": [
    "https://jerry.ai/car-repair/estimates/replace-a-wheel-speed-sensor/",
    "https://www.yourmechanic.com/estimates/jeep/wrangler/abs-speed-sensor-replacement",
-   "https://www.kbb.com/service-repair-guide/abs-module-replacement-costs"
+   "https://www.kbb.com/service-repair-guide/abs-module-replacement-costs",
+   "https://www.mazdausa.com/siteassets/global-resources/vehicle-resources/owner-manuals/2014/mazda3/2014-mazda3-owners-manual-vin-starting-with-3mz.pdf",
+   "https://mwg.aaa.com/via/car/brake-check-service-tips"
   ]
  },
  "battery-light": {
   "look": "A small red box in the instrument cluster shaped like a car battery, with two little posts on top and a plus and a minus sign inside it. Some makes color it amber instead, and some show words such as CHECK CHARGING SYSTEM, BATTERY or SERVICE BATTERY CHARGING SYSTEM in the message display. It has nothing to do with the key fob battery message, which usually shows a key symbol.",
-  "flash": "On some cars it flickers or glows dimly at idle and then goes out when you rev the engine or start driving. That points to a charging system that is only just keeping up, usually a slipping drive belt or an alternator on the way out, and it should be tested before it fails completely.",
+  "flash": "A charging warning that comes and goes while driving still needs prompt attention. Stop safely and call for advice before continuing. A flicker alone cannot identify the failed part.",
   "diy": [
    {
-    "t": "Look at the battery terminals",
-    "how": "With the engine off, open the hood and look at the two cable ends clamped to the battery posts. White, green or blue crusty powder around them, or a clamp that moves when you wiggle it by hand, can stop the battery charging properly. Note what you see and have a shop clean and tighten them, as loosening a battery cable yourself can set off warning lights and radio codes.",
-    "mins": "3 minutes",
-    "tools": "None"
-   },
-   {
-    "t": "Check the drive belt at the front of the engine",
-    "how": "With the engine off and cool, look at the wide ribbed rubber belt that loops around the pulleys at the front of the engine. If it is missing, hanging loose, shredded at the edges or shiny and glazed, the alternator is not being turned and that alone explains the light. Keep your hands clear of the belt and pulleys and just look.",
-    "mins": "3 minutes",
-    "tools": "None"
-   },
-   {
-    "t": "Watch your lights and dash at idle",
-    "how": "Sit in the car with it parked and the engine running and the gear selector in Park or Neutral, then switch the headlights on. If the headlights and dash lights visibly dim, or the dash flickers, the alternator is not producing enough to run the car. Tell the shop whether it got worse with the heater fan or air conditioning on.",
-    "mins": "3 minutes",
-    "tools": "None"
-   },
-   {
-    "t": "Get a free battery and charging test",
-    "how": "Most chain auto parts stores will test your battery and alternator in the parking lot at no charge, and it takes only a few minutes. Drive straight there without shutting the engine off if you are worried it will not restart. The printout they give you tells you whether the battery, the alternator or neither is at fault.",
-    "mins": "15 minutes",
+    "t": "Record what you saw",
+    "how": "Once safely parked, note the warning text and whether the lights dimmed, the steering changed or the temperature rose. Tell roadside assistance.",
+    "mins": "Once parked",
     "tools": "None"
    }
   ],
   "dont": [
-   "Don't shut the engine off at a gas station or store on the way to the shop; it may not restart.",
-   "Don't drive it at night or in bad weather if you can avoid it, because the headlights, wipers and defroster all die when the battery runs out.",
-   "Don't assume a new battery fixes it; a dead alternator will flatten a brand new battery in a day.",
-   "Don't ignore it because the car still starts fine, as the engine can stall anywhere once the charge runs out."
+   "Do not set off for home or a shop on the assumption that the battery will last.",
+   "Do not use repeated jump starts to continue the trip.",
+   "Keep clear of belts, fans and high-voltage cables. Follow the vehicle handbook for any checks once parked."
   ],
   "causes2": [
    {
@@ -291,7 +274,7 @@
    },
    {
     "name": "Broken or slipping drive belt",
-    "tell": "Often a squeal or chirp from the front of the engine, and usually the power steering goes heavy and the heater stops blowing warm at the same time because the belt drives those too. If the belt snapped, the engine temperature will start climbing as well.",
+    "tell": "A squeal or visible belt damage may accompany a charging warning on engines with a belt-driven alternator. A shared belt can also affect cooling or steering on some models.",
     "fix": "The belt is replaced, and the tensioner and idler pulleys are checked or replaced, since a worn tensioner is what let the belt slip in the first place.",
     "lo": 120,
     "hi": 500
@@ -318,32 +301,30 @@
   ],
   "reset": {
    "real": false,
-   "how": "There is nothing to reset here. This light is wired to the actual charging voltage, so it goes out by itself the moment the system charges properly again and stays on as long as it does not. Clearing codes with a scan tool does not repair anything, and the light comes straight back as soon as the engine is running.",
+   "how": "Follow the warning while it is active. Clearing a code or disconnecting the battery does not restore charging. A technician can confirm charging output after the fault is repaired.",
    "note": "On many cars built in the last ten years a new battery has to be registered to the car's computer, which is a separate step from resetting a light."
   },
   "faqs": [
    {
     "q": "Will a jump start fix the battery light?",
-    "a": "A jump gets the engine running, but if the alternator is the problem the car is living on whatever charge is left in the battery and will stall again, often within half an hour. Use the jump to get to a shop or a parts store, not to carry on with your day."
+    "a": "A jump start cannot establish that the charging system works. If the warning stays on when the vehicle is running or in READY, stay parked and arrange a charging-system test."
    },
    {
     "q": "How long can I drive with the battery light on?",
-    "a": "Plan on getting somewhere useful inside about fifteen to thirty minutes of running time, and less at night or in the rain. Switch off the radio, heated seats, air conditioning and any charging phones to stretch it. When the battery runs down the engine stalls and the power steering goes heavy."
+    "a": "If the charging warning appears while driving, get off the road at the first safe place. Call roadside assistance or your dealer before continuing. There is no dependable time or distance left."
    },
    {
     "q": "Is it the battery or the alternator?",
-    "a": "A battery problem usually shows up as slow or no cranking when you start the car, while an alternator problem shows up once it is running, with dimming lights and this warning. A free charging test at a parts store sorts it out in minutes and tells you which part to buy."
-   },
-   {
-    "q": "Will my car pass inspection with the battery light on?",
-    "a": "In states that inspect the dashboard, a lit charging warning is a fail. In emissions states the bigger issue is that low system voltage can stop the car's self-tests from finishing, so the computer is not ready to be tested at all."
+    "a": "The symbol alone cannot identify a bad part. A technician can check the battery, charging output, terminals and wiring using the procedure for your model."
    },
    {
     "q": "Is it safe to drive at night with this light on?",
-    "a": "It is the worst time to try. Headlights, wipers and the defroster draw the most power, so the battery runs down fastest, and when it goes you lose your lights as well as the engine. If it comes on after dark, get off the road and arrange a ride or a tow."
+    "a": "Stop at the first safe place; do not turn off lighting or equipment needed for visibility to extend the trip. Arrange assistance."
    }
   ],
   "src": [
+   "https://owners.honda.com/utility/download?path=%2Fstatic%2Fpdfs%2F2022%2FCivic+Hatchback%2F2022_Civic_5D_Dashboard_Details.pdf",
+   "https://techinfo.honda.com/rjanisis/pubs/OM/AH/A3D42424OM/enu/A3D42424OMEN.PDF",
    "https://mechanicbase.com/estimator/alternator-cost/",
    "https://jerry.ai/car-repair/estimates/battery-replacement/",
    "https://www.yourmechanic.com/estimates/toyota/rav4/alternator-belt-replacement"
@@ -462,14 +443,14 @@
   "look": "An amber circle standing for the brake disc, with short broken or dashed lines curving away from each side for the pads, sometimes with an exclamation mark inside. It looks much like the red brake system light, but that one has solid curved lines and is far more urgent. Many European cars show words instead, such as Brake pad wear or Check brake pads.",
   "diy": [
    {
-    "t": "Look at the pads through the wheel",
-    "how": "Stand beside the parked car and look through the gaps in the wheel at the shiny disc. You will see the pad squeezed against it inside a metal bracket. What you are judging is the thickness of the dark friction block, ignoring the steel backing plate behind it. Anything thinner than about an eighth of an inch is finished. Do all four wheels, turning the steering to full lock first to see the front ones better.",
+    "t": "Look for visible damage while parked",
+    "how": "Bent or damaged parts may be visible through a wheel, but a visible outer pad cannot tell you the thickness of the inner pad. Have the shop measure them.",
     "mins": "10 minutes",
     "tools": "A flashlight"
    },
    {
-    "t": "Listen to what the brakes are telling you",
-    "how": "Drive gently somewhere quiet with the windows down and brake a few times. A high pitched squeal as you slow down is the built in wear tab doing its job and matches the light. A deep grinding or scraping, or a noise you can feel through the pedal, means the material is gone and steel is cutting the disc. In that case stop driving it.",
+    "t": "Describe any sound you already noticed",
+    "how": "Tell the shop whether you heard squealing or grinding. If grinding or abnormal braking occurred, arrange a tow instead of driving to reproduce it.",
     "mins": "10 minutes",
     "tools": "None"
    },
@@ -480,8 +461,8 @@
     "tools": "None"
    },
    {
-    "t": "Compare one corner against the others",
-    "how": "Look at the pad thickness at every wheel and note any corner that is much worse than the rest. After a normal drive, hold the back of your hand near each wheel without touching it; one that throws off noticeably more heat than the others suggests a brake that is dragging. Tell the shop which corner it was, because that changes the repair from pads to a caliper.",
+    "t": "Report any signs of uneven braking",
+    "how": "If one wheel previously smelled hot or the vehicle pulled when braking, tell the shop. Avoid touching the brakes or going on a test drive.",
     "mins": "10 minutes",
     "tools": "None"
    },
@@ -548,11 +529,11 @@
   "faqs": [
    {
     "q": "How long can I drive with the brake pad wear light on?",
-    "a": "Usually a few hundred miles of ordinary driving, because the sensor triggers with a little material still left. Treat it as a reason to book the work this week, not this month. The moment you hear grinding, that window has closed and the car should not be driven."
+    "a": "If braking feels weaker, the pedal changes or the brakes grind, stop safely and arrange a tow. For a pad-wear warning alone, arrange prompt brake inspection. The light cannot tell you how many safe miles remain."
    },
    {
     "q": "Is the brake pad wear light the same as the red brake warning light?",
-    "a": "No. This amber one means the pads are worn and the brakes still work normally. A red brake light means the parking brake is on or the brake system itself has a problem, most often low fluid from a leak, and that one means do not drive the car until it is checked."
+    "a": "The amber pad-wear indicator and red brake-system warning mean different things. Arrange prompt inspection for the wear warning. Stop safely and arrange a tow if a red brake warning stays on, the brakes grind or stopping feels different."
    },
    {
     "q": "Will a brake pad warning light fail an inspection?",
@@ -570,7 +551,10 @@
   "src": [
    "https://www.repairsmith.com/estimates/brakes/brake-pad-sensor-replacement",
    "https://yourmechanic.com/services/brake-pads-replacement",
-   "https://ww1.aaa.com/autorepair/articles/how-much-to-replace-brake-pads"
+   "https://ww1.aaa.com/autorepair/articles/how-much-to-replace-brake-pads",
+   "https://assets.goaaa.com/image/upload/v1698431472/AAA_Guide_CarCare_final.pdf",
+   "https://owners-manual.mazda.com/gen/en/mazda3/mazda3_8jr6ee20e/contents/05050107.html",
+   "https://mwg.aaa.com/via/car/brake-check-service-tips"
   ]
  },
  "brake-warning-light": {
@@ -595,8 +579,8 @@
     "tools": "None"
    },
    {
-    "t": "Feel the pedal while parked",
-    "how": "With the car parked, the engine off and the transmission in Park, press the brake pedal and hold steady pressure on it for about fifteen seconds. It should stop firm and stay put. If it slowly sinks toward the floor, or feels spongy, do not drive the car anywhere. Call for a tow instead.",
+    "t": "Note any change in pedal feel",
+    "how": "Tell the shop if the pedal felt lower than usual, soft or slow to stop. A parked pedal check cannot clear a persistent red brake warning for driving.",
     "mins": "2 minutes",
     "tools": "None"
    },
@@ -663,11 +647,11 @@
   "faqs": [
    {
     "q": "Can I drive with the red brake light on?",
-    "a": "Only after you have proved it is the parking brake. Release the parking brake fully; if the light goes out, drive on. If it stays on, treat the car as unsafe until someone checks the fluid and the pedal, because this light also means the brakes may be losing the pressure they need to stop you."
+    "a": "If the red BRAKE light stays on after releasing the parking brake, or the pedal feels soft, sinks or stopping takes longer, stop safely and arrange a tow or mobile inspection. If only the parking-brake indicator was on, it goes out on release and braking has felt normal, that indicator alone is expected."
    },
    {
     "q": "My brake light is on but the brakes feel completely normal. Why?",
-    "a": "The usual answers are a parking brake that is not fully released, a fluid level that has crept just below the sensor as the pads wear, or a bad level sensor. Brakes can feel normal right up until they don't, so it is still worth checking the fluid and the pad thickness rather than waiting."
+    "a": "The parking brake, a low fluid level, a switch or another brake-system fault can trigger the red light. A normal-feeling pedal or normal fluid level cannot rule out a fault. Keep the vehicle parked if the light stays on after releasing the parking brake."
    },
    {
     "q": "Will my car pass inspection with the brake warning light on?",
@@ -685,7 +669,9 @@
   "src": [
    "https://www.jdpower.com/cars/shopping-guides/how-much-does-it-cost-to-replace-a-brake-master-cylinder",
    "https://nubrakes.com/blog/brake-line-repair-and-replacement-cost/",
-   "https://nubrakes.com/blog/brake-pad-replacement-costs/"
+   "https://nubrakes.com/blog/brake-pad-replacement-costs/",
+   "https://www.mazdausa.com/siteassets/global-resources/vehicle-resources/owner-manuals/2014/mazda3/2014-mazda3-owners-manual-vin-starting-with-3mz.pdf",
+   "https://mwg.aaa.com/via/car/brake-check-service-tips"
   ]
  },
  "def-light": {
@@ -1710,19 +1696,15 @@
   "faqs": [
    {
     "q": "Can I keep driving with the oil change light on?",
-    "a": "Yes. It is a reminder, not a fault, and the car drives exactly the same. Plan the oil change within the next few hundred miles rather than the next few thousand, and check the oil level on the dipstick in the meantime."
+    "a": "An oil-life or change-due message schedules maintenance. Follow the service interval or overdue instruction displayed for your vehicle. If low oil pressure or STOP ENGINE also appears, stop safely and switch off the engine."
    },
    {
     "q": "Does the oil change light reset itself after an oil change?",
     "a": "On most cars, no. Somebody has to reset it, either you or the shop. A handful of newer cars behave better, but even those usually expect a manual reset, so ask the shop to confirm they did it before you drive away."
    },
    {
-    "q": "Will the oil change light fail a state inspection?",
-    "a": "No. Inspections look at emissions faults and safety items, and a maintenance reminder is neither. The check engine light is the one that can fail you. Oil that has gone far too long can eventually cause a check engine light, which is a different problem."
-   },
-   {
     "q": "How many miles can I drive after the oil change light comes on?",
-    "a": "Most cars turn it on right at the interval or a little before, so a few hundred miles is normally fine. If the display says zero oil life or shows the service as overdue, stop putting it off. Low oil level is the part that actually damages an engine, so keep an eye on the dipstick."
+    "a": "The display or manufacturer’s maintenance schedule gives the service deadline. Different vehicles use different reminders, so the symbol alone does not give a universal mileage allowance."
    },
    {
     "q": "Is the oil change light the same as the oil pressure light?",
@@ -1730,6 +1712,7 @@
    }
   ],
   "src": [
+   "https://owners.honda.com/utility/download?path=%2Fstatic%2Fpdfs%2F2023%2FRidgeline%2FMY23_Ridgeline_Maintenance_Minder_System.pdf",
    "https://www.honda.ca/Content/ownermanuals/htmlPublication/ae9be7f305ee5610e7f305ee561086de020a____/20181026/GUID-4EA8356C-349E-45A2-962D-0C7FB879F222.html",
    "https://www.autocreditexpress.com/car-buying/resetting-your-maintenance-required-light/"
   ]
@@ -1818,43 +1801,41 @@
   ],
   "reset": {
    "real": false,
-   "how": "This is not a reset-style light. It is a live reading from a sensor or from the car's oil level monitor, so it goes out by itself once the level is back where it should be, usually after the engine has been started again or after a short drive. Clearing the message in the dash menu fixes nothing and it will come straight back while the oil is still low or the sensor is still faulty. The oil change reminder is a separate light, and that one is meant to be reset after the service.",
-   "note": "Some cars only re-measure the oil level once per trip or once the engine is warm, so allow a drive before judging whether the warning has really cleared."
+   "how": "Use the procedure for measuring oil level in your owner’s manual. Clearing a message does not fix a low level. If the warning remains with the level correct, contact a repairer before continuing.",
+   "note": "If an oil pressure warning appears, stop safely and turn off the engine. Do not take a test drive to clear it."
   },
   "faqs": [
    {
     "q": "Is the low oil level light the same as the oil pressure light?",
-    "a": "No, and this is the difference that matters most. The low oil level light is usually amber and means add oil soon. The oil pressure light is red, means the oil is no longer reaching the moving parts, and calls for pulling over and shutting the engine off right away. Both use an oil can symbol, so check the color and any wording."
+    "a": "A low-level warning calls for checking how much oil is in the engine. A low-pressure or STOP ENGINE warning calls for an immediate safe stop and engine shutdown. Read the message and your manual."
    },
    {
     "q": "How long can I drive with the low oil level light on?",
-    "a": "Think in terms of a short trip to get oil, not days of commuting. The engine still has oil pressure, but the margin is thin, and a low level on a corner or a hill can briefly starve the pump. Add the right oil the same day, and if you cannot, keep speeds and loads modest until you do."
+    "a": "Stop as soon as safely possible to check. The symbol does not establish how far the vehicle can be driven. If the level cannot be confirmed or the warning persists, contact roadside assistance or a repairer."
    },
    {
     "q": "What kind of oil do I add, and how much?",
-    "a": "Use the grade printed on the oil filler cap or in the owner's manual, such as 0W-20 or 5W-30, and a full synthetic if that is what the car calls for. Going from the low mark to the full mark usually takes about one quart on a small engine and up to two on a large one. Add it in halves and recheck, rather than emptying the bottle in at once."
+    "a": "Once parked on level ground with the engine off, follow your manual’s oil-level check and wait time. Use the dipstick or electronic display specified for your vehicle. If it reads low, add the specified oil in small amounts and recheck. Keep the level below or at the upper mark."
    },
    {
     "q": "Will it reset itself after I add oil?",
-    "a": "Yes, in almost every car. The light goes out on its own once the sensor or the oil monitor sees the right level, typically on the next start or after a mile or two of driving. If it is still on with a correct level, the sensor, its wiring or the monitoring software is at fault and the car needs a scan."
-   },
-   {
-    "q": "Does a low oil level light fail an inspection or an emissions test?",
-    "a": "On its own it does not, because inspections look at the check engine light and the emissions readiness monitors rather than oil level. The catch is that running low on oil for a long time can set other faults, and smoke from an oil-burning engine can fail a visible-smoke check in states that look for it."
+    "a": "Follow the vehicle-specific procedure for checking the level after topping up. If the warning persists with the level correct, contact a repairer before continuing."
    }
   ],
   "src": [
+   "https://www.volkswagen.co.uk/en/owners-and-services/my-car/warning-light/engine-oil-level.html",
    "https://www.yourmechanic.com/estimates/nissan/sentra/low-oil-level-sensor-replacement",
    "https://repairpal.com/estimator/bmw/535d/engine-oil-level-sensor-replacement-cost",
    "https://owners-manual.mazda.com/gen/en/mazda3/mazda3_8hc2eo19a/contents/08070330.html"
-  ]
+  ],
+  "flash": "On some models a flashing oil-level warning can indicate a sensor fault. Stop safely, check the level according to the manual and follow its instructions even if the level appears normal."
  },
  "power-steering-light": {
   "look": "It appears in the instrument cluster, usually amber. The common symbol is a steering wheel seen from the front with an exclamation mark beside it. Some cars show letters instead, EPS on Honda and Hyundai, EPAS or PS on others, and many newer cars simply print a message like Power Steering Fault or Service Power Steering in the driver display. A red version means assist has already dropped out.",
   "diy": [
    {
-    "t": "Shut the engine off and start it again",
-    "how": "Pull over somewhere safe, switch the engine fully off, wait about half a minute, then restart. Electric systems often shut the assist down for the rest of a trip after a dip in voltage and then come back fine. If the light stays on after two restarts, it is a real fault and not a glitch.",
+    "t": "Read the steering warning while parked",
+    "how": "Pull over safely first. Follow your owner’s manual for the exact warning. If the manual specifies one restart, do it while parked. If the warning remains or steering effort changed, contact the shop before driving again.",
     "mins": "5 minutes",
     "tools": "None"
    },
@@ -1877,8 +1858,8 @@
     "tools": "Fuse puller"
    },
    {
-    "t": "Feel how heavy the steering really is",
-    "how": "In an empty parking spot, with the engine running, the car in park and the parking brake on, turn the wheel slowly from side to side. If it moves with close to normal effort, assist is still working and you can drive carefully to a shop. If it takes both arms and real force, the car is dangerous to park and should be towed instead.",
+    "t": "Describe any change in steering",
+    "how": "Record whether the steering became unusually heavy, jerky or intermittent before you parked. Keep the vehicle parked and arrange a tow if steering changed unexpectedly.",
     "mins": "3 minutes",
     "tools": "None"
    }
@@ -1940,13 +1921,13 @@
   ],
   "reset": {
    "real": false,
-   "how": "No. This is a fault light, not a service reminder. Clearing the code turns the light out for a moment, but the car tests the steering system every time you start it, so the light comes back on that drive or the next one and the assist stays weak. The one thing that looks like a reset is the single-trip shutdown some electric systems do after a voltage dip. Shut the engine off, start it again, and if that was all it was the light stays out.",
+   "how": "There is no universal steering reset. Follow the instructions for the exact vehicle and warning. A warning that clears after restarting can still indicate an intermittent fault.",
    "note": "After a real repair, a steering column, rack or sensor normally has to be calibrated with a scan tool before the light will stay off."
   },
   "faqs": [
    {
     "q": "Can I still steer if the power steering light is on?",
-    "a": "Yes. The steering wheel is still connected to the wheels mechanically, you have only lost the help. At highway speed you may barely notice. At parking speed it can take both arms and real effort, and that is where people get caught out."
+    "a": "On many vehicles the steering still responds after assist is lost, but effort can rise sharply. If the vehicle is difficult to steer, bring it to a safe stop and arrange a tow. Follow the instructions for the exact warning and vehicle."
    },
    {
     "q": "Will the power steering light fail an inspection?",
@@ -1954,21 +1935,23 @@
    },
    {
     "q": "How long can I drive with the power steering light on?",
-    "a": "Think days, not weeks, and only while the steering still feels close to normal. If the assist has already dropped out and the wheel is heavy, drive straight to a shop or have it towed. The real risk is a tight turn or a sudden swerve you cannot make quickly enough."
+    "a": "If the steering is heavy, jerks, sticks or is hard to control, steer to a safe stop and arrange a tow. If steering feels normal, park safely, read the exact warning in your owner's manual and contact a shop promptly if it stays on."
    },
    {
     "q": "Does the power steering light reset itself?",
-    "a": "Sometimes. If the cause was a brief voltage dip or a one-off glitch, it goes out after you restart the engine and does not return. If it is back every trip, the car has stored a real fault and the light stays on until the repair is done."
+    "a": "There is no universal steering reset. Follow the instructions for the exact vehicle and warning. A warning that clears after restarting can still indicate an intermittent fault."
    },
    {
     "q": "Is it safe to drive at night or on the highway with this light on?",
-    "a": "The highway needs the least assist, so the car feels nearly normal there. The danger is at the ends of the trip, parking, a tight turn, or an emergency swerve. Keep both hands on the wheel, slow down earlier than usual, and skip long trips until it is fixed."
+    "a": "If assist is weak, intermittent or unpredictable, stop safely and arrange a tow. A wheel that feels lighter at speed does not establish that the car can be controlled in a sudden turn."
    }
   ],
   "src": [
    "https://www.yourmechanic.com/question/what-does-it-cost-to-repair-replace-the-electronic-power-steering-by-linda",
    "https://yourmechanic.com/estimates/ford/ranger/power-steering-pump-replacement",
-   "https://www.yourmechanic.com/services/steering-rack-transmission-replacement"
+   "https://www.yourmechanic.com/services/steering-rack-transmission-replacement",
+   "https://assets.goaaa.com/image/upload/v1698431472/AAA_Guide_CarCare_final.pdf",
+   "https://techinfo.honda.com/rjanisis/pubs/OM/AH/A2A154DOM/enu/A2A154DOM.pdf"
   ]
  },
  "service-light": {
@@ -2555,17 +2538,17 @@
  },
  "check-engine-light": {
   "look": "It sits in the main instrument cluster, usually near the middle, and is shaped like the side view of an engine block with small bumps along the top. It is almost always amber or yellow. Some makes skip the symbol and print the words SERVICE ENGINE SOON, CHECK ENGINE or ENGINE in the display, and a few show a plain outline of an engine with a lightning bolt or an exclamation mark inside it.",
-  "flash": "A flashing or blinking check engine light is more serious than a steady one. It means the engine is misfiring badly and unburned fuel is passing into the exhaust, which can overheat and ruin the catalytic converter in a matter of minutes. Ease off the gas, avoid towing or high speeds, drive only as far as you need to get somewhere safe, and have it looked at the same day.",
+  "flash": "A flashing check engine light or strong shaking while driving calls for a safe stop. Ease off the accelerator, park away from dry grass, switch off the engine and contact roadside assistance. If the light is steady and the car runs normally, avoid hard acceleration and arrange a prompt check following your owner’s manual.",
   "diy": [
    {
     "t": "Tighten the gas cap",
-    "how": "With the engine off, unscrew the fuel cap and screw it back on until it clicks at least once. Look at the rubber seal around the edge: if it is cracked, hard or missing, the cap is not sealing and needs replacing. A loose or worn cap is one of the most common reasons this light comes on, and the light may take a few days of normal driving to go out on its own.",
+    "how": "For a steady warning after refueling, check whether the filler cap, if fitted, is secure as the manual directs. A loose cap is one possible cause. A flashing light or rough running takes priority.",
     "mins": "2 minutes",
     "tools": "None"
    },
    {
     "t": "Get the trouble code read",
-    "how": "The engine computer stored a code that says which system it is unhappy about. Many chain parts stores will read it free in the parking lot in a couple of minutes, or you can plug in a cheap code reader yourself at the socket beneath the dash on the driver's side. Write the code down exactly, letter and all four digits, then look it up on our code lookup before you agree to any repair.",
+    "how": "Once parked, record the exact code if you already have a reader, or arrange a diagnostic check. The code identifies a system or condition to investigate. It does not establish which part to replace.",
     "mins": "10 minutes",
     "tools": "None, or a basic code reader"
    },
@@ -2574,16 +2557,10 @@
     "how": "Before you call anyone, make a short list of what the car is doing. Is the idle rough or shaky, is there a smell of fuel or rotten eggs, does it hesitate when you press the gas, is it using more fuel than usual, does it only happen when cold or when the air conditioning is on? A shop can get to the real fault far faster with that list, which keeps your diagnosis time down.",
     "mins": "5 minutes",
     "tools": "None"
-   },
-   {
-    "t": "Look for something obviously loose in the engine bay",
-    "how": "With the engine off and cool, open the hood and look across the top of the engine for a rubber air hose that has popped off, a plastic connector hanging loose, or an air filter box lid that is not clipped down. Push anything like that back on by hand until it seats. Do not pull wires apart to inspect them, and leave anything hot, pressurised or hidden from view for a shop.",
-    "mins": "5 minutes",
-    "tools": "None"
    }
   ],
   "dont": [
-   "Don't keep driving hard, carrying a heavy load or towing while the light is flashing; you can melt the catalytic converter and turn a modest repair into a very expensive one.",
+   "If the lamp flashes while driving, stop safely away from flammable material, turn off the engine and contact roadside assistance. Do not test it by deliberately driving under load.",
    "Don't disconnect the battery to make the light go away. The fault comes straight back and you wipe out the stored code a shop needs to find it.",
    "Don't let a steady light sit for months. A cheap sensor or small misfire left alone is what kills catalytic converters.",
    "Don't book an emissions test with the light on. In most states a lit check engine light is an automatic fail, test fee included."
@@ -2645,11 +2622,7 @@
   "faqs": [
    {
     "q": "How long can I drive with the check engine light on?",
-    "a": "If it is flashing, or the car is shaking, losing power or smells of fuel, pull over when it's safe and turn the engine off. If the light is steady and the car drives, idles and sounds normal, you can usually finish your trip and book a scan within the next week or so."
-   },
-   {
-    "q": "Will my car pass inspection with the check engine light on?",
-    "a": "In most states, no. An emissions or safety inspection that reads the engine computer fails the car automatically when the light is lit, whatever the reason. Fix the fault first, then drive the car for several days so the computer finishes its self-tests before you book the test."
+    "a": "A flashing check engine light or strong shaking while driving calls for a safe stop. Ease off the accelerator, park away from dry grass, switch off the engine and contact roadside assistance. If the light is steady and the car runs normally, avoid hard acceleration and arrange a prompt check following your owner’s manual."
    },
    {
     "q": "Does the check engine light reset itself?",
@@ -2657,7 +2630,7 @@
    },
    {
     "q": "Is it safe to drive at night with the check engine light on?",
-    "a": "The light itself has nothing to do with your lights, brakes or steering, so night driving is no more risky than daytime driving with it on. The real question is how the car is running. If it is misfiring or losing power, being stranded on a dark road is the danger, so get it sorted before a long night trip."
+    "a": "Use the same urgency cues at night. If the lamp is flashing, the car is shaking hard or power drops, stop safely and call for help. A steady light on a normally running car needs a prompt check."
    },
    {
     "q": "Why is my check engine light on with no symptoms?",
@@ -2665,6 +2638,8 @@
    }
   ],
   "src": [
+   "https://owners.honda.com/utility/download?path=%2Fstatic%2Fpdfs%2F2020%2FCivic+Sedan%2F2020_Civic_4D_Dashboard_Details.pdf",
+   "https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?ProcUid=G1841481&Uid=G1841480&buildtype=web&countryCode=USA&div=f&languageCode=en&moidRef=G539493&userMarket=USA&vFilteringEnabled=False&variantid=6303",
    "https://www.carpro.com/blog/carmd-top-10-reasons-for-a-check-engine-light-and-the-cost-to-repair",
    "https://vehicleservicepros.com/service-repair/news/53058791/10-most-common-check-engine-lightrelated-repairs",
    "https://www.cars.com/articles/whats-causing-your-check-engine-light-to-come-on-heres-10-common-culprits-421057"
@@ -2907,8 +2882,8 @@
   "flash": "On some cars the parking brake light blinks rather than staying on. A blinking light means the brake has not finished applying or releasing, so the car is not being held properly. Set it and release it once more, and if it keeps blinking, do not leave the car on a slope relying on it.",
   "diy": [
    {
-    "t": "Cycle the parking brake switch",
-    "how": "Park on flat ground, leave the car running and in Park, and keep your foot firmly on the brake pedal. Press the parking brake switch down to release, then pull it up to set, then release it again. Do that twice. Many cars clear a one-off glitch this way. If the light is still on after two tries, stop: pressing it over and over will not help.",
+    "t": "Use the normal release procedure while parked",
+    "how": "Park on level ground. Follow the owner's manual for the exact release instructions. If the warning persists or the brake will not release, call the shop or roadside assistance.",
     "mins": "3 minutes",
     "tools": "None"
    },
@@ -2925,8 +2900,8 @@
     "tools": "None"
    },
    {
-    "t": "Feel for a dragging rear wheel",
-    "how": "Drive slowly a few minutes, park, and hold the back of your hand a few inches away from each rear wheel without touching the brake parts. If one side gives off much more heat than the other, or there is a hot metal smell, the parking brake is still clamped on that corner. Don't keep driving it: that cause ruins pads and rotors quickly.",
+    "t": "Report signs of a dragging brake",
+    "how": "If the car was held back, pulled or smelled hot before you parked, leave it there and arrange assistance. Avoid touching a hot wheel or driving to test it.",
     "mins": "10 minutes",
     "tools": "None"
    },
@@ -2938,7 +2913,7 @@
    }
   ],
   "dont": [
-   "Don't park on a hill trusting this brake: use Park or first gear and turn the front wheels into the curb.",
+   "Avoid parking on a slope with an unreliable parking brake. Use a level site and follow the vehicle's instructions for securing it.",
    "Don't jab the switch repeatedly if the brake won't release: you can overheat the little motors at the rear wheels.",
    "Don't try to drag the car along with the brake stuck on: have it flatbedded instead.",
    "Don't let a shop fit rear brake pads without a scan tool, as the brake motors must be wound back and reset electronically."
@@ -3000,7 +2975,7 @@
   "faqs": [
    {
     "q": "Can I drive with the electronic parking brake light on?",
-    "a": "Usually yes for short trips, because this brake only holds the car when parked and does not stop you on the road. The catch is that it may not hold on a slope, so always leave the car in Park and turn the wheels into the curb. If a rear wheel drags or smells hot, stop driving and have it towed."
+    "a": "If the parking brake will not release, a wheel drags, the red brake warning stays on or stopping feels abnormal, keep the vehicle parked and call for assistance. For an isolated amber parking-brake fault, follow the model’s manual and contact the shop. Park on level ground since the brake may not hold."
    },
    {
     "q": "How do I release an electronic parking brake that is stuck on?",
@@ -3022,7 +2997,9 @@
   "src": [
    "https://www.volkswagen.co.uk/en/owners-and-services/my-car/warning-light/electric-electronic-parking-brake-fault.html",
    "https://ownersmanual.kia.com/full_webhelp/CT1/2026/en_RG/topics/t00448.html",
-   "https://www.yourmechanic.com/estimates/ford/escape/brake-caliper-replacement"
+   "https://www.yourmechanic.com/estimates/ford/escape/brake-caliper-replacement",
+   "https://owners-manual.mazda.com/gen/en/mazda3/mazda3_8jr6ee20e/contents/05050107.html",
+   "https://www.mazdausa.com/siteassets/global-resources/vehicle-resources/owner-manuals/2014/mazda3/2014-mazda3-owners-manual-vin-starting-with-3mz.pdf"
   ]
  },
  "epc-light": {
@@ -3247,45 +3224,25 @@
   ]
  },
  "exhaust-emission-light": {
-  "look": "It lives in the main instrument cluster and is always amber or yellow. Most European makes draw a small engine block seen from the side with two or three curls of exhaust gas trailing off it; others use a short exhaust pipe with puffs of smoke. Several Asian makes draw nothing and simply write EMISSION SYSTEM or CHECK EXHAUST in the message screen.",
-  "flash": "A flashing exhaust light means the engine is misfiring right now and unburned fuel is pouring into the catalytic converter, which can wreck it within a few miles. Ease off the accelerator, keep your speed down, and get it seen the same day.",
+  "look": "An engine-shaped symbol or an emissions-system message can indicate this warning. Use the exact wording, symbol and operating instructions in your manual.",
+  "flash": "A flashing check engine light or strong shaking while driving calls for a safe stop. Ease off the accelerator, park away from dry grass, switch off the engine and contact roadside assistance. If the light is steady and the car runs normally, avoid hard acceleration and arrange a prompt check following your owner’s manual.",
   "diy": [
    {
     "t": "Tighten the fuel cap and check its seal",
-    "how": "A loose or cracked fuel cap lets fuel vapour escape and sets emissions faults on a lot of cars. Open the fuel door, take the cap off, and put it back on until it clicks. Look at the rubber ring for cracks or grit while it is in your hand. If that was the cause, the light often goes out on its own after a few drives.",
+    "how": "For a steady warning after refueling, check whether the filler cap, if fitted, is secure as the manual directs. A loose cap is one possible cause. A flashing light or rough running takes priority.",
     "mins": "2 minutes",
     "tools": "None"
    },
    {
     "t": "Get the trouble code read",
-    "how": "Drive to a parts store that reads codes free, or plug a cheap code reader into the socket under the dash. Write down every number it reports, P0420 and the rest. Those numbers tell a shop which part of the exhaust is complaining, and they save you paying someone else to find out what you could have found out for nothing.",
+    "how": "Once parked, record the exact code if you already have a reader, or arrange a diagnostic check. The code identifies a system or condition to investigate. It does not establish which part to replace.",
     "mins": "15 minutes",
     "tools": "None, or a basic code reader"
-   },
-   {
-    "t": "Check the exhaust fluid level on a diesel",
-    "how": "If your diesel has a second, usually blue, filler cap next to the fuel filler, it uses exhaust fluid. Look at the dash readout for the level. Low fluid, or the wrong fluid in the tank, sets exhaust warnings on its own. Topping up from a sealed bottle of DEF or AdBlue is a job you can do standing at the filler.",
-    "mins": "10 minutes",
-    "tools": "A sealed bottle of DEF or AdBlue"
-   },
-   {
-    "t": "Listen for an exhaust leak",
-    "how": "With the car parked in park or neutral and the handbrake on, start it from cold and stand a few steps away from the front wheel. A ticking or puffing noise from beneath the front of the car often means a cracked pipe or a loose clamp, and air getting in there upsets the sensors. Do not touch any part of the exhaust: it is hot within a minute of starting.",
-    "mins": "5 minutes",
-    "tools": "None"
-   },
-   {
-    "t": "Look at the tailpipe smoke",
-    "how": "Start the car from cold and glance at the tailpipe from a few steps back. Thin white vapour on a cold morning is normal and clears as the engine warms. Thick black, blue, or sweet-smelling white smoke that does not clear is worth telling the shop about, because it narrows things down before the clock starts on diagnosis.",
-    "mins": "3 minutes",
-    "tools": "None"
    }
   ],
   "dont": [
-   "Don't keep driving hard with the light flashing. A few miles of misfire can destroy a catalytic converter.",
-   "Don't clear the code and head straight to an emissions test. The car has to re-run its own self-checks and will fail as not ready.",
-   "Don't let a cheap sensor fault sit for months. It very often takes the catalytic converter with it.",
-   "Don't assume it means the same as the check engine light on a European car. They are different warnings and both sets of codes need reading."
+   "If it flashes or the vehicle shakes strongly, get to a safe stopping place and contact roadside assistance.",
+   "Keep stored codes available for diagnosis. Check the manual for the exact symbol and warning text."
   ],
   "causes2": [
    {
@@ -3344,19 +3301,15 @@
   "faqs": [
    {
     "q": "Is this the same as the check engine light?",
-    "a": "On most American and Japanese cars, yes, because the check engine light covers emissions faults. Many European cars and a few Asian ones give the exhaust its own amber light so they can point you at the exhaust rather than the whole engine. If both are lit, have both sets of codes read."
-   },
-   {
-    "q": "Will my car pass an emissions test with this light on?",
-    "a": "In most states that test, no. An emissions warning lit at the time of the test fails the plug-in part of the test whatever the tailpipe reads. Clearing the code on the way there does not help either, because the test also checks that the car has finished its own self-checks."
+    "a": "It may be. Some manuals use “emission control” and “engine management” for the same lamp; others have separate diesel or exhaust warnings. Identify the exact symbol and message in your vehicle’s manual."
    },
    {
     "q": "How long can I drive with the exhaust emission light on?",
-    "a": "If it is steady and the car feels normal, a week or two of ordinary driving while you book it in is reasonable. If it is flashing, or the car has lost power, that is a same-day problem. A sensor fault ignored for months often ends up costing you a catalytic converter too."
+    "a": "A flashing check engine light or strong shaking while driving calls for a safe stop. Ease off the accelerator, park away from dry grass, switch off the engine and contact roadside assistance. If the light is steady and the car runs normally, avoid hard acceleration and arrange a prompt check following your owner’s manual."
    },
    {
     "q": "Why has the car suddenly lost power?",
-    "a": "Modern cars deliberately cut power when the exhaust reports a fault, to protect the catalytic converter or the particulate filter. It is called limp or reduced power mode. It is not damage in itself, and full power comes back once the fault is repaired."
+    "a": "Reduced power can accompany an engine or emissions fault. Stop safely and contact roadside assistance if the vehicle is shaking or cannot safely keep up with traffic."
    },
    {
     "q": "Does the light reset itself?",
@@ -3364,6 +3317,8 @@
    }
   ],
   "src": [
+   "https://www.volkswagen.co.uk/en/owners-and-services/my-car/warning-light/emission-control.html",
+   "https://owners.honda.com/utility/download?path=%2Fstatic%2Fpdfs%2F2020%2FCivic+Sedan%2F2020_Civic_4D_Dashboard_Details.pdf",
    "https://www.volkswagen.ie/en/owners-and-services/customer-information/warning-and-indicator-lamps/warning-and-indicator-lamps-for-combustion-vehicles/exhaust-system.html",
    "https://repairpal.com/oxygen-sensor-replacement",
    "https://www.repairpal.com/estimator/audi/tt/emission-system-diagnosis-testing"
@@ -3823,38 +3778,38 @@
   ]
  },
  "oil-pressure-light": {
-  "look": "A red symbol low in the instrument cluster, often near the temperature gauge, shaped like an old-fashioned oil can tipped forward with a single drop falling from the spout. Some makes add a short wavy line beneath the drop. Others show no symbol and print LOW OIL PRESSURE in the driver display. Watch the color: the same oil can in amber usually means a low oil level or a service reminder, not lost pressure.",
-  "flash": "On some cars the light flickers or blinks instead of staying on, typically at idle, when braking or going round a bend. That pattern almost always means the oil level is low enough that the pump is briefly sucking air as the oil sloshes away from the pickup. It is still a stop-and-check light, not a glitch, and it usually turns solid if you keep driving.",
+  "look": "The symbol often resembles a tipped oil can with a drop. Read the full dash message and check your owner’s manual. A low pressure or STOP ENGINE warning takes priority even if the color or design differs.",
+  "flash": "If the oil pressure warning appears or flickers while the engine is running, pull over safely and switch the engine off. If the oil level is correct, the warning persists, or you cannot check it, leave the engine off and arrange roadside help.",
   "diy": [
    {
     "t": "Check the oil level on the dipstick",
-    "how": "Park on level ground, switch the engine off and wait about five minutes for the oil to drain back down. Pull the dipstick out, wipe it clean, push it fully home, then pull it again and read where the oil film ends. It should sit between the two marks or inside the crosshatched area. If no oil shows on the stick at all, the level is dangerously low and the engine must not be restarted.",
+    "how": "Once parked on level ground with the engine off, follow your manual’s oil-level check and wait time. Use the dipstick or electronic display specified for your vehicle. If it reads low, add the specified oil in small amounts and recheck. Keep the level below or at the upper mark.",
     "mins": "5 minutes",
     "tools": "A rag or paper towel"
    },
    {
     "t": "Add the correct oil if the level is low",
-    "how": "Find the grade in your owner's manual or on the oil filler cap, something like 5W-30 or 0W-20, and buy that. With the engine off and cool, unscrew the filler cap on top of the engine and pour in about a quart, wait two minutes, then re-check the dipstick. Repeat until the level reaches the upper mark and stop there, because overfilling causes its own problems.",
+    "how": "Use oil meeting the manufacturer’s specification, add small amounts and recheck using the manual’s procedure. Do not start the engine just to see if the oil pressure warning clears. Follow the vehicle-specific instructions or get roadside advice.",
     "mins": "10 minutes",
     "tools": "Correct oil and a funnel"
    },
    {
     "t": "Look for where the oil went",
-    "how": "Walk around the car and look at the ground where it has been parked for fresh dark wet patches. With the engine off and cool, look over the top of the engine for oil streaks or a wet filler cap. Then think back: has the exhaust been smoking blue, and when was the last oil change? A car that is losing or burning oil will empty itself again within weeks, so the leak matters as much as the top-up.",
+    "how": "Once safely parked, note any fresh oil visible where you parked or a recent oil change. Report it to the shop. Avoid going under the car.",
     "mins": "5 minutes",
     "tools": "None"
    },
    {
-    "t": "Look at the oil itself and listen to the engine",
-    "how": "On the dipstick, clean oil is amber to brown. Black and gritty means it is badly overdue. Milky or the color of a coffee milkshake means coolant is mixing in, which is a shop job today. Also recall what you heard before the light came on: a deep knocking, rattling or tapping from the engine means internal damage may already have started, and the car should be towed rather than driven.",
+    "t": "Note unusual noise or oil appearance",
+    "how": "Tell the shop about any new knocking or tapping heard before switching the engine off, unusual oil appearance or a sudden level change. Leave the engine off if a new noise accompanied the pressure warning.",
     "mins": "3 minutes",
     "tools": "None"
    }
   ],
   "dont": [
-   "Don't drive on to get home or to reach a shop. Engine damage from lost oil pressure starts in seconds, and a tow costs a tiny fraction of an engine.",
+   "Leave the engine off while arranging help. Driving to a shop with a pressure warning can quickly damage the engine.",
    "Don't keep restarting the engine to see whether the light clears. Every start with no pressure grinds the bearings a little more.",
-   "Don't mistake this red light for the amber oil change reminder. Red means the oil is not reaching the moving parts right now.",
+   "Read the exact warning. Oil pressure, low oil level and oil-service reminders call for different actions.",
    "Don't top up with whatever oil is in the garage if you are unsure of the grade, and never pour engine oil into the transmission or steering filler."
   ],
   "causes2": [
@@ -3908,13 +3863,13 @@
   ],
   "reset": {
    "real": false,
-   "how": "There is nothing here that is meant to be reset. This light is a live reading from a sensor on the running engine, not a mileage reminder, so it goes out by itself the moment real oil pressure comes back. If you clear codes or disconnect the battery and the light returns as soon as the engine starts, that is the system working correctly and telling you the problem has not been fixed. Topping up oil to the right level is the only thing a driver can do that legitimately makes this light go out, and if it stays on after that, the engine should be towed rather than driven.",
-   "note": "Don't confuse this with the oil change or service reminder, which is a mileage counter and is designed to be reset after the service."
+   "how": "A pressure warning calls for checking oil level and establishing actual pressure. Clearing a code or resetting the oil-life reminder does not correct low pressure.",
+   "note": "Only reset the oil-service reminder after performing the scheduled service."
   },
   "faqs": [
    {
     "q": "Can I drive a short distance with the oil pressure light on?",
-    "a": "No, not even a mile. Without oil pressure the engine's bearings run metal on metal, and serious damage can happen in under a minute of running. Pull over somewhere safe, shut the engine off, and check the oil level. If the light comes back on with a correct oil level, have the car towed."
+    "a": "If the oil pressure warning appears or flickers while the engine is running, pull over safely and switch the engine off. If the oil level is correct, the warning persists, or you cannot check it, leave the engine off and arrange roadside help."
    },
    {
     "q": "I added oil and the light is still on. What now?",
@@ -3926,14 +3881,12 @@
    },
    {
     "q": "Why does the oil light come on only at idle or in corners?",
-    "a": "That pattern nearly always means the oil level is low. At idle the pump turns slowly and produces the least pressure, and in a corner the remaining oil slides away from the pump's pickup so it briefly draws air. Check the dipstick first, and expect the light to become constant if you keep driving on a low level."
-   },
-   {
-    "q": "Will this light pass a state inspection?",
-    "a": "A lit red oil pressure warning will fail a safety inspection in states that check dashboard warning lights, and most inspectors will refuse to road-test the car at all with it on. More to the point, you should not be driving it to the test station in the first place."
+    "a": "A low oil level is one possibility, but a flicker cannot identify the cause. Stop safely, switch off the engine and check the level as directed in the manual. If the level is correct or the warning returns, get help before driving."
    }
   ],
   "src": [
+   "https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?ProcUid=G1841481&Uid=G1841480&buildtype=web&countryCode=USA&div=f&languageCode=en&moidRef=G539493&userMarket=USA&vFilteringEnabled=False&variantid=6303",
+   "https://techinfo.honda.com/rjanisis/pubs/OM/AH/AT202222OM/enu/AT202222OM.PDF",
    "https://www.yourmechanic.com/estimates/ford/explorer/oil-pressure-sensor-replacement",
    "https://repairpal.com/estimator/ford/f-150/oil-pressure-sensor-replacement-cost",
    "https://www.carpro.com/blog/carmd-top-10-reasons-for-a-check-engine-light-and-the-cost-to-repair"
@@ -3956,8 +3909,8 @@
     "tools": "A flashlight or phone light"
    },
    {
-    "t": "Check whether a rear wheel is dragging",
-    "how": "If the light stayed on, drive a few minutes at low speed around your street, then park. Stand beside each rear wheel and hold the back of your hand a few inches from the wheel without touching the brake parts. If one side throws off much more heat than the other, or you smell something hot, the parking brake is still partly clamped and the car should not be driven far.",
+    "t": "Report any signs of brake drag",
+    "how": "If you already noticed pulling, a hot smell or a wheel that was smoking, keep the vehicle parked and arrange an inspection. Avoid touching the wheel or driving it to check.",
     "mins": "10 minutes",
     "tools": "None"
    },
@@ -4024,15 +3977,15 @@
   "faqs": [
    {
     "q": "Is it safe to drive with the parking brake light on?",
-    "a": "If the light goes out as soon as you fully release the brake, yes. If it stays on with the brake released, treat it as a brake system warning and get it checked before you drive again, because the usual cause is low fluid. A soft or sinking pedal means stop and call for a tow."
+    "a": "If the red BRAKE light stays on after releasing the parking brake, or the pedal feels soft, sinks or stopping takes longer, stop safely and arrange a tow or mobile inspection. If only the parking-brake indicator was on, it goes out on release and braking has felt normal, that indicator alone is expected."
    },
    {
     "q": "Why is my parking brake light on when the brake is off?",
-    "a": "Two common reasons. The little switch at the lever or pedal is stuck and still telling the car the brake is set, or the brake fluid has dropped below the minimum mark and the car is using the same red lamp to warn you. Checking the fluid level tells you which one you have."
+    "a": "The warning can indicate a brake-system fault, low fluid or a parking-brake switch problem. Checking the reservoir alone cannot distinguish these. A persistent red light needs inspection before driving."
    },
    {
     "q": "I drove a few miles with the handbrake on. Did I damage anything?",
-    "a": "A short, slow drive usually just glazes the rear brake pads and makes a burning smell for a while. Longer or faster driving can overheat the rear brakes and warp the rotors, and on cars with rear drums it can ruin the shoes. If the car pulls, smells hot or one rear wheel is much hotter than the other, have the rear brakes looked at."
+    "a": "Driving with the parking brake applied can overheat the rear brakes. If you noticed pulling, unusual pedal feel, a hot smell or smoke, stop safely and arrange a tow or mobile inspection."
    },
    {
     "q": "Will my car pass inspection with this light on?",
@@ -4047,7 +4000,9 @@
    "https://ownersmanual.kia.com/full_webhelp/CT1/2026/en_RG/topics/t00448.html",
    "https://www.yourmechanic.com/estimates/jeep/compass/emergency-parking-brake-cable-replacement",
    "https://www.yourmechanic.com/estimates/volkswagen/cc/parking-brake-release-cable-replacement",
-   "https://www.yourmechanic.com/estimates/ford/escape/brake-caliper-replacement"
+   "https://www.yourmechanic.com/estimates/ford/escape/brake-caliper-replacement",
+   "https://www.mazdausa.com/siteassets/global-resources/vehicle-resources/owner-manuals/2014/mazda3/2014-mazda3-owners-manual-vin-starting-with-3mz.pdf",
+   "https://owners-manual.mazda.com/gen/en/mazda3/mazda3_8jr6ee20e/contents/05050107.html"
   ]
  },
  "seat-belt-light": {
@@ -4510,7 +4465,7 @@
   "faqs": [
    {
     "q": "How long can I drive with the tire pressure light on?",
-    "a": "If the tires only feel a little soft and look normal, driving gently to the nearest air pump is fine. If one tire looks low, bulges at the bottom or the car pulls or feels vague in corners, stop and put the spare on or call for a tow. A tire run badly low gets hot and can come apart at speed."
+    "a": "Pull over safely if a tire is flat or damaged or the vehicle pulls, thumps or wobbles. Arrange roadside help or fit a suitable spare only where safe. Otherwise, park and measure all four pressures with a gauge. A normal-looking tire can still be significantly low. Use the driver’s door placard for the correct pressure."
    },
    {
     "q": "Does the tire pressure light reset itself?",
@@ -4532,7 +4487,9 @@
   "src": [
    "https://www.jdpower.com/cars/shopping-guides/how-much-does-it-cost-to-fix-a-tire-pressure-sensor",
    "https://repairpal.com/estimator/tpms-sensor-replacement-cost",
-   "https://repairpal.com/estimator/tire-pressure-monitoring-system-relearn-cost"
+   "https://repairpal.com/estimator/tire-pressure-monitoring-system-relearn-cost",
+   "https://www.nhtsa.gov/vehicle-safety/tires",
+   "https://www.michelinman.com/auto/auto-tips-and-advice/tire-damage/flat-tire"
   ]
  },
  "transmission-warning-light": {

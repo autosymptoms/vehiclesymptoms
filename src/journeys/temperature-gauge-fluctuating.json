@@ -59,7 +59,7 @@
   },
   "q_heater": {
    "q": "When the gauge is higher than normal, what does the heater do?",
-   "help": "Set the heat to full hot with the fan on. You can turn it back off once you know.",
+   "help": "Use only what you already noticed. Choose “I'm not sure” if the heater was off. Do not start or warm the car to test it.",
    "opts": [
     {
      "a": "It blows cold or lukewarm air",
@@ -118,7 +118,7 @@
    "result": {
     "title": "Treat this as real overheating. Stop and let it cool",
     "urgency": "stop",
-    "now": "Pull over somewhere safe, turn the engine off and let it cool for at least 30 minutes. Then have it towed or call a mobile mechanic.",
+    "now": "Pull over safely and switch the engine off. Keep the hood closed while steam or spray is escaping. Leave all coolant caps in place until the engine and radiator are fully cold. Arrange roadside help or a tow before restarting.",
     "if": [
      "If you can't pull over right away, turn the A/C off and the heater on full hot with the fan on high to pull some heat away.",
      "If the oil pressure light comes on or the engine knocks, shut it off immediately.",
@@ -143,9 +143,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Once fully cool, check the overflow tank level and look under the car for drips."
-     ],
+     "you": [],
      "shop": [
       "Cooling system pressure test",
       "Cooling fan test",
@@ -158,8 +156,8 @@
   "r_fan": {
    "result": {
     "title": "The cooling fan may not be keeping up at idle",
-    "urgency": "soon",
-    "now": "Check the coolant level once the engine is cold, then get the radiator fan checked within the next few days. Avoid long idling and stop-and-go traffic until then.",
+    "urgency": "stop",
+    "now": "If the gauge is climbing above normal, pull over safely and switch off. Keep the engine off and arrange a cooling-system inspection before driving again.",
     "if": [
      "If the gauge climbs toward the red, a temperature warning comes on, or you see steam, pull over and turn the engine off.",
      "If the heater blows cold while the gauge is high, coolant may be low or not circulating. Pull over and let the engine cool.",
@@ -185,7 +183,7 @@
     ],
     "confirm": {
      "you": [
-      "With the engine warm and the A/C on, see whether the fan spins. Keep hands and clothing clear."
+      "With the engine off and fully cold, read the coolant level through the marked reservoir if it is visible. Leave the fan, its wiring and any belts untouched."
      ],
      "shop": [
       "Cooling fan and relay test",
@@ -429,8 +427,7 @@
     ],
     "confirm": {
      "you": [
-      "Note whether it started after any coolant work.",
-      "Listen for gurgling behind the dash when you start the car."
+      "Tell the technician whether the problem started after coolant work and whether you already heard gurgling."
      ],
      "shop": [
       "Cooling system bleed",
@@ -548,6 +545,8 @@
  },
  "sources": [
   "https://www.aaa.com/autorepair/articles/car-overheating-8-causes-and-solutions",
-  "https://www.aa1car.com/carQA/cooling_system_faqs.htm"
+  "https://www.aa1car.com/carQA/cooling_system_faqs.htm",
+  "https://techinfo.honda.com/rjanisis/pubs/OM/AH/AT902626IOM/enu/details/131293047-15886.html",
+  "https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?ProcUid=G1830389&Uid=G1847290&buildtype=web&countryCode=USA&div=f&languageCode=en&moidRef=G1827055&userMarket=USA&vFilteringEnabled=False&variantid=4486"
  ]
 }

@@ -48,8 +48,8 @@
    ]
   },
   "q_auto": {
-   "q": "What happens when you try to put it in Drive or Reverse?",
-   "help": "Keep your foot firmly on the brake while you shift.",
+   "q": "What happened the last time you selected Drive or Reverse?",
+   "help": "Answer from what you already noticed. There is no need to shift again to find out.",
    "opts": [
     {
      "a": "The shifter won't move out of Park at all",
@@ -78,7 +78,7 @@
    ]
   },
   "q_auto_display": {
-   "q": "When you move the shifter, does the gear letter on the dash (P, R, N, D) change to match?",
+   "q": "Did the gear letter on the dash change to match the shifter?",
    "help": "Most cars show the selected gear on the instrument panel or next to the shifter.",
    "opts": [
     {
@@ -121,8 +121,8 @@
    ]
   },
   "q_manual": {
-   "q": "What happens when you try to drive off?",
-   "help": "The clutch is the pedal on the far left. Pressing it to the floor lets you change gears.",
+   "q": "What happened the last time you tried to drive off?",
+   "help": "Use what you remember. The clutch is the pedal on the far left.",
    "opts": [
     {
      "a": "The clutch pedal feels soft, sinks to the floor, or stays down",
@@ -335,8 +335,8 @@
     "urgency": "stop",
     "now": "Set the parking brake firmly and don't drive it. Have it towed or have a mobile mechanic come to you.",
     "if": [
-     "If you can't be sure the car is in Park (or in gear, on a manual), block the wheels as well as setting the parking brake.",
-     "If the shifter suddenly goes loose while you're driving, pull over safely and stop as soon as you can."
+     "If you cannot be sure the vehicle is secured, keep people clear of its path and tell roadside assistance about the rollaway risk.",
+     "If the shifter suddenly goes loose while driving, steer to a safe place and stop as soon as you can."
     ],
     "why": "A cable or rod connects the shifter to the transmission. If it breaks, or the small bushing that holds it falls apart, moving the shifter no longer changes gears, so the transmission can be left in any gear, including one that lets the car roll. It's often a small part, but the car isn't safe to use until it's checked and fixed.",
     "causes": [
@@ -358,8 +358,7 @@
     ],
     "confirm": {
      "you": [
-      "Note whether the dash gear display changes when you move the shifter.",
-      "Note whether the shifter feels loose or moves with almost no resistance."
+      "Note what the gear display showed the last time you moved the shifter. Tell roadside assistance if the vehicle may roll."
      ],
      "shop": [
       "Shift cable and bushing inspection",
@@ -633,8 +632,8 @@
   "r_unsure": {
    "result": {
     "title": "A shop needs to see what's stopping it from moving",
-    "urgency": "check",
-    "now": "Set the parking brake, note what you see and hear when you try to shift, and have it towed or call roadside assistance.",
+    "urgency": "stop",
+    "now": "Keep the vehicle parked and set the parking brake. Call roadside assistance or a mobile mechanic. Describe the last time you tried to shift.",
     "if": [
      "If you see a puddle under the car or smell burning, don't try again. Tell the tow driver.",
      "If the shifter won't leave Park, check whether the brake lights work. That's a common, simple cause.",
@@ -660,7 +659,7 @@
     ],
     "confirm": {
      "you": [
-      "Record a short video with sound of what happens when you try to shift. It helps the shop a lot."
+      "Tell roadside assistance whether the gear indicator matched the shifter and whether any fluid was on the ground."
      ],
      "shop": [
       "Shift linkage check",
@@ -696,6 +695,7 @@
   ]
  },
  "sources": [
-  "https://www.nhtsa.gov/recalls"
+  "https://www.nhtsa.gov/recalls",
+  "https://www.nhtsa.gov/road-safety/child-safety"
  ]
 }

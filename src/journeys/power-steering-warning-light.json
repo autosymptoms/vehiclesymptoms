@@ -151,9 +151,9 @@
    "result": {
     "title": "The steering motor may have got hot and be protecting itself",
     "urgency": "stop",
-    "now": "Park, turn the engine off, and let the car sit for 10 to 15 minutes without turning the wheel. Then restart and, while still parked, check whether the steering feels normal. Don't drive it while the steering is heavy.",
+    "now": "Pull over safely if the steering is heavy, intermittent, jerky or difficult to control. Keep the vehicle parked and arrange a tow or mobile inspection. Repeated parking maneuvers can temporarily reduce assist on some models. Follow the owner’s manual and speak to the shop before driving again if the steering changed or the warning persists.",
     "if": [
-     "If the steering is back to normal and the light is off, heat protection is a likely explanation. Mention it at your next service, avoid holding the wheel at full lock while stopped, and have it checked if it happens again.",
+     "Tell the shop if normal assist returned after parking. A temporary improvement alone does not establish the cause.",
      "If the light stays on or the steering is still heavy after cooling down, treat it as a steering fault. Don't drive it. Have it towed or have a mobile mechanic come to you.",
      "If the battery light comes on too, or the dash lights look dim, the cause may be electrical rather than heat."
     ],
@@ -191,14 +191,14 @@
   "r_after_battery": {
    "result": {
     "title": "The steering system may need to reset after the battery work",
-    "urgency": "diy",
-    "now": "Make sure the battery clamps are tight. Then, parked with the engine running, turn the wheel slowly all the way left, all the way right, and back to center, and restart the car.",
+    "urgency": "soon",
+    "now": "With the vehicle safely parked, look up the steering warning and any battery-reconnection procedure in the owner’s manual for this model. If the warning persists, contact the shop before driving; if steering feels heavy or erratic, arrange a tow.",
     "if": [
-     "If your owner's manual lists a steering reset step, follow that instead. It varies by car.",
+     "If the warning persists or returns, ask the shop to check the steering and charging systems before driving again.",
      "If the steering feels normal but the light stays on after the reset, the steering angle sensor may need to be calibrated with a scan tool. Ask a shop before relying on the car.",
      "If the steering is heavy, jerks or pulls, don't drive it until it's checked."
     ],
-    "why": "Low voltage or a lost connection can make the steering computer store a fault or forget where center is. After a jump start or new battery, some cars need a simple reset or a short drive before the light goes out.",
+    "why": "Battery work or low voltage can affect electric steering on some models. A steering warning can also indicate a separate fault. The prescribed checks and any required initialization depend on the vehicle.",
     "causes": [
      {
       "name": "Steering angle sensor lost its calibration",
@@ -218,8 +218,7 @@
     ],
     "confirm": {
      "you": [
-      "Check that the battery clamps are tight.",
-      "Try the slow lock-to-lock steering reset and restart."
+      "Note the warning message and whether the assist changed before you parked."
      ],
      "shop": [
       "Steering angle sensor calibration",
@@ -353,7 +352,7 @@
    "result": {
     "title": "The steering system has stored a fault, even though it feels normal for now",
     "urgency": "soon",
-    "now": "Get the steering codes read within the next few days. Until then, keep both hands on the wheel and be ready for the steering to get heavier.",
+    "now": "Once safely parked, check the owner’s manual for the exact warning. If it remains on, contact the shop now for instructions. If the wheel becomes heavy or erratic, stop safely and arrange a tow.",
     "if": [
      "If the steering becomes heavy, jerky or pulls by itself, stop driving it.",
      "If the light came on after a curb hit or alignment work, mention that. The steering angle sensor may need to be recalibrated, and a shop will usually also check for bent steering parts."
@@ -392,8 +391,8 @@
   "r_unsure": {
    "result": {
     "title": "Have the steering system checked before you rely on it",
-    "urgency": "soon",
-    "now": "In an empty parking lot, turn the wheel slowly at walking speed. If it's much harder than usual, have it towed. If it feels normal, book a check within a few days.",
+    "urgency": "stop",
+    "now": "Stay parked and read the exact warning in the owner’s manual. If you cannot confirm steering is normal or the message tells you to stop, call for roadside assistance or an inspection where the vehicle is.",
     "if": [
      "If the battery light is on too, stop driving and have it towed.",
      "If the steering pulls, jerks or sticks, don't drive it."
@@ -413,8 +412,7 @@
     ],
     "confirm": {
      "you": [
-      "Do the slow steering test in a safe, empty space.",
-      "Look at which other lights are on."
+      "Record the message while parked."
      ],
      "shop": [
       "Steering system code scan",
@@ -425,15 +423,15 @@
   },
   "r_after_battery_heavy": {
    "result": {
-    "title": "Heavy steering after battery work. Try a reset, but don't drive it heavy",
+    "title": "Heavy steering after battery work needs inspection",
     "urgency": "stop",
-    "now": "Don't drive it while the steering is heavy. Make sure the battery clamps are tight. Then, parked with the engine running, turn the wheel slowly all the way left, all the way right, and back to center, and restart the car. If the steering is still heavy, have it towed or have a mobile mechanic come to you.",
+    "now": "Pull over safely if the steering is heavy, intermittent, jerky or difficult to control. Keep the vehicle parked and arrange a tow or mobile inspection. Tell the shop about the recent battery work. Use only steering initialization steps listed for your exact vehicle.",
     "if": [
-     "If your owner's manual lists a steering reset step, follow that instead. It varies by car.",
+     "If the warning persists or returns, ask the shop to check the steering and charging systems before driving again.",
      "If the battery light is on or the dash lights look dim, the battery may still be too low to power the steering. Have the battery and charging system tested.",
      "If the steering is back to normal but the light stays on, the steering angle sensor may need to be calibrated with a scan tool. Ask a shop before relying on the car."
     ],
-    "why": "Low voltage or a lost connection can make the steering computer store a fault or forget where center is. After a jump start or new battery, some cars need a simple reset or a short drive before the light goes out.",
+    "why": "Battery work or low voltage can affect electric steering on some models. A steering warning can also indicate a separate fault. The prescribed checks and any required initialization depend on the vehicle.",
     "causes": [
      {
       "name": "Steering angle sensor lost its calibration",
@@ -453,8 +451,7 @@
     ],
     "confirm": {
      "you": [
-      "Check that the battery clamps are tight.",
-      "Try the slow lock-to-lock steering reset and restart."
+      "Note any dash messages and tell the shop which battery work was done."
      ],
      "shop": [
       "Steering angle sensor calibration",
@@ -528,6 +525,8 @@
  },
  "sources": [
   "https://ownersmanual.kia.com/full_webhelp/CV1/2023/en_US/topics/t00229.html",
-  "https://www.nhtsa.gov/recalls"
+  "https://www.nhtsa.gov/recalls",
+  "https://assets.goaaa.com/image/upload/v1698431472/AAA_Guide_CarCare_final.pdf",
+  "https://techinfo.honda.com/rjanisis/pubs/OM/AH/A2A154DOM/enu/A2A154DOM.pdf"
  ]
 }

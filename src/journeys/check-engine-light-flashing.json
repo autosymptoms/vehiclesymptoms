@@ -22,7 +22,7 @@
  ],
  "intro": "A flashing check engine light is the engine computer's most urgent warning. It usually means the engine is misfiring badly enough to damage the catalytic converter, and in the worst cases overheat the exhaust. Answer a few questions to see what's likely going on and what to do right now.",
  "safety": [
-  "If the light is flashing and the engine is shaking, pull over as soon as it's safe and turn the engine off.",
+  "If the check engine light flashes with the engine running, even if the engine feels smooth, ease off the accelerator, stop safely away from dry grass, turn off the engine and contact roadside assistance.",
   "If you smell raw fuel or burning, or see smoke from under the car or hood, turn the engine off and get everyone away from the car.",
   "If the temperature gauge reaches red, pull over and turn the engine off. Don't open the radiator cap while it's hot."
  ],
@@ -30,7 +30,7 @@
  "nodes": {
   "q_now": {
    "q": "Is the light flashing right now with the engine running?",
-   "help": "Flashing means blinking on and off about once a second. A light that stays lit without blinking is a steady check engine light, which is usually less urgent.",
+   "help": "Look for the engine-shaped lamp blinking while the engine is running. A brief startup self-check can be normal. If the engine is running and the light flashes, stop somewhere safe before continuing this guide.",
    "opts": [
     {
      "a": "Yes, and the engine is shaking, stumbling or losing power",
@@ -190,8 +190,7 @@
     ],
     "confirm": {
      "you": [
-      "Note whether there's a hesitation when you accelerate.",
-      "Listen for hissing from the engine bay with the engine off and cool."
+      "Tell the shop what you already observed about engine noise, shaking, and power before parking."
      ],
      "shop": [
       "Code scan and misfire counts by cylinder",
@@ -205,7 +204,7 @@
    "result": {
     "title": "Fuel or exhaust heat may be creating a fire risk",
     "urgency": "stop",
-    "now": "Pull over, turn off the engine, get everyone out and away from the car, and call for help.",
+    "now": "Stop safely, turn off the engine and get everyone away from the vehicle and traffic. If you suspect a fire, leave the hood closed and call 911.",
     "if": [
      "If you see flames, stay well back and call 911.",
      "If the smell fades and there's no smoke, still don't restart it. Have it towed."
@@ -323,7 +322,7 @@
    "result": {
     "title": "Possibly a weak ignition coil or worn spark plugs",
     "urgency": "soon",
-    "now": "If the light flashes again or the engine shakes hard, pull over when it's safe and turn the engine off. Otherwise: Get it checked within a few days. Until then, drive gently, avoid hard acceleration and steep hills, and don't tow or haul anything.",
+    "now": "If the lamp is flashing now or the engine shakes hard, stop safely and switch off the engine. If the flashing has stopped, contact a repairer promptly for vehicle-specific instructions before further driving.",
     "if": [
      "If the light flashes again or the car shakes, pull over and turn the engine off.",
      "If it's happening more often, stop driving it and have it checked right away.",
@@ -365,7 +364,7 @@
    "result": {
     "title": "A cold-start misfire may be a coil, plug or injector starting to fail",
     "urgency": "soon",
-    "now": "If the light flashes again or the engine shakes hard, pull over when it's safe and turn the engine off. Otherwise: Get it checked within a few days. On cold mornings, let it idle until it runs smoothly before driving off.",
+    "now": "If the lamp is flashing now or the engine shakes hard, stop safely and switch off the engine. If the flashing has stopped, contact a repairer promptly for vehicle-specific instructions before further driving.",
     "if": [
      "If the light flashes while you're driving, pull over and turn the engine off.",
      "If you notice coolant loss or white exhaust smoke at startup, have it checked right away.",
@@ -406,7 +405,7 @@
    "result": {
     "title": "The misfire may come back. Get the code read soon",
     "urgency": "soon",
-    "now": "If the light flashes again or the engine shakes hard, pull over when it's safe and turn the engine off. Otherwise: Have the stored code read within a few days. Drive gently and keep trips short until then.",
+    "now": "If the lamp is flashing now or the engine shakes hard, stop safely and switch off the engine. If the flashing has stopped, contact a repairer promptly for vehicle-specific instructions before further driving.",
     "if": [
      "If the light flashes again, pull over and turn the engine off.",
      "If the light is now steady, follow the same plan: get the code read soon.",
@@ -448,7 +447,7 @@
    "result": {
     "title": "Watch the light closely. If it's flashing, stop driving",
     "urgency": "soon",
-    "now": "If the light is blinking, pull over when it's safe and turn the engine off. If it's steady and the car drives normally, have the code read within a few days.",
+    "now": "If it is blinking with the engine running or the engine shakes hard, stop safely, switch off and contact roadside assistance. For a steady lamp on a normally running car, follow the owner’s manual and arrange a prompt check.",
     "if": [
      "If the light blinks at any point, treat it as urgent: pull over, turn the engine off and have it towed.",
      "If it's steady and the car drives normally, it's usually less urgent, but still get the code read.",
@@ -504,6 +503,9 @@
   ]
  },
  "sources": [
+  "https://owners.honda.com/utility/download?path=%2Fstatic%2Fpdfs%2F2020%2FCivic+Sedan%2F2020_Civic_4D_Dashboard_Details.pdf",
+  "https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?ProcUid=G1841481&Uid=G1841480&buildtype=web&countryCode=USA&div=f&languageCode=en&moidRef=G539493&userMarket=USA&vFilteringEnabled=False&variantid=6303",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/",
   "https://www.aaa.com/autorepair/articles/check-engine-light",
   "https://www.edmunds.com/car-care/what-your-check-engine-light-is-telling-you.html"
  ]

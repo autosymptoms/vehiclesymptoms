@@ -25,7 +25,8 @@
  "safety": [
   "If you have to press with all your strength to slow down, pull over when it's safe and stop driving.",
   "If the engine stalls while you're driving, braking may take much more force. Press firmly and steadily rather than pumping, and get it checked before driving further.",
-  "If the steering also becomes very heavy, pull over and stop."
+  "If the steering also becomes very heavy, pull over and stop.",
+  "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
  ],
  "start": "q_severity",
  "nodes": {
@@ -138,7 +139,7 @@
    "result": {
     "title": "The engine shutting off may have taken away your brake assist",
     "urgency": "stop",
-    "now": "Once you're safely stopped, set the parking brake and don't drive it. Have it towed or have a mobile mechanic find out why the engine stalled.",
+    "now": "If the engine stalled and the pedal is hard while you are moving, press the pedal firmly and steadily and steer to a safe stop. Once parked, arrange a tow to have the stalling and brake assist checked.",
     "if": [
      "If it restarts and the pedal feels normal again, an engine that stalls while driving still isn't safe. Have it checked before driving any distance.",
      "If the pedal stays hard with the engine running, or sinks, or the red brake light is on, don't drive it.",
@@ -371,7 +372,7 @@
     ],
     "confirm": {
      "you": [
-      "Note whether braking improves over the next few drives."
+      "Keep the invoice and tell the installer when the pedal effort or stopping distance changed."
      ],
      "shop": [
       "Brake inspection",
@@ -385,12 +386,10 @@
    "result": {
     "title": "The brakes may have overheated and lost grip (brake fade)",
     "urgency": "stop",
-    "now": "Pull over somewhere safe, set the parking brake and let the brakes cool for at least 30 minutes. Have the brakes checked before relying on them again.",
+    "now": "Pull off the road safely. If the brakes lost stopping power, keep the vehicle parked and arrange a tow or an inspection where it stopped, even if the brakes cool down.",
     "if": [
-     "If braking doesn't feel normal once the brakes are cool, or the pedal is soft, don't drive it. Have it towed.",
-     "Before moving the car again, call a shop or roadside assistance and describe what happened. If the brakes feel weak, soft or smell hot again at any point, stop and get help.",
-     "On long downhills, shift to a lower gear so the engine helps slow the car, instead of riding the brakes.",
-     "If you see smoke from a wheel, keep away from it until it cools."
+     "A return to normal pedal feel after cooling does not confirm that the brakes are safe.",
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
     ],
     "why": "Brake pads can only absorb so much heat. Constant or repeated braking, especially downhill or with a heavy load, overheats them so they grip less, and you often smell burning. They often recover once cool, but severe overheating can glaze the pads and damage the rotors, and very hot brakes can also boil the brake fluid.",
     "causes": [
@@ -412,7 +411,7 @@
     ],
     "confirm": {
      "you": [
-      "Once cool, test the brakes gently at low speed in an empty, safe area."
+      "Tell the shop if the loss of stopping power began on a downhill or while towing."
      ],
      "shop": [
       "Pad and rotor inspection",
@@ -428,7 +427,7 @@
     "urgency": "stop",
     "now": "Avoid driving it until the brakes are inspected. Have a mobile mechanic check it where it's parked, or have it towed to a shop.",
     "if": [
-     "If a wheel smokes or smells burning, keep away from it and let it cool.",
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle.",
      "If you see fluid at one wheel, or the pedal feels soft or sinks, don't move the car at all."
     ],
     "why": "When one side does less of the braking, the car stops less effectively and pulls toward the side that's working. A stuck caliper, a collapsed brake hose, or contaminated pads on one side are common causes.",
@@ -451,8 +450,7 @@
     ],
     "confirm": {
      "you": [
-      "Note which way the car pulls.",
-      "After a short drive, hold your hand near (not on) each wheel to compare heat."
+      "Tell the shop which way the vehicle pulled, and whether you already noticed a hot smell or smoke."
      ],
      "shop": [
       "Caliper and slide pin inspection",
@@ -469,7 +467,7 @@
     "now": "Don't drive it. Have it towed so a shop can find the leak and check the brakes on that axle.",
     "if": [
      "If it's brake fluid, the leak can also make the pedal soft or turn on the red brake light. Tell the shop what you've noticed.",
-     "If you see smoke or smell burning from that wheel, keep away from it and let it cool."
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
     ],
     "why": "Brake pads lose much of their grip when oil, grease or brake fluid soaks into them, and it usually can't be reliably cleaned off, so a shop will often recommend new pads once the leak is confirmed. Fluid on a wheel also means something is leaking, and it may be the brake system itself.",
     "causes": [
@@ -510,7 +508,7 @@
     "if": [
      "If the pedal gets hard to press, sinks, or the red brake light comes on, don't move the car at all.",
      "If you hear grinding when braking, the pads may be worn down to metal. Tell the shop.",
-     "If you smell burning or see smoke from a wheel, keep away from it and let it cool."
+     "If smoke continues, you see flames or you suspect a fire, pull over safely and switch off the vehicle. Get everyone out, move at least 100 feet away and clear of traffic, and call 911. Stay away from the vehicle."
     ],
     "why": "When the pedal feels normal but the car takes longer to stop, the problem is often at the wheels: worn or glazed pads, worn rotors, or a caliper that isn't working well. Worn tires can also lengthen stops. These get worse with time and can lead to bigger repairs.",
     "causes": [
@@ -574,6 +572,10 @@
  },
  "sources": [
   "https://www.nhtsa.gov/recalls",
-  "https://prnewswire.com/news-releases/car-care-council-are-your-brakes-trying-to-tell-you-something-300309286.html"
+  "https://prnewswire.com/news-releases/car-care-council-are-your-brakes-trying-to-tell-you-something-300309286.html",
+  "https://assets.goaaa.com/image/upload/v1698431472/AAA_Guide_CarCare_final.pdf",
+  "https://mwg.aaa.com/via/car/brake-check-service-tips",
+  "https://www.pa.gov/agencies/dmv/resources/driver-safety-and-vehicle-maintenance/emergency-driving-tactics",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/"
  ]
 }

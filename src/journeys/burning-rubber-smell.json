@@ -23,7 +23,7 @@
  ],
  "intro": "A burning rubber smell usually comes from something rubbing, slipping or getting too hot: brakes, a drive belt, the clutch, or a hose or bit of debris touching the hot exhaust. Where the smell comes from and when you notice it narrows it down fast. Answer the questions below to see the likely cause and how soon to act.",
  "safety": [
-  "If you see smoke from a wheel or from under the hood, pull over, turn off the engine and step away from the car.",
+  "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
   "If the brake pedal feels soft, sinks or the car won't stop normally, pull over as soon as it's safe and don't drive on.",
   "Don't touch the wheels, brakes or exhaust after a burning smell. They can be hot enough to burn you."
  ],
@@ -31,7 +31,7 @@
  "nodes": {
   "q_smoke": {
    "q": "Do you see smoke, or does anything else feel wrong along with the smell?",
-   "help": "Look at each wheel and at the hood. Smoke near one wheel almost always means a brake problem.",
+   "help": "Report what you already noticed. Keep clear of the wheels and engine compartment.",
    "opts": [
     {
      "a": "Smoke from one wheel, or one wheel is much hotter than the others",
@@ -116,7 +116,7 @@
     "urgency": "stop",
     "now": "Pull over somewhere safe, turn off the engine and let the brakes cool. Don't drive it further. Have it towed or call a mobile mechanic.",
     "if": [
-     "If there are flames or the smoke gets heavier, get everyone away from the car and call 911.",
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
      "If the parking brake was on, release it fully and let everything cool for at least 30 minutes. Even if the smell clears, overheated brakes can be weakened, so have them checked before driving further.",
      "If the brake pedal feels soft, sinks, or the red brake warning light is on, the brakes may not stop the car normally. Don't drive it, even after it cools."
     ],
@@ -144,11 +144,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Without touching anything, look for smoke near each wheel.",
-      "Check that the parking brake is fully released.",
-      "Once everything is cool, check the brake fluid level in the reservoir."
-     ],
+     "you": [],
      "shop": [
       "Brake inspection with the wheels off",
       "Caliper slide and piston check",
@@ -162,11 +158,9 @@
    "result": {
     "title": "Something under the hood is burning or slipping badly",
     "urgency": "stop",
-    "now": "Pull over, turn off the engine and step away from the car. Don't open the hood if you see flames. Once it has cooled and there's no fire, have it towed.",
+    "now": "Pull over safely, turn off the vehicle and get everyone out. Smoke with a burning smell can mean a fire even without visible flames. Stay at least 100 feet away, clear of traffic, and call 911. Leave the hood closed and do not return to the vehicle.",
     "if": [
-     "If you see flames, get everyone away from the car and call 911.",
-     "If the smoke stops once the engine is off and you can see a shredded or missing belt, it still needs a tow. The belt often drives the water pump and the charging system.",
-     "If the temperature gauge was climbing or a red warning light came on, don't restart the engine."
+     "Even if the smoke stops, stay away until responders say it is safe. Arrange a tow before using the vehicle again."
     ],
     "why": "Smoke from under the hood with a rubber smell usually means a belt is slipping or shredding, a hose is melting against something hot, or fluid is burning on the engine. Any of these can lead to overheating, a dead battery or a fire if you keep driving.",
     "causes": [
@@ -205,12 +199,11 @@
   "r_overheated_brakes": {
    "result": {
     "title": "The brakes may have gotten very hot from heavy use",
-    "urgency": "diy",
-    "now": "If you can, pull over safely and let the brakes cool for 20–30 minutes. On long downhills, use a lower gear so the engine helps slow the car and you don't ride the brakes.",
+    "urgency": "stop",
+    "now": "Pull over safely and park. Leave the brakes to cool naturally. A burning odor can accompany brake drag or overheating. If braking changed, a warning light stays on, smoke appears or the cause is uncertain, leave it parked and arrange a tow. Have the brakes checked before driving again.",
     "if": [
-     "If the pedal felt soft, sank, or the car took longer to stop, don't drive on after it cools. Have the brakes and brake fluid checked first. Overheated fluid can leave the brakes weak.",
-     "If the smell keeps coming back during normal driving, a brake may be dragging. Get it checked within a few days.",
-     "If you see smoke from a wheel, one wheel stays much hotter than the others, or the car pulls to one side, don't drive further until the brakes are checked."
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
+     "Tell the shop whether this followed a long descent or possible parking-brake use. Keep clear of hot wheels and brakes."
     ],
     "why": "Long downhill stretches and heavy loads make the brakes work hard. The pads can get hot enough to give off a sharp, burnt smell. A one-time smell after that kind of driving is common, but very hot brakes don't stop as well until they cool.",
     "causes": [
@@ -231,10 +224,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "After it cools, see if the car rolls freely and doesn't pull to one side.",
-      "Notice whether the smell returns during normal, gentle driving."
-     ],
+     "you": [],
      "shop": [
       "Brake pad and rotor inspection",
       "Brake fluid condition and moisture test",
@@ -246,13 +236,11 @@
   "r_parking_brake": {
    "result": {
     "title": "The parking brake may have been rubbing while you drove",
-    "urgency": "diy",
-    "now": "Release the parking brake fully, check that its warning light goes out, and let the wheels cool before driving on.",
+    "urgency": "stop",
+    "now": "Pull over safely and park. Leave the brakes to cool naturally. A burning odor can accompany brake drag or overheating. If braking changed, a warning light stays on, smoke appears or the cause is uncertain, leave it parked and arrange a tow. Have the brakes checked before driving again.",
     "if": [
-     "If the smell continues once it's fully released, the parking brake may be sticking. Have it checked within a few days.",
-     "If you drove a long way with it on, have the rear brakes inspected. The pads or shoes may be glazed or worn.",
-     "If the pedal feels soft or different, the car takes longer to stop, or the red brake light stays on after release, don't drive it until the brakes are checked.",
-     "If you see smoke from a wheel, keep clear and let it cool."
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
+     "Tell the shop whether this followed a long descent or possible parking-brake use. Keep clear of hot wheels and brakes."
     ],
     "why": "Driving with the parking brake partly on makes the rear brakes rub the whole time. That creates heat and a strong burnt smell. Once it's released and cooled, the smell usually fades. If it doesn't, something may still be dragging.",
     "causes": [
@@ -268,10 +256,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Make sure the parking brake lever, pedal or button is fully off.",
-      "After cooling, push the car gently on a flat surface to see if it rolls freely."
-     ],
+     "you": [],
      "shop": [
       "Parking brake cable and adjustment check",
       "Rear brake inspection",
@@ -372,7 +357,7 @@
     "urgency": "stop",
     "now": "Pull over somewhere safe, turn off the engine and let the brakes cool. Don't drive further until the brakes are checked. Have it towed or call a mobile mechanic.",
     "if": [
-     "If you see smoke from a wheel, keep everyone clear and let it cool. Call 911 if you see flames.",
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
      "If the brake pedal feels soft, sinks, or the red brake light comes on, the brakes may not stop the car normally. Don't move it.",
      "If the parking brake was partly on, release it fully and let everything cool. Overheated brakes can still be weakened, so have them checked before relying on the car."
     ],
@@ -395,10 +380,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "After it has cooled, carefully hold your hand near (not on) each wheel to compare heat. Don't drive just to test it.",
-      "Look for one wheel with much more brake dust than the others."
-     ],
+     "you": [],
      "shop": [
       "Brake inspection with the wheels off",
       "Caliper and slide pin check",
@@ -483,10 +465,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Notice whether the smell changes when you turn the fan, heater or A/C on and off.",
-      "Once cool, look under the car for melted plastic on the exhaust."
-     ],
+     "you": [],
      "shop": [
       "Electrical system inspection for heat damage",
       "Blower motor and resistor check",
@@ -559,6 +538,8 @@
  },
  "sources": [
   "https://www.firestonecompleteautocare.com/blog/maintenance/smell-of-burning-from-car/",
-  "https://lifelanes.progressive.com/burning-smells-in-car"
+  "https://lifelanes.progressive.com/burning-smells-in-car",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/",
+  "https://assets.goaaa.com/image/upload/v1698431472/AAA_Guide_CarCare_final.pdf"
  ]
 }

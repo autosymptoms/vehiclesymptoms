@@ -23,7 +23,7 @@
  "intro": "Most automatic transmission fluid is red or pink when new and turns brown as it ages. It feels oily, not watery. How the transmission is behaving tells you more about urgency than the size of the spot, so we'll start there.",
  "safety": [
   "If the engine revs but the car doesn't speed up, get to a safe spot and stop driving.",
-  "If a transmission temperature or warning light comes on, pull over when safe and turn the engine off.",
+  "If a transmission temperature warning comes on, stop safely and follow the cooling instructions in the dashboard message or owner's manual.",
   "If you see smoke from under the car, pull over, turn the engine off and move away from the car."
  ],
  "start": "q_behavior",
@@ -56,7 +56,7 @@
   },
   "q_amount": {
    "q": "How much fluid is there after the car sits overnight?",
-   "help": "Slide a piece of white cardboard under the car before you park for the night. It shows both the size and the color.",
+   "help": "Use the size of a spot you already saw. Choose the last option if you haven't seen the car after it was parked overnight.",
    "opts": [
     {
      "a": "A few drops, or a spot about the size of a coin",
@@ -147,10 +147,10 @@
    "result": {
     "title": "The transmission may be overheating from low fluid",
     "urgency": "stop",
-    "now": "Pull over when safe, put it in Park and turn the engine off. Have the car towed or call a mobile mechanic.",
+    "now": "Pull over as soon as it is safe. If there is smoke or a burning smell, switch the engine off and move everyone away. If only the transmission temperature warning is on, follow your vehicle's dashboard or owner's-manual instructions for cooling it. Keep the car parked and arrange a tow or on-site inspection of the leak.",
     "if": [
-     "If the light goes out after it cools, don't count on it. Have the fluid level and leak checked before using the car.",
-     "If you see smoke from under the car or flames, get everyone away from the car and call 911."
+     "If you suspect a fire, turn the engine off once stopped, get everyone out, move at least 100 feet away from the vehicle and traffic, and call 911. Leave the hood closed.",
+     "If the engine temperature gauge is high too, switch the engine off once stopped. If the warning clears, keep the car parked for the inspection."
     ],
     "why": "Transmission fluid also carries heat away. When it runs low, the transmission runs hot, which breaks down the fluid and damages internal parts. A burning smell often means fluid is dripping onto the hot exhaust, or the fluid itself is cooking.",
     "causes": [
@@ -535,6 +535,9 @@
  },
  "sources": [
   "https://cluballiance.aaa.com/the-extra-mile/articles/prepare/car/identify-leaks-like-a-pro",
-  "https://www.acg.aaa.com/connect/blogs/4c/auto/guide-to-automotive-leaks"
+  "https://www.acg.aaa.com/connect/blogs/4c/auto/guide-to-automotive-leaks",
+  "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/CG3654en-201909-20200128135830.pdf",
+  "https://ownersmanual.hyundai.com/full_webhelp/cn7/2026/en_us/id_glz_xft_4wb.html",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/"
  ]
 }

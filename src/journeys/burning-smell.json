@@ -23,7 +23,7 @@
  ],
  "intro": "A burning smell can be as minor as dust on the heater or as serious as an electrical fault. The type of smell and whether there's smoke give strong clues. Answer a few questions to see how urgent it may be and what might be burning.",
  "safety": [
-  "If you see smoke or flames, pull over, turn off the engine, get everyone out and move well away from the car. Call 911 if there are flames.",
+  "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
   "If you smell burning plastic or hot wiring, pull over and turn off the engine.",
   "If the temperature gauge is in the red, pull over and turn off the engine.",
   "If the brake pedal feels soft or the brakes fade after a burning smell near a wheel, stop as soon as it's safe."
@@ -34,7 +34,7 @@
    "q": "Is there any smoke, or is a warning light or the temperature gauge telling you something's wrong?",
    "opts": [
     {
-     "a": "Yes, there's smoke from under the hood or around a wheel",
+     "a": "There is smoke from under the hood or around a wheel, or I suspect a fire",
      "go": "r_smoke"
     },
     {
@@ -53,7 +53,7 @@
   },
   "q_type": {
    "q": "Which smell is closest?",
-   "help": "Smells are easiest to tell apart right after you stop. Step out and sniff near the hood and each wheel.",
+   "help": "Choose the smell you already noticed. Stay away from smoke, hot wheels and the engine compartment.",
    "opts": [
     {
      "a": "Burning oil: sharp and acrid, like a hot frying pan",
@@ -135,11 +135,9 @@
    "result": {
     "title": "Something is hot enough to smoke. Treat it as a fire risk",
     "urgency": "stop",
-    "now": "Pull over, turn off the engine, get everyone out and stand well away. Don't open the hood if you see flames. Call 911 for flames, otherwise have the car towed.",
+    "now": "Pull over safely, turn off the vehicle and get everyone out. Smoke with a burning smell can mean a fire even without visible flames. Stay at least 100 feet away, clear of traffic, and call 911. Leave the hood closed and do not return to the vehicle.",
     "if": [
-     "If the smoke stops once the engine is off and you can see it was oil or coolant on a hot part, it still needs repair before the car is used again.",
-     "If the smoke is at a wheel, the brake may be stuck on. Don't touch the wheel. It can be extremely hot.",
-     "If the brake pedal felt soft or the car was harder to stop, tell the tow driver and the shop."
+     "Even if the smoke stops, stay away until responders say it is safe. Arrange a tow before using the vehicle again."
     ],
     "why": "Smoke usually means oil, coolant, plastic or a brake part is burning or boiling. Any of those can turn into a fire, and it's impossible to tell how bad it is while driving.",
     "causes": [
@@ -182,7 +180,7 @@
     "if": [
      "If the oil pressure light was on, don't restart the engine. It can be destroyed within minutes without oil pressure.",
      "Never open the radiator or coolant cap while the engine is hot.",
-     "If you see steam or smoke from under the hood, step away from the car and don't open the hood until it has cooled."
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away."
     ],
     "why": "A burning smell with a high temperature reading or a red warning light can mean the engine is in trouble right now. Overheating and low oil pressure both cause serious damage quickly.",
     "causes": [
@@ -288,9 +286,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Once the car is off and cool, look under the car for plastic stuck to the exhaust."
-     ],
+     "you": [],
      "shop": [
       "Electrical inspection for melted wiring or connectors",
       "Blower motor and resistor check",
@@ -422,12 +418,11 @@
   "r_brakes_hot": {
    "result": {
     "title": "Your brakes may have overheated from heavy use",
-    "urgency": "diy",
-    "now": "Pull over somewhere safe and let the brakes cool for 15–30 minutes. On long downhills, shift to a lower gear so the engine helps slow the car.",
+    "urgency": "stop",
+    "now": "Pull over safely and park. Leave the brakes to cool naturally and stay away from the wheels. If the pedal changed, it took longer to stop, there is smoke, or the source is uncertain, keep the car parked and arrange a tow. Have the brakes checked before driving again.",
     "if": [
-     "If the pedal felt soft, sank, or the brakes faded, don't drive on after they cool. Have them checked before driving further.",
-     "If the smell comes back during normal driving, a brake may be dragging. Get it checked soon.",
-     "If you see smoke from a wheel, one wheel stays much hotter than the others, or the car pulls to one side, a brake may be dragging. Don't drive further until it's checked."
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
+     "Tell the shop whether this followed a long descent or towing, and whether braking changed."
     ],
     "why": "Long downhill braking or towing can heat brake pads past their comfort zone, and they give off a sharp smell. It often goes away once they cool, but very hot brakes don't stop as well, and repeated overheating can damage the pads, rotors and fluid.",
     "causes": [
@@ -448,10 +443,7 @@
      }
     ],
     "confirm": {
-     "you": [
-      "Once cool, press the pedal. If it feels soft or sinks, don't drive it. A firm pedal is a good sign, but it isn't proof the brakes weren't damaged.",
-      "After a normal drive, carefully hold your hand near each wheel (without touching) to see if one is much hotter."
-     ],
+     "you": [],
      "shop": [
       "Brake inspection",
       "Brake fluid condition check"
@@ -501,11 +493,10 @@
    "result": {
     "title": "Something may be stuck on the hot exhaust",
     "urgency": "diy",
-    "now": "Once the car has cooled for at least 30 minutes, look under the car along the exhaust for a plastic bag, leaves or other debris and carefully remove it.",
+    "now": "With the car parked and fully cold, look from beside it for debris near the exhaust. Leave anything stuck to the exhaust for a technician to remove. If the smell continues, have it inspected before driving.",
     "if": [
-     "If you can't reach it or it's melted on, have a shop remove it.",
-     "If the smell continues with nothing stuck there, get it checked within a few days.",
-     "If you see smoke or flames, keep everyone away from the car. Call 911 for flames."
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
+     "If the smell continues after debris is removed, have the source inspected before driving."
     ],
     "why": "Plastic bags, road debris and leaves can wrap around the exhaust and melt or smolder. It smells alarming, but once it's removed the smell usually goes away.",
     "causes": [
@@ -527,7 +518,7 @@
     ],
     "confirm": {
      "you": [
-      "With the exhaust cool, look along it for debris."
+      "Look from outside the vehicle without crawling underneath."
      ],
      "shop": [
       "Exhaust and heat shield inspection"
@@ -539,11 +530,10 @@
    "result": {
     "title": "It may be dust burning off the heater",
     "urgency": "diy",
-    "now": "Run the heat on high for a few minutes with a window cracked. If it's dust, the smell usually fades within minutes.",
+    "now": "Switch the heater off and park safely. If there was only a brief dusty odor at the first use of the season and it has completely cleared, mention it at service. If it persists, smells electrical or returns with the blower, leave it off and have it inspected before use.",
     "if": [
-     "If the smell lasts more than a day or two of use, or smells like plastic, have the blower motor and wiring checked.",
-     "If the smell is sweet or the windshield fogs, it may be a heater core leak. Check your coolant level.",
-     "If you see smoke from the vents or dash, pull over, turn off the engine and get out."
+     "If you suspect a fire, pull over safely and switch off the vehicle. Get everyone at least 100 feet away, clear of traffic, and call 911 from there. Leave the hood closed and stay away.",
+     "If the odor persists or returns, keep the blower off and have the heater and its wiring checked."
     ],
     "why": "Dust settles on the heating parts over the summer. The first few times you use the heat, it can burn off with a brief, dusty smell. That's common and normally fades quickly.",
     "causes": [
@@ -565,8 +555,7 @@
     ],
     "confirm": {
      "you": [
-      "Check whether the smell fades after a few minutes.",
-      "Look at the cabin air filter (your owner's manual shows where)."
+      "Note whether the odor occurred only on the first use of the heater."
      ],
      "shop": [
       "Cabin air filter replacement",
@@ -643,6 +632,8 @@
  "sources": [
   "https://cluballiance.aaa.com/the-extra-mile/series/the-extra-mile-magazine/why-does-my-car-smell",
   "https://cluballiance.aaa.com/the-extra-mile/advice/car/my-car-smell-like-burning-rubber",
-  "https://www.aarp.org/auto/car-maintenance-safety/car-smells-do-not-ignore/"
+  "https://www.aarp.org/auto/car-maintenance-safety/car-smells-do-not-ignore/",
+  "https://www.usfa.fema.gov/prevention/vehicle-fires/",
+  "https://assets.goaaa.com/image/upload/v1698431472/AAA_Guide_CarCare_final.pdf"
  ]
 }
