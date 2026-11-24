@@ -805,3 +805,17 @@ details.rmore h4{margin:6px 0;font-size:14px}
 .proof-strip{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:8px 28px;margin:26px 0 0;font-size:14px}
 @media (max-width:720px){.proof-strip{grid-template-columns:1fr 1fr;gap:8px 14px;margin-top:18px;font-size:13.5px}}
 .yall{margin:22px 0 6px}
+/* Home-screen app: one-time install hint and offline page */
+.home-hint{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;display:flex;align-items:center;gap:12px;max-width:520px;margin:0 auto;padding:12px 12px 12px 14px;background:#0A1B2E;color:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);font-size:14px;line-height:1.4;animation:hh-in .25s ease-out}
+.home-hint img{flex:0 0 40px;border-radius:9px}
+.home-hint p{margin:0;flex:1;min-width:0}
+.home-hint b{color:#fff}
+.home-hint .hh-share{display:inline-flex;align-items:center;gap:3px;font-weight:700;white-space:nowrap}
+.home-hint .hh-share svg{vertical-align:-2px}
+.home-hint .hh-add{flex:0 0 auto;background:var(--blue);color:#fff;border:0;border-radius:9px;padding:9px 14px;font:inherit;font-weight:700;cursor:pointer}
+.home-hint .hh-close{flex:0 0 auto;background:transparent;color:#B7C2CE;border:0;font-size:24px;line-height:1;padding:2px 4px;cursor:pointer}
+@keyframes hh-in{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
+@media print{.home-hint{display:none!important}}
+.offline-list{list-style:none;padding:0;margin:0 0 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.offline-list a{display:block;padding:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);text-decoration:none;font-weight:600}
+.offline-list a:hover{border-color:var(--blue)}

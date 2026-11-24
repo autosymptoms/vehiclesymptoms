@@ -653,6 +653,41 @@ if(!animations){fs.mkdirSync('dist/repair-animations',{recursive:true});fs.write
 // The price check is off: anyone with an old /price-check/ link is sent to the homepage (backs up the redirect in vercel.json).
 if(!SHOW_PRICES){fs.mkdirSync('dist/price-check',{recursive:true});fs.writeFileSync('dist/price-check/index.html','<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><link rel="canonical" href="'+SITE+'/"><meta http-equiv="refresh" content="0;url=/"><title>VehicleSymptoms.com</title><script>location.replace("/")</script></head><body><p><a href="/">Go to VehicleSymptoms.com</a></p></body></html>')}
 fs.writeFileSync('dist/404.html',tpl.replace(/{{HOMEH1}}/g,'p class="hh1"').replace(/{{HOMEH1C}}/g,'p').replace(/{{TITLE}}/g,'Page not found | VehicleSymptoms.com').replace(/{{DESC}}/g,'').replace(/<link rel="canonical"[^>]*>/,'<meta name="robots" content="noindex">').replace(/{{CANON}}/g,SITE+'/').replace('{{CRED}}','').replace('{{HOMEHIDE}}',' style="display:none"').replace('{{HOMEHIDE2}}',' style="display:none"').replace('{{LIGHTSROW}}','').replace('{{VMETA}}','').replace('{{VEHSTYLE}}','').replace('{{PAGEDATA}}','').replace('{{VEHHTML}}','<div class="ghead"><h1>Page not found</h1><p class="sub">That page doesn\'t exist. <a href="/">Go to the homepage</a> or <a href="/symptoms/">browse symptom guides</a>.</p></div>'));
+// ---------- home-screen app: manifest, icons, offline page and service worker ----------
+{
+ for(const [from,to] of [['icon-512.png','icon-512.png'],['icon-maskable-192.png','icon-maskable-192.png'],['icon-maskable-512.png','icon-maskable-512.png']])fs.copyFileSync('src/brand/'+from,'dist/'+to);
+ fs.copyFileSync('src/pwa.js','dist/pwa.js');
+ fs.writeFileSync('dist/manifest.webmanifest',JSON.stringify({
+  id:'/',name:'Vehicle Symptoms',short_name:'Vehicle Symptoms',
+  description:'Free, plain-English help when something seems wrong with your car: warning lights, noises, smells and trouble codes.',
+  start_url:'/?source=homescreen',scope:'/',display:'standalone',orientation:'portrait',
+  background_color:'#F6F5F1',theme_color:'#020B16',categories:['auto','utilities','education'],
+  icons:[{src:'/icon-192.png',sizes:'192x192',type:'image/png',purpose:'any'},{src:'/icon-512.png',sizes:'512x512',type:'image/png',purpose:'any'},
+   {src:'/icon-maskable-192.png',sizes:'192x192',type:'image/png',purpose:'maskable'},{src:'/icon-maskable-512.png',sizes:'512x512',type:'image/png',purpose:'maskable'}],
+  shortcuts:[{name:'Warning lights',url:'/warning-lights/?source=homescreen',icons:[{src:'/icon-192.png',sizes:'192x192'}]},{name:'Symptom guides',url:'/symptoms/?source=homescreen',icons:[{src:'/icon-192.png',sizes:'192x192'}]}]
+ },null,1));
+ // Pages saved on the phone for use with no signal: every warning light, plus the symptom guides a driver
+ // is most likely to need at the roadside. Other pages are saved as the visitor opens them.
+ const ROADSIDE=['car-wont-start','check-engine-light-flashing','check-engine-light-on','engine-overheating','steam-from-under-hood','oil-pressure-light-on','brake-warning-light-on','soft-or-spongy-brake-pedal','grinding-brakes','car-shakes-when-braking','battery-light-on','battery-keeps-dying','car-cranks-slowly','engine-stalls-while-driving','starts-then-dies','reduced-engine-power-warning','loss-of-power-when-accelerating','gas-smell','burning-smell','white-smoke-from-exhaust','exhaust-smell-in-cabin','tire-pressure-light-on','tire-keeps-losing-air','steering-hard-to-turn','security-light-flashing-wont-start','push-button-start-not-working','transmission-slipping','dashboard-lights-all-on'];
+ const dec=s=>s.replace(/<[^>]+>/g,'').replace(/&nbsp;/g,' ').replace(/&#39;|&#x27;|&apos;/g,"'").replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
+ const title=p=>{const h=fs.readFileSync('dist'+p+'index.html','utf8');const m=h.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)||h.match(/<title>([^<|]+)/);return m?dec(m[1]):p};
+ const lightPages=fs.readdirSync('dist/warning-lights').filter(d=>d!=='reset'&&fs.existsSync('dist/warning-lights/'+d+'/index.html')).sort().map(d=>'/warning-lights/'+d+'/');
+ const missing=ROADSIDE.filter(s=>!fs.existsSync('dist/symptoms/'+s+'/index.html'));
+ if(missing.length){console.error('Offline symptom pages missing: '+missing.join(', '));process.exit(1)}
+ const symptomPages=ROADSIDE.map(s=>'/symptoms/'+s+'/');
+ const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+ const list=ps=>'<ul class="offline-list">'+ps.map(p=>`<li><a href="${p}">${esc(title(p))}</a></li>`).join('')+'</ul>';
+ const offlineHtml='<div class="ghead"><div class="eyebrow">No connection</div><h1>You’re offline</h1><p class="sub">This page isn’t saved on your phone yet. These guides work with no signal. <b>If a red warning light is on, the brakes feel wrong, or the engine is overheating or smoking, pull over when it’s safe and turn the engine off.</b></p></div>'
+  +'<h2>Warning lights</h2>'+list(lightPages)+'<h2>Roadside symptom guides</h2>'+list(symptomPages);
+ fs.mkdirSync('dist/offline',{recursive:true});
+ fs.writeFileSync('dist/offline/index.html',tpl.replace(/{{HOMEH1}}/g,'p class="hh1"').replace(/{{HOMEH1C}}/g,'p').replace(/{{TITLE}}/g,'You’re offline | VehicleSymptoms.com').replace(/{{DESC}}/g,'').replace(/<link rel="canonical"[^>]*>/,'<meta name="robots" content="noindex">').replace(/{{CANON}}/g,SITE+'/').replace('{{CRED}}','').replace('{{HOMEHIDE}}',' style="display:none"').replace('{{HOMEHIDE2}}',' style="display:none"').replace('{{LIGHTSROW}}','').replace('{{VMETA}}','').replace('{{VEHSTYLE}}','').replace('{{PAGEDATA}}','').replace('{{VEHHTML}}',offlineHtml));
+ const CORE=['/','/offline/','/site.css','/app.js','/guide.js','/guide-index.js','/vehicles.js','/powertrain.js','/pwa.js','/manifest.webmanifest','/favicon.svg','/icon-192.png','/apple-touch-icon.png'];
+ for(const p of CORE){const f='dist'+(p.endsWith('/')?p+'index.html':p);if(!fs.existsSync(f)){console.error('Offline core file missing: '+p);process.exit(1)}}
+ const PAGES=['/warning-lights/',...lightPages,'/symptoms/',...symptomPages];
+ const buildId=(process.env.VERCEL_GIT_COMMIT_SHA||'').slice(0,12)||require('crypto').createHash('sha1').update(CORE.map(p=>{const f='dist'+(p.endsWith('/')?p+'index.html':p);return fs.readFileSync(f)}).join('')).digest('hex').slice(0,12);
+ fs.writeFileSync('dist/sw.js',fs.readFileSync('src/sw.js','utf8').replace('__BUILD_ID__',buildId).replace('__CORE__',JSON.stringify(CORE)).replace('__PAGES__',JSON.stringify(PAGES)));
+ console.log('Home-screen app:',CORE.length,'core files,',PAGES.length,'offline pages, build',buildId);
+}
 // Verify the actual vehicle payloads written to disk, including newly added models.
 const vehicleFiles=fs.readdirSync('dist/data/v').filter(file=>file.endsWith('.json')).sort();
 const expectedFiles=V.map(v=>v.id+'.json').sort();
