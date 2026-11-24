@@ -12,6 +12,7 @@ const MAX_RUNTIME = 80;
 const MAX_PAGE_AGE = 7 * 24 * 3600 * 1000;
 const NETWORK_TIMEOUT = 4000;
 const OFFLINE_SET = new Set(OFFLINE_PAGES);
+const CORE_SET = new Set(CORE);
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
@@ -36,6 +37,9 @@ self.addEventListener('activate', event => {
   event.waitUntil((async () => {
     const keep = new Set([CORE_CACHE, PAGE_CACHE, RUNTIME]);
     for (const key of await caches.keys()) if (key.startsWith('vs-') && !keep.has(key)) await caches.delete(key);
+    // Old copies of the site's own scripts and styles must never outlive a new version.
+    const runtime = await caches.open(RUNTIME);
+    for (const req of await runtime.keys()) if (CORE_SET.has(new URL(req.url).pathname)) await runtime.delete(req);
     await self.clients.claim();
   })());
 });
@@ -75,6 +79,15 @@ async function page(event) {
 
 async function asset(event) {
   const request = event.request;
+  const url = new URL(request.url);
+  // The site's own scripts and styles come from this version's saved set, so a page and its
+  // styles always match. They change only when a new version of the site installs.
+  if (url.origin === self.location.origin && CORE_SET.has(url.pathname)) {
+    const core = await caches.open(CORE_CACHE);
+    const hit = await core.match(url.pathname);
+    if (hit) return hit;
+    return fetch(request);
+  }
   const saved = await caches.match(request);
   const fresh = fetch(request).then(res => {
     if (res && (res.ok || res.type === 'opaque')) event.waitUntil(save(request, res).catch(() => {}));

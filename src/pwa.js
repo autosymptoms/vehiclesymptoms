@@ -12,8 +12,22 @@
 
   // ---------- offline support ----------
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    var hadController = !!navigator.serviceWorker.controller;
+    var reloaded = false;
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/sw.js').catch(function () {});
+      navigator.serviceWorker.register('/sw.js').then(function (reg) {
+        // Home-screen apps on iPhone often resume without reloading, so check for a new
+        // version of the site each time the app comes back to the screen.
+        document.addEventListener('visibilitychange', function () {
+          if (document.visibilityState === 'visible') reg.update().catch(function () {});
+        });
+      }).catch(function () {});
+    });
+    // When a new version takes over, reload once so the page and its styles match it.
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (!hadController || reloaded) return;
+      reloaded = true;
+      location.reload();
     });
   }
 
