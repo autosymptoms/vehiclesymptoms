@@ -106,6 +106,12 @@ const emergencyRules=[
     skip:/^(?!.*\bbrak).*\b(?:gas pedal|accelerator|throttle|gas is stuck)\b/,
     guides:['soft-or-spongy-brake-pedal','brake-warning-light-on','brake-fluid-leak'],
     now:'If your brakes fail while driving: pump the pedal hard and fast, shift to a lower gear, and pull the parking brake on gradually. Turn on your hazard lights and steer to a safe spot. Once stopped, don’t drive it again. Have it towed.'},
+  // The red BRAKE warning on the dash (not the rear brake lamps). Wording from the brake warning light page.
+  {id:'brake-light',topic:/brak/i,
+    rx:/\bred brake\b|\bbrake (?:warning|system) (?:light|lamp|indicator|warning)\b|\bbrake (?:warning )?(?:light|lamp)\b.*\b(?:dash|dashboard|cluster|stays on|still on|wont go off|wont turn off|keeps coming on|wont go out)\b|\b(?:dash|dashboard)\b.*\bbrake (?:light|lamp)\b/,
+    skip:/\bbrake lights? (?:are |is )?(?:out|not working|dont work|doesnt work|burnt out|burned out)\b|\b(?:rear|third|tail) brake lights?\b/,
+    guides:['brake-warning-light-on','soft-or-spongy-brake-pedal'],
+    now:'Release the parking brake first. If the red brake light stays on, don’t drive until it’s checked, even if the pedal feels normal. Low brake fluid can mean a leak and brakes that may not stop the car. If the pedal feels soft or sinks, don’t drive: have it towed.'},
   {id:'accelerator',topic:/idle|rev|accelerat|gas pedal|throttle/i,
     skip:/^(?!.*\b(?:gas|accelerator|throttle)\b).*\b(?:brake|clutch) pedal\b/,
     rx:/\b(?:gas pedal|accelerator|throttle|pedal)\b.*\b(?:stuck|sticking|sticks|jammed|wont come up|wont come back up|wont return|wont close|wont release|stays down|stuck down)\b|\b(?:keeps|kept|still|wont stop) (?:accelerating|speeding up|going faster|revving up)\b|\bfoot (?:is )?off the gas\b.*\b(?:accelerat|speed|faster)|\b(?:stuck|jammed)\b.*\b(?:gas pedal|accelerator|throttle)\b|\b(?:accelerat\w*|speeding up|speeds up|going faster|surging|surges) (?:on its own|by itself|without me|without pressing)|\b(?:wont|cant) (?:slow down|stop accelerating)\b|\bunintended acceleration\b/,
@@ -114,7 +120,7 @@ const emergencyRules=[
   {id:'fire',topic:/burn|smoke|steam|fire/i,
     rx:/\b(?:on fire|fire|flames?|flaming|caught fire|catching fire|burning up)\b|\bsmok(?:e|es|ing|ey|y)\b/,
     // Tailpipe smoke ("white smoke from exhaust") is not a fire emergency unless flames are mentioned.
-    skip:/^(?!.*\b(?:fire|flames?|flaming|hood|bonnet|engine bay|dash|dashboard|vents?|cabin|steering column|under the car)\b).*\b(?:exhaust|tailpipe|tail pipe|muffler|white|blue|black|gray|grey|idle|idling|startup|start up|starting|cold start|turbo|puff|burning oil|oil change)\b/,
+    skip:/^(?!.*\b(?:fire|flames?|flaming|hood|bonnet|engine bay|engine compartment|front|front end|grille|wheel well|dash|dashboard|vents?|cabin|steering column|under the car)\b).*\b(?:exhaust|tailpipe|tail pipe|muffler|white|blue|black|gray|grey|idle|idling|startup|start up|starting|cold start|turbo|puff|burning oil|oil change)\b/,
     guides:['burning-smell','steam-from-under-hood'],
     now:'If you see smoke and think your car may be on fire, pull over as soon as it’s safe and turn off the engine. Get everyone out. Leave the hood closed. Move at least 100 feet from the car and stay away from traffic. Call 911 from a safe spot, even if you can’t see flames.'},
   {id:'exhaust',topic:/exhaust|fume|smell/i,
@@ -127,6 +133,7 @@ const emergencyRules=[
     now:'If you smell strong fuel or see it dripping: don’t start the engine (turn it off if it’s running), keep sparks and cigarettes away, and move away from the car. Call 911 if the smell is strong or fuel is pooling.'},
   {id:'stall',topic:/stall|dies|shut|power|start/i,
     rx:/\b(?:died|dies|dying|stalled|stalls|stalling|stopped|shut off|shuts off|shut down|shuts down|cut out|cuts out|turned off|turns off|quit|quits|lost power(?! steering)|loses power(?! steering))\b.*\b(?:highway|freeway|interstate|driving|road|traffic|moving|at speed)\b|\b(?:highway|freeway|interstate|driving)\b.*\b(?:died|stalled|stopped|shut off|shut down|cut out|turned off|quit)\b/,
+    skip:/^(?=.*\bsteering\b)(?!.*\b(?:engine|motor)\b)(?!.*\b(?:stalled|stalls|stalling|died|dies|dying|shut off|shuts off|cut out|cuts out)\b)/,
     guides:['engine-stalls-while-driving'],
     now:'If the engine dies while you’re moving: turn on your hazard lights, shift to neutral, keep a firm grip (steering and brakes get much heavier) and steer to the shoulder. Once stopped, get well away from traffic if it’s safe to do so.'},
   // Wrong fuel type (diesel in a gas car, gas in a diesel). A grade mix-up (regular instead of premium) is not this.
@@ -144,17 +151,27 @@ const emergencyRules=[
     guides:['oil-pressure-light-on'],
     now:'A red oil light while the engine is running means low oil pressure. Pull over as soon as it’s safe and turn the engine off. Driving on can wreck the engine within minutes.'},
   {id:'overheat',skip:/\btransmission\b|\btrans temp\b/,topic:/overheat|temperature|coolant|steam/i,
-    rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up|flashing|blinking)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b|\b(?:temp|temperature) (?:gauge|needle|light)\b(?: \w+){0,5} (?:red|high|hot|max)\b|\b(?:temp|temperature|gauge|needle)\b.*\b(?:in|into|to|on|at|hit|hits|hitting) the red\b|\b(?:engine )?temp(?:erature)? (?:warning|light)\b|\bsteam\w*\b.*\b(?:hood|bonnet|radiator|engine bay)\b/,
+    rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up|flashing|blinking)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b|\b(?:temp|temperature) (?:gauge|needle|light)\b(?: \w+){0,5} (?:red|high|hot|max)\b|\b(?:temp|temperature|gauge|needle)\b.*\b(?:in|into|to|on|at|hit|hits|hitting) the red\b|\b(?:engine )?temp(?:erature)? (?:warning|light)\b|\bsteam\w*\b.*\b(?:hood|bonnet|radiator|engine bay)\b|\b(?:temp|temperature|gauge|needle)\b(?: \w+){0,4} (?:to|on|at|hit|hits|hitting|reads|reading|past|near|by) (?:the )?(?:h|hot)\b|\bboil(?:ing|ed|s)? over\b|\b(?:coolant|radiator|antifreeze)\b.*\bboil\w*|\bboil\w*\b.*\b(?:coolant|radiator|antifreeze)\b/,
     guides:['engine-overheating','steam-from-under-hood'],
     now:'If the engine is overheating: pull over when it’s safe and turn the engine off. Never open the radiator or coolant cap while it’s hot. Wait at least 30 minutes.'},
   {id:'blowout',topic:/tire|flat/i,
-    rx:/\b(?:blow ?out|blew out|tire (?:\w+ ){0,2}(?:exploded|burst|popped|blew|shredded)|flat tire while driving)\b/,
+    rx:/\b(?:blow ?out|blew out|tire (?:\w+ ){0,2}(?:exploded|burst|popped|blew|shredded)|flat tire while driving)\b|\btire\b(?: \w+){0,3} (?:went|goes|going|gone|went totally|went completely) flat\b.*\b(?:highway|freeway|interstate|driving|moving|road|at speed)\b|\b(?:highway|freeway|interstate|driving|moving)\b.*\btire\b(?: \w+){0,3} (?:went|goes|going|gone) flat\b|\bflat\b(?: \w+){0,3} (?:while|when) (?:driving|moving)\b/,
     guides:['tire-keeps-losing-air'],
     now:'If a tire blows out: hold the steering wheel firmly, keep going straight, and ease off the gas. Don’t slam the brakes. Brake gently once you’ve slowed down, then pull fully off the road.'},
+  // A bulge or bubble on a tire can fail without warning. Wording from the tire guide's safety list.
+  {id:'tire-bulge',topic:/tire|flat/i,
+    rx:/\b(?:bulge|bulges|bulging|bubble|blister|lump|knot)\b.*\b(?:tire|sidewall)\b|\b(?:tire|sidewall)\b.*\b(?:bulge|bulges|bulging|bubble|blister|lump)\b|\b(?:cords?|belts?|wires?) (?:showing|show|sticking out|visible)\b.*\btire\b|\btire\b.*\b(?:cords?|wires?) (?:showing|sticking out|visible)\b/,
+    skip:/\bsoap\w*|\bspray\w*|\bwater\b/,
+    guides:['tire-keeps-losing-air'],
+    now:'If you see a bulge, bubble, deep cut or cords showing on a tire, don’t drive on it. Put on the spare or call roadside help.'},
   {id:'steering',topic:/steer/i,
-    rx:/\b(?:(?:power )?steering (?:is |has |just |completely |totally )*(?:went out|failed|stopped working|gone|quit|not working|out|died)|(?:lost|losing|lose|no) (?:my |the |all )?(?:power )?steering|power steering (?:\w+ ){0,2}(?:while|when) (?:driving|moving)|lost control (?:of )?(?:the |my )?steering|cant steer|(?:car |it |truck )?(?:wont|doesnt) steer|steering (?:wheel )?(?:locked|locked up|wont turn|wont move)\b.*\b(?:driving|moving|highway|road))\b/,
+    rx:/\b(?:(?:power )?steering (?:is |has |just |completely |totally )*(?:went out|failed|stopped working|gone|quit|not working|out|died)|(?:lost|losing|lose|no) (?:my |the |all )?(?:power )?steering|power steering (?:\w+ ){0,2}(?:while|when) (?:driving|moving)|lost control (?:of )?(?:the |my )?steering|cant steer|(?:cant|couldnt) turn (?:the |my )?(?:steering )?wheel\b.*\b(?:driving|moving|highway|road)|(?:car |it |truck )?(?:wont|doesnt) steer|steering (?:wheel )?(?:locked|locked up|wont turn|wont move)\b.*\b(?:driving|moving|highway|road))\b/,
     guides:['steering-hard-to-turn','loose-or-wandering-steering'],
     now:'If you lose steering control: grip the wheel firmly with both hands, ease off the gas, brake gently, turn on your hazard lights and steer to a safe stop. Don’t drive it again until it’s checked.'}
+  ,{id:'steering-heavy',topic:/steer/i,
+    rx:/\bsteering\b(?: \w+){0,5} (?:hard|heavy|stiff|tight)\b.*\b(?:while|when) (?:driving|moving)\b|\b(?:while|when) (?:driving|moving)\b.*\bsteering\b(?: \w+){0,5} (?:hard|heavy|stiff|tight)\b|\b(?:suddenly|all of a sudden|out of nowhere)\b.*\bsteering\b.*\b(?:hard|heavy|stiff|tight)\b|\bsteering\b.*\b(?:suddenly|all of a sudden)\b.*\b(?:hard|heavy|stiff|tight)\b/,
+    guides:['steering-hard-to-turn'],
+    now:'If the steering suddenly goes heavy while driving, grip the wheel firmly with both hands, slow down gradually, and pull over when it’s safe. Steering usually still works without assist, but it can take much more effort.'}
 ];
 // Words that say something failed without saying what (they matched the radio guide to "brakes stopped working").
 const emergencyGeneric=new Set(['flashing','blinking','flash','stopped','stop','working','work','wont','not','dont','doesnt','light','warning','on','out','failed','went','gone','quit','stalls','died']);
@@ -401,7 +418,7 @@ if(J&&root){
         <div class="row-btns"><button class="btn sm" id="copy">Copy summary</button><button class="btn ghost sm" id="print">Print</button><span id="copied" class="muted"></span></div></section>
       <section class="rsec emailbox" id="emailbox" ${EMAIL_ON?'':'hidden'}><h3>Email this to yourself</h3><p class="muted" style="margin:0 0 10px">Get this result and your mechanic summary in your inbox, so it's handy at the shop.</p>
         <form id="emailForm" class="emailform" autocomplete="on"><input type="email" id="emailIn" placeholder="you@example.com" aria-label="Your email" required><input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true"><button class="btn sm" type="submit">Send it</button></form>
-        <div id="emailMsg" class="muted" role="status"></div><p class="fine">We use your address only to send this. Our email provider keeps it, marked not subscribed. <a href="/privacy/">Privacy</a></p></section>
+        <div id="emailMsg" class="muted" role="status"></div><p class="fine">We send your address, this guide, your answers and your vehicle (if picked) to our email provider only to send this. It keeps your address, marked not subscribed, and we never send marketing email. <a href="/privacy/">Privacy</a></p></section>
       ${crumbs()}
       <div class="flow-nav"><button class="linkbtn" id="back">← Change my last answer</button><button class="linkbtn" id="restart">Start over</button></div>
     </div>`;

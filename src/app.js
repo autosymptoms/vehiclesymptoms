@@ -248,18 +248,26 @@ async function loadNhtsa(v,year){
     return {status:'unavailable',reason:why,checked:new Date().toISOString()};
   };
   const M=window.VS_RECALL_QUERIES(v,year);if(!M.queries.length)return fail('no verified model mapping');
-  let groups;try{groups=await Promise.all(M.queries.map(async q=>({label:q.label||q.model,query:q,results:await fetchRecalls(q,year)})))}catch(e){return fail(e&&e.message||'error',true)}
+  // Each NHTSA name is looked up on its own. One name that fails (NHTSA answers some aliases with HTTP 400 for years
+  // they don't cover) must not hide campaigns the other names returned: show those, and say the list may be partial.
+  const settled=await Promise.allSettled(M.queries.map(async q=>({label:q.label||q.model,query:q,results:await fetchRecalls(q,year)})));
+  let groups=settled.filter(x=>x.status==='fulfilled').map(x=>x.value);
+  const failed=settled.map((x,i)=>x.status==='rejected'?{name:M.queries[i].model,why:x.reason&&x.reason.message||'error'}:null).filter(Boolean);
+  if(!groups.length)return fail(failed.map(f=>f.why).join('; ')||'error',true);
   // Several NHTSA names can cover one vehicle (e.g. 1 SERIES and 128I): merge by label and count each campaign once.
   {const by=new Map();for(const g of groups){const k=g.label.replace(/\s+/g,' ');const seen=by.get(k)||{label:g.label,query:g.query,results:[],ids:new Set()};for(const x of g.results)if(!seen.ids.has(x.NHTSACampaignNumber)){seen.ids.add(x.NHTSACampaignNumber);seen.results.push(x)}by.set(k,seen)}
    groups=[...by.values()].map(({ids,...g})=>g)}
   const total=new Set(groups.flatMap(g=>g.results.map(x=>x.NHTSACampaignNumber))).size;
   if(!total&&!M.verified)return fail('zero results under an unverified model mapping');
-  const res={status:'ok',groups,total,checked:new Date().toISOString()};
+  // Zero is only a real answer when every name was checked.
+  if(!total&&failed.length)return fail('zero results with '+failed.length+' name(s) not checked',true);
+  const res={status:failed.length?'partial':'ok',groups,total,failed,checked:new Date().toISOString()};
   const multi=groups.length>1;
   if(rt)rt.innerHTML=`<span class="tl">Model-year safety recalls</span><span class="tv">${total}</span><span class="tn">${total?'<a href="#nhtsa">See model-year campaigns</a>':'None listed for this model year. Individual VIN status unknown.'}</span>`;
   const card=x=>`<div class="issue" style="margin:8px 0;padding:14px"><div class="meta"><span class="pill">${esc(x.NHTSACampaignNumber||'')}</span><span class="pill">${esc((x.Component||'').split(':')[0])}</span></div><dl><div><dt>Problem</dt><dd>${esc(x.Summary||'')}</dd></div><div><dt>Fix</dt><dd>${esc(x.Remedy||'')}</dd></div></dl></div>`;
   box.innerHTML=`<b>${total?total+' safety recall'+(total>1?'s':''):'No safety recalls'} filed for the ${esc(name)}</b><p style="margin:6px 0 0;font-size:14px">${total?'These are campaigns NHTSA lists for this model year. Not every vehicle is included in every campaign, and this does not show whether a recall is still open on your car.':'NHTSA\'s recall database returned no campaigns for this model year.'}</p>`+
     groups.map(g=>`${multi?`<h3 style="margin:14px 0 4px;font-size:16px">${esc(g.label)}: ${g.results.length}</h3>`:''}<div style="margin-top:10px">${g.results.slice(0,12).map(card).join('')}${g.results.length>12?`<details><summary>Show ${g.results.length-12} more campaigns</summary>${g.results.slice(12).map(card).join('')}</details>`:''}</div>`).join('')+
+    (failed.length?`<p class="muted" style="font-size:14px"><b>This list may be incomplete.</b> NHTSA didn't answer for ${failed.length===1?'one name':failed.length+' names'} this model is filed under, so a dealer VIN check is the way to confirm.</p>`:'')+
     '<p><b>Is a recall open on my vehicle?</b> A model-year search cannot confirm whether your VIN is included or whether its recall repair was completed. A dealer can check the status for your VIN.</p>';
   addVinNote();
   return res;
@@ -289,9 +297,13 @@ document.getElementById('vinForm').addEventListener('submit',async e=>{
   try{
     const r=await fetch('https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/'+v+'?format=json');
     const d=(await r.json()).Results[0];if(!d.Make)throw 0;
-    const yr=+d.ModelYear,match=V.find(x=>norm(x.make)===norm(d.Make)&&norm(d.Model).includes(norm(x.model)));
-    out.innerHTML=row('Year',d.ModelYear)+row('Make',d.Make)+row('Model',d.Model)+row('Trim',d.Trim)+row('Engine',[d.DisplacementL&&(+d.DisplacementL).toFixed(1)+'L',d.EngineCylinders&&d.EngineCylinders+'-cyl',d.FuelTypePrimary].filter(Boolean).join(' '))+row('Drive',d.DriveType)+row('Built in',d.PlantCountry)
-      +(match?`<a class="btn" style="display:inline-block;margin-top:12px;padding:12px 18px" href="${url(match,clampYear(match,yr))}">See ${esc(d.ModelYear)} ${esc(match.model)} problems</a>`:vinLinks(d.Make,yr));
+    // Link straight to a model page only on an exact model match (a Mustang Mach-E is not a Mustang) and a clean decode.
+    const yr=+d.ModelYear,code=String(d.ErrorCode||'0').split(',').map(x=>x.trim()),clean=code.every(x=>x==='0');
+    const exact=V.filter(x=>norm(x.make)===norm(d.Make)&&[x.model,x.nmodel].filter(Boolean).some(m=>norm(m)===norm(d.Model)));
+    const match=clean&&exact.length===1?exact[0]:null;
+    const warn=clean?'':`<div class="err" style="margin-bottom:8px">NHTSA flagged a problem with this VIN${d.ErrorText?': '+esc(String(d.ErrorText).split(';')[0].replace(/^\d+\s*-\s*/,''))+'.':'.'} Check it for a typo, or pick your vehicle by year, make and model above.</div>`;
+    out.innerHTML=warn+row('Year',d.ModelYear)+row('Make',d.Make)+row('Model',d.Model)+row('Trim',d.Trim)+row('Engine',[d.DisplacementL&&(+d.DisplacementL).toFixed(1)+'L',d.EngineCylinders&&d.EngineCylinders+'-cyl',d.FuelTypePrimary].filter(Boolean).join(' '))+row('Drive',d.DriveType)+row('Built in',d.PlantCountry)
+      +(match?`<a class="btn" style="display:inline-block;margin-top:12px;padding:12px 18px" href="${url(match,clampYear(match,yr))}">See ${esc(d.ModelYear)} ${esc(match.model)} problems</a>`:`<div style="margin-top:10px;color:var(--muted)">We couldn't match this VIN to one model for sure. Pick yours:</div>`+vinLinks(d.Make,yr));
   }catch(_){
     const ok=vinCheck(v),mk=WMI[v.slice(0,3)],yr=vinYear(v);
     out.innerHTML=`<div class="row"><span>Check digit</span><span style="color:${ok?'var(--green)':'var(--amber)'}">${ok?'Valid':'Doesn’t match — possible typo'}</span></div>`
@@ -319,8 +331,9 @@ if(hf){
     const cm=q.match(/\b([PBCU][0-3][0-9A-F]{3})\b/i);
     // A code alone goes to code lookup; a code plus a danger sign ("P0300 and the light is flashing") shows the safety step first.
     if(cm&&!window.VS_GUIDES.emergency(q)){location.href='/codes/?q='+cm[1].toUpperCase();return}
-    // An oil change or oil life reminder is routine, not the red oil pressure warning.
-    if(/\boil (?:change|life)\b|\bchange (?:the |my |engine )?oil\b|\boil service\b|\bmaint(?:enance)? (?:reqd|required)\b/i.test(q)&&!/\bpressure\b|\bred\b|\blow oil\b|\bflicker/i.test(q)){location.href='/warning-lights/'+(/maint/i.test(q)?'maintenance-required-light':'oil-change-light')+'/';return}
+    // An oil change or oil life reminder is routine, not the red oil pressure warning. A danger sign always wins:
+    // "I just got an oil change and my car is on fire" gets the fire step, not the reminder page.
+    if(/\boil (?:change|life)\b|\bchange (?:the |my |engine )?oil\b|\boil service\b|\bmaint(?:enance)? (?:reqd|required)\b/i.test(q)&&!window.VS_GUIDES.emergency(q)&&!/\bpressure\b|\bred\b|\blow oil\b|\bflicker/i.test(q)){location.href='/warning-lights/'+(/maint/i.test(q)?'maintenance-required-light':'oil-change-light')+'/';return}
     const vehicleMatch=findVehicle(q),v=vehicleMatch?.vehicle;
     const year=(q.match(/\b(?:19|20)\d{2}\b/)||[])[0],y=v?clampYear(v,+year):null;
     const qs=v?`?v=${v.id}${y?'&y='+y:''}`:'';
@@ -385,9 +398,10 @@ showMy();
 (function(){const box=document.getElementById('codeMy');if(!box)return;const g=getG();if(!g.length)return;
   box.innerHTML=`<div class="codemy"><span>Your ${g.length>1?'vehicles':'vehicle'}:</span>${g.map(m=>`<a href="${carUrl(m)}">${esc(carName(m))} ›</a>`).join('')}</div>`})();
 // warning light hub filter
-(function(){const f=document.getElementById('lfilter');if(!f)return;f.querySelectorAll('button').forEach(b=>b.onclick=()=>{f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const c=b.dataset.c;
+(function(){const f=document.getElementById('lfilter');if(!f)return;f.querySelectorAll('button').forEach(b=>b.onclick=()=>{f.querySelectorAll('button').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',String(x===b))});const c=b.dataset.c;
   document.querySelectorAll('#lgrid .lcard').forEach(a=>{const k=a.dataset.c;a.hidden=!(c==='all'||k===c||(c==='info'&&(k==='green'||k==='blue')))});
-  const s=document.getElementById('lsearch');if(s)s.value='';const n=document.getElementById('lnone');if(n)n.hidden=true})})();
+  const s=document.getElementById('lsearch');if(s)s.value='';const n=document.getElementById('lnone');if(n)n.hidden=true;
+  const shown=[...document.querySelectorAll('#lgrid .lcard')].filter(a=>!a.hidden).length,lc=document.getElementById('lcount');if(lc)lc.textContent=c==='all'?'':shown+' '+(shown===1?'light':'lights')+' shown: '+b.textContent})})();
 (function(){const s=document.getElementById('lsearch');if(!s)return;
   // Match each word the visitor typed against the light's names and how its symbol looks ("oil can", "thermometer").
   const filler=new Set('a an the my is it its on of in with and or that this like looks look shaped shape symbol icon sign light lights lit dash dashboard warning came come comes just car cars little small yellow orange red'.split(' '));

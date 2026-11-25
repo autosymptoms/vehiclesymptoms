@@ -1,0 +1,43 @@
+{
+ "_about": "Permanent emergency-search table. Each urgent phrase must show its safety step first on the homepage (no redirect, right rule). Each routine phrase must not raise an alarm. Add every phrase an audit finds. Checked by tools/symptom-search.test.js.",
+ "urgent": [
+  ["I just got an oil change and my car is on fire", "fire"],
+  ["just had my oil changed and flames are coming out of the hood", "fire"],
+  ["got an oil change and now my brakes stopped working", "brakes"],
+  ["my foot is not on the gas and the brakes failed", "brakes"],
+  ["I'm not pressing the gas and my brakes went out", "brakes"],
+  ["The red BRAKE light stays on but the pedal feels normal", "brake-light"],
+  ["red brake light on", "brake-light"],
+  ["ABS and red BRAKE light on", "brake-light"],
+  ["brake warning light stays on", "brake-light"],
+  ["Lost power steering while driving", "steering"],
+  ["My power steering stopped working while driving", "steering"],
+  ["I can't turn the steering wheel while driving", "steering"],
+  ["Steering suddenly got really hard to turn while driving", "steering-heavy"],
+  ["steering wheel is really heavy while driving", "steering-heavy"],
+  ["engine lost power on the highway", "stall"],
+  ["Black smoke coming from the front of my car", "fire"],
+  ["smoke from under the hood", "fire"],
+  ["Engine temperature gauge just went into the red", "overheat"],
+  ["Engine temperature needle went to H", "overheat"],
+  ["my car is boiling over", "overheat"],
+  ["coolant is boiling", "overheat"],
+  ["My front tire went flat on the highway", "blowout"],
+  ["tire went flat while driving", "blowout"],
+  ["bubble on the side of my tire", "tire-bulge"],
+  ["tire sidewall bulge", "tire-bulge"],
+  ["I accidentally put diesel in my gas car", "wrong-fuel"],
+  ["put gas in my diesel truck", "wrong-fuel"],
+  ["check engine light flashing", "cel-flashing"],
+  ["red oil light came on while driving", "oil"],
+  ["gas pedal is stuck", "accelerator"],
+  ["I smell exhaust inside the car and have a headache", "exhaust"],
+  ["strong gas smell and fuel dripping under the car", "gas"]
+ ],
+ "routine": [
+  "oil change light", "oil life 15 percent", "maintenance required light", "white smoke from exhaust", "black smoke from exhaust",
+  "my brake lights are out", "third brake light not working", "steering wheel locked", "steering is hard to turn when parking",
+  "tire keeps going flat", "sprayed soapy water and saw bubbles on the tire", "coolant low light", "brake fluid boiling",
+  "put regular gas instead of premium", "squealing brakes", "check engine light is not flashing"
+ ]
+}

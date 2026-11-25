@@ -126,6 +126,13 @@ for(const q of ['Engine temperature gauge just went into the red','temp needle h
 for(const q of ['I accidentally put diesel in my gas car','put gas in my diesel truck','filled up with the wrong fuel','I pumped diesel by mistake'])
   {const e=window.VS_GUIDES.emergency(q);assert.equal(e&&e.rule,'wrong-fuel',q);assert.match(e.now,/don’t start the engine/i,q)}
 for(const q of ['put regular gas instead of premium','wrong octane gas','put gas in my car'])assert.equal(window.VS_GUIDES.emergency(q),null,q+' is not a wrong-fuel emergency');
+// Permanent table (tools/emergency-phrases.json): what the visitor sees first on the homepage.
+{const T=JSON.parse(fs.readFileSync(path.join(__dirname,'emergency-phrases.json'),'utf8'));
+ for(const [q,rule] of T.urgent){const e=window.VS_GUIDES.emergency(q);assert.equal(e&&e.rule,rule,q+' should raise '+rule);
+   const r=submit(q);assert.equal(location.href,'',q+' must not redirect before the safety step');
+   const box=r.firstElementChild;assert.ok(box&&box.classList.contains('urgentnow'),q+': the safety step must come first');assert.ok(box.textContent.includes(e.now),q+': wrong safety step shown')}
+ for(const q of T.routine)assert.equal(window.VS_GUIDES.emergency(q),null,q+' is routine');
+ submit('oil change light');assert.equal(location.href,'/warning-lights/oil-change-light/','a plain oil change reminder still goes to the routine page');location.href='';}
 let aliases=0;
 for(const j of journeys){
   for(const phrase of j.synonyms){

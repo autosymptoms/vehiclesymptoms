@@ -78,6 +78,14 @@ const HAS_PC=fs.existsSync(D('price-check/index.html'))&&/id="pcJob"/.test(fs.re
  p.w.close();
 }
 
+// One failed NHTSA name must not hide campaigns the other names returned (2021 Pacifica: PACIFICA ok, PLUG-IN HYBRID 400).
+{const camp=(m,id)=>({Manufacturer:'FCA US LLC',NHTSACampaignNumber:id,ReportReceivedDate:'01/01/2024',Component:'ELECTRICAL SYSTEM',Summary:'Test summary',Consequence:'',Remedy:'Dealers will fix it free.',Notes:'',ModelYear:'2021',Make:'CHRYSLER',Model:m});
+ const p=load('/vehicles/chrysler-pacifica/2021/',{fetch:nh(k=>/PLUG-IN/.test(k)?{status:400}:/HYBRID/.test(k)?{Count:1,Message:'ok',results:[camp('PACIFICA HYBRID','24V536000')]}:{Count:2,Message:'ok',results:[camp('PACIFICA','21V111000'),camp('PACIFICA','22V222000')]})});
+ await sleep(400);const t=p.doc.getElementById('nhtsa').textContent;
+ T('REC-PARTIAL','A failed alias keeps the campaigns other names returned and says the list may be incomplete',/3 safety recalls/.test(t)&&/24V536000/.test(t)&&/may be incomplete/i.test(t)&&!/lookup unavailable/i.test(t),t.slice(0,160))}
+{const p=load('/vehicles/chrysler-pacifica/2021/',{fetch:nh(k=>/PLUG-IN/.test(k)?{status:400}:{Count:0,Message:'ok',results:[]})});
+ await sleep(400);T('REC-PARTIAL-0','Zero campaigns with an unchecked alias is not shown as zero',/lookup unavailable/i.test(p.doc.getElementById('nhtsa').textContent),'')}
+
 // ---- Price check eligibility (only while the price check is published; it was removed Nov 22, 2026) ----
 if(HAS_PC){
 const job={job:'Spark plug replacement (general test estimate)',aka:['Replace spark plugs'],note:'',unit:'per job (all cylinders)',conf:'medium',checked:'TEST FIXTURE',extras:'',menu:[],bm:[],

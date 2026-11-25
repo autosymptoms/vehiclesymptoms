@@ -6,10 +6,9 @@ const BUILD_ID = '__BUILD_ID__';
 const CORE = __CORE__;          // small: app shell, needed for any page to work offline
 const OFFLINE_PAGES = __PAGES__; // warning lights and roadside symptom guides
 const CORE_CACHE = 'vs-core-' + BUILD_ID; // replaced on every deploy
-const PAGE_CACHE = 'vs-pages';            // kept across deploys; pages refresh when visited or after a week
+const PAGE_CACHE = 'vs-pages-' + BUILD_ID; // offline guides, saved fresh for every version so fixed advice replaces old copies
 const RUNTIME = 'vs-runtime';             // other pages and files a visitor opened
 const MAX_RUNTIME = 80;
-const MAX_PAGE_AGE = 7 * 24 * 3600 * 1000;
 const NETWORK_TIMEOUT = 4000;
 const OFFLINE_SET = new Set(OFFLINE_PAGES);
 const CORE_SET = new Set(CORE);
@@ -18,16 +17,16 @@ self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const core = await caches.open(CORE_CACHE);
     await core.addAll(CORE.map(u => new Request(u, { cache: 'reload' })));
-    // Save the offline pages that are missing or more than a week old. One failure doesn't stop the rest.
+    // Save every offline guide from this version, so safety fixes reach installed phones.
+    // If a page can't be fetched right now, keep the previous version's copy rather than nothing.
     const pages = await caches.open(PAGE_CACHE);
+    const old = (await caches.keys()).filter(k => k.startsWith('vs-pages') && k !== PAGE_CACHE);
     for (const url of OFFLINE_PAGES) {
       try {
-        const have = await pages.match(url);
-        const age = have ? Date.now() - new Date(have.headers.get('date') || 0).getTime() : Infinity;
-        if (have && age < MAX_PAGE_AGE) continue;
         const res = await fetch(url, { cache: 'no-cache', credentials: 'same-origin' });
-        if (res.ok) await pages.put(url, res);
-      } catch (e) { /* offline: try again on the next update */ }
+        if (res.ok) { await pages.put(url, res); continue; }
+      } catch (e) { /* offline: fall back below */ }
+      for (const k of old) { const prev = await (await caches.open(k)).match(url); if (prev) { await pages.put(url, prev); break; } }
     }
     await self.skipWaiting();
   })());
@@ -38,8 +37,12 @@ self.addEventListener('activate', event => {
     const keep = new Set([CORE_CACHE, PAGE_CACHE, RUNTIME]);
     for (const key of await caches.keys()) if (key.startsWith('vs-') && !keep.has(key)) await caches.delete(key);
     // Old copies of the site's own scripts and styles must never outlive a new version.
+    // Saved copies of other pages are dropped too: a page saved before a fix must not be shown after it.
     const runtime = await caches.open(RUNTIME);
-    for (const req of await runtime.keys()) if (CORE_SET.has(new URL(req.url).pathname)) await runtime.delete(req);
+    for (const req of await runtime.keys()) {
+      const path = new URL(req.url).pathname;
+      if (CORE_SET.has(path) || path.endsWith('/') || !/\.[a-z0-9]+$/i.test(path)) await runtime.delete(req);
+    }
     await self.clients.claim();
   })());
 });
@@ -72,9 +75,23 @@ async function page(event) {
   } catch (e) {
     const path = new URL(request.url).pathname;
     const saved = (await caches.match(path, { ignoreSearch: true })) || (await caches.match(request, { ignoreSearch: true }));
-    if (saved) return saved;
+    if (saved) return labelSaved(saved);
     return (await caches.match('/offline/')) || Response.error();
   }
+}
+
+// A saved page says it is saved, and how old it is, so nobody mistakes it for the live site.
+async function labelSaved(res) {
+  try {
+    const html = await res.clone().text();
+    const when = new Date(res.headers.get('date') || Date.now());
+    const days = Math.floor((Date.now() - when.getTime()) / 86400000);
+    const age = days < 1 ? 'today' : days === 1 ? 'yesterday' : days + ' days ago';
+    const note = '<div class="offline-note" role="note" style="background:#FFF4D6;color:#16222E;padding:10px 16px;font-size:14px;border-bottom:1px solid #E9D38A"><b>Saved copy (offline).</b> Saved ' + age + '. Advice may have been updated since. If a red light is on, or you see smoke, pull over when it’s safe and turn the engine off.</div>';
+    const out = html.replace(/<main([^>]*)>/, m => note + m);
+    const headers = new Headers(res.headers); headers.delete('content-length');
+    return new Response(out, { status: 200, headers });
+  } catch (e) { return res; }
 }
 
 async function asset(event) {
