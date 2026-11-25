@@ -123,7 +123,7 @@ function resetSection(v,year,name){
   const oil=r?block(r.oil,'Oil change or maintenance reminder'):'',tp=r?block(r.tpms,'Tire pressure (TPMS) light'):'';
   const mkLink=mk?`<a class="walk" href="/warning-lights/reset/${mk}/">Reset steps for other ${esc(v.make)} models →</a>`:'';
   if(!oil&&!tp)return mk?`<section class="card csec" id="reset"><h2>Reset the oil change or tire pressure light</h2><p>We have not checked the exact steps for ${year?'the '+esc(name):'this model'} yet. The usual ${esc(v.make)} steps are here: <a href="/warning-lights/reset/${mk}/">how to reset the oil change and tire pressure lights on ${/^[aeiou]/i.test(String(esc(v.make)))?'an':'a'} ${esc(v.make)}</a>.</p></section>`:'';
-  return `<section class="card csec" id="reset"><h2>How to reset the oil change and tire pressure lights${year?' on '+(/^[aeiou]/i.test(name)?'an ':'a ')+esc(name):''}</h2><p class="pg-sub">These are reminders, not faults. Do the oil change or set the tire pressures first, then reset.${year?'':' Pick your model year above to see only the steps for your car.'}</p>${oil}${tp}${r.notes?`<p class="lmuted">${esc(r.notes)}</p>`:''}<p class="lmuted">Button names can differ by trim. Your owner's manual is the final word for your exact car. If the light comes straight back, or a tire pressure light blinks and then stays on, something else needs checking.</p>${mkLink}</section>`;
+  return `<section class="card csec" id="reset"><h2>How to reset the oil change and tire pressure lights${year?' on '+(/^[aeiou]/i.test(name)?'an ':'a ')+esc(name):''}</h2><p class="pg-sub">The oil change message is a reminder: reset it after the service. The tire pressure light is a warning that a tire is low or, if it flashed first, that the system has a fault: set the pressures first, and have the system checked if it flashed.${year?'':' Pick your model year above to see only the steps for your car.'}</p>${oil}${tp}${r.notes?`<p class="lmuted">${esc(r.notes)}</p>`:''}<p class="lmuted">Button names can differ by trim. Your owner's manual is the final word for your exact car. If the light comes straight back, or a tire pressure light blinks and then stays on, something else needs checking.</p>${mkLink}</section>`;
 }
 function issueCard(i){return `<div class="issue"><div class="meta"><span class="sev ${i.sev}">${SEV[i.sev]}</span><span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><span class="pill">${esc(i.sys)}</span>${i.eng?`<span class="pill">${esc(i.eng)}</span>`:''}</div>
 <h3>${esc(i.t)}</h3><dl><div><dt>What you'll notice</dt><dd>${esc(i.sym)}</dd></div><div><dt>Why it happens</dt><dd>${esc(i.why)}</dd></div><div><dt>What to do</dt><dd>${esc(i.next)}</dd></div></dl>${costLine(i.cost,i._v,i._y)}${i.animation?`<a class="mv-issue" href="${esc(i.animation.href)}">Repair animation · ${esc(i.animation.title)}</a>`:''}${(g=>g?`<a class="walk" href="${gurl(g.id)}?v=${i._v||''}${i._y?'&y='+i._y:''}">Walk through this symptom: ${esc(g.title)} →</a>`:'')(forIssue(i))}</div>`}
@@ -315,16 +315,19 @@ if(hf){
     if(!q){out.innerHTML='';out.classList.remove('show');if(status)status.textContent='';return}
     const cm=q.match(/\b([PBCU][0-3][0-9A-F]{3})\b/i);
     // A code alone goes to code lookup; a code plus a danger sign ("P0300 and the light is flashing") shows the safety step first.
-    if(cm&&!window.VS_GUIDES.emergency(q.replace(cm[0],' '))){location.href='/codes/?q='+cm[1].toUpperCase();return}
+    if(cm&&!window.VS_GUIDES.emergency(q)){location.href='/codes/?q='+cm[1].toUpperCase();return}
+    // An oil change or oil life reminder is routine, not the red oil pressure warning.
+    if(/\boil (?:change|life)\b|\bchange (?:the |my |engine )?oil\b|\boil service\b|\bmaint(?:enance)? (?:reqd|required)\b/i.test(q)&&!/\bpressure\b|\bred\b|\blow oil\b|\bflicker/i.test(q)){location.href='/warning-lights/'+(/maint/i.test(q)?'maintenance-required-light':'oil-change-light')+'/';return}
     const vehicleMatch=findVehicle(q),v=vehicleMatch?.vehicle;
     const year=(q.match(/\b(?:19|20)\d{2}\b/)||[])[0],y=v?clampYear(v,+year):null;
     const qs=v?`?v=${v.id}${y?'&y='+y:''}`:'';
     // Remove the matched vehicle and year so "2012 Honda Civic shakes" can ask about timing.
     const symptom=v?q.replace(vehicleMatch.text,' ').replace(/\b(?:19|20)\d{2}\b/g,' '):q;
-    const urgent=window.VS_GUIDES.emergency(cm?symptom.replace(cm[0],' '):symptom);
+    const urgent=window.VS_GUIDES.emergency(symptom);
     if(urgent){
       // Danger first: the immediate safe action, then the most urgent guide, then anything else that matched.
-      const gs=searchGuides(symptom,5);
+      const ex=window.VS_GUIDES.exactGuide&&window.VS_GUIDES.exactGuide(symptom);
+      const gs=ex?[ex,...searchGuides(symptom,5).filter(g=>g.id!==ex.id)].slice(0,5):searchGuides(symptom,5);
       // Vague wording ("smoke is coming out of the car"): safety step first, then the easy where/what question.
       const ask=window.VS_GUIDES.clarifySearch(symptom.replace(cm?cm[0]:'',' '));
       out.innerHTML=`<div class="safety urgentnow" role="alert"><b>Do this first</b><p>${esc(urgent.now)}</p>${urgent.also.map(t=>`<p>${esc(t)}</p>`).join('')}</div>`+(ask?askHtml(ask,qs):
@@ -334,6 +337,8 @@ if(hf){
       if(status)status.textContent='Urgent safety step shown first. '+urgent.now+(ask?' '+ask.question:'');
       return;
     }
+    const exact=window.VS_GUIDES.exactGuide&&window.VS_GUIDES.exactGuide(symptom);
+    if(exact){location.href=gurl(exact.id)+qs;return}
     const question=window.VS_GUIDES.clarifySearch(symptom);
     const gs=question?[]:searchGuides(symptom,5);
     if(gs.length===1){location.href=gurl(gs[0].id)+qs;return}
@@ -363,11 +368,14 @@ showMy();
 
 // Code lookup hub search
 (function(){const f=document.getElementById('codeForm');if(!f||!window.CODE_INDEX)return;const qi=document.getElementById('codeQ'),out=document.getElementById('codeRes');
-  const run=q=>{q=q.trim();if(!q){out.innerHTML='';return}const Q=q.toUpperCase().replace(/\s+/g,'');
+  const run=q=>{q=q.trim();if(!q){out.innerHTML='';return}let Q=q.toUpperCase().replace(/\s+/g,'');if(/^[0-3][0-9A-F]{3}$/.test(Q))Q='P'+Q;// "0442" means P0442
     const exact=CODE_INDEX.find(c=>c[0]===Q);if(exact){location.href='/codes/'+exact[0].toLowerCase()+'/';return}
     const words=q.toLowerCase().split(/\s+/).filter(Boolean);
     const hits=CODE_INDEX.filter(c=>c[0].startsWith(Q)||words.every(w=>(c[1]+' '+c[2]).toLowerCase().includes(w))).slice(0,30);
-    out.innerHTML=hits.length?hits.map(c=>`<a class="gcard" href="/codes/${c[0].toLowerCase()}/"><b>${c[0]}</b><span>${esc(c[1])}</span></a>`).join(''):`<p class="muted">We don't have ${esc(q)} yet. Manufacturer-specific codes (like P1xxx) are being added. Try the first letters, like P04.</p>`};
+    out.innerHTML=hits.length?hits.map(c=>`<a class="gcard" href="/codes/${c[0].toLowerCase()}/"><b>${c[0]}</b><span>${esc(c[1])}</span></a>`).join(''):(!/^[PBCU][0-3][0-9A-F]{3}$/.test(Q)&&/^[A-Z]?\d/.test(Q)&&Q.length>=5?`<p class="muted">${esc(q)} isn't a valid trouble code. Codes are a letter (P, B, C or U) followed by four characters, like P0420. Check the scanner screen again.</p>`
+      :/^B/.test(Q)?`<p class="muted">We don't have ${esc(q)} yet. B codes are body codes, and many (B00xx) are airbag faults: if the airbag light is on, have it checked right away. <a href="/warning-lights/airbag-light/">Airbag light guide</a>.</p>`
+      :/^[PBCU]1/.test(Q)?`<p class="muted">We don't have ${esc(q)} yet. Codes with a 1 after the letter are set by the carmaker, so their meaning depends on your make. A shop or dealer scanner can read the exact description. Meanwhile, <a href="/symptoms/">start with what the car is doing</a>.</p>`
+      :`<p class="muted">We don't have ${esc(q)} yet. Try the first letters, like P04, or <a href="/symptoms/">start with what the car is doing</a>.</p>`)};
   f.onsubmit=e=>{e.preventDefault();run(qi.value)};qi.oninput=()=>{if(qi.value.trim().length>=2&&!/^[pbcu]\d{4}$/i.test(qi.value.trim()))run(qi.value)};
   const q0=new URLSearchParams(location.search).get('q');if(q0){qi.value=q0;run(q0)}})();
 // personal touch on code pages

@@ -9,7 +9,7 @@ const URG={
   check:{label:"Book a check when convenient",cls:"info",line:"Not an emergency, but don't ignore it."},
   diy:{label:"Check it yourself first",cls:"low",line:"Start with the simple checks below."}
 };
-window.VS_GUIDES={G,GROUPS,URG,esc,search,emergency,clarifySearch,noticeFirst:()=>noticeFirst,askFollow:k=>askFollow[k]||null,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/'};
+window.VS_GUIDES={G,GROUPS,URG,esc,search,emergency,exactGuide,clarifySearch,noticeFirst:()=>noticeFirst,askFollow:k=>askFollow[k]||null,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/'};
 
 // ---- Year / Make / Model picker, used on the homepage and in guide results ----
 // fill(ySel,mSel,moSel,{year,id},onChange): only offers makes/models actually sold in the chosen year.
@@ -100,29 +100,33 @@ const emergencyRules=[
     rx:new RegExp('\\bbrakes? (?:are |is |have |has |just |completely |totally )*(?:stopped|stop|quit|quits|failed|fail|failing|gave out|went out|gone|out|not working|dont work|do not work|doesnt work|does not work|arent working|wont work|isnt working|wont stop)\\b'+
       '|\\b(?:no|lost|losing|lose|without) (?:my |the |any )?brakes?\\b(?! lights?\\b)|\\bbrake failure\\b'+
       '|(?:^|\\b(?:car|it|truck|vehicle|suv|van|brakes?|i|we)\\s+)(?:wont|cant|will not|cannot|can not|couldnt|doesnt|does not|isnt) (?:stop|slow down|slow)\\b'+notStopping+
-      '|\\bpedal (?:goes |went |going |sinks |sank |dropped |drops )?(?:all the way )?(?:to|on) the floor\\b'),
+      '|\\bpedal (?:goes |went |going |sinks |sank |dropped |drops )?(?:straight |right )?(?:all the way )?(?:to|on) the floor\\b'+
+      '|\\bbrake pedal\\b.*\\b(?:all the way down|goes down|went down|sinks|sank|no resistance|stuck|jammed|wont press|wont go down|hard as a rock)\\b'+
+      '|\\b(?:cant|wont|cannot) stop\\b.*\\bbrak|\\bbrak\\w*\\b.*\\b(?:cant|wont) stop\\b'),
+    skip:/^(?!.*\bbrak).*\b(?:gas pedal|accelerator|throttle|gas is stuck)\b/,
     guides:['soft-or-spongy-brake-pedal','brake-warning-light-on','brake-fluid-leak'],
     now:'If your brakes fail while driving: pump the pedal hard and fast, shift to a lower gear, and pull the parking brake on gradually. Turn on your hazard lights and steer to a safe spot. Once stopped, don’t drive it again. Have it towed.'},
   {id:'accelerator',topic:/idle|rev|accelerat|gas pedal|throttle/i,
-    rx:/\b(?:gas pedal|accelerator|throttle|pedal)\b.*\b(?:stuck|sticking|sticks|jammed|wont come up|wont release|stays down|stuck down)\b|\b(?:stuck|jammed)\b.*\b(?:gas pedal|accelerator|throttle)\b|\b(?:accelerat\w*|speeding up|speeds up|going faster|surging|surges) (?:on its own|by itself|without me|without pressing)|\b(?:wont|cant) (?:slow down|stop accelerating)\b|\bunintended acceleration\b/,
+    skip:/^(?!.*\b(?:gas|accelerator|throttle)\b).*\b(?:brake|clutch) pedal\b/,
+    rx:/\b(?:gas pedal|accelerator|throttle|pedal)\b.*\b(?:stuck|sticking|sticks|jammed|wont come up|wont come back up|wont return|wont close|wont release|stays down|stuck down)\b|\b(?:keeps|kept|still|wont stop) (?:accelerating|speeding up|going faster|revving up)\b|\bfoot (?:is )?off the gas\b.*\b(?:accelerat|speed|faster)|\b(?:stuck|jammed)\b.*\b(?:gas pedal|accelerator|throttle)\b|\b(?:accelerat\w*|speeding up|speeds up|going faster|surging|surges) (?:on its own|by itself|without me|without pressing)|\b(?:wont|cant) (?:slow down|stop accelerating)\b|\bunintended acceleration\b/,
     guides:['engine-revs-high-at-idle'],
     now:'If the car speeds up on its own or the gas pedal sticks: press the brake firmly and hold it (don’t pump), shift to neutral, and steer to a safe spot. Once stopped, turn the engine off. With a push-button start you may need to hold the button for a few seconds. Check that a floor mat isn’t trapping the pedal, and don’t drive it again until it’s checked.'},
   {id:'fire',topic:/burn|smoke|steam|fire/i,
     rx:/\b(?:on fire|fire|flames?|flaming|caught fire|catching fire|burning up)\b|\bsmok(?:e|es|ing|ey|y)\b/,
     // Tailpipe smoke ("white smoke from exhaust") is not a fire emergency unless flames are mentioned.
-    skip:/^(?!.*\b(?:fire|flames?|flaming)\b).*\b(?:exhaust|tailpipe|tail pipe|muffler|white|blue|black|gray|grey|idle|idling|startup|start up|starting|cold start|turbo|puff|burning oil|oil change)\b/,
+    skip:/^(?!.*\b(?:fire|flames?|flaming|hood|bonnet|engine bay|dash|dashboard|vents?|cabin|steering column|under the car)\b).*\b(?:exhaust|tailpipe|tail pipe|muffler|white|blue|black|gray|grey|idle|idling|startup|start up|starting|cold start|turbo|puff|burning oil|oil change)\b/,
     guides:['burning-smell','steam-from-under-hood'],
     now:'If you see smoke and think your car may be on fire, pull over as soon as it’s safe and turn off the engine. Get everyone out. Leave the hood closed. Move at least 100 feet from the car and stay away from traffic. Call 911 from a safe spot, even if you can’t see flames.'},
   {id:'exhaust',topic:/exhaust|fume|smell/i,
-    rx:/\b(?:carbon monoxide|exhaust (?:smell|fumes?|inside|in the car|in the cabin|getting in)|fumes? (?:inside|in the car|in the cabin)|smell(?:s|ing)? (?:like )?exhaust)\b|\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b.*\b(?:exhaust|fumes?|smell)\b|\b(?:exhaust|fumes?)\b.*\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b|\b(?:headaches?|dizzy|dizziness|nausea|nauseous|lightheaded|light headed)\b.*\b(?:driving|in (?:the |my )?car|in (?:the |my )?truck|inside the car|while i drive|when i drive)\b/,
+    rx:/\b(?:carbon monoxide|exhaust (?:smell|fumes?|inside|in the car|in the cabin|getting in)|exhaust (?:\w+ ){0,2}(?:into|inside|in) (?:the |my )?(?:car|cabin|truck|van|suv)|fumes? (?:inside|in the car|in the cabin)|smell(?:s|ing)? (?:like )?exhaust)\b|\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b.*\b(?:exhaust|fumes?|smell)\b|\b(?:exhaust|fumes?)\b.*\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b|\b(?:headaches?|dizzy|dizziness|nausea|nauseous|lightheaded|light headed)\b.*\b(?:driving|in (?:the |my )?car|in (?:the |my )?truck|inside the car|while i drive|when i drive)\b/,
     guides:['exhaust-smell-in-cabin'],
     now:'If anyone has a headache, dizziness, nausea, confusion or feels sleepy, this may be carbon monoxide poisoning. Get everyone into fresh air right away and call 911 from outside the car.'},
   {id:'gas',topic:/gas|fuel/i,
-    rx:/\b(?:gas|gasoline|fuel) (?:smell|smells|smelling|leak|leaks|leaking|dripping|puddle)\b|\bsmell(?:s|ing)? (?:like |of )?(?:gas|gasoline|fuel)\b|\bleaking (?:gas|gasoline|fuel)\b/,
+    rx:/\b(?:gas|gasoline|fuel)\b(?! (?:pedal|mileage|cap|light|gauge|tank is empty))(?: \w+){0,2} (?:smell|smells|smelling|leak|leaks|leaking|dripping|drips|puddle|pooling|pouring|spraying|sprays|squirting|gushing)\b|\b(?:leaking|dripping|pouring|spraying)\b(?: \w+){0,2} (?:gas|gasoline|fuel)\b|\bsmell(?:s|ing)? (?:like |of )?(?:gas|gasoline|fuel)\b|\bleaking (?:gas|gasoline|fuel)\b/,
     guides:['gas-smell'],
     now:'If you smell strong fuel or see it dripping: don’t start the engine (turn it off if it’s running), keep sparks and cigarettes away, and move away from the car. Call 911 if the smell is strong or fuel is pooling.'},
   {id:'stall',topic:/stall|dies|shut|power|start/i,
-    rx:/\b(?:died|dies|dying|stalled|stalls|stalling|shut off|shuts off|shut down|shuts down|cut out|cuts out|turned off|turns off|quit|quits|lost power|loses power)\b.*\b(?:highway|freeway|interstate|driving|road|traffic)\b|\b(?:highway|freeway|interstate|driving)\b.*\b(?:died|stalled|shut off|shut down|cut out|turned off|quit)\b/,
+    rx:/\b(?:died|dies|dying|stalled|stalls|stalling|stopped|shut off|shuts off|shut down|shuts down|cut out|cuts out|turned off|turns off|quit|quits|lost power|loses power)\b.*\b(?:highway|freeway|interstate|driving|road|traffic|moving|at speed)\b|\b(?:highway|freeway|interstate|driving)\b.*\b(?:died|stalled|stopped|shut off|shut down|cut out|turned off|quit)\b/,
     guides:['engine-stalls-while-driving'],
     now:'If the engine dies while you’re moving: turn on your hazard lights, shift to neutral, keep a firm grip (steering and brakes get much heavier) and steer to the shoulder. Once stopped, get well away from traffic if it’s safe to do so.'},
   {id:'cel-flashing',topic:/engine|misfire|shak/i,
@@ -130,19 +134,19 @@ const emergencyRules=[
     guides:['check-engine-light-flashing'],
     now:'A flashing check engine light means a severe misfire that can overheat the exhaust and start a fire. Ease off the gas, pull over when it’s safe and turn the engine off. Don’t keep driving.'},
   {id:'oil',topic:/oil/i,
-    rx:/\b(?:red |low )?oil (?:pressure|light|warning|can|lamp|symbol|icon)\b(?!.*\b(?:change|life|service|maintenance|reset|due)\b)/,
+    rx:/\boil pressure\b(?! (?:sensor|switch|sending unit) (?:code|replacement))|\bred oil (?:light|can|lamp|symbol|icon|warning)\b|\b(?:low )?oil (?:light|warning|can|lamp|symbol|icon)\b(?!.*\b(?:change|life|service|maintenance|reset|due)\b)/,
     guides:['oil-pressure-light-on'],
     now:'A red oil light while the engine is running means low oil pressure. Pull over as soon as it’s safe and turn the engine off. Driving on can wreck the engine within minutes.'},
   {id:'overheat',skip:/\btransmission\b|\btrans temp\b/,topic:/overheat|temperature|coolant|steam/i,
-    rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up|flashing|blinking)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b/,
+    rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up|flashing|blinking)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b|\b(?:temp|temperature) (?:gauge|needle|light)\b(?: \w+){0,3} (?:red|high|hot|max)\b|\b(?:engine )?temp(?:erature)? (?:warning|light)\b|\bsteam\w*\b.*\b(?:hood|bonnet|radiator|engine bay)\b/,
     guides:['engine-overheating','steam-from-under-hood'],
     now:'If the engine is overheating: pull over when it’s safe and turn the engine off. Never open the radiator or coolant cap while it’s hot. Wait at least 30 minutes.'},
   {id:'blowout',topic:/tire|flat/i,
-    rx:/\b(?:blow ?out|blew out|tire (?:exploded|burst|popped|blew)|flat tire while driving)\b/,
+    rx:/\b(?:blow ?out|blew out|tire (?:\w+ ){0,2}(?:exploded|burst|popped|blew|shredded)|flat tire while driving)\b/,
     guides:['tire-keeps-losing-air'],
     now:'If a tire blows out: hold the steering wheel firmly, keep going straight, and ease off the gas. Don’t slam the brakes. Brake gently once you’ve slowed down, then pull fully off the road.'},
   {id:'steering',topic:/steer/i,
-    rx:/\b(?:steering (?:went out|failed|stopped working|gone)|lost (?:my |the )?steering|cant steer|steering (?:wheel )?(?:locked|locked up|wont turn)\b.*\b(?:driving|moving|highway|road))\b/,
+    rx:/\b(?:steering (?:is |has |just |completely |totally )*(?:went out|failed|stopped working|gone|quit|not working|out)|lost (?:my |the )?steering|lost control (?:of )?(?:the |my )?steering|cant steer|(?:car |it |truck )?(?:wont|doesnt) steer|steering (?:wheel )?(?:locked|locked up|wont turn|wont move)\b.*\b(?:driving|moving|highway|road))\b/,
     guides:['steering-hard-to-turn','loose-or-wandering-steering'],
     now:'If you lose steering control: grip the wheel firmly with both hands, ease off the gas, brake gently, turn on your hazard lights and steer to a safe stop. Don’t drive it again until it’s checked.'}
 ];
@@ -151,13 +155,18 @@ const emergencyGeneric=new Set(['flashing','blinking','flash','stopped','stop','
 // Common misspellings and texting shortcuts, so "my breaks went out" or "check engin lite flashin" still get the safety step.
 const emergencySpelling=[[/\bbreaks?\b/g,m=>m==='breaks'?'brakes':'brake'],[/\bbrakeing\b/g,'braking'],[/\bengin\b/g,'engine'],[/\blite\b/g,'light'],[/\blites\b/g,'lights'],
   [/\bflashin\b/g,'flashing'],[/\bblinkin\b/g,'blinking'],[/\bsmokin\b/g,'smoking'],[/\bsmokeing\b/g,'smoking'],[/\boverhe+t(?:ing|in)\b/g,'overheating'],[/\boverhe+ating\b/g,'overheating'],
-  [/\bover heating\b/g,'overheating'],[/\bdont\b/g,'dont'],[/\bwont\b/g,'wont'],[/\bcuz\b/g,'because'],[/\bexaust\b/g,'exhaust'],[/\bexhuast\b/g,'exhaust'],[/\bpetal\b/g,'pedal'],[/\bgass\b/g,'gas']];
+  [/\bover heating\b/g,'overheating'],[/\bdont\b/g,'dont'],[/\bwont\b/g,'wont'],[/\bcuz\b/g,'because'],[/\bexaust\b/g,'exhaust'],[/\bexhuast\b/g,'exhaust'],[/\bpetal\b/g,'pedal'],[/\bgass\b/g,'gas'],[/\btyres?\b/g,'tire'],[/\bpetrol\b/g,'gas'],[/\bodou?rs?\b/g,'smell'],[/\bbonnet\b/g,'hood']];
 function emergency(q){
   let text=literalSymptom(q);
   for(const [rx,to] of emergencySpelling)text=text.replace(rx,to);
   text=text.replace(/\bwill not\b/g,'wont').replace(/\bcan not\b|\bcannot\b/g,'cant')
-    .replace(/\b(?:isnt|is not|not|never|no longer|stopped) (?:flashing|blinking)\b|\b(?:doesnt|does not|didnt|did not) (?:flash|blink)\b/g,'steady');
-  const hits=emergencyRules.filter(rule=>rule.rx.test(text)&&!(rule.skip&&rule.skip.test(text)));
+    .replace(/\b(?:isnt|is not|not|never|no longer|stopped) (?:flashing|blinking)\b|\b(?:doesnt|does not|didnt|did not) (?:flash|blink)\b/g,'steady')
+    // "no smoke, just a rattle" or "there is no gas smell" is not a fire or fuel warning.
+    .replace(/\b(?:no|not any|without|isnt any|there is no|theres no|dont see any|dont smell any|cant smell any)\s+(?:\w+\s+)?(?:smoke|fire|flames?|smell|fumes?|leak)\b/g,' ')
+    // A trouble code with "the light is flashing" is a flashing check engine light.
+    .replace(/\bp[0-3][0-9a-f]{3}\b/g,' check engine light ');
+  let hits=emergencyRules.filter(rule=>rule.rx.test(text)&&!(rule.skip&&rule.skip.test(text)));
+  if(hits.some(rule=>rule.id==='accelerator'))hits=hits.filter(rule=>rule.id!=='brakes');
   if(!hits.length)return null;
   const ids=[...new Set(hits.flatMap(rule=>rule.guides))].filter(id=>G.some(g=>g.id===id));
   return {rule:hits[0].id,now:hits[0].now,also:hits.slice(1).map(rule=>rule.now),guides:ids.map(id=>G.find(g=>g.id===id)),
@@ -165,6 +174,9 @@ function emergency(q){
     related:g=>hits.some(rule=>rule.topic.test(g.title+' '+g.h1))||
       symptomWords(g.title).some(word=>!emergencyGeneric.has(word)&&symptomWords(q).includes(word))};
 }
+// Someone who types a guide's own heading ("Why does my car pull to one side?") goes straight to it.
+function exactGuide(q){const lq=literalSymptom(q).replace(/^(?:why (?:does|do|is|wont|would) )?(?:my |the )?/,'');if(lq.split(' ').length<2)return null;
+  return G.find(g=>[g.h1,g.title].some(t=>t&&literalSymptom(t).replace(/^(?:why (?:does|do|is|wont|would) )?(?:my |the )?/,'')===lq))||null}
 function search(q,n=5){
   const urgent=emergency(q);
   const ordinary=searchWords_(q,n);
@@ -303,7 +315,7 @@ if(J&&root){
     if(!path.length)return'';
     return`<div class="answers"><span class="vb-l">Your answers</span>${path.map((p,i)=>`<button class="ans" data-i="${i}" title="Change this answer"><span>${esc(p.q)}</span><b>${esc(p.a)}</b></button>`).join('')}</div>`;
   }
-  function wireCrumbs(){root.querySelectorAll('.ans').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(ours())history.go(i-path.length);else toDepth(i)})}
+  function wireCrumbs(){root.querySelectorAll('.ans').forEach(b=>b.onclick=()=>{const i=+b.dataset.i,mine=ours(),steps=i-path.length;toDepth(i);if(mine&&steps)history.go(steps)})}
   function draw(focusStep=false){
     const n=node(cur);
     const top=resumed&&path.length?`<div class="resumed">Picked up where you left off. <button class="linkbtn" id="fresh">Start fresh</button></div>`:'';
@@ -315,7 +327,7 @@ if(J&&root){
       wireCrumbs();
     } else drawResult(n.result,top);
     wireVeh(draw);
-    const b=document.getElementById('back');if(b)b.onclick=()=>{if(ours()){history.back();return}const p=path.pop();cur=p?p.k:J.start;save();draw(true)};
+    const b=document.getElementById('back');if(b)b.onclick=()=>{const mine=ours();const p=path.pop();cur=p?p.k:J.start;resumed=false;save();draw(true);if(mine)history.back()};
     const r=document.getElementById('restart');if(r)r.onclick=()=>{path=[];cur=J.start;save();draw(true)};
     const f=document.getElementById('fresh');if(f)f.onclick=()=>{path=[];cur=J.start;resumed=false;save();draw(true)};
     if(focusStep){

@@ -5781,6 +5781,45 @@
     ],
     "evidence": "products/vehicle/models 2015 VOLKSWAGEN issueType=c lists TOUAREG; products/vehicle/models 2016 VOLKSWAGEN issueType=c lists TOUAREG; products/vehicle/models 2017 VOLKSWAGEN issueType=c lists TOUAREG; accessed 2026-11-21"
    }
+  ],
+  "chrysler-pacifica": [
+   {
+    "from": 2004,
+    "to": 2008,
+    "queries": [
+     {
+      "make": "CHRYSLER",
+      "model": "PACIFICA",
+      "label": "Pacifica"
+     }
+    ],
+    "verified": false,
+    "evidence": "name fallback for the 2004-2008 crossover",
+    "missing": "not re-checked 2026-11-24"
+   },
+   {
+    "from": 2017,
+    "to": 2026,
+    "queries": [
+     {
+      "make": "CHRYSLER",
+      "model": "PACIFICA",
+      "label": "Pacifica"
+     },
+     {
+      "make": "CHRYSLER",
+      "model": "PACIFICA HYBRID",
+      "label": "Pacifica Hybrid"
+     },
+     {
+      "make": "CHRYSLER",
+      "model": "PACIFICA PLUG-IN HYBRID",
+      "label": "Pacifica Hybrid"
+     }
+    ],
+    "verified": true,
+    "evidence": "recallsByVehicle 2018 CHRYSLER PACIFICA HYBRID Count 4 (18V740, 19V143, 20V334, 22V077); recallsByVehicle 2018 CHRYSLER PACIFICA PLUG-IN HYBRID Count 2 (24V536, 18V524); products/vehicle/models 2018 CHRYSLER issueType=r lists PACIFICA; accessed 2026-11-24"
+   }
   ]
  },
  "note": " Single-name models merged from audit/recalls/single (2026-11-21)."

@@ -1033,7 +1033,7 @@
  },
  "engine-temperature-light": {
   "look": "It sits in the main instrument cluster and looks like a thermometer dipped in liquid, with wavy lines under it. Red means too hot; on many cars the same symbol glows blue for a minute after a cold start, which only means the engine is still warming up. Some makes show words instead, such as ENGINE HOT or COOLANT TEMP, and some just swing the temperature needle into the red band.",
-  "flash": "On a number of European cars the coolant symbol blinks when the coolant level in the tank has dropped, and glows steady when the engine is actually too hot. Treat a blinking one as low coolant and a steady red one as overheating, and check your owner's manual, because makes differ.",
+  "flash": "On some European cars a blinking coolant symbol means low coolant and a steady one means the engine is too hot, but makes differ and a flashing red light can also mean overheating. Either way, pull over when it's safe, turn the engine off, and check the owner's manual for what your car's light means.",
   "diy": [
    {
     "t": "Let it cool, then check the coolant tank level",
@@ -1943,7 +1943,7 @@
    },
    {
     "q": "How long can I drive with the power steering light on?",
-    "a": "Think days, not weeks, and only while the steering still feels close to normal. If the assist has already dropped out and the wheel is heavy, drive straight to a shop or have it towed. The real risk is a tight turn or a sudden swerve you cannot make quickly enough."
+    "a": "If the light is red, don't keep driving: pull over when it's safe and check the owner's manual, because on some cars red means a steering fault. If it's amber and the steering still feels close to normal, think days, not weeks. If the wheel is heavy, have it towed rather than driving."
    },
    {
     "q": "Does the power steering light reset itself?",
@@ -2449,17 +2449,18 @@
     "tools": "None"
    },
    {
-    "t": "Check the cabin fuse box and the battery terminals",
-    "how": "Your owner's manual shows the fuse box inside the car, usually at the end of the dash or by the driver's left knee, and lists which fuse feeds the restraint system. Pull that fuse with your fingers or the small puller in the lid and look at the metal strip inside: a clean S shape is good, a broken or burnt strip is not. While the hood is open, look at the two battery posts for loose clamps or crusty white-green buildup, since weak power sets this fault after a jump start or a flat battery.",
-    "mins": "10 minutes",
-    "tools": "Owner's manual, fuse puller"
+    "t": "Look at the battery terminals",
+    "how": "With the engine off, open the hood and look at the two battery posts for loose clamps or crusty white-green buildup, since weak power can set this fault after a jump start or a flat battery. Don't pull fuses, unplug connectors or disconnect anything in the airbag system yourself. Leave that to a shop with an airbag scanner.",
+    "mins": "5 minutes",
+    "tools": "None"
    }
   ],
   "dont": [
    "Don't fit a steering wheel cover, phone mount or cushion over the pad in the middle of the wheel.",
    "Don't buy a used airbag unit, steering wheel or seat from a salvage yard to fix this yourself.",
    "Don't let anyone talk you into just clearing the code so the light goes out before a sale or an inspection.",
-   "Don't store heavy items on the front passenger seat or wedge anything under the seats while the light is on."
+   "Don't store heavy items on the front passenger seat or wedge anything under the seats while the light is on.",
+   "Don't pull airbag fuses or unplug yellow airbag connectors yourself. Done wrong, it can set off an airbag or leave it switched off."
   ],
   "causes2": [
    {
@@ -2748,7 +2749,7 @@
   "faqs": [
    {
     "q": "How long can I drive with the low coolant light on?",
-    "a": "Treat it as days, not weeks, and keep trips short while you watch the temperature gauge. Low coolant is one step away from overheating, and an overheated engine can warp the cylinder head. If the gauge climbs or the red temperature light appears, stop and switch it off."
+    "a": "Not far until you've checked it. Once the engine is cool, read the tank level. If it's only a little low, top it up and get the leak checked within days. If the tank is empty, the light is red or says stop, or the temperature gauge climbs, don't drive it."
    },
    {
     "q": "Can I just add water instead of coolant?",
@@ -2764,7 +2765,7 @@
    },
    {
     "q": "Is the low coolant light the same as the red temperature light?",
-    "a": "No, and the difference matters. The amber coolant light means the level in the tank is low, which is a warning to act soon. The red temperature light means the engine is already too hot, and that one means pull over and switch off now. Low coolant left alone is what usually turns the first light into the second."
+    "a": "Not always. On many cars an amber coolant light means the level is low and the red temperature light means the engine is already too hot. But some cars, including many Volkswagens and Audis, show a red coolant light for low coolant and say to stop. If any coolant or temperature light is red, pull over and switch off, then check your owner's manual."
    }
   ],
   "src": [
@@ -4528,7 +4529,7 @@
    },
    {
     "t": "Let it cool if the warning mentions heat",
-    "how": "Pull into a safe spot off the road, leave the engine idling in Park with the air conditioning switched off, and give it fifteen to twenty minutes. Idling in Park keeps fluid moving through the cooler without loading the transmission. If the warning clears, drive gently and stay off long climbs and heavy loads until it has been checked.",
+    "how": "Pull into a safe spot off the road and do what the message or your owner's manual says. Many cars want you to idle in Park with the air conditioning off for fifteen to twenty minutes; some, including several Ford models, tell you to turn the engine off instead. If the warning clears, drive gently and stay off long climbs and heavy loads until it has been checked.",
     "mins": "15-20 minutes",
     "tools": "None"
    },
@@ -4637,7 +4638,7 @@
   "diy": [
    {
     "t": "Drain the water separator",
-    "how": "With the engine off and cold, open the hood and find the fuel filter canister. Most diesel pickups have a drain valve on the bottom of it. Put a jar underneath, open the valve by hand a turn or two, let the water and a little fuel run out until clean diesel comes, then close it finger tight. The owner's manual shows the exact spot. What comes out is mostly fuel, so keep it away from flames and take it to a recycling center.",
+    "how": "Check the owner's manual first: it shows where the drain is, and some trucks say not to restart until the water is drained. With the engine off and cold, find the fuel filter canister; most diesel pickups have a drain valve on the bottom. Put a jar underneath, open the valve by hand a turn or two, let the water and a little fuel run out until clean diesel comes, then close it finger tight. What comes out is mostly fuel, so keep it away from flames and take it to a recycling center.",
     "mins": "5-10 minutes",
     "tools": "A jar or catch bottle"
    },
@@ -4716,7 +4717,7 @@
   "faqs": [
    {
     "q": "How long can I drive with the water in fuel light on?",
-    "a": "Treat it as a same-day job rather than an emergency. Short, gentle trips are usually fine. But water in diesel damages the injectors and the high-pressure pump, so get it drained before any long drive and stop if the engine runs rough or smokes."
+    "a": "Check your owner's manual first, because some diesels say to stop the engine and drain the water before restarting. If yours doesn't, keep it to a short, gentle drive to get it drained the same day. Water in diesel damages the injectors and the high-pressure pump, so stop if the engine runs rough or smokes."
    },
    {
     "q": "Does the light clear itself after I drain the water out?",
