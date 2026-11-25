@@ -380,10 +380,10 @@ for(const l of LIGHTS){const u=lsev(l);const gs=l.guides.filter(g=>JT[g]).map(g=
   const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/warning-lights/">Warning lights</a> › ${escH(l.name)}</div>
 <div class="lhead"><div class="lbig" style="border-color:${LCOL[l.color]}55">${lIcon(l,72)}</div><div><div class="eyebrow">${escH(l.color==='red'&&l.sev==='info'?'Red reminder light':LCOLNAME[l.color])}</div><h1>${escH(l.name)}</h1>${l.aka.length?`<p class="muted" style="margin:4px 0 0">Also called: ${l.aka.map(escH).join(', ')}</p>`:''}</div></div>
 ${FIRSTQ[l.id]?(f=>`<section class="card csec firstq" id="first"><h2>${escH(f.q)}</h2><p class="pg-sub">${escH(f.help)}</p><div class="fq-opts">${f.opts.map(o=>`<a class="fq-o ${o.cls}" href="${o.href}"><b>${escH(o.a)}</b><span>${escH(o.d)}</span></a>`).join('')}</div></section>`)(FIRSTQ[l.id]):''}
-<div class="urg ${u[1]}"><b>How urgent?</b> ${FIRSTQ[l.id]?'If steady: ':''}${escH(u[0])}</div>
+<div class="urg ${u[1]}"><b>How urgent?</b> ${FIRSTQ[l.id]?'If steady: ':''}${escH(u[0])}${l.sev==='stop'&&l.todo.length?`<span class="urg-next"><b>First step:</b> ${escH(l.todo[0])} <a href="#todo">All steps</a></span>`:''}</div>
 ${BYLINE}<section class="card csec"><h2>What it means</h2><p class="lead2">${escH(l.meaning)}</p>${d.look?`<p class="lmuted">${escH(d.look)}</p>`:''}</section>
 <section class="card csec drivebox" style="border-left-color:${LCOL[l.color]}"><h2>Can I keep driving?</h2><p>${escH(l.drive)}</p>${d.flash?`<p class="lflash"><b>If it's flashing or blinking:</b> ${escH(d.flash)}</p>`:''}</section>
-<div class="cgrid"><section class="card csec"><h2>What to do now</h2><ol class="nums">${l.todo.map(x=>`<li>${escH(x)}</li>`).join('')}</ol></section>
+<div class="cgrid"><section class="card csec" id="todo"><h2>What to do now</h2><ol class="nums">${l.todo.map(x=>`<li>${escH(x)}</li>`).join('')}</ol></section>
 <section class="card csec"><h2>Common causes</h2><ul class="dots">${l.causes.map(x=>`<li>${escH(x)}</li>`).join('')}</ul></section></div>
 ${animation}
 ${d.diy&&d.diy.length?`<section class="card csec ldiy"><div class="pg-head"><h2>Checks you can do yourself</h2><span class="pg-badge">Safe, no tools in most cases</span></div>

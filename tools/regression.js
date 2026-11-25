@@ -23,6 +23,7 @@ const nh=(map)=>u=>{const q=new URL(u).searchParams;const k=[q.get('make'),q.get
 const empty=k=>{const [mk,md,y]=k.split('|');return {Count:0,Message:'Results returned successfully',results:[]}};
 
 (async()=>{
+const HAS_PC=fs.existsSync(D('price-check/index.html'))&&/id="pcJob"/.test(fs.readFileSync(D('price-check/index.html'),'utf8'));
 // ---- Recalls ----
 {const p=load('/vehicles/acura-rsx-integra/2023/',{fetch:nh(k=>FIX[k]||empty(k))});await sleep(300);
  const box=p.doc.getElementById('nhtsa').textContent,tile=p.doc.getElementById('recTile').textContent;
@@ -77,7 +78,8 @@ const empty=k=>{const [mk,md,y]=k.split('|');return {Count:0,Message:'Results re
  p.w.close();
 }
 
-// ---- Price check eligibility ----
+// ---- Price check eligibility (only while the price check is published; it was removed Nov 22, 2026) ----
+if(HAS_PC){
 const job={job:'Spark plug replacement (general test estimate)',aka:['Replace spark plugs'],note:'',unit:'per job (all cylinders)',conf:'medium',checked:'TEST FIXTURE',extras:'',menu:[],bm:[],
   cls:{economy:{p:[49,78],h:[0.5,1],ex:'TEST',src:[]},midsize:{p:[40,90],h:[1,1.5],ex:'TEST',src:[]},truck:{p:[60,160],h:[1,2],ex:'TEST',src:[]},luxury:{p:[65.22,148.62],h:[2,2],ex:'2008-2013 BMW 335i (TEST)',src:[]}}};
 const EST={jobs:[job],held:[],vc:{'tesla-model-y':'l','toyota-camry':'m'},rates:{CT:[125,141,1]},nat:[120,160],states:[['CT','Connecticut']],rsrc:[]};
@@ -137,9 +139,10 @@ async function quote(qs,term,amount,state){const p=load('/price-check/',{est:EST
  p.dom.window.close();
 }
 
+} else T('PRC-OFF','Price check is not published (no estimator on /price-check/) and /price-check/ redirects home',JSON.parse(fs.readFileSync(path.join(__dirname,'../vercel.json'),'utf8')).redirects.some(r=>r.source==='/price-check'&&r.destination==='/'),'')
 // ---- Price display: no withheld numbers or charts in public output ----
 {const p=load('/vehicles/toyota-camry/2015/',{});await sleep(300);const h=p.doc.getElementById('vehicleView').innerHTML;
- T('PRC-07','Vehicle page shows no price bars or ranges for withheld prices',!/class="pg-bar"/.test(h)&&/Insufficient verified pricing for this vehicle and repair/.test(h),'')
+ T('PRC-07','Vehicle page shows no price bars, ranges or dollar figures',h.length>500&&!/class="pg-bar"/.test(h)&&!/\$\d/.test(h),h.length+' chars')
  const dj=fs.readFileSync(D('data/v/toyota-camry.json'),'utf8');T('PRC-08','Per-vehicle data file carries no withheld lo/hi figures',!/"lo":\d+,"hi":\d+/.test(dj.replace(/"free":true[^}]*/g,'')),'')}
 
 // ---- Urgency ----
@@ -148,8 +151,12 @@ for(const code of ['p0300','p0301','p0304','p0316']){const h=fs.readFileSync(D('
 {const h=fs.readFileSync(D('codes/p0300/index.html'),'utf8');const ld=JSON.parse(h.match(/<script type="application\/ld\+json">(.*?)<\/script>/)[1]);const a=ld.mainEntity.find(q=>/Can I drive/.test(q.name)).acceptedAnswer.text;
  T('URG-ld','P0300 FAQ structured data leads with the flashing/shaking condition',/^If the check engine light is flashing/.test(a),a.slice(0,80))}
 
+for(const id of ['oil-pressure-light','engine-temperature-light','battery-light','brake-warning-light']){const h=fs.readFileSync(D('warning-lights/'+id+'/index.html'),'utf8');
+  const u=h.indexOf('class="urg '),f=h.indexOf('urg-next'),m=h.indexOf('<h2>What it means');
+  T('URG-'+id,id+': first step sits inside the urgency box, above "What it means", and links to the full steps',u>0&&f>u&&f<m&&/id="todo"/.test(h)&&/href="#todo"/.test(h),'urg='+u+' next='+f+' means='+m)}
+
 // ---- QA follow-ups (2026-11-21) ----
-{const r=await quote('?v=tesla-model-y&y=2023','spark',400,'CT');T('PRC-09','Tesla Model Y "spark" search (real held list) says it does not apply, not "no sourced range"',/does not apply to a battery-electric/i.test(r.sug)&&!/No sourced range yet for[^.]*spark/i.test(r.sug),r.sug.slice(0,200))}
+if(HAS_PC){const r=await quote('?v=tesla-model-y&y=2023','spark',400,'CT');T('PRC-09','Tesla Model Y "spark" search (real held list) says it does not apply, not "no sourced range"',/does not apply to a battery-electric/i.test(r.sug)&&!/No sourced range yet for[^.]*spark/i.test(r.sug),r.sug.slice(0,200))}
 {const p=load('/symptoms/grinding-brakes/',{qs:'?v=toyota-camry&y=2015'});await sleep(300);let err='';p.w.addEventListener('error',e=>{err=e.message});
  const b=[...p.doc.querySelectorAll('#guideApp .opt')];let n=0;while(b.length&&n<6){b[0].click();await sleep(30);n++;const nb=[...p.doc.querySelectorAll('#guideApp .opt')];if(!nb.length)break;b.splice(0,b.length,...nb)}
  const t=p.doc.getElementById('guideApp').textContent;T('GDE-01','Guide result with a vehicle picked renders without error (withheld prices)',!err&&t.length>200&&!/NaN|undefined/.test(t),err||t.slice(0,120))}
