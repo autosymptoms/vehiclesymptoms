@@ -100,7 +100,9 @@ const emergencyRules=[
     rx:new RegExp('\\bbrakes? (?:are |is |have |has |just |completely |totally )*(?:stopped|stop|quit|quits|failed|fail|failing|gave out|went out|gone|out|not working|dont work|do not work|doesnt work|does not work|arent working|wont work|isnt working|wont stop)\\b'+
       '|\\b(?:no|lost|losing|lose|without) (?:my |the |any )?brakes?\\b(?! lights?\\b)|\\bbrake failure\\b'+
       '|(?:^|\\b(?:car|it|truck|vehicle|suv|van|brakes?|i|we)\\s+)(?:wont|cant|will not|cannot|can not|couldnt|doesnt|does not|isnt) (?:stop|slow down|slow)\\b'+notStopping+
-      '|\\bpedal (?:goes |went |going |sinks |sank |dropped |drops )?(?:straight |right )?(?:all the way )?(?:to|on) the floor\\b'+
+      '|\\bpedal (?:goes |went |going |sinks |sank |dropped |drops )?(?:straight |right )?(?:all the way )?(?:to|on) the (?:floor|carpet|mat|floorboard)\\b'+
+      '|\\b(?:barely|hardly|wont|doesnt|isnt|not) (?:slow|slows|slowing|stop|stops|stopping)(?: down)?\\b.*\\bbrak|\\bbrak\\w*\\b.*\\b(?:barely|hardly) (?:slow|slows|stop|stops)'+
+      '|\\bpedal\\b.*\\b(?:barely|hardly) (?:slows?|stops?)\\b'+
       '|\\bbrake pedal\\b.*\\b(?:all the way down|goes down|went down|sinks|sank|no resistance|stuck|jammed|wont press|wont go down|hard as a rock)\\b'+
       '|\\b(?:cant|wont|cannot) stop\\b.*\\bbrak|\\bbrak\\w*\\b.*\\b(?:cant|wont) stop\\b'),
     skip:/^(?!.*\bbrak).*\b(?:gas pedal|accelerator|throttle|gas is stuck)\b/,
@@ -114,7 +116,7 @@ const emergencyRules=[
     now:'Release the parking brake first. If the red brake light stays on, don’t drive until it’s checked, even if the pedal feels normal. Low brake fluid can mean a leak and brakes that may not stop the car. If the pedal feels soft or sinks, don’t drive: have it towed.'},
   {id:'accelerator',topic:/idle|rev|accelerat|gas pedal|throttle/i,
     skip:/^(?!.*\b(?:gas|accelerator|throttle)\b).*\b(?:brake|clutch) pedal\b/,
-    rx:/\b(?:gas pedal|accelerator|throttle|pedal)\b.*\b(?:stuck|sticking|sticks|jammed|wont come up|wont come back up|wont return|wont close|wont release|stays down|stuck down)\b|\b(?:keeps|kept|still|wont stop) (?:accelerating|speeding up|going faster|revving up)\b|\bfoot (?:is )?off the gas\b.*\b(?:accelerat|speed|faster)|\b(?:stuck|jammed)\b.*\b(?:gas pedal|accelerator|throttle)\b|\b(?:accelerat\w*|speeding up|speeds up|going faster|surging|surges) (?:on its own|by itself|without me|without pressing)|\b(?:wont|cant) (?:slow down|stop accelerating)\b|\bunintended acceleration\b/,
+    rx:/\b(?:gas pedal|accelerator|throttle|pedal)\b.*\b(?:stuck|sticking|sticks|jammed|wont come up|wont come back up|wont return|wont close|wont release|stays down|stuck down)\b|\b(?:keeps|kept|still|wont stop) (?:accelerating|speeding up|going faster|revving up)\b|\bfoot (?:is )?off the gas\b.*\b(?:accelerat|speed|faster)|\b(?:stuck|jammed)\b.*\b(?:gas pedal|accelerator|throttle)\b|\b(?:accelerat\w*|speeding up|speeds up|going faster|surging|surges) (?:on its own|by itself|without me|without pressing)|\b(?:wont|cant) (?:slow down|stop accelerating)\b|\bunintended acceleration\b|\b(?:speeding up|speeds up|accelerating|accelerates|going faster|revving)\b.*\bfoot (?:is )?(?:off|not on) the (?:gas|pedal|accelerator)\b|\bfoot (?:is )?(?:off|not on) the (?:gas|pedal|accelerator)\b.*\b(?:speeding up|speeds up|accelerating|accelerates|going faster)\b/,
     guides:['engine-revs-high-at-idle'],
     now:'If the car speeds up on its own or the gas pedal sticks: press the brake firmly and hold it (don’t pump), shift to neutral, and steer to a safe spot. Once stopped, turn the engine off. With a push-button start you may need to hold the button for a few seconds. Check that a floor mat isn’t trapping the pedal, and don’t drive it again until it’s checked.'},
   {id:'fire',topic:/burn|smoke|steam|fire/i,
@@ -130,7 +132,7 @@ const emergencyRules=[
   {id:'gas',topic:/gas|fuel/i,
     rx:/\b(?:gas|gasoline|fuel)\b(?! (?:pedal|mileage|cap|light|gauge|tank is empty))(?: \w+){0,2} (?:smell|smells|smelling|leak|leaks|leaking|dripping|drips|puddle|pooling|pouring|spraying|sprays|squirting|gushing)\b|\b(?:leaking|dripping|pouring|spraying)\b(?: \w+){0,2} (?:gas|gasoline|fuel)\b|\bsmell(?:s|ing)? (?:like |of )?(?:gas|gasoline|fuel)\b|\bleaking (?:gas|gasoline|fuel)\b/,
     guides:['gas-smell'],
-    now:'If you smell strong fuel or see it dripping: don’t start the engine (turn it off if it’s running), keep sparks and cigarettes away, and move away from the car. Call 911 if the smell is strong or fuel is pooling.'},
+    now:'If you smell strong fuel or see it dripping: if you’re driving, pull over when it’s safe and turn the engine off; if you’re parked, don’t start it. Keep sparks and cigarettes away and move away from the car. Call 911 if the smell is strong or fuel is pooling.'},
   {id:'stall',topic:/stall|dies|shut|power|start/i,
     rx:/\b(?:died|dies|dying|stalled|stalls|stalling|stopped|shut off|shuts off|shut down|shuts down|cut out|cuts out|turned off|turns off|quit|quits|lost power(?! steering)|loses power(?! steering))\b.*\b(?:highway|freeway|interstate|driving|road|traffic|moving|at speed)\b|\b(?:highway|freeway|interstate|driving)\b.*\b(?:died|stalled|stopped|shut off|shut down|cut out|turned off|quit)\b/,
     skip:/^(?=.*\bsteering\b)(?!.*\b(?:engine|motor)\b)(?!.*\b(?:stalled|stalls|stalling|died|dies|dying|shut off|shuts off|cut out|cuts out)\b)/,
@@ -164,8 +166,14 @@ const emergencyRules=[
     skip:/\bsoap\w*|\bspray\w*|\bwater\b/,
     guides:['tire-keeps-losing-air'],
     now:'If you see a bulge, bubble, deep cut or cords showing on a tire, don’t drive on it. Put on the spare or call roadside help.'},
+  // A wheel or tire coming off at speed. Same first action as a blowout, then don't drive it.
+  {id:'wheel-off',topic:/tire|wheel|flat/i,
+    rx:/\b(?:tire|wheel|tyre)\b(?: \w+){0,2} (?:came|come|coming|fell|falls|flew|flying|is coming) off\b|\b(?:lost|losing) (?:a |the |my )?(?:front |rear |back )?(?:wheel|tire)\b|\bwheel (?:is )?(?:wobbling|loose)\b.*\b(?:driving|highway|moving|road)\b/,
+    skip:/\b(?:cover|covers|hubcap|hub cap|center cap|trim|rim at|at the shop|tire shop|bead|valve)\b|^(?!.*\b(?:driving|drive|highway|freeway|moving|road|speed|while|lost|losing|wobbling)\b)/,
+    guides:['tire-keeps-losing-air'],
+    now:'If a wheel or tire comes off while you’re driving: hold the steering wheel firmly, ease off the gas and don’t slam the brakes. Brake gently once you’ve slowed down, turn on your hazard lights and pull fully off the road. Don’t drive it again: have it towed.'},
   {id:'steering',topic:/steer/i,
-    rx:/\b(?:(?:power )?steering (?:is |has |just |completely |totally )*(?:went out|failed|stopped working|gone|quit|not working|out|died)|(?:lost|losing|lose|no) (?:my |the |all )?(?:power )?steering|power steering (?:\w+ ){0,2}(?:while|when) (?:driving|moving)|lost control (?:of )?(?:the |my )?steering|cant steer|(?:cant|couldnt) turn (?:the |my )?(?:steering )?wheel\b.*\b(?:driving|moving|highway|road)|(?:car |it |truck )?(?:wont|doesnt) steer|steering (?:wheel )?(?:locked|locked up|wont turn|wont move)\b.*\b(?:driving|moving|highway|road))\b/,
+    rx:/\b(?:(?:power )?steering (?:is |has |just |completely |totally )*(?:went out|failed|stopped working|gone|quit|not working|out|died)|(?:lost|losing|lose|no) (?:my |the |all )?(?:power )?steering|power steering (?:\w+ ){0,2}(?:while|when) (?:driving|moving)|lost control (?:of )?(?:the |my )?steering|cant steer|(?:cant|couldnt) turn (?:the |my )?(?:steering )?wheel\b.*\b(?:driving|moving|highway|road)|(?:car |it |truck )?(?:wont|doesnt) steer|steering (?:wheel )?(?:is )?(?:locked|locked up|wont turn|wont move|stopped responding|not responding|isnt responding|doesnt respond|wont respond)\b.*\b(?:driving|moving|highway|freeway|road|speed)|(?:driving|moving|highway|freeway)\b.*\bsteering (?:wheel )?(?:is )?(?:locked|locked up|stopped responding|not responding|wont turn))\b/,
     guides:['steering-hard-to-turn','loose-or-wandering-steering'],
     now:'If you lose steering control: grip the wheel firmly with both hands, ease off the gas, brake gently, turn on your hazard lights and steer to a safe stop. Don’t drive it again until it’s checked.'}
   ,{id:'steering-heavy',topic:/steer/i,
@@ -418,7 +426,7 @@ if(J&&root){
         <div class="row-btns"><button class="btn sm" id="copy">Copy summary</button><button class="btn ghost sm" id="print">Print</button><span id="copied" class="muted"></span></div></section>
       <section class="rsec emailbox" id="emailbox" ${EMAIL_ON?'':'hidden'}><h3>Email this to yourself</h3><p class="muted" style="margin:0 0 10px">Get this result and your mechanic summary in your inbox, so it's handy at the shop.</p>
         <form id="emailForm" class="emailform" autocomplete="on"><input type="email" id="emailIn" placeholder="you@example.com" aria-label="Your email" required><input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true"><button class="btn sm" type="submit">Send it</button></form>
-        <div id="emailMsg" class="muted" role="status"></div><p class="fine">We send your address, this guide, your answers and your vehicle (if picked) to our email provider only to send this. It keeps your address, marked not subscribed, and we never send marketing email. <a href="/privacy/">Privacy</a></p></section>
+        <div id="emailMsg" class="muted" role="status"></div><p class="fine">We send your address, this guide, your answers and your vehicle (if picked) to our email provider only to send this one email. We don't add you to any list or send marketing email. <a href="/privacy/">Privacy</a></p></section>
       ${crumbs()}
       <div class="flow-nav"><button class="linkbtn" id="back">← Change my last answer</button><button class="linkbtn" id="restart">Start over</button></div>
     </div>`;

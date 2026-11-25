@@ -123,17 +123,25 @@ function resetSection(v,year,name){
   const r=v.reset,mk=v.resetMake;if(!r&&!mk)return '';
   const pick=list=>(list||[]).filter(x=>!year||(year>=x.years[0]&&year<=x.years[1]));
   const block=(list,title)=>{const L=pick(list);if(!L.length)return '';return `<h3 class="rs-h">${title}</h3>${L.map((x,i)=>`<div class="rvar"><div class="rv-h">${L.length>1?`<span class="rv-n">${i+1}</span>`:''}<b>${esc(x.when)}</b></div>${x.none?'':`<ol class="nums">${x.steps.map(t=>`<li>${esc(t)}</li>`).join('')}</ol>`}${x.note?`<p class="lmuted">${esc(x.note)}</p>`:''}${x.src&&x.src.length?`<p class="lsrc">Source: ${x.src.map(esc).join(' · ')}</p>`:''}</div>`).join('')}`};
-  const oil=r?block(r.oil,'Oil change or maintenance reminder'):'',tp=r?block(r.tpms,'Tire pressure (TPMS) light'):'';
+  // Battery-electric years have no oil change: name the service reminder instead, everywhere on the page.
+  const pts=window.VS_PT&&window.VS_PT.powertrains?window.VS_PT.powertrains(v,year):[],ev=pts.length>0&&pts.every(p=>p==='bev');
+  const svc=ev?'service reminder':'oil change';
+  const oil=r?block(r.oil,ev?'Service or maintenance reminder':'Oil change or maintenance reminder'):'',tp=r?block(r.tpms,'Tire pressure (TPMS) light'):'';
   const mkLink=mk?`<a class="walk" href="/warning-lights/reset/${mk}/">Reset steps for other ${esc(v.make)} models →</a>`:'';
-  if(!oil&&!tp)return mk?`<section class="card csec" id="reset"><h2>Reset the oil change or tire pressure light</h2><p>We have not checked the exact steps for ${year?'the '+esc(name):'this model'} yet. The usual ${esc(v.make)} steps are here: <a href="/warning-lights/reset/${mk}/">how to reset the oil change and tire pressure lights on ${/^[aeiou]/i.test(String(esc(v.make)))?'an':'a'} ${esc(v.make)}</a>.</p></section>`:'';
-  return `<section class="card csec" id="reset"><h2>How to reset the oil change and tire pressure lights${year?' on '+(/^[aeiou]/i.test(name)?'an ':'a ')+esc(name):''}</h2><p class="pg-sub">The oil change message is a reminder: reset it after the service. The tire pressure light is a warning that a tire is low or, if it flashed first, that the system has a fault: set the pressures first, and have the system checked if it flashed.${year?'':' Pick your model year above to see only the steps for your car.'}</p>${oil}${tp}${r.notes?`<p class="lmuted">${esc(r.notes)}</p>`:''}<p class="lmuted">Button names can differ by trim. Your owner's manual is the final word for your exact car. If the light comes straight back, or a tire pressure light blinks and then stays on, something else needs checking.</p>${mkLink}</section>`;
+  if(!oil&&!tp)return mk?`<section class="card csec" id="reset"><h2>Reset the ${svc} or tire pressure light</h2><p>We have not checked the exact steps for ${year?'the '+esc(name):'this model'} yet. The usual ${esc(v.make)} steps are here: <a href="/warning-lights/reset/${mk}/">how to reset the ${svc} and tire pressure lights on ${/^[aeiou]/i.test(String(esc(v.make)))?'an':'a'} ${esc(v.make)}</a>.</p></section>`:'';
+  return `<section class="card csec" id="reset"><h2>How to reset the ${svc} and tire pressure lights${year?' on '+(/^[aeiou]/i.test(name)?'an ':'a ')+esc(name):''}</h2><p class="pg-sub">The ${svc} message is a reminder: reset it after the service. The tire pressure light is a warning that a tire is low or, if it flashed first, that the system has a fault: set the pressures first, and have the system checked if it flashed.${year?'':' Pick your model year above to see only the steps for your car.'}</p>${oil}${tp}${r.notes?`<p class="lmuted">${esc(r.notes)}</p>`:''}<p class="lmuted">Button names can differ by trim. Your owner's manual is the final word for your exact car. If the light comes straight back, or a tire pressure light blinks and then stays on, something else needs checking.</p>${mkLink}</section>`;
 }
+// An engine-specific issue shows for a year only if that engine was offered that year
+// (the gas-engine Fit problems don't belong on the 2014 Fit, which was EV-only in the U.S.).
+function issueInYear(v,i,y){if(!(y>=i.y[0]&&y<=i.y[1]))return false;const tags=i.engs||[],E=v.engines||[];
+  if(!tags.length||!E.length||!tags.every(t=>E.some(e=>e.k===t)))return true;
+  return E.some(e=>tags.includes(e.k)&&y>=e.y[0]&&y<=e.y[1])}
 function issueCard(i){return `<div class="issue"><div class="meta"><span class="sev ${i.sev}">${sevLabel(i)}</span><span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><span class="pill">${esc(i.sys)}</span>${i.eng?`<span class="pill">${esc(i.eng)}</span>`:''}</div>
 <h3>${esc(i.t)}</h3><dl><div><dt>What you'll notice</dt><dd>${esc(i.sym)}</dd></div><div><dt>Why it happens</dt><dd>${esc(i.why)}</dd></div><div><dt>What to do</dt><dd>${esc(i.next)}</dd></div></dl>${costLine(i.cost,i._v,i._y)}${i.animation?`<a class="mv-issue" href="${esc(i.animation.href)}">Repair animation · ${esc(i.animation.title)}</a>`:''}${(g=>g?`<a class="walk" href="${gurl(g.id)}?v=${i._v||''}${i._y?'&y='+i._y:''}">Walk through this symptom: ${esc(g.title)} →</a>`:'')(forIssue(i))}</div>`}
 
 function renderVehicle(v,year){
   const el=document.getElementById('vehicleView');
-  let list=year?v.issues.filter(i=>year>=i.y[0]&&year<=i.y[1]):v.issues.slice();
+  let list=year?v.issues.filter(i=>issueInYear(v,i,year)):v.issues.slice();
   // Engine choice: engine-only problems show for that engine; everything else shows for every engine.
   const engs=(v.engines||[]).filter(e=>!year||(year>=e.y[0]&&year<=e.y[1]));
   let esel='';try{esel=localStorage.getItem('vs_eng_'+v.id)||''}catch(e){}

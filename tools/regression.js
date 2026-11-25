@@ -86,6 +86,19 @@ const HAS_PC=fs.existsSync(D('price-check/index.html'))&&/id="pcJob"/.test(fs.re
 {const p=load('/vehicles/chrysler-pacifica/2021/',{fetch:nh(k=>/PLUG-IN/.test(k)?{status:400}:{Count:0,Message:'ok',results:[]})});
  await sleep(400);T('REC-PARTIAL-0','Zero campaigns with an unchecked alias is not shown as zero',/lookup unavailable/i.test(p.doc.getElementById('nhtsa').textContent),'')}
 
+// Whole-site health check (Nov 24): engine-specific issues, EV reset heading, code descriptions, no contact-list write.
+{const p=load('/vehicles/honda-fit/2014/',{});await sleep(400);const h=p.doc.getElementById('vehicleView').textContent;
+ T('VEH-FIT14','2014 Fit (EV only in the U.S.) shows no gasoline ignition-coil issue',!/Ignition coil failure/.test(h),'')}
+{const p=load('/vehicles/honda-fit/2013/',{});await sleep(400);T('VEH-FIT13','Gas-engine issue still shows on a gas year (2013 Fit)',/Ignition coil failure/.test(p.doc.getElementById('vehicleView').textContent),'')}
+{const p=load('/vehicles/lexus-is/2021/',{});await sleep(400);T('VEH-IS21','2021 Lexus IS shows no V8 throttle card',!/on the V8/.test(p.doc.getElementById('vehicleView').textContent),'')}
+{const p=load('/vehicles/jeep-grand-cherokee/2020/',{});await sleep(400);T('VEH-GC20','2020 Grand Cherokee keeps the EcoDiesel fuel-pump recall',/Diesel high-pressure fuel pump/.test(p.doc.getElementById('vehicleView').textContent),'')}
+{const p=load('/vehicles/ford-explorer/2024/',{});await sleep(400);T('VEH-EXP24','2024 Explorer does not show 2025-only recall 25V-164',!/25V-164/.test(p.doc.getElementById('vehicleView').textContent),'')}
+{const p=load('/vehicles/tesla-model-3/2023/',{});await sleep(400);const r=p.doc.getElementById('reset');
+ T('EV-RESET','Electric model year has no oil-change reset heading',!r||!/oil change/i.test(r.textContent),r?r.querySelector('h2').textContent:'no reset section')}
+for(const code of ['c0031','p0520','u0131','p0455']){const h=fs.readFileSync(D('codes/'+code+'/index.html'),'utf8');const m=h.match(/<meta name="description" content="([^"]*)"/)[1];
+ T('META-'+code,code.toUpperCase()+' description names its own urgent condition',!/flashing check engine/i.test(m),m.slice(0,90))}
+T('PRIV-01','Result email no longer writes to a contact list',!/api\.resend\.com\/contacts/.test(fs.readFileSync(path.join(__dirname,'../api/send-summary.js'),'utf8')),'')
+
 // ---- Price check eligibility (only while the price check is published; it was removed Nov 22, 2026) ----
 if(HAS_PC){
 const job={job:'Spark plug replacement (general test estimate)',aka:['Replace spark plugs'],note:'',unit:'per job (all cylinders)',conf:'medium',checked:'TEST FIXTURE',extras:'',menu:[],bm:[],

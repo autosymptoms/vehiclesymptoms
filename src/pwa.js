@@ -80,11 +80,11 @@
     var icon = '<img src="/icon-192.png" alt="" width="40" height="40">';
     var text;
     if (deferredPrompt) {
-      text = '<b>Keep VehicleSymptoms on your phone.</b> Warning lights and key guides work even with no signal.';
+      text = '<b>Keep VehicleSymptoms on your phone.</b> Once saved, warning lights and key roadside guides can open with no signal.';
     } else if (isIOS) {
       text = '<b>Keep VehicleSymptoms on your phone.</b> Tap <span class="hh-share" aria-label="Share">' +
         '<svg width="14" height="16" viewBox="0 0 14 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10V1M3.5 4.5 7 1l3.5 3.5M4.5 7H2v8h10V7H9.5"/></svg>' +
-        ' Share</span>, then <b>Add to Home Screen</b>. Warning lights work even with no signal.';
+        ' Share</span>, then <b>Add to Home Screen</b>. Once saved, warning lights can open with no signal.';
     } else {
       text = '<b>Keep VehicleSymptoms on your phone.</b> Tap the <b>⋮</b> menu, then <b>Add to Home screen</b> or <b>Install app</b>.';
     }

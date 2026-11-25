@@ -24,8 +24,8 @@
  "intro": "The red oil can light means the engine isn't getting enough oil pressure. Without pressure, metal parts grind together, and serious damage can happen in minutes. It's different from a yellow low-oil-level light or an oil-change reminder. Answer a few questions to find out how serious it is and what to do.",
  "safety": [
   "If the red oil light stays on while driving, pull over as soon as it's safe and turn the engine off.",
-  "If the engine starts knocking, tapping loudly or grinding, turn it off right away and don't restart it.",
-  "If you see smoke or oil spraying under the hood, turn the engine off and step away from the car."
+  "If the engine starts knocking, tapping loudly or grinding, pull over as soon as it's safe, turn it off right away and don't restart it.",
+  "If you see smoke or oil spraying under the hood, pull over as soon as it's safe, turn the engine off and step away from the car."
  ],
  "start": "q_when",
  "nodes": {
@@ -163,7 +163,7 @@
    "result": {
     "title": "The oil level may be low. Don't run the engine until oil is added",
     "urgency": "stop",
-    "now": "Turn the engine off and leave it off until oil is added. With the engine off, add the type of oil your owner's manual lists, a little at a time, until it reaches the full mark. Then have the car checked before driving further, because the oil went somewhere.",
+    "now": "If you're driving, pull over when it's safe. Turn the engine off and leave it off until oil is added. With the engine off, add the type of oil your owner's manual lists, a little at a time, until it reaches the full mark. Then have the car checked before driving further, because the oil went somewhere.",
     "if": [
      "If the light stays off after adding oil and the engine sounds normal, call a shop and ask whether to bring it in or have it towed or seen by a mobile mechanic. Check the level before every drive until the cause is found.",
      "If the light stays on after adding oil, or you hear ticking or knocking, don't drive it. Have it towed."
@@ -370,7 +370,7 @@
     "if": [
      "If the light turns red, or the oil can light comes on with a warning to stop, pull over and turn the engine off.",
      "If you keep needing to add oil, have it checked for a leak or oil burning.",
-     "If the engine starts ticking or knocking, turn it off and have it checked before driving again."
+     "If the engine starts ticking or knocking, pull over as soon as it's safe, turn it off and have it checked before driving again."
     ],
     "why": "Many cars have a yellow or orange low oil level warning and a separate service reminder, which are less urgent than the red oil pressure light. They're telling you to add oil or schedule a change before it becomes a pressure problem.",
     "causes": [

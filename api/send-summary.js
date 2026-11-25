@@ -2,7 +2,7 @@
 // The email is built on the server from the site's own guide data (guide id, answer choices,
 // vehicle id), never from text the browser sends, so this can't be used to send arbitrary mail.
 // Env vars (set in Vercel): RESEND_API_KEY (required), EMAIL_FROM (e.g. "VehicleSymptoms <help@vehiclesymptoms.com>"),
-// Every requester is saved to Resend Contacts (marked unsubscribed; no marketing email is sent).
+// Addresses are used only to deliver this one email. Nothing is added to a contact list.
 const JOURNEYS = require('./_data/journeys.json');
 const VEHICLES = require('./_data/vehicles-lite.json');
 const buildEmail = require('./_email.js');
@@ -41,9 +41,6 @@ module.exports = async (req, res) => {
       body: JSON.stringify({ from, to: [email], subject: mail.subject, html: mail.html, text: mail.text }) });
     if (!s.ok) { const t = await s.text(); console.error('resend', s.status, t); let m = ''; try { m = JSON.parse(t).message || '' } catch (e) {}
       return res.status(502).json({ error: 'Could not send right now. Please try again later. (code ' + s.status + ')', detail: String(m).slice(0, 160) }) }
-    // Save to Resend Contacts (global contacts). Marked unsubscribed: we don't send marketing email.
-    await fetch('https://api.resend.com/contacts', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, unsubscribed: true }) }).catch(() => {});
     return res.status(200).json({ ok: true });
   } catch (e) { console.error(e); return res.status(502).json({ error: 'Could not send right now. Please try again later. (code net)', detail: String(e && e.message || e).slice(0, 160) }) }
 };
