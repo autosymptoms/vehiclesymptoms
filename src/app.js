@@ -70,7 +70,7 @@ function showMy(){
   if(!g.length){box.hidden=true;pick.hidden=false;return}
   box.hidden=false;pick.hidden=true;
   box.innerHTML=`<div class="mysaved"><p class="eyebrow">${g.length>1?'Your garage':'Your vehicle'}</p>
-  ${g.map((m,i)=>`<div class="gcar${i?'':' main'}"><a href="${carUrl(m)}"><b>${esc(carName(m))}</b><span>${i?'Problems and recalls':'Problems, upkeep and recalls'} →</span></a><button type="button" class="gx" data-i="${i}" aria-label="Remove ${esc(carName(m))}">✕</button></div>`).join('')}
+  ${g.map((m,i)=>`<div class="gcar${i?'':' main'}"><a href="${carUrl(m)}"><b>${esc(carName(m))}</b><span>${i?'Problems and recalls':'Problems, upkeep and recalls'} →</span></a><button type="button" class="gx" data-i="${i}" aria-label="Remove ${esc(carName(m))} from my garage">Remove</button></div>`).join('')}
   <div class="row2">${g.length<MAXG?'<button type="button" id="gAdd">+ Add another vehicle</button>':'<span></span>'}<a href="/symptoms/">Something wrong? Start here</a></div></div>`;
   box.querySelectorAll('.gx').forEach(b=>b.onclick=()=>{const m=g[+b.dataset.i];removeG(m.id,m.y);showMy()});
   const add=document.getElementById('gAdd');if(add)add.onclick=()=>{box.hidden=true;pick.hidden=false;const h=pick.querySelector('h2');if(h)h.textContent='Add another vehicle';
@@ -151,7 +151,7 @@ function renderVehicle(v,year){
   const mslug=v.make.toLowerCase().replace(/[^a-z0-9]+/g,'-');
   let ylinks='';for(let y=v.years[1];y>=v.years[0];y--)if(soldY(v,y))ylinks+=y===year?`<span aria-current="page"><b>${y}</b></span>`:`<a href="${url(v,y)}">${y}</a>`;
   el.innerHTML=`<div class="crumb"><a href="/">Home</a> › <a href="/vehicles/#${mslug}">${esc(v.make)}</a> › ${year?`<a href="${url(v)}">${esc(v.model)}</a> › ${year}`:esc(v.model)}</div>
-  <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div><div class="vh-btns"><button type="button" class="savecar dl" data-dl>Download this page (PDF)</button>${year?`<button type="button" class="savecar" id="saveCar">+ Save to my garage</button>`:''}</div></div><h1>${year?'Your '+esc(name):esc(name)} <span class="h1s">problems and recalls</span></h1>
+  <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div><div class="vh-btns"><button type="button" class="savecar dl" data-dl>Download this page (PDF)</button>${year?`<button type="button" class="savecar" id="saveCar">+ Save to my garage</button><button type="button" class="savecar rm" id="rmCar" hidden>Remove from garage</button>`:''}</div></div><h1>${year?'Your '+esc(name):esc(name)} <span class="h1s">problems and recalls</span></h1>
   <p class="sub">${year?`What we've documented about the ${esc(name)}: problems owners and shops report, and safety recalls.`:`Problems reported across ${v.years[0]}–${v.years[1]}. Pick your model year below to see what applies to your vehicle.`}${v.alt?' '+esc(v.alt.replace(/\.$/,''))+'.':''}</p></div>
   <p class="byline">VehicleSymptoms team · Updated November 2026 · <a href="/about/">How we work</a></p>
   <div class="yearbar"><label for="vy" style="color:var(--muted);font-size:14px">Model year</label><select id="vy">${yopts}</select>${engs.length>1?`<label for="ve" style="color:var(--muted);font-size:14px;margin-left:6px">Engine</label><select id="ve"><option value="">All engines</option>${engs.map(e=>`<option value="${e.k}" ${e.k===esel?'selected':''}>${esc(e.name)}</option>`).join('')}</select>`:''}</div>${engs.length>1&&!esel&&list.some(i=>i.engs)?`<p class="enghint">Pick your engine to hide problems that only affect other engines. Not sure? It is on the sticker under the hood or in the owner's manual.</p>`:''}${esel?`<p class="enghint on">Showing problems for the <b>${esc(ename)}</b> plus everything that applies to every ${esc(v.model)}${allN>list.length?' ('+(allN-list.length)+' other-engine issue'+(allN-list.length>1?'s':'')+' hidden)':''}.</p>`:''}
@@ -169,7 +169,11 @@ function renderVehicle(v,year){
   <div class="trust">This page is a general guide based on widely reported problems. Not every vehicle is affected, and it doesn't replace an in-person diagnosis.</div>`;
   window.VS_PAGE={v,year,list,name,ename};
   const pq=el.querySelector('#pgQuote');if(pq)pq.href='/price-check/?v='+v.id+(year?'&y='+year:'');
-  const sc=el.querySelector('#saveCar');if(sc){const paint=()=>{const on=inG(v.id,year);sc.textContent=on?'✓ In my garage':'+ Save to my garage';sc.classList.toggle('on',on)};paint();sc.onclick=()=>{inG(v.id,year)?removeG(v.id,year):addG(v.id,year);paint();showMy()}}
+  const sc=el.querySelector('#saveCar'),rm=el.querySelector('#rmCar');if(sc){
+    // Saved: "✓ In my garage" is a status, and a separate, plainly labelled button removes it.
+    const paint=()=>{const on=inG(v.id,year);sc.textContent=on?'✓ In my garage':'+ Save to my garage';sc.classList.toggle('on',on);sc.disabled=on;sc.setAttribute('aria-disabled',String(on));if(rm)rm.hidden=!on};
+    paint();sc.onclick=()=>{if(!inG(v.id,year)){addG(v.id,year);paint();showMy();if(rm)rm.focus()}};
+    if(rm)rm.onclick=()=>{removeG(v.id,year);paint();showMy();sc.focus()}}
   {const ve=el.querySelector('#ve');if(ve)ve.onchange=e=>{try{localStorage.setItem('vs_eng_'+v.id,e.target.value)}catch(x){}renderVehicle(v,year)}}
   el.querySelector('#vy').onchange=e=>{location.href=url(v,+e.target.value||null)};
   refreshRecalls(v,year);
