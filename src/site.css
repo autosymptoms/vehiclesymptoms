@@ -448,6 +448,7 @@ details.allm>summary{cursor:pointer;color:var(--blue2);font-weight:600;font-size
 .lfilter button{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:999px;padding:7px 14px;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
 .lfilter button.on{background:var(--blue);border-color:var(--blue)}
 .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+[hidden]{display:none!important}
 .lcard{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;background:var(--tile);border:1px solid var(--line);border-radius:14px;padding:16px 10px}
 .lcard:hover{border-color:var(--blue)}
 .lcard b{font-size:14px;line-height:1.25}
@@ -813,7 +814,7 @@ details.rmore h4{margin:6px 0;font-size:14px}
 .home-hint .hh-share{display:inline-flex;align-items:center;gap:3px;font-weight:700;white-space:nowrap}
 .home-hint .hh-share svg{vertical-align:-2px}
 .home-hint .hh-add{flex:0 0 auto;background:var(--blue);color:#fff;border:0;border-radius:9px;padding:9px 14px;font:inherit;font-weight:700;cursor:pointer}
-.home-hint .hh-close{flex:0 0 auto;background:transparent;color:#B7C2CE;border:0;font-size:24px;line-height:1;padding:2px 4px;cursor:pointer}
+.home-hint .hh-close{flex:0 0 44px;width:44px;height:44px;margin:-8px -6px -8px 0;background:transparent;color:#B7C2CE;border:0;font-size:26px;line-height:1;padding:0;cursor:pointer}
 @keyframes hh-in{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
 @media print{.home-hint{display:none!important}}
 .offline-list{list-style:none;padding:0;margin:0 0 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}

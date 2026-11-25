@@ -105,6 +105,21 @@
     if (window.va) window.va('event', { name: 'home_screen_hint_shown' });
   }
 
-  // Wait a few seconds so the hint never covers the answer someone came for.
-  window.addEventListener('load', function () { setTimeout(showHint, 8000); });
+  // Never cover the answer someone came for: wait at least 8 seconds, then show it only once
+  // they've scrolled most of the way down the page (past the guide's questions and safety steps).
+  var ready = false;
+  function nearEnd() {
+    var doc = document.documentElement;
+    return window.scrollY + window.innerHeight >= doc.scrollHeight * 0.75;
+  }
+  function check() {
+    if (ready && nearEnd()) {
+      window.removeEventListener('scroll', check);
+      showHint();
+    }
+  }
+  window.addEventListener('load', function () {
+    setTimeout(function () { ready = true; check(); }, 8000);
+  });
+  window.addEventListener('scroll', check, { passive: true });
 })();

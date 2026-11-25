@@ -90,8 +90,8 @@ ${steps.length ? `<p style="${FONT}margin:0 0 4px;font-size:14px;color:#1B2733">
 </td></tr>
 
 <tr><td style="padding:22px 24px 6px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#0B2440" style="background:#0B2440;border-radius:12px"><tr><td style="padding:18px 20px">
-  <p style="${FONT}margin:0;font-size:16px;font-weight:bold;color:#FFFFFF">Built by people who fix cars</p>
-  <p style="${FONT}margin:6px 0 0;font-size:14px;line-height:1.5;color:#C9D7E6">Our guides are written for drivers and checked against recalls, service bulletins and real repair records, so you can walk into the shop knowing what to ask.</p>
+  <p style="${FONT}margin:0;font-size:16px;font-weight:bold;color:#FFFFFF">A free, independent guide</p>
+  <p style="${FONT}margin:6px 0 0;font-size:14px;line-height:1.5;color:#C9D7E6">Our guides are written in plain language for drivers, so you can walk into the shop knowing what to ask. They're a guide, not a diagnosis.</p>
 </td></tr></table></td></tr>
 
 <tr><td align="center" style="padding:18px 28px 0">
@@ -99,7 +99,7 @@ ${steps.length ? `<p style="${FONT}margin:0 0 4px;font-size:14px;color:#1B2733">
 </td></tr>
 
 <tr><td style="padding:18px 28px 26px">
-  <p style="${FONT}margin:0;font-size:12px;line-height:1.55;color:#6B7B8D">This is a general guide, not a diagnosis. If a red warning light is flashing, you smell fuel or burning, or the brakes or steering feel wrong, pull over safely and get help.</p>
+  <p style="${FONT}margin:0;font-size:12px;line-height:1.55;color:#6B7B8D">This is a general guide, not a diagnosis. If a red warning light comes on, the check engine light is flashing, you smell fuel or burning, or the brakes or steering feel wrong, pull over safely and get help.</p>
   <p style="${FONT}margin:10px 0 0;font-size:12px;line-height:1.55;color:#6B7B8D">You got this email because you asked VehicleSymptoms.com to send you this result. We don’t send marketing email. <a href="${SITE}/privacy/" style="color:#6B7B8D;text-decoration:underline">Privacy</a></p>
 </td></tr>
 

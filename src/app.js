@@ -79,7 +79,7 @@ function showMy(){
 const homePick=window.YMM(document.getElementById('pickYear'),document.getElementById('pickMake'),document.getElementById('pickModel'),null,()=>{const s=homePick.get();document.getElementById('pickGo').disabled=!s.v});
 document.getElementById('pickForm').addEventListener('submit',e=>{e.preventDefault();const s=homePick.get();if(s.v){setMy(s.v.id||s.v,s.y);go(s.v,s.y)}});
 const makes=[...new Set(V.map(v=>v.make))];
-document.getElementById('mgrid').outerHTML=`<div id="mgrid">${makes.map(m=>`<details class="mk"><summary>${esc(m)} <span>${V.filter(v=>v.make===m).length} models</span></summary><div class="mgrid">${V.filter(v=>v.make===m).map(v=>`<a href="${url(v)}">${esc(v.model)}<span>${v.years[0]}–${v.years[1]}</span></a>`).join('')}</div></details>`).join('')}</div>`;
+document.getElementById('mgrid').outerHTML=`<div id="mgrid">${makes.map(m=>`<details class="mk"><summary>${esc(m)} <span>${V.filter(v=>v.make===m).length} ${V.filter(v=>v.make===m).length===1?'model':'models'}</span></summary><div class="mgrid">${V.filter(v=>v.make===m).map(v=>`<a href="${url(v)}">${esc(v.model)}<span>${v.years[0]===v.years[1]?v.years[0]:v.years[0]+'–'+v.years[1]}</span></a>`).join('')}</div></details>`).join('')}</div>`;
 
 const money=n=>'$'+n.toLocaleString('en-US');
 const WH='Insufficient verified pricing for this vehicle and repair';

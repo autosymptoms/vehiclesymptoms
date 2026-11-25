@@ -42,8 +42,13 @@ const searchWords = {
   starts:'start', starting:'start', clicks:'click', clicking:'click', clicked:'click',
   leaks:'leak', leaking:'leak', turns:'turn', turning:'turn', accelerating:'accelerate',
   freeway:'highway', interstate:'highway', motor:'engine', quit:'stalls', quits:'stalls',
-  flashes:'flashing', blinking:'flashing', blinks:'flashing'
+  flashes:'flashing', blinking:'flashing', blinks:'flashing',
+  squeek:'squeak', squeeks:'squeak', squeeking:'squeak', squeeky:'squeak', squeaky:'squeak', squeel:'squeal', squeeling:'squeal',
+  breaks:'brake', break:'brake', headlights:'headlight'
 };
+// Words that say something is wrong without saying what. A guide needs at least one other word in common,
+// so "wipers not working" doesn't land on "heater not working".
+const searchGeneric = new Set(['not','working','work','works','wont','dont','doesnt','cant','stopped','stop','broken','broke','bad','problem','issue','issues','out','off','on','weird','strange','funny']);
 function literalSymptom(text){
   return String(text).toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 }
@@ -64,8 +69,12 @@ const everydayPhrases={
   'car-wont-turn-off':['Car wont stop running','Engine wont shut off'],
   'engine-overheating':['Thermometer light on','Temperature light on','Temp light on','Thermometer in water light'],
   'brake-warning-light-on':['Emergency brake light on','Handbrake light on','Parking brake light on'],
-  'fluid-leak-under-car':['Puddle where I parked','Puddle on my driveway','Puddle in my parking spot']
+  'fluid-leak-under-car':['Puddle where I parked','Puddle on my driveway','Puddle in my parking spot'],
+  'headlights-dim-or-flickering':['Headlight out','Headlight not working','Headlight burned out'],
+  'electrical-accessories-not-working':['Wipers not working','Windshield wipers stopped','Turn signals not working']
 };
+// "Won't crank" means the engine doesn't turn over at all: a no-start, not a slow crank.
+everydayPhrases['car-wont-start'].push('Car wont crank','Engine wont crank','Wont turn over','Car wont turn over');
 let searchIndex;
 function getSearchIndex(){
   if(searchIndex)return searchIndex;
@@ -174,6 +183,7 @@ function searchWords_(q,n=5){
     for(const phrase of phrases){
       const matched=phrase.words.filter(word=>query.has(word));
       if(words.length>1 && matched.length<2)continue;
+      if(!matched.some(word=>!searchGeneric.has(word)))continue;
       const overlap=matched.reduce((sum,word)=>sum+weight(word),0);
       const score=2*overlap/(total+phrase.weight);
       best=Math.max(best,score+(phrase.literal===literal?0.08:0));
@@ -274,6 +284,11 @@ if(J&&root){
   try{const st=JSON.parse(sessionStorage.getItem(SK)||'null');if(st&&st.path&&st.path.length&&J.nodes[st.cur]){path=st.path;cur=st.cur;if(st.v)setVeh(st.v,st.y);resumed=true}}catch(e){}
   const save=()=>{try{path.length?sessionStorage.setItem(SK,JSON.stringify({path,cur,v:veh?veh.id:null,y:vyear})):sessionStorage.removeItem(SK)}catch(e){}};
   const node=k=>J.nodes[k];
+  // The phone's back button steps back through the questions instead of leaving the guide.
+  // Each answer adds a history entry that records how many answers were given.
+  const ours=()=>!!(history.state&&history.state.vsg===path.length&&path.length);
+  const toDepth=d=>{if(d<path.length){cur=path[d].k;path=path.slice(0,d);resumed=false;save();draw(true)}};
+  window.addEventListener('popstate',e=>{const d=e.state&&typeof e.state.vsg==='number'?e.state.vsg:0;toDepth(d)});
   const vname=()=>veh?((vyear?vyear+' ':'')+veh.make+' '+veh.model):'';
   function vehBar(){
     if(veh&&!editingVeh)return`<div class="vbar"><span class="vb-l">Your vehicle</span><b>${esc(vname())}</b><button class="linkbtn" id="vChange">Change</button></div>`;
@@ -288,7 +303,7 @@ if(J&&root){
     if(!path.length)return'';
     return`<div class="answers"><span class="vb-l">Your answers</span>${path.map((p,i)=>`<button class="ans" data-i="${i}" title="Change this answer"><span>${esc(p.q)}</span><b>${esc(p.a)}</b></button>`).join('')}</div>`;
   }
-  function wireCrumbs(){root.querySelectorAll('.ans').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;cur=path[i].k;path=path.slice(0,i);save();draw(true)})}
+  function wireCrumbs(){root.querySelectorAll('.ans').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(ours())history.go(i-path.length);else toDepth(i)})}
   function draw(focusStep=false){
     const n=node(cur);
     const top=resumed&&path.length?`<div class="resumed">Picked up where you left off. <button class="linkbtn" id="fresh">Start fresh</button></div>`:'';
@@ -296,11 +311,11 @@ if(J&&root){
       root.innerHTML=`${top}<div class="flow card"><div class="step-n" id="stepNumber">Question ${path.length+1}</div>${crumbs()}<h2 class="fq" tabindex="-1" aria-describedby="stepNumber">${esc(n.q)}</h2>${n.help?`<p class="help">${esc(n.help)}</p>`:''}
       <div class="opts">${n.opts.map((o,i)=>`<button class="opt${/not sure/i.test(o.a)?' unsure':''}" data-i="${i}">${esc(o.a)}</button>`).join('')}</div>
       ${path.length?`<div class="flow-nav"><button class="linkbtn" id="back">← Back</button><button class="linkbtn" id="restart">Start over</button></div>`:''}</div>${vehBar()}`;
-      root.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const o=n.opts[+b.dataset.i];path.push({k:cur,q:n.q,a:o.a,i:+b.dataset.i});cur=o.go;resumed=false;save();draw(true)});
+      root.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const o=n.opts[+b.dataset.i];path.push({k:cur,q:n.q,a:o.a,i:+b.dataset.i});cur=o.go;resumed=false;save();try{history.pushState({vsg:path.length},'')}catch(e){}draw(true)});
       wireCrumbs();
     } else drawResult(n.result,top);
     wireVeh(draw);
-    const b=document.getElementById('back');if(b)b.onclick=()=>{const p=path.pop();cur=p?p.k:J.start;save();draw(true)};
+    const b=document.getElementById('back');if(b)b.onclick=()=>{if(ours()){history.back();return}const p=path.pop();cur=p?p.k:J.start;save();draw(true)};
     const r=document.getElementById('restart');if(r)r.onclick=()=>{path=[];cur=J.start;save();draw(true)};
     const f=document.getElementById('fresh');if(f)f.onclick=()=>{path=[];cur=J.start;resumed=false;save();draw(true)};
     if(focusStep){
@@ -368,7 +383,7 @@ if(J&&root){
         <div class="row-btns"><button class="btn sm" id="copy">Copy summary</button><button class="btn ghost sm" id="print">Print</button><span id="copied" class="muted"></span></div></section>
       <section class="rsec emailbox" id="emailbox" ${EMAIL_ON?'':'hidden'}><h3>Email this to yourself</h3><p class="muted" style="margin:0 0 10px">Get this result and your mechanic summary in your inbox, so it's handy at the shop.</p>
         <form id="emailForm" class="emailform" autocomplete="on"><input type="email" id="emailIn" placeholder="you@example.com" aria-label="Your email" required><input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true"><button class="btn sm" type="submit">Send it</button></form>
-        <div id="emailMsg" class="muted" role="status"></div><p class="fine">We only use your email for what you ask. <a href="/privacy/">Privacy</a></p></section>
+        <div id="emailMsg" class="muted" role="status"></div><p class="fine">We use your address only to send this. Our email provider keeps it, marked not subscribed. <a href="/privacy/">Privacy</a></p></section>
       ${crumbs()}
       <div class="flow-nav"><button class="linkbtn" id="back">← Change my last answer</button><button class="linkbtn" id="restart">Start over</button></div>
     </div>`;
