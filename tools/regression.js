@@ -155,6 +155,13 @@ for(const id of ['oil-pressure-light','engine-temperature-light','battery-light'
   const u=h.indexOf('class="urg '),f=h.indexOf('urg-next'),m=h.indexOf('<h2>What it means');
   T('URG-'+id,id+': first step sits inside the urgency box, above "What it means", and links to the full steps',u>0&&f>u&&f<m&&/id="todo"/.test(h)&&/href="#todo"/.test(h),'urg='+u+' next='+f+' means='+m)}
 
+// Vehicle badges match the first action: a high-severity issue that starts with "pull over" says Stop now.
+{const p=load('/vehicles/acura-zdx/2011/',{});await sleep(400);const cards=[...p.doc.querySelectorAll('#vehicleView .issue')];
+ const c=cards.find(x=>/Low oil pressure light with correct oil level/.test(x.textContent));
+ T('SEV-01','Acura ZDX oil-pressure issue badge says Stop now, matching "Pull over" as the first step',c&&/Stop now/.test(c.querySelector('.sev').textContent),c?c.querySelector('.sev').textContent:'card not found ('+cards.length+' cards)')}
+for(const f of ['hesitation-when-accelerating','engine-sputtering-misfire']){const j=JSON.parse(fs.readFileSync(path.join(__dirname,'../src/journeys/'+f+'.json'),'utf8'));
+ T('FUEL-'+f,f+': wrong fuel is its own stop result, and the poor-fuel result leads its warnings with the wrong-fuel stop',j.nodes.r_wrong_fuel.result.urgency==='stop'&&!/drive gently/i.test(j.nodes.r_wrong_fuel.result.now)&&/^If you put diesel/.test(j.nodes.r_bad_fuel.result.if[0]),'')}
+
 // ---- QA follow-ups (2026-11-21) ----
 if(HAS_PC){const r=await quote('?v=tesla-model-y&y=2023','spark',400,'CT');T('PRC-09','Tesla Model Y "spark" search (real held list) says it does not apply, not "no sourced range"',/does not apply to a battery-electric/i.test(r.sug)&&!/No sourced range yet for[^.]*spark/i.test(r.sug),r.sug.slice(0,200))}
 {const p=load('/symptoms/grinding-brakes/',{qs:'?v=toyota-camry&y=2015'});await sleep(300);let err='';p.w.addEventListener('error',e=>{err=e.message});

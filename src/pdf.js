@@ -2,6 +2,8 @@
 // problem, the price guide and safety recalls. Loaded only when a visitor taps the download button.
 (function(){
 const SEV={high:'Stop soon',med:'Get checked',low:'Monitor'};
+const STOP_FIRST=/\b(?:pull over|stop driving|don['’]?t drive|do not drive|turn (?:the engine|it) off|turn off the engine|shut (?:the engine|it) off|have it towed|don['’]?t start|do not start)\b/i;
+const sevLabel=i=>i.sev==='high'&&STOP_FIRST.test(String(i.next||'').split(/(?<=[.!])\s/)[0])?'Stop now':SEV[i.sev];
 const SEVC={high:[198,47,55],med:[168,100,0],low:[24,128,74]};
 const TEXT=[22,34,46],MUTED=[86,99,111],BODY=[46,59,71],BLUE=[11,99,206],LINE=[221,227,234],TILE=[243,246,249],GREEN=[24,128,74];
 const money=n=>'$'+Number(n).toLocaleString('en-US');
@@ -71,7 +73,7 @@ window.VS_PDF=function(ctx){
   const SR={high:0,med:1,low:2},sorted=list.slice().sort((a,b)=>SR[a.sev]-SR[b.sev]);
   h2('Known problems'+(year?' for the '+name:''),list.length?list.length+' documented issue'+(list.length>1?'s':'')+(year?' apply to '+year:' across all years')+(ctx.ename?' with the '+ctx.ename:'')+', most serious first.':"We haven't documented model-specific issues for this year yet. This is not a reliability rating.");
   sorted.forEach((i,k)=>{need(96);
-    const sv=clean(SEV[i.sev]).toUpperCase();font('bold',8,SEVC[i.sev]);doc.text(sv,M,y,{baseline:'top'});const sw=doc.getTextWidth(sv);
+    const sv=clean(sevLabel(i)).toUpperCase();font('bold',8,SEVC[i.sev]);doc.text(sv,M,y,{baseline:'top'});const sw=doc.getTextWidth(sv);
     font('normal',8,MUTED);doc.text(clean('  ·  '+yrs(i)+'  ·  '+i.sys+(i.eng?'  ·  '+i.eng:'')),M+sw,y,{baseline:'top'});y+=13;
     para(i.t,{size:11.5,style:'bold',color:TEXT,lh:1.25,after:5});
     [["What you'll notice",i.sym],['Why it happens',i.why],['What to do',i.next]].forEach(p=>{if(!p[1])return;label(p[0]);para(p[1],{after:6})});
@@ -85,9 +87,9 @@ window.VS_PDF=function(ctx){
   {const seen=new Set(),uniq=list.filter(i=>i.cost&&!seen.has(i.cost.job)&&seen.add(i.cost.job));
    const pay=uniq.filter(i=>priced(i.cost)&&!i.cost.recall).sort((a,b)=>SR[a.sev]-SR[b.sev]||b.cost.hi-a.cost.hi);
    const rc=uniq.filter(i=>i.cost.free||(i.cost.recall&&!i.cost.withheld)),wh=uniq.filter(i=>i.cost.withheld);
-   if(!pay.length&&wh.length){h2('Price guide',WH+'. No price, chart or verdict is shown for these repairs until two independent, dated price sources are matched to this vehicle.');wh.forEach(i=>row(i.cost.job,SEV[i.sev],'Not verified'))}
+   if(!pay.length&&wh.length){h2('Price guide',WH+'. No price, chart or verdict is shown for these repairs until two independent, dated price sources are matched to this vehicle.');wh.forEach(i=>row(i.cost.job,sevLabel(i),'Not verified'))}
    if(pay.length||rc.length){h2('Price guide: what repairs usually cost',pay.length?'Repairs owners of this vehicle may have to pay for, most serious first. Average estimates, low to high.':'No common out-of-pocket repairs on file for this year. The repairs below are normally covered by recalls.');
-    if(pay.length)rule(6);pay.forEach(i=>row(i.cost.job,SEV[i.sev],rng(i.cost)));
+    if(pay.length)rule(6);pay.forEach(i=>row(i.cost.job,sevLabel(i),rng(i.cost)));
     if(rc.length){need(60);y+=6;para('Recall repairs: usually free at the dealer',{size:11,style:'bold',color:TEXT,after:1});
       para('A dealer can confirm coverage by VIN. An eligible safety recall repair is provided at no charge.',{size:8.5,color:MUTED,after:6});rule(6);
       rc.forEach(i=>row(i.cost.job.replace(/\s*\(recall\)$/i,''),'If your vehicle is included','No charge',{rc:GREEN}))}

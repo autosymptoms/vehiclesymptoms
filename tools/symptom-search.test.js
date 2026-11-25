@@ -117,6 +117,15 @@ location.href='';
 const co=submit('exhaust smell in the car');
 assert.match(co.querySelector('.urgentnow').textContent,/call 911/);
 
+// Nov 24 re-audit phrases: the safety step must be the right one, first.
+{const r=submit('Lost power steering while driving');assert.match(r.querySelector('.urgentnow').textContent,/lose steering control/,'power steering loss gets the steering step');
+ assert.doesNotMatch(r.querySelector('.urgentnow').textContent,/engine dies/,'power steering loss is not an engine stall');}
+assert.equal(window.VS_GUIDES.emergency('engine lost power on the highway').rule,'stall','a real stall still gets the stall step');
+for(const q of ['Engine temperature gauge just went into the red','temp needle hit the red','my temperature gauge is in the red'])
+  assert.equal(window.VS_GUIDES.emergency(q).rule,'overheat',q);
+for(const q of ['I accidentally put diesel in my gas car','put gas in my diesel truck','filled up with the wrong fuel','I pumped diesel by mistake'])
+  {const e=window.VS_GUIDES.emergency(q);assert.equal(e&&e.rule,'wrong-fuel',q);assert.match(e.now,/don’t start the engine/i,q)}
+for(const q of ['put regular gas instead of premium','wrong octane gas','put gas in my car'])assert.equal(window.VS_GUIDES.emergency(q),null,q+' is not a wrong-fuel emergency');
 let aliases=0;
 for(const j of journeys){
   for(const phrase of j.synonyms){

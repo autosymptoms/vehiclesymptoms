@@ -1,5 +1,8 @@
 // Site script: homepage search, vehicle pages, VIN decoder. Guide helpers come from guide.js (window.VS_GUIDES).
 const SEV={high:"Stop soon",med:"Get checked",low:"Monitor"};
+// A high-severity issue whose first instruction is to stop says "Stop now", so the badge matches the first action.
+const STOP_FIRST=/\b(?:pull over|stop driving|don['’]?t drive|do not drive|turn (?:the engine|it) off|turn off the engine|shut (?:the engine|it) off|have it towed|don['’]?t start|do not start)\b/i;
+const sevLabel=i=>i.sev==='high'&&STOP_FIRST.test(String(i.next||'').split(/(?<=[.!])\s/)[0])?'Stop now':SEV[i.sev];
 const {esc,search:searchGuides,forIssue,gurl}=window.VS_GUIDES;
 // mark the tab you're on, and scroll the phone tab strip to it
 (function(){const nav=document.getElementById('links');if(!nav)return;const p=location.pathname;
@@ -97,7 +100,7 @@ function priceGuide(list,name){
   const wh=uniq.filter(i=>i.cost.withheld);
   if(!pay.length&&!rec.length&&!wh.length)return '';
   const max=Math.max(1,...pay.map(i=>i.cost.hi));
-  const row=i=>{const c=i.cost,l=c.lo/max*100,w=Math.max((c.hi-c.lo)/max*100,1.5);return `<div class="pg-row"><div class="pg-lab"><span class="sev ${i.sev}">${SEV[i.sev]}</span><b>${esc(c.job)}</b><span class="pg-val">${rngTxt(c)}</span></div><div class="pg-track"><span class="pg-bar" style="left:${l.toFixed(1)}%;width:${w.toFixed(1)}%"></span></div></div>`};
+  const row=i=>{const c=i.cost,l=c.lo/max*100,w=Math.max((c.hi-c.lo)/max*100,1.5);return `<div class="pg-row"><div class="pg-lab"><span class="sev ${i.sev}">${sevLabel(i)}</span><b>${esc(c.job)}</b><span class="pg-val">${rngTxt(c)}</span></div><div class="pg-track"><span class="pg-bar" style="left:${l.toFixed(1)}%;width:${w.toFixed(1)}%"></span></div></div>`};
   const first=pay.slice(0,8),rest=pay.slice(8);
   return `<section class="pguide" id="prices"><div class="pg-head"><div><div class="eyebrow">Price guide</div><h2>Repair prices for your ${esc(name)}</h2></div>${pay.length?'<span class="pg-badge">Average estimates</span>':''}</div>
   ${!pay.length&&wh.length?`<p class="pg-sub"><b>${WH}.</b> We have not yet matched these repairs to two independent, dated price sources for this vehicle, so we show no price, chart or verdict for them.</p><ul class="dots pg-wh">${wh.map(i=>`<li>${esc(i.cost.job)}</li>`).join('')}</ul>`:pay.length?`<p class="pg-sub">Repairs owners of this vehicle may have to pay for, most serious first. Bars show the low-to-high range.</p>${first.map(row).join('')}${rest.length?`<details class="pg-more"><summary>Show ${rest.length} more repair${rest.length>1?'s':''}</summary>${rest.map(row).join('')}</details>`:''}`:rec.length?`<p class="pg-sub">No common out-of-pocket repairs on file for this year. The repairs below are normally covered by recalls.</p>`:''}
@@ -125,7 +128,7 @@ function resetSection(v,year,name){
   if(!oil&&!tp)return mk?`<section class="card csec" id="reset"><h2>Reset the oil change or tire pressure light</h2><p>We have not checked the exact steps for ${year?'the '+esc(name):'this model'} yet. The usual ${esc(v.make)} steps are here: <a href="/warning-lights/reset/${mk}/">how to reset the oil change and tire pressure lights on ${/^[aeiou]/i.test(String(esc(v.make)))?'an':'a'} ${esc(v.make)}</a>.</p></section>`:'';
   return `<section class="card csec" id="reset"><h2>How to reset the oil change and tire pressure lights${year?' on '+(/^[aeiou]/i.test(name)?'an ':'a ')+esc(name):''}</h2><p class="pg-sub">The oil change message is a reminder: reset it after the service. The tire pressure light is a warning that a tire is low or, if it flashed first, that the system has a fault: set the pressures first, and have the system checked if it flashed.${year?'':' Pick your model year above to see only the steps for your car.'}</p>${oil}${tp}${r.notes?`<p class="lmuted">${esc(r.notes)}</p>`:''}<p class="lmuted">Button names can differ by trim. Your owner's manual is the final word for your exact car. If the light comes straight back, or a tire pressure light blinks and then stays on, something else needs checking.</p>${mkLink}</section>`;
 }
-function issueCard(i){return `<div class="issue"><div class="meta"><span class="sev ${i.sev}">${SEV[i.sev]}</span><span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><span class="pill">${esc(i.sys)}</span>${i.eng?`<span class="pill">${esc(i.eng)}</span>`:''}</div>
+function issueCard(i){return `<div class="issue"><div class="meta"><span class="sev ${i.sev}">${sevLabel(i)}</span><span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><span class="pill">${esc(i.sys)}</span>${i.eng?`<span class="pill">${esc(i.eng)}</span>`:''}</div>
 <h3>${esc(i.t)}</h3><dl><div><dt>What you'll notice</dt><dd>${esc(i.sym)}</dd></div><div><dt>Why it happens</dt><dd>${esc(i.why)}</dd></div><div><dt>What to do</dt><dd>${esc(i.next)}</dd></div></dl>${costLine(i.cost,i._v,i._y)}${i.animation?`<a class="mv-issue" href="${esc(i.animation.href)}">Repair animation · ${esc(i.animation.title)}</a>`:''}${(g=>g?`<a class="walk" href="${gurl(g.id)}?v=${i._v||''}${i._y?'&y='+i._y:''}">Walk through this symptom: ${esc(g.title)} →</a>`:'')(forIssue(i))}</div>`}
 
 function renderVehicle(v,year){

@@ -99,7 +99,7 @@
     },
     {
      "a": "It started right after I filled up with fuel",
-     "go": "r_bad_fuel"
+     "go": "q_fuel_type"
     },
     {
      "a": "It feels weak and starved, worse at highway speed or uphill",
@@ -439,15 +439,15 @@
   },
   "r_bad_fuel": {
    "result": {
-    "title": "You may have a tank of contaminated or wrong fuel",
+    "title": "You may have a tank of poor-quality fuel or the wrong grade",
     "urgency": "diy",
     "now": "If the check engine light starts flashing or the engine shakes hard, pull over when it's safe and stop driving. Otherwise: Check your receipt for the right fuel grade, drive gently, and refill with fresh fuel from a busy station once the tank is low.",
     "if": [
-     "If you put diesel in a gas car (or gas in a diesel), stop driving it right away. The tank will need to be drained.",
+     "If you put diesel in a gas car (or gas in a diesel), stop driving it right away and have it towed. The tank will need to be drained.",
      "If the sputtering doesn't improve after fresh fuel, have it checked. If the check engine light starts flashing, pull over and stop driving.",
      "If you smell raw fuel or the engine shakes hard, pull over and stop driving."
     ],
-    "why": "Water or dirt in the fuel, or the wrong fuel type, makes the engine run rough and sputter. When the problem starts right after filling up, the fuel is a likely link.",
+    "why": "Water or dirt in the fuel, makes the engine run rough and sputter. When the problem starts right after filling up, the fuel is a likely link.",
     "causes": [
      {
       "name": "Water or contamination in the fuel",
@@ -457,11 +457,6 @@
      {
       "name": "Lower octane than your engine requires",
       "clues": "Your manual says premium is required and you used regular. You may hear pinging.",
-      "against": ""
-     },
-     {
-      "name": "Wrong fuel type",
-      "clues": "Heavy smoke, very rough running, or the car dying soon after filling up.",
       "against": ""
      }
     ],
@@ -513,6 +508,57 @@
       "Code scan and misfire counts",
       "Ignition system check",
       "Fuel pressure test"
+     ]
+    }
+   }
+  },
+  "q_fuel_type": {
+   "q": "Could the wrong type of fuel have gone in?",
+   "help": "Check your receipt or the pump you used.",
+   "opts": [
+    {
+     "a": "Yes: diesel in a gas car, or gas in a diesel",
+     "go": "r_wrong_fuel"
+    },
+    {
+     "a": "No, the right type, but maybe poor quality or the wrong grade",
+     "go": "r_bad_fuel"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_bad_fuel"
+    }
+   ]
+  },
+  "r_wrong_fuel": {
+   "result": {
+    "title": "The wrong type of fuel went in",
+    "urgency": "stop",
+    "now": "Don’t start the engine. If it’s running, pull over when it’s safe and turn it off. Don’t restart it. Have it towed: the tank will need to be drained.",
+    "if": [
+     "If you smell raw fuel, keep sparks and flames away and move away from the car.",
+     "If you realize at the pump before starting the engine, leave it off and ask the station for help moving the car."
+    ],
+    "why": "Diesel in a gas engine, or gas in a diesel, doesn't burn the way the engine is built for. Running it can damage the fuel system and engine, so the tank and fuel lines need to be drained before it's started again.",
+    "causes": [
+     {
+      "name": "Diesel in a gas car",
+      "clues": "Heavy smoke, very rough running or the engine dying soon after filling up.",
+      "against": ""
+     },
+     {
+      "name": "Gas in a diesel",
+      "clues": "Knocking, loss of power or the engine stopping soon after filling up.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your receipt and the pump you used to confirm which fuel went in."
+     ],
+     "shop": [
+      "Drain and flush the tank and fuel lines",
+      "Fuel system inspection"
      ]
     }
    }
