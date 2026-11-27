@@ -47,6 +47,44 @@ for (const [q, id] of Object.entries(expected)) {
   assert.ok(r.none.hidden, `"${q}" found lights, so no fallback`);
 }
 
+// Nov 27 (WL-H1, RS-15): words that describe the light rather than its shape never rule a light out, and "!" means exclamation.
+const keys = id => (document.querySelector(`#lgrid .lcard[href^="/warning-lights/${id}/"]`) || {dataset: {}}).dataset.k || '';
+const describes = {
+  'tire light flashing': 'tire-pressure-light', 'flashing tpms': 'tire-pressure-light', 'abs light flashing': 'abs-light',
+  'exclamation point in circle': 'brake-warning-light', 'exclamation mark': 'brake-warning-light', 'yellow exclamation mark': 'tire-pressure-light',
+  '(!)': 'brake-warning-light', 'red ! light': 'brake-warning-light', 'check engine flashing': 'check-engine-light',
+  'blinking battery symbol': 'battery-light', 'oil can picture': 'oil-pressure-light'
+};
+for (const [q, id] of Object.entries(describes)) {
+  const r = search(q);
+  assert.ok(r.shown.includes(id), `"${q}" should show ${id}, showed ${r.shown.join(', ') || 'nothing'}`);
+}
+// WL-M11: a color word puts lights of that color first instead of being ignored; red lights are never hidden by it.
+const firstShown = () => [...document.querySelectorAll('#lgrid .lcard')].filter(a => !a.hidden)
+  .sort((a, b) => (+a.style.order || 0) - (+b.style.order || 0)).map(a => a.getAttribute('href').split('/')[2]);
+{
+  search('yellow exclamation');
+  const f = firstShown();
+  assert.notEqual(f[0], 'brake-warning-light', 'yellow exclamation puts an amber light first');
+  assert.ok(f.includes('brake-warning-light'), 'the red brake light stays visible');
+  const amber = search('yellow light').shown;
+  assert.ok(amber.length && amber.every(id => document.querySelector(`#lgrid .lcard[href^="/warning-lights/${id}/"]`).dataset.c === 'amber'), 'a color alone shows that color');
+  search('');
+  assert.ok([...document.querySelectorAll('#lgrid .lcard')].every(a => !a.style.order), 'clearing the box restores the order');
+}
+// WL-L7: "lock" is the security light, not ABS ("anti lock").
+assert.ok(!search('lock').shown.includes('abs-light'), '"lock" does not show ABS');
+assert.ok(search('anti lock brakes').shown.includes('abs-light'), '"anti lock brakes" still shows ABS');
+// Keywords from the light data (src/lights.js). Checked only once the keyword is in the page, so the order of merges doesn't matter.
+for (const [q, id, word] of [['yellow oil can', 'oil-level-light', 'can'], ['oil can with wavy line', 'oil-level-light', 'wavy'],
+  ['steering wheel with exclamation point', 'power-steering-light', 'exclamation'], ['gear with exclamation', 'transmission-warning-light', 'exclamation'],
+  ['padlock', 'security-light', 'padlock'], ['car with squiggles', 'traction-control-light', 'squiggles'], ['u with exclamation point', 'tire-pressure-light', 'u'],
+  ['blue thermometer', 'engine-temperature-light', 'cold'], ['submarine', 'check-engine-light', 'submarine'], ['trunk open', 'door-open-light', 'trunk']]) {
+  if (!keys(id).split(' ').includes(word)) { console.log(`SKIP "${q}": waiting for keyword "${word}" on ${id}`); continue; }
+  search(q);
+  assert.equal(firstShown()[0], id, `"${q}" should show ${id} first`);
+}
+
 // Nothing matched: a next step is always shown, with the red-light rule and the color filters.
 for (const q of ['purple unicorn', 'weird light', 'blinking thing near speedometer']) {
   const r = search(q);
