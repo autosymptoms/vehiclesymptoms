@@ -1,0 +1,466 @@
+{
+ "id": "battery-swollen-leaking-or-smells",
+ "title": "Battery swollen, leaking or smells",
+ "h1": "Why is my car battery swollen, leaking or smelly?",
+ "metaDesc": "Car battery swollen, cracked, leaking or smelling like rotten eggs? Why it's dangerous, what not to do, and what usually causes it.",
+ "group": "leaksmell",
+ "cat": "Leaks",
+ "synonyms": [
+  "swollen car battery",
+  "battery bulging",
+  "battery swelling",
+  "car battery leaking",
+  "battery acid leak",
+  "battery smells like rotten eggs",
+  "battery smell",
+  "battery hissing",
+  "battery smoking",
+  "battery is hot",
+  "cracked car battery",
+  "corrosion on battery terminals",
+  "white powder on battery",
+  "blue stuff on battery terminal"
+ ],
+ "intro": "This guide is about the regular 12-volt battery under the hood or in the trunk. A swollen, leaking or smelly battery can give off a gas that explodes and contains acid that burns. Find out what to do and what likely caused it.",
+ "safety": [
+  "Don't jump-start or charge a battery that is swollen, cracked, leaking, very hot or smells like rotten eggs.",
+  "Keep sparks, flames and cigarettes away from the battery. It can give off a gas that explodes.",
+  "If battery acid gets in your eyes, rinse them with clean water for at least 15 minutes and get medical help right away.",
+  "If the battery is hissing, smoking or boiling, get everyone away from the car. Call 911 if there's smoke or fire."
+ ],
+ "start": "q_what",
+ "nodes": {
+  "q_what": {
+   "q": "What do you see or smell?",
+   "opts": [
+    {
+     "a": "The battery is hissing, smoking, boiling or too hot to touch",
+     "go": "r_overheating_now"
+    },
+    {
+     "a": "The battery case is swollen, bulging or cracked",
+     "go": "q_swollen"
+    },
+    {
+     "a": "Crusty buildup, or something wet, on or around the battery",
+     "go": "q_wet"
+    },
+    {
+     "a": "A rotten egg (sulfur) smell",
+     "go": "q_smell"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_swollen": {
+   "q": "Did any of these happen recently?",
+   "opts": [
+    {
+     "a": "It was jump-started or charged, or the battery light was on",
+     "go": "r_swollen_overcharge"
+    },
+    {
+     "a": "It sat dead in freezing weather, or it's old or has been through hot summers",
+     "go": "r_swollen"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_swollen"
+    }
+   ]
+  },
+  "q_wet": {
+   "q": "Which fits best?",
+   "help": "Battery terminals are the two metal posts where the cables clamp on.",
+   "opts": [
+    {
+     "a": "Dry, crusty white, green or blue buildup on the terminals only",
+     "go": "r_corrosion"
+    },
+    {
+     "a": "Liquid on the battery case, or a wet spot under the battery",
+     "go": "r_acid_leak"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_smell": {
+   "q": "When do you notice the smell?",
+   "opts": [
+    {
+     "a": "Right after a jump-start, or while a battery charger is connected",
+     "go": "r_charging_smell"
+    },
+    {
+     "a": "While driving, along with the battery light or very bright or flickering lights",
+     "go": "r_overcharge_alt"
+    },
+    {
+     "a": "From the exhaust, mostly when speeding up",
+     "go": "r_exhaust_smell"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "r_overheating_now": {
+   "result": {
+    "title": "The battery may be overheating. Get away from it",
+    "urgency": "stop",
+    "now": "Turn off the engine if it's running, get everyone out and stay well away from the car. If there's smoke or fire, call 911. Don't touch the battery or the cables.",
+    "if": [
+     "If a charger is connected and you can safely reach the wall plug, unplug the charger from the wall. Don't touch the clamps on the battery.",
+     "Once the battery has cooled down for a long time and nothing is smoking, have it replaced by a battery service or a mechanic. Have the charging system checked too."
+    ],
+    "why": "A battery that hisses or boils is breaking down inside, usually from too much charging current. It can give off a gas that explodes and spray acid.",
+    "causes": [
+     {
+      "name": "Overcharging from the car's charging system",
+      "clues": "The battery light was on, or the lights were very bright.",
+      "against": ""
+     },
+     {
+      "name": "Battery charger left on or set wrong",
+      "clues": "A charger was connected.",
+      "against": ""
+     },
+     {
+      "name": "Internal short in the battery",
+      "clues": "The battery is old, or it happened suddenly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Battery replacement",
+      "Charging system voltage test",
+      "Charger and cable inspection"
+     ]
+    }
+   }
+  },
+  "r_swollen_overcharge": {
+   "result": {
+    "title": "The battery may have been overcharged",
+    "urgency": "stop",
+    "now": "Don't drive, jump-start or charge it. Have the battery replaced where the car is, by a mobile battery service or a mechanic, or have the car towed. Ask them to test the charging system too.",
+    "if": [
+     "If the battery light was on while driving, the alternator may be overcharging. A new battery could swell too unless that's fixed.",
+     "If you smell rotten eggs or see the battery hissing, get away from the car."
+    ],
+    "why": "Too much charging current makes the battery heat up and give off gas, which can make the case swell. The gas can explode if a spark reaches it.",
+    "causes": [
+     {
+      "name": "Alternator overcharging",
+      "clues": "The battery light was on, or the headlights were extra bright.",
+      "against": ""
+     },
+     {
+      "name": "Charger left on too long or set wrong",
+      "clues": "A charger was used recently.",
+      "against": ""
+     },
+     {
+      "name": "Jump-start done wrong",
+      "clues": "It swelled right after a jump.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the battery light came on recently."
+     ],
+     "shop": [
+      "Battery replacement",
+      "Charging system voltage test",
+      "Alternator test"
+     ]
+    }
+   }
+  },
+  "r_swollen": {
+   "result": {
+    "title": "A swollen battery is damaged inside and must be replaced",
+    "urgency": "stop",
+    "now": "Don't drive, jump-start or charge it. Have the battery replaced where the car is, by a mobile battery service or a mechanic, or have the car towed.",
+    "if": [
+     "If you see acid leaking, don't touch it with bare hands.",
+     "If the battery froze, don't try to charge it. A frozen battery can burst."
+    ],
+    "why": "Batteries can swell from heat, age, freezing while run down, or overcharging. The case swelling means the inside is damaged. It can leak acid or give off gas that can explode.",
+    "causes": [
+     {
+      "name": "Old battery worn out by heat",
+      "clues": "More than a few years old, or lots of hot summers.",
+      "against": ""
+     },
+     {
+      "name": "Froze while run down",
+      "clues": "The car sat dead in freezing weather.",
+      "against": ""
+     },
+     {
+      "name": "Overcharging",
+      "clues": "The battery light was on recently.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the battery label for its age."
+     ],
+     "shop": [
+      "Battery replacement",
+      "Charging system test"
+     ]
+    }
+   }
+  },
+  "r_corrosion": {
+   "result": {
+    "title": "Corrosion on the terminals is common and often easy to clean",
+    "urgency": "diy",
+    "now": "Wear gloves and eye protection. With the engine off, look at how bad it is. Light buildup can be cleaned with a battery brush and a mix of baking soda and water. Remove the negative (black, minus) cable first and put it back last.",
+    "if": [
+     "If the battery case is cracked, wet or swollen, don't clean it. Have the battery replaced.",
+     "If the buildup comes back quickly, have the battery and charging system tested.",
+     "If you're not comfortable, a shop can clean the terminals quickly."
+    ],
+    "why": "Batteries give off small amounts of acid vapor that react with the metal terminals. The crusty buildup can block power and cause slow or no starting.",
+    "causes": [
+     {
+      "name": "Normal battery venting over time",
+      "clues": "Light buildup on an older battery.",
+      "against": ""
+     },
+     {
+      "name": "Overcharging",
+      "clues": "Heavy buildup that comes back fast.",
+      "against": ""
+     },
+     {
+      "name": "Small leak at a terminal seal",
+      "clues": "Buildup on one post only, with damp spots.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at both terminals and the cable ends.",
+      "Check whether the cables are tight."
+     ],
+     "shop": [
+      "Battery test",
+      "Terminal cleaning",
+      "Charging system test"
+     ]
+    }
+   }
+  },
+  "r_acid_leak": {
+   "result": {
+    "title": "The battery may be leaking acid",
+    "urgency": "stop",
+    "now": "Don't touch the wet spots with bare hands. Don't drive, jump-start or charge it. Have the battery replaced where the car is, by a mobile battery service or a mechanic, or have the car towed.",
+    "if": [
+     "If acid gets on your skin, wash it off with lots of water. If it burns or hurts, get medical help.",
+     "If the wet spot is somewhere else, like under the engine or near a wheel, it may be another fluid. See our fluid leak guide."
+    ],
+    "why": "A cracked or overfilled battery can leak acid. Acid eats through metal and wiring and burns skin and eyes. A cracked battery can also fail without warning.",
+    "causes": [
+     {
+      "name": "Cracked battery case",
+      "clues": "You can see a crack or bulge.",
+      "against": ""
+     },
+     {
+      "name": "Overcharging",
+      "clues": "Liquid around the vent caps.",
+      "against": ""
+     },
+     {
+      "name": "Battery tipped or damaged",
+      "clues": "It was recently moved or the car was hit.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Battery replacement",
+      "Battery tray and cable inspection for acid damage",
+      "Charging system test"
+     ]
+    }
+   }
+  },
+  "r_charging_smell": {
+   "result": {
+    "title": "The battery is overheating while being charged",
+    "urgency": "stop",
+    "now": "Stop charging. Unplug the charger from the wall first, if you can reach it safely, and wait for the battery to cool before touching anything. Open the hood and let it air out, and keep sparks and flames away.",
+    "if": [
+     "If the battery is swollen, hissing or leaking, don't charge or jump it again. Have it replaced.",
+     "If it was a jump-start, disconnect the cables in the reverse order once the smell has cleared."
+    ],
+    "why": "A rotten egg smell during charging means the battery is overheating and giving off gas. This happens when the charging current is too high or the battery is damaged inside.",
+    "causes": [
+     {
+      "name": "Charger set too high or left on too long",
+      "clues": "A manual charger was used.",
+      "against": ""
+     },
+     {
+      "name": "Damaged or worn-out battery",
+      "clues": "The battery is old or wouldn't hold a charge.",
+      "against": ""
+     },
+     {
+      "name": "Cables connected wrong",
+      "clues": "Sparks or heat when connecting.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Battery test",
+      "Battery replacement if damaged",
+      "Charging system test"
+     ]
+    }
+   }
+  },
+  "r_overcharge_alt": {
+   "result": {
+    "title": "The charging system may be overcharging the battery",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and turn off the engine. Open the hood to let it air out, and keep sparks away. Have it towed or have a mechanic come to you.",
+    "if": [
+     "If the battery is hissing or smoking, get away from the car and call 911 if there's smoke or fire."
+    ],
+    "why": "The alternator's voltage regulator controls how much charge goes into the battery. If it fails, it can push too much, which overheats the battery and makes it give off a rotten egg smell.",
+    "causes": [
+     {
+      "name": "Failed voltage regulator or alternator",
+      "clues": "The battery light is on, or lights are very bright or flickering.",
+      "against": ""
+     },
+     {
+      "name": "Damaged battery",
+      "clues": "The battery is old or swollen.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Charging system voltage test",
+      "Alternator test",
+      "Battery test"
+     ]
+    }
+   }
+  },
+  "r_exhaust_smell": {
+   "result": {
+    "title": "A rotten egg smell from the exhaust is usually the catalytic converter, not the battery",
+    "urgency": "check",
+    "now": "Book a check when convenient. See our rotten egg smell guide for more.",
+    "if": [
+     "If the check engine light is flashing, pull over when it's safe and turn the engine off.",
+     "If you feel dizzy or get a headache inside the car, open the windows, pull over and get out."
+    ],
+    "why": "The exhaust system turns sulfur from fuel into odorless gas. When it isn't working right, you can smell rotten eggs from the tailpipe.",
+    "causes": [
+     {
+      "name": "Catalytic converter problem",
+      "clues": "The smell is strongest when speeding up.",
+      "against": ""
+     },
+     {
+      "name": "Engine running rich",
+      "clues": "The check engine light is on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note when the smell is strongest."
+     ],
+     "shop": [
+      "Code scan",
+      "Exhaust and catalytic converter check"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Treat a damaged-looking battery with care",
+    "urgency": "soon",
+    "now": "Don't jump-start or charge it until it's checked. With the engine off, look at the battery without touching it. Have it tested within a few days, or sooner if it gets worse.",
+    "if": [
+     "If it's swollen, cracked, leaking, hissing or very hot, don't drive or charge it. Have it replaced where it is.",
+     "If you smell rotten eggs near the battery, keep sparks away and let it air out."
+    ],
+    "why": "A battery that looks or smells wrong may be damaged. A quick test at a shop or parts store can tell if it's safe to keep using.",
+    "causes": [
+     {
+      "name": "Worn-out battery",
+      "clues": "The battery is older than a few years.",
+      "against": ""
+     },
+     {
+      "name": "Charging system problem",
+      "clues": "The battery light was on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the battery from a safe distance."
+     ],
+     "shop": [
+      "Battery test",
+      "Charging system test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "car-wont-start",
+  "battery-keeps-dying",
+  "battery-light-on",
+  "rotten-egg-smell",
+  "fluid-leak-under-car"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Starting Problems",
+   "Smells"
+  ],
+  "words": [
+   "battery",
+   "swollen battery",
+   "battery leak",
+   "battery acid",
+   "terminal corrosion",
+   "overcharging",
+   "voltage regulator"
+  ]
+ },
+ "sources": [
+  "https://ownersmanual.kia.com/full_webhelp/MQ4a/2026/en_US/topics/t00838.html"
+ ]
+}

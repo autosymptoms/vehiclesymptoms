@@ -1,0 +1,502 @@
+{
+ "id": "after-hitting-pothole",
+ "title": "After hitting a pothole or curb",
+ "h1": "I hit a pothole or curb. Is my car damaged?",
+ "metaDesc": "Hit a pothole or curb? What to check right away, which signs mean pull over, and what a shop looks at: tires, wheels, alignment and suspension.",
+ "group": "shake",
+ "cat": "Driving",
+ "synonyms": [
+  "hit a pothole",
+  "hit a curb",
+  "hit a big pothole",
+  "pothole damage",
+  "curb damage",
+  "car pulls after hitting pothole",
+  "steering wheel crooked after hitting curb",
+  "car shakes after hitting pothole",
+  "bent rim",
+  "bent wheel",
+  "tire bulge after pothole",
+  "noise after hitting pothole",
+  "hit something in the road",
+  "ran over something"
+ ],
+ "intro": "A hard hit from a pothole, curb or debris can damage a tire, a wheel or the steering. Some damage shows right away and some shows later. These questions help you decide what to do now.",
+ "safety": [
+  "If a tire is losing air fast, has a bulge, or the wheel looks bent or cracked, don't drive on it. Put on the spare or call for help.",
+  "If the steering wheel is suddenly crooked, the car pulls hard, or you hear grinding or scraping, pull over when it's safe.",
+  "If you smell fuel or see fluid leaking after the hit, turn off the engine and step away from the car.",
+  "If a red brake warning light came on after the hit, stop and don't drive until it's checked."
+ ],
+ "start": "q_now",
+ "nodes": {
+  "q_now": {
+   "q": "After the hit, what do you notice?",
+   "opts": [
+    {
+     "a": "A tire is going flat, or has a bulge or cut on the side",
+     "go": "r_tire_damage"
+    },
+    {
+     "a": "Fluid is dripping, or I smell fuel",
+     "go": "r_leak"
+    },
+    {
+     "a": "The steering wheel shakes, sits crooked, or the car pulls",
+     "go": "q_how_bad"
+    },
+    {
+     "a": "A warning light came on",
+     "go": "q_light"
+    },
+    {
+     "a": "A new clunk, rattle or scraping noise",
+     "go": "r_noise"
+    },
+    {
+     "a": "Nothing seems different",
+     "go": "r_nothing"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_inspect"
+    }
+   ]
+  },
+  "q_how_bad": {
+   "q": "How bad is it?",
+   "opts": [
+    {
+     "a": "Strong shaking or a hard pull, and it's hard to keep straight",
+     "go": "r_bent"
+    },
+    {
+     "a": "Mild: the wheel is a little off-center, or a light shake at some speeds",
+     "go": "r_alignment"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_bent"
+    }
+   ]
+  },
+  "q_light": {
+   "q": "Which light came on?",
+   "opts": [
+    {
+     "a": "Tire pressure light (looks like a horseshoe with !)",
+     "go": "r_tpms"
+    },
+    {
+     "a": "Red brake warning light",
+     "go": "r_red_brake"
+    },
+    {
+     "a": "ABS or traction control light",
+     "go": "r_abs"
+    },
+    {
+     "a": "Another light, or I'm not sure",
+     "go": "r_inspect"
+    }
+   ]
+  },
+  "r_tire_damage": {
+   "result": {
+    "title": "The tire is damaged. Don't drive on it",
+    "urgency": "stop",
+    "now": "Pull over somewhere safe, away from traffic. Put on the spare if you can do it safely, or call roadside assistance.",
+    "if": [
+     "If the wheel looks bent or cracked, tell the tire shop. A new tire won't seal on a damaged wheel.",
+     "If you're in a traffic lane or someone is hurt, call 911."
+    ],
+    "why": "A hard hit can pinch the tire against the wheel, cutting it from the inside. A bulge means the inner layers are broken, and the tire can burst without warning.",
+    "causes": [
+     {
+      "name": "Tire pinched against the wheel",
+      "clues": "A bulge or cut on the sidewall.",
+      "against": ""
+     },
+     {
+      "name": "Bent wheel letting air out",
+      "clues": "The tire loses air slowly and the wheel edge looks dented.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Tire inspection or replacement",
+      "Wheel inspection",
+      "Alignment check"
+     ]
+    },
+    "links": [
+     {
+      "t": "Flat tire: step by step",
+      "u": "/roadside/flat-tire/"
+     }
+    ]
+   }
+  },
+  "r_leak": {
+   "result": {
+    "title": "A leak after a hit needs checking before you drive",
+    "urgency": "stop",
+    "now": "Turn the engine off and step away from the car if you smell fuel. Don't drive it. Have it towed or have a mechanic come to you.",
+    "if": [
+     "If there's smoke or a strong fuel smell, keep everyone away and call 911.",
+     "If the temperature gauge rises or a red light comes on, don't restart the engine."
+    ],
+    "why": "Debris or a hard hit can crack the oil pan, a fuel line, a radiator or a brake line. Driving with these leaks can damage the engine, start a fire, or affect the brakes.",
+    "causes": [
+     {
+      "name": "Cracked oil pan",
+      "clues": "Dark brown or black drips under the engine.",
+      "against": ""
+     },
+     {
+      "name": "Damaged radiator or coolant hose",
+      "clues": "Green, orange or pink fluid; a sweet smell.",
+      "against": ""
+     },
+     {
+      "name": "Damaged fuel or brake line",
+      "clues": "A fuel smell, or clear-to-brown fluid near a wheel.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Underbody leak inspection",
+      "Fluid level checks",
+      "Brake line inspection"
+     ]
+    }
+   }
+  },
+  "r_bent": {
+   "result": {
+    "title": "A wheel, tire or steering part may be bent",
+    "urgency": "stop",
+    "now": "Pull over when it's safe. Don't drive it if it's hard to keep straight. Have it towed or have a mechanic come to you.",
+    "if": [
+     "If you can see the wheel leaning in or out, or the tire rubbing, don't move the car."
+    ],
+    "why": "A hard hit can bend a wheel, a steering link or a suspension arm. Strong shaking or a hard pull means the car may not steer or stop as it should.",
+    "causes": [
+     {
+      "name": "Bent wheel",
+      "clues": "Shaking that gets worse with speed.",
+      "against": ""
+     },
+     {
+      "name": "Bent steering or suspension part",
+      "clues": "The steering wheel sits crooked and the car pulls.",
+      "against": ""
+     },
+     {
+      "name": "Damaged tire",
+      "clues": "A bulge or flat spot.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Wheel and tire inspection",
+      "Steering and suspension inspection",
+      "Alignment check"
+     ]
+    }
+   }
+  },
+  "r_alignment": {
+   "result": {
+    "title": "The alignment may be knocked out, or a wheel slightly bent",
+    "urgency": "soon",
+    "now": "Get the alignment and wheels checked within a few days. Drive gently until then.",
+    "if": [
+     "If the pull or shake gets worse, or you hear clunking, stop driving it and have it checked.",
+     "If a tire starts losing air, check the pressure and look for a bulge."
+    ],
+    "why": "Even a mild hit can shift the alignment or bend a wheel slightly. Left alone, it can wear out tires early and make the car harder to control in an emergency.",
+    "causes": [
+     {
+      "name": "Alignment knocked out",
+      "clues": "The steering wheel sits a bit crooked.",
+      "against": ""
+     },
+     {
+      "name": "Slightly bent wheel",
+      "clues": "A shake at certain speeds.",
+      "against": ""
+     },
+     {
+      "name": "Wheel weight knocked off",
+      "clues": "A new vibration at highway speed.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the tire sidewall for bulges.",
+      "Check tire pressures."
+     ],
+     "shop": [
+      "Alignment check",
+      "Wheel balance and runout check",
+      "Steering and suspension inspection"
+     ]
+    }
+   }
+  },
+  "r_tpms": {
+   "result": {
+    "title": "A tire may be losing air",
+    "urgency": "soon",
+    "now": "At the next safe stop, check all four tires with a pressure gauge and look for bulges or cuts. Fill to the pressure on the driver's door sticker.",
+    "if": [
+     "If a tire is very low, flat or has a bulge, don't drive on it. Put on the spare or call for help.",
+     "If it goes low again within a day, have it checked right away."
+    ],
+    "why": "A hit can damage a tire or bend a wheel so air leaks out slowly. The tire pressure light warns you before the tire goes flat.",
+    "causes": [
+     {
+      "name": "Slow leak from tire damage",
+      "clues": "One tire is lower than the others.",
+      "against": ""
+     },
+     {
+      "name": "Bent wheel edge",
+      "clues": "A dent on the wheel rim.",
+      "against": ""
+     },
+     {
+      "name": "Damaged tire pressure sensor",
+      "clues": "All tires are at the right pressure, but the light stays on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all tire pressures.",
+      "Look for bulges and dents."
+     ],
+     "shop": [
+      "Tire and wheel inspection",
+      "Tire pressure monitor (TPMS) sensor check"
+     ]
+    }
+   }
+  },
+  "r_red_brake": {
+   "result": {
+    "title": "A red brake light after a hit can mean a damaged brake line",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and don't drive it. Have it towed or have a mechanic come to you.",
+    "if": [
+     "If the brake pedal feels soft or goes down further than usual, don't try to move the car.",
+     "If the parking brake is on, release it and see if the light goes off. If it stays on, don't drive."
+    ],
+    "why": "The red brake light can mean low brake fluid. A hit can damage a brake line or hose, and fluid can leak out, which makes the brakes weaker.",
+    "causes": [
+     {
+      "name": "Damaged brake line or hose",
+      "clues": "Wet fluid near a wheel.",
+      "against": ""
+     },
+     {
+      "name": "Low brake fluid",
+      "clues": "The fluid level is below the MIN mark.",
+      "against": ""
+     },
+     {
+      "name": "Parking brake on",
+      "clues": "The light goes off when the parking brake is released.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Brake fluid level check",
+      "Brake line and hose inspection",
+      "Brake system scan"
+     ]
+    }
+   }
+  },
+  "r_abs": {
+   "result": {
+    "title": "A wheel speed sensor or its wire may have been damaged",
+    "urgency": "soon",
+    "now": "Get it checked within a few days. Normal brakes usually still work, but anti-lock brakes (ABS) and traction control may not. Leave extra stopping room, especially in rain or snow.",
+    "if": [
+     "If the red brake light comes on too, or the pedal feels different, stop and don't drive."
+    ],
+    "why": "Each wheel has a speed sensor with a wire that runs near the suspension. A hit can damage the sensor or pull the wire loose, which turns off ABS and traction control.",
+    "causes": [
+     {
+      "name": "Damaged wheel speed sensor or wire",
+      "clues": "The light came on right after the hit.",
+      "against": ""
+     },
+     {
+      "name": "Damaged wheel bearing",
+      "clues": "A new hum or grinding from one wheel.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the wires near each wheel for anything hanging."
+     ],
+     "shop": [
+      "ABS code scan",
+      "Wheel speed sensor test",
+      "Wheel bearing check"
+     ]
+    }
+   }
+  },
+  "r_noise": {
+   "result": {
+    "title": "A part may have been damaged or knocked loose",
+    "urgency": "soon",
+    "now": "At a safe stop, look under the car for anything hanging or dragging. Get it checked within a few days.",
+    "if": [
+     "If something is dragging on the ground, don't drive it. It can catch and come loose.",
+     "If the noise comes with a pull, shake or loose steering, stop and have it checked."
+    ],
+    "why": "A hard hit can bend or loosen a heat shield, the exhaust, a plastic underbody cover or a suspension part. Some are harmless, and some affect steering.",
+    "causes": [
+     {
+      "name": "Loose heat shield or underbody cover",
+      "clues": "A rattle or scraping at certain speeds.",
+      "against": ""
+     },
+     {
+      "name": "Damaged exhaust",
+      "clues": "The car sounds louder.",
+      "against": ""
+     },
+     {
+      "name": "Damaged suspension or steering part",
+      "clues": "A clunk over bumps, or the car handles differently.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look under the car for hanging parts (engine off, on level ground)."
+     ],
+     "shop": [
+      "Underbody inspection",
+      "Suspension and steering inspection"
+     ]
+    }
+   }
+  },
+  "r_nothing": {
+   "result": {
+    "title": "Probably fine, but watch for signs over the next few days",
+    "urgency": "check",
+    "now": "Look at the tire that hit for bulges, cuts or a bent wheel. Check the tire pressures in the next day or two. Book a check if anything changes.",
+    "if": [
+     "If the car starts pulling, the steering wheel sits crooked, or a new shake or noise starts, get it checked.",
+     "If a bulge appears on the tire later, don't drive on it."
+    ],
+    "why": "Many hits cause no damage. Some damage, like a slow leak, a small bulge or an alignment change, can take a few days to show.",
+    "causes": [
+     {
+      "name": "No damage",
+      "clues": "Everything feels the same.",
+      "against": ""
+     },
+     {
+      "name": "Small tire or wheel damage that shows later",
+      "clues": "A bulge or slow leak in the next days.",
+      "against": ""
+     },
+     {
+      "name": "Alignment change",
+      "clues": "Uneven tire wear or a slight pull later.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the tire and wheel.",
+      "Check tire pressures."
+     ],
+     "shop": [
+      "Tire and wheel inspection",
+      "Alignment check"
+     ]
+    }
+   }
+  },
+  "r_inspect": {
+   "result": {
+    "title": "Check the tires, then have the car looked at",
+    "urgency": "soon",
+    "now": "At a safe stop, look at the tires and wheels for bulges, cuts or dents, and check for leaks under the car. Get it inspected within a few days.",
+    "if": [
+     "If you find a bulge, a flat or a bent wheel, don't drive on it.",
+     "If a red warning light is on, pull over and stop."
+    ],
+    "why": "Not every problem is obvious right after a hit. A quick look plus a shop check catches most damage early.",
+    "causes": [
+     {
+      "name": "Tire or wheel damage",
+      "clues": "A bulge, cut or dent.",
+      "against": ""
+     },
+     {
+      "name": "Alignment change",
+      "clues": "A slight pull.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the tires and wheels."
+     ],
+     "shop": [
+      "Tire and wheel inspection",
+      "Alignment check",
+      "Suspension inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "tire-blowout-or-flat",
+  "car-pulls-to-one-side",
+  "steering-wheel-shaking",
+  "clunk-over-bumps",
+  "tire-pressure-light-on"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "pothole",
+   "curb",
+   "bent wheel",
+   "bent rim",
+   "alignment",
+   "tie rod",
+   "control arm",
+   "tire bulge"
+  ]
+ },
+ "sources": [
+  "https://www.aaa.com/autorepair/articles/how-to-avoid-pothole-damage",
+  "https://www.nhtsa.gov/vehicle-safety/tires"
+ ]
+}
