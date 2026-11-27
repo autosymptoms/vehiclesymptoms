@@ -24,7 +24,7 @@
  "intro": "Brake fluid is clear to yellowish when new and turns amber or brown with age. It feels slick, like light oil, and has little smell. Because your brakes depend on it, a real brake fluid leak means the car shouldn't be driven, so we'll start with how the brakes feel.",
  "safety": [
   "If the brake pedal sinks toward the floor, don't drive the car.",
-  "If the pedal sinks while you're driving, pump it, apply the parking brake gradually and steer to a safe stop.",
+  "If the pedal sinks or goes to the floor while you're driving, turn on your hazard lights, pump the pedal hard and fast (even with ABS), shift to a lower gear, and pull the parking brake on gradually. Steer toward an open, safe area. Once stopped, don't drive it again; have it towed.",
   "If the red BRAKE light stays on with the parking brake released, don't drive the car."
  ],
  "start": "q_pedal",
@@ -124,7 +124,7 @@
    "result": {
     "title": "The brakes may be losing pressure. Don't drive the car",
     "urgency": "stop",
-    "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
+    "now": "Don't drive it. Have the car towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If the pedal sinks while you're driving, pump it, apply the parking brake gradually and steer to a safe stop.",
      "If you can't find any outside leak, a master cylinder leaking internally can cause the same sinking pedal. It still needs a tow."
@@ -162,7 +162,7 @@
    "result": {
     "title": "The red brake light with a leak can point to low brake fluid",
     "urgency": "stop",
-    "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
+    "now": "Don't drive it. Have the car towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If the parking brake was partly on, release it fully and look again. Even if the light goes out, have the suspected leak checked before using the car.",
      "If the ABS light is also on, mention it. Some brake faults turn on both."
@@ -200,9 +200,9 @@
   },
   "r_wheel": {
    "result": {
-    "title": "A brake caliper or wheel cylinder may be leaking",
+    "title": "Brake fluid may be leaking at a wheel (caliper or wheel cylinder)",
     "urgency": "stop",
-    "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
+    "now": "Don't drive it. Have the car towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If fluid has soaked the brake pads or shoes, a shop will usually replace them as well. Contaminated pads don't grip properly.",
      "If it turns out to be thick black grease instead of slick fluid, it may be a torn axle boot. Still have it checked before using the car."
@@ -242,7 +242,7 @@
    "result": {
     "title": "A brake line or hose may be leaking",
     "urgency": "stop",
-    "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
+    "now": "Don't drive it. Have the car towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If the lines look heavily rusted, ask the shop to inspect all of them, not just the leaking section."
     ],
@@ -276,9 +276,9 @@
   },
   "r_master": {
    "result": {
-    "title": "The master cylinder or its reservoir may be leaking",
+    "title": "Brake fluid may be leaking from the main brake pump near the pedal (master cylinder)",
     "urgency": "stop",
-    "now": "Don't drive it. Have the car towed or call a mobile mechanic.",
+    "now": "Don't drive it. Have the car towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If it's only old, dried residue from a past top-up and the level holds steady, a technician can confirm that and clear the car to use.",
      "If your car is a manual, the clutch often shares this fluid. Mention it if the clutch pedal also feels different."
@@ -318,7 +318,7 @@
    "result": {
     "title": "Fluid under the pedals could be from the brake or clutch system",
     "urgency": "stop",
-    "now": "Don't drive it until it's checked. Have it towed or call a mobile mechanic.",
+    "now": "Don't drive it until it's checked. Have it towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If it's plain water or smells sweet, it may be an A/C drain or heater core leak instead. Still have the brake fluid level and pedal checked before driving, and mention any sweet smell or foggy windows to the shop.",
      "If the car is a manual and the clutch pedal feels soft or sticks, the clutch system may be the source. Many cars share the brake fluid reservoir with the clutch, so it still needs checking before you drive."
@@ -358,7 +358,7 @@
    "result": {
     "title": "Low brake fluid with no obvious cause should be treated as a leak",
     "urgency": "stop",
-    "now": "Don't drive it until a technician has checked the brakes. Have it towed or call a mobile mechanic.",
+    "now": "Don't drive it until a technician has checked the brakes. Have it towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If the brakes were worked on recently, ask that shop to check for a loose fitting or bleeder screw first.",
      "If the brake pads turn out to be worn almost through, that can explain part of the drop, but the pads need replacing right away."
@@ -474,7 +474,7 @@
    "result": {
     "title": "Treat it as a brake leak until someone checks",
     "urgency": "stop",
-    "now": "Don't drive it until a technician has checked the brakes. A mobile mechanic can come to you, or have it towed.",
+    "now": "Don't drive it until a technician has checked the brakes. A mechanic can come to you, or have it towed.",
     "if": [
      "If the technician finds the reservoir full, the pedal firm and no leak, the fluid was probably something else."
     ],
@@ -528,6 +528,7 @@
  },
  "sources": [
   "https://cluballiance.aaa.com/the-extra-mile/articles/prepare/car/identify-leaks-like-a-pro",
-  "https://www.nhtsa.gov/recalls"
+  "https://www.nhtsa.gov/recalls",
+  "https://dmv.ri.gov/node/1246"
  ]
 }

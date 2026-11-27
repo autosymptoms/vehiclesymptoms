@@ -24,7 +24,8 @@
  "safety": [
   "If you smell burning or see smoke near the battery, cables or starter, stop trying to start it.",
   "If the battery is swollen, cracked or leaking, don't jump or charge it.",
-  "Don't crank for more than 10 seconds at a time. Wait about a minute between tries so the starter doesn't overheat."
+  "Don't crank for more than 10 seconds at a time. Wait about a minute between tries so the starter doesn't overheat.",
+  "If you're stuck on a road or shoulder, turn on your hazard lights, stay inside with your seat belt on and call for help. If you're stuck in a traffic lane, stay buckled in and call 911. Get out only if you see smoke or fire: leave on the side away from traffic and wait well back from the road, behind a guardrail if there is one."
  ],
  "start": "q_what_happens",
  "nodes": {
@@ -104,7 +105,7 @@
    "result": {
     "title": "A cable, connection or the starter may be overheating",
     "urgency": "stop",
-    "now": "Stop trying to start it and step away from the car. Once nothing is smoking, have it towed or call a mobile mechanic.",
+    "now": "Stop trying to start it and step away from the car. Once nothing is smoking, have it towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If smoke keeps coming or you see flames, get everyone away from the car and call 911.",
      "If the smell was only faint and faded right away, still don't keep cranking. A shorted cable can start a fire."
@@ -179,7 +180,7 @@
    "result": {
     "title": "The battery may be getting weak, and cold makes it show",
     "urgency": "diy",
-    "now": "Have the battery tested soon. Many auto parts stores do this free. A load test shows whether it needs replacing, which is more likely if it's more than 4 years old.",
+    "now": "Have the battery tested soon. Many auto parts stores offer this. A load test shows whether it needs replacing, which is more likely if it's more than 4 years old.",
     "if": [
      "If the battery tests good, ask for a charging test and check the battery cables for corrosion.",
      "If the slow crank turns into clicking, it's close to leaving you stranded. Have the battery charged and tested right away.",
@@ -219,7 +220,7 @@
   },
   "r_hot_crank": {
    "result": {
-    "title": "The starter may be wearing out, especially when hot",
+    "title": "The motor that turns the engine over may be wearing out, especially when hot (starter)",
     "urgency": "check",
     "now": "Have the battery and starter tested at your next opportunity. A shop can measure how much power the starter draws.",
     "if": [
@@ -302,7 +303,7 @@
    "result": {
     "title": "Often a weak battery or a poor battery connection",
     "urgency": "diy",
-    "now": "Check that the battery clamps are clean and tight, then have the battery and charging system tested. Many auto parts stores do this free.",
+    "now": "Check that the battery clamps are clean and tight, then have the battery and charging system tested. Many auto parts stores offer this.",
     "if": [
      "If the battery and cables test fine, the starter is the next thing to test. A shop will usually do a voltage-drop test on the cables before replacing the starter.",
      "If the battery light has come on while driving, have the alternator tested too.",
@@ -383,11 +384,11 @@
   },
   "r_starter_or_cables": {
    "result": {
-    "title": "Possibly a failing starter or a bad cable connection",
+    "title": "The motor that turns the engine over, or a battery cable, may be failing (starter or cables)",
     "urgency": "check",
     "now": "Check that the battery clamps are clean and tight. If it still cranks slowly with a good jump, book a starter and cable test.",
     "if": [
-     "If it stops cranking altogether, have it towed or call a mobile mechanic rather than cranking over and over.",
+     "If it stops cranking altogether, have it towed or call a mechanic who comes to you rather than cranking over and over.",
      "If you smell burning while cranking, stop right away.",
      "If the engine was knocking, or the oil light was on before this started, don't keep cranking. The engine itself may be hard to turn."
     ],
@@ -428,7 +429,8 @@
   "car-wont-start",
   "hard-to-start-when-cold",
   "hard-to-start-when-hot",
-  "battery-light-on"
+  "battery-light-on",
+  "battery-swollen-leaking-or-smells"
  ],
  "issueMatch": {
   "cats": [
@@ -445,6 +447,8 @@
   ]
  },
  "sources": [
-  "https://www.acg.aaa.com/connect/blogs/4c/auto/6-unexpected-reasons-your-car-battery-is-dead"
+  "https://www.acg.aaa.com/connect/blogs/4c/auto/6-unexpected-reasons-your-car-battery-is-dead",
+  "https://www.aaa.com/autorepair/articles/how-to-jump-a-battery-and-get-yourself-back-on-the-road",
+  "https://cluballiance.aaa.com/the-extra-mile/advice/car/staying-safe-when-your-car-breaks-down"
  ]
 }
