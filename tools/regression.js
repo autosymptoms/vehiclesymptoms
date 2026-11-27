@@ -80,10 +80,10 @@ const HAS_PC=fs.existsSync(D('price-check/index.html'))&&/id="pcJob"/.test(fs.re
 
 // One failed NHTSA name must not hide campaigns the other names returned (2021 Pacifica: PACIFICA ok, PLUG-IN HYBRID 400).
 {const camp=(m,id)=>({Manufacturer:'FCA US LLC',NHTSACampaignNumber:id,ReportReceivedDate:'01/01/2024',Component:'ELECTRICAL SYSTEM',Summary:'Test summary',Consequence:'',Remedy:'Dealers will fix it free.',Notes:'',ModelYear:'2021',Make:'CHRYSLER',Model:m});
- const p=load('/vehicles/chrysler-pacifica/2021/',{fetch:nh(k=>/PLUG-IN/.test(k)?{status:400}:/HYBRID/.test(k)?{Count:1,Message:'ok',results:[camp('PACIFICA HYBRID','24V536000')]}:{Count:2,Message:'ok',results:[camp('PACIFICA','21V111000'),camp('PACIFICA','22V222000')]})});
+ const p=load('/vehicles/chrysler-pacifica/2021/',{fetch:nh(k=>/PLUG-IN/.test(k)?{status:503}:/HYBRID/.test(k)?{Count:1,Message:'ok',results:[camp('PACIFICA HYBRID','24V536000')]}:{Count:2,Message:'ok',results:[camp('PACIFICA','21V111000'),camp('PACIFICA','22V222000')]})});
  await sleep(400);const t=p.doc.getElementById('nhtsa').textContent;
  T('REC-PARTIAL','A failed alias keeps the campaigns other names returned and says the list may be incomplete',/3 safety recalls/.test(t)&&/24V536000/.test(t)&&/may be incomplete/i.test(t)&&!/lookup unavailable/i.test(t),t.slice(0,160))}
-{const p=load('/vehicles/chrysler-pacifica/2021/',{fetch:nh(k=>/PLUG-IN/.test(k)?{status:400}:{Count:0,Message:'ok',results:[]})});
+{const p=load('/vehicles/chrysler-pacifica/2021/',{fetch:nh(k=>/PLUG-IN/.test(k)?{status:503}:{Count:0,Message:'ok',results:[]})});
  await sleep(400);T('REC-PARTIAL-0','Zero campaigns with an unchecked alias is not shown as zero',/lookup unavailable/i.test(p.doc.getElementById('nhtsa').textContent),'')}
 
 // Whole-site health check (Nov 24): engine-specific issues, EV reset heading, code descriptions, no contact-list write.
@@ -99,6 +99,10 @@ for(const code of ['c0031','p0520','u0131','p0455']){const h=fs.readFileSync(D('
  T('META-'+code,code.toUpperCase()+' description names its own urgent condition',!/flashing check engine/i.test(m),m.slice(0,90))}
 T('PRIV-01','Result email no longer writes to a contact list',!/api\.resend\.com\/contacts/.test(fs.readFileSync(path.join(__dirname,'../api/send-summary.js'),'utf8')),'')
 
+{// A 400 for one name means NHTSA has nothing filed under it that year: not a failed lookup (Nov 27).
+ const p=load('/vehicles/chrysler-pacifica/2021/',{fetch:nh(k=>/PLUG-IN/.test(k)?{status:400}:{Count:1,Message:'ok',results:[{NHTSACampaignNumber:'21V111000',Make:'CHRYSLER',Model:k.split('|')[1],ModelYear:'2021',Component:'X',Summary:'s',Remedy:'r'}]})});await sleep(400);
+ const t=p.doc.getElementById('nhtsa').textContent;
+ T('REC-400-NONE','A name NHTSA answers with HTTP 400 counts as no records once another name answered',/safety recall/.test(t)&&!/may be incomplete|lookup unavailable/i.test(t),t.slice(0,160))}
 // ---- Audit Nov 27: Lexus IS names, partial counts, year names ----
 {// Campaign ids per NHTSA name for the 2011 Lexus IS, as NHTSA answered on 2026-11-27 (the bare "IS" name finds only one).
  const L11={'IS 250':['19V741000','19V005000','16V340000','13V030000'],'IS 350':['19V005000','19V741000','18V432000','16V340000','14V647000','13V395000','13V030000'],

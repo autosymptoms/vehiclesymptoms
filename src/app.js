@@ -341,8 +341,11 @@ async function loadNhtsa(v,year){
   // they don't cover) must not hide campaigns the other names returned: show those, and say the list may be partial.
   const settled=await Promise.allSettled(M.queries.map(async q=>({label:q.label||q.model,query:q,results:await fetchRecalls(q,year)})));
   let groups=settled.filter(x=>x.status==='fulfilled').map(x=>x.value);
-  const failed=settled.map((x,i)=>x.status==='rejected'?{name:M.queries[i].model,why:x.reason&&x.reason.message||'error'}:null).filter(Boolean);
+  let failed=settled.map((x,i)=>x.status==='rejected'?{name:M.queries[i].model,why:x.reason&&x.reason.message||'error'}:null).filter(Boolean);
   if(!groups.length)return fail(failed.map(f=>f.why).join('; ')||'error',true);
+  // NHTSA answers HTTP 400 when a name has no records for that year (a made-up name does the same; checked Nov 27).
+  // Once another name for this vehicle answered, a 400 means "nothing filed under this name", not a failed lookup.
+  failed=failed.filter(f=>f.why!=='HTTP 400');
   // Several NHTSA names can cover one vehicle (e.g. 1 SERIES and 128I): merge by label and count each campaign once.
   {const by=new Map();for(const g of groups){const k=g.label.replace(/\s+/g,' ');const seen=by.get(k)||{label:g.label,query:g.query,results:[],ids:new Set()};for(const x of g.results)if(!seen.ids.has(x.NHTSACampaignNumber)){seen.ids.add(x.NHTSACampaignNumber);seen.results.push(x)}by.set(k,seen)}
    groups=[...by.values()].map(({ids,...g})=>g)}

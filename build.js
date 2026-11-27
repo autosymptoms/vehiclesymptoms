@@ -162,7 +162,7 @@ for(const v of V){delete v.yn;if(!/ \/ /.test(v.model)||!v.rq)continue;
   const segs=parts.slice(0,-1).every(x=>!/ /.test(x))&&/^(?:Series|Super Duty|Class)$/.test(tail)?parts.map((x,i)=>({name:i<parts.length-1?x+' '+tail:x,core:x.split(' ')[0]})):parts.map(x=>({name:x,core:x}));
   const yn=[];
   for(const r of v.rq){const hit=new Set();let ok=true;
-    for(const q of r.queries){const L=nm(q.label||q.model);const m=segs.filter(s=>{const c=nm(s.core);return L.startsWith(c)||c.startsWith(L)});
+    for(const q of r.queries){const L=nm(q.label||q.model);const exact=segs.filter(s=>nm(s.core)===L);const m=exact.length?exact:segs.filter(s=>{const c=nm(s.core);return L.startsWith(c)||c.startsWith(L)});
       if(m.length!==1||nm(q.make)!==nm(v.nmake||v.make)){ok=false;break}hit.add(m[0].name)}
     if(ok&&hit.size===1)yn.push({from:r.from,to:r.to,name:[...hit][0]})}
   if(yn.length)v.yn=yn}
