@@ -1,0 +1,304 @@
+[
+ {
+  "code": "P207F",
+  "title": "Reductant Quality Performance",
+  "plain": "Diesels with an SCR system spray DEF (diesel exhaust fluid) into the exhaust to cut pollution. The computer thinks the DEF in the tank is the wrong strength or contaminated, for example watered down or the wrong fluid.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light and a DEF or emissions warning",
+   "Countdown message about a speed limit or no-restart",
+   "Speed limited if not fixed"
+  ],
+  "causes": [
+   {
+    "name": "Old, watered-down or contaminated DEF",
+    "how": "common"
+   },
+   {
+    "name": "Wrong fluid added to the DEF tank",
+    "how": "common"
+   },
+   {
+    "name": "Faulty DEF quality sensor",
+    "how": "common"
+   },
+   {
+    "name": "DEF heater or sensor problem in the tank",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the DEF with a DEF refractometer or test strips",
+   "If the wrong fluid went in, have the tank drained and flushed before driving",
+   "Check the DEF quality sensor readings with a scan tool"
+  ],
+  "fix": "Drain and refill with fresh DEF, or replace the DEF quality sensor or tank sensor unit.",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "It usually drives normally at first, but watch the dash for a DEF or emissions message. Many diesels start a countdown and then limit your speed, sometimes to a crawl (limp mode), or won't restart once the countdown runs out. Get it fixed before the countdown ends, and don't start a long highway trip until it's checked. If diesel or anything other than DEF went into the DEF tank, don't start the engine; have it towed.",
+  "test_first": "Read all DEF and emissions codes and test the DEF system with a scan tool before replacing parts. A shop should check DEF quality with a tester first."
+ },
+ {
+  "code": "P20B9",
+  "title": "Reductant Heater \"A\" Control Circuit/Open",
+  "plain": "Diesels with DEF (diesel exhaust fluid) heat the fluid so it doesn't freeze. The computer sees an open or broken circuit in the DEF heater.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light and a DEF or emissions warning",
+   "Countdown message about a speed limit or no-restart",
+   "Speed limited if not fixed"
+  ],
+  "causes": [
+   {
+    "name": "Failed DEF heater (often part of the tank sensor unit)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "common"
+   },
+   {
+    "name": "Blown fuse or bad relay",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the DEF heater fuse and relay",
+   "Measure the heater's resistance and check its wiring",
+   "Look for corrosion at the DEF tank connector"
+  ],
+  "fix": "Usually a DEF heater or tank sensor unit, or a wiring repair.",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "It usually drives normally at first, but watch the dash for a DEF or emissions message. Many diesels start a countdown and then limit your speed, sometimes to a crawl (limp mode), or won't restart once the countdown runs out. Get it fixed before the countdown ends, and don't start a long highway trip until it's checked.",
+  "test_first": "Read all DEF and emissions codes and test the DEF system with a scan tool before replacing parts. A shop should check DEF quality with a tester first."
+ },
+ {
+  "code": "P20BA",
+  "title": "Reductant Heater \"A\" Control Circuit Performance",
+  "plain": "Diesels with DEF (diesel exhaust fluid) heat the fluid so it doesn't freeze. The computer says the DEF heater isn't heating the way it should.",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light and a DEF or emissions warning",
+   "Countdown message about a speed limit or no-restart",
+   "Speed limited if not fixed"
+  ],
+  "causes": [
+   {
+    "name": "Failing DEF heater (often part of the tank sensor unit)",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem",
+    "how": "possible"
+   },
+   {
+    "name": "DEF temperature sensor fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Measure the heater's resistance and current",
+   "Compare DEF temperature readings with outside temperature on a cold start",
+   "Check the DEF tank connector for corrosion"
+  ],
+  "fix": "Usually a DEF heater or tank sensor unit.",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "It usually drives normally at first, but watch the dash for a DEF or emissions message. Many diesels start a countdown and then limit your speed, sometimes to a crawl (limp mode), or won't restart once the countdown runs out. Get it fixed before the countdown ends, and don't start a long highway trip until it's checked.",
+  "test_first": "Read all DEF and emissions codes and test the DEF system with a scan tool before replacing parts. A shop should check DEF quality with a tester first."
+ },
+ {
+  "code": "P219A",
+  "title": "Bank 1 Air-Fuel Ratio Imbalance",
+  "plain": "The computer sees that one or more cylinders on bank 1 are getting a different mix of air and fuel than the others. Bank 1 is the side of the engine with cylinder 1; four-cylinder engines have only one bank.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light",
+   "Rough idle or misfire",
+   "Worse fuel economy"
+  ],
+  "causes": [
+   {
+    "name": "Dirty or leaking fuel injector",
+    "how": "common"
+   },
+   {
+    "name": "Vacuum leak near one cylinder",
+    "how": "common"
+   },
+   {
+    "name": "Low compression in one cylinder",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty air-fuel sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Carbon on the intake valves (direct-injection engines)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look for misfire counts by cylinder in live data",
+   "Smoke test for vacuum leaks",
+   "Test the fuel injectors and check compression"
+  ],
+  "fix": "Fix the cylinder that's off, often a fuel injector or a vacuum leak.",
+  "guide": "rough-idle-shaking",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "If it runs smoothly you can usually drive gently for a short time, but get it checked soon. If the check engine light is flashing, pull over when it's safe and turn the engine off.",
+  "test_first": "Check misfire counts, fuel trims and the air-fuel sensor, then test injectors and compression on the cylinder that stands out before replacing parts.",
+  "urgent_if": "If the check engine light is flashing or the engine is shaking hard, pull over when it's safe and turn the engine off. Don't keep driving; a heavy misfire can overheat and ruin the catalytic converter and leave you without power in traffic. Have it towed or checked right away.",
+  "urgent_group": "misfire-flashing-cel"
+ },
+ {
+  "code": "P228C",
+  "title": "Fuel Pressure Regulator 1 Exceeded Control Limits - Pressure Too Low",
+  "plain": "The computer is trying to raise fuel pressure, but it stays lower than it should. On direct-injection engines this is usually the high-pressure fuel system.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light",
+   "Reduced engine power or hesitation",
+   "Hard start or stumble"
+  ],
+  "causes": [
+   {
+    "name": "Worn high-pressure fuel pump",
+    "how": "common"
+   },
+   {
+    "name": "Weak in-tank fuel pump or clogged fuel filter",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty fuel pressure sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring problem at the pump or regulator",
+    "how": "possible"
+   },
+   {
+    "name": "Very low fuel level",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the fuel level",
+   "Compare desired and actual fuel pressure in live data",
+   "Check low-side fuel pressure before blaming the high-pressure pump"
+  ],
+  "fix": "Often a new high-pressure fuel pump; sometimes the in-tank pump or a sensor.",
+  "guide": "loss-of-power-when-accelerating",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "Drive gently and get it checked in the next few days. Avoid passing or merging where you need full power.",
+  "urgent_if": "If the car suddenly won't speed up or drops to idle, turn on your hazards, move right and get off the road when it's safe. Don't drive in traffic or on the highway until it's checked.",
+  "urgent_group": "limited-power"
+ },
+ {
+  "code": "P2A00",
+  "title": "O2 Sensor Circuit Range/Performance",
+  "plain": "The oxygen (air-fuel) sensor's signal isn't changing the way the computer expects. On most cars this code is for the front sensor on bank 1, ahead of the catalytic converter. Bank 1 is the side of the engine with cylinder 1; four-cylinder engines have only one bank.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light",
+   "Worse fuel economy",
+   "Engine usually runs normally"
+  ],
+  "causes": [
+   {
+    "name": "Worn or contaminated oxygen sensor",
+    "how": "common"
+   },
+   {
+    "name": "Exhaust leak ahead of the sensor",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or heater circuit problem",
+    "how": "possible"
+   },
+   {
+    "name": "Engine running rich or lean from another fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check for exhaust leaks near the sensor",
+   "Watch the sensor's signal in live data as the engine warms up",
+   "Check for other fuel trim or misfire codes first"
+  ],
+  "fix": "Usually a new oxygen (air-fuel) sensor once leaks and other faults are ruled out.",
+  "guide": "poor-gas-mileage",
+  "src": [
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "P2BAD",
+  "title": "NOx Exceedence - Root Cause Unknown",
+  "plain": "The emissions system can't keep NOx (a pollutant) low enough, and the computer can't tell which part caused it. It is mostly seen on diesels that use DEF (diesel exhaust fluid).",
+  "sys": "Emissions",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light and a DEF or emissions warning",
+   "Countdown message about a speed limit or no-restart",
+   "Speed limited if not fixed"
+  ],
+  "causes": [
+   {
+    "name": "Poor-quality or low DEF",
+    "how": "common"
+   },
+   {
+    "name": "Clogged or failing DEF injector",
+    "how": "common"
+   },
+   {
+    "name": "Faulty NOx sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Worn SCR catalyst",
+    "how": "possible"
+   },
+   {
+    "name": "EGR or exhaust leak problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test DEF quality and level",
+   "Check the DEF injector spray and DEF pump pressure",
+   "Compare upstream and downstream NOx sensor readings"
+  ],
+  "fix": "Depends on the test results: often DEF, a DEF injector or a NOx sensor.",
+  "src": [
+   "https://www.mycarly.com/obd-codes/p2bad-nox-exceedence-root-cause-unknown/"
+  ],
+  "drive": "It usually drives normally at first, but watch the dash for a DEF or emissions message. Many diesels start a countdown and then limit your speed, sometimes to a crawl (limp mode), or won't restart once the countdown runs out. Get it fixed before the countdown ends, and don't start a long highway trip until it's checked.",
+  "test_first": "Read all DEF and emissions codes and test the DEF system with a scan tool before replacing parts. A shop should check DEF quality with a tester first."
+ }
+]

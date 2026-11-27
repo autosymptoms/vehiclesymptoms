@@ -1,0 +1,847 @@
+[
+ {
+  "code": "P04AE",
+  "title": "EVAP System Purge Control Valve \"B\" Performance/Stuck Open",
+  "plain": "The purge valve lets fuel vapor from the charcoal canister into the engine to be burned. The computer thinks the second (\"B\") purge valve isn't working right or is stuck open.",
+  "sys": "Emissions",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light",
+   "Hard to start right after filling the tank",
+   "Rough idle for a short time after refueling"
+  ],
+  "causes": [
+   {
+    "name": "Purge valve stuck open",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the valve",
+    "how": "possible"
+   },
+   {
+    "name": "Software problem that an update may fix",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check whether the purge valve holds vacuum when it's off",
+   "Check the valve's wiring and connector",
+   "Ask the dealer about bulletins or software updates (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Usually a new purge valve, or a software update if the carmaker has one.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ]
+ },
+ {
+  "code": "P04DB",
+  "title": "Crankcase Ventilation System Disconnected",
+  "plain": "The computer thinks a crankcase vent (PCV) hose has come off or is cracked, so oily vapor from inside the engine may be escaping.",
+  "sys": "Engine",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light, sometimes coming back after it's cleared",
+   "Hissing sound or rough idle on some engines",
+   "Oil smell from the engine bay on some engines"
+  ],
+  "causes": [
+   {
+    "name": "Loose, cracked or disconnected PCV hose",
+    "how": "common"
+   },
+   {
+    "name": "Faulty PCV valve or oil separator",
+    "how": "possible"
+   },
+   {
+    "name": "Crankcase pressure sensor fault",
+    "how": "possible"
+   },
+   {
+    "name": "Software problem that an update may fix",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look over the PCV hoses for cracks or loose ends",
+   "Check the oil fill cap and dipstick are seated",
+   "Ask the dealer about bulletins or software updates (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Reconnect or replace the PCV hose or valve, or install a software update if the carmaker has one.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ]
+ },
+ {
+  "code": "P053F",
+  "title": "Cold Start Fuel Pressure Performance Bank 1",
+  "plain": "When the engine is cold, fuel pressure isn't reaching the level the computer expects during startup and warm-up.",
+  "sys": "Fuel and air",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light",
+   "Hesitation or stumble while the engine warms up",
+   "Hard start when cold"
+  ],
+  "causes": [
+   {
+    "name": "Weak high-pressure fuel pump (direct-injection engines)",
+    "how": "common"
+   },
+   {
+    "name": "Weak in-tank fuel pump or clogged fuel filter",
+    "how": "possible"
+   },
+   {
+    "name": "Fuel pressure sensor fault",
+    "how": "possible"
+   },
+   {
+    "name": "Software problem that an update may fix",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read fuel pressure in live data during a cold start",
+   "Check for other fuel pressure codes",
+   "Ask the dealer about bulletins or software updates (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Depends on the test results: often a software update, a fuel pressure sensor or a fuel pump.",
+  "guide": "hesitation-when-accelerating",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ]
+ },
+ {
+  "code": "P059A",
+  "title": "Active Grill Air Shutter \"A\" Position Sensor Circuit",
+  "plain": "Many newer cars have shutters behind the front grille that open and close to help fuel economy and engine warm-up. The computer sees a problem with the sensor that reports the shutter position.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light",
+   "Grille shutters may stay open or closed"
+  ],
+  "causes": [
+   {
+    "name": "Shutter motor or sensor fault",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem behind the bumper",
+    "how": "common"
+   },
+   {
+    "name": "Shutters blocked by ice, snow or road debris",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look for ice, debris or damage in the grille shutters",
+   "Check the shutter connector and wiring",
+   "Command the shutters open and closed with a scan tool"
+  ],
+  "fix": "Usually a new shutter motor or wiring repair.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "It usually doesn't change how the car drives. If the shutters are stuck closed, the engine can run warm in heat or when towing, so watch the temperature gauge; if it climbs toward H or you see steam, pull over and turn the engine off."
+ },
+ {
+  "code": "P05A0",
+  "title": "Active Grill Air Shutter \"A\" Stuck On",
+  "plain": "The grille shutters behind the front grille seem stuck in one position and aren't moving when the computer tells them to.",
+  "sys": "Cooling",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Check engine light",
+   "Grille shutters stuck open or closed"
+  ],
+  "causes": [
+   {
+    "name": "Shutters frozen or jammed by ice, snow or debris",
+    "how": "common"
+   },
+   {
+    "name": "Failed shutter motor",
+    "how": "common"
+   },
+   {
+    "name": "Broken shutter linkage",
+    "how": "possible"
+   },
+   {
+    "name": "Wiring problem",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Look for ice, debris or damage in the grille shutters",
+   "Command the shutters with a scan tool and watch them move",
+   "Check the shutter motor connector"
+  ],
+  "fix": "Clear the jam, or replace the shutter motor or shutter assembly.",
+  "guide": "check-engine-light-on",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "It usually doesn't change how the car drives. If the shutters are stuck closed, the engine can run warm in heat or when towing, so watch the temperature gauge; if it climbs toward H or you see steam, pull over and turn the engine off."
+ },
+ {
+  "code": "P06DA",
+  "title": "Engine Oil Pressure Control Circuit/Open",
+  "plain": "Some engines have an oil pump that can change its pressure. The engine computer controls it with a solenoid or valve, and it sees an open or broken circuit to that control.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light",
+   "Oil pressure warning on some vehicles",
+   "Engine usually runs normally"
+  ],
+  "causes": [
+   {
+    "name": "Wiring or connector problem at the oil pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Failed oil pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Low oil level",
+    "how": "possible"
+   },
+   {
+    "name": "Engine computer fault (rare)",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and that the right oil grade is in the engine",
+   "Check the solenoid's connector and wiring for damage or oil inside",
+   "Confirm real oil pressure with a mechanical gauge"
+  ],
+  "fix": "Usually a wiring repair or a new oil pressure control solenoid.",
+  "guide": "oil-pressure-light-on",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "Check the oil level as soon as you can safely stop. If the oil is low or you hear ticking or knocking, turn the engine off and don't drive it. If the oil is full and the engine sounds normal, get it checked soon.",
+  "test_first": "Check the oil level and confirm real oil pressure with a mechanical gauge before replacing parts. Low pressure points to the pump, pickup or bearings, not just the solenoid."
+ },
+ {
+  "code": "P06DD",
+  "title": "Engine Oil Pressure Control Circuit Performance/Stuck Off",
+  "plain": "The engine computer told the variable oil pump to change pressure, but the oil pressure didn't change the way it expected. The control may be stuck.",
+  "sys": "Engine",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light",
+   "Oil pressure warning on some vehicles",
+   "Engine may tick or sound louder on some engines"
+  ],
+  "causes": [
+   {
+    "name": "Low oil level or wrong oil grade",
+    "how": "common"
+   },
+   {
+    "name": "Sticking or failed oil pressure control solenoid",
+    "how": "common"
+   },
+   {
+    "name": "Clogged oil filter or oil pickup screen",
+    "how": "possible"
+   },
+   {
+    "name": "Worn oil pump",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty oil pressure sensor",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the oil level and that the right oil grade is in the engine",
+   "Confirm real oil pressure with a mechanical gauge",
+   "Command the solenoid with a scan tool and watch the oil pressure change"
+  ],
+  "fix": "Depends on the test: an oil change, a new solenoid or sensor, or oil pump repair.",
+  "guide": "oil-pressure-light-on",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "Check the oil level as soon as you can safely stop. If the oil is low or you hear ticking or knocking, turn the engine off and don't drive it. If the oil is full and the engine sounds normal, get it checked soon.",
+  "test_first": "Check the oil level and confirm real oil pressure with a mechanical gauge before replacing parts. Low pressure points to the pump, pickup or bearings, not just the solenoid."
+ },
+ {
+  "code": "P0A0F",
+  "title": "Engine Failed to Start",
+  "plain": "In a hybrid, the computer tried to start the gas engine and it didn't start. The car may move on battery power for a short time and then stop.",
+  "sys": "Hybrid and EV",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine and hybrid warning lights",
+   "Gas engine doesn't start when it should",
+   "Car may lose power after a short distance on battery power"
+  ],
+  "causes": [
+   {
+    "name": "Out of gas or very low fuel",
+    "how": "common"
+   },
+   {
+    "name": "Ignition problem such as a bad coil or plugs",
+    "how": "common"
+   },
+   {
+    "name": "Fuel delivery problem such as a weak fuel pump",
+    "how": "possible"
+   },
+   {
+    "name": "Crankshaft or camshaft sensor problem",
+    "how": "possible"
+   },
+   {
+    "name": "Hybrid starting system or software fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure there is gas in the tank (refill if the gauge is near empty)",
+   "Read all engine and hybrid codes, since another code often shows the real cause",
+   "Check fuel pressure, spark and engine sensor signals while the hybrid system tries to start the engine",
+   "Ask the dealer about software updates, bulletins and warranty coverage for the hybrid system (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Fix the cause of the no-start, which is often fuel, spark or a sensor. Running out of gas is a common cause in hybrids.",
+  "guide": "check-hybrid-system-warning",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "Check the fuel gauge first; if it's near empty, add fuel. Otherwise drive only as far as needed to get somewhere safe, because the car may run out of battery power and stop. Get it checked soon.",
+  "test_first": "Hybrid and EV systems use dangerous high voltage. Only a trained technician should test the battery pack, orange cables or inverter. A shop should read all hybrid codes and battery data before replacing the battery, since a fan, sensor, connection or software update can set the same code.",
+  "urgent_if": "If the car suddenly loses power, won't speed up, or a red hybrid or EV system warning tells you to stop, turn on your hazards, move right and get off the road when it's safe. Put it in Park and turn it off. Don't keep driving in traffic; have it towed.",
+  "urgent_group": "hybrid-power-loss"
+ },
+ {
+  "code": "P0A1F",
+  "title": "Battery Energy Control Module",
+  "plain": "The computer that watches the high-voltage hybrid or EV battery has found a problem with itself or its signals.",
+  "sys": "Hybrid and EV",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Hybrid system or EV warning light, often with the check engine light",
+   "Less power, or the gas engine runs more than normal",
+   "Worse fuel economy or shorter electric range",
+   "Car may not go into Ready mode"
+  ],
+  "causes": [
+   {
+    "name": "Battery control module fault or water damage",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector at the module",
+    "how": "common"
+   },
+   {
+    "name": "Weak 12-volt battery causing low voltage",
+    "how": "possible"
+   },
+   {
+    "name": "Software problem that an update may fix",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the 12-volt battery, since low voltage can upset hybrid computers",
+   "Read all hybrid codes and battery data with a scan tool",
+   "Check the module's power, ground and connectors",
+   "Ask the dealer about software updates, bulletins and warranty coverage for the hybrid system (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Usually a connector or wiring repair, a software update, or a new battery control module, once a technician confirms it.",
+  "guide": "check-hybrid-system-warning",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "The car may limit power or run the gas engine more than normal to protect the battery. Drive gently, stay off highways if power feels low, and get it checked soon by a shop that works on hybrids or EVs. Ask whether the hybrid battery warranty may cover it.",
+  "test_first": "Hybrid and EV systems use dangerous high voltage. Only a trained technician should test the battery pack, orange cables or inverter. A shop should read all hybrid codes and battery data before replacing the battery, since a fan, sensor, connection or software update can set the same code.",
+  "urgent_if": "If the car suddenly loses power, won't speed up, or a red hybrid or EV system warning tells you to stop, turn on your hazards, move right and get off the road when it's safe. Put it in Park and turn it off. Don't keep driving in traffic; have it towed.",
+  "urgent_group": "hybrid-power-loss"
+ },
+ {
+  "code": "P0A2F",
+  "title": "Drive Motor \"A\" Over Temperature",
+  "plain": "The electric drive motor is getting too hot. The car usually cuts power to protect it.",
+  "sys": "Hybrid and EV",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Hybrid or EV warning, or a 'power is limited' message",
+   "Car speeds up weakly or won't go fast",
+   "May happen more in hot weather, on hills or when towing"
+  ],
+  "causes": [
+   {
+    "name": "Low coolant in the motor or inverter cooling system",
+    "how": "common"
+   },
+   {
+    "name": "Failed electric coolant pump",
+    "how": "common"
+   },
+   {
+    "name": "Blocked radiator or cooling fan problem",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty motor temperature sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Hard driving, steep hills or towing in heat",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "With everything cold, check the motor/inverter coolant level (it is often a separate reservoir)",
+   "Check that the electric coolant pump runs",
+   "Compare the motor temperature reading with real temperature",
+   "Ask the dealer about software updates, bulletins and warranty coverage for the hybrid system (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Fix the cooling problem, often a coolant leak or a failed electric coolant pump; a damaged motor may need replacing.",
+  "guide": "check-hybrid-system-warning",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "Let the car cool down before driving on, and drive gently. Never open a radiator or coolant cap while the engine or motor is hot; it can spray scalding coolant. Get it checked soon by a shop that works on hybrids or EVs.",
+  "test_first": "Hybrid and EV systems use dangerous high voltage. Only a trained technician should test the battery pack, orange cables or inverter. A shop should read all hybrid codes and battery data before replacing the battery, since a fan, sensor, connection or software update can set the same code.",
+  "urgent_if": "If the car suddenly loses power, won't speed up, or a red hybrid or EV system warning tells you to stop, turn on your hazards, move right and get off the road when it's safe. Put it in Park and turn it off. Don't keep driving in traffic; have it towed.",
+  "urgent_group": "hybrid-power-loss"
+ },
+ {
+  "code": "P0A3C",
+  "title": "Drive Motor \"A\" Inverter Over Temperature",
+  "plain": "The inverter, the box of electronics that powers the electric drive motor, is getting too hot. The car usually cuts power to protect it.",
+  "sys": "Hybrid and EV",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Hybrid or EV warning, or a powertrain over-temperature message",
+   "Less power or the car won't go fast",
+   "Coolant warning on some vehicles"
+  ],
+  "causes": [
+   {
+    "name": "Low coolant in the inverter cooling system",
+    "how": "common"
+   },
+   {
+    "name": "Failed electric inverter coolant pump",
+    "how": "common"
+   },
+   {
+    "name": "Blocked radiator or cooling fan problem",
+    "how": "possible"
+   },
+   {
+    "name": "Faulty inverter temperature sensor",
+    "how": "possible"
+   },
+   {
+    "name": "Inverter fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "With everything cold, check the inverter coolant level",
+   "Check that the inverter coolant pump runs",
+   "Look for coolant leaks around the inverter and hoses",
+   "Ask the dealer about software updates, bulletins and warranty coverage for the hybrid system (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Fix the cooling problem, often low coolant or a failed coolant pump; sometimes the inverter itself needs replacing.",
+  "guide": "check-hybrid-system-warning",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "Let the car cool down before driving on, and drive gently. Never open a radiator or coolant cap while the engine or motor is hot; it can spray scalding coolant. Get it checked soon by a shop that works on hybrids or EVs.",
+  "test_first": "Hybrid and EV systems use dangerous high voltage. Only a trained technician should test the battery pack, orange cables or inverter. A shop should read all hybrid codes and battery data before replacing the battery, since a fan, sensor, connection or software update can set the same code.",
+  "urgent_if": "If the car suddenly loses power, won't speed up, or a red hybrid or EV system warning tells you to stop, turn on your hazards, move right and get off the road when it's safe. Put it in Park and turn it off. Don't keep driving in traffic; have it towed.",
+  "urgent_group": "hybrid-power-loss"
+ },
+ {
+  "code": "P0A7A",
+  "title": "Generator Inverter Performance",
+  "plain": "The inverter that controls the hybrid's generator motor isn't working the way the computer expects.",
+  "sys": "Hybrid and EV",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Hybrid system or EV warning light, often with the check engine light",
+   "Less power, or the gas engine runs more than normal",
+   "Worse fuel economy or shorter electric range"
+  ],
+  "causes": [
+   {
+    "name": "Inverter fault",
+    "how": "common"
+   },
+   {
+    "name": "Inverter cooling problem such as a failed coolant pump",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded high-voltage connection",
+    "how": "possible"
+   },
+   {
+    "name": "Software problem that an update may fix",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Read all hybrid codes and freeze-frame data",
+   "Check the inverter coolant level and pump (everything cold)",
+   "Have a trained technician test the inverter",
+   "Ask the dealer about software updates, bulletins and warranty coverage for the hybrid system (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Often a software update or a new inverter, depending on what the technician finds.",
+  "guide": "check-hybrid-system-warning",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "The car may limit power or run the gas engine more than normal to protect the battery. Drive gently, stay off highways if power feels low, and get it checked soon by a shop that works on hybrids or EVs. Ask whether the hybrid battery warranty may cover it.",
+  "test_first": "Hybrid and EV systems use dangerous high voltage. Only a trained technician should test the battery pack, orange cables or inverter. A shop should read all hybrid codes and battery data before replacing the battery, since a fan, sensor, connection or software update can set the same code.",
+  "urgent_if": "If the car suddenly loses power, won't speed up, or a red hybrid or EV system warning tells you to stop, turn on your hazards, move right and get off the road when it's safe. Put it in Park and turn it off. Don't keep driving in traffic; have it towed.",
+  "urgent_group": "hybrid-power-loss"
+ },
+ {
+  "code": "P0A7D",
+  "title": "Hybrid/EV Battery Pack State of Charge Low",
+  "plain": "The high-voltage battery's charge has dropped too low. This can happen if the car sat unused for a long time, ran out of gas, or a part isn't charging the battery.",
+  "sys": "Hybrid and EV",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Hybrid or EV warning light",
+   "Car may not start or go into Ready mode",
+   "Little power, or auto start-stop stops working (mild hybrids)"
+  ],
+  "causes": [
+   {
+    "name": "Car sat unused for weeks, or was left in Ready or Neutral for a long time",
+    "how": "common"
+   },
+   {
+    "name": "Ran out of gas (hybrids)",
+    "how": "common"
+   },
+   {
+    "name": "Weak or worn high-voltage battery",
+    "how": "possible"
+   },
+   {
+    "name": "Charging system or battery control fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Make sure there's gas in the tank",
+   "Read the battery state of charge and cell data with a scan tool",
+   "Have the shop recharge the battery and retest",
+   "Ask the dealer about software updates, bulletins and warranty coverage for the hybrid system (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Often recharging the battery and fixing whatever drained it; a worn battery may need replacing.",
+  "guide": "check-hybrid-system-warning",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "The car may limit power or run the gas engine more than normal to protect the battery. Drive gently, stay off highways if power feels low, and get it checked soon by a shop that works on hybrids or EVs. Ask whether the hybrid battery warranty may cover it.",
+  "test_first": "Hybrid and EV systems use dangerous high voltage. Only a trained technician should test the battery pack, orange cables or inverter. A shop should read all hybrid codes and battery data before replacing the battery, since a fan, sensor, connection or software update can set the same code.",
+  "urgent_if": "If the car suddenly loses power, won't speed up, or a red hybrid or EV system warning tells you to stop, turn on your hazards, move right and get off the road when it's safe. Put it in Park and turn it off. Don't keep driving in traffic; have it towed.",
+  "urgent_group": "hybrid-power-loss"
+ },
+ {
+  "code": "P0A7F",
+  "title": "Hybrid/EV Battery Pack Deterioration",
+  "plain": "The computer has found that the high-voltage battery can't store or deliver as much energy as it should. It is losing capacity as it wears.",
+  "sys": "Hybrid and EV",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Hybrid system or EV warning light, often with the check engine light",
+   "Less power, or the gas engine runs more than normal",
+   "Worse fuel economy or shorter electric range",
+   "Battery gauge drops or fills very fast"
+  ],
+  "causes": [
+   {
+    "name": "Worn hybrid battery",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or blocked battery cooling fan or vent",
+    "how": "common"
+   },
+   {
+    "name": "Uneven or weak battery sections",
+    "how": "possible"
+   },
+   {
+    "name": "Battery control software that an update may fix",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the battery cooling vent (often near a rear seat) isn't blocked by bags, dust or pet hair",
+   "Read battery section voltages and temperatures with a scan tool",
+   "Ask the dealer about software updates, bulletins and warranty coverage for the hybrid system (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Often a software update, a cleaned cooling fan, or a rebuilt or new hybrid battery, once tests confirm it.",
+  "guide": "check-hybrid-system-warning",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "The car may limit power or run the gas engine more than normal to protect the battery. Drive gently, stay off highways if power feels low, and get it checked soon by a shop that works on hybrids or EVs. Ask whether the hybrid battery warranty may cover it.",
+  "test_first": "Hybrid and EV systems use dangerous high voltage. Only a trained technician should test the battery pack, orange cables or inverter. A shop should read all hybrid codes and battery data before replacing the battery, since a fan, sensor, connection or software update can set the same code.",
+  "urgent_if": "If the car suddenly loses power, won't speed up, or a red hybrid or EV system warning tells you to stop, turn on your hazards, move right and get off the road when it's safe. Put it in Park and turn it off. Don't keep driving in traffic; have it towed.",
+  "urgent_group": "hybrid-power-loss"
+ },
+ {
+  "code": "P0A80",
+  "title": "Replace Hybrid/EV Battery Pack",
+  "plain": "The computer has found that one or more sections of the high-voltage battery are much weaker than the rest. The battery may be wearing out.",
+  "sys": "Hybrid and EV",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Hybrid system or EV warning light, often with the check engine light",
+   "Less power, or the gas engine runs more than normal",
+   "Worse fuel economy or shorter electric range",
+   "Battery gauge swings quickly between low and high"
+  ],
+  "causes": [
+   {
+    "name": "Worn hybrid battery sections",
+    "how": "common"
+   },
+   {
+    "name": "Dirty or blocked battery cooling fan or vent",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connections inside the battery pack",
+    "how": "possible"
+   },
+   {
+    "name": "Battery sensor or control module fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check that the battery cooling vent (often near a rear seat) isn't blocked by bags, dust or pet hair",
+   "Read each battery section's voltage with a scan tool to find weak ones",
+   "Have the battery tested under load by a hybrid-trained shop",
+   "Ask the dealer about software updates, bulletins and warranty coverage for the hybrid system (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Usually a rebuilt or new hybrid battery, or replacing weak sections; sometimes a cleaned cooling fan or new connections.",
+  "guide": "check-hybrid-system-warning",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "The car may limit power or run the gas engine more than normal to protect the battery. Drive gently, stay off highways if power feels low, and get it checked soon by a shop that works on hybrids or EVs. Ask whether the hybrid battery warranty may cover it.",
+  "test_first": "Hybrid and EV systems use dangerous high voltage. Only a trained technician should test the battery pack, orange cables or inverter. A shop should read all hybrid codes and battery data before replacing the battery, since a fan, sensor, connection or software update can set the same code.",
+  "urgent_if": "If the car suddenly loses power, won't speed up, or a red hybrid or EV system warning tells you to stop, turn on your hazards, move right and get off the road when it's safe. Put it in Park and turn it off. Don't keep driving in traffic; have it towed.",
+  "urgent_group": "hybrid-power-loss"
+ },
+ {
+  "code": "P0A94",
+  "title": "DC/DC Converter \"A\" Performance",
+  "plain": "The DC/DC converter turns high voltage from the hybrid or EV battery into 12 volts to charge the small battery and run the lights and electronics. The computer says it isn't working right.",
+  "sys": "Hybrid and EV",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Hybrid or EV warning, sometimes the battery (charging) light",
+   "12-volt battery runs down",
+   "Lights dim or electronics act up; the car may shut down if the 12-volt battery gets too low"
+  ],
+  "causes": [
+   {
+    "name": "DC/DC converter fault",
+    "how": "common"
+   },
+   {
+    "name": "Converter cooling problem",
+    "how": "possible"
+   },
+   {
+    "name": "Blown fuse or bad connection to the 12-volt battery",
+    "how": "possible"
+   },
+   {
+    "name": "Weak 12-volt battery",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the 12-volt battery and its connections",
+   "Measure 12-volt system voltage with the car in Ready mode",
+   "Check the converter's fuses, connectors and coolant",
+   "Ask the dealer about software updates, bulletins and warranty coverage for the hybrid system (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Often a new DC/DC converter (sometimes built into the inverter), or a fuse, connection or 12-volt battery.",
+  "guide": "check-hybrid-system-warning",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "Turn off extras like heated seats and the stereo and head straight to a shop. The 12-volt battery may be draining, so the car could shut down or not restart. Don't turn it off away from home if you can avoid it.",
+  "test_first": "Hybrid and EV systems use dangerous high voltage. Only a trained technician should test the battery pack, orange cables or inverter. A shop should read all hybrid codes and battery data before replacing the battery, since a fan, sensor, connection or software update can set the same code.",
+  "urgent_if": "If the car suddenly loses power, won't speed up, or a red hybrid or EV system warning tells you to stop, turn on your hazards, move right and get off the road when it's safe. Put it in Park and turn it off. Don't keep driving in traffic; have it towed.",
+  "urgent_group": "hybrid-power-loss"
+ },
+ {
+  "code": "P0AA6",
+  "title": "Hybrid/EV Battery Voltage System Isolation Fault",
+  "plain": "The computer has found high voltage leaking from the hybrid or EV system to the car's metal body. This is a safety fault, so the car may shut down the high-voltage system.",
+  "sys": "Hybrid and EV",
+  "sev": "stop",
+  "common": false,
+  "symptoms": [
+   "Hybrid or EV warning message",
+   "Car may not go into Ready mode, or may lose drive power",
+   "Sometimes appears after rain, a car wash or a flood"
+  ],
+  "causes": [
+   {
+    "name": "Water or coolant getting into a high-voltage part or connector",
+    "how": "common"
+   },
+   {
+    "name": "Damaged insulation on an orange high-voltage cable",
+    "how": "common"
+   },
+   {
+    "name": "Electric A/C compressor or heater fault",
+    "how": "possible"
+   },
+   {
+    "name": "Battery pack or inverter fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Have a trained technician run an insulation test on each high-voltage part",
+   "Check for coolant leaks into the inverter or battery",
+   "Check the VIN for open recalls",
+   "Ask the dealer about software updates, bulletins and warranty coverage for the hybrid system (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Find and fix the high-voltage part that is leaking voltage, which may be a cable, compressor, inverter or the battery itself.",
+  "guide": "check-hybrid-system-warning",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "Have it towed to a shop or dealer trained on high-voltage systems. Don't touch orange cables or open the battery pack. If you see smoke or smell burning plastic, get everyone out, move well away from the car and call 911.",
+  "test_first": "Hybrid and EV systems use dangerous high voltage. Only a trained technician should test the battery pack, orange cables or inverter. A shop should read all hybrid codes and battery data before replacing the battery, since a fan, sensor, connection or software update can set the same code.",
+  "urgent_if": "If the car suddenly loses power, won't speed up, or a red hybrid or EV system warning tells you to stop, turn on your hazards, move right and get off the road when it's safe. Put it in Park and turn it off. Don't keep driving in traffic; have it towed.",
+  "urgent_group": "hybrid-power-loss"
+ },
+ {
+  "code": "P0C27",
+  "title": "Electric/Auxiliary Transmission Fluid Pump \"A\" Motor Current Low",
+  "plain": "Many hybrids and cars with auto start-stop use a small electric pump to keep transmission fluid pressure up while the engine is off. The computer sees too little electric current in that pump's motor.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light",
+   "Auto start-stop or electric drive may stop working",
+   "Delay, slip or clunk when pulling away after a stop"
+  ],
+  "causes": [
+   {
+    "name": "Failed auxiliary transmission fluid pump",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem at the pump",
+    "how": "common"
+   },
+   {
+    "name": "Low transmission fluid",
+    "how": "possible"
+   },
+   {
+    "name": "Blown fuse or relay",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission fluid level the way the owner's manual says",
+   "Check the pump's fuse, connector and wiring",
+   "Command the pump on with a scan tool and measure its current"
+  ],
+  "fix": "Usually a new auxiliary pump or a wiring repair.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "If the car hesitates, slips or won't move after an auto-stop, turn auto start-stop off if your car allows it and get it checked soon. If it won't move at all, put it in Park, turn on your hazards and call for a tow."
+ },
+ {
+  "code": "P0C28",
+  "title": "Electric/Auxiliary Transmission Fluid Pump \"A\" Motor Current High",
+  "plain": "Many hybrids and cars with auto start-stop use a small electric pump to keep transmission fluid pressure up while the engine is off. The computer sees too much electric current in that pump's motor.",
+  "sys": "Transmission",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine light",
+   "Auto start-stop or electric drive may stop working",
+   "Delay, slip or clunk when pulling away after a stop"
+  ],
+  "causes": [
+   {
+    "name": "Failed or binding auxiliary transmission fluid pump",
+    "how": "common"
+   },
+   {
+    "name": "Short in the pump wiring",
+    "how": "common"
+   },
+   {
+    "name": "Low or dirty transmission fluid making the pump work hard",
+    "how": "possible"
+   },
+   {
+    "name": "Control module fault",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the transmission fluid level the way the owner's manual says",
+   "Check the pump's fuse, connector and wiring",
+   "Command the pump on with a scan tool and measure its current"
+  ],
+  "fix": "Usually a new auxiliary pump or a wiring repair.",
+  "guide": "transmission-warning-light",
+  "src": [
+   "https://bmwtechinfo.bmwgroup.com/sib_attachments/B123214_SAE_P-Code_List.pdf"
+  ],
+  "drive": "If the car hesitates, slips or won't move after an auto-stop, turn auto start-stop off if your car allows it and get it checked soon. If it won't move at all, put it in Park, turn on your hazards and call for a tow."
+ }
+]
