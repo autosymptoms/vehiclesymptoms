@@ -284,7 +284,7 @@ const HAS_RS=RS.length>0;
 console.log(`${RS.length} roadside pages${HAS_RS?' from '+RDIR:''}`);
 // RS-10: a full-width red button above the homepage search, plus a "Smoke or fire" shortcut chip.
 const smokeRs=RS.find(r=>/smoke|fire/.test(r.id));
-const ROADSIDEBTN=HAS_RS?'<a class="rs-cta" href="/roadside/" data-va="roadside_tap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v4"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg><span>Stuck on the road or something feels dangerous? <b>Tap here</b></span></a>':'';
+const ROADSIDEBTN=HAS_RS?'<a class="rs-cta" href="/roadside/" data-va="roadside_tap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v4"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg><span>Stuck on the road or something feels dangerous? <b>Tap here</b></span></a>':'';
 const SMOKECHIP=HAS_RS?`<a class="sc sc-danger" href="${smokeRs?'/roadside/'+smokeRs.id+'/':'/roadside/'}" data-va="roadside_tap">Smoke or fire</a>`:'';
 
 // ---------- output ----------
