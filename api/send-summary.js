@@ -1,7 +1,8 @@
 // POST /api/send-summary — emails a guide result to the visitor who asked for it.
 // The email is built on the server from the site's own guide data (guide id, answer choices,
 // vehicle id), never from text the browser sends, so this can't be used to send arbitrary mail.
-// Env vars (set in Vercel): RESEND_API_KEY (required), EMAIL_FROM (e.g. "VehicleSymptoms <help@vehiclesymptoms.com>"),
+// Env vars (set in Vercel): RESEND_API_KEY (required), EMAIL_FROM: a no-reply brand address, e.g. "VehicleSymptoms <no-reply@vehiclesymptoms.com>".
+// The site offers no way to get in touch, so the From address must not be a monitored inbox (replies are not read).
 // Addresses are used only to deliver this one email. Nothing is added to a contact list.
 const JOURNEYS = require('./_data/journeys.json');
 const VEHICLES = require('./_data/vehicles-lite.json');
@@ -35,12 +36,14 @@ module.exports = async (req, res) => {
   const v = VEHICLES[b.vehicle]; const y = v && +b.year >= v.y0 && +b.year <= v.y1 ? +b.year : null;
   const vname = v ? (y ? y + ' ' : '') + v.name : '';
   const mail = buildEmail({ j, r, steps, v, y, vehicleId: b.vehicle });
-  const from = clean(process.env.EMAIL_FROM) || 'VehicleSymptoms <onboarding@resend.dev>';
+  const from = clean(process.env.EMAIL_FROM) || 'VehicleSymptoms <no-reply@vehiclesymptoms.com>';
+  if (!/no-?reply@/i.test(from)) console.warn('EMAIL_FROM is not a no-reply address; replies could become a contact channel');
   try {
     const s = await fetch('https://api.resend.com/emails', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
       body: JSON.stringify({ from, to: [email], subject: mail.subject, html: mail.html, text: mail.text }) });
     if (!s.ok) { const t = await s.text(); console.error('resend', s.status, t); let m = ''; try { m = JSON.parse(t).message || '' } catch (e) {}
-      return res.status(502).json({ error: 'Could not send right now. Please try again later. (code ' + s.status + ')', detail: String(m).slice(0, 160) }) }
+      console.error('resend message', String(m).slice(0, 300));
+      return res.status(502).json({ error: 'Could not send right now. Please try again later. (code ' + s.status + ')' }) }
     return res.status(200).json({ ok: true });
-  } catch (e) { console.error(e); return res.status(502).json({ error: 'Could not send right now. Please try again later. (code net)', detail: String(e && e.message || e).slice(0, 160) }) }
+  } catch (e) { console.error(e); return res.status(502).json({ error: 'Could not send right now. Please try again later. (code net)' }) }
 };
