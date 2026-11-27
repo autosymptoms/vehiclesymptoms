@@ -1,0 +1,395 @@
+{
+ "id": "driver-assist-warning",
+ "title": "Driver-assist warning (radar or camera)",
+ "h1": "Why does my car say the radar or camera is blocked, or driver assist is unavailable?",
+ "metaDesc": "Radar blocked, camera obscured or pre-collision unavailable? See why driver-assist features switch off, what to clean, and when a shop needs to check it.",
+ "group": "light",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "radar blocked",
+  "front radar blocked",
+  "camera blocked",
+  "front camera obscured",
+  "driver assistance system limited",
+  "pre collision system unavailable",
+  "forward collision warning not available",
+  "lane keep assist unavailable",
+  "lane departure warning not working",
+  "adaptive cruise control unavailable",
+  "check driver assistance system",
+  "automatic emergency braking unavailable",
+  "sensor blocked message",
+  "car braked by itself",
+  "phantom braking"
+ ],
+ "intro": "Many cars use a camera behind the windshield and a radar sensor in the front grille or bumper for features like automatic emergency braking, lane keeping and adaptive cruise control. When something blocks them, or a part fails, the car switches these helpers off and shows a message. The car still steers and brakes normally, but you have to do all the watching yourself.",
+ "safety": [
+  "If the car brakes hard or steers on its own when nothing is in the way, pull over when it's safe and have it checked before relying on those features again.",
+  "Never clean the sensors or windshield while driving. Pull over somewhere safe first.",
+  "Driver-assist features don't drive for you. Even when they work, keep your eyes on the road and your hands on the wheel."
+ ],
+ "start": "q_behavior",
+ "nodes": {
+  "q_behavior": {
+   "q": "Is the car doing anything on its own, or just showing a message?",
+   "opts": [
+    {
+     "a": "It braked, beeped or steered on its own when nothing was there",
+     "go": "r_false_activation"
+    },
+    {
+     "a": "It's just showing a message or a warning light",
+     "go": "q_message"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_message"
+    }
+   ]
+  },
+  "q_message": {
+   "q": "What does the message say, and what's it like outside?",
+   "opts": [
+    {
+     "a": "Radar or camera blocked, obscured, or 'clean the sensor', and there's snow, ice, dirt, bugs, heavy rain or fog",
+     "go": "r_blocked"
+    },
+    {
+     "a": "Radar or camera blocked, but the windshield and front of the car look clean and the weather is fine",
+     "go": "q_recent"
+    },
+    {
+     "a": "'Malfunction', 'check system' or 'see dealer'",
+     "go": "r_malfunction"
+    },
+    {
+     "a": "It shows up in bright, low sun or right after starting, then goes away",
+     "go": "r_temporary"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_recent": {
+   "q": "Has any of this happened recently?",
+   "opts": [
+    {
+     "a": "The windshield was replaced, or there's a chip or crack near the mirror",
+     "go": "r_windshield"
+    },
+    {
+     "a": "A front bump, bumper or grille work, or something new on the front, like a plate frame or bike rack",
+     "go": "r_impact"
+    },
+    {
+     "a": "None of these",
+     "go": "r_malfunction"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_malfunction"
+    }
+   ]
+  },
+  "r_false_activation": {
+   "result": {
+    "title": "The system may be reacting to something it shouldn't",
+    "urgency": "soon",
+    "now": "Have it checked within the next few days, and check for recalls and software updates with your VIN. If your owner's manual allows it, turn off the feature that acted up until then, and leave extra space behind you.",
+    "if": [
+     "If it keeps braking hard for no reason, turn off the feature or avoid busy, fast roads until it's checked. The driver behind you won't expect a sudden stop.",
+     "If a blocked or limited message is also on, clean the sensors first. Dirt can confuse them."
+    ],
+    "why": "These systems decide when to warn or brake by reading the camera and radar. A dirty, damaged or out-of-line sensor, or a software problem, can make the car react to shadows, bridges or signs as if they were cars. A shop can check the sensor's aim and look for updates.",
+    "causes": [
+     {
+      "name": "Dirty or out-of-line sensor",
+      "clues": "A blocked message has come up before, or the front was bumped.",
+      "against": ""
+     },
+     {
+      "name": "Road features confusing the system",
+      "clues": "It happens at the same bridge, sign or curve.",
+      "against": ""
+     },
+     {
+      "name": "Software problem",
+      "clues": "There's a recall or software update for your model.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check for recalls and software updates with your VIN.",
+      "Write down when and where it happened."
+     ],
+     "shop": [
+      "Driver-assist code scan",
+      "Camera and radar aim check (calibration)",
+      "Software update check"
+     ]
+    }
+   }
+  },
+  "r_blocked": {
+   "result": {
+    "title": "Snow, ice, dirt or bad weather is likely blocking a sensor",
+    "urgency": "diy",
+    "now": "When you're safely parked, clean the windshield in front of the rear-view mirror and the front emblem, grille or bumper where the radar sits. Your owner's manual shows the exact spots.",
+    "if": [
+     "If heavy rain, snow or fog is the cause, the message may stay until the weather clears. Drive as if the features aren't there.",
+     "If the message stays after cleaning and in good weather, have it checked."
+    ],
+    "why": "The camera looks through the windshield, and the radar sees through a cover at the front of the car. Snow, ice, mud, bugs, a sticker or heavy rain can block them. When that happens, the car switches off features like emergency braking, lane keeping and adaptive cruise and tells you. Hyundai's owner's manual says they work again once the blockage is cleared.",
+    "causes": [
+     {
+      "name": "Snow, ice or dirt on the radar cover",
+      "clues": "The front of the car is dirty or covered in snow.",
+      "against": ""
+     },
+     {
+      "name": "Dirty, fogged or frosted windshield near the camera",
+      "clues": "The glass near the mirror isn't clear, or there's a sticker there.",
+      "against": ""
+     },
+     {
+      "name": "Heavy rain, snow, fog or road spray",
+      "clues": "It happens only in bad weather.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Clean the radar cover and the windshield near the mirror.",
+      "Restart the car after cleaning."
+     ],
+     "shop": [
+      "Driver-assist code scan if it doesn't clear"
+     ]
+    }
+   }
+  },
+  "r_temporary": {
+   "result": {
+    "title": "Bright sun or a start-up check may switch the system off for a short time",
+    "urgency": "diy",
+    "now": "If it clears on its own, nothing needs fixing. While the message is showing, drive as if the features aren't there.",
+    "if": [
+     "If it happens often in normal light, have it checked.",
+     "If a 'malfunction' or 'see dealer' message appears, have it checked within a few days."
+    ],
+    "why": "Strong glare from low sun can blind the camera for a moment. Some systems also need a short time after you start the car before they're ready, and very hot or cold weather around the camera can pause them. Hyundai's manual lists sun glare and extreme temperatures as limits.",
+    "causes": [
+     {
+      "name": "Low sun shining into the camera",
+      "clues": "It happens at sunrise or sunset, facing the sun.",
+      "against": ""
+     },
+     {
+      "name": "Start-up check",
+      "clues": "It appears just after starting and goes away within a minute.",
+      "against": ""
+     },
+     {
+      "name": "Very hot or cold camera",
+      "clues": "It happens after the car sat in strong sun or deep cold.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note when the message shows up and how long it lasts."
+     ],
+     "shop": [
+      "Driver-assist code scan if it keeps happening"
+     ]
+    }
+   }
+  },
+  "r_windshield": {
+   "result": {
+    "title": "The front camera may need to be re-aimed after windshield work or damage",
+    "urgency": "soon",
+    "now": "Have the camera checked and calibrated within the next few days, ideally by the shop that replaced the glass or by a dealer. Until then, don't rely on lane keeping or automatic braking.",
+    "if": [
+     "If there's a crack or chip right in front of the camera, the windshield may need to be replaced.",
+     "Ask whoever replaced the glass whether the camera was calibrated afterward."
+    ],
+    "why": "The camera is mounted to the windshield, so new glass can leave it looking a tiny bit off. It often needs to be calibrated so it sees the lanes and cars in the right place. Tinted, filmed or damaged glass can also block its view.",
+    "causes": [
+     {
+      "name": "Camera not calibrated after glass replacement",
+      "clues": "It started right after a new windshield.",
+      "against": ""
+     },
+     {
+      "name": "Crack, chip or sticker in the camera's view",
+      "clues": "You can see damage or something stuck near the mirror.",
+      "against": ""
+     },
+     {
+      "name": "Window film or tint in front of the camera",
+      "clues": "Film or tint was added to the top of the windshield.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the glass in front of the camera for damage or stickers."
+     ],
+     "shop": [
+      "Camera calibration",
+      "Windshield inspection",
+      "Driver-assist code scan"
+     ]
+    }
+   }
+  },
+  "r_impact": {
+   "result": {
+    "title": "A bump or something on the front may be blocking the radar or knocking it out of line",
+    "urgency": "soon",
+    "now": "Remove anything new that covers the front sensor area if you can, then have the sensors checked within the next few days. Don't rely on automatic braking or adaptive cruise until then.",
+    "if": [
+     "If the bumper is cracked or loose, have it repaired. The radar may be sitting at the wrong angle.",
+     "If the car brakes or warns for no reason, turn off the feature if your manual allows it, and get it checked sooner."
+    ],
+    "why": "The radar has to point straight ahead to judge distance. Even a small bump can move it, and a license plate frame, bike rack or light bar can block it. Hyundai's manual lists a damaged bumper and a radar out of position as reasons the system won't work.",
+    "causes": [
+     {
+      "name": "Radar knocked out of line",
+      "clues": "It started after a bump or bumper work.",
+      "against": ""
+     },
+     {
+      "name": "Something covering the radar",
+      "clues": "A new plate frame, bracket, rack or light on the front.",
+      "against": ""
+     },
+     {
+      "name": "Damaged bumper cover or bracket",
+      "clues": "The bumper looks cracked, loose or out of line.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the front of the car for anything new covering the sensor area."
+     ],
+     "shop": [
+      "Radar aim check and calibration",
+      "Bumper and bracket inspection",
+      "Driver-assist code scan"
+     ]
+    }
+   }
+  },
+  "r_malfunction": {
+   "result": {
+    "title": "A driver-assist part may have failed and needs a check",
+    "urgency": "soon",
+    "now": "Have the system scanned within the next few days. Until then, drive as if the features aren't there.",
+    "if": [
+     "If other warning lights come on too, such as the ABS or brake light, get it checked sooner.",
+     "Check for recalls and software updates with your VIN. Some of these systems are fixed with software."
+    ],
+    "why": "When the message says malfunction rather than blocked, the car has found a fault it can't clear by itself. A shop can read the stored codes to see whether it's the camera, the radar, the wiring or the software.",
+    "causes": [
+     {
+      "name": "Failed camera or radar sensor",
+      "clues": "The message stays on in all conditions.",
+      "against": ""
+     },
+     {
+      "name": "Wiring or connector problem",
+      "clues": "It comes and goes, often over bumps.",
+      "against": ""
+     },
+     {
+      "name": "Software problem or low battery voltage",
+      "clues": "It started after a jump start or battery work, or there's a known update.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check for recalls and software updates with your VIN."
+     ],
+     "shop": [
+      "Driver-assist code scan",
+      "Sensor aim check (calibration)",
+      "Software update check"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Clean the sensors first, then have it checked if the warning stays",
+    "urgency": "diy",
+    "now": "When you're safely parked, clean the windshield near the mirror and the front grille or bumper. Restart the car and see if the message clears.",
+    "if": [
+     "If the message stays on, have the system checked within a few days. Drive as if the features aren't there.",
+     "If the car brakes or steers on its own for no reason, have it checked before relying on those features."
+    ],
+    "why": "Most driver-assist warnings come from something blocking the camera or radar. If cleaning doesn't clear it, a shop can find out whether a sensor needs to be re-aimed or replaced.",
+    "causes": [
+     {
+      "name": "Blocked sensor",
+      "clues": "Dirt, snow, bugs or bad weather.",
+      "against": ""
+     },
+     {
+      "name": "Sensor out of line",
+      "clues": "A recent bump or windshield replacement.",
+      "against": ""
+     },
+     {
+      "name": "Failed part or software",
+      "clues": "A 'malfunction' message that won't clear.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Clean the windshield near the mirror and the front grille or bumper."
+     ],
+     "shop": [
+      "Driver-assist code scan",
+      "Sensor aim check (calibration)"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "abs-light-on",
+  "traction-control-light-on",
+  "brake-warning-light-on",
+  "dashboard-lights-all-on"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Warning Lights",
+   "Driving"
+  ],
+  "words": [
+   "radar",
+   "camera",
+   "pre-collision",
+   "collision",
+   "lane keep",
+   "lane departure",
+   "adaptive cruise",
+   "emergency braking",
+   "driver assist",
+   "sensor blocked"
+  ]
+ },
+ "sources": [
+  "https://ownersmanual.hyundai.com/full_webhelp/NE1N/2026/en_US/id23BSE40300A.html",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

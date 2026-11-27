@@ -1,0 +1,389 @@
+{
+ "id": "horn-not-working",
+ "title": "Horn not working",
+ "h1": "Why is my car horn not working?",
+ "metaDesc": "Car horn silent, weak or honking on its own? Answer a few questions to see the likely cause, how soon to fix it, and what a shop will check.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "horn not working",
+  "horn doesnt work",
+  "horn wont work",
+  "car horn stopped working",
+  "no horn",
+  "horn not honking",
+  "horn sounds weak",
+  "horn just clicks",
+  "horn honks by itself",
+  "horn wont stop honking",
+  "horn stuck on",
+  "horn works sometimes",
+  "horn and cruise control buttons not working",
+  "horn wont beep"
+ ],
+ "intro": "Your horn is how you warn other drivers and people walking nearby, and state safety inspections check it. A horn that's silent, weak or stuck usually comes down to a fuse, a relay, the horn itself, or the wiring in the steering wheel that it shares with the airbag. A few questions will point you to the likely cause and how soon to fix it.",
+ "safety": [
+  "If the airbag light came on at the same time, the driver's airbag may not work in a crash. Have it checked right away.",
+  "Don't take apart the steering wheel or its center pad. The airbag is inside and can go off and hurt you.",
+  "If you smell burning or see smoke from the steering column or dash, pull over when it's safe, turn the car off and get out."
+ ],
+ "start": "q_airbag",
+ "nodes": {
+  "q_airbag": {
+   "q": "Is the airbag light on, or did other buttons on the steering wheel stop working at the same time?",
+   "help": "The airbag light usually shows a seated person with a circle in front of them, or the letters SRS.",
+   "opts": [
+    {
+     "a": "Yes, the airbag light is on",
+     "go": "r_airbag"
+    },
+    {
+     "a": "The airbag light is off, but steering wheel buttons (cruise, radio, phone) stopped too",
+     "go": "r_clockspring"
+    },
+    {
+     "a": "No, it's just the horn",
+     "go": "q_what"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_what"
+    }
+   ]
+  },
+  "q_what": {
+   "q": "What happens when you press the horn?",
+   "help": "Try it with the car parked. Ask a friend to stand near the front of the car and listen for a click or a faint sound.",
+   "opts": [
+    {
+     "a": "Nothing at all: no sound and no click",
+     "go": "r_fuse_relay"
+    },
+    {
+     "a": "A weak, raspy or odd sound, or just a click from under the hood",
+     "go": "r_horn_unit"
+    },
+    {
+     "a": "It only works when I press one spot, or it comes and goes",
+     "go": "r_clockspring"
+    },
+    {
+     "a": "It honks by itself, or it won't stop honking",
+     "go": "r_stuck"
+    },
+    {
+     "a": "It stopped right after a crash, a bump, or work on the front of the car or steering wheel",
+     "go": "r_after_damage"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "r_airbag": {
+   "result": {
+    "title": "The wire connection inside the steering wheel may be broken (clockspring)",
+    "urgency": "soon",
+    "now": "Have the airbag system and horn checked within the next few days, and check for open recalls with your VIN on NHTSA's recall lookup.",
+    "if": [
+     "Children under 13 should always ride in the back seat, and that matters even more while the airbag light is on.",
+     "If you smell burning or see smoke from the steering column, pull over when it's safe and turn the car off."
+    ],
+    "why": "The horn button and the driver's airbag both connect through a coiled ribbon of wire behind the steering wheel, often called the clockspring. It winds and unwinds every time you turn the wheel, and after years of turning it can crack. When it breaks, the horn, the airbag and the steering wheel buttons can all stop working together.",
+    "causes": [
+     {
+      "name": "Worn or broken clockspring",
+      "clues": "The horn, the wheel buttons and the airbag light all changed at the same time, or the horn works only with the wheel turned one way.",
+      "against": ""
+     },
+     {
+      "name": "Loose connector under the steering column",
+      "clues": "It started after work on the steering wheel, column or dash.",
+      "against": ""
+     },
+     {
+      "name": "Blown fuse",
+      "clues": "Several things stopped at once.",
+      "against": "A fuse alone doesn't usually turn on the airbag light."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check for open recalls with your VIN on NHTSA's recall lookup.",
+      "Note whether the horn works with the wheel turned to one side."
+     ],
+     "shop": [
+      "Airbag (SRS) code scan",
+      "Clockspring and steering wheel wiring check",
+      "Horn circuit test"
+     ]
+    }
+   }
+  },
+  "r_clockspring": {
+   "result": {
+    "title": "The wire connection inside the steering wheel may be wearing out (clockspring)",
+    "urgency": "soon",
+    "now": "Have the horn checked within the next few days. Keep an eye on the airbag light, and if it comes on, get it checked sooner.",
+    "if": [
+     "If the airbag light comes on, the airbag may not work in a crash. Have it checked right away.",
+     "If the horn works only with the steering wheel turned one way, tell the shop. That points strongly to this part."
+    ],
+    "why": "A coiled ribbon of wire behind the steering wheel (the clockspring) carries the horn, the wheel buttons and the airbag signal while the wheel turns. When it starts to crack, the horn and buttons can cut in and out before anything else fails. A horn that only works in one spot can also mean the contact under the horn pad is worn.",
+    "causes": [
+     {
+      "name": "Worn clockspring",
+      "clues": "Steering wheel buttons act up too, or it depends on which way the wheel is turned.",
+      "against": ""
+     },
+     {
+      "name": "Worn horn contact under the steering wheel pad",
+      "clues": "The horn works only when you press one spot.",
+      "against": ""
+     },
+     {
+      "name": "Loose connector under the steering column",
+      "clues": "It started after work on the steering column or dash.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Test the horn with the wheel straight, then turned left and right, and note what changes."
+     ],
+     "shop": [
+      "Horn switch and clockspring check",
+      "Airbag (SRS) code scan",
+      "Horn circuit test"
+     ]
+    }
+   }
+  },
+  "r_fuse_relay": {
+   "result": {
+    "title": "A blown fuse or a failed horn relay is a common, simple cause",
+    "urgency": "diy",
+    "now": "Use your owner's manual to find the horn fuse. If it's blown, replace it with one of the same rating.",
+    "if": [
+     "If the new fuse blows right away, stop replacing it. A wire may be shorting, and a shop needs to find it.",
+     "If the fuse is good, the relay, the horn or the wiring are next. A shop can test them quickly.",
+     "If the airbag light comes on, have it checked right away."
+    ],
+    "why": "When there's no sound and no click at all, power usually isn't reaching the horn. The fuse and relay are simple parts that fail often, so they're the place to start. If they're fine, the horn itself, its wiring or the switch in the steering wheel is usually the cause.",
+    "causes": [
+     {
+      "name": "Blown horn fuse",
+      "clues": "Nothing at all happens, and the fuse wire inside looks broken.",
+      "against": ""
+     },
+     {
+      "name": "Failed horn relay",
+      "clues": "There's no click from the fuse box under the hood when someone presses the horn.",
+      "against": ""
+     },
+     {
+      "name": "Horn switch or clockspring",
+      "clues": "The steering wheel buttons act up too.",
+      "against": "Less likely if every other wheel button works."
+     },
+     {
+      "name": "Broken wire or corroded plug at the horn",
+      "clues": "The front of the car was hit or has been through deep water.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the horn fuse using the fuse chart in your owner's manual.",
+      "With the engine off, have someone press the horn while you listen at the fuse box under the hood for a click."
+     ],
+     "shop": [
+      "Horn fuse and relay test",
+      "Power and ground check at the horn",
+      "Horn switch and clockspring check"
+     ]
+    }
+   }
+  },
+  "r_horn_unit": {
+   "result": {
+    "title": "The horn itself may be worn out, or its plug may be corroded",
+    "urgency": "soon",
+    "now": "Have the horn checked within the next few days. A shop can test it and its wiring behind the front bumper or grille.",
+    "if": [
+     "If it stopped after rain, a car wash or deep water, the horn or its plug may be wet. It may come back once dry, but still get it checked.",
+     "If your car has two horns and only one works, the sound will be thinner or higher. Still have it fixed."
+    ],
+    "why": "A click from under the hood usually means the relay is switching on, so power is being sent. If the horn only buzzes, rasps or stays quiet, the horn itself or its plug and ground wire are the usual cause. Horns sit at the front of the car, where water, salt and small bumps wear them out.",
+    "causes": [
+     {
+      "name": "Worn or water-damaged horn",
+      "clues": "A weak or raspy sound that got worse over time, or it failed after wet weather.",
+      "against": ""
+     },
+     {
+      "name": "Corroded plug or ground wire at the horn",
+      "clues": "It comes and goes, especially in wet weather.",
+      "against": ""
+     },
+     {
+      "name": "One of two horns has failed",
+      "clues": "The horn still works but sounds thinner or higher than before.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "With the engine off, look behind the grille for a horn with a loose or broken wire."
+     ],
+     "shop": [
+      "Voltage and ground test at the horn",
+      "Horn replacement if it gets power but stays quiet"
+     ]
+    }
+   }
+  },
+  "r_stuck": {
+   "result": {
+    "title": "The horn switch or relay may be stuck on",
+    "urgency": "soon",
+    "now": "If it won't stop, pull over when it's safe and turn the car off. If it keeps honking, use your owner's manual to find the horn fuse or relay and pull it out. Then have the horn checked within a few days.",
+    "if": [
+     "If you can't stop it and can't find the fuse, call roadside assistance rather than pulling on wires.",
+     "Once you remove the horn fuse, the horn won't work at all. Get it repaired soon.",
+     "If you smell burning or see smoke, turn the car off and get out."
+    ],
+    "why": "A horn that sounds by itself usually has a relay stuck in the on position, a horn switch stuck pressed, or a wire touching where it shouldn't. Pulling the fuse or relay cuts its power until a shop can find the cause.",
+    "causes": [
+     {
+      "name": "Stuck horn relay",
+      "clues": "It keeps honking even with the car off.",
+      "against": ""
+     },
+     {
+      "name": "Horn switch or pad stuck down",
+      "clues": "It happens when you turn the wheel or go over bumps.",
+      "against": ""
+     },
+     {
+      "name": "Wiring short",
+      "clues": "It started after a crash, water getting in, or electrical work.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note when it happens: turning, bumps, rain, or at random."
+     ],
+     "shop": [
+      "Horn relay test",
+      "Horn switch and clockspring check",
+      "Wiring short check"
+     ]
+    }
+   }
+  },
+  "r_after_damage": {
+   "result": {
+    "title": "A bump, crash or recent work may have damaged the horn or its wiring",
+    "urgency": "soon",
+    "now": "Have the horn checked within the next few days. If there was a crash, ask the shop to check the airbag system too.",
+    "if": [
+     "If the airbag light is on, have it checked right away.",
+     "If any airbag went off, have the airbag system repaired before you drive the car again."
+    ],
+    "why": "The horn sits behind the front bumper or grille, so even a small bump can break it or its wire. Work on the steering wheel or column can leave a plug loose or damage the clockspring, the coiled wire behind the wheel.",
+    "causes": [
+     {
+      "name": "Damaged horn or wire behind the bumper",
+      "clues": "The front of the car was hit or the bumper was removed.",
+      "against": ""
+     },
+     {
+      "name": "Plug left loose after repair work",
+      "clues": "It stopped right after work on the steering wheel, dash or front end.",
+      "against": ""
+     },
+     {
+      "name": "Damaged clockspring",
+      "clues": "The steering wheel buttons or airbag light changed too.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Tell the shop exactly what work or damage happened just before."
+     ],
+     "shop": [
+      "Horn circuit test",
+      "Airbag (SRS) code scan",
+      "Inspection of the horn and its wiring"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Have the horn circuit tested",
+    "urgency": "soon",
+    "now": "Have the horn checked within the next few days. Until then, flash your headlights if you need to get someone's attention.",
+    "if": [
+     "If the airbag light comes on, have it checked right away.",
+     "If you smell burning or see smoke from the steering column, pull over when it's safe and turn the car off."
+    ],
+    "why": "A horn can fail because of a fuse, a relay, the horn itself or the wiring in the steering wheel. A shop can tell which with a few quick electrical tests.",
+    "causes": [
+     {
+      "name": "Blown fuse or failed relay",
+      "clues": "Nothing at all happens.",
+      "against": ""
+     },
+     {
+      "name": "Worn horn",
+      "clues": "A weak or odd sound.",
+      "against": ""
+     },
+     {
+      "name": "Worn clockspring",
+      "clues": "The steering wheel buttons act up too.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the horn fuse using your owner's manual."
+     ],
+     "shop": [
+      "Horn fuse and relay test",
+      "Power and ground check at the horn",
+      "Horn switch and clockspring check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "airbag-light-on",
+  "electrical-accessories-not-working",
+  "burning-smell"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Warning Lights"
+  ],
+  "words": [
+   "horn",
+   "clockspring",
+   "clock spring",
+   "steering wheel buttons",
+   "horn relay"
+  ]
+ },
+ "sources": [
+  "https://dmv.ny.gov/brochure/new-york-state-vehicle-safetyemissions-inspection-program",
+  "https://www.nhtsa.gov/recalls",
+  "https://www.nhtsa.gov/document/motor-vehicle-safety-defects-and-recalls"
+ ]
+}

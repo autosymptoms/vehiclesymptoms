@@ -1,0 +1,433 @@
+{
+ "id": "brake-lights-not-working",
+ "title": "Brake lights not working",
+ "h1": "Why aren't my brake lights working?",
+ "metaDesc": "Rear brake lights out, one side dead, third light out, or stuck on? See the likely cause, how urgent it is, and what to check first.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "brake lights not working",
+  "brake lights out",
+  "rear brake lights not working",
+  "third brake light not working",
+  "brake lights stay on",
+  "brake lights wont turn off",
+  "one brake light out",
+  "no brake lights",
+  "stop lights not working",
+  "brake lights dont come on",
+  "brake light bulb out",
+  "center brake light out",
+  "high mount brake light out",
+  "brake lights not working but tail lights work"
+ ],
+ "intro": "Your brake lights tell the driver behind you that you're slowing down. If they don't work, you're more likely to be hit from behind, and state safety inspections check them. This guide is about the red lights on the back of the car. If a red BRAKE light is on in your dashboard, use the brake warning light guide instead.",
+ "safety": [
+  "If none of your brake lights work, don't drive until they're fixed. Drivers behind you won't know you're stopping.",
+  "If the red BRAKE light on the dashboard is on, or the brake pedal feels soft, have the brakes checked before driving."
+ ],
+ "start": "q_how_many",
+ "nodes": {
+  "q_how_many": {
+   "q": "Ask someone to stand behind the car while you press the brake pedal. What do they see?",
+   "help": "No helper? At night, back up close to a wall or garage door and look in the mirror for the red glow when you press the pedal.",
+   "opts": [
+    {
+     "a": "None of the brake lights come on",
+     "go": "q_none"
+    },
+    {
+     "a": "One side is out, but the others work",
+     "go": "r_one_side"
+    },
+    {
+     "a": "Only the high center (third) brake light is out",
+     "go": "r_third_light"
+    },
+    {
+     "a": "The brake lights stay on all the time, even with my foot off the pedal",
+     "go": "r_stuck_on"
+    },
+    {
+     "a": "They're dim or flicker, or other rear lights act strangely when I brake",
+     "go": "r_ground"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_none": {
+   "q": "Is anything else going on?",
+   "opts": [
+    {
+     "a": "The shifter won't come out of Park, or cruise control stopped working",
+     "go": "r_switch"
+    },
+    {
+     "a": "The tail lights and turn signals at the back are out too",
+     "go": "r_rear_power"
+    },
+    {
+     "a": "No, everything else seems normal",
+     "go": "r_none_fuse"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_none_fuse"
+    }
+   ]
+  },
+  "r_switch": {
+   "result": {
+    "title": "The brake light switch at the pedal may have failed",
+    "urgency": "stop",
+    "now": "Don't drive it until the brake lights work. Check the brake light fuse first. If it's fine, have the switch at the top of the brake pedal replaced by a mobile mechanic, or have the car towed.",
+    "if": [
+     "If the shifter is stuck in Park, your owner's manual shows a shift-lock release for moving the car onto a tow truck.",
+     "If the brake pedal feels soft or the red BRAKE light is on, tell the mechanic. That's a separate brake problem."
+    ],
+    "why": "A small switch above the brake pedal turns on the brake lights. Many cars also use it to tell the computer you're braking, which lets you shift out of Park and turns off cruise control. When that switch fails, you often lose the brake lights and get those other problems at the same time.",
+    "causes": [
+     {
+      "name": "Failed or out-of-place brake light switch",
+      "clues": "The brake lights, shifting out of Park and cruise control all stopped together.",
+      "against": ""
+     },
+     {
+      "name": "Blown brake light fuse",
+      "clues": "Nothing at the back lights up when you brake.",
+      "against": ""
+     },
+     {
+      "name": "Loose plug at the switch",
+      "clues": "It comes and goes.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the brake light fuse using your owner's manual.",
+      "Look under the dash at the top of the brake pedal for a switch with a loose plug."
+     ],
+     "shop": [
+      "Brake light switch test",
+      "Fuse and wiring check",
+      "Code scan (some cars store a switch code)"
+     ]
+    }
+   }
+  },
+  "r_none_fuse": {
+   "result": {
+    "title": "A blown fuse or a failed brake light switch is the most likely cause",
+    "urgency": "stop",
+    "now": "Don't drive it until the brake lights work. Check the brake light fuse using your owner's manual, and replace it with one of the same rating if it's blown. If that doesn't fix it, have a mobile mechanic check it where the car is.",
+    "if": [
+     "If the new fuse blows right away, there's a short in the wiring. Don't keep replacing it.",
+     "If the fuse is good, the switch at the top of the brake pedal is the next likely cause."
+    ],
+    "why": "When every brake light stops at once, it's rarely the bulbs. Something they all share has failed, usually the fuse or the switch at the brake pedal.",
+    "causes": [
+     {
+      "name": "Blown fuse",
+      "clues": "Nothing at the back lights up when you brake.",
+      "against": ""
+     },
+     {
+      "name": "Failed brake light switch",
+      "clues": "The fuse is good, or the car is hard to shift out of Park.",
+      "against": ""
+     },
+     {
+      "name": "Broken wire or loose connector",
+      "clues": "It started after work in the trunk or on a trailer hitch.",
+      "against": ""
+     },
+     {
+      "name": "Several bulbs burned out",
+      "clues": "Rare all at once.",
+      "against": "Much less likely than a fuse or switch."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the brake light fuse.",
+      "Check that the tail lights still work with the headlights on."
+     ],
+     "shop": [
+      "Fuse and wiring check",
+      "Brake light switch test",
+      "Bulb and socket check"
+     ]
+    }
+   }
+  },
+  "r_rear_power": {
+   "result": {
+    "title": "The rear lights may have lost power or their ground wire",
+    "urgency": "stop",
+    "now": "Don't drive it until the brake lights work. Have the fuses, wiring and plugs checked by a mobile mechanic where the car is, or have it towed, especially if it's getting dark.",
+    "if": [
+     "If it happened after hooking up a trailer or adding a hitch, the trailer wiring may be the cause.",
+     "If it happened after rain or a car wash, a wet connector may be shorting."
+    ],
+    "why": "When the brake lights, tail lights and turn signals at the back all fail together, something they share has lost power or ground. That's often a fuse, a ground wire, trailer wiring, or a wire harness broken where it bends at the trunk or hatch hinge.",
+    "causes": [
+     {
+      "name": "Blown fuse for the rear lights",
+      "clues": "All the rear lights went out at once.",
+      "against": ""
+     },
+     {
+      "name": "Bad ground wire",
+      "clues": "The lights flicker or work only sometimes.",
+      "against": ""
+     },
+     {
+      "name": "Trailer wiring problem",
+      "clues": "It started after towing or installing a hitch.",
+      "against": ""
+     },
+     {
+      "name": "Broken wires at the trunk or hatch hinge",
+      "clues": "A hatchback or SUV, and it comes and goes when the hatch moves.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the rear lighting fuses using your owner's manual."
+     ],
+     "shop": [
+      "Rear lighting circuit test",
+      "Ground and connector check",
+      "Trailer wiring check"
+     ]
+    }
+   }
+  },
+  "r_one_side": {
+   "result": {
+    "title": "A burned-out bulb on that side is the most likely cause",
+    "urgency": "diy",
+    "now": "Replace the bulb on that side with the type listed in your owner's manual. Many can be reached from inside the trunk or by removing a few screws.",
+    "if": [
+     "If a new bulb doesn't work, check the socket for green or white crust or a loose plug.",
+     "If the turn signal on that side blinks fast, that's another sign the bulb is out.",
+     "If the light is an LED unit, the whole lamp may need replacing. A shop can confirm."
+    ],
+    "why": "When only one side is out, the problem is almost always that side's bulb, socket or plug. A working light on the other side shows the fuse and pedal switch are fine.",
+    "causes": [
+     {
+      "name": "Burned-out bulb",
+      "clues": "The thin wire inside the bulb is broken, or the glass looks dark.",
+      "against": ""
+     },
+     {
+      "name": "Corroded socket",
+      "clues": "Green or white crust in the socket, or water in the lamp.",
+      "against": ""
+     },
+     {
+      "name": "Failed LED lamp",
+      "clues": "The car uses LED tail lights.",
+      "against": ""
+     },
+     {
+      "name": "Broken wire to that side",
+      "clues": "The tail light on that side is out too.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the bulb and socket for a broken wire inside the bulb, or crust in the socket."
+     ],
+     "shop": [
+      "Bulb and socket check",
+      "Wiring check to that lamp"
+     ]
+    }
+   }
+  },
+  "r_third_light": {
+   "result": {
+    "title": "The center brake light, or its wire, may have failed",
+    "urgency": "diy",
+    "now": "Check your owner's manual for how to reach the third brake light. Many are LED units that are replaced as one piece.",
+    "if": [
+     "If it's on a hatch or tailgate, the wire often breaks where it bends at the hinge. A shop can check that.",
+     "Get it fixed soon. It helps drivers behind you see you braking, and inspections may check it."
+    ],
+    "why": "The high center brake light sits at eye level for drivers behind you. On many cars it's an LED strip that fails as a unit, and on hatchbacks and SUVs its wire flexes every time the hatch opens.",
+    "causes": [
+     {
+      "name": "Failed LED unit or bulb",
+      "clues": "The other brake lights work fine.",
+      "against": ""
+     },
+     {
+      "name": "Broken wire at the hatch or trunk hinge",
+      "clues": "It flickers or works only with the hatch in certain positions.",
+      "against": ""
+     },
+     {
+      "name": "Water inside the lamp",
+      "clues": "Fog or droplets inside the lens.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for fog or water inside the lens."
+     ],
+     "shop": [
+      "Third brake light and wiring check"
+     ]
+    }
+   }
+  },
+  "r_stuck_on": {
+   "result": {
+    "title": "The brake light switch may be stuck, or the pedal's stopper may have fallen out",
+    "urgency": "soon",
+    "now": "Look at the top of the brake pedal arm for the small rubber or plastic stopper that the switch presses against. If it's missing, the lights stay on. Have the switch checked within the next few days.",
+    "if": [
+     "If the battery keeps going flat, the brake lights staying on may be draining it. Get it fixed sooner.",
+     "If the brake pedal doesn't come all the way back up, or the brakes feel like they're dragging, have the brakes checked before driving."
+    ],
+    "why": "If the brake lights stay on all the time, the driver behind you can't tell when you're actually stopping. Usually the pedal switch is stuck on, or the small stopper it presses against has fallen out, so the switch thinks the pedal is always pressed.",
+    "causes": [
+     {
+      "name": "Missing pedal stopper",
+      "clues": "A small rubber or plastic piece is lying on the floor under the pedal.",
+      "against": ""
+     },
+     {
+      "name": "Stuck or failed switch",
+      "clues": "The stopper is there and the lights still stay on.",
+      "against": ""
+     },
+     {
+      "name": "Pedal not returning fully",
+      "clues": "The pedal sits lower than normal.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look on the floor under the brake pedal for a small rubber or plastic piece."
+     ],
+     "shop": [
+      "Brake light switch test and adjustment",
+      "Pedal return check"
+     ]
+    }
+   }
+  },
+  "r_ground": {
+   "result": {
+    "title": "A bad ground wire or the wrong bulb may be causing dim or flickering lights",
+    "urgency": "soon",
+    "now": "Check that the bulbs are the type your owner's manual lists, and look for crust in the sockets. Have the rear lighting checked within the next few days.",
+    "if": [
+     "If other lights flicker or the dash acts strangely when you brake, a ground wire is likely loose.",
+     "If the problem started after new bulbs, a bulb of the wrong type can do this."
+    ],
+    "why": "Rear lights share wires and a ground connection back to the car's body. A loose or rusty ground, or a bulb of the wrong type, can make lights glow dimly, flicker, or light up the wrong lamp when you brake.",
+    "causes": [
+     {
+      "name": "Poor ground connection",
+      "clues": "Lights dim or flicker together, or other lights change when you brake.",
+      "against": ""
+     },
+     {
+      "name": "Wrong bulb type",
+      "clues": "It started after a bulb was replaced.",
+      "against": ""
+     },
+     {
+      "name": "Corroded socket",
+      "clues": "Crust or water in the lamp.",
+      "against": ""
+     },
+     {
+      "name": "Trailer wiring problem",
+      "clues": "It started after towing or adding a hitch.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Compare the bulb numbers with your owner's manual."
+     ],
+     "shop": [
+      "Ground circuit test",
+      "Bulb and socket check",
+      "Trailer wiring check"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Have someone check your brake lights",
+    "urgency": "soon",
+    "now": "Ask a friend to watch while you press the pedal, or back up close to a wall at night and look for the red glow. Get any lights that are out fixed within the next few days.",
+    "if": [
+     "If none of the brake lights work, don't drive until they're fixed.",
+     "If the red BRAKE light on the dashboard is on, have the brakes checked before driving."
+    ],
+    "why": "You can't see your own brake lights from the driver's seat, so a quick check is the only way to know. If one is out, it's usually a bulb. If they're all out, it's usually a fuse or the switch at the pedal.",
+    "causes": [
+     {
+      "name": "Burned-out bulb",
+      "clues": "Only one light is out.",
+      "against": ""
+     },
+     {
+      "name": "Fuse or pedal switch",
+      "clues": "All of them are out.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the brake lights with a helper or a wall at night."
+     ],
+     "shop": [
+      "Brake light circuit check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "brake-warning-light-on",
+  "headlights-dim-or-flickering",
+  "electrical-accessories-not-working",
+  "stuck-in-park",
+  "battery-keeps-dying"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "brake light",
+   "stop lamp",
+   "brake lamp",
+   "third brake light",
+   "brake light switch",
+   "tail light",
+   "high mount"
+  ]
+ },
+ "sources": [
+  "https://dmv.ny.gov/brochure/new-york-state-vehicle-safetyemissions-inspection-program",
+  "https://www.nhtsa.gov/document/motor-vehicle-safety-defects-and-recalls",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

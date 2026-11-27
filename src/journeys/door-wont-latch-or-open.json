@@ -1,0 +1,588 @@
+{
+ "id": "door-wont-latch-or-open",
+ "title": "Door won't latch or open",
+ "h1": "Why won't my car door close, latch or open?",
+ "metaDesc": "Car door won't stay shut, won't open from inside or outside, or is frozen? See the likely cause, whether it's safe to use that door, and what to do next.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "car door wont close",
+  "door wont latch",
+  "door wont stay shut",
+  "door bounces back open",
+  "door wont open from inside",
+  "door wont open from outside",
+  "rear door wont open",
+  "car door stuck shut",
+  "door ajar light stays on",
+  "door handle not working",
+  "door latch frozen",
+  "door frozen shut",
+  "child lock stuck",
+  "door wont close all the way"
+ ],
+ "intro": "A door that won't latch can swing open while you're driving, and a door that won't open can trap someone inside. Many causes are simple, like the child lock, ice, or a latch that snapped shut while the door was open. Others mean the latch or a handle has broken and needs repair.",
+ "safety": [
+  "If a door won't stay latched, don't drive the car until it's fixed. It can swing open in a turn or a bump.",
+  "If someone is trapped inside and there's smoke, heat or traffic danger, call 911.",
+  "Never drive with a door tied shut or held closed by hand."
+ ],
+ "start": "q_problem",
+ "nodes": {
+  "q_problem": {
+   "q": "What's happening with the door?",
+   "opts": [
+    {
+     "a": "It opened, or nearly opened, while I was driving",
+     "go": "r_opened_driving"
+    },
+    {
+     "a": "It won't close or stay latched: it bounces back, or the door ajar light stays on",
+     "go": "q_latch"
+    },
+    {
+     "a": "It won't open from the inside",
+     "go": "q_inside"
+    },
+    {
+     "a": "It won't open from the outside",
+     "go": "q_outside"
+    },
+    {
+     "a": "It's frozen shut, or it's very cold out",
+     "go": "r_frozen"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_latch": {
+   "q": "With the door open, look at the latch on the door's edge. Which fits best?",
+   "help": "The latch is the metal part on the door's edge that grabs a U-shaped metal loop (the striker) on the car's body. If its jaw snaps closed while the door is open, the door can't latch.",
+   "opts": [
+    {
+     "a": "The latch's jaw looks closed, even though the door is open",
+     "go": "r_latch_tripped"
+    },
+    {
+     "a": "The latch looks open, but the door still won't catch or stay shut",
+     "go": "r_latch_failed"
+    },
+    {
+     "a": "The door closes and holds, but the door ajar light stays on",
+     "go": "r_ajar_switch"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_latch_failed"
+    }
+   ]
+  },
+  "q_inside": {
+   "q": "Is it a rear door, and does it open from the outside?",
+   "opts": [
+    {
+     "a": "Yes, it's a rear door and it opens fine from outside",
+     "go": "r_child_lock"
+    },
+    {
+     "a": "The door is locked and won't unlock from inside",
+     "go": "r_lock_stuck"
+    },
+    {
+     "a": "The inside handle feels loose or does nothing, even when unlocked",
+     "go": "r_handle_inside"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_child_lock"
+    }
+   ]
+  },
+  "q_outside": {
+   "q": "Does it open from the inside?",
+   "opts": [
+    {
+     "a": "Yes, it opens from inside, just not with the outside handle",
+     "go": "r_outside_handle"
+    },
+    {
+     "a": "It won't unlock with the key fob or lock button",
+     "go": "r_lock_stuck"
+    },
+    {
+     "a": "No, it won't open from either side",
+     "go": "r_jammed"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_jammed"
+    }
+   ]
+  },
+  "r_opened_driving": {
+   "result": {
+    "title": "A door that opened while driving needs a check before you drive again",
+    "urgency": "stop",
+    "now": "Pull over when it's safe, close the door firmly, and pull on it from outside to make sure it's latched. If it won't stay latched, don't drive. Have a mobile mechanic or locksmith come to you, or have the car towed.",
+    "if": [
+     "If it now closes and holds firmly, still have the latch checked within a few days. A latch that let go once can do it again.",
+     "If a child opened a rear door, turn on the child safety lock on the edge of the rear door.",
+     "If anyone fell out or was hurt, call 911."
+    ],
+    "why": "A door can come open if it wasn't fully shut, if someone pulled the inside handle, or if the latch is worn. A fully closed latch holds the door through bumps and turns, so a door that opens by itself usually points to a latch problem.",
+    "causes": [
+     {
+      "name": "Door not fully closed",
+      "clues": "The door ajar light was on, or the door was closed gently.",
+      "against": ""
+     },
+     {
+      "name": "Inside handle pulled",
+      "clues": "A child or passenger was near the handle.",
+      "against": ""
+     },
+     {
+      "name": "Worn or broken latch",
+      "clues": "The door didn't feel or sound right when it closed, or it's happened before.",
+      "against": ""
+     },
+     {
+      "name": "Latch problem covered by a recall",
+      "clues": "Your model has an open door latch recall.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Close the door and pull on it from outside to check it's latched.",
+      "Check for open recalls with your VIN on NHTSA's recall lookup."
+     ],
+     "shop": [
+      "Latch inspection",
+      "Striker adjustment",
+      "Check for door latch recalls"
+     ]
+    }
+   }
+  },
+  "r_latch_tripped": {
+   "result": {
+    "title": "The latch may have snapped shut while the door was open",
+    "urgency": "diy",
+    "now": "Pull and hold the door handle while you push the latch's jaw back open with a screwdriver or the key. Then close the door firmly and pull on it to check it's latched.",
+    "if": [
+     "If the latch won't reset or the door still won't stay shut, don't drive with that door unlatched. Have it repaired.",
+     "If this keeps happening, the latch may be worn. Have it checked."
+    ],
+    "why": "A door latch has a jaw that closes around the striker on the car's body. If it gets bumped while the door is open, it can snap shut, and then the door can't latch until the jaw is opened again. Pulling the handle releases it so you can push it back.",
+    "causes": [
+     {
+      "name": "Latch bumped closed",
+      "clues": "It happened after the door was knocked while open, or a kid played with the latch.",
+      "against": ""
+     },
+     {
+      "name": "Lock pressed while the door was open",
+      "clues": "On some cars, locking an open door can make it fail to latch.",
+      "against": ""
+     },
+     {
+      "name": "Worn latch",
+      "clues": "It keeps happening, or the latch feels gritty.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the latch with the door open and see whether the jaw is closed."
+     ],
+     "shop": [
+      "Latch inspection",
+      "Latch cleaning and lubrication",
+      "Latch replacement if it keeps happening"
+     ]
+    }
+   }
+  },
+  "r_latch_failed": {
+   "result": {
+    "title": "The door latch may be broken, or the striker may be out of line",
+    "urgency": "stop",
+    "now": "Don't drive with that door unable to latch. Have a mobile mechanic or locksmith come to you, or have the car towed.",
+    "if": [
+     "If it's a rear door, the child lock won't hold it shut. It only stops the inside handle.",
+     "Check for open recalls with your VIN on NHTSA's recall lookup."
+    ],
+    "why": "The latch grabs a metal loop (the striker) on the car body. If the latch's springs or cable break, or the striker gets bent or loose, the door can't lock into place and may open while you're moving.",
+    "causes": [
+     {
+      "name": "Broken latch or spring",
+      "clues": "There's no click when the door closes, or the door rattles.",
+      "against": ""
+     },
+     {
+      "name": "Bent or loose striker",
+      "clues": "It started after a bump, or the door sits out of line with the body.",
+      "against": ""
+     },
+     {
+      "name": "Frozen or gummed-up latch",
+      "clues": "Cold weather, and it works again once warm.",
+      "against": ""
+     },
+     {
+      "name": "Stretched or broken handle cable",
+      "clues": "The handle feels loose.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the striker on the door frame for bending or looseness.",
+      "Check for open recalls with your VIN on NHTSA's recall lookup."
+     ],
+     "shop": [
+      "Latch and striker inspection",
+      "Door alignment check",
+      "Latch replacement"
+     ]
+    }
+   }
+  },
+  "r_ajar_switch": {
+   "result": {
+    "title": "A door switch may be stuck, so the car thinks a door is open",
+    "urgency": "check",
+    "now": "Open and firmly close every door, the trunk and the hood. If the light stays on, book a check when convenient.",
+    "if": [
+     "If the hood could be the one, pull over somewhere safe and make sure it's latched. A hood that opens while driving can block your view.",
+     "If the dome light stays on, it can run the battery down overnight. Switch it off until the problem is fixed."
+    ],
+    "why": "The door ajar light comes from small switches in each latch. If one sticks or gets dirty, the car can think a door is open even when it's shut. It's worth closing every door, the trunk and the hood firmly first.",
+    "causes": [
+     {
+      "name": "Dirty or stuck door switch",
+      "clues": "The light flickers, or it changes when you push on one door.",
+      "against": ""
+     },
+     {
+      "name": "Door, trunk or hood not fully closed",
+      "clues": "Closing them all firmly makes the light go out.",
+      "against": ""
+     },
+     {
+      "name": "Wiring problem",
+      "clues": "It comes and goes over bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Close every door, the trunk and the hood firmly, one at a time, and watch the light."
+     ],
+     "shop": [
+      "Door switch test",
+      "Latch inspection",
+      "Wiring check"
+     ]
+    }
+   }
+  },
+  "r_child_lock": {
+   "result": {
+    "title": "The child safety lock is probably turned on",
+    "urgency": "diy",
+    "now": "Open the door from the outside and find the child lock switch on the door's back edge, near the latch. Switch it to unlock. Some cars use a button on the driver's door instead. Your owner's manual shows which.",
+    "if": [
+     "If children ride in back, keep the child lock on. It helps stop them from opening the door while the car is moving.",
+     "If it still won't open from inside with the child lock off, the inside handle or its cable may be broken."
+    ],
+    "why": "Child safety locks stop the inside handle of a rear door from opening it, but the outside handle still works. Kia's owner's manual explains that with the lock on, the rear door won't open even when you pull the inside handle.",
+    "causes": [
+     {
+      "name": "Child lock switched on",
+      "clues": "Only a rear door, and it opens fine from outside.",
+      "against": ""
+     },
+     {
+      "name": "Electronic child lock button turned on",
+      "clues": "There's a child lock button on the driver's door.",
+      "against": ""
+     },
+     {
+      "name": "Broken inside handle or cable",
+      "clues": "It still won't open from inside with the child lock off.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the switch on the edge of the rear door.",
+      "Look for a child lock button on the driver's door."
+     ],
+     "shop": [
+      "Inside handle and cable check"
+     ]
+    }
+   }
+  },
+  "r_lock_stuck": {
+   "result": {
+    "title": "The door lock may be stuck in the locked position",
+    "urgency": "soon",
+    "now": "Try the lock switch, the key fob, and the key in the driver's door. If the door opens from outside, use that way in and out for now, and have the lock repaired within the next few days.",
+    "if": [
+     "If someone can't get out and there's any danger, call 911.",
+     "If none of the doors unlock, a blown fuse or a dead battery may be the cause."
+    ],
+    "why": "Power locks use a small motor in each door (the lock actuator). When it fails, the door can stay locked no matter which button you press. You need to be able to get out quickly in an emergency, so don't put it off.",
+    "causes": [
+     {
+      "name": "Failed lock motor (actuator)",
+      "clues": "One door buzzes or clicks but doesn't unlock.",
+      "against": ""
+     },
+     {
+      "name": "Broken lock rod or cable inside the door",
+      "clues": "The lock button moves but the door stays locked.",
+      "against": ""
+     },
+     {
+      "name": "Blown fuse or low battery",
+      "clues": "None of the doors respond.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try every way to unlock: switch, fob and key.",
+      "Check the door lock fuse using your owner's manual."
+     ],
+     "shop": [
+      "Door lock actuator test",
+      "Fuse and wiring check",
+      "Lock rod and cable inspection"
+     ]
+    }
+   }
+  },
+  "r_handle_inside": {
+   "result": {
+    "title": "The inside handle or its cable may have come loose or broken",
+    "urgency": "soon",
+    "now": "Use another door, or open it from outside, for now. Don't force the handle. Have it repaired within the next few days.",
+    "if": [
+     "If it's the driver's door, get it fixed soon. You need to be able to get out fast in an emergency.",
+     "If someone is trapped and there's any danger, call 911."
+    ],
+    "why": "The inside handle pulls a thin cable or rod to release the latch. If that clip pops off or the cable breaks, the handle moves but nothing happens.",
+    "causes": [
+     {
+      "name": "Cable or rod popped off the handle",
+      "clues": "The handle feels loose or has no resistance.",
+      "against": ""
+     },
+     {
+      "name": "Broken handle",
+      "clues": "The handle is cracked or doesn't spring back.",
+      "against": ""
+     },
+     {
+      "name": "Latch problem",
+      "clues": "The outside handle doesn't work either.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check whether the door opens from outside."
+     ],
+     "shop": [
+      "Inside handle and cable repair",
+      "Latch inspection"
+     ]
+    }
+   }
+  },
+  "r_outside_handle": {
+   "result": {
+    "title": "The outside handle, or the rod or cable behind it, may have come loose",
+    "urgency": "check",
+    "now": "Open the door from the inside for now, and book a repair when convenient.",
+    "if": [
+     "If it's the driver's door and you can't get in any other way, have it fixed sooner.",
+     "If the lock button moves but the door stays locked, the lock motor may be the problem instead."
+    ],
+    "why": "The outside handle connects to the latch with a rod or cable inside the door. If a clip breaks or the handle cracks, the handle moves but doesn't release the latch.",
+    "causes": [
+     {
+      "name": "Disconnected rod or cable",
+      "clues": "The handle moves freely with no resistance.",
+      "against": ""
+     },
+     {
+      "name": "Broken outside handle",
+      "clues": "The handle is cracked or loose.",
+      "against": ""
+     },
+     {
+      "name": "Lock not releasing",
+      "clues": "The door unlocks from inside but still won't open from outside.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check whether the door opens from inside."
+     ],
+     "shop": [
+      "Outside handle and rod inspection",
+      "Lock actuator test"
+     ]
+    }
+   }
+  },
+  "r_jammed": {
+   "result": {
+    "title": "The latch may be jammed, often after a bump or in the cold",
+    "urgency": "soon",
+    "now": "Unlock the car. Then pull the outside handle while someone inside pulls the inside handle and pushes the door outward. If it still won't open, have a shop or locksmith free it within the next few days.",
+    "if": [
+     "If it happened after a crash, have the door and latch checked before relying on it.",
+     "If it's very cold, ice may be the cause. Try the frozen door steps.",
+     "If someone is trapped and there's any danger, call 911."
+    ],
+    "why": "When a door won't open from either side, the latch itself is usually stuck, or the door is bent enough after a bump to pinch it. Pulling both handles together while pushing can sometimes free it.",
+    "causes": [
+     {
+      "name": "Jammed or broken latch",
+      "clues": "Both handles move but the door won't release.",
+      "against": ""
+     },
+     {
+      "name": "Bent door or frame after a bump",
+      "clues": "The door gap looks uneven.",
+      "against": ""
+     },
+     {
+      "name": "Ice in the latch or seal",
+      "clues": "It's below freezing.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try both handles at the same time while pushing on the door."
+     ],
+     "shop": [
+      "Latch release and replacement",
+      "Door alignment check"
+     ]
+    }
+   }
+  },
+  "r_frozen": {
+   "result": {
+    "title": "Ice may be holding the door shut or freezing the latch",
+    "urgency": "diy",
+    "now": "Push firmly all around the edge of the door to break the ice, then pull the handle. If another door opens, get in and warm up the car from inside. Don't pour hot water on the glass; it can crack.",
+    "if": [
+     "If the latch is frozen and the door won't stay shut, don't drive until it thaws and latches firmly.",
+     "If you run the engine to warm up, clear any snow away from the tailpipe first. Exhaust can build up inside the car."
+    ],
+    "why": "Water that gets into the door seal or latch can freeze overnight. Breaking the ice around the seal, or warming the car from inside, usually frees it without damage.",
+    "causes": [
+     {
+      "name": "Ice on the door seal",
+      "clues": "The door is stuck all around its edge.",
+      "against": ""
+     },
+     {
+      "name": "Frozen latch",
+      "clues": "The door opens but won't latch, or the handle won't move.",
+      "against": ""
+     },
+     {
+      "name": "Frozen lock",
+      "clues": "The key won't turn in the lock.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Push all around the door edge before pulling the handle.",
+      "Try every door."
+     ],
+     "shop": [
+      "Latch cleaning and lubrication if it keeps freezing"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Check the door is latched, then have it looked at",
+    "urgency": "soon",
+    "now": "Close the door firmly and pull on it from outside to check it's latched. Then have the latch and handles checked within the next few days.",
+    "if": [
+     "If it won't stay latched, don't drive the car until it's fixed.",
+     "If someone is trapped and there's any danger, call 911."
+    ],
+    "why": "Door problems usually come from the latch, a handle, the lock, or the child lock. A shop can test each one quickly.",
+    "causes": [
+     {
+      "name": "Latch problem",
+      "clues": "The door won't stay shut.",
+      "against": ""
+     },
+     {
+      "name": "Handle or cable problem",
+      "clues": "One handle doesn't work.",
+      "against": ""
+     },
+     {
+      "name": "Child lock or lock problem",
+      "clues": "A rear door won't open from inside, or a door won't unlock.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Pull on the closed door from outside to check it's latched."
+     ],
+     "shop": [
+      "Latch inspection",
+      "Handle and lock check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "hood-or-door-opened-while-driving",
+  "electrical-accessories-not-working",
+  "seat-belt-wont-latch-or-retract",
+  "battery-keeps-dying"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "door latch",
+   "door handle",
+   "door lock",
+   "door ajar",
+   "door actuator",
+   "child lock",
+   "striker"
+  ]
+ },
+ "sources": [
+  "https://ownersmanual.kia.com/full_webhelp/KA4/2024/en_US/topics/t00114.html",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}
