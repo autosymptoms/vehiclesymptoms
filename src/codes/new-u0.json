@@ -1,0 +1,1839 @@
+[
+ {
+  "code": "U0030",
+  "title": "Vehicle Communication Bus A (+) Open",
+  "plain": "One of the two wires of vehicle communication network \"A\" (the + or \"high\" wire) seems to be broken or disconnected, so the car's computers can't talk to each other properly.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Broken network wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose, unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Pushed-out pin in a connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the broken wire or connector.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0031",
+  "title": "Vehicle Communication Bus A (+) Low",
+  "plain": "The + (\"high\") wire of vehicle communication network \"A\" has lower voltage than it should, often because it's touching ground (bare metal) somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire rubbed through and touching metal",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0032",
+  "title": "Vehicle Communication Bus A (+) High",
+  "plain": "The + (\"high\") wire of vehicle communication network \"A\" has higher voltage than it should, often because it's touching a powered wire somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire shorted to a powered wire",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0033",
+  "title": "Vehicle Communication Bus A (-) Open",
+  "plain": "One of the two wires of vehicle communication network \"A\" (the - or \"low\" wire) seems to be broken or disconnected, so the car's computers can't talk to each other properly.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Broken network wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose, unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Pushed-out pin in a connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the broken wire or connector.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0034",
+  "title": "Vehicle Communication Bus A (-) Low",
+  "plain": "The - (\"low\") wire of vehicle communication network \"A\" has lower voltage than it should, often because it's touching ground (bare metal) somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire rubbed through and touching metal",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0035",
+  "title": "Vehicle Communication Bus A (-) High",
+  "plain": "The - (\"low\") wire of vehicle communication network \"A\" has higher voltage than it should, often because it's touching a powered wire somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire shorted to a powered wire",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0036",
+  "title": "Vehicle Communication Bus A (-) shorted to Bus A (+)",
+  "plain": "The two wires of vehicle communication network \"A\" seem to be touching each other, so messages between the car's computers get scrambled.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wires crushed or rubbed together",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion bridging pins in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wires or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0037",
+  "title": "Vehicle Communication Bus B",
+  "plain": "There's a problem on vehicle communication network \"B\", one of the networks the car's computers use to talk to each other.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Damaged, chafed or corroded network wiring",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector at a module",
+    "how": "common"
+   },
+   {
+    "name": "A failed module dragging the network down",
+    "how": "common"
+   },
+   {
+    "name": "Low battery voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Find and repair the damaged network wire or connector, or replace the module that is disrupting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0038",
+  "title": "Vehicle Communication Bus B Performance",
+  "plain": "Messages on vehicle communication network \"B\", one of the networks the car's computers use to talk to each other, aren't getting through reliably.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Damaged, chafed or corroded network wiring",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector at a module",
+    "how": "common"
+   },
+   {
+    "name": "A failed module dragging the network down",
+    "how": "common"
+   },
+   {
+    "name": "Water getting into a connector",
+    "how": "possible"
+   },
+   {
+    "name": "Low battery voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Find and repair the damaged network wire or connector, or replace the module that is disrupting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0039",
+  "title": "Vehicle Communication Bus B (+) Open",
+  "plain": "One of the two wires of vehicle communication network \"B\" (the + or \"high\" wire) seems to be broken or disconnected, so the car's computers can't talk to each other properly.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Broken network wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose, unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Pushed-out pin in a connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the broken wire or connector.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0040",
+  "title": "Vehicle Communication Bus B (+) Low",
+  "plain": "The + (\"high\") wire of vehicle communication network \"B\" has lower voltage than it should, often because it's touching ground (bare metal) somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire rubbed through and touching metal",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0041",
+  "title": "Vehicle Communication Bus B (+) High",
+  "plain": "The + (\"high\") wire of vehicle communication network \"B\" has higher voltage than it should, often because it's touching a powered wire somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire shorted to a powered wire",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0042",
+  "title": "Vehicle Communication Bus B (-) Open",
+  "plain": "One of the two wires of vehicle communication network \"B\" (the - or \"low\" wire) seems to be broken or disconnected, so the car's computers can't talk to each other properly.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Broken network wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose, unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Pushed-out pin in a connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the broken wire or connector.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0043",
+  "title": "Vehicle Communication Bus B (-) Low",
+  "plain": "The - (\"low\") wire of vehicle communication network \"B\" has lower voltage than it should, often because it's touching ground (bare metal) somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire rubbed through and touching metal",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0044",
+  "title": "Vehicle Communication Bus B (-) High",
+  "plain": "The - (\"low\") wire of vehicle communication network \"B\" has higher voltage than it should, often because it's touching a powered wire somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire shorted to a powered wire",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0045",
+  "title": "Vehicle Communication Bus B (-) shorted to Bus B (+)",
+  "plain": "The two wires of vehicle communication network \"B\" seem to be touching each other, so messages between the car's computers get scrambled.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wires crushed or rubbed together",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion bridging pins in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wires or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0046",
+  "title": "Vehicle Communication Bus C",
+  "plain": "There's a problem on vehicle communication network \"C\", one of the networks the car's computers use to talk to each other.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Damaged, chafed or corroded network wiring",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector at a module",
+    "how": "common"
+   },
+   {
+    "name": "A failed module dragging the network down",
+    "how": "common"
+   },
+   {
+    "name": "Low battery voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Find and repair the damaged network wire or connector, or replace the module that is disrupting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0047",
+  "title": "Vehicle Communication Bus C Performance",
+  "plain": "Messages on vehicle communication network \"C\", one of the networks the car's computers use to talk to each other, aren't getting through reliably.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Damaged, chafed or corroded network wiring",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector at a module",
+    "how": "common"
+   },
+   {
+    "name": "A failed module dragging the network down",
+    "how": "common"
+   },
+   {
+    "name": "Water getting into a connector",
+    "how": "possible"
+   },
+   {
+    "name": "Low battery voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Find and repair the damaged network wire or connector, or replace the module that is disrupting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0048",
+  "title": "Vehicle Communication Bus C (+) Open",
+  "plain": "One of the two wires of vehicle communication network \"C\" (the + or \"high\" wire) seems to be broken or disconnected, so the car's computers can't talk to each other properly.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Broken network wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose, unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Pushed-out pin in a connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the broken wire or connector.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0049",
+  "title": "Vehicle Communication Bus C (+) Low",
+  "plain": "The + (\"high\") wire of vehicle communication network \"C\" has lower voltage than it should, often because it's touching ground (bare metal) somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire rubbed through and touching metal",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0050",
+  "title": "Vehicle Communication Bus C (+) High",
+  "plain": "The + (\"high\") wire of vehicle communication network \"C\" has higher voltage than it should, often because it's touching a powered wire somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire shorted to a powered wire",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0051",
+  "title": "Vehicle Communication Bus C (-) Open",
+  "plain": "One of the two wires of vehicle communication network \"C\" (the - or \"low\" wire) seems to be broken or disconnected, so the car's computers can't talk to each other properly.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Broken network wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose, unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Pushed-out pin in a connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the broken wire or connector.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0052",
+  "title": "Vehicle Communication Bus C (-) Low",
+  "plain": "The - (\"low\") wire of vehicle communication network \"C\" has lower voltage than it should, often because it's touching ground (bare metal) somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire rubbed through and touching metal",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0053",
+  "title": "Vehicle Communication Bus C (-) High",
+  "plain": "The - (\"low\") wire of vehicle communication network \"C\" has higher voltage than it should, often because it's touching a powered wire somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire shorted to a powered wire",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0054",
+  "title": "Vehicle Communication Bus C (-) shorted to Bus C (+)",
+  "plain": "The two wires of vehicle communication network \"C\" seem to be touching each other, so messages between the car's computers get scrambled.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wires crushed or rubbed together",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion bridging pins in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wires or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0055",
+  "title": "Vehicle Communication Bus D",
+  "plain": "There's a problem on vehicle communication network \"D\", one of the networks the car's computers use to talk to each other.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Damaged, chafed or corroded network wiring",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector at a module",
+    "how": "common"
+   },
+   {
+    "name": "A failed module dragging the network down",
+    "how": "common"
+   },
+   {
+    "name": "Low battery voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Find and repair the damaged network wire or connector, or replace the module that is disrupting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0056",
+  "title": "Vehicle Communication Bus D Performance",
+  "plain": "Messages on vehicle communication network \"D\", one of the networks the car's computers use to talk to each other, aren't getting through reliably.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Damaged, chafed or corroded network wiring",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector at a module",
+    "how": "common"
+   },
+   {
+    "name": "A failed module dragging the network down",
+    "how": "common"
+   },
+   {
+    "name": "Water getting into a connector",
+    "how": "possible"
+   },
+   {
+    "name": "Low battery voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Find and repair the damaged network wire or connector, or replace the module that is disrupting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0057",
+  "title": "Vehicle Communication Bus D (+) Open",
+  "plain": "One of the two wires of vehicle communication network \"D\" (the + or \"high\" wire) seems to be broken or disconnected, so the car's computers can't talk to each other properly.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Broken network wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose, unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Pushed-out pin in a connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the broken wire or connector.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0058",
+  "title": "Vehicle Communication Bus D (+) Low",
+  "plain": "The + (\"high\") wire of vehicle communication network \"D\" has lower voltage than it should, often because it's touching ground (bare metal) somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire rubbed through and touching metal",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0059",
+  "title": "Vehicle Communication Bus D (+) High",
+  "plain": "The + (\"high\") wire of vehicle communication network \"D\" has higher voltage than it should, often because it's touching a powered wire somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire shorted to a powered wire",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0060",
+  "title": "Vehicle Communication Bus D (-) Open",
+  "plain": "One of the two wires of vehicle communication network \"D\" (the - or \"low\" wire) seems to be broken or disconnected, so the car's computers can't talk to each other properly.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Broken network wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose, unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Pushed-out pin in a connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the broken wire or connector.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0061",
+  "title": "Vehicle Communication Bus D (-) Low",
+  "plain": "The - (\"low\") wire of vehicle communication network \"D\" has lower voltage than it should, often because it's touching ground (bare metal) somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire rubbed through and touching metal",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0062",
+  "title": "Vehicle Communication Bus D (-) High",
+  "plain": "The - (\"low\") wire of vehicle communication network \"D\" has higher voltage than it should, often because it's touching a powered wire somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire shorted to a powered wire",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0063",
+  "title": "Vehicle Communication Bus D (-) shorted to Bus D (+)",
+  "plain": "The two wires of vehicle communication network \"D\" seem to be touching each other, so messages between the car's computers get scrambled.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wires crushed or rubbed together",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion bridging pins in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wires or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0064",
+  "title": "Vehicle Communication Bus E",
+  "plain": "There's a problem on vehicle communication network \"E\", one of the networks the car's computers use to talk to each other.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Damaged, chafed or corroded network wiring",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector at a module",
+    "how": "common"
+   },
+   {
+    "name": "A failed module dragging the network down",
+    "how": "common"
+   },
+   {
+    "name": "Low battery voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Find and repair the damaged network wire or connector, or replace the module that is disrupting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0065",
+  "title": "Vehicle Communication Bus E Performance",
+  "plain": "Messages on vehicle communication network \"E\", one of the networks the car's computers use to talk to each other, aren't getting through reliably.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Damaged, chafed or corroded network wiring",
+    "how": "common"
+   },
+   {
+    "name": "Loose or corroded connector at a module",
+    "how": "common"
+   },
+   {
+    "name": "A failed module dragging the network down",
+    "how": "common"
+   },
+   {
+    "name": "Water getting into a connector",
+    "how": "possible"
+   },
+   {
+    "name": "Low battery voltage",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Find and repair the damaged network wire or connector, or replace the module that is disrupting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0066",
+  "title": "Vehicle Communication Bus E (+) Open",
+  "plain": "One of the two wires of vehicle communication network \"E\" (the + or \"high\" wire) seems to be broken or disconnected, so the car's computers can't talk to each other properly.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Broken network wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose, unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Pushed-out pin in a connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the broken wire or connector.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0067",
+  "title": "Vehicle Communication Bus E (+) Low",
+  "plain": "The + (\"high\") wire of vehicle communication network \"E\" has lower voltage than it should, often because it's touching ground (bare metal) somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire rubbed through and touching metal",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0068",
+  "title": "Vehicle Communication Bus E (+) High",
+  "plain": "The + (\"high\") wire of vehicle communication network \"E\" has higher voltage than it should, often because it's touching a powered wire somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire shorted to a powered wire",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0069",
+  "title": "Vehicle Communication Bus E (-) Open",
+  "plain": "One of the two wires of vehicle communication network \"E\" (the - or \"low\" wire) seems to be broken or disconnected, so the car's computers can't talk to each other properly.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Broken network wire",
+    "how": "common"
+   },
+   {
+    "name": "Loose, unplugged or corroded connector",
+    "how": "common"
+   },
+   {
+    "name": "Pushed-out pin in a connector",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the broken wire or connector.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0070",
+  "title": "Vehicle Communication Bus E (-) Low",
+  "plain": "The - (\"low\") wire of vehicle communication network \"E\" has lower voltage than it should, often because it's touching ground (bare metal) somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire rubbed through and touching metal",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0071",
+  "title": "Vehicle Communication Bus E (-) High",
+  "plain": "The - (\"low\") wire of vehicle communication network \"E\" has higher voltage than it should, often because it's touching a powered wire somewhere.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wire shorted to a powered wire",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wire or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0072",
+  "title": "Vehicle Communication Bus E (-) shorted to Bus E (+)",
+  "plain": "The two wires of vehicle communication network \"E\" seem to be touching each other, so messages between the car's computers get scrambled.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Several warning lights on at once",
+   "Some gauges or features may stop working",
+   "Car may not start in some cases"
+  ],
+  "causes": [
+   {
+    "name": "Network wires crushed or rubbed together",
+    "how": "common"
+   },
+   {
+    "name": "Water or corrosion bridging pins in a connector",
+    "how": "common"
+   },
+   {
+    "name": "A failed module shorting the network",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Test the battery and charging voltage",
+   "Check network resistance at the diagnostic port (about 60 ohms on most high speed CAN networks)",
+   "Unplug modules one at a time to find one pulling the network down",
+   "Inspect wiring in areas that see water, heat or movement"
+  ],
+  "fix": "Repair the shorted wires or connector, or replace the module that is shorting the network.",
+  "guide": "dashboard-lights-all-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0331",
+  "title": "Software Incompatibility With Body Control Module \"A\"",
+  "plain": "One of the car's computers found that the body control module \"A\" (which runs things like lights, locks and wipers) has software that doesn't match the rest of the car. This often shows up after a module was replaced or updated.",
+  "sys": "Network",
+  "sev": "check",
+  "common": false,
+  "symptoms": [
+   "Some lights, locks or other body features may act up",
+   "Other warning messages on some vehicles"
+  ],
+  "causes": [
+   {
+    "name": "Module replaced or updated without the matching software",
+    "how": "common"
+   },
+   {
+    "name": "Programming that didn't finish",
+    "how": "common"
+   },
+   {
+    "name": "Wrong or used module installed",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Ask whether a module was recently replaced or updated",
+   "Check software levels in each module with a scan tool",
+   "Reprogram the module with the dealer's or a capable shop's tool"
+  ],
+  "fix": "Reprogram the body control module or the module that reported the code with the correct software.",
+  "guide": "electrical-accessories-not-working",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/",
+   "https://github.com/brendan-w/python-OBD/blob/master/obd/codes.py"
+  ]
+ },
+ {
+  "code": "U0332",
+  "title": "Software Incompatibility With Multi-axis Acceleration Sensor Module \"A\"",
+  "plain": "One of the car's computers found that the motion sensor module (it measures how the car is turning and tilting, mainly for stability control) has software that doesn't match. This often shows up after a module was replaced or updated.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Stability control or traction control light on",
+   "ABS light on some vehicles"
+  ],
+  "causes": [
+   {
+    "name": "Module replaced or updated without the matching software",
+    "how": "common"
+   },
+   {
+    "name": "Programming that didn't finish",
+    "how": "common"
+   },
+   {
+    "name": "Wrong or used module installed",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Ask whether a module was recently replaced or updated",
+   "Check software levels in each module with a scan tool",
+   "Reprogram and calibrate the sensor module with a capable scan tool"
+  ],
+  "fix": "Reprogram and calibrate the sensor module or the module that reported the code.",
+  "guide": "traction-control-light-on",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/"
+  ],
+  "drive": "Normal brakes and steering usually still work, but stability control may be off. Drive gently, leave extra room on wet or icy roads, and get it checked soon."
+ },
+ {
+  "code": "U0456",
+  "title": "Invalid Data Received From Coolant Temperature Control Module",
+  "plain": "Another computer in the car is getting signals from the coolant temperature control module that don't make sense, so engine or battery cooling may not be controlled correctly.",
+  "sys": "Network",
+  "sev": "soon",
+  "common": false,
+  "symptoms": [
+   "Check engine or hybrid warning light",
+   "Temperature warnings on some vehicles",
+   "Weak cabin heat on some vehicles"
+  ],
+  "causes": [
+   {
+    "name": "Faulty coolant temperature control module or valve",
+    "how": "common"
+   },
+   {
+    "name": "Wiring or connector problem, including water in a connector",
+    "how": "common"
+   },
+   {
+    "name": "Software problem that an update may fix",
+    "how": "possible"
+   }
+  ],
+  "checks": [
+   "Check the module's connector for water or corrosion",
+   "Check coolant level with the engine cold",
+   "Ask the dealer about bulletins or software updates (the Bulletins page explains what a bulletin is)"
+  ],
+  "fix": "Usually a connector or wiring repair, a software update, or a new control module or valve.",
+  "guide": "engine-overheating",
+  "src": [
+   "https://ricksfreeautorepairadvice.com/obdii-u-code-list-communications-network-fault-code/"
+  ],
+  "drive": "Watch the temperature gauge. If it climbs toward H, a red temperature light comes on or you see steam, pull over when it's safe and turn the engine off. Never open a radiator or coolant cap while the engine is hot; it can spray scalding coolant. Otherwise get it checked in the next few days."
+ }
+]
