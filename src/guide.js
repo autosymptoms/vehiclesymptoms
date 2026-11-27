@@ -9,7 +9,10 @@ const URG={
   check:{label:"Book a check when convenient",cls:"info",line:"Not an emergency, but don't ignore it."},
   diy:{label:"Check it yourself first",cls:"low",line:"Start with the simple checks below."}
 };
-window.VS_GUIDES={G,GROUPS,URG,esc,search,emergency,exactGuide,clarifySearch,noticeFirst:()=>noticeFirst,askFollow:k=>askFollow[k]||null,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/'};
+window.VS_GUIDES={G,GROUPS,URG,esc,search,emergency,exactGuide,clarifySearch,noticeFirst:()=>noticeFirst,askFollow:k=>askFollow[k]||null,forIssue,matchesGuide,gurl:id=>'/symptoms/'+id+'/',
+  safeAsk,lights:lightMatches,lightQuery,fuelLight,lightGuides:id=>LIGHT_GUIDES[id]||[],track};
+// Anonymous analytics (Vercel Web Analytics, as in pwa.js). Never send what the person typed.
+function track(name,props){try{if(window.va)window.va('event',Object.assign({name},props||{}))}catch(e){}}
 
 // ---- Year / Make / Model picker, used on the homepage and in guide results ----
 // fill(ySel,mSel,moSel,{year,id},onChange): only offers makes/models actually sold in the chosen year.
@@ -44,7 +47,8 @@ const searchWords = {
   freeway:'highway', interstate:'highway', motor:'engine', quit:'stalls', quits:'stalls',
   flashes:'flashing', blinking:'flashing', blinks:'flashing',
   squeek:'squeak', squeeks:'squeak', squeeking:'squeak', squeeky:'squeak', squeaky:'squeak', squeel:'squeal', squeeling:'squeal',
-  breaks:'brake', break:'brake', headlights:'headlight'
+  breaks:'brake', break:'brake', headlights:'headlight',
+  strat:'start', strats:'start', smok:'smoke', steaming:'steam', steams:'steam'
 };
 // Words that say something is wrong without saying what. A guide needs at least one other word in common,
 // so "wipers not working" doesn't land on "heater not working".
@@ -52,8 +56,20 @@ const searchGeneric = new Set(['not','working','work','works','wont','dont','doe
 function literalSymptom(text){
   return String(text).toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 }
+// "Is it safe to drive with the tire light on?" is a question about the tire light. The safety question
+// itself must never outweigh the symptom, and we never answer it with a promise (RS-04).
+const SAFE_LINE='We can’t promise any car is safe to drive. Pull over and get help now if a red light is on, the check engine light is flashing, you smell fuel or burning, see smoke, or the brakes or steering feel wrong.';
+// First line of any search we can't match: someone may be typing from the shoulder (RS-02). Sources: AAA, NY DMV.
+const ROAD_LINE='turn on your hazard lights and get off the road if you can. If you’re stuck in a traffic lane, stay inside with your seat belt on and call 911. Call 911 too if anyone is hurt. If you see smoke or fire, get out on the side away from traffic.';
+const safeRx=/^(?:(?:so|ok|okay|hey|um|please) )*(?:(?:is it|its|it is|is|am i|are we|would it be|will it be) (?:still |really )?(?:safe|ok|okay|alright|all right|fine|bad|dangerous) (?:for me )?to (?:keep |still )?(?:drive|driving|drive on)|(?:can|should|could|may) i (?:still |keep |continue to |continue )?(?:drive|driving)|how (?:long|far) can i (?:drive|go|keep driving)|safe to drive)(?: (?:my|the|this|a) (?:car|truck|vehicle|suv|van))?(?: it)?(?: (?:with|on|when|if|while|after|like this|like that|anymore|now|today|still))*\b/;
+Object.assign(window.VS_GUIDES,{SAFE_LINE,ROAD_LINE});
+function safeAsk(text){
+  const lit=literalSymptom(text);const m=lit.match(safeRx)||lit.match(/\b(?:is it |its )?safe to (?:keep )?drive(?: (?:with|on|when|if|while))?\b/);
+  if(!m)return{text:String(text),asked:false};
+  return{text:lit.replace(m[0],' ').replace(/\s+/g,' ').trim(),asked:true};
+}
 function symptomWords(text){
-  const words = literalSymptom(text)
+  const words = safeAsk(text).text.toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,' ').trim()
     .replace(/\b(?:isnt|not|never) (?:flashing|blinking)\b|\b(?:doesnt|does not) (?:flash|blink)\b/g,'steady')
     .replace(/\b(?:will not)\b/g,'wont')
     .replace(/\b(?:came|comes|coming|turned) on\b/g,' ')
@@ -74,13 +90,27 @@ const everydayPhrases={
   'electrical-accessories-not-working':['Wipers not working','Windshield wipers stopped','Turn signals not working']
 };
 // "Won't crank" means the engine doesn't turn over at all: a no-start, not a slow crank.
-everydayPhrases['car-wont-start'].push('Car wont crank','Engine wont crank','Wont turn over','Car wont turn over');
+everydayPhrases['car-wont-start'].push('Car wont crank','Engine wont crank','Wont turn over','Car wont turn over',
+  // RS-08: "turn on" means start, not "won't shut off".
+  'Car wont turn on','Car won’t turn on','Engine wont turn on');
+// RS-08: dying at a stop light is not "won't shut off".
+everydayPhrases['car-dies-when-coming-to-stop']=['Car turned off at a stop light','Car shuts off at red light','Turns off when I stop','Car turns off at stop signs'];
+// RS-17: thumping or flapping from a tire can be the tread coming apart.
+everydayPhrases['tire-blowout-or-flat']=['Thumping while driving','Thumping noise while driving','Flapping from tire','Flapping noise from tire','Popped tire','My tire is flat','Flat tire on the highway'];
+// RS-21: a horn that won't sound is not the airbag light, even though the horn pad sits on the airbag.
+everydayPhrases['horn-not-working']=['Horn not working','Horn doesnt work','Horn stopped working','Horn wont honk'];
+// A "check gas cap" or "check fuel cap" message: a loose cap is a common reason for the steady check engine light.
+everydayPhrases['check-engine-light-on']=['Check gas cap','Check fuel cap message','Gas cap light'];
+// Fallbacks while a newer guide doesn't exist yet: the nearest existing guide keeps the phrase from matching nothing.
+const phraseFallback={'tire-blowout-or-flat':'tire-keeps-losing-air','horn-not-working':'electrical-accessories-not-working'};
 let searchIndex;
 function getSearchIndex(){
   if(searchIndex)return searchIndex;
   const frequencies=new Map();
+  const has=new Set(G.map(g=>g.id));
+  const borrowed=id=>Object.keys(phraseFallback).filter(from=>phraseFallback[from]===id&&!has.has(from)).flatMap(from=>everydayPhrases[from]||[]);
   const guides=G.map(guide=>{
-    const phrases=[guide.title,...guide.syn,...(everydayPhrases[guide.id] || [])].map(text=>({literal:literalSymptom(text),words:symptomWords(text)}))
+    const phrases=[guide.title,...(guide.syn||[]),...(everydayPhrases[guide.id] || []),...borrowed(guide.id)].map(text=>({literal:literalSymptom(text),words:symptomWords(text)}))
       .filter(phrase=>phrase.words.length);
     for(const word of new Set(phrases.flatMap(phrase=>phrase.words)))frequencies.set(word,(frequencies.get(word)||0)+1);
     return {guide,phrases};
@@ -95,38 +125,61 @@ function getSearchIndex(){
 // Plain-language danger phrases must put the urgent guide first, with the immediate safe action shown
 // before anything else. Order matters: the first rule that matches supplies the "do this now" text.
 const notStopping='(?! (?:\\w+ing|the|my|it|its)\\b)';
+// Sources behind the "do this first" lines we rewrote or added in the Nov 27 sweep (shown under the step).
+const SRC={
+  aaaStay:['AAA','https://cluballiance.aaa.com/the-extra-mile/advice/car/staying-safe-when-your-car-breaks-down'],
+  aaaBreak:['AAA','https://mwg.aaa.com/via/car/what-to-do-when-your-car-breaks-down'],
+  aaaTire:['AAA','https://www.aaa.com/autorepair/articles/how-to-change-a-tire-in-11-easy-steps'],
+  aaaJump:['AAA','https://www.aaa.com/autorepair/articles/how-to-jump-a-battery-and-get-yourself-back-on-the-road'],
+  riDmv:['Rhode Island DMV driver manual','https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/manuals/Driver_Manual.pdf'],
+  nyDmv:['New York DMV driver manual','https://dmv.ny.gov/new-york-state-drivers-manual-practice-tests/chapter-12-if-you-are-traffic-crash'],
+  kia:['Kia owner’s manual','https://ownersmanual.kia.com/full_webhelp/MQ4KH/2027/en_US/topics/t00435.html'],
+  nws:['National Weather Service','https://www.weather.gov/safety/flood-turn-around-dont-drown'],
+  nwsDuring:['National Weather Service','https://www.weather.gov/safety/flood-during'],
+  nhtsaWinter:['NHTSA','https://nhtsa.gov/winter-driving-tips']
+};
 const emergencyRules=[
-  {id:'brakes',topic:/brak/i,
+  // RS-01: a suddenly hard pedal means the power assist is gone. Pumping uses up what assist is left: press steadily instead.
+  {id:'brake-hard',topic:/brak/i,drops:['brakes'],page:'brakes-steering-pedal',
+    rx:/\bbrake pedal\b.*\b(?:hard|stiff|rock|wont (?:go down|press|push|move)|cant (?:press|push)|stuck|jammed)\b|\b(?:hard|stiff)\b.*\bbrake pedal\b|\bbrakes? (?:are |is |feel |feels |got |went |suddenly )*(?:hard|stiff|rock hard) to (?:press|push)\b|\bbrakes? (?:suddenly )?(?:went|got|are|feel|feels) (?:really |very |super )?(?:hard|stiff|rock hard)\b/,
+    // A pedal that sinks is the brake-failure step; a hard pedal with the engine off is normal.
+    skip:/\b(?:floor|carpet|floorboard|sinks|sank|all the way down|goes down|went down|no resistance|soft|spongy|squishy)\b|\b(?:engine|car|truck|it) (?:is |was )?(?:off|not running)\b|\bbefore (?:i )?start|\bwhen (?:i )?(?:start|starting)\b|\bcold start\b|\bwont start\b/,
+    guides:['hard-brake-pedal','brake-warning-light-on'],src:[SRC.kia],
+    now:'If the brake pedal is suddenly very hard: push it with steady, heavy force and keep pushing. Don’t pump it. The car will take longer to stop. Turn on your hazard lights, steer to a safe spot, and don’t drive it again until it’s checked.'},
+  {id:'brakes',topic:/brak/i,page:'brakes-steering-pedal',
     rx:new RegExp('\\bbrakes? (?:are |is |have |has |just |completely |totally )*(?:stopped|stop|quit|quits|failed|fail|failing|gave out|went out|gone|out|not working|dont work|do not work|doesnt work|does not work|arent working|wont work|isnt working|wont stop)\\b'+
       '|\\b(?:no|lost|losing|lose|without) (?:my |the |any )?brakes?\\b(?! lights?\\b)|\\bbrake failure\\b'+
       '|(?:^|\\b(?:car|it|truck|vehicle|suv|van|brakes?|i|we)\\s+)(?:wont|cant|will not|cannot|can not|couldnt|doesnt|does not|isnt) (?:stop|slow down|slow)\\b'+notStopping+
-      '|\\bpedal (?:goes |went |going |sinks |sank |dropped |drops )?(?:straight |right )?(?:all the way )?(?:to|on) the (?:floor|carpet|mat|floorboard)\\b'+
+      '|\\b(?:pedal|brakes?) (?:goes |go |went |going |gone |sinks |sank |sink |dropped |drops |fell |falls )?(?:straight |right )?(?:all the way )?(?:to|on|into) (?:the )?(?:floor|carpet|mat|floorboard)\\b'+
+      '|\\b(?:brakes?|pedal) (?:\\w+ ){0,2}(?:went|gone|suddenly went|suddenly got|suddenly feels?|all of a sudden went) (?:really |very |super |completely )?soft\\b'+
       '|\\b(?:barely|hardly|wont|doesnt|isnt|not) (?:slow|slows|slowing|stop|stops|stopping)(?: down)?\\b.*\\bbrak|\\bbrak\\w*\\b.*\\b(?:barely|hardly) (?:slow|slows|stop|stops)'+
       '|\\bpedal\\b.*\\b(?:barely|hardly) (?:slows?|stops?)\\b'+
-      '|\\bbrake pedal\\b.*\\b(?:all the way down|goes down|went down|sinks|sank|no resistance|stuck|jammed|wont press|wont go down|hard as a rock)\\b'+
+      '|\\bbrake pedal\\b.*\\b(?:all the way down|goes down|went down|sinks|sank|no resistance)\\b'+
       '|\\b(?:cant|wont|cannot) stop\\b.*\\bbrak|\\bbrak\\w*\\b.*\\b(?:cant|wont) stop\\b'),
     skip:/^(?!.*\bbrak).*\b(?:gas pedal|accelerator|throttle|gas is stuck)\b/,
-    guides:['soft-or-spongy-brake-pedal','brake-warning-light-on','brake-fluid-leak'],
-    now:'If your brakes fail while driving: pump the pedal hard and fast, shift to a lower gear, and pull the parking brake on gradually. Turn on your hazard lights and steer to a safe spot. Once stopped, don’t drive it again. Have it towed.'},
+    guides:['soft-or-spongy-brake-pedal','brake-warning-light-on','brake-fluid-leak'],src:[SRC.riDmv],
+    // Pumping is only for a pedal that sinks (it can build back some pressure). A hard pedal has its own rule above.
+    now:'If your brakes fail while driving: turn on your hazard lights. If the pedal sinks to the floor, pump it hard and fast. Shift to a lower gear and pull the parking brake on gradually. Steer to a safe spot. Once stopped, don’t drive it again. Have it towed.'},
   // The red BRAKE warning on the dash (not the rear brake lamps). Wording from the brake warning light page.
-  {id:'brake-light',topic:/brak/i,
+  {id:'brake-light',topic:/brak/i,page:'red-light-on',
     rx:/\bred brake\b|\bbrake (?:warning|system) (?:light|lamp|indicator|warning)\b|\bbrake (?:warning )?(?:light|lamp)\b.*\b(?:dash|dashboard|cluster|stays on|still on|wont go off|wont turn off|keeps coming on|wont go out)\b|\b(?:dash|dashboard)\b.*\bbrake (?:light|lamp)\b/,
     skip:/\bbrake lights? (?:are |is )?(?:out|not working|dont work|doesnt work|burnt out|burned out)\b|\b(?:rear|third|tail) brake lights?\b/,
     guides:['brake-warning-light-on','soft-or-spongy-brake-pedal'],
     now:'Release the parking brake first. If the red brake light stays on, don’t drive until it’s checked, even if the pedal feels normal. Low brake fluid can mean a leak and brakes that may not stop the car. If the pedal feels soft or sinks, don’t drive: have it towed.'},
-  {id:'accelerator',topic:/idle|rev|accelerat|gas pedal|throttle/i,
+  {id:'accelerator',topic:/idle|rev|accelerat|gas pedal|throttle|cruise/i,drops:['brakes'],page:'brakes-steering-pedal',
+    labels:{'engine-revs-high-at-idle':['Car speeds up on its own or gas pedal stuck','What to check after the car is safely stopped']},
     skip:/^(?!.*\b(?:gas|accelerator|throttle)\b).*\b(?:brake|clutch) pedal\b/,
-    rx:/\b(?:gas pedal|accelerator|throttle|pedal)\b.*\b(?:stuck|sticking|sticks|jammed|wont come up|wont come back up|wont return|wont close|wont release|stays down|stuck down)\b|\b(?:keeps|kept|still|wont stop) (?:accelerating|speeding up|going faster|revving up)\b|\bfoot (?:is )?off the gas\b.*\b(?:accelerat|speed|faster)|\b(?:stuck|jammed)\b.*\b(?:gas pedal|accelerator|throttle)\b|\b(?:accelerat\w*|speeding up|speeds up|going faster|surging|surges) (?:on its own|by itself|without me|without pressing)|\b(?:wont|cant) (?:slow down|stop accelerating)\b|\bunintended acceleration\b|\b(?:speeding up|speeds up|accelerating|accelerates|going faster|revving)\b.*\bfoot (?:is )?(?:off|not on) the (?:gas|pedal|accelerator)\b|\bfoot (?:is )?(?:off|not on) the (?:gas|pedal|accelerator)\b.*\b(?:speeding up|speeds up|accelerating|accelerates|going faster)\b/,
+    rx:/\b(?:gas pedal|accelerator|throttle|pedal)\b.*\b(?:stuck|sticking|sticks|jammed|wont come up|wont come back up|wont return|wont close|wont release|stays down|stuck down)\b|\b(?:keeps|kept|still|wont stop) (?:accelerating|speeding up|going faster|revving up)\b|\bfoot (?:is )?off the gas\b.*\b(?:accelerat|speed|faster)|\b(?:stuck|jammed)\b.*\b(?:gas pedal|accelerator|throttle)\b|\b(?:accelerat\w*|speeding up|speeds up|going faster|surging|surges) (?:on its own|by itself|without me|without pressing)|\b(?:wont|cant) (?:slow down|stop accelerating)\b|\bunintended acceleration\b|\b(?:speeding up|speeds up|accelerating|accelerates|going faster|revving)\b.*\bfoot (?:is )?(?:off|not on) the (?:gas|pedal|accelerator)\b|\bfoot (?:is )?(?:off|not on) the (?:gas|pedal|accelerator)\b.*\b(?:speeding up|speeds up|accelerating|accelerates|going faster)\b|\bcruise(?: control)?\b.*\b(?:wont|cant|doesnt|didnt|wouldnt|isnt|not) (?:turn off|turning off|shut off|shutting off|disengage|disengaging|cancel|canceling|cancelling|go off|release|let go|stop|slow down)\b|\bcruise(?: control)? (?:is |got |stays )?(?:stuck|locked|stuck on)\b/,
     guides:['engine-revs-high-at-idle'],
     now:'If the car speeds up on its own or the gas pedal sticks: press the brake firmly and hold it (don’t pump), shift to neutral, and steer to a safe spot. Once stopped, turn the engine off. With a push-button start you may need to hold the button for a few seconds. Check that a floor mat isn’t trapping the pedal, and don’t drive it again until it’s checked.'},
-  {id:'fire',topic:/burn|smoke|steam|fire/i,
+  {id:'fire',topic:/burn|smoke|steam|fire/i,page:'smoke-or-fire',
     rx:/\b(?:on fire|fire|flames?|flaming|caught fire|catching fire|burning up)\b|\bsmok(?:e|es|ing|ey|y)\b/,
     // Tailpipe smoke ("white smoke from exhaust") is not a fire emergency unless flames are mentioned.
     skip:/^(?!.*\b(?:fire|flames?|flaming|hood|bonnet|engine bay|engine compartment|front|front end|grille|wheel well|dash|dashboard|vents?|cabin|steering column|under the car)\b).*\b(?:exhaust|tailpipe|tail pipe|muffler|white|blue|black|gray|grey|idle|idling|startup|start up|starting|cold start|turbo|puff|burning oil|oil change)\b/,
     guides:['burning-smell','steam-from-under-hood'],
     now:'If you see smoke and think your car may be on fire, pull over as soon as it’s safe and turn off the engine. Get everyone out. Leave the hood closed. Move at least 100 feet from the car and stay away from traffic. Call 911 from a safe spot, even if you can’t see flames.'},
   {id:'exhaust',topic:/exhaust|fume|smell/i,
-    rx:/\b(?:carbon monoxide|exhaust (?:smell|fumes?|inside|in the car|in the cabin|getting in)|exhaust (?:\w+ ){0,2}(?:into|inside|in) (?:the |my )?(?:car|cabin|truck|van|suv)|fumes? (?:inside|in the car|in the cabin)|smell(?:s|ing)? (?:like )?exhaust)\b|\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b.*\b(?:exhaust|fumes?|smell)\b|\b(?:exhaust|fumes?)\b.*\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b|\b(?:headaches?|dizzy|dizziness|nausea|nauseous|lightheaded|light headed)\b.*\b(?:driving|in (?:the |my )?car|in (?:the |my )?truck|inside the car|while i drive|when i drive)\b/,
+    rx:/\b(?:carbon monoxide|exhaust (?:smell|fumes?|inside|in the car|in the cabin|getting in)|exhaust (?:\w+ ){0,2}(?:into|inside|in) (?:the |my )?(?:car|cabin|truck|van|suv)|fumes? (?:inside|in the car|in the cabin)|smell(?:s|ing)? (?:like )?exhaust)\b|\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b.*\b(?:exhaust|fumes?|smell)\b|\b(?:exhaust|fumes?)\b.*\b(?:headache|dizzy|dizziness|nausea|nauseous|sleepy|drowsy|lightheaded)\b|\b(?:headaches?|dizzy|dizziness|nausea|nauseous|lightheaded|light headed|sleepy|drowsy)\b.*\b(?:driving|in (?:the |my )?car|in (?:the |my )?truck|inside the car|while i drive|when i drive)\b|\b(?:passengers?|everyone|everybody|kids|children|we all|all of us|we both|we)\b(?: \w+){0,3} (?:have|has|had|got|get|getting|feel|feels|felt|are|were)(?: \w+){0,2} (?:headaches?|dizzy|nauseous|sick|sleepy|drowsy|lightheaded|light headed)\b/,
     guides:['exhaust-smell-in-cabin'],
     now:'If anyone has a headache, dizziness, nausea, confusion or feels sleepy, this may be carbon monoxide poisoning. Get everyone into fresh air right away and call 911 from outside the car.'},
   {id:'gas',topic:/gas|fuel/i,
@@ -136,57 +189,112 @@ const emergencyRules=[
   {id:'stall',topic:/stall|dies|shut|power|start/i,
     rx:/\b(?:died|dies|dying|stalled|stalls|stalling|stopped|shut off|shuts off|shut down|shuts down|cut out|cuts out|turned off|turns off|quit|quits|lost power(?! steering)|loses power(?! steering))\b.*\b(?:highway|freeway|interstate|driving|road|traffic|moving|at speed)\b|\b(?:highway|freeway|interstate|driving)\b.*\b(?:died|stalled|stopped|shut off|shut down|cut out|turned off|quit)\b/,
     skip:/^(?=.*\bsteering\b)(?!.*\b(?:engine|motor)\b)(?!.*\b(?:stalled|stalls|stalling|died|dies|dying|shut off|shuts off|cut out|cuts out)\b)/,
-    guides:['engine-stalls-while-driving'],
-    now:'If the engine dies while you’re moving: turn on your hazard lights, shift to neutral, keep a firm grip (steering and brakes get much heavier) and steer to the shoulder. Once stopped, get well away from traffic if it’s safe to do so.'},
+    guides:['engine-stalls-while-driving'],drops:['broke-down'],page:'broke-down',src:[SRC.aaaStay,SRC.riDmv],
+    now:'If the engine dies while you’re moving: turn on your hazard lights, shift to neutral, hold the wheel firmly (steering and brakes get much heavier) and steer as far onto the shoulder as you can. Once stopped, stay inside with your seat belt on and call for help. If you’re stuck in a traffic lane, keep your hazard lights on, stay buckled in and call 911. Get out only if you see smoke or fire: use the side away from traffic and wait well back from the road, behind a guardrail if there is one.'},
   // Wrong fuel type (diesel in a gas car, gas in a diesel). A grade mix-up (regular instead of premium) is not this.
   {id:'wrong-fuel',topic:/fuel|diesel|gas|sputter|misfire|stall|dies/i,
     rx:/\bdiesel\b.*\b(?:in|into)\b.*\b(?:gas|gasoline|unleaded)\b|\b(?:gas|gasoline|unleaded)\b.*\b(?:in|into)\b.*\bdiesel\b|\b(?:put|putting|filled|fill|filling|pumped|pumping|added|adding|fueled|fuelled)\b(?: \w+){0,3} (?:diesel|the wrong fuel|wrong fuel)\b|\b(?:wrong|incorrect) (?:fuel|kind of fuel|type of fuel|fuel type)\b|\bmisfuel\w*\b/,
     skip:/^(?!.*\bdiesel\b).*\b(?:regular|premium|octane|mid ?grade|plus|87|89|91|93|e15|e85)\b/,
     guides:['engine-sputtering-misfire','starts-then-dies'],
     now:'If the wrong type of fuel went in (diesel in a gas car, or gas in a diesel): don’t start the engine. If it’s running, pull over when it’s safe and turn it off. Don’t restart it. Have it towed: the tank will need to be drained.'},
-  {id:'cel-flashing',topic:/engine|misfire|shak/i,
+  {id:'cel-flashing',topic:/engine|misfire|shak/i,page:'red-light-on',
     rx:/\b(?:check engine|engine light|engine warning|cel|service engine)\b.*\b(?:flash|flashing|blinking|blink|blinks|flashes)\b|\b(?:flash|flashing|blinking|blink|blinks|flashes)\b.*\b(?:check engine|engine light|engine warning|cel|service engine)\b/,
     guides:['check-engine-light-flashing'],
     now:'A flashing check engine light means a severe misfire that can overheat the exhaust and start a fire. Ease off the gas, pull over when it’s safe and turn the engine off. Don’t keep driving.'},
-  {id:'oil',topic:/oil/i,
+  {id:'oil',topic:/oil/i,page:'red-light-on',
     rx:/\boil pressure\b(?! (?:sensor|switch|sending unit) (?:code|replacement))|\bred oil (?:light|can|lamp|symbol|icon|warning)\b|\b(?:low )?oil (?:light|warning|can|lamp|symbol|icon)\b(?!.*\b(?:change|life|service|maintenance|reset|due)\b)/,
     guides:['oil-pressure-light-on'],
     now:'A red oil light while the engine is running means low oil pressure. Pull over as soon as it’s safe and turn the engine off. Driving on can wreck the engine within minutes.'},
   {id:'overheat',skip:/\btransmission\b|\btrans temp\b/,topic:/overheat|temperature|coolant|steam/i,
-    rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up|flashing|blinking)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b|\b(?:temp|temperature) (?:gauge|needle|light)\b(?: \w+){0,5} (?:red|high|hot|max)\b|\b(?:temp|temperature|gauge|needle)\b.*\b(?:in|into|to|on|at|hit|hits|hitting) the red\b|\b(?:engine )?temp(?:erature)? (?:warning|light)\b|\bsteam\w*\b.*\b(?:hood|bonnet|radiator|engine bay)\b|\b(?:temp|temperature|gauge|needle)\b(?: \w+){0,4} (?:to|on|at|hit|hits|hitting|reads|reading|past|near|by) (?:the )?(?:h|hot)\b|\bboil(?:ing|ed|s)? over\b|\b(?:coolant|radiator|antifreeze)\b.*\bboil\w*|\bboil\w*\b.*\b(?:coolant|radiator|antifreeze)\b/,
+    rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up|flashing|blinking)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b|\b(?:temp|temperature) (?:gauge|needle|light)\b(?: \w+){0,5} (?:red|high|hot|max)\b|\b(?:temp|temperature|gauge|needle)\b.*\b(?:in|into|to|on|at|hit|hits|hitting) the red\b|\b(?:engine )?temp(?:erature)? (?:warning|light)\b|\bsteam\w*\b.*\b(?:hood|bonnet|radiator|engine bay)\b|\b(?:temp|temperature|gauge|needle)\b(?: \w+){0,4} (?:to|on|at|hit|hits|hitting|reads|reading|past|near|by) (?:the )?(?:h|hot)\b|\bboil(?:ing|ed|s)? over\b|\b(?:coolant|radiator|antifreeze)\b.*\bboil\w*|\bboil\w*\b.*\b(?:coolant|radiator|antifreeze)\b|\b(?:temp|temperature)\b(?: \w+){0,2} (?:high|hot|too high|too hot|way up)\b|\bsteam\w*\b.*\b(?:engine|motor|front)\b|^(?:(?:there is|theres|i see|im seeing|seeing|lots of|white) )?steam(?:ing)?(?: (?:coming out|coming from (?:the |my )?car|from (?:the |my )?car|everywhere))?$/,
     guides:['engine-overheating','steam-from-under-hood'],
-    now:'If the engine is overheating: pull over when it’s safe and turn the engine off. Never open the radiator or coolant cap while it’s hot. Wait at least 30 minutes.'},
+    now:'If the engine is overheating: turn on your hazard lights, pull over when it’s safe and turn the engine off. Never open the radiator or coolant cap while it’s hot. Wait at least 30 minutes. If the steam turns to smoke, treat it as a fire: get everyone out and move well away from the car.'},
   {id:'blowout',topic:/tire|flat/i,
-    rx:/\b(?:blow ?out|blew out|tire (?:\w+ ){0,2}(?:exploded|burst|popped|blew|shredded)|flat tire while driving)\b|\btire\b(?: \w+){0,3} (?:went|goes|going|gone|went totally|went completely) flat\b.*\b(?:highway|freeway|interstate|driving|moving|road|at speed)\b|\b(?:highway|freeway|interstate|driving|moving)\b.*\btire\b(?: \w+){0,3} (?:went|goes|going|gone) flat\b|\bflat\b(?: \w+){0,3} (?:while|when) (?:driving|moving)\b/,
-    guides:['tire-keeps-losing-air'],
+    rx:/\b(?:blow ?out|blew out|tire (?:\w+ ){0,2}(?:exploded|burst|popped|blew|shredded)|flat tire while driving)\b|\btire\b(?: \w+){0,3} (?:went|goes|going|gone|went totally|went completely) flat\b.*\b(?:highway|freeway|interstate|driving|moving|road|at speed)\b|\b(?:highway|freeway|interstate|driving|moving)\b.*\btire\b(?: \w+){0,3} (?:went|goes|going|gone) flat\b|\bflat\b(?: \w+){0,3} (?:while|when) (?:driving|moving)\b|\bpopped (?:a |my |the )?(?:front |back |rear )?tire\b/,
+    guides:[['tire-blowout-or-flat','tire-keeps-losing-air']],drops:['flat'],page:'flat-tire',src:[SRC.riDmv],
     now:'If a tire blows out: hold the steering wheel firmly, keep going straight, and ease off the gas. Don’t slam the brakes. Brake gently once you’ve slowed down, then pull fully off the road.'},
   // A bulge or bubble on a tire can fail without warning. Wording from the tire guide's safety list.
   {id:'tire-bulge',topic:/tire|flat/i,
     rx:/\b(?:bulge|bulges|bulging|bubble|blister|lump|knot)\b.*\b(?:tire|sidewall)\b|\b(?:tire|sidewall)\b.*\b(?:bulge|bulges|bulging|bubble|blister|lump)\b|\b(?:cords?|belts?|wires?) (?:showing|show|sticking out|visible)\b.*\btire\b|\btire\b.*\b(?:cords?|wires?) (?:showing|sticking out|visible)\b/,
-    skip:/\bsoap\w*|\bspray\w*|\bwater\b/,
-    guides:['tire-keeps-losing-air'],
+    skip:/\bsoap\w*|\bspray\w*|\bwater\b/,drops:['flat'],
+    guides:[['tire-blowout-or-flat','tire-keeps-losing-air']],
     now:'If you see a bulge, bubble, deep cut or cords showing on a tire, don’t drive on it. Put on the spare or call roadside help.'},
   // A wheel or tire coming off at speed. Same first action as a blowout, then don't drive it.
   {id:'wheel-off',topic:/tire|wheel|flat/i,
     rx:/\b(?:tire|wheel|tyre)\b(?: \w+){0,2} (?:came|come|coming|fell|falls|flew|flying|is coming) off\b|\b(?:lost|losing) (?:a |the |my )?(?:front |rear |back )?(?:wheel|tire)\b|\bwheel (?:is )?(?:wobbling|loose)\b.*\b(?:driving|highway|moving|road)\b/,
     skip:/\b(?:cover|covers|hubcap|hub cap|center cap|trim|rim at|at the shop|tire shop|bead|valve)\b|^(?!.*\b(?:driving|drive|highway|freeway|moving|road|speed|while|lost|losing|wobbling)\b)/,
-    guides:['tire-keeps-losing-air'],
+    guides:[['tire-blowout-or-flat','tire-keeps-losing-air']],drops:['flat'],
     now:'If a wheel or tire comes off while you’re driving: hold the steering wheel firmly, ease off the gas and don’t slam the brakes. Brake gently once you’ve slowed down, turn on your hazard lights and pull fully off the road. Don’t drive it again: have it towed.'},
-  {id:'steering',topic:/steer/i,
+  {id:'steering',topic:/steer/i,page:'brakes-steering-pedal',
     rx:/\b(?:(?:power )?steering (?:is |has |just |completely |totally )*(?:went out|failed|stopped working|gone|quit|not working|out|died)|(?:lost|losing|lose|no) (?:my |the |all )?(?:power )?steering|power steering (?:\w+ ){0,2}(?:while|when) (?:driving|moving)|lost control (?:of )?(?:the |my )?steering|cant steer|(?:cant|couldnt) turn (?:the |my )?(?:steering )?wheel\b.*\b(?:driving|moving|highway|road)|(?:car |it |truck )?(?:wont|doesnt) steer|steering (?:wheel )?(?:is )?(?:locked|locked up|wont turn|wont move|stopped responding|not responding|isnt responding|doesnt respond|wont respond)\b.*\b(?:driving|moving|highway|freeway|road|speed)|(?:driving|moving|highway|freeway)\b.*\bsteering (?:wheel )?(?:is )?(?:locked|locked up|stopped responding|not responding|wont turn))\b/,
     guides:['steering-hard-to-turn','loose-or-wandering-steering'],
     now:'If you lose steering control: grip the wheel firmly with both hands, ease off the gas, brake gently, turn on your hazard lights and steer to a safe stop. Don’t drive it again until it’s checked.'}
-  ,{id:'steering-heavy',topic:/steer/i,
+  ,{id:'steering-heavy',topic:/steer/i,page:'brakes-steering-pedal',
     rx:/\bsteering\b(?: \w+){0,5} (?:hard|heavy|stiff|tight)\b.*\b(?:while|when) (?:driving|moving)\b|\b(?:while|when) (?:driving|moving)\b.*\bsteering\b(?: \w+){0,5} (?:hard|heavy|stiff|tight)\b|\b(?:suddenly|all of a sudden|out of nowhere)\b.*\bsteering\b.*\b(?:hard|heavy|stiff|tight)\b|\bsteering\b.*\b(?:suddenly|all of a sudden)\b.*\b(?:hard|heavy|stiff|tight)\b/,
     guides:['steering-hard-to-turn'],
     now:'If the steering suddenly goes heavy while driving, grip the wheel firmly with both hands, slow down gradually, and pull over when it’s safe. Steering usually still works without assist, but it can take much more effort.'}
+  // ---- On the road, not a car fault: each one points to a /roadside/ page with the full steps. ----
+  ,{id:'crash',topic:/airbag|accident|crash/i,page:'after-a-crash',src:[SRC.nyDmv,SRC.riDmv],
+    rx:/\b(?:accident|car accident|crash|crashed|wreck|wrecked|collision|fender ?bender|rear ?ended|t ?boned|sideswiped|totaled|totalled)\b|\b(?:hit|struck|ran into|crashed into|rammed|bumped into|backed into) (?:a |an |another |the |some |my |someones )?(?:parked )?(?:car|deer|pole|tree|guardrail|guard rail|animal|wall|truck|person|pedestrian|cyclist|bike|moose|vehicle|mailbox|fence|building)\b|\b(?:deer|car|truck|someone|somebody|another car|a car|a deer|other driver|guy|lady) (?:hit|ran into|crashed into|rear ended|backed into|sideswiped|bumped) (?:me|my|us|our)\b|\bairbags? (?:went off|deployed|deploy|blew|blew up|popped|popped out|go off|came out|opened|exploded)\b/,
+    skip:/\b(?:crash test|accident history|vehicle history|carfax|accident report)\b|\b(?:computer|app|screen|radio|infotainment|phone|software)\b.*\bcrash/,
+    guides:[],
+    now:'If you’ve been in a crash: stop, turn on your hazard lights and check if anyone is hurt. Call 911 if anyone is hurt. If no one is hurt and the car can be driven, move it off the road, then call the police. If the airbags went off, don’t drive it.'}
+  ,{id:'flood',topic:/water|flood/i,page:'flooded-road',src:[SRC.nws,SRC.nwsDuring],
+    rx:/\bflood(?:ed|ing|s|water|waters)?\b|\b(?:deep|high|rising|moving|fast|rushing|standing) water\b(?!.*\b(?:leak|inside the car|in the car|floor|carpet|trunk)\b)|\bwater (?:\w+ ){0,2}(?:up )?(?:to|over|into|above|past) (?:the |my )?(?:doors?|hood|tires?|wheels?|bumper|seats?|windows?|engine)\b|\bdrove (?:through|into|in) (?:\w+ ){0,2}water\b|\b(?:car|engine|truck) (?:is |got |went )?(?:underwater|under water|submerged)\b/,
+    // "Flooded the engine" is a starting problem, and a wet floor is a leak, not a flooded road.
+    skip:/^(?!.*\b(?:road|street|water|rain|storm|drove|driving)\b).*\b(?:flooded (?:the |my )?engine|engine (?:is |got |was )?flooded|flooded it|flooding (?:the |my )?engine)\b|^(?!.*\b(?:road|street|drove|driving|storm)\b).*\b(?:floor|carpet|footwell|trunk|floorboards?|mats?|interior|inside)\b/,
+    guides:[],
+    now:'Never drive or walk into flood water. Just 12 inches of moving water can carry away most cars. Turn around and find another way. If moving water traps you, get to the highest point you can and call 911.'}
+  ,{id:'skid',topic:/skid|slid|ice|snow/i,page:'skid-or-hydroplane',src:[SRC.riDmv],
+    rx:/\bhydro ?plan\w*|\baquaplan\w*|\b(?:skid|skidded|skidding|slid|sliding|spun out|spin out|spinning out|spun around|spinning around|fishtail\w*)\b|\b(?:went|slid|drove|ran|go|going|ended up|veered) (?:off the road|into (?:a |the )?ditch|into (?:a |the )?snow ?bank|off the highway)\b|\bin (?:a |the )?ditch\b|\bblack ice\b|\blost control\b(?: \w+){0,3} (?:ice|snow|rain|wet)\b/,
+    skip:/\b(?:light|lamp|symbol|icon|indicator|marks?|tcs|esc|vsc|traction|stability|door|seat|window|sunroof|tray|cover)\b/,
+    guides:[],
+    now:'If your car starts to skid or hydroplane: ease off the gas and don’t slam the brakes. Look and steer where you want the car to go. If you slid off the road, turn on your hazard lights and stay inside with your seat belt on. Call 911 if anyone is hurt or the car is in a dangerous spot.'}
+  ,{id:'snow',topic:/snow|stuck|exhaust/i,page:'stuck-in-snow',src:[SRC.nhtsaWinter],
+    rx:/\bstuck in (?:the |deep |a |some )?(?:snow|snowbank|snow bank|ice|mud|sand|ditch|drift|snowdrift)\b|\bsnowed in\b|\bstranded in (?:the )?(?:snow|cold|blizzard|storm)\b|\b(?:snow|mud)\b(?: \w+){0,4} (?:stuck|stranded|wont move|cant move|spinning)\b|\b(?:stuck|stranded)\b(?: \w+){0,4} (?:snow|blizzard|mud)\b|\btailpipe\b.*\bsnow\b|\bsnow\b.*\btailpipe\b/,
+    guides:['exhaust-smell-in-cabin'],
+    now:'If you’re stuck in snow or mud: stay with your car and call for roadside help, or 911 if you’re stranded in the cold or unsafe. In snow, clear the tailpipe before you run the engine, and run it only now and then to stay warm. Turn on the dome light or tie something bright to the car so help can see you.'}
+  ,{id:'broke-down',topic:/stall|dies|start|power/i,page:'broke-down',src:[SRC.aaaStay,SRC.riDmv],
+    rx:/\b(?:broke|broken|breaks|breaking|break|brake|brakes) ?down\b|\bstranded\b|\bstuck (?:on|at|by|in) (?:the )?(?:side of the road|roadside|shoulder|highway|freeway|interstate|middle of the road|road|breakdown lane)\b|\b(?:stopped|stalled|died|quit) in (?:the )?(?:middle of the )?(?:road|lane|traffic|intersection)\b|\bcar (?:just )?(?:stopped|quit) (?:running|working|moving)\b|\b(?:wont|cant) (?:re ?start|start again|start back up|start it again)\b.*\b(?:highway|road|freeway|interstate|shoulder)\b|\b(?:highway|freeway|interstate|shoulder)\b.*\b(?:wont|cant) (?:re ?start|start)\b/,
+    skip:/\bbrakes? down (?:the|my|a)\b|\bpress(?:ing|ed)? (?:the |my )?brakes? down\b/,
+    guides:['engine-stalls-while-driving','car-wont-start'],
+    now:'If your car breaks down: turn on your hazard lights and get as far off the road as you can. Once stopped, stay inside with your seat belt on and call for roadside help. If you’re stuck in a traffic lane, keep your hazard lights on, stay buckled in and call 911. Get out only if you see smoke or fire: use the side away from traffic and wait well back from the road, behind a guardrail if there is one.'}
+  ,{id:'out-of-gas',topic:/gas|fuel/i,page:'out-of-gas',src:[SRC.aaaBreak,SRC.aaaStay],
+    rx:/\b(?:ran|run|running|runs|went|go|going|gone) out of (?:gas|fuel|diesel)\b|\bout of (?:gas|fuel)\b|\bno (?:gas|fuel) left\b|\b(?:gas|fuel) tank (?:is |went |ran )?(?:empty|dry)\b|\bempty (?:gas|fuel) tank\b/,
+    guides:[],
+    now:'If you run out of gas: turn on your hazard lights and coast as far onto the shoulder as you can. Stay inside with your seat belt on and call for roadside help to bring fuel. Don’t walk along a highway to find gas.'}
+  // RS-11: a flat found while parked or after pulling over. A flat at speed is the blowout step above.
+  ,{id:'flat',topic:/tire|flat/i,page:'flat-tire',src:[SRC.aaaTire],
+    rx:/\bflat tires?\b|\btires? (?:is |went |was |got |are )?(?:completely |totally )?flat\b|\b(?:got|have|had|has|with|on|drive on|driving on) a flat\b|^(?:a |my )?flat$|\bchange (?:a |my |the |your )?(?:flat )?tire\b|\bchanging (?:a |my |the )?tire\b|\bput (?:on )?(?:the |my )?spare\b/,
+    skip:/\bkeeps?\b|\bslow(?:ly)? leak|\bevery (?:day|morning|week|few days)\b|\blosing air\b|\bbattery\b|\bflat (?:spot|ride|rate|bed|head)\b/,
+    guides:[['tire-blowout-or-flat','tire-keeps-losing-air']],
+    now:'If a tire goes flat while you’re driving: don’t brake hard or turn sharply. Slow down gently, turn on your hazard lights and pull over on a straight, level spot well away from traffic. Don’t change a tire next to moving traffic: call for roadside help instead.'}
+  // RS-20: "jump start" is a dead battery at rest, not the charging light while driving.
+  ,{id:'jump',topic:/start|battery|crank|click/i,page:'jump-start',src:[SRC.aaaJump],
+    rx:/\bjump(?:ing|ed)?[ -]?start\w*\b|\bjump (?:my |the |a |your )?(?:car|battery|truck)\b|\bneed (?:a )?jump\b|\bjumper cables?\b|\bbattery (?:is |went |just )?(?:dead|died)\b|\bdead battery\b/,
+    skip:/\bkeeps?\b|\balways\b|\bevery\b|\bagain and again\b|\boften\b|\b(?:key ?)?fob\b|\bremote\b/,
+    guides:['car-wont-start','battery-keeps-dying'],
+    now:'Before you jump-start, look at the battery. If it’s cracked, leaking or smells like rotten eggs, don’t jump it: call for roadside help. Keep the clamps from touching each other, and connect them in the order shown in the steps.'}
+  // Not sourced yet beyond general 911 advice: listed for the technician's review.
+  ,{id:'locked-out',topic:/lock|key/i,page:'locked-out',
+    rx:/\block(?:ed)? (?:my |the |our )?keys? (?:in|inside)\b|\blocked (?:my |the |our )?keys?\b|\bkeys? (?:are |is |got )?locked (?:in|inside)\b|\blocked out of (?:my |the |our )?(?:car|truck|vehicle|van|suv)\b|\blocked out\b|\b(?:child|kid|baby|dog|pet|toddler|cat)\b.*\blocked (?:in|inside)\b|\blocked (?:in|inside)\b.*\b(?:child|kid|baby|dog|pet|toddler|cat)\b|\b(?:car|truck|doors?) (?:wont|doesnt|will not) unlock\b|\bcant (?:get|open) (?:into|in) (?:my |the )?(?:car|truck)\b/,
+    guides:[],
+    now:'If a child or pet is locked inside, call 911 now: a closed car can get dangerously hot or cold fast. Otherwise, use a spare key or call for roadside help.'}
 ];
+// Short card titles for the /roadside/ pages (the page itself is built from src/roadside/<id>.json).
+const ROADSIDE={'after-a-crash':'After a crash: what to do now','broke-down':'Car broke down: where to wait and who to call',
+  'out-of-gas':'Ran out of gas: what to do now','flooded-road':'Flooded road: turn around','skid-or-hydroplane':'Skidding, hydroplaning or slid off the road',
+  'stuck-in-snow':'Stuck in snow or stranded in the cold','locked-out':'Locked out of your car','flat-tire':'Flat tire or blowout: what to do now',
+  'jump-start':'How to jump-start a car safely','smoke-or-fire':'Smoke or fire: get out and away',
+  'brakes-steering-pedal':'Brakes, steering or a stuck pedal','red-light-on':'Red light on the dash: what to do now','emergency-kit':'What to keep in your car'};
 // Words that say something failed without saying what (they matched the radio guide to "brakes stopped working").
 const emergencyGeneric=new Set(['flashing','blinking','flash','stopped','stop','working','work','wont','not','dont','doesnt','light','warning','on','out','failed','went','gone','quit','stalls','died']);
 // Common misspellings and texting shortcuts, so "my breaks went out" or "check engin lite flashin" still get the safety step.
 const emergencySpelling=[[/\bbreaks?\b/g,m=>m==='breaks'?'brakes':'brake'],[/\bbrakeing\b/g,'braking'],[/\bengin\b/g,'engine'],[/\blite\b/g,'light'],[/\blites\b/g,'lights'],
   [/\bflashin\b/g,'flashing'],[/\bblinkin\b/g,'blinking'],[/\bsmokin\b/g,'smoking'],[/\bsmokeing\b/g,'smoking'],[/\boverhe+t(?:ing|in)\b/g,'overheating'],[/\boverhe+ating\b/g,'overheating'],
-  [/\bover heating\b/g,'overheating'],[/\bdont\b/g,'dont'],[/\bwont\b/g,'wont'],[/\bcuz\b/g,'because'],[/\bexaust\b/g,'exhaust'],[/\bexhuast\b/g,'exhaust'],[/\bpetal\b/g,'pedal'],[/\bgass\b/g,'gas'],[/\btyres?\b/g,'tire'],[/\bpetrol\b/g,'gas'],[/\bodou?rs?\b/g,'smell'],[/\bbonnet\b/g,'hood']];
+  [/\bover heating\b/g,'overheating'],[/\bdont\b/g,'dont'],[/\bwont\b/g,'wont'],[/\bcuz\b/g,'because'],[/\bexaust\b/g,'exhaust'],[/\bexhuast\b/g,'exhaust'],[/\bpetal\b/g,'pedal'],[/\bgass\b/g,'gas'],[/\btyres?\b/g,'tire'],[/\bpetrol\b/g,'gas'],[/\bodou?rs?\b/g,'smell'],[/\bbonnet\b/g,'hood'],
+  // RS-07: common typos that skipped the safety step.
+  [/\bsmok\b/g,'smoke'],[/\bsmokin\b/g,'smoking'],[/\bstrat\b/g,'start'],[/\bstarte\b/g,'start'],[/\bhydroplanned\b/g,'hydroplaned']];
 function emergency(q){
   let text=literalSymptom(q);
   for(const [rx,to] of emergencySpelling)text=text.replace(rx,to);
@@ -197,10 +305,16 @@ function emergency(q){
     // A trouble code with "the light is flashing" is a flashing check engine light.
     .replace(/\bp[0-3][0-9a-f]{3}\b/g,' check engine light ');
   let hits=emergencyRules.filter(rule=>rule.rx.test(text)&&!(rule.skip&&rule.skip.test(text)));
-  if(hits.some(rule=>rule.id==='accelerator'))hits=hits.filter(rule=>rule.id!=='brakes');
+  // A more specific rule replaces a general one ("brake pedal is hard" is not "brakes failed: pump it").
+  const dropped=new Set(hits.flatMap(rule=>rule.drops||[]));
+  hits=hits.filter(rule=>!dropped.has(rule.id));
   if(!hits.length)return null;
-  const ids=[...new Set(hits.flatMap(rule=>rule.guides))].filter(id=>G.some(g=>g.id===id));
+  // A guide entry can be a list: the first guide in it that exists (a new guide, then the older one it replaces).
+  const pickGuide=id=>Array.isArray(id)?id.find(x=>G.some(g=>g.id===x)):id;
+  const ids=[...new Set(hits.flatMap(rule=>rule.guides.map(pickGuide)))].filter(id=>id&&G.some(g=>g.id===id));
+  const pages=[...new Set(hits.map(rule=>rule.page).filter(Boolean))].map(id=>({id,u:'/roadside/'+id+'/',t:ROADSIDE[id]||'What to do now'}));
   return {rule:hits[0].id,now:hits[0].now,also:hits.slice(1).map(rule=>rule.now),guides:ids.map(id=>G.find(g=>g.id===id)),
+    pages,src:hits[0].src||[],labels:Object.assign({},...hits.map(rule=>rule.labels||{})),
     sharesWord:g=>[g.title,...(g.syn||[])].some(t=>symptomWords(t).some(w=>!emergencyGeneric.has(w)&&symptomWords(q).includes(w))),
     related:g=>hits.some(rule=>rule.topic.test(g.title+' '+g.h1))||
       symptomWords(g.title).some(word=>!emergencyGeneric.has(word)&&symptomWords(q).includes(word))};
@@ -243,7 +357,7 @@ const searchQuestions=[
     question:'Which dashboard symbol do you see?',choices:[
       ['A battery with a plus and minus','battery-light-on'],['An oil can','oil-pressure-light-on'],
       ['An engine outline or “check engine”','check-engine-light-on'],['See all dashboard symbols','/warning-lights/']]},
-  {signal:['shake'],allowed:['shake','wheel','whole','feels','feel','driving','drive'],
+  {signal:['shake'],allowed:['shake','wheel','whole','feels','feel','driving','drive','bad','badly','so','really','violently','hard','lot','alot'],
     question:'When do you feel the shaking?',choices:[
       ['When I brake','car-shakes-when-braking'],['When I speed up','car-shakes-when-accelerating'],
       ['At highway speed','vibration-at-highway-speed'],['While stopped','rough-idle-shaking'],['Browse other shaking symptoms','/symptoms/#shake']]},
@@ -266,6 +380,11 @@ const searchQuestions=[
       ['Under the hood','steam-from-under-hood'],['White smoke from the tailpipe','white-smoke-from-exhaust'],
       ['Blue or gray smoke from the tailpipe','blue-smoke-from-exhaust'],['Black smoke from the tailpipe','black-smoke-from-exhaust'],
       ['Browse other smoke symptoms','/symptoms/#leaksmell']]},
+  // RS-13: "steam" alone. The overheat safety step shows above this question.
+  {signal:['steam'],allowed:['steam','coming','out','see','seeing','lots','white','everywhere','from','car'],
+    question:'Where is the steam coming from?',choices:[
+      ['From under the hood','steam-from-under-hood'],['From the tailpipe','white-smoke-from-exhaust'],
+      ['From the vents, or the windows fog up inside','windows-fogging-up'],['Browse other smoke and smell symptoms','/symptoms/#leaksmell']]},
   {signal:['leak'],allowed:['leak','fluid','liquid','somewhere'],
     question:'Where do you see the fluid?',choices:[
       ['Under the car','fluid-leak-under-car'],['Water inside the car','water-leak-inside-car'],
@@ -295,6 +414,89 @@ function clarifySearch(q){
   const words=symptomWords(q);
   return searchQuestions.find(rule=>words.some(word=>rule.signal.includes(word)) &&
     (!rule.context || words.some(word=>rule.context.includes(word))) && words.every(word=>rule.allowed.includes(word))) || null;
+}
+// ---- dashboard lights from the homepage search (RS-09) ----
+// The /warning-lights/ hub keywords, shipped as window.LIGHT_INDEX = [[id, name, color, severity, keywords], ...]
+// when the build provides it (severity is stop|soon|check|info or a label). Until then this smaller copy
+// (names, nicknames and symbol shapes) keeps light searches working.
+const LIGHT_FALLBACK=[
+ ['oil-pressure-light','Oil pressure warning light','red','stop','oil pressure can genie lamp dripping low oil pressure'],
+ ['engine-temperature-light','Engine temperature warning light','red','stop','engine temperature coolant thermometer temp hot overheating overheat water waves'],
+ ['battery-light','Battery / charging system light','red','stop','battery charging alternator system check charging'],
+ ['brake-warning-light','Brake system warning light','red','stop','brake system exclamation circle parentheses'],
+ ['airbag-light','Airbag warning light','red','soon','airbag air bag srs supplemental restraint person seat ball'],
+ ['parking-brake-light','Parking brake light','red','soon','parking brake handbrake hand emergency p'],
+ ['seat-belt-light','Seat belt reminder light','red','info','seat belt seatbelt fasten person'],
+ ['door-open-light','Door or hood open light','red','info','door hood open ajar trunk liftgate tailgate'],
+ ['check-engine-light','Check engine light','amber','soon','check engine service soon malfunction mil cel motor submarine'],
+ ['abs-light','ABS warning light','amber','soon','abs antilock brakes'],
+ ['power-steering-light','Power steering warning light','amber','soon','power steering wheel eps exclamation'],
+ ['transmission-warning-light','Transmission warning light','amber','soon','transmission gear cog temperature thermometer exclamation'],
+ ['coolant-level-light','Low coolant level light','amber','soon','low coolant level radiator'],
+ ['master-warning-light','Master warning light','amber','soon','master general warning triangle exclamation'],
+ ['hybrid-system-light','Check hybrid system / EV warning','amber','soon','hybrid ev system car exclamation'],
+ ['oil-level-light','Low engine oil level light','amber','soon','low engine oil level add can wavy'],
+ ['brake-pad-wear-light','Brake pad wear light','amber','soon','brake pad pads wear worn linings dashed dashes broken circle'],
+ ['electronic-parking-brake-light','Electronic parking brake fault light','amber','soon','electronic electric parking brake epb p auto hold fault'],
+ ['4wd-light','4WD / AWD warning light','amber','soon','4wd awd 4x4 four wheel drive'],
+ ['wrench-light','Wrench light','amber','soon','wrench powertrain reduced power spanner'],
+ ['def-light','Low DEF / exhaust fluid light (diesel)','amber','soon','def adblue diesel exhaust fluid'],
+ ['dpf-light','Diesel particulate filter light','amber','soon','dpf diesel particulate filter dots box'],
+ ['water-in-fuel-light','Water in fuel light (diesel)','amber','soon','water in fuel wif filter separator'],
+ ['epc-light','EPC light','amber','soon','epc electronic power control'],
+ ['esp-bas-light','ESP BAS warning light','amber','soon','esp bas stability brake assist'],
+ ['exhaust-emission-light','Exhaust emission system light','amber','soon','exhaust emission eml'],
+ ['tire-pressure-light','Tire pressure warning light (TPMS)','amber','check','tire tyre pressure tpms low horseshoe exclamation flat u jar cup bubble'],
+ ['traction-control-light','Traction / stability control light','amber','check','traction stability control esc esp vsc tcs skid skidding squiggly squiggles squiggle wavy lines slip'],
+ ['stability-control-off-light','Stability control off light (ESC OFF)','amber','check','stability traction control esc vsc tcs dsc off skid'],
+ ['slip-indicator-light','SLIP and VDC OFF indicators','amber','check','slip vdc off vehicle dynamic control'],
+ ['security-light','Security / immobilizer light','amber','check','security immobilizer key lock padlock antitheft theft car'],
+ ['glow-plug-light','Glow plug light (diesel)','amber','check','glow plug coil spiral pigtail spring squiggle preheat diesel'],
+ ['service-light','Service due / maintenance light','amber','check','service due maintenance wrench spanner'],
+ ['maintenance-required-light','Maintenance required light','amber','check','maintenance required maint reqd wrench reminder'],
+ ['oil-change-light','Oil change due light','amber','check','oil change life due reminder'],
+ ['lane-assist-light','Lane keeping / driver assist warning','amber','check','lane keeping departure assist lines camera collision driver'],
+ ['blind-spot-light','Blind spot monitor warning light','amber','check','blind spot monitor bsm blis mirror'],
+ ['low-fuel-light','Low fuel light','amber','info','low fuel gas pump station empty refuel'],
+ ['washer-fluid-light','Low washer fluid light','amber','info','washer windshield wiper fluid'],
+ ['key-battery-light','Key fob battery low','amber','info','key fob remote battery not detected'],
+ ['high-beam-light','High beam indicator','blue','info','high beam headlight brights'],
+ ['cruise-control-light','Cruise control indicator','green','info','cruise control speedometer arrow adaptive']];
+const LIGHT_SEV={stop:'Stop driving as soon as it’s safe',soon:'Get it checked soon',check:'Check it when you can',info:'Information only'};
+// The symptom guide that covers the same light: when it is the top guide match, the guide answers the search as before.
+const LIGHT_GUIDES={'check-engine-light':['check-engine-light-on','check-engine-light-flashing'],'oil-pressure-light':['oil-pressure-light-on'],
+  'engine-temperature-light':['engine-overheating'],'battery-light':['battery-light-on'],'brake-warning-light':['brake-warning-light-on'],
+  'parking-brake-light':['brake-warning-light-on'],'abs-light':['abs-light-on'],'airbag-light':['airbag-light-on'],'tire-pressure-light':['tire-pressure-light-on'],
+  'traction-control-light':['traction-control-light-on'],'power-steering-light':['power-steering-warning-light'],'transmission-warning-light':['transmission-warning-light'],
+  'hybrid-system-light':['check-hybrid-system-warning'],'security-light':['security-light-flashing-wont-start'],'wrench-light':['reduced-engine-power-warning']};
+// Same idea as the hub search: every described word must match a keyword. Flashing, colors and "point"/"mark" are not shapes.
+const LIGHT_FILLER=new Set(('a an the my is it its on of in with and or that this like looks look shaped shape symbol symbols icon sign light lights lit lamp '+
+  'dash dashboard warning came come comes coming just car cars little small flashing flash flashes blinking blink blinks steady solid stays stay keeps '+
+  'point points mark marks inside picture pic image thing what whats means mean meaning does do i see there theres up showed showing shows appeared '+
+  'indicator new now today all sudden suddenly why still').split(' '));
+const LIGHT_COLOR={red:'red',yellow:'amber',orange:'amber',amber:'amber',green:'info',blue:'info'};
+const lightNorm=t=>String(t).toLowerCase().replace(/!/g,' exclamation ').replace(/['’]/g,'').replace(/\banti[ -]?lock\b/g,'antilock').replace(/[^a-z0-9]+/g,' ').trim();
+function lightWords(q){
+  const w=lightNorm(q).split(' ').filter(Boolean);
+  return{words:w.filter(x=>!LIGHT_FILLER.has(x)&&!LIGHT_COLOR[x]),colors:[...new Set(w.filter(x=>LIGHT_COLOR[x]).map(x=>LIGHT_COLOR[x]))]};
+}
+function lightKeyMatch(keys,w){return keys.some(x=>x===w||(w.length>=3&&x.startsWith(w))||(w.length>3&&w.endsWith('s')&&x===w.slice(0,-1)))}
+// The search mentions a light, a symbol or a color: check the dashboard lights before the symptom guides.
+function lightQuery(q){return /\b(?:light|lights|lamp|lamps|symbol|icon|indicator|dash|dashboard|exclamation|red|yellow|orange|amber|green|blue)\b|!/i.test(String(q))}
+// "Gas light", "fuel light", "low fuel": straight to the low fuel light page.
+function fuelLight(q){const t=literalSymptom(q);
+  return !/\b(?:cap|exhaust|smell|smells|leak|leaking|pressure|filter|water|economy|mileage|pump light)\b/.test(t)&&
+    /\b(?:gas|fuel|petrol)\b(?: \w+){0,2} (?:light|lamp|symbol|icon|indicator|warning)\b|\blow (?:on )?(?:gas|fuel)\b|\b(?:gas|fuel) (?:is |getting )?low\b|\brefuel\b/.test(t)}
+// Lights whose keywords contain every described word: the color the driver named first, then red, amber, green/blue.
+function lightMatches(q){
+  const {words,colors}=lightWords(q);if(!words.length)return[];
+  const rows=(Array.isArray(window.LIGHT_INDEX)&&window.LIGHT_INDEX.length?window.LIGHT_INDEX:LIGHT_FALLBACK)
+    .map(r=>({id:r[0],n:r[1],c:r[2],s:LIGHT_SEV[r[3]]||r[3]||'',k:lightNorm(r[4]||'').split(' ')}));
+  const grp=c=>c==='green'||c==='blue'?'info':c;
+  const rank=c=>colors.length&&!colors.includes(grp(c))?1:0;
+  const order={red:0,amber:1,green:2,blue:2};
+  return rows.map((r,i)=>({r,i})).filter(({r})=>words.every(w=>lightKeyMatch(r.k,w)))
+    .sort((a,b)=>rank(a.r.c)-rank(b.r.c)||(order[a.r.c]??3)-(order[b.r.c]??3)||a.i-b.i).map(x=>x.r);
 }
 // ---- known vehicle problem -> guide (strict) ----
 // Rules come from src/guide-links.json (window.GUIDE_LINKS, written by build.js). An issue links to a guide only when its
@@ -369,12 +571,11 @@ if(J&&root){
     }
   }
   function matches(){if(!veh)return[];return veh.issues.filter(i=>(!vyear||(vyear>=i.y[0]&&vyear<=i.y[1]))&&matchesGuide(J.id,i.t))}
-  const money=n=>'$'+n.toLocaleString('en-US');
   function vehicleSection(){
     if(!veh)return`<p class="muted">Add your year, make and model above to see documented problems for your vehicle.</p>`;
     const list=matches(),nm=vname(),link=`/vehicles/${veh.id}/${vyear?vyear+'/':''}`;
     if(!list.length)return`<p class="muted">We haven't documented a problem on the ${esc(nm)} that matches this symptom. That doesn't rule anything out; the general guidance above applies. <a href="${link}">See what we've documented for the ${esc(nm)} →</a></p>`;
-    return`<p class="muted">Documented problems on the ${esc(nm)} that can cause symptoms like this. They're known patterns to discuss with your shop, not a diagnosis of your car.</p>${list.slice(0,4).map(i=>`<div class="mini"><b>${esc(i.t)}</b> <span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><div>${esc(i.sym)}</div>${i.cost&&i.cost.withheld?`<div class="mcost muted">Repair (${esc(i.cost.job)}): insufficient verified pricing for this vehicle and repair.</div>`:i.cost?(i.cost.free?`<div class="mcost">Repair: no charge if your vehicle is in the recall</div>`:`<div class="mcost">Typical repair (${esc(i.cost.job)}): <b>${money(i.cost.lo)}–${money(i.cost.hi)}</b>${i.cost.recall?' · may be covered by a recall or extended warranty':''}</div>`):''}</div>`).join('')}${list.slice(0,4).some(i=>i.cost&&!i.cost.withheld)?'<p class="fine">Costs are U.S. national averages (parts plus standard labor at a typical shop labor rate), researched November 2026. Diagnosis is usually charged separately. Not a quote.</p>':''}<a href="${link}">Everything we've documented for the ${esc(nm)} →</a>`;
+    return`<p class="muted">Documented problems on the ${esc(nm)} that can cause symptoms like this. They're known patterns to discuss with your shop, not a diagnosis of your car.</p>${list.slice(0,4).map(i=>`<div class="mini"><b>${esc(i.t)}</b> <span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><div>${esc(i.sym)}</div></div>`).join('')}<a href="${link}">Everything we've documented for the ${esc(nm)} →</a>`;
   }
   function observations(){
     return path.flatMap(({k,i})=>{
@@ -409,6 +610,7 @@ if(J&&root){
   }
   function drawResult(r,top){
     const u=URG[r.urgency];
+    track('guide_result',{guide:J.id,urgency:r.urgency});
     root.innerHTML=`${top}<div class="result card">
       <div class="urg ${u.cls}" id="resultUrgency"><span>${esc(u.label)}</span></div>
       <h2 class="rt" tabindex="-1" aria-describedby="resultUrgency">${esc(r.title)}</h2>

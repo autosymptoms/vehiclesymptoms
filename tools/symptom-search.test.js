@@ -41,7 +41,7 @@ const searches = [
 ];
 for(const [query,id] of searches){
   const result=submit(query);
-  const first=location.href || result.querySelector('a')?.getAttribute('href');
+  const first=location.href || result.querySelector('a:not([href^="/roadside/"]):not([target])')?.getAttribute('href');
   assert.equal(first,'/symptoms/'+id+'/',query);
 }
 const clarifications=[
@@ -65,7 +65,8 @@ assert.equal(location.href,'/codes/?q=P0301');
 submit('2012 Honda Civic the red battery picture came on');
 assert.equal(location.href,'/symptoms/battery-light-on/?v=honda-civic&y=2012');
 assert.match(submit('my oil is black').textContent,/couldn't match/i);
-assert.match(submit('pineapple 2012 Honda Civic').querySelector('a').getAttribute('href'),/^\/vehicles\/honda-civic\/2012\/$/);
+{const r=submit('pineapple 2012 Honda Civic');assert.ok([...r.querySelectorAll('a')].some(a=>/^\/vehicles\/honda-civic\/2012\/$/.test(a.getAttribute('href'))),'vehicle link on no-match');
+ assert.ok(r.firstElementChild.classList.contains('roadline'),'no-match starts with the roadside line');}
 for(const query of ['battery low voltage','voltage warning','a 12 volt battery light','spark plugs squealing','idles at 1500 rpm']){
   const result=submit(query);
   assert.doesNotMatch(location.href+result.innerHTML,/v=(chevrolet|ram)|vehicles\/(chevrolet|ram)/,query);
@@ -86,7 +87,7 @@ const emergencies=[
   ['my car shakes and the check engine light is flashing','check-engine-light-flashing'],
   ['flashing check engine light and shaking','check-engine-light-flashing'],
   ['my car died on the highway','engine-stalls-while-driving'],['smell exhaust inside the car and have a headache','exhaust-smell-in-cabin'],
-  ['I smell gas','gas-smell'],['engine is overheating','engine-overheating'],['tire blew out','tire-keeps-losing-air'],
+  ['I smell gas','gas-smell'],['engine is overheating','engine-overheating'],['tire blew out',journeys.some(j=>j.id==='tire-blowout-or-flat')?'tire-blowout-or-flat':'tire-keeps-losing-air'],
   ['P0300 and check engine light flashing','check-engine-light-flashing'],['my gas pedal is stuck','engine-revs-high-at-idle'],
   ['my car is accelerating on its own','engine-revs-high-at-idle'],['my accelerator is stuck','engine-revs-high-at-idle'],
   ['red oil light and a leak','oil-pressure-light-on'],
@@ -98,7 +99,7 @@ for(const [query,id] of emergencies){
   const result=submit(query);
   assert.equal(location.href,'',query+' should not redirect past the safety step');
   assert.ok(result.querySelector('.urgentnow'),query+' should show the urgent safety step');
-  assert.equal(result.querySelector('.glist a').getAttribute('href'),'/symptoms/'+id+'/',query);
+  assert.equal(result.querySelector('.glist a:not([href^="/roadside/"])').getAttribute('href'),'/symptoms/'+id+'/',query);
 }
 for(const query of ['check engine light is not flashing','my car won’t stop beeping','car won’t stop running','squealing brakes','misfire',
   'shocks won’t stop bouncing','steering wheel locked','red oil under car','stuck in park no brake lights','transmission overheating light','oil change light'])
@@ -133,6 +134,65 @@ for(const q of ['put regular gas instead of premium','wrong octane gas','put gas
    const box=r.firstElementChild;assert.ok(box&&box.classList.contains('urgentnow'),q+': the safety step must come first');assert.ok(box.textContent.includes(e.now),q+': wrong safety step shown')}
  for(const q of T.routine)assert.equal(window.VS_GUIDES.emergency(q),null,q+' is routine');
  submit('oil change light');assert.equal(location.href,'/warning-lights/oil-change-light/','a plain oil change reminder still goes to the routine page');location.href='';}
+// ---- Nov 27 sweep (01-roadside-usability, 02-warning-lights) ----
+const events=[];window.va=(kind,e)=>{if(kind==='event')events.push(e)};
+const first=r=>r.firstElementChild;
+const hrefs=r=>[...r.querySelectorAll('a')].map(a=>a.getAttribute('href'));
+const urgentText=q=>{const r=submit(q);assert.equal(location.href,'',q);const b=first(r);assert.ok(b&&b.classList.contains('urgentnow'),q+': safety step first');return b.textContent};
+// RS-01: a hard pedal is never told to pump; a pedal that sinks still is.
+for(const q of ['brake pedal is hard as a rock','my brake pedal is hard and wont go down','brake pedal stiff and car barely slows','brake pedal hard and car wont stop']){
+  const t=urgentText(q);assert.doesNotMatch(t,/pump it hard|pump the pedal/i,q);assert.match(t,/Don’t pump it/,q);assert.match(t,/hazard lights/,q);
+  assert.ok(hrefs(submit(q)).includes('/symptoms/hard-brake-pedal/'),q+' lists the hard pedal guide')}
+for(const q of ['brake pedal to floor','my brakes went to the floor','pedal went to the floor','brakes went out'])
+  {const t=urgentText(q);assert.match(t,/pedal sinks to the floor, pump it/,q);assert.match(t,/hazard lights/,q)}
+// RS-03: after a stall, stay buckled in off the road; get out away from traffic only if stuck in a lane or smoke.
+for(const q of ['my car died on the highway','car broke down on the highway']){const t=urgentText(q);assert.match(t,/stay inside with your seat belt on/,q);
+  assert.match(t,/stuck in a traffic lane, keep your hazard lights on, stay buckled in and call 911/,q);assert.match(t,/Get out only if you see smoke or fire/,q)}
+assert.match(submit('purple banana').firstElementChild.textContent,/stuck in a traffic lane, stay inside with your seat belt on/);
+{submit('what should i keep in my car');assert.equal(location.href,'/roadside/emergency-kit/');location.href='';}
+for(const [q,id] of [['my car is on fire','smoke-or-fire'],['brake pedal is hard as a rock','brakes-steering-pedal'],['red oil light','red-light-on']])
+  assert.ok(hrefs(submit(q)).includes('/roadside/'+id+'/'),q);
+// U-3: overheating says hazards and smoke means fire.
+assert.match(urgentText('engine is overheating'),/hazard lights.*treat it as a fire/s);
+// RS-06, RS-16: cruise control uses the stuck-pedal step; the card title says what is happening.
+{const r=submit('cruise control wont turn off');assert.match(first(r).textContent,/press the brake firmly/);
+ assert.match(r.querySelector('.glist a[href^="/symptoms/"] b').textContent,/speeds up on its own/);}
+// RS-13: "steam" alone: overheat step first, then where it's coming from.
+{const r=submit('steam');assert.ok(first(r).classList.contains('urgentnow'));assert.match(r.textContent,/Where is the steam coming from\?/);}
+// Roadside situations: the safe step first, then the matching /roadside/ page (built from src/roadside/<id>.json).
+const roadside={'got in an accident':'after-a-crash','airbags went off':'after-a-crash','deer hit my car':'after-a-crash',
+  'car broke down on the highway':'broke-down','im stuck on the highway':'broke-down','my car died on the highway':'broke-down',
+  'my car ran out of gas on the highway':'out-of-gas','water came up to the doors':'flooded-road','car hydroplaned':'skid-or-hydroplane',
+  'car slid on ice':'skid-or-hydroplane','car stuck in snow':'stuck-in-snow','locked keys in car':'locked-out',
+  'flat tire':'flat-tire','tire blew out':'flat-tire','popped tire':'flat-tire','how to jump start a car':'jump-start'};
+for(const [q,id] of Object.entries(roadside)){const r=submit(q);assert.ok(first(r).classList.contains('urgentnow'),q);
+  assert.ok(hrefs(r).includes('/roadside/'+id+'/'),q+' links /roadside/'+id+'/')}
+assert.ok(hrefs(submit('how to jump start a car')).includes('/symptoms/car-wont-start/'),'jump start lists the no-start guide');
+// Sources sit under the rewritten steps.
+assert.match(submit('brake pedal is hard as a rock').querySelector('.urgentnow .fine').textContent,/Kia/);
+// RS-02: every phrase that matched nothing in the Nov 27 audit now starts with a safety step or the roadside line, or goes to a page.
+const audit72=["ran out of gas","got in an accident","hit a pothole","car slid on ice","locked keys in car","light shaped like a horseshoe","exclamation point light","how to change a tire","i hit a curb and now my car pulls","car broke down on the highway","my car broke down","stuck on the side of the road","car stuck in snow","car stuck in mud","how to jump start a car","car hydroplaned","drove through deep water","car stalled in flood water","i got rear ended","crashed my car","fender bender what do i do","deer hit my car","car is beeping","car went into the ditch","slid off the road","car spun out","car makes loud bang","popped tire","windshield wont defrost cant see","no headlights at night","airbag deployed","car wont unlock","out of gas","how far can i drive with gas light on","car rolling backwards","hood wont close","trunk light","door ajar light","seat belt light","check gas cap","car temp high","light looks like a submarine","i see sparks","thumping noise while driving","car rolled away","car wont strat","smok from hood","my car is making a loud noise and shaking","car stopped running","tire with exclamation point","feel sleepy in car","bumpy ride","door wont open","hazard lights not working","car revving high","car idling rough","my car ran out of gas on the highway","car broke down on the freeway","im stuck on the highway","feel sleepy in the car","my passengers have headaches","car hit deer and now wont start","airbags went off","water came up to the doors","drove through a flood and now it wont start","car slid into a ditch in the snow","stuck in snow tailpipe","i locked my keys in the car and its running","hood popped up while driving","door flew open while driving","car rolling while in park","hazard lights"];
+for(const q of audit72){const r=submit(q);if(location.href)continue;const b=first(r);
+  if(r.querySelector('.nomatch'))assert.ok(b.classList.contains('roadline')&&/hazard lights/.test(b.textContent)&&hrefs(r).includes('/roadside/'),q+': no-match must start with the roadside line')}
+// RS-04: the safety question never outweighs the symptom, and is never answered with a promise.
+{const r=submit('can i drive my car');assert.equal(location.href,'');assert.ok(first(r).classList.contains('safeline'));assert.match(r.textContent,/can’t promise any car is safe/);assert.match(r.textContent,/What did you notice first\?/);}
+for(const q of ['is it safe to drive with the tire light on','Is it safe to drive with a tire pressure light?']){const r=submit(q);assert.equal(location.href,'',q);
+  assert.ok(first(r).classList.contains('safeline'),q+': never-a-promise line first');assert.match(hrefs(r).slice(0,2).join(' '),/tire-pressure-light/,q+' finds the tire pressure light');}
+// RS-09: light searches find the light pages.
+for(const [q,to] of [['low fuel light','/warning-lights/low-fuel-light/'],['gas light on','/warning-lights/low-fuel-light/'],['how far can i drive with gas light on','/warning-lights/low-fuel-light/'],
+  ['seat belt light','/warning-lights/seat-belt-light/'],['door ajar light','/warning-lights/door-open-light/'],['red triangle light','/warning-lights/master-warning-light/'],
+  ['light shaped like a horseshoe','/warning-lights/tire-pressure-light/']]){submit(q);assert.equal(location.href,to,q);location.href=''}
+{const r=submit('exclamation point light');assert.equal(location.href,'');assert.match(r.textContent,/Which light do you see\?/);
+ assert.equal(r.querySelector('.glist a').getAttribute('href'),'/warning-lights/brake-warning-light/','red brake light listed first')}
+// RS-07, RS-08, RS-17, RS-21: wording that went to the wrong place.
+for(const [q,id] of [['car wont strat','car-wont-start'],['car turned off at a stop light','car-dies-when-coming-to-stop'],['my car wont turn on','car-wont-start']]){
+  const r=submit(q);assert.equal(location.href||r.querySelector('.glist a')?.getAttribute('href'),'/symptoms/'+id+'/',q);location.href=''}
+assert.match(submit('my car is shaking really bad').textContent,/When do you feel the shaking\?/);
+{const r=submit('horn not working');assert.doesNotMatch(location.href+hrefs(r).join(' '),/airbag/,'horn is not the airbag light');location.href='';}
+// Analytics: only the outcome type is sent, never the words typed.
+events.length=0;submit('flat tire');submit('purple banana');submit('my car died');location.href='';
+assert.deepEqual(events.filter(e=>e.name==='search_outcome').map(e=>e.type),['urgent','nomatch','question']);
+assert.ok(!JSON.stringify(events).match(/banana|flat|died/),'analytics never carries the query');
 let aliases=0;
 for(const j of journeys){
   for(const phrase of j.synonyms){

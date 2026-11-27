@@ -336,51 +336,87 @@ document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest
 const hf=document.getElementById('helpForm');
 if(hf){
   const hi=document.getElementById('helpInput'),out=document.getElementById('helpResults'),status=document.getElementById('helpStatus');
+  const VG=window.VS_GUIDES;
+  // Which kind of answer the search gave (never what was typed): urgent, guide, question or nomatch.
+  const outcome=(type,via)=>VG.track('search_outcome',via?{type,via}:{type});
+  const go=(href,type,via)=>{outcome(type,via);location.href=href};
+  const srcLine=list=>list&&list.length?`<p class="fine">Based on: ${list.map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener nofollow">${esc(n)}</a>`).join(', ')}</p>`:'';
+  // The roadside step-by-step pages that go with a danger step (/roadside/<id>/).
+  const pageCards=ps=>ps.length?`<p><b>Step by step:</b></p><div class="glist">${ps.map((p,i)=>`<a class="gcard${i===0?' first':''}" href="${esc(p.u)}"><b>${esc(p.t)}</b><span>What to do now, one step at a time</span></a>`).join('')}</div>`:'';
+  const lightCards=ls=>`<div class="glist">${ls.map(l=>`<a class="gcard" href="/warning-lights/${esc(l.id)}/"><b>${esc(l.n)}</b><span>${l.c==='red'?'Red':l.c==='amber'?'Amber/yellow':l.c==='green'?'Green':'Blue'}${l.s?' · '+esc(l.s):''}</span></a>`).join('')}</div>`;
+  const roadLine=()=>`<div class="safety roadline"><p><b>If you’re on the road right now:</b> ${esc(VG.ROAD_LINE)}</p><p><a href="/roadside/">Stuck on the road? What to do now →</a></p></div>`;
   hf.addEventListener('submit',e=>{
     e.preventDefault();
     const q=hi.value.trim();
     if(!q){out.innerHTML='';out.classList.remove('show');if(status)status.textContent='';return}
     const cm=q.match(/\b([PBCU][0-3][0-9A-F]{3})\b/i);
     // A code alone goes to code lookup; a code plus a danger sign ("P0300 and the light is flashing") shows the safety step first.
-    if(cm&&!window.VS_GUIDES.emergency(q)){location.href='/codes/?q='+cm[1].toUpperCase();return}
+    if(cm&&!VG.emergency(q)){go('/codes/?q='+cm[1].toUpperCase(),'guide','code');return}
     // An oil change or oil life reminder is routine, not the red oil pressure warning. A danger sign always wins:
     // "I just got an oil change and my car is on fire" gets the fire step, not the reminder page.
-    if(/\boil (?:change|life)\b|\bchange (?:the |my |engine )?oil\b|\boil service\b|\bmaint(?:enance)? (?:reqd|required)\b/i.test(q)&&!window.VS_GUIDES.emergency(q)&&!/\bpressure\b|\bred\b|\blow oil\b|\bflicker/i.test(q)){location.href='/warning-lights/'+(/maint/i.test(q)?'maintenance-required-light':'oil-change-light')+'/';return}
+    if(/\boil (?:change|life)\b|\bchange (?:the |my |engine )?oil\b|\boil service\b|\bmaint(?:enance)? (?:reqd|required)\b/i.test(q)&&!VG.emergency(q)&&!/\bpressure\b|\bred\b|\blow oil\b|\bflicker/i.test(q)){go('/warning-lights/'+(/maint/i.test(q)?'maintenance-required-light':'oil-change-light')+'/','guide','light');return}
     const vehicleMatch=findVehicle(q),v=vehicleMatch?.vehicle;
     const year=(q.match(/\b(?:19|20)\d{2}\b/)||[])[0],y=v?clampYear(v,+year):null;
     const qs=v?`?v=${v.id}${y?'&y='+y:''}`:'';
     // Remove the matched vehicle and year so "2012 Honda Civic shakes" can ask about timing.
-    const symptom=v?q.replace(vehicleMatch.text,' ').replace(/\b(?:19|20)\d{2}\b/g,' '):q;
-    const urgent=window.VS_GUIDES.emergency(symptom);
+    const raw=v?q.replace(vehicleMatch.text,' ').replace(/\b(?:19|20)\d{2}\b/g,' '):q;
+    // "Is it safe to drive with …?" is answered by the symptom after it, never with a promise (RS-04).
+    const safe=VG.safeAsk(raw),symptom=safe.asked?safe.text:raw;
+    const safeTop=safe.asked?`<div class="safety safeline"><p>${esc(VG.SAFE_LINE)}</p></div>`:'';
+    const urgent=VG.emergency(raw)||(safe.asked&&symptom?VG.emergency(symptom):null);
     if(urgent){
-      // Danger first: the immediate safe action, then the most urgent guide, then anything else that matched.
-      const ex=window.VS_GUIDES.exactGuide&&window.VS_GUIDES.exactGuide(symptom);
+      // Danger first: the immediate safe action, then the roadside steps, then the most urgent guide, then anything else that matched.
+      const ex=VG.exactGuide&&VG.exactGuide(symptom);
       const gs=ex?[ex,...searchGuides(symptom,5).filter(g=>g.id!==ex.id)].slice(0,5):searchGuides(symptom,5);
       // Vague wording ("smoke is coming out of the car"): safety step first, then the easy where/what question.
-      const ask=window.VS_GUIDES.clarifySearch(symptom.replace(cm?cm[0]:'',' '));
-      out.innerHTML=`<div class="safety urgentnow" role="alert"><b>Do this first</b><p>${esc(urgent.now)}</p>${urgent.also.map(t=>`<p>${esc(t)}</p>`).join('')}</div>`+(ask?askHtml(ask,qs):
-        `<p><b>Then follow the guide:</b></p><div class="glist">${gs.map((g,i)=>`<a class="gcard${i===0?' first':''}" href="${gurl(g.id)}${qs}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}`+
-        `${cm?`<a class="gcard" href="/codes/?q=${cm[1].toUpperCase()}"><b>Look up ${esc(cm[1].toUpperCase())}</b><span>What this trouble code means</span></a>`:''}</div>`);
-      out.classList.add('show');
+      const ask=VG.clarifySearch(symptom.replace(cm?cm[0]:'',' '));
+      const label=g=>urgent.labels&&urgent.labels[g.id];
+      out.innerHTML=`<div class="safety urgentnow" role="alert"><b>Do this first</b><p>${esc(urgent.now)}</p>${urgent.also.map(t=>`<p>${esc(t)}</p>`).join('')}${srcLine(urgent.src)}</div>`+
+        pageCards(urgent.pages||[])+(ask?askHtml(ask,qs):gs.length||cm?
+        `<p><b>${urgent.pages&&urgent.pages.length?'Related guides:':'Then follow the guide:'}</b></p><div class="glist">${gs.map((g,i)=>`<a class="gcard${i===0&&!(urgent.pages||[]).length?' first':''}" href="${gurl(g.id)}${qs}"><b>${esc(label(g)?label(g)[0]:g.title)}</b><span>${esc(label(g)?label(g)[1]:g.h1)}</span></a>`).join('')}`+
+        `${cm?`<a class="gcard" href="/codes/?q=${cm[1].toUpperCase()}"><b>Look up ${esc(cm[1].toUpperCase())}</b><span>What this trouble code means</span></a>`:''}</div>`:'');
+      out.classList.add('show');outcome('urgent');
       if(status)status.textContent='Urgent safety step shown first. '+urgent.now+(ask?' '+ask.question:'');
       return;
     }
-    const exact=window.VS_GUIDES.exactGuide&&window.VS_GUIDES.exactGuide(symptom);
-    if(exact){location.href=gurl(exact.id)+qs;return}
-    const question=window.VS_GUIDES.clarifySearch(symptom);
+    // Nothing left after "can I drive my car?": what did you notice, with the never-a-promise line first.
+    if(safe.asked&&!symptom){
+      out.innerHTML=safeTop+askHtml(VG.noticeFirst(),qs);out.classList.add('show');outcome('question','safe');
+      if(status)status.textContent=VG.SAFE_LINE+' What did you notice first? Choose an answer below.';return}
+    // What to keep in the car, or the roadside help list itself (a08 routes).
+    if(/\b(?:emergency|roadside|car|winter|survival|safety) kit\b|\bwhat (?:should i |to |do i )?(?:keep|carry|have) in (?:my |the |your )?car\b/i.test(symptom)){go('/roadside/emergency-kit/','guide','roadside');return}
+    if(/^(?:roadside|roadside help|roadside assistance|stuck on the road|help im stuck|what do i do now|emergency)$/i.test(VG.safeAsk(symptom).text.replace(/[^a-z ]/gi,'').trim())){go('/roadside/','guide','roadside');return}
+    // Gas light / fuel light: the low fuel page answers it (RS-09).
+    if(VG.fuelLight(symptom)){go('/warning-lights/low-fuel-light/','guide','light');return}
+    const exact=VG.exactGuide&&VG.exactGuide(symptom);
+    if(exact){go(gurl(exact.id)+qs,'guide');return}
+    const question=VG.clarifySearch(symptom);
     const gs=question?[]:searchGuides(symptom,5);
-    if(gs.length===1){location.href=gurl(gs[0].id)+qs;return}
+    // A light, symbol or color: look through the dashboard lights first, unless the top guide is about the same light (RS-09).
+    const ls=VG.lightQuery(symptom)?VG.lights(symptom):[];
+    const guideCovers=gs.length&&ls.some(l=>VG.lightGuides(l.id).includes(gs[0].id));
+    if(ls.length&&!guideCovers&&!question){
+      if(ls.length===1&&!safe.asked){go('/warning-lights/'+ls[0].id+'/','guide','light');return}
+      const top=ls.slice(0,6);
+      out.innerHTML=safeTop+`<p><b>Which light do you see?</b></p><p class="muted" style="margin:0 0 8px">If the light is red, pull over when it’s safe and turn the engine off.</p>${lightCards(top)}`+
+        (gs.length?`<p><b>Or follow a guide for what the car is doing:</b></p><div class="glist">${gs.map(g=>`<a class="gcard" href="${gurl(g.id)}${qs}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}</div>`:'');
+      out.classList.add('show');outcome('guide','light');
+      if(status)status.textContent=top.length+' matching dashboard lights. If the light is red, pull over when it’s safe. Choose a light below.';return}
+    if(gs.length===1&&!safe.asked){go(gurl(gs[0].id)+qs,'guide');return}
     if(question){
-      out.innerHTML=askHtml(question,qs);
+      out.innerHTML=safeTop+askHtml(question,qs);outcome('question');
+    }else if(gs.length){
+      out.innerHTML=safeTop+`<p><b>Which guide fits what you noticed?</b></p><div class="glist">${gs.map(g=>`<a class="gcard" href="${gurl(g.id)}${qs}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}</div>${v?`<p class="muted">Or see <a href="${url(v,y)}">known problems for the ${y?y+' ':''}${esc(v.make+' '+v.model)}</a>.</p>`:''}`;outcome('guide');
     }else{
-      out.innerHTML=gs.length?`<p><b>Which guide fits what you noticed?</b></p><div class="glist">${gs.map(g=>`<a class="gcard" href="${gurl(g.id)}${qs}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}</div>${v?`<p class="muted">Or see <a href="${url(v,y)}">known problems for the ${y?y+' ':''}${esc(v.make+' '+v.model)}</a>.</p>`:''}`
-        :v?`<p>We don't have a guide for that wording yet. <a href="${url(v,y)}">See known problems for the ${esc(v.make+' '+v.model)} →</a></p>`
-      :`<div class="nomatch"><p class="muted" style="margin:0 0 6px">We couldn't match that wording yet. That's OK, one easy question:</p>${askHtml(window.VS_GUIDES.noticeFirst(),'')}<p class="muted" style="margin-top:8px">Have a trouble code from a scanner? <a href="/codes/">Look it up</a>. Or describe it differently, for example: "squeal when braking", "shakes at highway speed", "clicks when I turn the key".</p></div>`;
+      // No match: someone may be typing from the shoulder. The roadside line comes before any question (RS-02).
+      out.innerHTML=safeTop+roadLine()+(v?`<p>We don't have a guide for that wording yet. <a href="${url(v,y)}">See known problems for the ${esc(v.make+' '+v.model)} →</a></p>`
+        :`<div class="nomatch"><p class="muted" style="margin:0 0 6px">We couldn't match that wording yet. That's OK, one easy question:</p>${askHtml(VG.noticeFirst(),'')}<p class="muted" style="margin-top:8px">Have a trouble code from a scanner? <a href="/codes/">Look it up</a>. Or describe it differently, for example: "squeal when braking", "shakes at highway speed", "clicks when I turn the key".</p></div>`);
+      outcome('nomatch');
     }
     out.classList.add('show');
-    if(status)status.textContent=question?question.question+' Choose an answer below.':
+    if(status)status.textContent=(safe.asked?VG.SAFE_LINE+' ':'')+(question?question.question+' Choose an answer below.':
       gs.length?gs.length+' matching guides. Choose a guide below.':
-      v?'No matching guide. A link to known problems for your vehicle is available.':'What did you notice first? Choose an answer below.';
+      'If you’re on the road right now: '+VG.ROAD_LINE+' '+(v?'No matching guide. A link to known problems for your vehicle is available.':'What did you notice first? Choose an answer below.'));
   });
   // "I'm not sure" chip: ask what they noticed first instead of making them name the problem.
   const ns=document.getElementById('notSure');
@@ -416,11 +452,23 @@ showMy();
   const shown=[...document.querySelectorAll('#lgrid .lcard')].filter(a=>!a.hidden).length,lc=document.getElementById('lcount');if(lc)lc.textContent=c==='all'?'':shown+' '+(shown===1?'light':'lights')+' shown: '+b.textContent})})();
 (function(){const s=document.getElementById('lsearch');if(!s)return;
   // Match each word the visitor typed against the light's names and how its symbol looks ("oil can", "thermometer").
-  const filler=new Set('a an the my is it its on of in with and or that this like looks look shaped shape symbol icon sign light lights lit dash dashboard warning came come comes just car cars little small yellow orange red'.split(' '));
-  const words=q=>q.toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,' ').trim().split(' ').filter(w=>w&&!filler.has(w));
-  s.oninput=()=>{const q=s.value.trim();const qw=words(q);let shown=0;
-    document.querySelectorAll('#lgrid .lcard').forEach(a=>{const k=(a.dataset.k||a.textContent.toLowerCase()).split(' ');
-      const hit=!qw.length||qw.every(w=>k.some(x=>x===w||(w.length>=3&&x.startsWith(w))||(w.length>3&&w.endsWith('s')&&x===w.slice(0,-1))));a.hidden=!hit;if(hit)shown++});
+  // "Flashing", "point", "mark" and the like describe the light, not its shape, so they never rule a light out (WL-H1).
+  // Color words don't rule a light out either: they move lights of that color to the top (WL-M11).
+  const filler=new Set(('a an the my is it its on of in with and or that this like looks look shaped shape symbol symbols icon sign light lights lit lamp dash dashboard warning '+
+    'came come comes coming just car cars little small flashing flash flashes blinking blink blinks steady solid stays stay keeps point points mark marks inside picture pic image thing '+
+    'what whats means mean meaning indicator').split(' '));
+  const colors={red:'red',yellow:'amber',orange:'amber',amber:'amber',green:'info',blue:'info'};
+  // "!" is how people type the exclamation symbol; "anti lock" is one word, so "lock" finds the security light, not ABS (WL-L7).
+  const norm=t=>String(t).toLowerCase().replace(/!/g,' exclamation ').replace(/['’]/g,'').replace(/\banti[ -]?lock\b/g,'antilock').replace(/[^a-z0-9]+/g,' ').trim();
+  const words=q=>norm(q).split(' ').filter(w=>w&&!filler.has(w)&&!colors[w]);
+  const named=q=>[...new Set(norm(q).split(' ').filter(w=>colors[w]).map(w=>colors[w]))];
+  const group=c=>c==='green'||c==='blue'?'info':c;
+  const lf=document.getElementById('lfilter');if(lf)lf.addEventListener('click',()=>document.querySelectorAll('#lgrid .lcard').forEach(a=>a.style.order=''));
+  s.oninput=()=>{const q=s.value.trim();const qw=words(q),qc=named(q);let shown=0;
+    document.querySelectorAll('#lgrid .lcard').forEach(a=>{const k=norm(a.dataset.k||a.textContent).split(' ');
+      // Only a color ("yellow light"): show the lights of that color. A color plus a shape: that color first, others still shown.
+      const hit=!qw.length?(!qc.length||qc.includes(group(a.dataset.c))):qw.every(w=>k.some(x=>x===w||(w.length>=3&&x.startsWith(w))||(w.length>3&&w.endsWith('s')&&x===w.slice(0,-1))));
+      a.hidden=!hit;a.style.order=hit&&qw.length&&qc.length&&qc.includes(group(a.dataset.c))?'-1':'';if(hit)shown++});
     const n=document.getElementById('lnone');
     if(n){n.hidden=!!shown||!q;
       // Never a dead end: the safety rule for red lights, symptom guides that match, and the color filters.
