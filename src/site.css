@@ -857,7 +857,7 @@ footer a,.crumb a,.urg-next a{display:inline-block;padding:6px 2px;min-height:24
 .rs-dont h2,.rs-call h2{margin:0 0 6px;font-size:18px}.rs-dont h2{color:#A82830}
 .rs-dont ul,.rs-call ul{margin:0;padding-left:20px}.rs-dont li,.rs-call li{margin:6px 0}
 .rs-pick{font-size:20px;margin:18px 0 10px}
-.rs-tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:0 0 18px}
+.rs-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 18px}
 @media (min-width:720px){.rs-tiles{grid-template-columns:repeat(3,1fr)}}
 .rs-tile{display:flex;flex-direction:column;justify-content:center;gap:4px;min-height:84px;padding:14px 16px;border-radius:14px;border:2px solid var(--line);background:var(--panel);color:var(--text);text-decoration:none}
 .rs-tile b{font-size:17px;line-height:1.25}.rs-tile span{font-size:13px;font-weight:700}
@@ -898,3 +898,4 @@ ul.srcs li{margin:6px 0}
   .rs-printable~.rs-how .rs-step p,.rs-printable~.rs-first li{font-size:14px}
   .rs-srcs a:after{content:" (" attr(href) ")";font-size:11px}
 }
+.rs-tiles b{overflow-wrap:anywhere}

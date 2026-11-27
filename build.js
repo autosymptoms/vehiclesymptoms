@@ -170,6 +170,11 @@ for(const v of V)for(const i of v.issues){
   if(sl.length){i.sl=sl;slN++}else delete i.sl;
   const rid=[...new Set([i.t,i.next,...(Array.isArray(i.src)?i.src:[])].join(' ').match(RID_RX)||[])].map(normRid);
   if(rid.length){i.rid=[...new Set(rid)];ridN++}else delete i.rid;
+  // Also flag issues whose visible sources are all weak aggregators and which name no recall ID (Nov 27 final check P7).
+  const WEAK_HOSTS=['carwhere.com','vehicleflaws.com','forcar.org','carcomplaintdata.com','enginepatrol.com','8020automotive.com','rerev.com','motorverso.com','recallcheck.net','theweeklydriver.com'];
+  const urls=(Array.isArray(i.src)?i.src:[]).filter(s=>/^https?:/i.test(s));
+  const isWeak=u=>{try{const h=new URL(u).hostname.toLowerCase();return WEAK_HOSTS.some(w=>h===w||h.endsWith('.'+w))}catch(e){return false}};
+  if(!i.rid&&urls.length&&urls.every(isWeak))i.wk=true;
   if(i.wk===true)wkN++;else delete i.wk;
 }
 console.log(`issue sources: ${slN} issues with sl, ${ridN} with recall IDs, ${wkN} weak-only`);
