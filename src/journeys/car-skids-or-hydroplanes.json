@@ -1,0 +1,513 @@
+{
+ "id": "car-skids-or-hydroplanes",
+ "title": "Car skids or slides too easily",
+ "h1": "Why does my car skid or hydroplane so easily?",
+ "metaDesc": "Car hydroplanes, skids or slides more than it should? See the likely causes, from worn tires to ABS problems, and what to check first.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "car hydroplanes easily",
+  "car slides in the rain",
+  "car skids when braking",
+  "car fishtails",
+  "car spun out",
+  "car slides on wet roads",
+  "car slides in snow",
+  "back end slides out",
+  "car loses traction",
+  "tires slipping",
+  "car hydroplaned",
+  "car skidded",
+  "no grip in the rain",
+  "car slides when turning",
+  "wheels spin easily"
+ ],
+ "intro": "If you're in a skid right now: take your foot off the gas, look and steer where you want to go, and don't slam the brakes. Our roadside page on skids and hydroplaning has the step-by-step version. Once you're safely stopped, this guide helps you work out why the car slid, from worn or low tires to anti-lock brake (ABS) or traction control problems.",
+ "safety": [
+  "If you're sliding now: ease off the gas, look where you want to go and steer there. If you need to brake and the car has anti-lock brakes (ABS), press firmly and hold. Without ABS, pump the brakes if the wheels start to lock.",
+  "If the car went off the road or stopped in a traffic lane, turn on your hazard lights. If anyone is hurt or you're stuck in a lane, call 911.",
+  "If a tire is flat, bulging, or has cords or wires showing, don't drive on it. Use the spare or call for help.",
+  "If the brake pedal feels soft or the red BRAKE light is on, don't drive until the brakes are checked."
+ ],
+ "start": "q_tires",
+ "nodes": {
+  "q_tires": {
+   "q": "With the car parked, look at your tires. Which fits best?",
+   "help": "Penny test: put a penny upside down into a tread groove. If you can see all of Lincoln's head, NHTSA says the tires need replacing.",
+   "opts": [
+    {
+     "a": "A tire looks low, flat or bulging, or has cords or wires showing",
+     "go": "r_tire_damage"
+    },
+    {
+     "a": "The tread looks worn: smooth, or I can see all of Lincoln's head in the penny test",
+     "go": "r_worn_tires"
+    },
+    {
+     "a": "The tires look OK",
+     "go": "q_when"
+    },
+    {
+     "a": "I'm not sure, or I can't check right now",
+     "go": "q_when"
+    }
+   ]
+  },
+  "q_when": {
+   "q": "When does the car slide?",
+   "opts": [
+    {
+     "a": "On wet roads, especially at highway speed: it feels like floating",
+     "go": "r_hydroplane"
+    },
+    {
+     "a": "On snow or ice",
+     "go": "q_winter"
+    },
+    {
+     "a": "When I brake: the wheels lock up or the car slides",
+     "go": "q_abs"
+    },
+    {
+     "a": "When I turn or speed up: the back end steps out or the wheels spin",
+     "go": "r_traction"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_winter": {
+   "q": "What kind of tires are on the car?",
+   "help": "The tire's sidewall may say M+S (all-season) or show a mountain with a snowflake (winter-rated).",
+   "opts": [
+    {
+     "a": "All-season or summer tires",
+     "go": "r_winter_tires"
+    },
+    {
+     "a": "Winter or snow tires, and it still slides a lot",
+     "go": "r_general"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_winter_tires"
+    }
+   ]
+  },
+  "q_abs": {
+   "q": "Is the ABS light or the traction control light on?",
+   "opts": [
+    {
+     "a": "Yes, one or both are on",
+     "go": "r_abs_off"
+    },
+    {
+     "a": "No lights, but I hear the tires screech or feel the wheels lock up",
+     "go": "r_brake_lockup"
+    },
+    {
+     "a": "No lights, and the pedal buzzes or pulses when I brake hard on slippery roads",
+     "go": "r_abs_working"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_brake_lockup"
+    }
+   ]
+  },
+  "r_tire_damage": {
+   "result": {
+    "title": "A low or damaged tire can make the car slide and may fail",
+    "urgency": "stop",
+    "now": "Don't drive on it. If you're safely off the road and know how, put on the spare. Otherwise call roadside assistance.",
+    "if": [
+     "If the tire is just low with no damage, inflate it to the pressure on the driver's door sticker, then have it checked for a leak soon.",
+     "If the car pulls hard to one side or shakes, have the tire and wheel checked before driving far."
+    ],
+    "why": "A tire that's low, bulging or worn through has far less grip and can blow out. Low pressure also lets the tire squirm and float on water more easily.",
+    "causes": [
+     {
+      "name": "Low pressure or a slow leak",
+      "clues": "One tire looks lower than the others, or the tire pressure light is on.",
+      "against": ""
+     },
+     {
+      "name": "Sidewall bulge or damage",
+      "clues": "You hit a pothole or curb recently.",
+      "against": ""
+     },
+     {
+      "name": "Tread worn through to the cords",
+      "clues": "You can see threads or wires in the tread.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the pressure with a gauge against the door sticker, not the number on the tire."
+     ],
+     "shop": [
+      "Tire inspection",
+      "Leak check",
+      "Tire replacement"
+     ]
+    }
+   }
+  },
+  "r_worn_tires": {
+   "result": {
+    "title": "Worn tires are the most likely reason the car slides",
+    "urgency": "soon",
+    "now": "Replace worn tires within the next few days. Until then, slow down well below the limit on wet or snowy roads and leave extra space.",
+    "if": [
+     "If the tread is down to the wear bars or any cords show, don't drive on it.",
+     "If you're only replacing two tires, ask the shop which end of the car they should go on."
+    ],
+    "why": "Tread grooves push water out from under the tire. As tread wears down, the tire can't clear water fast enough and starts to ride on top of it, which is hydroplaning. Worn tires also grip much less on snow and ice. NHTSA says to keep at least 2/32 of an inch of tread on all tires.",
+    "causes": [
+     {
+      "name": "Worn tread",
+      "clues": "The penny test shows all of Lincoln's head.",
+      "against": ""
+     },
+     {
+      "name": "Uneven wear",
+      "clues": "One edge of the tire is much more worn than the other.",
+      "against": ""
+     },
+     {
+      "name": "Old, hardened tires",
+      "clues": "Small cracks in the sidewall, or tires that are many years old.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Do the penny test in several grooves on each tire.",
+      "Look for wear bars that are level with the tread."
+     ],
+     "shop": [
+      "Tread depth measurement",
+      "Alignment check if the wear is uneven",
+      "Tire age check"
+     ]
+    }
+   }
+  },
+  "r_hydroplane": {
+   "result": {
+    "title": "Water on the road plus speed is the usual cause of hydroplaning",
+    "urgency": "diy",
+    "now": "Check the tread with the penny test and set the tire pressures to the driver's door sticker. On wet roads, slow down, stay out of puddles and standing water, and don't use cruise control.",
+    "if": [
+     "If the tread is low or the tires are old, replace them soon.",
+     "If one tire keeps losing air, have it checked for a leak."
+    ],
+    "why": "At higher speeds, water can build up under the tires faster than the tread can push it away, and the tires lose contact with the road. Slower speeds, good tread and the right pressure all help the tires stay on the road.",
+    "causes": [
+     {
+      "name": "Speed too high for the rain",
+      "clues": "It happened at highway speed or in heavy rain.",
+      "against": ""
+     },
+     {
+      "name": "Tread lower than it looks",
+      "clues": "The penny test is close.",
+      "against": ""
+     },
+     {
+      "name": "Low tire pressure",
+      "clues": "A tire looks low, or the tire pressure light is on.",
+      "against": ""
+     },
+     {
+      "name": "Deep standing water or ruts",
+      "clues": "It happened in a puddle or a worn lane.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Do the penny test.",
+      "Check all four pressures, cold, against the door sticker."
+     ],
+     "shop": [
+      "Tread depth and tire condition check"
+     ]
+    }
+   }
+  },
+  "r_winter_tires": {
+   "result": {
+    "title": "All-season and summer tires have limited grip on snow and ice",
+    "urgency": "check",
+    "now": "Slow down a lot on snow and ice and leave much more space to stop. If you often drive in snow, think about winter tires.",
+    "if": [
+     "If they're summer or performance tires, avoid snow and ice. They get hard and slippery in the cold.",
+     "Check tire pressure often in cold weather. NHTSA notes that it drops as temperatures fall."
+    ],
+    "why": "Tires made for warm or mild weather get harder in the cold, and their tread isn't designed to bite into snow. Even good all-season tires have far less grip on snow and ice than on dry roads, so speed and stopping distance matter most.",
+    "causes": [
+     {
+      "name": "Tire type",
+      "clues": "Summer or all-season tires, and it slides mostly in snow.",
+      "against": ""
+     },
+     {
+      "name": "Worn tread",
+      "clues": "The penny test is close.",
+      "against": ""
+     },
+     {
+      "name": "Low pressure in the cold",
+      "clues": "A tire pressure light on cold mornings.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the tire sidewall for M+S or a mountain-and-snowflake symbol.",
+      "Check pressures on cold mornings."
+     ],
+     "shop": [
+      "Tread and tire type check"
+     ]
+    }
+   }
+  },
+  "r_abs_off": {
+   "result": {
+    "title": "The anti-lock brakes (ABS) or stability control may be switched off by a fault",
+    "urgency": "soon",
+    "now": "Get the ABS codes read within the next few days. Until then, brake earlier, leave extra room and slow down on slippery roads.",
+    "if": [
+     "If the red BRAKE light is on too, or the pedal feels soft, don't drive it until the brakes are checked.",
+     "If the traction light shows the word OFF, the button may have been pressed. Press it again or restart the car."
+    ],
+    "why": "Anti-lock brakes stop the wheels from locking so you can still steer while braking hard. Traction and stability control help stop wheelspin and slides. When a fault switches them off, the light comes on and the car can slide more easily, though the normal brakes still work.",
+    "causes": [
+     {
+      "name": "Faulty wheel speed sensor or wire",
+      "clues": "It started after a pothole, brake work or wet, salty weather.",
+      "against": ""
+     },
+     {
+      "name": "ABS unit fault",
+      "clues": "Several brake-related lights are on.",
+      "against": ""
+     },
+     {
+      "name": "Traction control switched off",
+      "clues": "The light says OFF.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note which lights are on and whether any say OFF."
+     ],
+     "shop": [
+      "ABS and stability control code scan",
+      "Wheel speed sensor check"
+     ]
+    }
+   }
+  },
+  "r_brake_lockup": {
+   "result": {
+    "title": "The wheels may be locking because the anti-lock brakes aren't working, or the car doesn't have them",
+    "urgency": "soon",
+    "now": "Have the brakes and ABS checked within the next few days. Until then, brake earlier and more gently, especially on wet or slippery roads.",
+    "if": [
+     "If the car pulls hard to one side when braking, or the pedal feels soft, don't drive it until the brakes are checked.",
+     "If your car doesn't have ABS, pump the brakes if the wheels start to lock, as NHTSA advises."
+    ],
+    "why": "Most newer cars have anti-lock brakes that keep the wheels turning in a hard stop. If the wheels lock and skid with no ABS light, the system may not be working, the car may not have it, or worn tires may be letting go before ABS can help.",
+    "causes": [
+     {
+      "name": "ABS not working",
+      "clues": "The wheels lock and screech even with gentle braking on wet roads.",
+      "against": ""
+     },
+     {
+      "name": "Car without ABS",
+      "clues": "An older or basic car, and no ABS light at startup.",
+      "against": ""
+     },
+     {
+      "name": "Worn tires",
+      "clues": "The penny test is close.",
+      "against": ""
+     },
+     {
+      "name": "One brake grabbing",
+      "clues": "The car pulls to one side when you brake.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Watch whether the ABS light comes on for a moment when you start the car."
+     ],
+     "shop": [
+      "Brake inspection",
+      "ABS code scan and function test",
+      "Tire check"
+     ]
+    }
+   }
+  },
+  "r_abs_working": {
+   "result": {
+    "title": "That buzzing or pulsing is the anti-lock brakes doing their job",
+    "urgency": "diy",
+    "now": "When you feel it, keep firm, steady pressure on the pedal and don't pump it. A slide means the road is slippery, so slow down and leave more space.",
+    "if": [
+     "If you feel pulsing on dry roads, or the ABS light comes on, have the brakes checked.",
+     "If the tires are worn, replacing them will help more than anything else."
+    ],
+    "why": "On slippery roads, ABS quickly pulses the brakes to stop the wheels from locking. You feel it as buzzing or pulsing in the pedal. NHTSA says that with ABS you should press firmly and hold the pedal.",
+    "causes": [
+     {
+      "name": "Normal ABS action on a slippery road",
+      "clues": "It happens only on wet, icy or loose roads.",
+      "against": ""
+     },
+     {
+      "name": "Worn tires",
+      "clues": "The penny test is close.",
+      "against": ""
+     },
+     {
+      "name": "Speed too high for conditions",
+      "clues": "It happens when braking from higher speeds.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Do the penny test on each tire."
+     ],
+     "shop": [
+      "Brake and ABS check if it happens on dry roads"
+     ]
+    }
+   }
+  },
+  "r_traction": {
+   "result": {
+    "title": "Tires, traction control or a heavy foot may be letting the wheels spin or the rear slide",
+    "urgency": "check",
+    "now": "Make sure traction and stability control are on (no OFF light) and check the tire pressures. Speed up and turn more gently on slippery roads, and book a tire and alignment check.",
+    "if": [
+     "If the rear tires are much more worn than the fronts, replace them soon. Worn rear tires make the back end slide.",
+     "If the car wanders or pulls even on dry roads, have the steering and suspension checked soon.",
+     "If the traction control light stays on, it may be off because of a fault. Have it checked."
+    ],
+    "why": "Wheelspin and a sliding rear end usually come from too much gas for the grip available, tires that don't match or are worn, or traction control that's switched off. Worn suspension or bad alignment can make it worse.",
+    "causes": [
+     {
+      "name": "Traction or stability control off",
+      "clues": "An OFF light on the dash.",
+      "against": ""
+     },
+     {
+      "name": "Worn or mismatched tires",
+      "clues": "The rear tires are more worn, or the tires are different brands or sizes.",
+      "against": ""
+     },
+     {
+      "name": "Too much gas on slippery roads",
+      "clues": "It happens when pulling away or speeding up in turns.",
+      "against": ""
+     },
+     {
+      "name": "Worn suspension or bad alignment",
+      "clues": "The car wanders, or the tires wear unevenly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for an OFF light.",
+      "Compare the tread on the front and rear tires."
+     ],
+     "shop": [
+      "Tire and alignment check",
+      "Suspension inspection",
+      "Stability control code scan"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "Have the tires, brakes and traction systems checked",
+    "urgency": "soon",
+    "now": "Have the tires, alignment and brakes checked within the next few days. Until then, slow down on wet or slippery roads and leave extra space.",
+    "if": [
+     "If any warning light comes on, or the brakes feel different, get it checked sooner.",
+     "If a tire looks low or damaged, don't drive on it."
+    ],
+    "why": "A car that slides more than it should usually has a tire problem, is going too fast for the conditions, or has an anti-lock brake or traction control fault. A shop can check all three quickly.",
+    "causes": [
+     {
+      "name": "Tires",
+      "clues": "Low tread, low pressure or old tires.",
+      "against": ""
+     },
+     {
+      "name": "Speed for the conditions",
+      "clues": "It happens in rain, snow or on curves.",
+      "against": ""
+     },
+     {
+      "name": "ABS or traction control fault",
+      "clues": "A warning light is on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Do the penny test and check the pressures."
+     ],
+     "shop": [
+      "Tire and alignment check",
+      "Brake inspection",
+      "ABS and stability control code scan"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "tire-pressure-light-on",
+  "uneven-tire-wear",
+  "abs-light-on",
+  "traction-control-light-on",
+  "tire-keeps-losing-air"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "skid",
+   "hydroplan",
+   "traction control",
+   "stability control",
+   "wheel spin",
+   "loss of traction"
+  ]
+ },
+ "sources": [
+  "https://nhtsa.gov/winter-driving-tips",
+  "https://dmv.ri.gov/node/1241",
+  "https://dds.georgia.gov/node/34306"
+ ],
+ "roadside": [
+  "skid-or-hydroplane"
+ ]
+}

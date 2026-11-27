@@ -1,0 +1,461 @@
+{
+ "id": "hood-or-door-opened-while-driving",
+ "title": "Hood or door opened while driving",
+ "h1": "My hood or door opened while I was driving. What do I do?",
+ "metaDesc": "Hood flew up or a door opened while driving? See what to do right away, how to check the latch, and when not to drive the car until it's fixed.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "hood flew up while driving",
+  "hood popped up while driving",
+  "hood opened while driving",
+  "hood flew open on the highway",
+  "hood came up and blocked windshield",
+  "car door opened while driving",
+  "door flew open while driving",
+  "hood ajar warning while driving",
+  "hood open light came on while driving",
+  "trunk opened while driving",
+  "hood wont latch",
+  "hood wont stay closed",
+  "hood latch broken"
+ ],
+ "intro": "If your hood flies up and blocks your view, don't slam the brakes. Turn on your hazard lights, look through the gap at the bottom of the windshield or out your side window, slow down and steer to the side of the road. Once you're stopped, this guide helps you work out what to do next.",
+ "safety": [
+  "If the hood flies up, don't brake hard. Turn on your hazard lights, look through the gap at the bottom of the windshield or out your side window, and steer gently to the side of the road.",
+  "If the hood is bent, the windshield is cracked, or you can't see well, don't drive on. Call for help.",
+  "If anyone fell out of the car or is hurt, call 911."
+ ],
+ "start": "q_what",
+ "nodes": {
+  "q_what": {
+   "q": "What opened?",
+   "opts": [
+    {
+     "a": "The hood, and it's bent, stuck up, or the windshield is damaged",
+     "go": "r_hood_damaged"
+    },
+    {
+     "a": "The hood popped up a little, or a hood-open warning came on",
+     "go": "q_hood_close"
+    },
+    {
+     "a": "A door",
+     "go": "q_door"
+    },
+    {
+     "a": "The trunk or rear hatch",
+     "go": "r_trunk"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_hood_close": {
+   "q": "Once you're safely stopped, press the hood down firmly until it clicks. Does it stay shut when you try to lift the front edge?",
+   "help": "Most hoods have a main latch and a second safety catch. When both are closed, the front edge shouldn't move when you pull up on it.",
+   "opts": [
+    {
+     "a": "Yes, it latches and doesn't lift",
+     "go": "r_hood_latched"
+    },
+    {
+     "a": "No, it won't latch or it pops back up",
+     "go": "r_hood_wont_latch"
+    },
+    {
+     "a": "It latches, but the hood-open warning stays on",
+     "go": "r_hood_switch"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_hood_wont_latch"
+    }
+   ]
+  },
+  "q_door": {
+   "q": "Close the door firmly, then pull on it from outside. Does it stay latched?",
+   "opts": [
+    {
+     "a": "Yes, it latches and holds",
+     "go": "r_door_latched"
+    },
+    {
+     "a": "No, it won't stay latched",
+     "go": "r_door_wont_latch"
+    },
+    {
+     "a": "It held fine. A child or passenger opened a rear door",
+     "go": "r_child_door"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_door_wont_latch"
+    }
+   ]
+  },
+  "r_hood_damaged": {
+   "result": {
+    "title": "A bent hood or damaged windshield can block your view. Don't drive on",
+    "urgency": "stop",
+    "now": "Don't drive it. Stay off the road with your hazard lights on and call roadside assistance for a tow.",
+    "if": [
+     "If you're safely off the road, stay in the car with your seat belt on while you wait.",
+     "If you're stuck in a traffic lane, get out on the side away from traffic, wait well away from the road, and call 911."
+    ],
+    "why": "Mazda's owner's manual warns that a hood that isn't latched can fly open while the car is moving and block the driver's view. Once it has flown up, the hood, its hinges or the windshield are often bent or cracked, and it may not close or stay closed.",
+    "causes": [
+     {
+      "name": "Hood bent by the wind",
+      "clues": "The hood is folded or won't come down.",
+      "against": ""
+     },
+     {
+      "name": "Bent hinges",
+      "clues": "The hood sits crooked or won't line up.",
+      "against": ""
+     },
+     {
+      "name": "Cracked windshield",
+      "clues": "The hood hit the glass when it flew up.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Hood, hinge and latch repair",
+      "Windshield inspection"
+     ]
+    }
+   }
+  },
+  "r_hood_latched": {
+   "result": {
+    "title": "The hood is shut now, but the latch needs checking",
+    "urgency": "soon",
+    "now": "Have the hood latch checked within the next few days. Before every drive until then, lift the front edge of the hood to make sure it's locked.",
+    "if": [
+     "If it pops up again, stop and don't drive until it's repaired.",
+     "If the hood is bent or the windshield is cracked, have them looked at before driving far."
+    ],
+    "why": "A hood usually opens because it wasn't fully shut after someone checked the oil or fluids, or because the latch is sticky, rusty or out of line. Mazda's owner's manual says to check the hood is closed and firmly locked before driving. If it opened once, it can do it again.",
+    "causes": [
+     {
+      "name": "Not fully closed after service",
+      "clues": "The hood was opened recently for oil, fluids or a jump start.",
+      "against": ""
+     },
+     {
+      "name": "Sticky or rusty latch",
+      "clues": "The latch is dirty, or the hood has to be slammed to close.",
+      "against": ""
+     },
+     {
+      "name": "Latch or striker out of line after a bump",
+      "clues": "The hood sits uneven.",
+      "against": ""
+     },
+     {
+      "name": "Stuck release cable",
+      "clues": "The hood release handle feels loose or stays pulled.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Lift the front edge to check both catches.",
+      "Think back: was the hood opened recently?",
+      "Check for open recalls with your VIN on NHTSA's recall lookup."
+     ],
+     "shop": [
+      "Hood latch and safety catch inspection",
+      "Latch cleaning and lubrication",
+      "Release cable and alignment check"
+     ]
+    }
+   }
+  },
+  "r_hood_wont_latch": {
+   "result": {
+    "title": "The hood won't stay latched. Don't drive until it's fixed",
+    "urgency": "stop",
+    "now": "Don't drive with the hood unlatched. Have a mobile mechanic come to you, or have the car towed.",
+    "if": [
+     "If the hood flew up and hit the windshield, check for cracks before anyone drives it."
+    ],
+    "why": "A hood that won't latch can fly up at speed and block your view. The latch, the safety catch or the release cable may be broken, or the hood may be bent from flying up.",
+    "causes": [
+     {
+      "name": "Broken latch or safety catch",
+      "clues": "The hood won't click, or the catch doesn't spring back.",
+      "against": ""
+     },
+     {
+      "name": "Bent hood or striker",
+      "clues": "The hood flew up and now sits out of line.",
+      "against": ""
+     },
+     {
+      "name": "Stuck release cable",
+      "clues": "The release handle inside the car stays pulled out.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check that the hood release handle inside the car isn't stuck pulled out."
+     ],
+     "shop": [
+      "Hood latch and safety catch repair",
+      "Hood alignment",
+      "Release cable check"
+     ]
+    }
+   }
+  },
+  "r_hood_switch": {
+   "result": {
+    "title": "The hood warning stays on. Have the latch and switch checked before driving",
+    "urgency": "stop",
+    "now": "Don't drive while the hood-open warning is on. Mazda's owner's manual says not to drive with that warning showing. Have a mobile mechanic check the hood latch and its switch where the car is.",
+    "if": [
+     "If you're stuck somewhere unsafe, call roadside assistance."
+    ],
+    "why": "The hood warning comes from a switch in the latch. It may be telling you the latch isn't fully closed, or the switch itself may be faulty. Since you can't be sure which, the safe choice is to have it checked before driving.",
+    "causes": [
+     {
+      "name": "Latch not fully closed",
+      "clues": "Pressing the hood down harder makes the warning go out.",
+      "against": ""
+     },
+     {
+      "name": "Faulty or dirty hood switch",
+      "clues": "The hood is firmly latched and the warning still stays on.",
+      "against": ""
+     },
+     {
+      "name": "Wiring problem",
+      "clues": "The warning comes and goes over bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Press the hood down firmly again and see if the warning goes out."
+     ],
+     "shop": [
+      "Hood latch inspection",
+      "Hood switch test",
+      "Wiring check"
+     ]
+    }
+   }
+  },
+  "r_door_latched": {
+   "result": {
+    "title": "The door is shut now, but have the latch checked",
+    "urgency": "soon",
+    "now": "Have the door latch checked within the next few days. Until then, make sure every door is fully shut before you move, and watch for the door-open warning.",
+    "if": [
+     "If it opens again, don't drive until it's repaired.",
+     "Check for open recalls with your VIN on NHTSA's recall lookup."
+    ],
+    "why": "Doors usually come open because they weren't fully shut, or the inside handle was pulled. A worn latch can also let go over bumps. A quick check can show whether the latch is holding properly.",
+    "causes": [
+     {
+      "name": "Door not fully closed",
+      "clues": "The door-open light was on before it opened.",
+      "against": ""
+     },
+     {
+      "name": "Inside handle pulled",
+      "clues": "A passenger was near the handle.",
+      "against": ""
+     },
+     {
+      "name": "Worn latch",
+      "clues": "It's happened before, or the door doesn't close with a solid click.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Pull on the closed door from outside to check it holds.",
+      "Check for open recalls with your VIN on NHTSA's recall lookup."
+     ],
+     "shop": [
+      "Latch inspection",
+      "Striker adjustment",
+      "Check for door latch recalls"
+     ]
+    }
+   }
+  },
+  "r_door_wont_latch": {
+   "result": {
+    "title": "The door won't stay latched. Don't drive until it's fixed",
+    "urgency": "stop",
+    "now": "Don't drive with that door unable to latch. Have a mobile mechanic or locksmith come to you, or have the car towed.",
+    "if": [
+     "If someone fell out or is hurt, call 911.",
+     "Check for open recalls with your VIN on NHTSA's recall lookup."
+    ],
+    "why": "A door that won't latch can swing open in a turn or a bump, and someone could fall out. The latch, its springs or the striker on the car's body may be broken or bent.",
+    "causes": [
+     {
+      "name": "Broken latch",
+      "clues": "There's no click when the door closes.",
+      "against": ""
+     },
+     {
+      "name": "Bent or loose striker",
+      "clues": "The door sits out of line with the body.",
+      "against": ""
+     },
+     {
+      "name": "Frozen or gummed-up latch",
+      "clues": "It's very cold out.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the striker on the door frame for bending or looseness."
+     ],
+     "shop": [
+      "Latch and striker inspection",
+      "Latch replacement",
+      "Check for door latch recalls"
+     ]
+    }
+   }
+  },
+  "r_child_door": {
+   "result": {
+    "title": "Turn on the rear child safety locks",
+    "urgency": "diy",
+    "now": "Open the rear door and find the child lock switch on the door's back edge. Turn it on so the inside handle can't open the door. Some cars use a button on the driver's door instead.",
+    "if": [
+     "If the door opened without anyone touching the handle, have the latch checked before anyone rides in that seat."
+    ],
+    "why": "Kia's owner's manual says to use the rear child safety locks whenever children ride in the car, because a child who opens a rear door while the car is moving could fall out and be badly hurt. With the lock on, the door still opens from outside.",
+    "causes": [
+     {
+      "name": "Child pulled the inside handle",
+      "clues": "A child was sitting next to that door.",
+      "against": ""
+     },
+     {
+      "name": "Child lock was off",
+      "clues": "The switch on the door edge is set to unlock.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the child lock switch on both rear doors."
+     ],
+     "shop": [
+      "Latch inspection if the door opened on its own"
+     ]
+    }
+   }
+  },
+  "r_trunk": {
+   "result": {
+    "title": "The trunk or hatch may not have latched",
+    "urgency": "soon",
+    "now": "Pull over when it's safe and close it firmly. Then have the latch checked within the next few days.",
+    "if": [
+     "If it won't stay shut, don't drive with it open. Exhaust fumes can be pulled into the car through an open trunk or hatch, and things can fall out.",
+     "If it opens on its own, check that the key fob's trunk button isn't being pressed in a pocket or bag."
+    ],
+    "why": "A trunk or hatch usually opens because it wasn't fully closed, the release was pressed by accident, or the latch is worn or its switch is faulty.",
+    "causes": [
+     {
+      "name": "Not fully closed",
+      "clues": "It was closed gently, or something was in the way.",
+      "against": ""
+     },
+     {
+      "name": "Release pressed by accident",
+      "clues": "The key fob was in a pocket or bag.",
+      "against": ""
+     },
+     {
+      "name": "Worn latch or release",
+      "clues": "It keeps happening.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Close it firmly and pull up on it to check it holds."
+     ],
+     "shop": [
+      "Trunk latch inspection",
+      "Release switch check"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Check every latch before you drive on",
+    "urgency": "soon",
+    "now": "Pull over when it's safe and check that the hood, every door and the trunk are firmly shut. Then have the latch that opened checked within the next few days.",
+    "if": [
+     "If anything won't stay latched, don't drive until it's fixed.",
+     "If anyone is hurt, call 911."
+    ],
+    "why": "Hoods, doors and trunks each have latches that can wear out or be left not quite closed. Checking each one before you drive on is the quickest way to stay safe.",
+    "causes": [
+     {
+      "name": "Not fully closed",
+      "clues": "It was closed gently, or recently opened.",
+      "against": ""
+     },
+     {
+      "name": "Worn latch",
+      "clues": "It's happened before.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Lift the hood's front edge, pull on each door, and lift the trunk lid to check they hold."
+     ],
+     "shop": [
+      "Latch inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "door-wont-latch-or-open",
+  "exhaust-smell-in-cabin"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "hood latch",
+   "hood opened",
+   "hood flew",
+   "door opened",
+   "door latch",
+   "trunk latch",
+   "hood release"
+  ]
+ },
+ "sources": [
+  "https://www.oregon.gov/odot/dmv/pages/online_parent_guide_to_teen_driving/09_emergencies.aspx",
+  "https://www.mazdausa.com/static/manuals/2023/cx-50/contents/07030203.html",
+  "https://ownersmanual.kia.com/full_webhelp/KA4/2024/en_US/topics/t00114.html"
+ ]
+}

@@ -1,0 +1,424 @@
+{
+ "id": "seat-belt-wont-latch-or-retract",
+ "title": "Seat belt won't latch or retract",
+ "h1": "Why won't my seat belt latch, lock or go back in?",
+ "metaDesc": "Seat belt won't buckle, won't pull out, won't go back in, or is damaged? See what's likely wrong, whether that seat is safe to use, and what to do next.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "seat belt wont latch",
+  "seatbelt wont buckle",
+  "seat belt wont click",
+  "seat belt buckle broken",
+  "seat belt stuck",
+  "seat belt wont retract",
+  "seatbelt wont go back in",
+  "seat belt wont pull out",
+  "seat belt locked up",
+  "seat belt wont unbuckle",
+  "seatbelt buckle stuck",
+  "seat belt frayed",
+  "seat belt loose and slack",
+  "seat belt retracts slowly",
+  "seatbelt not working"
+ ],
+ "intro": "A seat belt is the most important safety part in the car, and it only protects you if it latches, holds and locks. Many belt problems come from something stuck in the buckle or a belt that's twisted or dirty. Others mean the belt needs repair before anyone rides in that seat, and these questions will help you tell which.",
+ "safety": [
+  "Don't let anyone ride in a seat whose belt won't latch, won't hold or won't lock. Move them to a seat with a working belt.",
+  "If the driver's belt doesn't work, don't drive the car until it's repaired.",
+  "If a belt was worn in a crash, have it inspected before you rely on it, even if it looks fine.",
+  "Don't use clips, belt extenders or other add-ons that didn't come from the car's maker to make a belt work."
+ ],
+ "start": "q_problem",
+ "nodes": {
+  "q_problem": {
+   "q": "What is the belt doing?",
+   "opts": [
+    {
+     "a": "It won't click into the buckle, or it clicks but pulls right back out",
+     "go": "q_buckle"
+    },
+    {
+     "a": "It won't unbuckle: the release button is stuck",
+     "go": "r_wont_release"
+    },
+    {
+     "a": "It won't pull out, or it locks up after a short pull",
+     "go": "q_locked"
+    },
+    {
+     "a": "It won't go back in, or it stays loose and slack",
+     "go": "r_slow_retract"
+    },
+    {
+     "a": "The strap is cut, frayed, burned or damaged",
+     "go": "q_seat"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_buckle": {
+   "q": "Shine a flashlight into the buckle slot. What do you see?",
+   "help": "Coins, food and dried drinks often get stuck in buckles, especially in the back seat.",
+   "opts": [
+    {
+     "a": "Something is inside, like a coin, crumbs or sticky gunk",
+     "go": "r_debris"
+    },
+    {
+     "a": "Nothing I can see, but it still won't latch or won't hold",
+     "go": "q_seat"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_debris"
+    }
+   ]
+  },
+  "q_locked": {
+   "q": "Let the belt go all the way back in slowly. Then, with the car on level ground, pull it out slowly and smoothly. What happens?",
+   "help": "Seat belts are built to lock when you pull fast or when the car is tilted, like when it's parked on a steep hill. A slow, smooth pull usually works.",
+   "opts": [
+    {
+     "a": "It pulls out fine now",
+     "go": "r_normal_lock"
+    },
+    {
+     "a": "It's still locked, even on level ground with a slow pull",
+     "go": "q_seat"
+    },
+    {
+     "a": "It locked during or after a crash",
+     "go": "q_seat"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_seat"
+    }
+   ]
+  },
+  "q_seat": {
+   "q": "Which seat is it?",
+   "opts": [
+    {
+     "a": "The driver's seat",
+     "go": "r_driver_belt"
+    },
+    {
+     "a": "A passenger seat",
+     "go": "r_passenger_belt"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_driver_belt"
+    }
+   ]
+  },
+  "r_debris": {
+   "result": {
+    "title": "Something stuck in the buckle may be stopping it from latching",
+    "urgency": "diy",
+    "now": "With the car parked, shine a light into the buckle and gently remove anything inside with a thin plastic tool, not metal. Don't spray cleaners or oil into it. Then latch it a few times and tug hard to make sure it holds.",
+    "if": [
+     "If it latches but pulls out when you tug, don't use that seat until the buckle is replaced.",
+     "If it still won't latch, don't let anyone ride in that seat until it's repaired.",
+     "If it's the driver's belt and it still won't latch, don't drive the car until it's fixed."
+    ],
+    "why": "The buckle has a small spring-loaded catch inside. Coins, crumbs or a dried spilled drink can stop the catch from grabbing the metal tongue of the belt. Clearing it out often fixes the problem.",
+    "causes": [
+     {
+      "name": "Coin, crumbs or a small object in the buckle",
+      "clues": "You can see something inside, or it's a seat kids use a lot.",
+      "against": ""
+     },
+     {
+      "name": "Dried spilled drink",
+      "clues": "The buckle feels sticky, or the release button is slow to pop back up.",
+      "against": ""
+     },
+     {
+      "name": "Broken buckle",
+      "clues": "The buckle case is cracked, or nothing is inside and it still won't latch.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look inside the buckle with a flashlight.",
+      "After clearing it, latch the belt and pull hard on it to test it."
+     ],
+     "shop": [
+      "Buckle inspection and replacement",
+      "Check for seat belt recalls"
+     ]
+    }
+   }
+  },
+  "r_wont_release": {
+   "result": {
+    "title": "The buckle's release button may be jammed",
+    "urgency": "soon",
+    "now": "Push the metal tongue of the belt a little farther into the buckle, then press the release button firmly while you pull the tongue out. If that doesn't free it, have the buckle repaired within the next few days.",
+    "if": [
+     "If someone can't get out and there's any danger, like smoke or traffic, call 911.",
+     "If you can only free it by forcing it, have the buckle replaced. It may not hold properly in a crash."
+    ],
+    "why": "A buckle that won't let go usually has something sticky or stuck inside, or a worn release part. You need to be able to get out of the belt quickly in an emergency, so get it fixed soon.",
+    "causes": [
+     {
+      "name": "Dried spilled drink or debris in the buckle",
+      "clues": "The button feels sticky or doesn't spring back.",
+      "against": ""
+     },
+     {
+      "name": "Worn or broken release part",
+      "clues": "The button presses in but nothing happens.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look into the buckle with a flashlight for anything stuck inside."
+     ],
+     "shop": [
+      "Buckle inspection and replacement",
+      "Check for seat belt recalls"
+     ]
+    }
+   }
+  },
+  "r_slow_retract": {
+   "result": {
+    "title": "The belt may be twisted or dirty, or the spring that pulls it back may be weak",
+    "urgency": "diy",
+    "now": "Pull the belt all the way out and untwist it. If it's dirty, wipe it with mild soap and warm water only, and let it dry fully before letting it roll back in.",
+    "if": [
+     "If it still stays slack after cleaning, have it checked soon. A belt should pull snug against you on its own.",
+     "If it doesn't lock when you give it a quick, hard tug, don't use that seat until it's checked."
+    ],
+    "why": "A seat belt rolls back in with a spring inside the part it winds into (the retractor). Dirt, a twist, or a belt rubbing on the trim can slow it down. Honda's owner's manual says to clean belts only with mild soap and warm water, because bleach and cleaners can weaken the strap.",
+    "causes": [
+     {
+      "name": "Dirty or sticky strap",
+      "clues": "The belt feels stiff or tacky, or it was recently spilled on.",
+      "against": ""
+     },
+     {
+      "name": "Twisted belt or belt caught on trim",
+      "clues": "You can see a twist, or the belt rubs on a panel as it moves.",
+      "against": ""
+     },
+     {
+      "name": "Weak retractor spring",
+      "clues": "It's clean and straight, and it still won't go back in.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look along the belt's path for a twist or a spot where it rubs.",
+      "Clean it with mild soap and warm water only. No bleach or cleaners."
+     ],
+     "shop": [
+      "Retractor inspection",
+      "Seat belt replacement if the retractor is worn"
+     ]
+    }
+   }
+  },
+  "r_normal_lock": {
+   "result": {
+    "title": "The belt's locking feature probably did its job",
+    "urgency": "diy",
+    "now": "Let the belt go all the way back in, then pull it out slowly. If the car is parked on a steep slope, try again on level ground.",
+    "if": [
+     "If it keeps locking on level ground with a slow pull, have it checked.",
+     "If it never locks, even when you give it a quick, hard tug, don't use that seat until it's checked."
+    ],
+    "why": "Seat belts lock when you pull them quickly or when the car is tilted, so they hold you in a crash. On many cars, pulling the belt all the way out also switches it into a mode for holding a child seat, where it only gets tighter. Letting it go all the way back in turns that mode off.",
+    "causes": [
+     {
+      "name": "Pulled too quickly",
+      "clues": "It locks only when you yank it.",
+      "against": ""
+     },
+     {
+      "name": "Car parked on a slope",
+      "clues": "It works fine once the car is on level ground.",
+      "against": ""
+     },
+     {
+      "name": "Child-seat locking mode turned on",
+      "clues": "It makes a ratcheting sound as it goes in and won't pull back out until it's fully wound in.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Let the belt wind all the way in, then pull it out slowly."
+     ],
+     "shop": [
+      "Retractor inspection if it keeps locking"
+     ]
+    }
+   }
+  },
+  "r_driver_belt": {
+   "result": {
+    "title": "The driver's seat belt isn't working. Don't drive until it's repaired",
+    "urgency": "stop",
+    "now": "Don't drive the car until the driver's belt is repaired. Call a dealer or a shop to arrange the repair, and have the car towed if they can't come to you.",
+    "if": [
+     "If this happened after a crash, a part that tightens the belt in a crash (the pretensioner) may have fired. It has to be replaced, and the airbag system should be checked too.",
+     "Check for open recalls with your VIN on NHTSA's recall lookup. If there's an open recall, the repair may be covered.",
+     "If the airbag light is on, mention it to the shop. It may be the same problem."
+    ],
+    "why": "Your seat belt is the main thing that keeps you in place in a crash. A belt that won't latch, won't hold, won't lock or has a damaged strap may not protect you at all. Honda's owner's manual says to have any belt problem corrected as soon as possible.",
+    "causes": [
+     {
+      "name": "Broken buckle",
+      "clues": "It won't latch, or it lets go when you tug it.",
+      "against": ""
+     },
+     {
+      "name": "Retractor that won't release or won't lock",
+      "clues": "The belt stays locked on level ground, or never locks.",
+      "against": ""
+     },
+     {
+      "name": "Pretensioner fired in a crash",
+      "clues": "The belt locked tight during a crash and stays locked, often with the airbag light on.",
+      "against": ""
+     },
+     {
+      "name": "Damaged strap",
+      "clues": "Cuts, frays, burns or worn spots on the belt.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check for recalls with your VIN.",
+      "Note whether the airbag light is on."
+     ],
+     "shop": [
+      "Seat belt buckle, retractor and anchor inspection",
+      "Airbag (SRS) system scan for pretensioner faults",
+      "Belt replacement with the correct part"
+     ]
+    }
+   }
+  },
+  "r_passenger_belt": {
+   "result": {
+    "title": "This seat belt isn't working. Don't let anyone sit there until it's repaired",
+    "urgency": "soon",
+    "now": "Keep that seat empty and have the belt repaired within the next few days. Move passengers to seats with working belts.",
+    "if": [
+     "If you don't have enough working belts for everyone, don't take the extra passengers.",
+     "If this happened after a crash, a part that tightens the belt in a crash (the pretensioner) may have fired. It has to be replaced, and the airbag system should be checked too.",
+     "Check for open recalls with your VIN on NHTSA's recall lookup. If there's an open recall, the repair may be covered."
+    ],
+    "why": "A belt that won't latch, won't hold, won't lock or has a damaged strap may not protect the person in that seat. The car itself can still be driven, but that seat shouldn't be used until the belt is fixed.",
+    "causes": [
+     {
+      "name": "Broken buckle",
+      "clues": "It won't latch, or it lets go when you tug it.",
+      "against": ""
+     },
+     {
+      "name": "Retractor that won't release or won't lock",
+      "clues": "The belt stays locked on level ground, or never locks.",
+      "against": ""
+     },
+     {
+      "name": "Pretensioner fired in a crash",
+      "clues": "The belt locked tight during a crash and stays locked.",
+      "against": ""
+     },
+     {
+      "name": "Damaged strap",
+      "clues": "Cuts, frays, burns or worn spots on the belt.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check for recalls with your VIN.",
+      "Look along the whole strap for damage."
+     ],
+     "shop": [
+      "Seat belt buckle, retractor and anchor inspection",
+      "Airbag (SRS) system scan if the airbag light is on",
+      "Belt replacement with the correct part"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Test the belt before anyone relies on it",
+    "urgency": "soon",
+    "now": "With the car parked on level ground, test the belt: buckle it and tug hard, pull it out slowly, give it a quick hard tug to see that it locks, and let it roll back in. If any test fails, don't use that seat until it's repaired.",
+    "if": [
+     "If it's the driver's belt and any test fails, don't drive the car until it's fixed.",
+     "If the strap is cut, frayed or burned, have the belt replaced.",
+     "If this happened after a crash, a part that tightens the belt in a crash (the pretensioner) may have fired. It has to be replaced, and the airbag system should be checked too."
+    ],
+    "why": "A working belt latches firmly, pulls out smoothly, locks when tugged hard, and rolls back in on its own. Those four checks tell you whether it's a small problem or one that needs a repair before the seat is used.",
+    "causes": [
+     {
+      "name": "Something in the buckle",
+      "clues": "It won't latch.",
+      "against": ""
+     },
+     {
+      "name": "Dirty or twisted strap",
+      "clues": "It's slow to go back in.",
+      "against": ""
+     },
+     {
+      "name": "Worn buckle or retractor",
+      "clues": "It fails a test even after cleaning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Do the four checks: latch and tug, slow pull, quick tug, and roll back in."
+     ],
+     "shop": [
+      "Seat belt inspection",
+      "Check for seat belt recalls"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "airbag-light-on",
+  "door-wont-latch-or-open"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Warning Lights"
+  ],
+  "words": [
+   "seat belt",
+   "seatbelt",
+   "buckle",
+   "retractor",
+   "pretensioner",
+   "belt latch"
+  ]
+ },
+ "sources": [
+  "https://techinfo.honda.com/rjanisis/pubs/OM/AH/AT202222IOM/enu/details/131229047-2591.html",
+  "https://dmv.ny.gov/brochure/new-york-state-vehicle-safetyemissions-inspection-program",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

@@ -1,0 +1,402 @@
+{
+ "id": "wrong-fuel",
+ "title": "Put the wrong fuel in",
+ "h1": "I put the wrong fuel in my car. What do I do?",
+ "metaDesc": "Put diesel in a gas car, gas in a diesel, or the wrong octane? See whether to start the engine, how urgent it is, and what a shop will do.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "put diesel in my gas car",
+  "put gas in my diesel",
+  "wrong fuel",
+  "wrong gas",
+  "misfueled",
+  "put diesel in car by mistake",
+  "pumped diesel by accident",
+  "put e85 in my car",
+  "put regular instead of premium",
+  "put premium in my car",
+  "wrong octane",
+  "filled up with the wrong fuel",
+  "car running bad after getting gas",
+  "diesel in petrol car"
+ ],
+ "intro": "Putting the wrong fuel in is a common mistake, and what to do next depends on which fuel went in and whether you've started the engine. Diesel in a gas car, or gas in a diesel, can badly damage the engine if you run it. A lower octane than your car calls for is usually much less serious.",
+ "safety": [
+  "If you put diesel in a gas car or gas in a diesel, don't start the engine. If you haven't turned the key or pressed Start yet, leave it off.",
+  "If fuel spilled on you, the car or the ground, keep away from sparks and flames, and don't smoke.",
+  "If the car sputters, smokes or loses power after filling up, pull over when it's safe and turn the engine off."
+ ],
+ "start": "q_what",
+ "nodes": {
+  "q_what": {
+   "q": "What went into the tank?",
+   "help": "Your receipt usually shows the fuel type and grade. Your fuel door, gas cap or owner's manual shows what your car needs.",
+   "opts": [
+    {
+     "a": "Diesel in a gasoline car",
+     "go": "q_diesel_started"
+    },
+    {
+     "a": "Gasoline in a diesel car or truck",
+     "go": "q_gas_started"
+    },
+    {
+     "a": "Regular (lower octane) in a car that needs premium",
+     "go": "r_low_octane"
+    },
+    {
+     "a": "Premium in a car that only needs regular",
+     "go": "r_premium"
+    },
+    {
+     "a": "E85 or 'Flex Fuel' in a car that isn't flex-fuel",
+     "go": "r_e85"
+    },
+    {
+     "a": "I'm not sure what went in",
+     "go": "r_unknown"
+    }
+   ]
+  },
+  "q_diesel_started": {
+   "q": "Has the engine been started since you filled up?",
+   "opts": [
+    {
+     "a": "No, it hasn't been started",
+     "go": "r_diesel_not_started"
+    },
+    {
+     "a": "Yes, I started it or drove it",
+     "go": "r_diesel_started"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_diesel_started"
+    }
+   ]
+  },
+  "q_gas_started": {
+   "q": "Has the engine been started since you filled up?",
+   "opts": [
+    {
+     "a": "No, it hasn't been started",
+     "go": "r_gas_not_started"
+    },
+    {
+     "a": "Yes, I started it or drove it",
+     "go": "r_gas_started"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_gas_started"
+    }
+   ]
+  },
+  "r_diesel_not_started": {
+   "result": {
+    "title": "Diesel in a gas car: don't start it. The tank needs to be drained",
+    "urgency": "stop",
+    "now": "Don't start the engine. Tell the station staff, then have the car towed to a shop that can drain the fuel tank. If it has to be moved away from the pump, push it with help instead of starting it.",
+    "if": [
+     "If you only added a little before you noticed, still don't start it. Let the shop decide whether draining is needed.",
+     "Keep your receipt. It shows what was pumped and how much."
+    ],
+    "why": "Gas engines can't burn diesel properly. Diesel is thick and oily, so it can clog the fuel system and foul the spark plugs. Ford's advice is not to start the engine at all with the wrong fuel in the tank. If the engine hasn't run, the fix is usually draining the tank and refilling with the right fuel.",
+    "causes": [
+     {
+      "name": "Diesel in the fuel tank",
+      "clues": "Your receipt or the pump says diesel.",
+      "against": ""
+     },
+     {
+      "name": "Diesel already in the fuel lines",
+      "clues": "The key was turned to ON, which can run the fuel pump for a moment.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your receipt for the fuel type and amount."
+     ],
+     "shop": [
+      "Drain the fuel tank",
+      "Flush the fuel lines",
+      "Refill with the correct fuel"
+     ]
+    }
+   }
+  },
+  "r_diesel_started": {
+   "result": {
+    "title": "Diesel in a gas car after starting: turn it off and have it towed",
+    "urgency": "stop",
+    "now": "Pull over when it's safe, turn off the engine and don't restart it. Have the car towed to a shop that can drain and flush the fuel system.",
+    "if": [
+     "If the check engine light is flashing or there's thick smoke from the exhaust, tell the shop. The catalytic converter in the exhaust may need to be checked.",
+     "If you smell fuel or see a leak, keep away from sparks and flames."
+    ],
+    "why": "Once diesel reaches the engine, it doesn't burn cleanly. That causes heavy smoke, misfires and stalling, and it can damage the catalytic converter. The less the engine runs on it, the less damage it's likely to do.",
+    "causes": [
+     {
+      "name": "Diesel in the tank and fuel lines",
+      "clues": "The engine ran rough, smoked or stalled soon after filling up.",
+      "against": ""
+     },
+     {
+      "name": "Fouled spark plugs",
+      "clues": "The engine misfires or won't restart.",
+      "against": ""
+     },
+     {
+      "name": "Overheated catalytic converter",
+      "clues": "A flashing check engine light, or a hot, burning smell from under the car.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Keep your receipt and note how far the car went after filling up."
+     ],
+     "shop": [
+      "Drain the tank and flush the fuel lines",
+      "Replace the fuel filter if the car has one",
+      "Check the spark plugs and catalytic converter",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_gas_not_started": {
+   "result": {
+    "title": "Gas in a diesel: don't start it. The tank needs to be drained",
+    "urgency": "stop",
+    "now": "Don't start the engine. Tell the station staff, then have the vehicle towed to a shop that can drain the tank, ideally one that works on diesels.",
+    "if": [
+     "If you only added a little before you noticed, still don't start it. Let the shop decide whether draining is needed.",
+     "Keep your receipt. It shows what was pumped and how much."
+    ],
+    "why": "Diesel fuel also oils the high-pressure fuel pump. Gasoline thins it out and can make the pump wear quickly, and on modern diesels a damaged pump can send metal bits through the whole fuel system, which is a much bigger repair. If the engine hasn't run, draining the tank usually prevents that.",
+    "causes": [
+     {
+      "name": "Gasoline in the fuel tank",
+      "clues": "Your receipt or the pump says gasoline or unleaded.",
+      "against": ""
+     },
+     {
+      "name": "Gasoline already in the fuel lines",
+      "clues": "The key was turned to ON, which can run the fuel pump for a moment.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your receipt for the fuel type and amount."
+     ],
+     "shop": [
+      "Drain the fuel tank",
+      "Flush the fuel lines and replace the fuel filter",
+      "Refill with diesel"
+     ]
+    }
+   }
+  },
+  "r_gas_started": {
+   "result": {
+    "title": "Gas in a diesel after starting: turn it off and have it towed",
+    "urgency": "stop",
+    "now": "Pull over when it's safe, turn off the engine and don't restart it. Have the vehicle towed to a shop that works on diesels.",
+    "if": [
+     "If the engine knocked, lost power or stalled, tell the shop. The fuel pump and injectors may need to be checked.",
+     "If you smell fuel or see a leak, keep away from sparks and flames."
+    ],
+    "why": "Running a diesel on gasoline takes away the oiling the fuel pump needs and can cause knocking. The longer it runs, the more likely the pump and injectors are to be damaged. Turning it off quickly limits the damage.",
+    "causes": [
+     {
+      "name": "Gasoline in the tank and fuel lines",
+      "clues": "The engine knocked, lost power or ran rough after filling up.",
+      "against": ""
+     },
+     {
+      "name": "Fuel pump wear",
+      "clues": "The engine struggled or stalled.",
+      "against": ""
+     },
+     {
+      "name": "Injector damage",
+      "clues": "Rough running or smoke that doesn't go away.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Keep your receipt and note how far the vehicle went after filling up."
+     ],
+     "shop": [
+      "Drain the tank and flush the fuel lines",
+      "Replace the fuel filter",
+      "Check the high-pressure fuel pump and injectors",
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_low_octane": {
+   "result": {
+    "title": "Lower octane than your car calls for is usually not an emergency",
+    "urgency": "check",
+    "now": "Go easy on the gas: avoid hard acceleration, towing and heavy loads until you've used most of the tank. Then fill up with the grade your owner's manual or fuel door lists.",
+    "if": [
+     "If the engine knocks, pings or rattles when you speed up, ease off the gas. If it keeps knocking, stop driving and have it checked.",
+     "If the check engine light comes on, have the code read."
+    ],
+    "why": "Many engines that need premium can adjust themselves to protect against knocking when the octane is lower, so you may only notice a little less power or worse mileage. Hard acceleration and heavy loads make knocking more likely. Your owner's manual says whether premium is required or only recommended.",
+    "causes": [
+     {
+      "name": "Engine adjusting for lower octane",
+      "clues": "A little less power or slightly worse mileage.",
+      "against": ""
+     },
+     {
+      "name": "Knocking from low octane",
+      "clues": "A pinging or rattling sound when you speed up or climb hills.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your owner's manual for whether premium is required or recommended.",
+      "Listen for pinging when you speed up."
+     ],
+     "shop": [
+      "Code scan if a warning light comes on",
+      "Knock sensor check if pinging continues"
+     ]
+    }
+   }
+  },
+  "r_premium": {
+   "result": {
+    "title": "Premium in a car that takes regular won't hurt it",
+    "urgency": "diy",
+    "now": "Nothing needs to be done for the engine. Next time, use the grade your owner's manual lists.",
+    "if": [
+     "If you notice a warning light or the car runs badly, the premium fuel isn't the cause. Use the guide that matches what you're seeing."
+    ],
+    "why": "Higher octane fuel only resists knocking. An engine built for regular won't gain anything from it, but it won't be harmed either.",
+    "causes": [
+     {
+      "name": "Higher octane than needed",
+      "clues": "Your receipt shows premium, or 91 or 93 octane.",
+      "against": ""
+     },
+     {
+      "name": "A separate running problem",
+      "clues": "If the car runs badly, something else is likely going on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your owner's manual for the right grade."
+     ],
+     "shop": [
+      "Code scan only if a warning light comes on"
+     ]
+    }
+   }
+  },
+  "r_e85": {
+   "result": {
+    "title": "E85 in a car that isn't built for it can make it run poorly",
+    "urgency": "soon",
+    "now": "Check your fuel door, gas cap and owner's manual for 'E85' or 'Flex Fuel'. If your car isn't flex-fuel, don't run the tank down. Ask a shop within the next few days whether to drain it or mix it with regular gasoline, based on how much E85 went in.",
+    "if": [
+     "If your car turns out to be flex-fuel, E85 is fine and nothing needs to be done.",
+     "If the engine stumbles, stalls or the check engine light flashes, pull over when it's safe, turn the engine off and have it checked."
+    ],
+    "why": "E85 has much more alcohol than regular gas. A car that isn't built for it can run lean, hesitate, stall or turn on the check engine light, and over time the alcohol can harm fuel system parts that aren't made for it. Flex-fuel cars usually say so on the fuel door, gas cap or a badge.",
+    "causes": [
+     {
+      "name": "E85 mixed in the tank",
+      "clues": "A check engine light, hesitation or rough running after filling up.",
+      "against": ""
+     },
+     {
+      "name": "The car is actually flex-fuel",
+      "clues": "A Flex Fuel or E85 badge, or a yellow gas cap or ring.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for a Flex Fuel or E85 label on the fuel door, gas cap or owner's manual.",
+      "Keep your receipt to show how much E85 went in."
+     ],
+     "shop": [
+      "Code scan",
+      "Fuel ethanol content test",
+      "Drain the tank if a lot of E85 went in"
+     ]
+    }
+   }
+  },
+  "r_unknown": {
+   "result": {
+    "title": "If you're not sure what went in, don't start it until you know",
+    "urgency": "stop",
+    "now": "Don't start the engine yet. Check your receipt and the pump you used. If it was diesel in a gas car or gas in a diesel, have the car towed instead of starting it.",
+    "if": [
+     "If the receipt shows the right fuel type and grade, the fill-up is fine.",
+     "If you've already started it and it runs rough, smokes or stalls, turn the engine off and have it towed."
+    ],
+    "why": "Diesel and gasoline mix-ups can cause serious damage once the engine runs, while most octane mix-ups don't. Taking a minute to check the receipt before starting can save a large repair.",
+    "causes": [
+     {
+      "name": "Wrong type of fuel",
+      "clues": "The pump handle or receipt says diesel in a gas car, or gas in a diesel.",
+      "against": ""
+     },
+     {
+      "name": "Wrong grade of gasoline",
+      "clues": "The receipt shows a different octane than your car calls for.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your receipt and the label on the pump you used."
+     ],
+     "shop": [
+      "Fuel sample check",
+      "Drain the tank if the wrong fuel type went in"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "engine-sputtering-misfire",
+  "check-engine-light-flashing",
+  "engine-knocking",
+  "black-smoke-from-exhaust",
+  "car-wont-start"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Starting Problems"
+  ],
+  "words": [
+   "wrong fuel",
+   "misfuel",
+   "diesel",
+   "e85",
+   "octane",
+   "fuel contamination"
+  ]
+ },
+ "sources": [
+  "https://www.ford.co.uk/owner/resources-and-support/ask-ford/technical-and-maintenance/maintenance/incorrect-fuel-used-in-vehicle"
+ ]
+}
