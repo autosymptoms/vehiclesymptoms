@@ -339,9 +339,8 @@ const PAGEHASH={};
 function clip(text,max=160){text=String(text).replace(/\s+/g,' ').trim();if(text.length<=max)return text;const cut=text.slice(0,max+1);
   const end=Math.max(cut.lastIndexOf('. '),cut.lastIndexOf('? '),cut.lastIndexOf('! '));if(end>max*0.55)return cut.slice(0,end+1);
   return cut.slice(0,cut.lastIndexOf(' ')).replace(/[\s,;:–—-]+$/,'')+'…';}
-// The full homepage block ships only on "/". Other pages get a bare, hidden stub with the element ids app.js
-// still looks up when it starts (T-11): no text, headings or links. Remove the stub once app.js checks for missing elements.
-const HOMESTUB='<div id="homeView" hidden style="display:none"><form id="pickForm"><select id="pickYear"></select><select id="pickMake"></select><select id="pickModel"></select><button id="pickGo" type="submit" tabindex="-1"></button></form><div id="mgrid"></div><form id="vinForm"><input id="vinInput" tabindex="-1"></form><div id="vinOut"></div></div>';
+// The full homepage block ships only on "/" (T-11). app.js checks for each homepage element, so other pages get nothing.
+const HOMESTUB='';
 const BRAND=' | VehicleSymptoms.com';
 // T-13: titles over 70 characters drop the brand suffix; descriptions are cut at 155 characters.
 const fitTitle=t=>t.length>70&&t.endsWith(BRAND)?t.slice(0,-BRAND.length):t;

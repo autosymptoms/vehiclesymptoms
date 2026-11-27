@@ -510,13 +510,16 @@ showMy();
 
 // Code lookup hub search
 (function(){const f=document.getElementById('codeForm');if(!f||!window.CODE_INDEX)return;const qi=document.getElementById('codeQ'),out=document.getElementById('codeRes');
+  const MFR=/^(?:P1|P3[0-3]|[BCU][1-3])/i,MFRLINE='This code is in a range set by the carmaker, so its meaning depends on your make. A shop or dealer scanner can read the exact description.';
   const run=q=>{q=q.trim();if(!q){out.innerHTML='';return}let Q=q.toUpperCase().replace(/\s+/g,'');if(/^[0-3][0-9A-F]{3}$/.test(Q))Q='P'+Q;// "0442" means P0442
     const exact=CODE_INDEX.find(c=>c[0]===Q);if(exact){location.href='/codes/'+exact[0].toLowerCase()+'/';return}
     const words=q.toLowerCase().split(/\s+/).filter(Boolean);
     const hits=CODE_INDEX.filter(c=>c[0].startsWith(Q)||words.every(w=>(c[1]+' '+c[2]).toLowerCase().includes(w))).slice(0,30);
     out.innerHTML=hits.length?hits.map(c=>`<a class="gcard" href="/codes/${c[0].toLowerCase()}/"><b>${c[0]}</b><span>${esc(c[1])}</span></a>`).join(''):(!/^[PBCU][0-3][0-9A-F]{3}$/.test(Q)&&/^[A-Z]?\d/.test(Q)&&Q.length>=5?`<p class="muted">${esc(q)} isn't a valid trouble code. Codes are a letter (P, B, C or U) followed by four characters, like P0420. Check the scanner screen again.</p>`
-      :/^B/.test(Q)?`<p class="muted">We don't have ${esc(q)} yet. B codes are body codes, and many (B00xx) are airbag faults: if the airbag light is on, have it checked right away. <a href="/warning-lights/airbag-light/">Airbag light guide</a>.</p>`
-      :/^[PBCU]1/.test(Q)?`<p class="muted">We don't have ${esc(q)} yet. Codes with a 1 after the letter are set by the carmaker, so their meaning depends on your make. A shop or dealer scanner can read the exact description. Meanwhile, <a href="/symptoms/">start with what the car is doing</a>.</p>`
+      // TC-06: carmaker ranges (P1, P30-P33, B/C/U 1-3) get the carmaker line; C codes always get the brake-safety line.
+      :/^C/.test(Q)?`<p class="muted">We don't have ${esc(q)} yet. C codes are chassis codes, often ABS, traction or steering. If the red brake light is on, the pedal feels wrong or steering is heavy, pull over safely and have it towed. Otherwise normal brakes usually still work; get it checked soon.${MFR.test(Q)?' '+MFRLINE:''} <a href="/warning-lights/abs-light/">ABS light guide</a>.</p>`
+      :/^B/.test(Q)?`<p class="muted">We don't have ${esc(q)} yet. B codes are body codes, and many (B00xx) are airbag faults: if the airbag light is on, have it checked right away.${MFR.test(Q)?' '+MFRLINE:''} <a href="/warning-lights/airbag-light/">Airbag light guide</a>.</p>`
+      :MFR.test(Q)?`<p class="muted">We don't have ${esc(q)} yet. ${MFRLINE} Meanwhile, <a href="/symptoms/">start with what the car is doing</a>.</p>`
       :`<p class="muted">We don't have ${esc(q)} yet. Try the first letters, like P04, or <a href="/symptoms/">start with what the car is doing</a>.</p>`)};
   f.onsubmit=e=>{e.preventDefault();run(qi.value)};qi.oninput=()=>{if(qi.value.trim().length>=2&&!/^[pbcu]\d{4}$/i.test(qi.value.trim()))run(qi.value)};
   const q0=new URLSearchParams(location.search).get('q');if(q0){qi.value=q0;run(q0)}})();

@@ -196,7 +196,7 @@ for(const code of ['p2300','p2335','p06d1']){const h=fs.readFileSync(D('codes/'+
  const home=R('index.html'),code=R('codes/p0300/index.html'),sm=R('sitemap.xml')+['roadside','symptoms','warning-lights','codes','vehicles','pages'].map(n=>R('sitemap-'+n+'.xml')).join('');
  // T-11: the homepage block ships only on the homepage.
  T('T11-HOME','Homepage keeps its search box, FAQ and hero',/id="helpForm"/.test(home)&&/Is it really free\?/.test(home)&&/<h1>What/.test(home));
- T('T11-INNER','Inner pages carry no hidden homepage text, headings or FAQ',!/Is it really free\?|Three steps to a clear answer|id="helpForm"/.test(code)&&/id="homeView" hidden/.test(code));
+ T('T11-INNER','Inner pages carry no hidden homepage text, headings or FAQ',!/Is it really free\?|Three steps to a clear answer|id="helpForm"|id="homeView"|id="pickForm"|id="vinForm"/.test(code));
  // T-24: scripts are deferred.
  T('T24-DEFER','Site scripts load with defer',/<script defer src="\/app\.js">/.test(code)&&/<script defer src="\/vehicles\.js">/.test(code)&&!/<script src="\/app\.js">/.test(code));
  // T-20: font self-hosted.
@@ -255,10 +255,25 @@ for(const code of ['p2300','p2335','p06d1']){const h=fs.readFileSync(D('codes/'+
  const i=p.doc.getElementById('helpInput');i.value='my brakes went out';p.doc.getElementById('helpForm').dispatchEvent(new p.w.Event('submit',{cancelable:true}));await sleep(50);
  const out=p.doc.getElementById('helpResults').textContent;T('SEARCH-HOME','Homepage search answers an emergency with scripts deferred',!err&&out.length>40,err||out.slice(0,100));p.w.close()}
 {const p=load('/codes/p0300/',{});await sleep(200);const errs=p.errors.filter(e=>!/Not implemented/.test(e));
- T('SEARCH-INNER','Inner page scripts start without errors on the homepage stub',!errs.length&&p.doc.getElementById('navMy'),errs.join(' | '));p.w.close()}
+ T('SEARCH-INNER','Inner page scripts start without errors and without the homepage block',!errs.length&&p.doc.getElementById('navMy'),errs.join(' | '));p.w.close()}
 {const p=load('/warning-lights/',{});await sleep(200);const errs=p.errors.filter(e=>!/Not implemented/.test(e));const s=p.doc.getElementById('lsearch');
  s.value='oil';s.dispatchEvent(new p.w.Event('input'));await sleep(20);const shown=[...p.doc.querySelectorAll('#lgrid .lcard')].filter(a=>!a.hidden).length;
  T('SEARCH-LIGHTS','Warning-light hub search runs with deferred scripts',!errs.length&&shown>0&&shown<20,errs.join(' | ')+' shown='+shown);p.w.close()}
+// Inner pages with their own search still work without the homepage block (T-11): symptom hub, a guide, a vehicle page.
+for(const r of ['/symptoms/','/symptoms/brake-lights-not-working/','/vehicles/honda-civic/2012/','/roadside/flat-tire/']){if(!fs.existsSync(D(r+'index.html')))continue;
+ const p=load(r,{});await sleep(250);const errs=p.errors.filter(e=>!/Not implemented/.test(e));
+ T('T11-'+r.replace(/\W+/g,'-').replace(/^-|-$/g,''),r+' starts without errors and has no homepage block',!errs.length&&!p.doc.getElementById('homeView'),errs.join(' | '));p.w.close()}
+// TC-06: code search fallbacks for codes we don't have yet.
+{const msg=async q=>{const p=load('/codes/',{qs:'?q='+q});await sleep(150);const t=(p.doc.getElementById('codeRes')||{}).textContent||'';const errs=p.errors.filter(e=>!/Not implemented/.test(e));p.w.close();return errs.length?'ERR '+errs.join(' | '):t};
+ const known=c=>fs.readFileSync(D('codes/index.html'),'utf8').includes('/codes/'+c.toLowerCase()+'/')||fs.existsSync(D('codes/'+c.toLowerCase()+'/index.html'));
+ const pick=list=>list.find(c=>!known(c));
+ const mfr=[pick(['U3000','U3099','U3FFE']),pick(['P3399','P33FF','P3300']),pick(['U2299','U2FFE','U2220'])].filter(Boolean);
+ const out=[];for(const c of mfr)out.push([c,await msg(c)]);
+ T('TC06-MFR','Carmaker ranges (P30-P33, U2/U3) get the carmaker line',out.length>=2&&out.every(([c,t])=>/range set by the carmaker/.test(t)&&!/Try the first letters/.test(t)),JSON.stringify(out).slice(0,300));
+ const cc=pick(['C1999','C2FFE','C3FFE','C0FFE']);const ct=cc?await msg(cc):'';
+ T('TC06-C','Missing C codes get the brake-safety line',cc&&/C codes are chassis codes/.test(ct)&&/pull over safely and have it towed/.test(ct)&&(!/^C[1-3]/.test(cc)||/set by the carmaker/.test(ct)),cc+': '+ct.slice(0,200));
+ const gp=pick(['P0FFF','P0FFE','P2FFE']);const gt=gp?await msg(gp):'';
+ T('TC06-GEN','Generic missing codes keep the try-the-first-letters line',gp&&/Try the first letters/.test(gt)&&!/carmaker/.test(gt),gp+': '+gt.slice(0,200))}
 
 fs.mkdirSync(path.join(__dirname,'../audit/generated'),{recursive:true});
 fs.writeFileSync(path.join(__dirname,'../audit/generated/regression-results.json'),JSON.stringify({ran:new Date().toISOString(),results},null,1));

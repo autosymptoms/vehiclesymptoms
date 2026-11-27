@@ -87,7 +87,11 @@ const everydayPhrases={
   'brake-warning-light-on':['Emergency brake light on','Handbrake light on','Parking brake light on'],
   'fluid-leak-under-car':['Puddle where I parked','Puddle on my driveway','Puddle in my parking spot'],
   'headlights-dim-or-flickering':['Headlight out','Headlight not working','Headlight burned out'],
-  'electrical-accessories-not-working':['Wipers not working','Windshield wipers stopped','Turn signals not working']
+  'electrical-accessories-not-working':['Turn signals not working'],
+  'wipers-not-working':['Wipers not working','Windshield wipers stopped'],
+  // Nov 27 teen-query re-run: phrases that still matched nothing.
+  'car-wont-stay-in-park':['Car rolling while in park','Car rolling in park','Car rolling backwards'],
+  'light-out':['No headlights at night','Headlights went out while driving']
 };
 // "Won't crank" means the engine doesn't turn over at all: a no-start, not a slow crank.
 everydayPhrases['car-wont-start'].push('Car wont crank','Engine wont crank','Wont turn over','Car wont turn over',
@@ -102,7 +106,7 @@ everydayPhrases['horn-not-working']=['Horn not working','Horn doesnt work','Horn
 // A "check gas cap" or "check fuel cap" message: a loose cap is a common reason for the steady check engine light.
 everydayPhrases['check-engine-light-on']=['Check gas cap','Check fuel cap message','Gas cap light'];
 // Fallbacks while a newer guide doesn't exist yet: the nearest existing guide keeps the phrase from matching nothing.
-const phraseFallback={'tire-blowout-or-flat':'tire-keeps-losing-air','horn-not-working':'electrical-accessories-not-working'};
+const phraseFallback={'tire-blowout-or-flat':'tire-keeps-losing-air','horn-not-working':'electrical-accessories-not-working','wipers-not-working':'electrical-accessories-not-working'};
 let searchIndex;
 function getSearchIndex(){
   if(searchIndex)return searchIndex;
@@ -136,7 +140,8 @@ const SRC={
   kia:['Kia owner’s manual','https://ownersmanual.kia.com/full_webhelp/MQ4KH/2027/en_US/topics/t00435.html'],
   nws:['National Weather Service','https://www.weather.gov/safety/flood-turn-around-dont-drown'],
   nwsDuring:['National Weather Service','https://www.weather.gov/safety/flood-during'],
-  nhtsaWinter:['NHTSA','https://nhtsa.gov/winter-driving-tips']
+  nhtsaWinter:['NHTSA','https://nhtsa.gov/winter-driving-tips'],
+  nyInspect:['New York DMV inspection brochure','https://dmv.ny.gov/brochure/new-york-state-vehicle-safetyemissions-inspection-program']
 };
 const emergencyRules=[
   // RS-01: a suddenly hard pedal means the power assist is gone. Pumping uses up what assist is left: press steadily instead.
@@ -166,11 +171,18 @@ const emergencyRules=[
     skip:/\bbrake lights? (?:are |is )?(?:out|not working|dont work|doesnt work|burnt out|burned out)\b|\b(?:rear|third|tail) brake lights?\b/,
     guides:['brake-warning-light-on','soft-or-spongy-brake-pedal'],
     now:'Release the parking brake first. If the red brake light stays on, don’t drive until it’s checked, even if the pedal feels normal. Low brake fluid can mean a leak and brakes that may not stop the car. If the pedal feels soft or sinks, don’t drive: have it towed.'},
+  // RS-21: the rear brake lamps (not the red dash light). "No brake lights" with another symptom stays a plain search.
+  {id:'brake-lamps',topic:/brake lights?|stop lights?|tail ?lights?/i,
+    rx:/\b(?:brake|stop) ?lights? (?:are |is )?(?:all |both |still )?(?:out|burnt out|burned out|not working|dont work|doesnt work|arent working|isnt working|wont work|wont come on|dont come on|dont turn on|wont turn on|not coming on|not turning on|stopped working)\b|\b(?:rear|third|center|high mount|back) brake lights?\b(?: \w+){0,2} (?:out|not working|dont work|doesnt work|wont come on)\b/,
+    skip:/\b(?:dash|dashboard|cluster|red brake|brake warning)\b/,
+    guides:['brake-lights-not-working','light-out'],src:[SRC.nyInspect],
+    now:'If your rear brake lights are out, drivers behind you can’t see you stop. If none of them work, don’t drive until they’re fixed. If only one is out, check the bulb and fuse soon. Most states require working brake lights.'},
   {id:'accelerator',topic:/idle|rev|accelerat|gas pedal|throttle|cruise/i,drops:['brakes'],page:'brakes-steering-pedal',
-    labels:{'engine-revs-high-at-idle':['Car speeds up on its own or gas pedal stuck','What to check after the car is safely stopped']},
+    labels:{'car-speeds-up-by-itself':['Car speeds up on its own or gas pedal stuck','What to do now, then what to check once you’re stopped'],
+      'engine-revs-high-at-idle':['Engine idles high','What to check after the car is safely stopped']},
     skip:/^(?!.*\b(?:gas|accelerator|throttle)\b).*\b(?:brake|clutch) pedal\b/,
     rx:/\b(?:gas pedal|accelerator|throttle|pedal)\b.*\b(?:stuck|sticking|sticks|jammed|wont come up|wont come back up|wont return|wont close|wont release|stays down|stuck down)\b|\b(?:keeps|kept|still|wont stop) (?:accelerating|speeding up|going faster|revving up)\b|\bfoot (?:is )?off the gas\b.*\b(?:accelerat|speed|faster)|\b(?:stuck|jammed)\b.*\b(?:gas pedal|accelerator|throttle)\b|\b(?:accelerat\w*|speeding up|speeds up|going faster|surging|surges) (?:on its own|by itself|without me|without pressing)|\b(?:wont|cant) (?:slow down|stop accelerating)\b|\bunintended acceleration\b|\b(?:speeding up|speeds up|accelerating|accelerates|going faster|revving)\b.*\bfoot (?:is )?(?:off|not on) the (?:gas|pedal|accelerator)\b|\bfoot (?:is )?(?:off|not on) the (?:gas|pedal|accelerator)\b.*\b(?:speeding up|speeds up|accelerating|accelerates|going faster)\b|\bcruise(?: control)?\b.*\b(?:wont|cant|doesnt|didnt|wouldnt|isnt|not) (?:turn off|turning off|shut off|shutting off|disengage|disengaging|cancel|canceling|cancelling|go off|release|let go|stop|slow down)\b|\bcruise(?: control)? (?:is |got |stays )?(?:stuck|locked|stuck on)\b/,
-    guides:['engine-revs-high-at-idle'],
+    guides:[['car-speeds-up-by-itself','engine-revs-high-at-idle'],'engine-revs-high-at-idle'],
     now:'If the car speeds up on its own or the gas pedal sticks: press the brake firmly and hold it (don’t pump), shift to neutral, and steer to a safe spot. Once stopped, turn the engine off. With a push-button start you may need to hold the button for a few seconds. Check that a floor mat isn’t trapping the pedal, and don’t drive it again until it’s checked.'},
   {id:'fire',topic:/burn|smoke|steam|fire/i,page:'smoke-or-fire',
     rx:/\b(?:on fire|fire|flames?|flaming|caught fire|catching fire|burning up)\b|\bsmok(?:e|es|ing|ey|y)\b/,
@@ -195,7 +207,7 @@ const emergencyRules=[
   {id:'wrong-fuel',topic:/fuel|diesel|gas|sputter|misfire|stall|dies/i,
     rx:/\bdiesel\b.*\b(?:in|into)\b.*\b(?:gas|gasoline|unleaded)\b|\b(?:gas|gasoline|unleaded)\b.*\b(?:in|into)\b.*\bdiesel\b|\b(?:put|putting|filled|fill|filling|pumped|pumping|added|adding|fueled|fuelled)\b(?: \w+){0,3} (?:diesel|the wrong fuel|wrong fuel)\b|\b(?:wrong|incorrect) (?:fuel|kind of fuel|type of fuel|fuel type)\b|\bmisfuel\w*\b/,
     skip:/^(?!.*\bdiesel\b).*\b(?:regular|premium|octane|mid ?grade|plus|87|89|91|93|e15|e85)\b/,
-    guides:['engine-sputtering-misfire','starts-then-dies'],
+    guides:['wrong-fuel','engine-sputtering-misfire'],
     now:'If the wrong type of fuel went in (diesel in a gas car, or gas in a diesel): don’t start the engine. If it’s running, pull over when it’s safe and turn it off. Don’t restart it. Have it towed: the tank will need to be drained.'},
   {id:'cel-flashing',topic:/engine|misfire|shak/i,page:'red-light-on',
     rx:/\b(?:check engine|engine light|engine warning|cel|service engine)\b.*\b(?:flash|flashing|blinking|blink|blinks|flashes)\b|\b(?:flash|flashing|blinking|blink|blinks|flashes)\b.*\b(?:check engine|engine light|engine warning|cel|service engine)\b/,
@@ -206,7 +218,7 @@ const emergencyRules=[
     guides:['oil-pressure-light-on'],
     now:'A red oil light while the engine is running means low oil pressure. Pull over as soon as it’s safe and turn the engine off. Driving on can wreck the engine within minutes.'},
   {id:'overheat',skip:/\btransmission\b|\btrans temp\b/,topic:/overheat|temperature|coolant|steam/i,
-    rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up|flashing|blinking)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b|\b(?:temp|temperature) (?:gauge|needle|light)\b(?: \w+){0,5} (?:red|high|hot|max)\b|\b(?:temp|temperature|gauge|needle)\b.*\b(?:in|into|to|on|at|hit|hits|hitting) the red\b|\b(?:engine )?temp(?:erature)? (?:warning|light)\b|\bsteam\w*\b.*\b(?:hood|bonnet|radiator|engine bay)\b|\b(?:temp|temperature|gauge|needle)\b(?: \w+){0,4} (?:to|on|at|hit|hits|hitting|reads|reading|past|near|by) (?:the )?(?:h|hot)\b|\bboil(?:ing|ed|s)? over\b|\b(?:coolant|radiator|antifreeze)\b.*\bboil\w*|\bboil\w*\b.*\b(?:coolant|radiator|antifreeze)\b|\b(?:temp|temperature)\b(?: \w+){0,2} (?:high|hot|too high|too hot|way up)\b|\bsteam\w*\b.*\b(?:engine|motor|front)\b|^(?:(?:there is|theres|i see|im seeing|seeing|lots of|white) )?steam(?:ing)?(?: (?:coming out|coming from (?:the |my )?car|from (?:the |my )?car|everywhere))?$/,
+    rx:/\b(?:overheat|overheating|overheated|temp(?:erature)? (?:light|warning|gauge)(?: is)? (?:red|high|on|hot|up|flashing|blinking)|(?:steam|smoke) (?:from|under|out of|coming out of) (?:the )?hood|running (?:very |really )?hot)\b|\b(?:temp|temperature) (?:gauge|needle|light)\b(?: \w+){0,5} (?:red|high|hot|max)\b|\b(?:temp|temperature|gauge|needle)\b.*\b(?:in|into|to|on|at|hit|hits|hitting) the red\b|\b(?:engine )?temp(?:erature)? (?:warning|light)\b|\bsteam\w*\b.*\b(?:hood|bonnet|radiator|engine bay)\b|\b(?:temp|temperature|gauge|needle)\b(?: \w+){0,4} (?:to|on|at|hit|hits|hitting|reads|reading|past|near|by) (?:the )?(?:h|hot)\b|\bboil(?:ing|ed|s)? over\b|\b(?:coolant|radiator|antifreeze)\b.*\bboil\w*|\bboil\w*\b.*\b(?:coolant|radiator|antifreeze)\b|\b(?:temp|temperature)\b(?: \w+){0,2} (?:high|hot|too high|too hot|way up)\b|\bsteam\w*\b.*\b(?:engine|motor|front)\b|^(?:my )?(?:car|engine|hood|radiator|truck) (?:is )?steaming$|\b(?:temp|temperature) (?:gauge|needle)\b(?: \w+){0,2} (?:rising|climbing|going up|keeps going up)\b(?! and down)|^(?:(?:there is|theres|i see|im seeing|seeing|lots of|white) )?steam(?:ing)?(?: (?:coming out|coming from (?:the |my )?car|from (?:the |my )?car|everywhere))?$/,
     guides:['engine-overheating','steam-from-under-hood'],
     now:'If the engine is overheating: turn on your hazard lights, pull over when it’s safe and turn the engine off. Never open the radiator or coolant cap while it’s hot. Wait at least 30 minutes. If the steam turns to smoke, treat it as a fire: get everyone out and move well away from the car.'},
   {id:'blowout',topic:/tire|flat/i,

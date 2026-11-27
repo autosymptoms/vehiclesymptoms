@@ -87,9 +87,9 @@ const emergencies=[
   ['my car shakes and the check engine light is flashing','check-engine-light-flashing'],
   ['flashing check engine light and shaking','check-engine-light-flashing'],
   ['my car died on the highway','engine-stalls-while-driving'],['smell exhaust inside the car and have a headache','exhaust-smell-in-cabin'],
-  ['I smell gas','gas-smell'],['engine is overheating','engine-overheating'],['tire blew out',journeys.some(j=>j.id==='tire-blowout-or-flat')?'tire-blowout-or-flat':'tire-keeps-losing-air'],
-  ['P0300 and check engine light flashing','check-engine-light-flashing'],['my gas pedal is stuck','engine-revs-high-at-idle'],
-  ['my car is accelerating on its own','engine-revs-high-at-idle'],['my accelerator is stuck','engine-revs-high-at-idle'],
+  ['I smell gas','gas-smell'],['engine is overheating','engine-overheating'],['tire blew out','tire-blowout-or-flat'],
+  ['P0300 and check engine light flashing','check-engine-light-flashing'],['my gas pedal is stuck','car-speeds-up-by-itself'],
+  ['my car is accelerating on its own','car-speeds-up-by-itself'],['my accelerator is stuck','car-speeds-up-by-itself'],
   ['red oil light and a leak','oil-pressure-light-on'],
   ['breaks dont work','soft-or-spongy-brake-pedal'],['my breaks went out','soft-or-spongy-brake-pedal'],['check engin lite flashin','check-engine-light-flashing'],
   ['overheting','engine-overheating'],['smoke inside the car','burning-smell'],['headache when driving','exhaust-smell-in-cabin'],['dizzy in car','exhaust-smell-in-cabin'],
@@ -189,6 +189,25 @@ for(const [q,id] of [['car wont strat','car-wont-start'],['car turned off at a s
   const r=submit(q);assert.equal(location.href||r.querySelector('.glist a')?.getAttribute('href'),'/symptoms/'+id+'/',q);location.href=''}
 assert.match(submit('my car is shaking really bad').textContent,/When do you feel the shaking\?/);
 {const r=submit('horn not working');assert.doesNotMatch(location.href+hrefs(r).join(' '),/airbag/,'horn is not the airbag light');location.href='';}
+// Nov 27 finish (a15): the new guides are where these phrases land.
+{const land=q=>{const r=submit(q);const to=location.href||r.querySelector('.glist a[href^="/symptoms/"]')?.getAttribute('href');location.href='';return {r,to}};
+ for(const [q,id] of [['car wont stay in park','car-wont-stay-in-park'],['car rolls when parked','car-wont-stay-in-park'],
+   ['horn not working','horn-not-working'],['hit a pothole','after-hitting-pothole'],['wipers not working','wipers-not-working'],
+   ['ev wont charge','ev-wont-charge'],['car keeps beeping','car-keeps-beeping'],['car rolling while in park','car-wont-stay-in-park'],
+   ['car rolling backwards','car-wont-stay-in-park'],['no headlights at night','light-out'],['headlights went out while driving','light-out']])assert.equal(land(q).to,'/symptoms/'+id+'/',q);
+ for(const q of ['temp gauge rising','car is steaming'])assert.match(urgentText(q),/overheating/,q);
+ assert.equal(window.VS_GUIDES.emergency('temp gauge going up and down'),null,'a gauge that moves up and down is the fluctuating-gauge guide');
+ // RS-21: the rear lamps get the "drivers behind can't see you stop" line first, then the brake lights guide (not the red dash light).
+ for(const q of ['brake lights out','brake lights not working']){const t=urgentText(q);assert.match(t,/drivers behind you can’t see you stop/,q);
+   const {r,to}=land(q);assert.equal(to,'/symptoms/brake-lights-not-working/',q);assert.ok(!hrefs(r).includes('/symptoms/brake-warning-light-on/'),q+' is not the dash light')}
+ // Tire emergencies: the blowout guide and the flat-tire roadside page.
+ for(const q of ['tire blew out','flat tire on highway','popped tire']){const {r,to}=land(q);assert.ok(first(r).classList.contains('urgentnow'),q);
+   assert.equal(to,'/symptoms/tire-blowout-or-flat/',q);assert.ok(hrefs(r).includes('/roadside/flat-tire/'),q+' links the flat-tire page')}
+ // RS-16: the stuck-pedal card is the new guide under a title that says what is happening.
+ for(const q of ['my gas pedal is stuck','car speeds up by itself']){const {r,to}=land(q);assert.equal(to,'/symptoms/car-speeds-up-by-itself/',q);
+   assert.match(r.querySelector('.glist a[href^="/symptoms/"] b').textContent,/speeds up on its own or gas pedal stuck/,q);
+   assert.ok(![...r.querySelectorAll('.glist a[href^="/symptoms/engine-revs-high-at-idle/"] b')].some(b=>/speeds up/.test(b.textContent)),q+': the idle guide keeps its own title')}
+ {const t=urgentText('put diesel in my car');assert.match(t,/don’t start the engine/);assert.equal(land('put diesel in my car').to,'/symptoms/wrong-fuel/')}}
 // Analytics: only the outcome type is sent, never the words typed.
 events.length=0;submit('flat tire');submit('purple banana');submit('my car died');location.href='';
 assert.deepEqual(events.filter(e=>e.name==='search_outcome').map(e=>e.type),['urgent','nomatch','question']);
