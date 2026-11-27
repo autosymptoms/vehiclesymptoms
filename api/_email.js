@@ -6,13 +6,13 @@ const SITE = 'https://www.vehiclesymptoms.com';
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 const URG = {
-  stop: { label: "Stop — don't drive it", color: '#D93A3F', tint: '#FDECEC',
+  stop: { label: "Stop — don't drive it", color: '#B4232A', tint: '#FDECEC',
     stakes: 'Driving on this can turn a smaller repair into a much bigger one, or leave you stranded somewhere worse.' },
-  soon: { label: 'Get it checked in the next few days', color: '#C77700', tint: '#FFF4E0',
+  soon: { label: 'Get it checked in the next few days', color: '#9A4F00', tint: '#FFF4E0',
     stakes: 'Problems like this usually get worse, and more expensive, the longer they wait.' },
-  check: { label: 'Book a check when convenient', color: '#0A6FD6', tint: '#E8F2FF',
+  check: { label: 'Book a check when convenient', color: '#0A56B4', tint: '#E8F2FF',
     stakes: "It's not an emergency, but checking it early is how a small fix stays small." },
-  diy: { label: 'Safe to check yourself first', color: '#1F8A53', tint: '#E6F6EE',
+  diy: { label: 'Safe to check yourself first', color: '#1A6B42', tint: '#E6F6EE',
     stakes: 'There is a good chance you can check this yourself and save a trip to the shop.' },
 };
 
@@ -71,7 +71,7 @@ ${card(h3('Why this matters') + p(esc(r.why)) + `<p style="${FONT}margin:12px 0 
 
 ${card(h3('What it’s most likely to be') + `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:4px">${causes}</table>`)}
 
-${r.confirm.you.length ? card(h3('Checks you can do yourself') + `<table role="presentation" cellpadding="0" cellspacing="0">${bullets(r.confirm.you, '#1F8A53')}</table>`) : ''}
+${r.confirm.you.length ? card(h3('Checks you can do yourself') + `<table role="presentation" cellpadding="0" cellspacing="0">${bullets(r.confirm.you, '#1A6B42')}</table>`) : ''}
 
 ${card(`<p style="${FONT}margin:0 0 4px;font-size:18px;font-weight:bold;color:#0B1F33">Show this to your mechanic</p><p style="${FONT}margin:0 0 14px;font-size:14px;color:#5B6B7D">Hand them your phone or print this email. It saves time and helps avoid paying for guesswork.</p>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F4F7FB;border:1px dashed #9FB3C8;border-radius:10px"><tr><td style="padding:16px 18px">
@@ -99,8 +99,8 @@ ${steps.length ? `<p style="${FONT}margin:0 0 4px;font-size:14px;color:#1B2733">
 </td></tr>
 
 <tr><td style="padding:18px 28px 26px">
-  <p style="${FONT}margin:0;font-size:12px;line-height:1.55;color:#6B7B8D">This is a general guide, not a diagnosis. If a red warning light comes on, the check engine light is flashing, you smell fuel or burning, or the brakes or steering feel wrong, pull over safely and get help.</p>
-  <p style="${FONT}margin:10px 0 0;font-size:12px;line-height:1.55;color:#6B7B8D">You got this email because you asked VehicleSymptoms.com to send you this result. We don’t send marketing email. <a href="${SITE}/privacy/" style="color:#6B7B8D;text-decoration:underline">Privacy</a></p>
+  <p style="${FONT}margin:0;font-size:12px;line-height:1.55;color:#56636F">This is a general guide, not a diagnosis. If a red warning light comes on, the check engine light is flashing, you smell fuel or burning, or the brakes or steering feel wrong, pull over safely and get help.</p>
+  <p style="${FONT}margin:10px 0 0;font-size:12px;line-height:1.55;color:#56636F">You got this email because you asked VehicleSymptoms.com to send you this result. We don’t send marketing email. <a href="${SITE}/privacy/" style="color:#56636F;text-decoration:underline">Privacy</a> This mailbox isn’t monitored, so replies aren’t read.</p>
 </td></tr>
 
 </table></td></tr></table></body></html>`;
@@ -136,7 +136,8 @@ Tests a shop usually does: ${r.confirm.shop.join('; ')}
 
 Open your guide again: ${guideLink}
 
-A general guide, not a diagnosis. You got this because you asked VehicleSymptoms.com to send it.`;
+A general guide, not a diagnosis. You got this because you asked VehicleSymptoms.com to send it.
+This mailbox isn't monitored, so replies aren't read.`;
 
   return { subject: `Your result: ${j.title}${vname ? ' (' + vname + ')' : ''}`, html, text };
 };
