@@ -1,7 +1,8 @@
+  @font-face{font-family:'Public Sans';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/public-sans-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
   :root{
     --bg:#F6F5F1; --panel:#FFFFFF; --panel2:#F1F4F8; --line:#DDE3EA; --tile:#F3F6F9;
-    --blue:#0B63CE; --blue2:#0B63CE; --text:#16222E; --muted:#56636F; --body2:#2E3B47;
-    --red:#C62F37; --amber:#A86400; --green:#18804A; --shadow:0 1px 2px rgba(16,34,52,.06),0 4px 14px rgba(16,34,52,.05);
+    --blue:#0B63CE; --blue2:#0A56B4; --text:#16222E; --muted:#56636F; --body2:#2E3B47;
+    --red:#A82830; --amber:#8A5200; --green:#136B3E; --shadow:0 1px 2px rgba(16,34,52,.06),0 4px 14px rgba(16,34,52,.05);
   }
   *{box-sizing:border-box}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
@@ -830,3 +831,70 @@ details.rmore h4{margin:6px 0;font-size:14px}
 .skip-link{position:absolute;left:8px;top:-60px;z-index:1000;background:#fff;color:#0B63CE;padding:10px 14px;border-radius:8px;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .skip-link:focus{top:8px}
 main:focus{outline:none}
+
+/* ---- Nov 27 2026 sweep (build agent) ---- */
+/* T-04: safety badges at least 13px (colors above meet 4.5:1 on their tinted backgrounds) */
+.sev,.fullguide summary .urg,.pg-lab .sev,.lsev{font-size:13px}
+/* T-07: thumb-size targets for small links by the roadside */
+footer a,.crumb a,.urg-next a{display:inline-block;padding:6px 2px;min-height:24px}
+/* RS-18: answer chips after an urgent box */
+.nm-cats a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;font-size:15px}
+/* RS-10: roadside button above the homepage search */
+.rs-cta{display:flex;align-items:center;gap:12px;width:100%;max-width:720px;min-height:56px;margin:0 0 16px;padding:14px 18px;border-radius:14px;background:#B42318;color:#fff;font-weight:700;font-size:17px;line-height:1.3;text-decoration:none;box-shadow:0 2px 0 #7A1A12}
+.rs-cta:hover,.rs-cta:focus-visible{background:#951D14;color:#fff}
+.rs-cta:focus-visible{outline:3px solid #0A56B4;outline-offset:3px}
+.rs-cta svg{flex:none}.rs-cta b{white-space:nowrap;text-decoration:underline}
+.sc.sc-danger{border-color:#E9A39C;color:#A82830;font-weight:700;background:#FFF5F4}
+/* Roadside pages */
+.rs-first{border:2px solid var(--line);border-radius:14px;padding:14px 18px;margin:6px 0 16px;font-size:17px;line-height:1.5}
+.rs-first h2{margin:0 0 8px;font-size:20px}
+.rs-first p{margin:0;font-weight:600}
+.rs-first.rs-stop{background:#FFF1F0;border-color:#E9A39C}.rs-first.rs-stop h2{color:#A82830}
+.rs-first.rs-soon{background:#FFF6E5;border-color:#E8C37A}.rs-first.rs-soon h2{color:#8A5200}
+.rs-first.rs-info{background:#EEF5FD;border-color:#A9C8EE}.rs-first.rs-info h2{color:#0A56B4}
+.rs-list{margin:0;padding-left:24px}.rs-list li{margin:8px 0;font-weight:600}
+.rs-dont,.rs-call{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 18px;margin:0 0 14px;font-size:16px}
+.rs-dont h2,.rs-call h2{margin:0 0 6px;font-size:18px}.rs-dont h2{color:#A82830}
+.rs-dont ul,.rs-call ul{margin:0;padding-left:20px}.rs-dont li,.rs-call li{margin:6px 0}
+.rs-pick{font-size:20px;margin:18px 0 10px}
+.rs-tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:0 0 18px}
+@media (min-width:720px){.rs-tiles{grid-template-columns:repeat(3,1fr)}}
+.rs-tile{display:flex;flex-direction:column;justify-content:center;gap:4px;min-height:84px;padding:14px 16px;border-radius:14px;border:2px solid var(--line);background:var(--panel);color:var(--text);text-decoration:none}
+.rs-tile b{font-size:17px;line-height:1.25}.rs-tile span{font-size:13px;font-weight:700}
+.rs-tile.rs-stop{border-color:#E9A39C;background:#FFF5F4}.rs-tile.rs-stop span{color:#A82830}
+.rs-tile.rs-soon{border-color:#E8C37A;background:#FFF9EE}.rs-tile.rs-soon span{color:#8A5200}
+.rs-tile.rs-info span{color:#0A56B4}
+.rs-tile:hover,.rs-tile:focus-visible{border-color:var(--blue)}
+.rs-back{display:inline-flex;align-items:center;min-height:44px;color:var(--blue2);font-weight:700}
+/* Guides: pull-over line, two-part safety box, intro under it (SG-M5/M6/M7) */
+.pullover{margin:4px 0 10px;padding:8px 12px;border-radius:10px;background:#FFF6E5;border:1px solid #E8C37A;font-size:15px}
+.safety .safety-care{display:block;margin-top:10px;color:var(--text)}
+.gintro{margin:0 0 16px}
+/* Sources lists with links (SG-H1, TC-03) */
+.srcs-sec{margin-top:22px}
+ul.srcs{list-style:disc;padding-left:20px;margin:6px 0;word-break:normal;overflow-wrap:anywhere}
+ul.srcs li{margin:6px 0}
+.srcs a,.lsrc a,.recall-line a,.recall-first a{color:var(--blue2);font-weight:600}
+.srcs a,.lsrc a{display:inline-block;min-height:24px;padding:3px 0}
+.recall-first{margin:0 0 16px;font-size:15px}
+/* Code pages: how to get codes read (TC-07), bank note (TC-21) */
+.coderead{border-left:4px solid var(--blue2)}
+.bank-note{margin-top:8px}
+/* Warning lights: "Stop if" next to How urgent (WL), flashing tip on the hub */
+.urg-stopif{display:block;margin-top:8px;color:var(--text);font-weight:600}
+.lflash-tip{margin:0 0 10px;padding:8px 12px;border-radius:10px;background:#FFF1F0;border:1px solid #E9A39C;font-size:15px}
+/* Privacy and about headings (T-08) */
+.prose h2{font-size:18px;margin:18px 0 6px}
+.urg-first-h{display:block;margin-bottom:2px}
+.rs-step{padding:10px 0;border-top:1px solid var(--line)}.rs-step:first-of-type{border-top:0}
+.rs-step h3{margin:0 0 4px;font-size:17px}.rs-step p{margin:0;line-height:1.55}
+.rs-print{min-height:48px;padding:0 22px}
+.rs-jump{display:flex;align-items:center;min-height:48px;margin:0 0 14px;padding:10px 16px;border-radius:12px;background:#B42318;color:#fff;font-weight:700;text-decoration:none}
+.rs-jump:hover,.rs-jump:focus-visible{background:#951D14;color:#fff}
+@media print{
+  .rs-cta,.rs-print-row,.rs-related,.rs-lights,.rs-back-row,.trust,.crumb,.skip-link,.home-hint{display:none!important}
+  .rs-first,.rs-dont,.rs-call,.rs-how{border:1px solid #999!important;background:#fff!important;color:#000!important;break-inside:avoid}
+  .rs-step{break-inside:avoid}
+  .rs-printable~.rs-how .rs-step p,.rs-printable~.rs-first li{font-size:14px}
+  .rs-srcs a:after{content:" (" attr(href) ")";font-size:11px}
+}

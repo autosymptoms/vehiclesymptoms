@@ -27,13 +27,13 @@
 <meta name="apple-mobile-web-app-title" content="Vehicle Symptoms">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <script src="/pwa.js" defer></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site.css">
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};
 // Don't count automated test browsers, or anyone who sets localStorage va-disable (the site owner's own checks).
-window.va('beforeSend',function(e){try{if(navigator.webdriver||localStorage.getItem('va-disable'))return null}catch(x){}return e});</script>
+window.va('beforeSend',function(e){try{if(navigator.webdriver||localStorage.getItem('va-disable'))return null}catch(x){}return e});
+// Taps on marked links (roadside button, NHTSA links) are counted by name only; nothing typed is ever sent.
+document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('[data-va]');if(a)window.va('event',{name:a.getAttribute('data-va')})},true);</script>
 <script defer src="/_vercel/insights/script.js"></script>
 {{VMETA}}
 </head>
@@ -57,13 +57,13 @@ window.va('beforeSend',function(e){try{if(navigator.webdriver||localStorage.getI
 </header>
 
 <main id="top" tabindex="-1">
-<div id="homeView"{{HOMEHIDE}}>
+<!--HOME--><div id="homeView"{{HOMEHIDE}}>
   <div class="hero">
     <div class="wrap hero-grid" style="position:relative">
     <div class="hero-main">
       <{{HOMEH1}}>What’s happening <em>with your car?</em></{{HOMEH1C}}>
       <p class="sub">Describe what you notice to find out how urgent it may be, what to check and what to ask a mechanic. Free, no sign-up.</p>
-      <div class="search">
+      {{ROADSIDEBTN}}<div class="search">
         <label class="search-label" for="helpInput">Describe a symptom</label>
         <form id="helpForm" autocomplete="off">
           <span class="search-field">
@@ -76,7 +76,7 @@ window.va('beforeSend',function(e){try{if(navigator.webdriver||localStorage.getI
         <div class="results" id="helpResults"></div>
         <p class="sc-label">Or choose a symptom</p>
         <div class="shortcuts">
-          <a class="sc" href="/symptoms/car-wont-start/">Won't start</a>
+          {{SMOKECHIP}}<a class="sc" href="/symptoms/car-wont-start/">Won't start</a>
           <a class="sc" href="/warning-lights/">Warning light</a>
           <a class="sc" href="/symptoms/#noise">Strange noise</a>
           <a class="sc" href="/symptoms/#shake">Shaking</a>
@@ -210,20 +210,20 @@ window.va('beforeSend',function(e){try{if(navigator.webdriver||localStorage.getI
     </div>
   </section>
 </div>
-<div id="vehicleView" class="wrap" style="{{VEHSTYLE}}padding-bottom:50px">{{VEHHTML}}</div>
+<!--/HOME--><div id="vehicleView" class="wrap" style="{{VEHSTYLE}}padding-bottom:50px">{{VEHHTML}}</div>
 </main>
 
 <footer>
   <div class="wrap row">
     <div>© 2026 VehicleSymptoms.com</div>
-    <div>Educational information only — not professional advice. · <a href="/about/" style="color:var(--blue2)">About</a> · <a href="/privacy/" style="color:var(--blue2)">Privacy</a>{{ANIMATIONLINK}}</div>
+    <div>Educational information only — not professional advice. · <a href="/about/" style="color:var(--blue2)">About</a> · <a href="/privacy/" style="color:var(--blue2)">Privacy</a>{{FOOTLINKS}}{{ANIMATIONLINK}}</div>
   </div>
 </footer>
 
-{{PAGEDATA}}<script src="/vehicles.js"></script>
-<script src="/guide-index.js"></script>
-<script src="/guide.js"></script>
-<script src="/powertrain.js"></script>
-<script src="/app.js"></script>
+{{PAGEDATA}}<script defer src="/vehicles.js"></script>
+<script defer src="/guide-index.js"></script>
+<script defer src="/guide.js"></script>
+<script defer src="/powertrain.js"></script>
+<script defer src="/app.js"></script>
 </body>
 </html>

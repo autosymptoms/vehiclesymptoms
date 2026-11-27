@@ -1,21 +1,21 @@
 // Regression checks on the built site (dist/). Run: node tools/regression.js  → audit/generated/regression-results.json
 // Pages run in jsdom with their real scripts; network calls are stubbed with dated fixtures (tools/fixtures).
-const fs=require('fs'),path=require('path');const {JSDOM}=require('jsdom');
+const fs=require('fs'),path=require('path');const {JSDOM,VirtualConsole}=require('jsdom');
 const D=p=>path.join(__dirname,'..','dist',p);
 const FIX=JSON.parse(fs.readFileSync(path.join(__dirname,'fixtures/nhtsa-2026-11-21.json'),'utf8'));
 const results=[];const T=(id,desc,pass,detail)=>{results.push({id,desc,pass:!!pass,detail:detail||''});console.log((pass?'PASS ':'FAIL ')+id+' '+desc+(pass?'':' :: '+detail))};
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function load(route,{fetch,est,qs=''}={}){
   let html=fs.readFileSync(D(route+'index.html'),'utf8');
-  html=html.replace(/<script defer src="\/_vercel[^>]*><\/script>/,'').replace(/<script src="\/([a-z0-9.\/-]+\.js)"><\/script>/g,(m,f)=>{
+  html=html.replace(/<script defer src="\/_vercel[^>]*><\/script>/,'').replace(/<script (?:defer )?src="\/([a-z0-9.\/-]+\.js)"><\/script>/g,(m,f)=>{
     if(f==='price-est.js'&&est)return '<script>window.EST='+JSON.stringify(est)+'</script>';
     return fs.existsSync(D(f))?'<script>'+fs.readFileSync(D(f),'utf8').replace(/<\/script/g,'<\\/script')+'</script>':''});
-  const calls=[];
-  const dom=new JSDOM(html,{runScripts:'dangerously',url:'https://www.vehiclesymptoms.com'+route+qs,pretendToBeVisual:true,beforeParse(w){
+  const calls=[],errors=[];const virtualConsole=new VirtualConsole();virtualConsole.on('jsdomError',e=>errors.push(String(e.message||e)));
+  const dom=new JSDOM(html,{virtualConsole,runScripts:'dangerously',url:'https://www.vehiclesymptoms.com'+route+qs,pretendToBeVisual:true,beforeParse(w){
     w.scrollTo=()=>{};w.HTMLElement.prototype.scrollIntoView=()=>{};w.print=()=>{};
     w.fetch=(u,o)=>{calls.push(String(u));if(/\/data\/v\/(.+)\.json$/.test(u)){const f=D('data/v/'+RegExp.$1+'.json');return Promise.resolve({ok:true,status:200,json:async()=>JSON.parse(fs.readFileSync(f,'utf8'))})}
       return fetch?fetch(String(u),o):new Promise(()=>{})};}});
-  return {dom,w:dom.window,doc:dom.window.document,calls};
+  return {dom,w:dom.window,doc:dom.window.document,calls,errors};
 }
 const nh=(map)=>u=>{const q=new URL(u).searchParams;const k=[q.get('make'),q.get('model'),q.get('modelYear')].join('|').toUpperCase();
   const r=map(k,u);if(r instanceof Error)return Promise.reject(r);if(r&&r.status)return Promise.resolve({ok:false,status:r.status,json:async()=>({})});
@@ -32,7 +32,7 @@ const HAS_PC=fs.existsSync(D('price-check/index.html'))&&/id="pcJob"/.test(fs.re
  T('REC-03','Integra 2023 is queried as INTEGRA',p.calls.some(u=>/model=INTEGRA&/.test(u)),p.calls.join(' '))}
 {const p=load('/vehicles/acura-rsx-integra/2023/',{fetch:nh(()=>({status:503}))});await sleep(300);
  const box=p.doc.getElementById('nhtsa'),t=box.textContent;
- T('REC-04','HTTP error shows an unknown recall count, a retry and an on-site VIN question',/lookup unavailable/i.test(t)&&/unknown/.test(t)&&!!box.querySelector('button')&&!!box.querySelector('#recQuestion')&&!box.querySelector('a[href^="http"]')&&!/No safety recalls/.test(t),t.slice(0,220))}
+ T('REC-04','HTTP error shows an unknown recall count, a retry and an on-site VIN question',/lookup unavailable/i.test(t)&&/unknown/.test(t)&&!!box.querySelector('button')&&!!box.querySelector('#recQuestion')&&![...box.querySelectorAll('a[href^="http"]')].some(a=>!a.href.startsWith('https://www.nhtsa.gov/recalls'))&&!/No safety recalls/.test(t),t.slice(0,220))}
 
 {const p=load('/vehicles/acura-rsx-integra/2023/',{fetch:()=>Promise.resolve({ok:true,status:200,json:async()=>({Count:3,results:[]})})});await sleep(300);
  T('REC-05','Malformed response (Count mismatch) shows Lookup unavailable',/lookup unavailable/i.test(p.doc.getElementById('nhtsa').textContent))}
@@ -64,7 +64,7 @@ const HAS_PC=fs.existsSync(D('price-check/index.html'))&&/id="pcJob"/.test(fs.re
  T('REC-RETRY','Retry restores validated campaigns including details beyond the first twelve',
    attempts===2&&/13 safety recalls/.test(box.textContent)&&/Show 1 more campaign/.test(box.textContent)&&/23V000013/.test(box.textContent)&&p.w.VS_PAGE.recalls.total===13);
  T('REC-SOURCE-TEXT','Agency text retains the remedy and original reference as inert text',
-   !box.querySelector('a[href^="https:"]')&&box.textContent.includes(sourceUrl)&&box.textContent.includes('Park outside until the dealer completes the repair.'));
+   ![...box.querySelectorAll('a[href^="https:"]')].some(a=>!a.href.startsWith('https://www.nhtsa.gov/recalls'))&&box.textContent.includes(sourceUrl)&&box.textContent.includes('Park outside until the dealer completes the repair.'));
  box.querySelector('#recCopy').click();await sleep(0);
  T('REC-MSG','VIN-specific question can be copied locally on a successful lookup',
    box.querySelector('#recQuestion').value.includes('2023 Acura')&&/selected/.test(box.querySelector('#recCopyStatus').textContent));
@@ -74,7 +74,7 @@ const HAS_PC=fs.existsSync(D('price-check/index.html'))&&/id="pcJob"/.test(fs.re
  p.w.jspdf.jsPDF=function(options){const doc=new Pdf(options);doc.save=()=>{output=doc.output()};return doc};
  p.w.eval(fs.readFileSync(D('pdf.js'),'utf8'));p.w.VS_PDF(p.w.VS_PAGE);
  T('REC-PDF','PDF retains all campaigns and the agency remedy without creating external link annotations',
-   output.includes('23V000013')&&output.includes('Question for your dealer')&&output.includes('Park outside')&&!output.includes('/Subtype /Link')&&!output.includes('nhtsa.gov/recalls'));
+   output.includes('23V000013')&&output.includes('Question for your dealer')&&output.includes('Park outside')&&!output.includes('/Subtype /Link'));
  p.w.close();
 }
 
@@ -190,6 +190,75 @@ if(HAS_PC){const r=await quote('?v=tesla-model-y&y=2023','spark',400,'CT');T('PR
  const t=p.doc.getElementById('guideApp').textContent;T('GDE-01','Guide result with a vehicle picked renders without error (withheld prices)',!err&&t.length>200&&!/NaN|undefined/.test(t),err||t.slice(0,120))}
 for(const code of ['p2300','p2335','p06d1']){const h=fs.readFileSync(D('codes/'+code+'/index.html'),'utf8');const main=h.slice(h.indexOf('code-big'));const a=main.indexOf('urg-first'),b=main.indexOf('class="urg ');T('URG-'+code,code.toUpperCase()+': stop condition before the softer badge',a>0&&a<b)}
 {const h=fs.readFileSync(D('codes/p0300/index.html'),'utf8');T('HTML-01','Inner pages have exactly one <h1> and no malformed closing tags',(h.match(/<h1[\s>]/g)||[]).length===1&&!/<\/p class=/.test(h)&&!/{{HOMEH1/.test(h))}
+
+// ---- Nov 27 2026 sweep: build and template (a04) ----
+{const R=f=>fs.existsSync(D(f))?fs.readFileSync(D(f),'utf8'):'';const main=h=>h.slice(h.indexOf('<main'));
+ const home=R('index.html'),code=R('codes/p0300/index.html'),sm=R('sitemap.xml')+['roadside','symptoms','warning-lights','codes','vehicles','pages'].map(n=>R('sitemap-'+n+'.xml')).join('');
+ // T-11: the homepage block ships only on the homepage.
+ T('T11-HOME','Homepage keeps its search box, FAQ and hero',/id="helpForm"/.test(home)&&/Is it really free\?/.test(home)&&/<h1>What/.test(home));
+ T('T11-INNER','Inner pages carry no hidden homepage text, headings or FAQ',!/Is it really free\?|Three steps to a clear answer|id="helpForm"/.test(code)&&/id="homeView" hidden/.test(code));
+ // T-24: scripts are deferred.
+ T('T24-DEFER','Site scripts load with defer',/<script defer src="\/app\.js">/.test(code)&&/<script defer src="\/vehicles\.js">/.test(code)&&!/<script src="\/app\.js">/.test(code));
+ // T-20: font self-hosted.
+ T('T20-FONT','Public Sans is served from the site, not Google',!/fonts\.googleapis|fonts\.gstatic/.test(code)&&fs.existsSync(D('fonts/public-sans-latin-wght-normal.woff2'))&&/\/fonts\/public-sans/.test(R('site.css')));
+ // T-14: breadcrumb structured data.
+ {const lds=[...code.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map(m=>JSON.parse(m[1]));const bc=lds.find(x=>x['@type']==='BreadcrumbList');
+  T('T14-CRUMB','Code page has BreadcrumbList Home › Code lookup › P0300',bc&&bc.itemListElement.length===3&&bc.itemListElement[2].name==='P0300'&&bc.itemListElement[0].item==='https://www.vehiclesymptoms.com/',JSON.stringify(bc||{}).slice(0,160))}
+ // T-12: a year with no documented problems is noindex and not in the sitemap.
+ {const empty=fs.readdirSync(D('vehicles')).flatMap(m=>fs.existsSync(D('vehicles/'+m))&&fs.statSync(D('vehicles/'+m)).isDirectory()?fs.readdirSync(D('vehicles/'+m)).filter(y=>/^\d{4}$/.test(y)).map(y=>'/vehicles/'+m+'/'+y+'/'):[]).filter(u=>/name="robots" content="noindex"/.test(R(u.slice(1)+'index.html')));
+  T('T12-NOINDEX','Empty year pages are noindex and left out of the sitemap',empty.length>0&&empty.every(u=>!sm.includes('vehiclesymptoms.com'+u+'<')),empty.length+' noindex year pages')}
+ // T-13: code titles.
+ T('T13-TITLE','Code titles drop "Meaning, Causes & Fixes" and stay short',/<title>P0300: [^<]*Can I Drive\?<\/title>/.test(code)&&!/Meaning, Causes/.test(code),(code.match(/<title>[^<]*/)||[''])[0]);
+ // TC-03/07/08/10 on code pages.
+ const p0420=R('codes/p0420/index.html');
+ T('TC03-SRC','Code pages name their own sources and link the NHTSA VIN recall lookup',/Code title: SAE J2012 standard definition\./.test(code)&&/href="https:\/\/www\.nhtsa\.gov\/recalls" target="_blank" rel="noopener nofollow"/.test(code));
+ T('TC07-READ','Code pages explain how to get codes read',/How to get your code read/.test(code)&&/auto parts stores will read your codes/.test(code));
+ T('TC08-LABEL','Stop box label reads "Pull over now only if:"',/Pull over now only if:/.test(p0420)&&!/Stop-now condition/.test(p0420));
+ T('TC10-REL','P0420 related codes start with P0430, not the P042x neighbours',/Related codes<\/h2><div class="codechips"><a href="\/codes\/p0430\/">/.test(p0420));
+ T('TC21-BANK','P0420 explains bank 1',/Bank 1 is the side of the engine with cylinder 1/.test(p0420));
+ T('TC20-404','404 page sends unknown /codes/<code>/ to the code lookup',/location\.replace\("\/codes\/\?q="/.test(R('404.html')));
+ // Guides: safety box under the H1, then the intro; pull-over line; linked sources; recall line.
+ const g=main(R('symptoms/engine-overheating/index.html'));
+ T('SG-ORDER','Guide: pull-over line and safety box come before the intro',g.indexOf('class="pullover"')>0&&g.indexOf('id="safety"')>g.indexOf('</h1>')&&g.indexOf('id="safety"')<g.indexOf('gintro'));
+ T('SG-M5','Guide safety heading is "Stop and get help right away:" with a separate "Stay safe while you check:"',/Stop and get help right away:<\/b>/.test(g)&&/Stay safe while you check:/.test(g)&&!/right away if:/.test(g));
+ T('SG-H1','Guide sources link whitelisted pages with titles',/<ul class="srcs"><li><a href="https:\/\/www\.aaa\.com\/[^"]+" target="_blank" rel="noopener nofollow">AAA: /.test(g));
+ // Warning lights.
+ const op=R('warning-lights/oil-pressure-light/index.html');
+ T('T10-META','Oil pressure light description leads with the action',/<meta name="description" content="Red oil pressure light on\? Stop driving/.test(op));
+ T('WL-M7','Oil pressure light: "Can I reset this light?" heading',/<h2>Can I reset this light\?<\/h2><p><b>No\. This light goes out when the problem is fixed\.<\/b>/.test(op));
+ T('WL-HUB','Hub tip about flashing lights',/A flashing red light or a flashing check engine light is more urgent than a steady one\./.test(R('warning-lights/index.html')));
+ T('LIGHT-INDEX','guide-index.js ships window.LIGHT_INDEX',/window\.LIGHT_INDEX=\[\["/.test(R('guide-index.js')));
+ // Resets.
+ const hon=R('warning-lights/reset/honda/index.html');
+ T('R-09','Reset make page opens with "Before you reset anything"',hon.indexOf('Before you reset anything')>0&&hon.indexOf('Before you reset anything')<hon.indexOf('class="rvar"'));
+ {const ld=[...hon.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map(m=>JSON.parse(m[1])).find(x=>x['@type']==='FAQPage');
+  T('R-15','Reset FAQ answers end with the "steps differ" note',ld&&ld.mainEntity.every(q=>/Steps differ by model and year/.test(q.acceptedAnswer.text)))}
+ // Privacy, about, bulletins, llms.
+ const pr=R('privacy/index.html');
+ T('T18-PRIV','Privacy page covers offline copies, recall lookups and hosting; no Google Fonts',/Offline copies/.test(pr)&&/Recall lookups\./.test(pr)&&/Our host, Vercel, processes IP addresses/.test(pr)&&!/Google Fonts/.test(pr));
+ T('T08-ABOUT','About page heading order H1 then H2',/<h2>How we work<\/h2>/.test(R('about/index.html')));
+ T('TSB-PAGE','/bulletins/ explains a bulletin is not a recall',/A bulletin is not a recall\. If your car has an open recall, that comes first\./.test(R('bulletins/index.html'))&&!/\bfree\b/i.test(main(R('bulletins/index.html')).replace(/<footer[\s\S]*/,'')));
+ T('T17-LLMS','llms.txt lists stop-driving pages and says no prices',/## Stop-driving pages/.test(R('llms.txt'))&&/oil-pressure-light/.test(R('llms.txt'))&&/No prices or repair quotes are published/.test(R('llms.txt')));
+ // Contract 3: issue sources in vehicle data; internal fields stay out.
+ {const v=JSON.parse(R('data/v/toyota-camry.json'));const all=JSON.stringify(v);
+  T('C3-SL','Vehicle data carries sl (links only on the whitelist) and no internal review fields',v.issues.some(i=>Array.isArray(i.sl)&&i.sl.length)&&v.issues.every(i=>(i.sl||[]).every(x=>x.u===null||/^https:\/\/([a-z0-9-]+\.)*(nhtsa\.gov|[a-z0-9-]+\.gov|aaa\.com)\//.test(x.u)||/owner|manual/i.test(x.u)))&&!/sevReviewed|sevReason/.test(all)&&Array.isArray(v.tsbs))}
+ // Roadside (only when src/roadside, or ROADSIDE_DIR, had pages).
+ if(fs.existsSync(D('roadside/index.html'))){const hub=R('roadside/index.html'),pages=fs.readdirSync(D('roadside')).filter(d=>fs.existsSync(D('roadside/'+d+'/index.html')));
+  T('RS10-BTN','Homepage: red roadside button sits above the search box, plus a Smoke or fire chip',home.indexOf('class="rs-cta" href="/roadside/"')>0&&home.indexOf('class="rs-cta"')<home.indexOf('id="helpForm"')&&/class="sc sc-danger"[^>]*>Smoke or fire</.test(home));
+  T('RS-HUB','Roadside hub lists every page as a big tile',pages.every(d=>hub.includes('href="/roadside/'+d+'/"')),pages.length+' pages');
+  T('RS-FIRST','Every roadside page opens with "Do this first" right under the H1',pages.every(d=>{const h=main(R('roadside/'+d+'/index.html'));const a=h.indexOf('</h1>'),b=h.indexOf('Do this first');return a>0&&b>a&&b-a<200}));
+  T('RS-SW','Every roadside page is saved for offline use',pages.every(d=>R('sw.js').includes('"/roadside/'+d+'/"'))&&R('sw.js').includes('"/roadside/"'));
+  T('RS-SITEMAP','Roadside pages are in the sitemap',pages.every(d=>sm.includes('/roadside/'+d+'/<')))}
+}
+// Search still works with deferred scripts, on the homepage and on an inner page (T-11, T-24).
+{const p=load('/',{});await sleep(200);const err=p.errors.filter(e=>!/Not implemented/.test(e)).join(' | ');
+ const i=p.doc.getElementById('helpInput');i.value='my brakes went out';p.doc.getElementById('helpForm').dispatchEvent(new p.w.Event('submit',{cancelable:true}));await sleep(50);
+ const out=p.doc.getElementById('helpResults').textContent;T('SEARCH-HOME','Homepage search answers an emergency with scripts deferred',!err&&out.length>40,err||out.slice(0,100));p.w.close()}
+{const p=load('/codes/p0300/',{});await sleep(200);const errs=p.errors.filter(e=>!/Not implemented/.test(e));
+ T('SEARCH-INNER','Inner page scripts start without errors on the homepage stub',!errs.length&&p.doc.getElementById('navMy'),errs.join(' | '));p.w.close()}
+{const p=load('/warning-lights/',{});await sleep(200);const errs=p.errors.filter(e=>!/Not implemented/.test(e));const s=p.doc.getElementById('lsearch');
+ s.value='oil';s.dispatchEvent(new p.w.Event('input'));await sleep(20);const shown=[...p.doc.querySelectorAll('#lgrid .lcard')].filter(a=>!a.hidden).length;
+ T('SEARCH-LIGHTS','Warning-light hub search runs with deferred scripts',!errs.length&&shown>0&&shown<20,errs.join(' | ')+' shown='+shown);p.w.close()}
 
 fs.mkdirSync(path.join(__dirname,'../audit/generated'),{recursive:true});
 fs.writeFileSync(path.join(__dirname,'../audit/generated/regression-results.json'),JSON.stringify({ran:new Date().toISOString(),results},null,1));

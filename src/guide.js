@@ -412,7 +412,7 @@ if(J&&root){
     root.innerHTML=`${top}<div class="result card">
       <div class="urg ${u.cls}" id="resultUrgency"><span>${esc(u.label)}</span></div>
       <h2 class="rt" tabindex="-1" aria-describedby="resultUrgency">${esc(r.title)}</h2>
-      <section class="rsec"><h3>What to do next</h3><p>${esc(r.now)}</p>
+      <section class="rsec"><h3>What to do next</h3><p>${esc(r.now)}</p>${(r.links||[]).filter(l=>l&&/^\/[a-z0-9\/#-]*$/.test(l.u)).map(l=>`<p><a class="rs-jump" href="${esc(l.u)}">${esc(l.t)} →</a></p>`).join('')}
         <div class="row-btns"><button type="button" class="btn sm" id="shareResult">Text this result</button><span class="muted" id="shareStatus" role="status"></span>
           <textarea class="summary share-text" id="shareText" aria-label="Result to copy into a text message" rows="6" readonly hidden></textarea></div>
         ${r.if.length?`<ul class="ifs">${r.if.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</section>
