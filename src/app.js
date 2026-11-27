@@ -339,7 +339,10 @@ async function loadNhtsa(v,year){
   const M=window.VS_RECALL_QUERIES(v,year);if(!M.queries.length)return fail('no verified model mapping');
   // Each NHTSA name is looked up on its own. One name that fails (NHTSA answers some aliases with HTTP 400 for years
   // they don't cover) must not hide campaigns the other names returned: show those, and say the list may be partial.
-  const settled=await Promise.allSettled(M.queries.map(async q=>({label:q.label||q.model,query:q,results:await fetchRecalls(q,year)})));
+  // At most three NHTSA requests at a time: some years search up to nine names (BMW trims), and NHTSA throttles bursts.
+  const settled=new Array(M.queries.length);let next=0;
+  await Promise.all(Array.from({length:Math.min(3,M.queries.length)},async()=>{while(next<M.queries.length){const i=next++,q=M.queries[i];
+    try{settled[i]={status:'fulfilled',value:{label:q.label||q.model,query:q,results:await fetchRecalls(q,year)}}}catch(e){settled[i]={status:'rejected',reason:e}}}}));
   let groups=settled.filter(x=>x.status==='fulfilled').map(x=>x.value);
   let failed=settled.map((x,i)=>x.status==='rejected'?{name:M.queries[i].model,why:x.reason&&x.reason.message||'error'}:null).filter(Boolean);
   if(!groups.length)return fail(failed.map(f=>f.why).join('; ')||'error',true);
