@@ -99,6 +99,22 @@ for(const code of ['c0031','p0520','u0131','p0455']){const h=fs.readFileSync(D('
  T('META-'+code,code.toUpperCase()+' description names its own urgent condition',!/flashing check engine/i.test(m),m.slice(0,90))}
 T('PRIV-01','Result email no longer writes to a contact list',!/api\.resend\.com\/contacts/.test(fs.readFileSync(path.join(__dirname,'../api/send-summary.js'),'utf8')),'')
 
+// ---- Audit Nov 27: Lexus IS names, partial counts, year names ----
+{// Campaign ids per NHTSA name for the 2011 Lexus IS, as NHTSA answered on 2026-11-27 (the bare "IS" name finds only one).
+ const L11={'IS 250':['19V741000','19V005000','16V340000','13V030000'],'IS 350':['19V005000','19V741000','18V432000','16V340000','14V647000','13V395000','13V030000'],
+  'IS 250C':['19V741000','19V005000','16V340000','13V030000'],'IS 350C':['19V005000','19V741000','18V432000','16V340000','13V395000','13V030000'],'IS F':['19V005000','16V340000','13V030000'],'IS':['26V748000']};
+ const mk=(model,year,ids)=>({Count:ids.length,Message:'Results returned successfully',results:ids.map(id=>({NHTSACampaignNumber:id,Make:'LEXUS',Model:model,ModelYear:String(year),Component:'X',Summary:'s',Remedy:'r'}))});
+ const p=load('/vehicles/lexus-is/2011/',{fetch:nh(k=>{const [,md,y]=k.split('|');const ids=L11[Object.keys(L11).find(n=>n.toUpperCase()===md)];return ids&&y==='2011'?mk(md,2011,ids):{status:400}})});await sleep(400);
+ const box=p.doc.getElementById('nhtsa').textContent,models=p.calls.filter(u=>/recallsByVehicle/.test(u)).map(u=>new URL(u).searchParams.get('model'));
+ T('LEX-IS-2011','2011 Lexus IS queries every IS name and counts 8 distinct campaigns',/\b8 safety recalls filed/.test(box)&&['IS 250','IS 350','IS 250C','IS 350C','IS F'].every(n=>models.includes(n)),box.slice(0,120)+' | '+models.join(','));
+ const p2=load('/vehicles/lexus-is/2012/',{fetch:nh(k=>{const [,md]=k.split('|');return md==='IS 350'?mk('IS 350',2012,['13V030000','16V340000']):empty(k)})});await sleep(400);
+ const b2=p2.doc.getElementById('nhtsa').textContent,t2=p2.doc.getElementById('recTile').textContent;
+ T('REC-UNVERIFIED','A positive count under an unconfirmed name list says "at least" and "lookup incomplete"',/At least 2 safety recalls found/.test(b2)&&/lookup incomplete/i.test(b2)&&/2\+/.test(t2)&&/Checked /.test(b2),b2.slice(0,160)+' | '+t2);
+ const eng=JSON.parse(fs.readFileSync(D('data/v/lexus-is.json'),'utf8')).engines.filter(e=>e.y[0]<=2011&&e.y[1]>=2011).map(e=>e.name).join('; ');
+ T('LEX-IS-ENG','2011 Lexus IS engines do not list the later IS 300 AWD',!/IS 300/.test(eng)&&/IS 350/.test(eng),eng);
+ const ti=r=>(fs.readFileSync(D(r+'index.html'),'utf8').match(/<title>([^<]*)/)||[])[1]||'';
+ T('YEAR-NAMES','Combined labels show the name sold that year',/^2005 Acura RSX:/.test(ti('vehicles/acura-rsx-integra/2005/'))&&/^1998 Acura Integra:/.test(ti('vehicles/acura-rsx-integra/1998/'))&&/^2002 Porsche Boxster:/.test(ti('vehicles/porsche-boxster-cayman/2002/'))&&/^2010 Porsche Boxster \/ Cayman:/.test(ti('vehicles/porsche-boxster-cayman/2010/')),[ti('vehicles/acura-rsx-integra/2005/'),ti('vehicles/porsche-boxster-cayman/2002/')].join(' | '));
+}
 // ---- Price check eligibility (only while the price check is published; it was removed Nov 22, 2026) ----
 if(HAS_PC){
 const job={job:'Spark plug replacement (general test estimate)',aka:['Replace spark plugs'],note:'',unit:'per job (all cylinders)',conf:'medium',checked:'TEST FIXTURE',extras:'',menu:[],bm:[],

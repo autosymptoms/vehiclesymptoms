@@ -75,7 +75,9 @@ function addG(id,y){const g=getG();if(!g.some(m=>sameCar(m,{id,y})))g.push({id,y
 function removeG(id,y){saveG(getG().filter(m=>!sameCar(m,{id,y})))}
 function getMy(){return getG()[0]||null}
 function setMy(id,y){addG(id,y)}
-const carName=m=>{const v=V.find(x=>x.id===m.id);return (m.y?m.y+' ':'')+v.make+' '+v.model};
+// A combined label ("Integra / RSX") shows the name sold in that year when the build knows it (v.yn).
+const modelAt=(v,y)=>{const r=y&&(v.yn||[]).find(x=>y>=x.from&&y<=x.to);return r?r.name:v.model};
+const carName=m=>{const v=V.find(x=>x.id===m.id);return (m.y?m.y+' ':'')+v.make+' '+modelAt(v,m.y)};
 const carUrl=m=>url(V.find(x=>x.id===m.id),m.y);
 function showMy(){
   const g=getG(),box=document.getElementById('mycarSaved'),pick=document.getElementById('mycarPick');
@@ -219,7 +221,7 @@ function renderVehicle(v,year){
   if(!cats.includes(state.tab))state.tab='All';
   const shown=state.tab==='All'?list:list.filter(i=>i.cat===state.tab);
   let yopts='<option value="">All years</option>';for(let y=v.years[1];y>=v.years[0];y--)if(soldY(v,y))yopts+=`<option ${y===year?'selected':''}>${y}</option>`;
-  const name=(year?year+' ':'')+v.make+' '+v.model;
+  const name=(year?year+' '+v.make+' '+modelAt(v,year):v.make+' '+v.model);
   const general=state.q?searchGuides(state.q,3):[];
   const SR={high:0,med:1,low:2};const sorted=shown.slice().sort((a,b)=>SR[a.sev]-SR[b.sev]);
   const mslug=v.make.toLowerCase().replace(/[^a-z0-9]+/g,'-');
@@ -228,7 +230,7 @@ function renderVehicle(v,year){
   const bulletins=year?bulletinsFor(v,year,esel):[];
   const btns=`<div class="vh-btns" style="margin:0 0 12px"><button type="button" class="savecar dl" data-dl>Download this page (PDF)</button>${year?`<button type="button" class="savecar" id="saveCar">+ Save to my garage</button><button type="button" class="savecar rm" id="rmCar" hidden>Remove from garage</button>`:''}</div>`;
   let ylinks='';for(let y=v.years[1];y>=v.years[0];y--)if(soldY(v,y))ylinks+=y===year?`<span aria-current="page"><b>${y}</b></span>`:`<a href="${url(v,y)}">${y}</a>`;
-  el.innerHTML=`<div class="crumb"><a href="/">Home</a> › <a href="/vehicles/#${mslug}">${esc(v.make)}</a> › ${year?`<a href="${url(v)}">${esc(v.model)}</a> › ${year}`:esc(v.model)}</div>
+  el.innerHTML=`<div class="crumb"><a href="/">Home</a> › <a href="/vehicles/#${mslug}">${esc(v.make)}</a> › ${year?`<a href="${url(v)}">${esc(v.model)}</a> › ${year}${modelAt(v,year)!==v.model?' '+esc(modelAt(v,year)):''}`:esc(v.model)}</div>
   <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div></div><h1>${year?'Your '+esc(name):esc(name)} <span class="h1s">problems and recalls</span></h1>
   <p class="sub">${year?`What we've documented about the ${esc(name)}: problems owners and shops report, and safety recalls.`:`Problems reported across ${v.years[0]}–${v.years[1]}. Pick your model year below to see what applies to your vehicle.`}${v.alt?' '+esc(v.alt.replace(/\.$/,''))+'.':''}</p></div>
   ${year?yearSummary(keyed,name):''}${btns}
@@ -313,7 +315,7 @@ function refreshRecalls(v,year){
 }
 async function loadNhtsa(v,year){
   const box=document.getElementById('nhtsa');if(!box||!year)return;
-  const rt=document.getElementById('recTile'),name=year+' '+v.make+' '+v.model;
+  const rt=document.getElementById('recTile'),name=year+' '+v.make+' '+modelAt(v,year);
   const sum=t=>{const e=document.getElementById('vsumRec');if(e)e.innerHTML='<strong>Safety recalls:</strong> '+t+' · '+vinLink('summary')};
   function addVinNote(){
     const note='Could you check my '+name+' by VIN for open safety recalls, tell me which campaigns apply and whether any repairs are still outstanding?';
@@ -350,15 +352,21 @@ async function loadNhtsa(v,year){
   if(!total&&v.issues.some(i=>issueInYear(v,i,year)&&isRecallIssue(i)))return fail('zero results but this page lists recall problems for '+year);
   // Zero is only a real answer when every name was checked.
   if(!total&&failed.length)return fail('zero results with '+failed.length+' name(s) not checked',true);
-  const res={status:failed.length?'partial':'ok',groups,total,failed,checked:new Date().toISOString()};
-  const multi=groups.length>1;
-  if(rt)rt.innerHTML=`<span class="tl">Model-year safety recalls</span><span class="tv">${total}</span><span class="tn">${total?'<a href="#nhtsa">See model-year campaigns</a>':'None listed for this model year. Individual VIN status unknown.'}</span>`;
+  // Audit Nov 27: a count is complete only when every name answered AND the name list for this year is verified.
+  // Otherwise it is "at least N", everywhere (page, tile, summary and PDF).
+  const complete=!failed.length&&M.verified;
+  const checked=new Date().toISOString(),when=new Date(checked).toLocaleString('en-US',{dateStyle:'medium',timeStyle:'short'});
+  const res={status:complete?'ok':'partial',verified:!!M.verified,groups,total,failed,checked};
+  const multi=groups.length>1,atLeast=complete?'':'At least ';
+  if(rt)rt.innerHTML=`<span class="tl">Model-year safety recalls</span><span class="tv">${complete?total:total+'+'}</span><span class="tn">${total?(complete?'':'Lookup incomplete. ')+'<a href="#nhtsa">See model-year campaigns</a>':'None listed for this model year. Individual VIN status unknown.'}</span>`;
   const card=x=>`<div class="issue" style="margin:8px 0;padding:14px"><div class="meta"><span class="pill">${esc(x.NHTSACampaignNumber||'')}</span><span class="pill">${esc((x.Component||'').split(':')[0])}</span></div><dl><div><dt>Problem</dt><dd>${esc(x.Summary||'')}</dd></div><div><dt>Fix</dt><dd>${esc(x.Remedy||'')}</dd></div></dl></div>`;
-  box.innerHTML=`<b>${total?total+' safety recall'+(total>1?'s':''):'No safety recalls'} filed for the ${esc(name)}</b><p style="margin:6px 0 0;font-size:14px">${total?'These are campaigns NHTSA lists for this model year. Not every vehicle is included in every campaign, and this does not show whether a recall is still open on your car.':'NHTSA\'s recall database returned no campaigns for this model year.'}</p>`+
+  box.innerHTML=`<b>${total?atLeast+total+' safety recall'+(total>1?'s':''):'No safety recalls'} ${complete?'filed':'found'} for the ${esc(name)}${complete?'':'; lookup incomplete'}</b><p style="margin:6px 0 0;font-size:14px">${total?'These are campaigns NHTSA lists for this model year. Not every vehicle is included in every campaign, and this does not show whether a recall is still open on your car.':'NHTSA\'s recall database returned no campaigns for this model year.'}</p>`+
     groups.map(g=>`${multi?`<h3 style="margin:14px 0 4px;font-size:16px">${esc(g.label)}: ${g.results.length}</h3>`:''}<div style="margin-top:10px">${g.results.slice(0,12).map(card).join('')}${g.results.length>12?`<details><summary>Show ${g.results.length-12} more campaigns</summary>${g.results.slice(12).map(card).join('')}</details>`:''}</div>`).join('')+
-    (failed.length?`<p class="muted" style="font-size:14px"><b>This list may be incomplete.</b> NHTSA didn't answer for ${failed.length===1?'one name':failed.length+' names'} this model is filed under, so a dealer VIN check is the way to confirm.</p>`:'')+
+    (failed.length?`<p class="muted" style="font-size:14px"><b>This list may be incomplete.</b> NHTSA didn't answer for ${failed.length===1?'one name':failed.length+' names'} this model is filed under, so a dealer VIN check is the way to confirm.</p>`:
+      !M.verified?`<p class="muted" style="font-size:14px"><b>This list may be incomplete.</b> We haven't confirmed every name NHTSA files this model year under, so there may be campaigns this search didn't find. A VIN check is the way to confirm.</p>`:'')+
+    `<p class="muted" style="font-size:13px">Checked ${esc(when)}.</p>`+
     `<p><b>Is a recall open on my vehicle?</b> A model-year search cannot confirm whether your VIN is included or whether its recall repair was completed. ${vinLink('recall_box')} A dealer can also check it.</p>`;
-  sum(total?`${total} filed for this model year. <a href="#nhtsa">See them</a>`:'none listed for this model year');
+  sum(total?`${complete?total+' filed':'at least '+total+' found (lookup incomplete)'} for this model year. <a href="#nhtsa">See them</a>`:'none listed for this model year');
   addVinNote();
   return res;
 }

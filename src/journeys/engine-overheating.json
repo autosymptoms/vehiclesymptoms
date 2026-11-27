@@ -25,7 +25,7 @@
   "If the gauge is in the red, a red temperature light is on, or steam is coming from under the hood, pull over safely and turn the engine off.",
   "Never open the radiator cap or coolant tank cap on a hot engine. Hot coolant under pressure can spray out and cause serious burns.",
   "If the oil pressure light comes on too, or the engine starts knocking, pull over as soon as it's safe and shut it off right away.",
-  "If you see flames or smoke with a burning smell, get everyone out and away from the car and call for help."
+  "If you see flames or smoke with a burning smell, get everyone out and at least 100 feet away from the car and call for help."
  ],
  "start": "q_how_hot",
  "nodes": {
@@ -73,7 +73,7 @@
    ]
   },
   "q_coolant_level": {
-   "q": "Once the engine has cooled for at least 30 minutes, where is the coolant level in the see-through overflow tank?",
+   "q": "Once the engine is fully cold (often 30 minutes or more), where is the coolant level in the see-through overflow tank? Don't open any cap to check.",
    "help": "The overflow tank is a plastic bottle near the radiator with MIN and MAX (or COLD and FULL) marks. Only check it when the engine is cold, and don't open the radiator cap itself.",
    "opts": [
     {
@@ -141,11 +141,11 @@
    "result": {
     "title": "The engine may be overheating. Stop as soon as it's safe",
     "urgency": "stop",
-    "now": "Pull over somewhere safe, turn the engine off and let it cool for at least 30 minutes. Then call for a tow or a mechanic who comes to you rather than restarting it.",
+    "now": "Pull over somewhere safe and turn the engine off. Don't restart it to test it, and don't open the radiator or coolant cap. Call for a tow or a mechanic who comes to you.",
     "if": [
-     "If you're stuck in traffic and can't pull over yet, turn the A/C off and the heater on full hot with the fan on high. This pulls some heat away from the engine until you can stop.",
+     "If you're stuck in traffic and can't pull over yet, turn the A/C off and the heater on full hot with the fan on high. It only buys a little time to reach the nearest safe place to stop. It isn't a way to keep driving.",
      "If the oil pressure light comes on or the engine knocks, pull over as soon as it's safe and shut it off right away.",
-     "If coolant is pouring out or you see flames or heavy smoke, get everyone away from the car.",
+     "If you see flames, or smoke you're not sure is steam, get everyone out, move at least 100 feet away from the car and traffic, and call 911.",
      "If the check engine light starts flashing, the engine may be misfiring from the heat. Pull over when it's safe and turn it off."
     ],
     "why": "A gauge in the red or steam from the engine usually means it can no longer get rid of heat fast enough. Every extra minute of running can warp the cylinder head or blow the head gasket, turning a simple hose or fan repair into a major engine repair.",
@@ -189,7 +189,7 @@
    "result": {
     "title": "Check the coolant level before driving again",
     "urgency": "stop",
-    "now": "Don't drive it again until the cooling system is checked. With the engine fully cold (at least 30 minutes), look at the overflow tank and tell the mechanic what you see. If it's below MIN, coolant is escaping: have it towed or have a mechanic come to you. Adding coolant can help you reach a safe place, but it isn't a fix.",
+    "now": "Don't drive it again until the cooling system is checked. Once the engine is fully cold (often 30 minutes or more, longer in hot weather; follow your owner's manual), look at the overflow tank without opening any cap and tell the mechanic what you see. If it's below MIN, coolant is escaping: have it towed or have a mechanic come to you.",
     "if": [
      "If the tank was empty or very low, coolant is escaping somewhere. Have the leak found before driving, because it will usually overheat again.",
      "If the level is between MIN and MAX, come back and answer the questions again with that. The cause is more likely a fan, thermostat or pump.",
@@ -232,7 +232,7 @@
    "result": {
     "title": "Coolant may be leaking out, so the engine can't stay cool",
     "urgency": "stop",
-    "now": "Don't drive it until the leak has been checked. Since it has already run hot, have it towed or have a mechanic come to you. Once the engine is fully cold, adding coolant can help you reach a safe place, but it isn't a fix.",
+    "now": "Don't drive it until the leak has been checked. Since it has already run hot, have it towed or have a mechanic come to you.",
     "if": [
      "If the gauge reaches the red, a red temperature light comes on or you see steam, pull over and turn the engine off right away.",
      "If coolant is pouring out or the tank empties quickly, don't start the engine again.",
@@ -320,7 +320,7 @@
    "result": {
     "title": "Coolant may be escaping somewhere you can't see",
     "urgency": "stop",
-    "now": "Don't drive it until the cooling system has been pressure-tested. Not seeing a leak doesn't mean the coolant is safe to top up and forget. Once the engine is cold you can top up the tank, but have a mechanic test it where it's parked or have it towed.",
+    "now": "Don't drive it until the cooling system has been pressure-tested. Not seeing a leak doesn't mean it's safe to top up and drive. Have a mechanic test it where it's parked or have it towed.",
     "if": [
      "If the gauge reaches the red, a red temperature light comes on or you see steam, pull over and turn the engine off.",
      "If you notice white sweet-smelling exhaust smoke or milky oil, don't start the engine. That can point to an internal leak.",

@@ -219,5 +219,29 @@ for(const j of journeys){
     aliases++;
   }
 }
+// Audit Nov 27: plain-language danger, codes mixed with danger, and negation.
+const auditUrgent=[
+  ['P0420 and my brakes barely work','brakes'],['brakes barely work','brakes'],['almost no brakes','brakes'],
+  ['I have to push the brake pedal all the way to stop','brakes'],
+  ['I was driving and my wheel stopped turning','steering'],['my steering wheel locked up while driving','steering'],
+  ['battery light and wheel got hard to turn','steering-heavy'],['my wheel fell off','wheel-off'],['wheel came off while driving','wheel-off'],
+  ['P0420 and my engine is hot','engine-hot'],['dash says stop safely now','stop-message'],['car says pull over safely','stop-message'],
+  ['car running hot and no oil warning','overheat'],['check engine light flashing and car shaking','cel-flashing'],
+  ['exhaust in the cabin','exhaust']
+];
+for(const [query,rule] of auditUrgent){
+  const r=submit(query);
+  assert.equal(location.href,'',query+': stays on the safety step');
+  assert.ok(r.querySelector('.urgentnow'),query+': safety step first');
+  assert.equal(window.VS_GUIDES.emergency(query).rule,rule,query);
+}
+for(const query of ['I push the clutch pedal all the way down to start','car says stop start system not available',
+  'my steering wheel is hard to turn when parked','my hubcap fell off','brake pedal feels hard when the engine is off','my seat is hot',
+  'wheel bearing noise while driving','brakes squeak when I stop']){
+  assert.equal(window.VS_GUIDES.emergency(query),null,query+': not an emergency');
+}
+{const r=submit('P0420 and my brakes barely work');assert.ok(r.querySelector('.urgentnow').compareDocumentPosition(r.querySelector('a[href="/codes/?q=P0420"]'))&4,'code link comes after the safety step');}
+assert.notEqual(window.VS_GUIDES.emergency('car running hot and no oil warning').rule,'oil');
+assert.ok(!window.VS_GUIDES.emergency('the oil light is off but the engine is overheating').also.some(t=>/oil light/i.test(t)));
 dom.window.close();
 console.log('PASS raw homepage submissions, vehicle and code routing, clarifications and '+aliases+' published guide aliases.');

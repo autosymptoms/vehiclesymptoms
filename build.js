@@ -154,6 +154,19 @@ V.sort((a,b)=>(a.make+a.model).localeCompare(b.make+b.model));
 {const RM=fs.existsSync('src/recall-map.json')?JSON.parse(fs.readFileSync('src/recall-map.json','utf8')).models:{};
  for(const v of V){if(RM[v.id])v.rq=RM[v.id].map(r=>({from:r.from,to:r.to,verified:r.verified!==false,queries:r.queries}));
   if(/ \/ /.test(v.model)){for(let y=v.years[0];y<=v.years[1];y++)if(sold(v,y)&&!(v.rq||[]).some(r=>y>=r.from&&y<=r.to)){console.log('RECALL MAP MISSING',v.id,y);bad++}}}}
+// Audit Nov 27: a combined label ("Integra / RSX") shows the one name that was actually sold in a year ("2005 Acura RSX").
+// A year gets its own name only when every NHTSA name filed for it belongs to the same part of the label, under the same make.
+for(const v of V){delete v.yn;if(!/ \/ /.test(v.model)||!v.rq)continue;
+  const nm=t=>String(t).toUpperCase().replace(/[^A-Z0-9]/g,''),parts=v.model.split(' / '),last=parts[parts.length-1].split(' '),tail=last.slice(1).join(' ');
+  // "1 / 2 Series" means "1 Series" and "2 Series".
+  const segs=parts.slice(0,-1).every(x=>!/ /.test(x))&&/^(?:Series|Super Duty|Class)$/.test(tail)?parts.map((x,i)=>({name:i<parts.length-1?x+' '+tail:x,core:x.split(' ')[0]})):parts.map(x=>({name:x,core:x}));
+  const yn=[];
+  for(const r of v.rq){const hit=new Set();let ok=true;
+    for(const q of r.queries){const L=nm(q.label||q.model);const m=segs.filter(s=>{const c=nm(s.core);return L.startsWith(c)||c.startsWith(L)});
+      if(m.length!==1||nm(q.make)!==nm(v.nmake||v.make)){ok=false;break}hit.add(m[0].name)}
+    if(ok&&hit.size===1)yn.push({from:r.from,to:r.to,name:[...hit][0]})}
+  if(yn.length)v.yn=yn}
+const modelAt=(v,y)=>{const r=y&&(v.yn||[]).find(x=>y>=x.from&&y<=x.to);return r?r.name:v.model};
 if (animations) for (const v of V) for (const issue of v.issues) {
   const item = animations.forText(issue.t);
   if (item) issue.animation = { title: item.title, href: animations.link(item) };
@@ -877,6 +890,7 @@ for(const v of V){
   const title = copy ? copy[0] : `${nm} Common Problems by Model Year`;
   urls.push(page(`/vehicles/${v.id}/`,`${title} | VehicleSymptoms.com`,copy?.[1] ?? `Known ${nm} problems from ${v.years[0]} to ${v.years[1]}: ${v.issues.slice(0,3).map(i=>i.t.toLowerCase()).join('; ')}. Symptoms, causes and what to do.`,{inner:render(null)}));
   for(let y=v.years[0];y<=v.years[1];y++){if(!sold(v,y))continue;
+    const nm=v.make+' '+modelAt(v,y);
     const is=v.issues.filter(i=>issueInYear(v,i,y));
     const systems = [...new Set(is.map(issue => issue.sys).filter(Boolean))];
     const subject = systems.length ? systems.slice(0, 2).join(' & ') + ' Problems' : 'Symptoms & Recall Lookup';

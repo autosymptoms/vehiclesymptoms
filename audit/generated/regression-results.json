@@ -1,5 +1,5 @@
 {
- "ran": "2026-11-27T15:26:23.595Z",
+ "ran": "2026-11-27T17:24:18.797Z",
  "results": [
   {
    "id": "REC-01",
@@ -23,7 +23,7 @@
    "id": "REC-04",
    "desc": "HTTP error shows an unknown recall count, a retry and an on-site VIN question",
    "pass": true,
-   "detail": "Safety recalls: lookup unavailableWe could not confirm the NHTSA campaign list for the 2023 Acura Integra / RSX. The recall count and the status of your individual VIN are unknown.Check your VIN for recalls at NHTSA ↗ A "
+   "detail": "Safety recalls: lookup unavailableWe could not confirm the NHTSA campaign list for the 2023 Acura Integra. The recall count and the status of your individual VIN are unknown.Check your VIN for recalls at NHTSA ↗ A dealer"
   },
   {
    "id": "REC-05",
@@ -89,7 +89,7 @@
    "id": "REC-PARTIAL",
    "desc": "A failed alias keeps the campaigns other names returned and says the list may be incomplete",
    "pass": true,
-   "detail": "3 safety recalls filed for the 2021 Chrysler PacificaThese are campaigns NHTSA lists for this model year. Not every vehicle is included in every campaign, and t"
+   "detail": "At least 3 safety recalls found for the 2021 Chrysler Pacifica; lookup incompleteThese are campaigns NHTSA lists for this model year. Not every vehicle is inclu"
   },
   {
    "id": "REC-PARTIAL-0",
@@ -162,6 +162,30 @@
    "desc": "Result email no longer writes to a contact list",
    "pass": true,
    "detail": ""
+  },
+  {
+   "id": "LEX-IS-2011",
+   "desc": "2011 Lexus IS queries every IS name and counts 8 distinct campaigns",
+   "pass": true,
+   "detail": "8 safety recalls filed for the 2011 Lexus ISThese are campaigns NHTSA lists for this model year. Not every vehicle is in | IS 250,IS 350,IS 250C,IS 350C,IS F,IS"
+  },
+  {
+   "id": "REC-UNVERIFIED",
+   "desc": "A positive count under an unconfirmed name list says \"at least\" and \"lookup incomplete\"",
+   "pass": true,
+   "detail": "At least 2 safety recalls found for the 2012 Lexus IS; lookup incompleteThese are campaigns NHTSA lists for this model year. Not every vehicle is included in ev | Model-year safety recalls2+Lookup incomplete. See model-year campaigns"
+  },
+  {
+   "id": "LEX-IS-ENG",
+   "desc": "2011 Lexus IS engines do not list the later IS 300 AWD",
+   "pass": true,
+   "detail": "2.5L V6 (IS 250); 3.5L V6 (IS 350); 5.0L V8 (IS F)"
+  },
+  {
+   "id": "YEAR-NAMES",
+   "desc": "Combined labels show the name sold that year",
+   "pass": true,
+   "detail": "2005 Acura RSX: Engine &amp; Body Problems | VehicleSymptoms.com | 2002 Porsche Boxster: Engine &amp; Cooling Problems | VehicleSymptoms.com"
   },
   {
    "id": "PRC-OFF",

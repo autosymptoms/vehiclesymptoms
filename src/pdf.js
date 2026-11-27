@@ -52,8 +52,9 @@ window.VS_PDF=function(ctx){
   const serious=list.filter(i=>i.sev==='high').length;
   const rec=ctx.recalls,tiles=[];
   tiles.push(['Problems documented'+(year?' for '+year:''),list.length?String(list.length):'Not yet',list.length?(serious?serious+' rated serious':'None on file rated serious'):"We haven't documented issues for this year yet. Not a reliability rating."]);
-  const recOk=rec&&rec.status==='ok';
-  if(year)tiles.push(recOk?['Model-year safety recalls',String(rec.total),rec.total?'Filed for this model year. Individual VIN status unknown.':'None listed for this model year. Individual VIN status unknown.']:['Safety recalls','–','NHTSA campaign count unavailable. Individual VIN status unknown.']);
+  // Audit Nov 27: a partial lookup keeps its rows and says "at least N", instead of being dropped as unavailable.
+  const recOk=rec&&(rec.status==='ok'||rec.status==='partial'),recPart=rec&&rec.status==='partial';
+  if(year)tiles.push(recOk?['Model-year safety recalls',recPart?'At least '+rec.total:String(rec.total),recPart?'Lookup incomplete. Individual VIN status unknown.':rec.total?'Filed for this model year. Individual VIN status unknown.':'None listed for this model year. Individual VIN status unknown.']:['Safety recalls','–','NHTSA campaign count unavailable. Individual VIN status unknown.']);
   {const gap=8,tw=(CW-gap*(tiles.length-1))/tiles.length,pad=9,iw=tw-pad*2;
    const laid=tiles.map(t=>{font('bold',6.8,MUTED);const a=doc.splitTextToSize(clean(t[0]).toUpperCase(),iw);font('normal',8,BODY);const c=doc.splitTextToSize(clean(t[2]),iw);return{a,c,h:pad*2+a.length*8.8+24+c.length*10.4}});
    const th=Math.max.apply(null,laid.map(l=>l.h));need(th+8);
@@ -86,7 +87,7 @@ window.VS_PDF=function(ctx){
 
   // Safety recalls (live from NHTSA when the page loaded)
   if(year){
-    if(recOk){h2((rec.total?rec.total+' safety recall'+(rec.total===1?'':'s'):'No safety recalls')+' filed for the '+name,(rec.total?'Campaigns NHTSA lists for this model year. Not every vehicle is included, and this does not show whether a recall is open on your car.':'NHTSA returned no campaigns for this model year.')+' Checked '+new Date(rec.checked).toLocaleDateString('en-US')+'.');
+    if(recOk){h2(recPart?'At least '+rec.total+' safety recall'+(rec.total===1?'':'s')+' found for the '+name+'; lookup incomplete':(rec.total?rec.total+' safety recall'+(rec.total===1?'':'s'):'No safety recalls')+' filed for the '+name,(recPart?'This list may be incomplete: not every name NHTSA files this model under was confirmed or answered. ':'')+(rec.total?'Campaigns NHTSA lists for this model year. Not every vehicle is included, and this does not show whether a recall is open on your car.':'NHTSA returned no campaigns for this model year.')+' Checked '+new Date(rec.checked).toLocaleString('en-US')+'.');
       rec.groups.forEach(g=>{if(rec.groups.length>1){need(30);para(g.label+': '+g.results.length,{size:10.5,style:'bold',color:TEXT,after:4})}
         g.results.forEach((x,k,a)=>{need(70);para([x.NHTSACampaignNumber,(x.Component||'').split(':')[0]].filter(Boolean).join('  ·  '),{size:9.5,style:'bold',color:TEXT,after:4});
           if(x.Summary){label('Problem');para(x.Summary,{size:9,after:5})}if(x.Remedy){label('Fix');para(x.Remedy,{size:9,after:4})}
