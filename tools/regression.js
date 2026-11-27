@@ -109,7 +109,7 @@ T('PRIV-01','Result email no longer writes to a contact list',!/api\.resend\.com
  T('LEX-IS-2011','2011 Lexus IS queries every IS name and counts 8 distinct campaigns',/\b8 safety recalls filed/.test(box)&&['IS 250','IS 350','IS 250C','IS 350C','IS F'].every(n=>models.includes(n)),box.slice(0,120)+' | '+models.join(','));
  const p2=load('/vehicles/lexus-is/2012/',{fetch:nh(k=>{const [,md]=k.split('|');return md==='IS 350'?mk('IS 350',2012,['13V030000','16V340000']):empty(k)})});await sleep(400);
  const b2=p2.doc.getElementById('nhtsa').textContent,t2=p2.doc.getElementById('recTile').textContent;
- T('REC-UNVERIFIED','A positive count under an unconfirmed name list says "at least" and "lookup incomplete"',/At least 2 safety recalls found/.test(b2)&&/lookup incomplete/i.test(b2)&&/2\+/.test(t2)&&/Checked /.test(b2),b2.slice(0,160)+' | '+t2);
+ T('REC-UNVERIFIED','A positive count under an unconfirmed name list says "found" with the in-progress line, no caution label',/\b2 safety recalls found/.test(b2)&&!/At least|lookup incomplete|may be incomplete/i.test(b2)&&/in progress/.test(b2)&&p2.doc.querySelector('#recTile .tv').textContent.trim()==='2'&&/Checked /.test(b2),b2.slice(0,200)+' | '+t2);
  const eng=JSON.parse(fs.readFileSync(D('data/v/lexus-is.json'),'utf8')).engines.filter(e=>e.y[0]<=2011&&e.y[1]>=2011).map(e=>e.name).join('; ');
  T('LEX-IS-ENG','2011 Lexus IS engines do not list the later IS 300 AWD',!/IS 300/.test(eng)&&/IS 350/.test(eng),eng);
  const ti=r=>(fs.readFileSync(D(r+'index.html'),'utf8').match(/<title>([^<]*)/)||[])[1]||'';
