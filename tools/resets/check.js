@@ -16,7 +16,7 @@ for (const f of fs.readdirSync(path.join(ROOT, 'src/deep')).filter(f => f.endsWi
 }
 const byId = new Map(V.map(v => [v.id, v]));
 const publishers = require(path.join(ROOT, 'src/source-publishers.json'));
-const BANNED = /(^|\.)(au7o\.io|openlaborproject\.com|carparts\.com\/blog|wikihow\.com|reddit\.com|quora\.com|youtube\.com|youtu\.be|facebook\.com|tiktok\.com|pinterest\.com)$/i;
+const BANNED = /(^|\.)(au7o\.io|openlaborproject\.com|carparts\.com\/blog|wikihow\.com|reddit\.com|quora\.com|youtube\.com|youtu\.be|facebook\.com|tiktok\.com|pinterest\.com|dodgeforum\.com|askmanual\.pages\.dev)$/i;
 const EXTERNAL_TEXT = /(https?:\/\/|www\.|\b[a-z0-9-]+\.(com|org|gov|net|io|co|ca|uk)\b)/i;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 let errors = 0, warnings = 0;
