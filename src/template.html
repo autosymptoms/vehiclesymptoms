@@ -63,7 +63,7 @@ document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&
     <div class="hero-main">
       <{{HOMEH1}}>What’s happening <em>with your car?</em></{{HOMEH1C}}>
       <p class="sub">Describe what you notice to find out how urgent it may be, what to check and what to ask a mechanic. Free, no sign-up.</p>
-      {{ROADSIDEBTN}}<div class="search">
+      <div class="search">
         <label class="search-label" for="helpInput">Describe a symptom</label>
         <form id="helpForm" autocomplete="off">
           <span class="search-field">
@@ -76,13 +76,14 @@ document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&
         <div class="results" id="helpResults"></div>
         <p class="sc-label">Or choose a symptom</p>
         <div class="shortcuts">
-          {{SMOKECHIP}}<a class="sc" href="/symptoms/car-wont-start/">Won't start</a>
+          <a class="sc" href="/symptoms/car-wont-start/">Won't start</a>
           <a class="sc" href="/warning-lights/">Warning light</a>
           <a class="sc" href="/symptoms/#noise">Strange noise</a>
           <a class="sc" href="/symptoms/#shake">Shaking</a>
           <a class="sc" href="/symptoms/#leaksmell">Leak or smell</a>
-          <a class="sc sc-unsure" href="/symptoms/" id="notSure">I'm not sure</a>
+          {{SMOKECHIP}}
         </div>
+        {{ROADSIDEBTN}}
       </div>
     </div>
     <aside class="mycar" id="vehicle">
