@@ -25,7 +25,7 @@
  "safety": [
   "If the red BRAKE light is on too, or the brake pedal feels soft, don't drive it until the brakes are checked.",
   "If the check engine light is flashing, or the engine shakes or runs rough, pull over safely and turn the engine off.",
-  "With traction or stability control off, slow down and leave extra room on wet, snowy or icy roads."
+  "Slow down and leave extra room on wet, snowy or icy roads while traction or stability control is off."
  ],
  "start": "q_pattern",
  "nodes": {
@@ -222,7 +222,7 @@
    "result": {
     "title": "Traction, ABS and red brake lights together can point to a brake system problem",
     "urgency": "stop",
-    "now": "Don't drive it. Check that the parking brake is fully released and look at the brake fluid level, then have it towed or call a mobile mechanic.",
+    "now": "Don't drive it. Check that the parking brake is fully released and look at the brake fluid level, then have it towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If the red BRAKE light goes out once the parking brake is fully released and the pedal feels normal, the ABS and traction lights still need checking within a day or two. If the red light stays on, keep the car parked.",
      "If the brake fluid is low, topping it up doesn't make the car safe to drive, even if you can't see a leak. Have the brakes inspected before driving.",
@@ -304,7 +304,7 @@
    "result": {
     "title": "The engine may be misfiring, and traction control has shut off as a result",
     "urgency": "stop",
-    "now": "Pull over safely and turn the engine off. Have the car towed or call a mobile mechanic.",
+    "now": "Pull over safely and turn the engine off. Have the car towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If you smell fuel or see smoke, get everyone out and away from the car.",
      "If the temperature gauge is high or the oil pressure light is on, don't restart the engine."
@@ -379,7 +379,7 @@
   },
   "r_steering_angle": {
    "result": {
-    "title": "The steering angle sensor may need to be reset or calibrated",
+    "title": "The sensor that tracks where the wheel is pointed may need resetting (steering angle sensor)",
     "urgency": "check",
     "now": "Check your owner's manual for a reset step, such as turning the wheel fully left and right with the engine running. If that doesn't work, book a calibration.",
     "if": [
@@ -505,7 +505,8 @@
   "brake-warning-light-on",
   "check-engine-light-on",
   "check-engine-light-flashing",
-  "tire-pressure-light-on"
+  "tire-pressure-light-on",
+  "car-skids-or-hydroplanes"
  ],
  "issueMatch": {
   "cats": [],

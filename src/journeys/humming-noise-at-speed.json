@@ -24,7 +24,7 @@
  "safety": [
   "If the hum turns into grinding or a wheel feels loose or wobbly, slow down and pull over as soon as it's safe.",
   "If you see a bulge or bubble on a tire, or cords showing through the rubber, don't drive on it.",
-  "Only do the steering test on an empty road at a safe speed, with gentle movements."
+  "If you're driving, don't try any test yourself. Pull over first, or have a passenger or a mechanic check the noise."
  ],
  "start": "q_danger",
  "nodes": {
@@ -50,8 +50,8 @@
    ]
   },
   "q_weave": {
-   "q": "On an empty, straight road at the speed where it hums, gently steer a little left, then a little right. Does the hum change?",
-   "help": "When you steer, the car's weight shifts onto the outside wheels. A worn wheel bearing usually gets louder when it's carrying more weight, and quieter when it's carrying less. Keep the movements small and smooth.",
+   "q": "Has a passenger or mechanic noticed whether the hum changes when the car gently turns left or right at that speed?",
+   "help": "Don't test this yourself if you're a new driver. Only an experienced driver should try it, on an empty road with small, smooth movements, or have a mechanic road-test it. Otherwise choose \"I'm not sure\". When the car turns, its weight shifts onto the outside wheels, and a worn wheel bearing usually gets louder when it carries more weight.",
    "opts": [
     {
      "a": "Yes: louder steering one way, quieter the other",
@@ -122,7 +122,7 @@
    "result": {
     "title": "A wheel bearing or wheel may be close to failing",
     "urgency": "stop",
-    "now": "Pull over as soon as it's safe. Check that the lug nuts are tight if you can, then have the car towed or have a mobile mechanic come to you.",
+    "now": "Pull over as soon as it's safe. Check that the lug nuts are tight if you can, then have the car towed, or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If a lug nut is loose or missing, don't drive on it until all the nuts are tightened properly.",
      "If you smell burning or a wheel is much hotter than the others, the brakes may be dragging or the bearing may be overheating. Don't touch it with bare hands."
@@ -160,7 +160,7 @@
   },
   "r_wheel_bearing": {
    "result": {
-    "title": "A worn wheel bearing is a likely cause",
+    "title": "A worn bearing in a wheel hub is a likely cause (wheel bearing)",
     "urgency": "soon",
     "now": "Have the wheel bearings checked within a few days. Until then, keep speeds moderate and avoid long highway trips.",
     "if": [
@@ -201,7 +201,7 @@
   },
   "r_differential": {
    "result": {
-    "title": "The differential or its fluid may be the source",
+    "title": "The gears that drive the wheels, or their oil, may be the source (differential)",
     "urgency": "soon",
     "now": "Have the differential fluid level and condition checked within a few days, and keep speeds moderate until then.",
     "if": [
@@ -466,7 +466,7 @@
   ]
  },
  "sources": [
-  "https://www.mavis.com/learning-center/how-to-tell-if-your-wheel-bearings-are-bad/",
+  "https://www.nhtsa.gov/vehicle-safety/tires",
   "https://gmb.net/?p=5323"
  ]
 }

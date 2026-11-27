@@ -18,9 +18,13 @@
   "idle drops and stalls",
   "car dies when i brake",
   "rpm drops and car dies",
-  "car stalls at stop light"
+  "car stalls at stop light",
+  "car shuts off at red light",
+  "car turned off at a stop light",
+  "turns off when I stop",
+  "car turns off at red light"
  ],
- "intro": "An engine that dies as you slow down usually can't hold a steady idle once your foot is off the gas. Most causes are idle, air or sensor problems, but an automatic transmission or brake booster fault can do it too. Answer the questions below to see which fits and how soon to act.",
+ "intro": "An engine that dies as you slow down usually can't hold a steady idle once your foot is off the gas. Most causes are idle, air or sensor problems, but an automatic transmission fault, or a leak in the brake booster (the part that makes the brake pedal easy to press), can do it too. Answer the questions below to see which fits and how soon to act.",
  "safety": [
   "If the engine dies while moving, braking may take much more force and steering may get heavy. Press the brake firmly and steer with both hands.",
   "If the brake pedal feels hard or the car is harder to stop than usual, don't drive it.",
@@ -100,7 +104,7 @@
    "result": {
     "title": "The transmission may not be disengaging from the engine as you stop",
     "urgency": "stop",
-    "now": "Don't drive it until it's checked. It may stall again at the next stop. Have it towed or call a mobile mechanic to scan the transmission.",
+    "now": "Don't drive it until it's checked. It may stall again at the next stop. Have it towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual). A mechanic who comes to you can also scan the transmission.",
     "if": [
      "If a check engine or transmission light is on, the stored codes can help point the shop in the right direction.",
      "If it only happened once and you can't repeat it, still have it scanned before relying on the car in traffic."
@@ -140,7 +144,7 @@
    "result": {
     "title": "A sensor or electrical fault may be cutting the engine",
     "urgency": "stop",
-    "now": "Don't drive it until it's diagnosed. Have it towed or have a mobile mechanic scan for codes.",
+    "now": "Don't drive it until it's diagnosed. Have it towed or have a mechanic who comes to you scan for codes.",
     "if": [
      "If it also shuts off while driving at speed, see our guide on stalling while driving. It's the same family of problems.",
      "If the dash lights flicker or go out as it dies, mention it. That can point to wiring or the ignition switch."
@@ -178,9 +182,9 @@
   },
   "r_brake_booster": {
    "result": {
-    "title": "A leak in the brake booster may be stalling the engine",
+    "title": "An air leak in the brake assist may be stalling the engine (brake booster)",
     "urgency": "stop",
-    "now": "Don't drive it. Brake assist may be reduced. Have it towed or have a mobile mechanic inspect the booster and vacuum hose.",
+    "now": "Don't drive it. Brake assist may be reduced. Have it towed or have a mechanic inspect the booster and vacuum hose.",
     "if": [
      "If the pedal also sinks toward the floor, there may be a brake fluid problem too. Don't drive it under any circumstances."
     ],
@@ -216,7 +220,7 @@
   },
   "r_cold_idle": {
    "result": {
-    "title": "The idle control or a temperature sensor may be off when the engine is cold",
+    "title": "The idle may not be set right while the engine is cold (idle control or temperature sensor)",
     "urgency": "soon",
     "now": "Get it checked within the next few days. Until then, let the engine warm up for a minute before you drive, and leave extra room at stops.",
     "if": [
@@ -299,7 +303,7 @@
   },
   "r_warm_idle": {
    "result": {
-    "title": "Possibly a vacuum leak, a sticking valve or a dirty airflow sensor",
+    "title": "Extra air getting in, a sticking valve or a dirty sensor may be upsetting the idle (vacuum leak or airflow sensor)",
     "urgency": "soon",
     "now": "Get it checked within the next few days, and have the codes read even if the check engine light is off.",
     "if": [
@@ -448,6 +452,7 @@
   ]
  },
  "sources": [
-  "https://www.jegs.com/tech-articles/why-your-car-stalls-when-coming-to-a-stop/"
+  "https://www.aa1car.com/library/vacleak.htm",
+  "https://www.aaa.com/autorepair/articles/check-engine-light"
  ]
 }

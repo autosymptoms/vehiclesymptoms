@@ -141,7 +141,7 @@
    "result": {
     "title": "The engine may be overheating. Stop as soon as it's safe",
     "urgency": "stop",
-    "now": "Pull over somewhere safe, turn the engine off and let it cool for at least 30 minutes. Then call for a tow or a mobile mechanic rather than restarting it.",
+    "now": "Pull over somewhere safe, turn the engine off and let it cool for at least 30 minutes. Then call for a tow or a mechanic who comes to you rather than restarting it.",
     "if": [
      "If you're stuck in traffic and can't pull over yet, turn the A/C off and the heater on full hot with the fan on high. This pulls some heat away from the engine until you can stop.",
      "If the oil pressure light comes on or the engine knocks, pull over as soon as it's safe and shut it off right away.",
@@ -189,7 +189,7 @@
    "result": {
     "title": "Check the coolant level before driving again",
     "urgency": "stop",
-    "now": "Don't drive it again until you've checked the coolant. With the engine fully cold, look at the overflow tank. If it's below MIN, top it up to the MAX line with the coolant type listed in your owner's manual, and have the cooling system checked before relying on the car.",
+    "now": "Don't drive it again until the cooling system is checked. With the engine fully cold (at least 30 minutes), look at the overflow tank and tell the mechanic what you see. If it's below MIN, coolant is escaping: have it towed or have a mechanic come to you. Adding coolant can help you reach a safe place, but it isn't a fix.",
     "if": [
      "If the tank was empty or very low, coolant is escaping somewhere. Have the leak found before driving, because it will usually overheat again.",
      "If the level is between MIN and MAX, come back and answer the questions again with that. The cause is more likely a fan, thermostat or pump.",
@@ -232,7 +232,7 @@
    "result": {
     "title": "Coolant may be leaking out, so the engine can't stay cool",
     "urgency": "stop",
-    "now": "Don't drive it until the leak has been checked. Once the engine is cold you can top up the overflow tank to MAX with the right coolant, but since it has already run hot, have a mobile mechanic look at it or have it towed.",
+    "now": "Don't drive it until the leak has been checked. Since it has already run hot, have it towed or have a mechanic come to you. Once the engine is fully cold, adding coolant can help you reach a safe place, but it isn't a fix.",
     "if": [
      "If the gauge reaches the red, a red temperature light comes on or you see steam, pull over and turn the engine off right away.",
      "If coolant is pouring out or the tank empties quickly, don't start the engine again.",
@@ -277,9 +277,9 @@
   },
   "r_head_gasket": {
    "result": {
-    "title": "Possible head gasket leak: coolant may be getting into the engine",
+    "title": "Coolant may be getting into the engine (possible head gasket leak)",
     "urgency": "stop",
-    "now": "Don't drive it. Have it towed or have a mobile mechanic test it.",
+    "now": "Don't drive it. Have it towed or have a mechanic test it where it's parked.",
     "if": [
      "If a test rules out a head gasket, a leaking intake gasket or EGR or oil cooler (on some engines) can cause similar signs, and those are usually less serious.",
      "If the oil looks milky, don't start the engine at all. Coolant mixed into oil can quickly damage the bearings.",
@@ -320,7 +320,7 @@
    "result": {
     "title": "Coolant may be escaping somewhere you can't see",
     "urgency": "stop",
-    "now": "Don't drive it until the cooling system has been pressure-tested. Not seeing a leak doesn't mean the coolant is safe to top up and forget. Once the engine is cold you can top up the tank, but have a mobile mechanic test it or have it towed.",
+    "now": "Don't drive it until the cooling system has been pressure-tested. Not seeing a leak doesn't mean the coolant is safe to top up and forget. Once the engine is cold you can top up the tank, but have a mechanic test it where it's parked or have it towed.",
     "if": [
      "If the gauge reaches the red, a red temperature light comes on or you see steam, pull over and turn the engine off.",
      "If you notice white sweet-smelling exhaust smoke or milky oil, don't start the engine. That can point to an internal leak.",
@@ -361,7 +361,7 @@
   },
   "r_fan": {
    "result": {
-    "title": "The radiator fan may not be doing its job",
+    "title": "The fan that cools the radiator may not be working (radiator fan)",
     "urgency": "soon",
     "now": "Until the cooling fan has been checked, only drive if you can avoid idling and stop-and-go traffic, and watch the temperature gauge the whole time. Get it checked within the next few days.",
     "if": [
@@ -442,9 +442,9 @@
   },
   "r_no_circulation": {
    "result": {
-    "title": "Coolant may not be circulating: thermostat, water pump or trapped air",
+    "title": "Coolant may not be flowing through the engine (thermostat, water pump or trapped air)",
     "urgency": "stop",
-    "now": "Don't drive it until it's checked. Have it towed or have a mobile mechanic come to you.",
+    "now": "Don't drive it until it's checked. Have it towed, or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If coolant was recently changed or added, trapped air may be the cause. A shop can bleed the air out.",
      "If you hear grinding or see coolant dripping near the engine belt, the water pump may have failed. Mention it to the shop."
@@ -587,6 +587,7 @@
  },
  "sources": [
   "https://www.aaa.com/autorepair/articles/car-overheating-8-causes-and-solutions",
-  "https://cluballiance.aaa.com/the-extra-mile/advice/car/signs-your-engine-is-overheating"
+  "https://cluballiance.aaa.com/the-extra-mile/advice/car/signs-your-engine-is-overheating",
+  "https://www.mwg.aaa.com/via/car/prevent-overheating"
  ]
 }

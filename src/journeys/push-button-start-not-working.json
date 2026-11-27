@@ -23,7 +23,8 @@
  "intro": "Push-button start depends on three things: the car detecting your key fob, the brake switch telling it your foot is down, and enough battery power to crank. A message on the dash or what happens when you press the button usually points to which one to check first. Answer the questions below to narrow it down.",
  "safety": [
   "If you smell burning plastic or see smoke from the dash or under the hood, stop trying and step away from the car.",
-  "Don't press Start over and over with the engine cranking for long periods. Give it a minute between tries."
+  "Don't press Start over and over with the engine cranking for long periods. Give it a minute between tries.",
+  "If you're stuck on a road or shoulder, turn on your hazard lights, stay inside with your seat belt on and call for help. If you're stuck in a traffic lane, stay buckled in and call 911. Get out only if you see smoke or fire: leave on the side away from traffic and wait well back from the road, behind a guardrail if there is one."
  ],
  "start": "q_what_happens",
  "nodes": {
@@ -293,7 +294,7 @@
     "now": "Don't drive the car until the brake lights work: drivers behind you get no warning when you brake. Have the brake light circuit checked within the next few days.",
     "if": [
      "If only one brake light is out, that's a bulb, not the switch. Look at whether all of them stay dark.",
-     "If you need to move the car before it's fixed, a mobile mechanic can often test and repair the brake light circuit where the car sits.",
+     "If you need to move the car before it's fixed, a mechanic who comes to you can often test and repair the brake light circuit where the car sits.",
      "If the brake pedal feels soft or sinks, or the red brake warning light is on, don't drive it until the brakes have been checked."
     ],
     "why": "The car uses the brake light switch to know your foot is on the pedal. If none of the brake lights come on, the switch is a common cause, though a fuse or wiring fault can do the same. A shop will usually check the fuse and wiring before replacing the switch. Either way the car won't let you start it, and drivers behind you get no warning when you brake.",
@@ -330,7 +331,7 @@
    "result": {
     "title": "The starter, a weak battery or the Park switch may be the problem",
     "urgency": "soon",
-    "now": "Try starting in Neutral with the brake pressed. If that doesn't work, try a jump start. If it still won't crank, have it towed or call a mobile mechanic.",
+    "now": "Try starting in Neutral with the brake pressed. If that doesn't work, try a jump start. If it still won't crank, have it towed or call a mechanic who comes to you.",
     "if": [
      "If it starts in Neutral but not Park, that points toward the gear-position switch or its adjustment.",
      "If it starts with a jump, have the battery and charging system tested soon.",
@@ -376,7 +377,7 @@
     "if": [
      "If the battery is cracked, leaking, swollen or smells like rotten eggs, don't jump start it. Call for roadside help instead.",
      "If a jump works, drive at least 30 minutes or have the battery and charging system tested soon.",
-     "If nothing happens even with a good jump, a main fuse or cable may have failed. It will need a tow or a mobile mechanic.",
+     "If nothing happens even with a good jump, a main fuse or cable may have failed. It will need a tow or a mechanic who comes to you.",
      "On a hybrid or electric car, check your owner's manual for where to connect jumper cables before you start.",
      "If the battery light comes on while driving after a jump, the charging system may not be working. Have it checked before relying on the car."
     ],
@@ -456,7 +457,7 @@
    "result": {
     "title": "The key system or fuel delivery may be stopping the engine",
     "urgency": "check",
-    "now": "Look for a flashing key or security light, and try the spare fob. If it still won't keep running, have the codes read or call a mobile mechanic.",
+    "now": "Look for a flashing key or security light, and try the spare fob. If it still won't keep running, have the codes read or call a mechanic who comes to you.",
     "if": [
      "If the spare fob works, replace the main fob's battery or have it checked.",
      "If you smell raw fuel, stop trying to start it and keep flames away."
@@ -518,6 +519,7 @@
  },
  "sources": [
   "https://owners-manual.mazda.com/gen/en/cx-5/cx-5_8ft1ee17b/contents/05010201.html",
-  "https://www.aa1car.com/library/keyfob_wont_start_car.htm"
+  "https://www.aa1car.com/library/keyfob_wont_start_car.htm",
+  "https://cluballiance.aaa.com/the-extra-mile/advice/car/staying-safe-when-your-car-breaks-down"
  ]
 }
