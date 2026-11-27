@@ -2,7 +2,7 @@
  {
   "code": "P2549",
   "title": "Torque Management Request Input Signal \"B\" Range/Performance",
-  "plain": "The computer is watching the torque management request signal and is getting a signal that does not make sense for current conditions. Another module (often the transmission computer) uses this signal to ask the engine to cut power briefly, such as during shifts.",
+  "plain": "The computer is watching the torque management request signal and is getting a signal that does not make sense for current conditions. Another module (often the transmission computer) uses this signal to ask the engine to cut power briefly, such as during shifts. This code is for the one labeled \"B\".",
   "sys": "Computer",
   "sev": "soon",
   "common": false,
@@ -87,7 +87,7 @@
  {
   "code": "P2550",
   "title": "Torque Management Request Input Signal \"B\" Low",
-  "plain": "The computer is watching the torque management request signal and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. Another module (often the transmission computer) uses this signal to ask the engine to cut power briefly, such as during shifts.",
+  "plain": "The computer is watching the torque management request signal and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. Another module (often the transmission computer) uses this signal to ask the engine to cut power briefly, such as during shifts. This code is for the one labeled \"B\".",
   "sys": "Computer",
   "sev": "soon",
   "common": false,
@@ -128,7 +128,7 @@
  {
   "code": "P2551",
   "title": "Torque Management Request Input Signal \"B\" High",
-  "plain": "The computer is watching the torque management request signal and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. Another module (often the transmission computer) uses this signal to ask the engine to cut power briefly, such as during shifts.",
+  "plain": "The computer is watching the torque management request signal and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. Another module (often the transmission computer) uses this signal to ask the engine to cut power briefly, such as during shifts. This code is for the one labeled \"B\".",
   "sys": "Computer",
   "sev": "soon",
   "common": false,
@@ -374,7 +374,10 @@
   "guide": "losing-coolant-no-visible-leak",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
-  ]
+  ],
+  "urgent_if": "If the temperature gauge climbs toward H, a red temperature light comes on or you see steam, pull over when it's safe and turn the engine off. Never open the radiator or coolant cap while the engine is hot; it can spray scalding coolant. If it overheated, have it towed.",
+  "urgent_group": "overheat-hot-cap",
+  "drive": "With the engine cold, check the coolant in the see-through overflow tank. If it's between the MIN and MAX lines, the sensor or its wiring may be the problem; book a check soon. Watch the temperature gauge until it's fixed."
  },
  {
   "code": "P2557",
@@ -420,7 +423,10 @@
   "guide": "losing-coolant-no-visible-leak",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
-  ]
+  ],
+  "urgent_if": "If the temperature gauge climbs toward H, a red temperature light comes on or you see steam, pull over when it's safe and turn the engine off. Never open the radiator or coolant cap while the engine is hot; it can spray scalding coolant. If it overheated, have it towed.",
+  "urgent_group": "overheat-hot-cap",
+  "drive": "With the engine cold, check the coolant in the see-through overflow tank. If it's between the MIN and MAX lines, the sensor or its wiring may be the problem; book a check soon. Watch the temperature gauge until it's fixed."
  },
  {
   "code": "P2558",
@@ -465,8 +471,11 @@
   "fix": "Fix any shorted wiring first; if the wiring tests good, replace the coolant level sensor.",
   "guide": "losing-coolant-no-visible-leak",
   "src": [
-   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
-  ]
+   "https://repairpal.com/obd-ii-code-p2558-engine-coolant-level-sensor-switch-circuit-low"
+  ],
+  "urgent_if": "If the temperature gauge climbs toward H, a red temperature light comes on or you see steam, pull over when it's safe and turn the engine off. Never open the radiator or coolant cap while the engine is hot; it can spray scalding coolant. If it overheated, have it towed.",
+  "urgent_group": "overheat-hot-cap",
+  "drive": "With the engine cold, check the coolant in the see-through overflow tank. If it's between the MIN and MAX lines, the sensor or its wiring may be the problem; book a check soon. Watch the temperature gauge until it's fixed."
  },
  {
   "code": "P2559",
@@ -512,12 +521,15 @@
   "guide": "losing-coolant-no-visible-leak",
   "src": [
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
-  ]
+  ],
+  "urgent_if": "If the temperature gauge climbs toward H, a red temperature light comes on or you see steam, pull over when it's safe and turn the engine off. Never open the radiator or coolant cap while the engine is hot; it can spray scalding coolant. If it overheated, have it towed.",
+  "urgent_group": "overheat-hot-cap",
+  "drive": "With the engine cold, check the coolant in the see-through overflow tank. If it's between the MIN and MAX lines, the sensor or its wiring may be the problem; book a check soon. Watch the temperature gauge until it's fixed."
  },
  {
   "code": "P255F",
   "title": "A/C Request \"A\" Circuit Range/Performance",
-  "plain": "The computer is watching the A/C request signal and is getting a signal that does not make sense for current conditions. This is the signal from the A/C controls asking the engine computer to turn on the compressor.",
+  "plain": "The computer is watching the A/C request signal and is getting a signal that does not make sense for current conditions. This is the signal from the A/C controls asking the engine computer to turn on the compressor. This code is for the one labeled \"A\".",
   "sys": "Body",
   "sev": "check",
   "common": false,
@@ -593,9 +605,11 @@
   "fix": "Top up and find the leak; replace the level sensor only if the level is correct.",
   "guide": "losing-coolant-no-visible-leak",
   "src": [
-   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
-   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
-  ]
+   "https://repairpal.com/obd-ii-code-p2560-engine-coolant-level-low"
+  ],
+  "urgent_if": "If the temperature gauge climbs toward H, a red temperature light comes on or you see steam, pull over when it's safe and turn the engine off. Never open the radiator or coolant cap while the engine is hot; it can spray scalding coolant. If it overheated, have it towed.",
+  "urgent_group": "overheat-hot-cap",
+  "drive": "Let the engine cool completely, then check the coolant in the see-through overflow tank. If it's low, top it up with the coolant type in your owner's manual and get the leak found soon. Watch the temperature gauge while you drive."
  },
  {
   "code": "P2561",
@@ -635,7 +649,7 @@
  {
   "code": "P2562",
   "title": "Turbocharger Boost Control Position Sensor \"A\" Circuit",
-  "plain": "The computer is watching the turbocharger boost control position sensor and has spotted an electrical fault. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "plain": "The computer is watching the turbocharger boost control position sensor and has spotted an electrical fault. It tells the computer where the turbo boost control (vanes or wastegate) is sitting. This code is for the one labeled \"A\".",
   "sys": "Fuel and air",
   "sev": "soon",
   "common": false,
@@ -674,8 +688,7 @@
   "fix": "Repair the wiring or connector if it is damaged; otherwise replace the turbocharger boost control position sensor.",
   "guide": "loss-of-power-when-accelerating",
   "src": [
-   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
-   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
   ]
  },
  {
@@ -735,7 +748,6 @@
   ],
   "guide": "loss-of-power-when-accelerating",
   "src": [
-   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550",
    "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
   ],
   "drive": "Usually drivable gently, but expect limited power, which can make merging or passing risky. If there's heavy smoke, a new whistle or hiss, or power drops sharply, limit driving and get it checked soon.",
@@ -744,7 +756,7 @@
  {
   "code": "P2564",
   "title": "Turbocharger Boost Control Position Sensor \"A\" Circuit Low",
-  "plain": "The computer is watching the turbocharger boost control position sensor and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "plain": "The computer is watching the turbocharger boost control position sensor and is reading a voltage that is lower than it should be, which often means a short to ground or a failed part. It tells the computer where the turbo boost control (vanes or wastegate) is sitting. This code is for the one labeled \"A\".",
   "sys": "Fuel and air",
   "sev": "soon",
   "common": false,
@@ -779,14 +791,13 @@
   "fix": "Fix any shorted wiring first; if the wiring tests good, replace the turbocharger boost control position sensor.",
   "guide": "loss-of-power-when-accelerating",
   "src": [
-   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
-   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
   ]
  },
  {
   "code": "P2565",
   "title": "Turbocharger Boost Control Position Sensor \"A\" Circuit High",
-  "plain": "The computer is watching the turbocharger boost control position sensor and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "plain": "The computer is watching the turbocharger boost control position sensor and is reading a voltage that is higher than it should be, which often means a broken ground or a short to power. It tells the computer where the turbo boost control (vanes or wastegate) is sitting. This code is for the one labeled \"A\".",
   "sys": "Fuel and air",
   "sev": "soon",
   "common": false,
@@ -821,14 +832,13 @@
   "fix": "Repair the open ground or shorted wire; if the wiring is fine, replace the turbocharger boost control position sensor.",
   "guide": "loss-of-power-when-accelerating",
   "src": [
-   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
-   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
   ]
  },
  {
   "code": "P2566",
   "title": "Turbocharger Boost Control Position Sensor \"A\" Circuit Intermittent",
-  "plain": "The computer is watching the turbocharger boost control position sensor and is seeing a signal that cuts in and out. It tells the computer where the turbo boost control (vanes or wastegate) is sitting.",
+  "plain": "The computer is watching the turbocharger boost control position sensor and is seeing a signal that cuts in and out. It tells the computer where the turbo boost control (vanes or wastegate) is sitting. This code is for the one labeled \"A\".",
   "sys": "Fuel and air",
   "sev": "soon",
   "common": false,
@@ -863,8 +873,7 @@
   "fix": "Repair the loose or corroded connection; replace the turbocharger boost control position sensor if the wiring is solid.",
   "guide": "loss-of-power-when-accelerating",
   "src": [
-   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf",
-   "https://www.slideshare.net/slideshow/p2500-p2599-obd2-codes/236445550"
+   "https://www.jhmbuttco.com/pub/media/catalog/category/al301.pdf"
   ]
  },
  {
@@ -991,7 +1000,7 @@
  {
   "code": "P256F",
   "title": "A/C Request \"B\" Circuit Range/Performance",
-  "plain": "The computer is watching the A/C request signal and is getting a signal that does not make sense for current conditions. This is the signal from the A/C controls asking the engine computer to turn on the compressor.",
+  "plain": "The computer is watching the A/C request signal and is getting a signal that does not make sense for current conditions. This is the signal from the A/C controls asking the engine computer to turn on the compressor. This code is for the one labeled \"B\".",
   "sys": "Body",
   "sev": "check",
   "common": false,

@@ -19,14 +19,17 @@
   "rim leak",
   "tire goes low after a few days",
   "flat tire keeps coming back",
-  "tire pressure light keeps coming on"
+  "tire pressure light keeps coming on",
+  "thumping while driving",
+  "thumping noise from tire",
+  "flapping from tire"
  ],
  "intro": "A tire that needs air every few days usually has a small leak: a nail in the tread, a leaky valve, or a poor seal where the tire meets the wheel. Damage to the sidewall is the exception, and that one isn't safe to drive on. Answer a few questions to narrow down the likely cause and what to ask the tire shop.",
  "safety": [
   "If you see a bulge, bubble, deep cut or cords showing on a tire, don't drive on it. Put on the spare or call roadside help.",
   "Don't drive on a tire that's flat or badly low. It can overheat and fail, and it ruins the tire.",
   "If a tire starts to shake, thump or pull hard while driving, slow down gently and pull over somewhere safe.",
-  "A small temporary spare is for short distances at reduced speed only, usually no more than 50 mph and about 50 to 70 miles. Check the label on the spare or your owner's manual."
+  "Drive on a small temporary spare only for short distances at reduced speed, usually no more than 50 mph and about 50 to 70 miles. Check the label on the spare or your owner's manual."
  ],
  "start": "q_state",
  "nodes": {
@@ -233,7 +236,7 @@
   },
   "r_valve": {
    "result": {
-    "title": "The valve stem appears to be leaking",
+    "title": "Air seems to be leaking from the tire's fill valve (valve stem)",
     "urgency": "diy",
     "now": "Make sure the valve cap is on. If you have a valve core tool, snug the core gently, then test again with soapy water.",
     "if": [
@@ -389,10 +392,12 @@
   }
  },
  "related": [
+  "tire-blowout-or-flat",
   "tire-pressure-light-on",
   "uneven-tire-wear",
   "car-pulls-to-one-side",
-  "vibration-at-highway-speed"
+  "vibration-at-highway-speed",
+  "after-hitting-pothole"
  ],
  "issueMatch": {
   "cats": [

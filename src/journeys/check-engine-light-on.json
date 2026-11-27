@@ -19,7 +19,10 @@
   "check engine light but car runs fine",
   "engine light came on while driving",
   "check engin light",
-  "is it safe to drive with check engine light on"
+  "is it safe to drive with check engine light on",
+  "gas cap light",
+  "check fuel cap",
+  "check gas cap light"
  ],
  "intro": "A steady check engine light means the engine computer has found a fault and stored a code. It covers hundreds of problems, from a loose gas cap to a failing sensor. Many are not emergencies, but the light alone can't tell you which. How the car is driving gives you a sense of how urgent it is, and a code scan tells the shop where to start testing.",
  "safety": [
@@ -105,7 +108,7 @@
    "result": {
     "title": "The engine may be misfiring. Stop driving it until it's checked",
     "urgency": "stop",
-    "now": "Pull over where it's safe, turn off the engine, and have the car towed or call a mobile mechanic.",
+    "now": "Pull over where it's safe, turn off the engine, and have the car towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If the shaking was brief and has stopped, don't assume the problem is gone. Have the code read before you drive it again.",
      "If you smell fuel or see smoke, step away from the car and call for help.",
@@ -147,7 +150,7 @@
    "result": {
     "title": "A red warning light comes first. Stop and deal with that",
     "urgency": "stop",
-    "now": "Pull over safely, turn off the engine, and don't restart it. Have the car towed or call a mobile mechanic.",
+    "now": "Pull over safely, turn off the engine, and don't restart it. Have the car towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual).",
     "if": [
      "If the temperature gauge is high, don't open the radiator cap until the engine has fully cooled. Hot coolant can burn you.",
      "If the red oil light came on, check the oil level once the engine is off. Even if adding oil turns the light off, have it checked before driving again.",
@@ -301,7 +304,7 @@
      "you": [
       "Tighten the gas cap until it clicks.",
       "Look for cracks in the cap's rubber seal.",
-      "Have the code read. Many auto parts stores do it free."
+      "Have the code read. Many auto parts stores offer this."
      ],
      "shop": [
       "Code scan",
@@ -313,7 +316,7 @@
   },
   "r_o2_cat": {
    "result": {
-    "title": "Possibly an oxygen sensor or catalytic converter problem",
+    "title": "The exhaust-cleaning system may have a fault (oxygen sensor or catalytic converter)",
     "urgency": "check",
     "now": "Have the code read and book a check within the next couple of weeks.",
     "if": [
@@ -355,7 +358,7 @@
   },
   "r_rough_idle": {
    "result": {
-    "title": "A small misfire or vacuum leak may be the cause",
+    "title": "A small misfire or an air leak may be the cause (vacuum leak)",
     "urgency": "soon",
     "now": "Have the code read and get it checked within a few days. Keep trips short and gentle until then.",
     "if": [
@@ -440,7 +443,7 @@
    "result": {
     "title": "Get the code read. That's the fastest way to know what it is",
     "urgency": "check",
-    "now": "Have the trouble code read within the next week or so. Many auto parts stores do it free, or a shop can do it.",
+    "now": "Have the trouble code read within the next week or so. Many auto parts stores offer this, or a shop can do it.",
     "if": [
      "If the light starts flashing or the car shakes, pull over and turn the engine off.",
      "If any red warning light comes on or the temperature gauge rises, pull over and turn the engine off.",
@@ -482,7 +485,8 @@
   "engine-sputtering-misfire",
   "rough-idle-shaking",
   "poor-gas-mileage",
-  "reduced-engine-power-warning"
+  "reduced-engine-power-warning",
+  "wrong-fuel"
  ],
  "issueMatch": {
   "cats": [

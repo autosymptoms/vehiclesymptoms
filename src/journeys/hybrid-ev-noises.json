@@ -1,0 +1,379 @@
+{
+ "id": "hybrid-ev-noises",
+ "title": "Hybrid or electric car noises",
+ "h1": "Is that noise from my hybrid or electric car normal?",
+ "metaDesc": "Humming at low speed, engine starting by itself, whine or clicks after parking? Many hybrid and EV sounds are normal. Here's how to tell which aren't.",
+ "group": "noise",
+ "cat": "Noises",
+ "synonyms": [
+  "hybrid noises",
+  "electric car noises",
+  "ev noise",
+  "ev humming noise at low speed",
+  "hybrid humming sound",
+  "electric car makes spaceship sound",
+  "pedestrian warning sound",
+  "hybrid engine starts by itself",
+  "hybrid engine keeps running",
+  "ev whining noise",
+  "hybrid clicking after turning off",
+  "ev buzzing noise",
+  "electric car grinding noise",
+  "hybrid fan noise"
+ ],
+ "intro": "Hybrids and electric cars make sounds that gas cars don't, and most are normal. A few are signs of a problem. These questions help you tell the difference.",
+ "safety": [
+  "Never touch orange high-voltage cables or try to open the hybrid or EV battery.",
+  "If you see smoke, smell burning plastic, or hear popping or hissing from the battery area, get everyone out and call 911.",
+  "If a grinding, clunk or scraping noise comes with a warning light or the car loses power, pull over when it's safe and stop.",
+  "The humming sound at low speed is there to warn people walking nearby. Don't try to turn it off."
+ ],
+ "start": "q_sound",
+ "nodes": {
+  "q_sound": {
+   "q": "What kind of sound is it, and when do you hear it?",
+   "opts": [
+    {
+     "a": "A hum, whir or spaceship-like tone at low speed or in reverse",
+     "go": "r_pedestrian_alert"
+    },
+    {
+     "a": "The gas engine starts or runs by itself while stopped or driving slowly (hybrid)",
+     "go": "q_engine"
+    },
+    {
+     "a": "A whine that rises and falls with speed",
+     "go": "r_motor_whine"
+    },
+    {
+     "a": "Clicks, a buzz or a fan running after parking or while charging",
+     "go": "r_after_park"
+    },
+    {
+     "a": "Grinding, clunking, scraping or a loud bang",
+     "go": "q_warning"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_warning"
+    }
+   ]
+  },
+  "q_engine": {
+   "q": "Which fits best?",
+   "opts": [
+    {
+     "a": "It starts when it's cold, when the heat or A/C is on, or when the battery gauge is low",
+     "go": "r_engine_normal"
+    },
+    {
+     "a": "It runs all the time now, sounds rough, or a warning light is on",
+     "go": "r_hybrid_fault"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_engine_normal"
+    }
+   ]
+  },
+  "q_warning": {
+   "q": "Is a warning light or message on, or does the car feel weak?",
+   "opts": [
+    {
+     "a": "Yes, a warning, or the car has less power",
+     "go": "r_drive_fault"
+    },
+    {
+     "a": "No, it drives normally",
+     "go": "r_mech_noise"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_drive_fault"
+    }
+   ]
+  },
+  "r_pedestrian_alert": {
+   "result": {
+    "title": "That's most likely the pedestrian warning sound, and it's supposed to be there",
+    "urgency": "diy",
+    "now": "No repair is needed for the sound itself. It plays at low speed and in reverse so people walking nearby can hear you coming.",
+    "if": [
+     "If the sound stops working, or a warning about it appears, book a check. It's a required safety feature.",
+     "If the sound changes to a grind or a rattle, see the grinding option in this guide."
+    ],
+    "why": "U.S. rules require newer hybrids and electric cars to make an alert sound at low speeds, about 19 mph and below, and in reverse. Above that, tire and wind noise are loud enough. The sound comes from a small speaker, usually behind the front bumper.",
+    "causes": [
+     {
+      "name": "Pedestrian alert sound working normally",
+      "clues": "It fades away as you speed up.",
+      "against": ""
+     },
+     {
+      "name": "Damaged or failing alert speaker",
+      "clues": "The sound is crackly, quiet or missing.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Listen from outside the car while someone drives slowly past."
+     ],
+     "shop": [
+      "Pedestrian alert speaker test"
+     ]
+    }
+   }
+  },
+  "r_engine_normal": {
+   "result": {
+    "title": "The engine starting by itself is normal in a hybrid",
+    "urgency": "diy",
+    "now": "Nothing to fix. The hybrid system starts the engine when it needs more power, more heat, or to charge the battery.",
+    "if": [
+     "If the engine runs much more than before, along with a warning light or rough running, book a check.",
+     "If the hybrid battery gauge always reads low, the battery may be getting weak. Book a check."
+    ],
+    "why": "A hybrid shuts the engine off when it can and restarts it as needed. Cold weather, using the heater, low battery charge and hard acceleration all make it run more.",
+    "causes": [
+     {
+      "name": "Normal hybrid operation",
+      "clues": "It runs more in cold weather or with the heater on.",
+      "against": ""
+     },
+     {
+      "name": "Battery charge is low",
+      "clues": "The battery gauge shows a low level.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Notice whether it runs more in cold weather or with the heater on."
+     ],
+     "shop": [
+      "Hybrid system scan if a warning light is on"
+     ]
+    }
+   }
+  },
+  "r_hybrid_fault": {
+   "result": {
+    "title": "The hybrid system may need a check",
+    "urgency": "soon",
+    "now": "Book a check within a few days. If a warning light is on, have the codes read.",
+    "if": [
+     "If the check engine light is flashing, or the car shakes, pull over when it's safe and turn the engine off.",
+     "If the car loses power or a red warning shows, pull over and stop."
+    ],
+    "why": "If the engine runs all the time or sounds rough, the hybrid battery, a sensor, or the engine itself may have a fault. The car may be running the engine to protect the battery.",
+    "causes": [
+     {
+      "name": "Weak hybrid battery",
+      "clues": "The engine runs more and fuel economy has dropped.",
+      "against": ""
+     },
+     {
+      "name": "Engine misfire",
+      "clues": "Rough running or a check engine light.",
+      "against": ""
+     },
+     {
+      "name": "Battery cooling problem",
+      "clues": "A battery fan running loudly, or a warning about battery temperature.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note your fuel economy.",
+      "Note any warning lights."
+     ],
+     "shop": [
+      "Hybrid system scan",
+      "Hybrid battery health test",
+      "Engine code scan"
+     ]
+    }
+   }
+  },
+  "r_motor_whine": {
+   "result": {
+    "title": "A light whine is often normal in electric drive",
+    "urgency": "check",
+    "now": "If it's quiet and smooth, it's usually the electric motor. Book a check if it gets louder over time or changes suddenly.",
+    "if": [
+     "If the whine comes with a warning light, a burning smell or loss of power, pull over when it's safe and stop.",
+     "If it's a hum that changes when you turn, a wheel bearing is possible. Get it checked within a few days."
+    ],
+    "why": "Electric motors and their gears make a soft whine that rises with speed. Since there's no engine noise to cover it, you hear it more than in a gas car.",
+    "causes": [
+     {
+      "name": "Normal electric motor sound",
+      "clues": "Soft, steady, and it's always been there.",
+      "against": ""
+     },
+     {
+      "name": "Worn gear or bearing in the drive unit",
+      "clues": "It's getting louder over time.",
+      "against": ""
+     },
+     {
+      "name": "Wheel bearing",
+      "clues": "A hum that changes when you turn.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Record the sound with your phone.",
+      "Note the speed when it's loudest."
+     ],
+     "shop": [
+      "Road test",
+      "Drive unit inspection",
+      "Wheel bearing check"
+     ]
+    }
+   }
+  },
+  "r_after_park": {
+   "result": {
+    "title": "Clicks, buzzing or a fan after parking are usually normal",
+    "urgency": "diy",
+    "now": "Nothing to fix if it stops within a while. Many hybrids and EVs keep cooling or checking the battery after you park or while charging.",
+    "if": [
+     "If you hear popping, hissing or smell burning, get away from the car and call 911.",
+     "If the fan runs for hours, or the 12-volt battery keeps going flat, book a check."
+    ],
+    "why": "Hybrid and EV batteries are cooled or warmed by pumps and fans. Relays click as systems shut down. These sounds can happen for a while after parking, especially in hot or cold weather or while charging.",
+    "causes": [
+     {
+      "name": "Battery cooling or heating",
+      "clues": "Hot or cold weather, or while charging.",
+      "against": ""
+     },
+     {
+      "name": "Relays switching off",
+      "clues": "A click or two right after turning off.",
+      "against": ""
+     },
+     {
+      "name": "Fan or pump fault",
+      "clues": "It runs for hours or sounds rough.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note how long the sound lasts."
+     ],
+     "shop": [
+      "Battery cooling system check",
+      "Parasitic drain test"
+     ]
+    }
+   }
+  },
+  "r_drive_fault": {
+   "result": {
+    "title": "A noise with a warning light needs a check before you drive on",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and turn the car off. Look up the warning in the owner's manual. Have it towed or have a mechanic come to you if the warning is red or the car feels weak.",
+    "if": [
+     "If you see smoke, smell burning plastic or hear popping or hissing, get everyone out and call 911.",
+     "If the car loses drive power, turn on your hazard lights and steer to a safe spot."
+    ],
+    "why": "A new noise together with a warning light or loss of power can mean a fault in the drive unit, the high-voltage system, or the brakes. These are safety systems and need a technician.",
+    "causes": [
+     {
+      "name": "Drive unit or gear problem",
+      "clues": "Grinding or clunking under power.",
+      "against": ""
+     },
+     {
+      "name": "High-voltage system fault",
+      "clues": "A hybrid or EV system warning.",
+      "against": ""
+     },
+     {
+      "name": "Brake problem",
+      "clues": "A brake warning light or a grinding stop.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Hybrid or EV system scan",
+      "Drive unit inspection",
+      "Brake inspection"
+     ]
+    }
+   }
+  },
+  "r_mech_noise": {
+   "result": {
+    "title": "Probably a brake, wheel or suspension noise",
+    "urgency": "soon",
+    "now": "Get it checked within a few days. Grinding at the first stops of the day can come from rust on the brakes, which happens more in hybrids and EVs because they use the brakes less.",
+    "if": [
+     "If grinding stays after a few stops, or the brake pedal feels different, don't drive it until the brakes are checked.",
+     "If you hear a loud clunk over bumps, or the steering feels loose, don't drive it until it's checked."
+    ],
+    "why": "Hybrids and EVs slow down mostly with the electric motor, so the brakes get less use. Rust can build up and make noise. Wheels and suspension make the same noises as in any car.",
+    "causes": [
+     {
+      "name": "Rust on the brake discs",
+      "clues": "Grinding at the first few stops, then it goes away.",
+      "against": ""
+     },
+     {
+      "name": "Worn brakes",
+      "clues": "Grinding that stays every time you brake.",
+      "against": ""
+     },
+     {
+      "name": "Worn suspension or wheel bearing",
+      "clues": "Clunks over bumps, or a hum that changes with turns.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note when the noise happens: braking, bumps, turning or speed."
+     ],
+     "shop": [
+      "Brake inspection",
+      "Suspension inspection",
+      "Wheel bearing check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "check-hybrid-system-warning",
+  "humming-noise-at-speed",
+  "whining-noise-when-accelerating",
+  "grinding-brakes",
+  "ev-wont-charge"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Noises"
+  ],
+  "words": [
+   "pedestrian alert",
+   "acoustic vehicle alerting",
+   "hybrid",
+   "electric motor",
+   "drive unit",
+   "whine",
+   "hum"
+  ]
+ },
+ "sources": [
+  "https://www.transportation.gov/briefing-room/nhtsa-sets-%E2%80%9Cquiet-car%E2%80%9D-safety-standard-protect-pedestrians"
+ ]
+}

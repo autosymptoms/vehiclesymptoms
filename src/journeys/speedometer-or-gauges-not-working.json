@@ -1,0 +1,498 @@
+{
+ "id": "speedometer-or-gauges-not-working",
+ "title": "Speedometer or gauges not working",
+ "h1": "Why did my speedometer or gauges stop working?",
+ "metaDesc": "Speedometer stuck at zero, gauges dead or dash dark? Answer a few questions to see what's likely wrong, how urgent it is, and what to check first.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "speedometer not working",
+  "speedometer stuck at zero",
+  "speedometer stopped working",
+  "speedometer jumping around",
+  "gauges not working",
+  "dash gauges stopped working",
+  "instrument cluster not working",
+  "dashboard went dark",
+  "dash lights out",
+  "gauges dead",
+  "fuel gauge not working",
+  "fuel gauge stuck",
+  "temperature gauge not working",
+  "temp gauge not moving",
+  "odometer not working",
+  "speedometer and abs light"
+ ],
+ "intro": "Your speedometer and gauges tell you how fast you're going and warn you about problems like overheating. When they stop working, the cause can be as simple as the dash brightness being turned down, or it can be a sensor, a fuse, the gauge panel, or the car's charging system. These questions will help you sort out which and how soon it needs attention.",
+ "safety": [
+  "If the dash goes dark and the headlights dim or the engine stumbles, get off the road at the first safe spot. The car may be about to lose power.",
+  "If the temperature gauge isn't working, watch for steam, a sweet smell, or a red temperature light. If you see any of these, pull over and turn the engine off.",
+  "If the red BRAKE light or ABS light comes on and the brake pedal feels soft, pull over safely and don't drive on."
+ ],
+ "start": "q_what",
+ "nodes": {
+  "q_what": {
+   "q": "What stopped working?",
+   "opts": [
+    {
+     "a": "The whole dash went dark, or it keeps flickering",
+     "go": "q_dark"
+    },
+    {
+     "a": "Just the speedometer: it stays at 0, jumps around or reads wrong",
+     "go": "q_speedo"
+    },
+    {
+     "a": "The temperature gauge: it never moves, or it reads strangely",
+     "go": "r_temp_gauge"
+    },
+    {
+     "a": "The fuel gauge: it's stuck or reads wrong",
+     "go": "r_fuel_gauge"
+    },
+    {
+     "a": "Several gauges at once, but the warning lights still come on",
+     "go": "r_cluster"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_dark": {
+   "q": "Is the battery light on, or are the headlights or engine acting up too?",
+   "opts": [
+    {
+     "a": "Yes: the battery light is on, the lights are dimming, or the engine stumbles",
+     "go": "r_charging"
+    },
+    {
+     "a": "No. It's only at night, and the screens and gauges are very dim or dark",
+     "go": "r_dimmer"
+    },
+    {
+     "a": "No. The car runs fine; the dash is just dark or flickers",
+     "go": "r_cluster"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_speedo": {
+   "q": "Are any warning lights on along with the speedometer problem?",
+   "help": "ABS means anti-lock brakes. Its light usually shows the letters ABS in a circle. The traction control light often shows a car with wavy lines behind it.",
+   "opts": [
+    {
+     "a": "The ABS light, the traction control light, or both",
+     "go": "r_wheel_speed"
+    },
+    {
+     "a": "The check engine light, or the automatic transmission is shifting late, hard or strangely",
+     "go": "r_vss"
+    },
+    {
+     "a": "No other lights, and the car drives normally",
+     "go": "r_speedo_only"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_speedo_only"
+    }
+   ]
+  },
+  "r_charging": {
+   "result": {
+    "title": "The car may not be charging its battery and could shut off soon",
+    "urgency": "stop",
+    "now": "Get off the road at the first safe spot and turn off the engine. Don't set out again until the battery and charging system are checked. Have it towed or call a mobile mechanic.",
+    "if": [
+     "If you can't stop right away, turn off the radio, heater fan, seat heaters and other extras to save power while you find a safe spot.",
+     "If the temperature gauge climbs or the steering gets heavy, the engine's drive belt may have broken. Pull over and turn the engine off.",
+     "If you smell burning or see smoke, pull over, turn off the engine and get out."
+    ],
+    "why": "The gauges, lights and engine computer all run on electricity. When the alternator stops charging, the car runs on battery power alone, and the dash often flickers or goes dark as the battery runs down. Soon after, the engine can stall, and steering and braking get much heavier.",
+    "causes": [
+     {
+      "name": "Alternator not charging",
+      "clues": "The battery light is on, and the lights dim more and more.",
+      "against": ""
+     },
+     {
+      "name": "Broken or slipping drive belt",
+      "clues": "A squeal or slap from the engine, heavy steering, or a rising temperature gauge.",
+      "against": ""
+     },
+     {
+      "name": "Loose or corroded battery cable",
+      "clues": "It started after battery work or a jump start, or the problem comes and goes over bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "From a safe spot, note which warning lights were on."
+     ],
+     "shop": [
+      "Battery and alternator test",
+      "Drive belt inspection",
+      "Battery cable voltage-drop test"
+     ]
+    }
+   }
+  },
+  "r_dimmer": {
+   "result": {
+    "title": "The dash brightness may just be turned down",
+    "urgency": "diy",
+    "now": "Find the dash brightness control and turn it up. It's often a thumbwheel or buttons near the steering wheel, or a setting in the screen menu. Your owner's manual shows where.",
+    "if": [
+     "If changing the brightness doesn't help and the gauges stay dark, a fuse or the gauge panel may have failed. Get it checked soon.",
+     "If you can't see your speed or warning lights at all, don't drive at night until it's fixed."
+    ],
+    "why": "Most cars dim the dash at night when the headlights are on. If the brightness control was turned all the way down, the gauges can look dead at night even though nothing is broken. It's an easy thing to rule out first.",
+    "causes": [
+     {
+      "name": "Brightness turned down",
+      "clues": "It started after someone else drove the car or after the dash was cleaned.",
+      "against": ""
+     },
+     {
+      "name": "Dash light sensor covered",
+      "clues": "Something is sitting on top of the dashboard, near the windshield.",
+      "against": ""
+     },
+     {
+      "name": "Blown fuse for the dash lights",
+      "clues": "Turning the brightness up doesn't change anything.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Turn the brightness control all the way up.",
+      "Switch the headlights from Auto to On and back, and watch the dash."
+     ],
+     "shop": [
+      "Dash lighting fuse check",
+      "Instrument cluster test"
+     ]
+    }
+   }
+  },
+  "r_cluster": {
+   "result": {
+    "title": "The gauge panel behind the steering wheel, or its power, may have a fault",
+    "urgency": "soon",
+    "now": "Have it checked within the next few days. First, check your owner's manual for a gauge or instrument fuse and replace it if it's blown.",
+    "if": [
+     "If you can't see your speed, stay with the flow of traffic and under the limit. Many phone map apps show your speed; set it up before you drive and don't touch the phone while moving.",
+     "If the warning lights don't light up for a second or two when you start the car, you may not get warnings like low oil pressure or overheating. Don't drive far until it's fixed.",
+     "If the battery light comes on or the lights dim, get off the road at a safe spot."
+    ],
+    "why": "The speedometer and gauges live in one panel that gets its information from sensors and computers around the car. When several gauges fail at once, the cause is usually the panel itself, its fuse or its connection, not every sensor at the same time.",
+    "causes": [
+     {
+      "name": "Instrument cluster fault",
+      "clues": "The needles stick or drop to zero together, or the screen glitches.",
+      "against": ""
+     },
+     {
+      "name": "Blown fuse or loose connector",
+      "clues": "It started after battery work or work behind the dash.",
+      "against": ""
+     },
+     {
+      "name": "Communication fault between the car's computers",
+      "clues": "Several warning lights and messages appear at once.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the instrument cluster fuse.",
+      "Watch whether the warning lights light up briefly when you start the car."
+     ],
+     "shop": [
+      "Code scan of all modules",
+      "Instrument cluster self-test",
+      "Power and ground check at the cluster",
+      "Check for recalls and software updates"
+     ]
+    }
+   }
+  },
+  "r_wheel_speed": {
+   "result": {
+    "title": "A wheel speed sensor problem may be affecting the speedometer and the anti-lock brakes (ABS)",
+    "urgency": "soon",
+    "now": "Get the ABS codes read within the next few days. Until then, brake earlier, leave extra space and keep up with the flow of traffic.",
+    "if": [
+     "If the red BRAKE light also comes on, or the brake pedal feels soft or different, don't drive it until the brakes are checked.",
+     "If the automatic transmission also shifts strangely, keep trips short and gentle until it's checked."
+    ],
+    "why": "On many newer cars, the speedometer gets the car's speed from the same wheel sensors that the anti-lock brakes use. When a sensor, its wire or the ABS unit fails, ABS shuts off and the speedometer can drop to zero or jump around. The normal brakes still work, but the anti-lock feature may not help in a hard stop.",
+    "causes": [
+     {
+      "name": "Faulty wheel speed sensor or damaged wire",
+      "clues": "It started after hitting a pothole, brake work, or driving in wet, salty weather.",
+      "against": ""
+     },
+     {
+      "name": "ABS control unit fault",
+      "clues": "Several brake-related lights are on together.",
+      "against": ""
+     },
+     {
+      "name": "Damaged or rusted sensor ring at a wheel",
+      "clues": "The light comes and goes, especially at certain speeds.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the speedometer drops to zero at the same moment the ABS light comes on."
+     ],
+     "shop": [
+      "ABS code scan",
+      "Live wheel speed sensor readings",
+      "Sensor wiring check"
+     ]
+    }
+   }
+  },
+  "r_vss": {
+   "result": {
+    "title": "The vehicle speed sensor or its wiring may have failed",
+    "urgency": "soon",
+    "now": "Have the codes read within the next few days. Keep trips short and gentle until then.",
+    "if": [
+     "If the check engine light is flashing, pull over when it's safe and turn the engine off.",
+     "If the transmission slips, won't shift out of a low gear, or the car loses power, pull over when it's safe and have it towed rather than pushing on."
+    ],
+    "why": "Many cars have a speed sensor on the transmission. The engine and transmission computers use its signal to decide when to shift, and the speedometer uses it too. When it fails, you often get a check engine light, a dead speedometer and odd shifting at the same time.",
+    "causes": [
+     {
+      "name": "Failed vehicle speed sensor",
+      "clues": "The speedometer and the shifting went wrong together.",
+      "against": ""
+     },
+     {
+      "name": "Damaged wiring or connector",
+      "clues": "The problem comes and goes, often over bumps.",
+      "against": ""
+     },
+     {
+      "name": "Transmission control problem",
+      "clues": "A transmission warning light, slipping, or harsh shifts.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note any warning lights and messages, and when the problem happens."
+     ],
+     "shop": [
+      "Code scan",
+      "Speed sensor signal test",
+      "Transmission fluid and control check"
+     ]
+    }
+   }
+  },
+  "r_speedo_only": {
+   "result": {
+    "title": "The speedometer reading may be failing at the gauge or a single sensor",
+    "urgency": "soon",
+    "now": "Have it checked within the next few days. Until it's fixed, stay with the flow of traffic and under the limit rather than guessing your speed.",
+    "if": [
+     "If it reads wrong only since you got new tires or wheels of a different size, the speedometer may need to be reset for the new size. Tell the shop the old and new sizes.",
+     "If the ABS or check engine light comes on later, get it checked sooner.",
+     "Many phone map apps show your speed. Set it up before you drive and don't touch the phone while moving."
+    ],
+    "why": "With no other warning lights, the problem is often the gauge itself, one speed sensor that's starting to fail, or a change in tire size. Older cars may use a cable that turns the speedometer, and it can break or wear.",
+    "causes": [
+     {
+      "name": "Different tire or wheel size",
+      "clues": "It started right after new tires or wheels.",
+      "against": ""
+     },
+     {
+      "name": "Speed sensor starting to fail",
+      "clues": "The needle drops out now and then and comes back.",
+      "against": ""
+     },
+     {
+      "name": "Speedometer gauge fault",
+      "clues": "The needle sticks, jumps or reads zero while the other gauges work.",
+      "against": ""
+     },
+     {
+      "name": "Broken speedometer cable (older cars)",
+      "clues": "The needle bounces, or there's a ticking noise behind the dash.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Compare the speedometer with a phone map app's speed, with a passenger watching."
+     ],
+     "shop": [
+      "Code scan",
+      "Speed sensor signal check",
+      "Instrument cluster test"
+     ]
+    }
+   }
+  },
+  "r_temp_gauge": {
+   "result": {
+    "title": "The temperature gauge or its sensor may be wrong, or the engine may be low on coolant",
+    "urgency": "soon",
+    "now": "When the engine is fully cold, check the coolant level in the see-through tank. Never open the radiator cap while the engine is warm. Then have the cooling system checked within the next few days.",
+    "if": [
+     "If you see steam, smell something sweet, or a red temperature light comes on, pull over, turn the engine off and don't drive on.",
+     "If the gauge stays on cold even after 15 minutes of driving, the thermostat may be stuck open, or there may not be enough coolant around the sensor for it to read. Don't ignore it.",
+     "If the coolant tank is low or empty, add the coolant your manual lists only when the engine is cold, and have it checked for leaks."
+    ],
+    "why": "The temperature gauge is your main warning that the engine is overheating, so a gauge that reads wrong takes that warning away. A gauge that stays cold can come from a thermostat stuck open or a bad sensor. On some engines, very low coolant can even make the gauge read low, because the sensor is sitting in air instead of liquid.",
+    "causes": [
+     {
+      "name": "Low coolant",
+      "clues": "The coolant tank is below the MIN line, or you've noticed a sweet smell or drips.",
+      "against": ""
+     },
+     {
+      "name": "Thermostat stuck open",
+      "clues": "The heater only blows lukewarm air, and the gauge stays low on the highway.",
+      "against": ""
+     },
+     {
+      "name": "Faulty temperature sensor or wiring",
+      "clues": "The gauge drops to cold suddenly or jumps around.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the coolant level when the engine is cold.",
+      "Notice whether the heater blows hot air once the engine has warmed up."
+     ],
+     "shop": [
+      "Cooling system pressure test",
+      "Live coolant temperature reading with a scan tool",
+      "Thermostat check"
+     ]
+    }
+   }
+  },
+  "r_fuel_gauge": {
+   "result": {
+    "title": "The fuel level sensor in the tank, or the gauge, may be reading wrong",
+    "urgency": "check",
+    "now": "Fill the tank and reset your trip meter. Until it's fixed, refuel by miles driven instead of the gauge, and fill up well before you think you're low.",
+    "if": [
+     "If you smell fuel inside or around the car, stop driving and have it checked. A fuel leak is a fire risk.",
+     "If the gauge drops very fast, or you're filling up much more often than usual, look under the car for drips and get it checked soon."
+    ],
+    "why": "A float inside the fuel tank tells the gauge how much fuel is left. These sensors wear out and can stick or read wrong, usually at certain fuel levels. The car isn't harmed, but you can run out of fuel without warning.",
+    "causes": [
+     {
+      "name": "Worn fuel level sensor in the tank",
+      "clues": "The gauge sticks or jumps at certain levels, or never reaches Full.",
+      "against": ""
+     },
+     {
+      "name": "Loose wire or poor ground",
+      "clues": "It comes and goes, often over bumps.",
+      "against": ""
+     },
+     {
+      "name": "Gauge panel fault",
+      "clues": "Other gauges act up too.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note whether the gauge reaches Full after you fill the tank.",
+      "Track your miles between fill-ups."
+     ],
+     "shop": [
+      "Fuel level sensor test",
+      "Gauge panel test",
+      "Check for recalls"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Have the gauges and warning lights checked",
+    "urgency": "soon",
+    "now": "Have it checked within the next few days. Until then, keep trips short, stay with the flow of traffic and watch for warning lights.",
+    "if": [
+     "If the battery light comes on or the lights dim, get off the road at a safe spot.",
+     "If you see steam or smell something sweet or burning, pull over and turn the engine off."
+    ],
+    "why": "Gauges can fail because of a sensor, a fuse, the gauge panel or the car's charging system. A shop can usually tell which with a code scan and a few quick tests.",
+    "causes": [
+     {
+      "name": "Gauge panel or fuse",
+      "clues": "Several gauges act up together.",
+      "against": ""
+     },
+     {
+      "name": "Speed or temperature sensor",
+      "clues": "Only one gauge is wrong.",
+      "against": ""
+     },
+     {
+      "name": "Charging system problem",
+      "clues": "The battery light is on, or the lights dim.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Write down which gauges are wrong and which warning lights are on."
+     ],
+     "shop": [
+      "Code scan of all modules",
+      "Charging system test",
+      "Gauge panel test"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "abs-light-on",
+  "dashboard-lights-all-on",
+  "battery-light-on",
+  "engine-overheating",
+  "temperature-gauge-fluctuating"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Warning Lights"
+  ],
+  "words": [
+   "speedometer",
+   "instrument cluster",
+   "gauge",
+   "odometer",
+   "fuel gauge",
+   "speed sensor",
+   "cluster"
+  ]
+ },
+ "sources": [
+  "https://www.jdpower.com/cars/shopping-guides/why-is-my-speedometer-not-working",
+  "https://www.nhtsa.gov/document/motor-vehicle-safety-defects-and-recalls",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

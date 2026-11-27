@@ -1,0 +1,394 @@
+{
+ "id": "car-speeds-up-by-itself",
+ "title": "Car speeds up by itself",
+ "h1": "Why does my car speed up on its own?",
+ "metaDesc": "Car speeding up by itself or the gas pedal stuck? What to do right now, how to check the floor mat, and why it needs a check before you drive again.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "car speeds up by itself",
+  "car accelerating on its own",
+  "gas pedal stuck",
+  "accelerator stuck",
+  "gas pedal sticking",
+  "unintended acceleration",
+  "sudden acceleration",
+  "car wont slow down",
+  "cruise control wont turn off",
+  "cruise control stuck",
+  "floor mat stuck under gas pedal",
+  "car surges forward",
+  "car lunges forward",
+  "gas pedal wont come back up"
+ ],
+ "intro": "If your car speeds up when you don't want it to, the first job is to stop safely. This guide covers what to do in the moment, then the common causes, like a floor mat catching the pedal.",
+ "safety": [
+  "If the car speeds up on its own: press the brake firmly and hold it (don't pump it), shift to Neutral, and steer to a safe spot. Once stopped, turn the engine off.",
+  "Only turn the engine off while moving if Neutral doesn't work. Steering and brakes get much heavier, and a push-button start may need to be held for a few seconds.",
+  "Don't drive it again until the cause is found, even if it seems fine now.",
+  "Never stack floor mats, and only use a mat that clips down so it can't slide under the pedals."
+ ],
+ "start": "q_now",
+ "nodes": {
+  "q_now": {
+   "q": "Are you stopped somewhere safe right now?",
+   "opts": [
+    {
+     "a": "No. I'm driving and the car is speeding up",
+     "go": "r_runaway_now"
+    },
+    {
+     "a": "Yes, I'm stopped",
+     "go": "q_what"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_runaway_now"
+    }
+   ]
+  },
+  "q_what": {
+   "q": "What happened?",
+   "opts": [
+    {
+     "a": "The gas pedal stuck down, or came up slowly",
+     "go": "q_mat"
+    },
+    {
+     "a": "Cruise control wouldn't turn off, or kept speeding up",
+     "go": "r_cruise"
+    },
+    {
+     "a": "The engine raced and the car pushed forward, but the pedal felt normal",
+     "go": "r_high_idle"
+    },
+    {
+     "a": "It happened at low speed, like while parking, and the pedal didn't seem stuck",
+     "go": "r_low_speed"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_mat": {
+   "q": "With the car in Park and the engine off, look at the driver's floor mat. What do you see?",
+   "opts": [
+    {
+     "a": "The mat slid forward, is on top of another mat, or touches the gas pedal",
+     "go": "r_floor_mat"
+    },
+    {
+     "a": "The mat is fine, but the pedal feels sticky or slow to come up",
+     "go": "r_sticky_pedal"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_sticky_pedal"
+    }
+   ]
+  },
+  "r_runaway_now": {
+   "result": {
+    "title": "Brake hard and steady, shift to Neutral, and steer to safety",
+    "urgency": "stop",
+    "now": "Press the brake firmly with both feet if needed and hold it. Don't pump it. Shift to Neutral, turn on your hazard lights and steer to a safe spot. Once stopped, put it in Park and turn the engine off.",
+    "if": [
+     "If you can't shift to Neutral, turn the engine off: turn the key to the off position (not lock), or press and hold the Start button for a few seconds. Expect the steering and brakes to feel much heavier.",
+     "If you can reach it safely while stopped, pull the floor mat back from the pedal.",
+     "Once you're stopped, call for a tow. Don't drive it again until it's checked."
+    ],
+    "why": "In Neutral, the engine can race but it can't push the car. A firm, steady push on the brake is stronger than the engine. Pumping the brake can use up the power assist and make the pedal harder.",
+    "causes": [
+     {
+      "name": "Floor mat trapping the gas pedal",
+      "clues": "A loose, extra or wrong-size mat.",
+      "against": ""
+     },
+     {
+      "name": "Sticking gas pedal",
+      "clues": "The pedal felt stiff or slow to return before.",
+      "against": ""
+     },
+     {
+      "name": "Cruise control not letting go",
+      "clues": "It started while cruise control was on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Gas pedal and floor mat inspection",
+      "Throttle and cruise control code scan",
+      "Recall check"
+     ]
+    }
+   }
+  },
+  "r_floor_mat": {
+   "result": {
+    "title": "The floor mat may have trapped the gas pedal",
+    "urgency": "soon",
+    "now": "Take the loose or extra mat out and put it in the trunk. With the engine off, press the gas pedal to the floor and let go. It should spring back up quickly and smoothly. Check for open recalls with your VIN.",
+    "if": [
+     "If the pedal doesn't spring back freely, don't drive the car. Have it towed or checked where it is.",
+     "If it happens again with the mat removed, don't drive it until it's checked.",
+     "If you replace the mat, use one made for your car that clips onto the floor hooks."
+    ],
+    "why": "A mat that slides forward or sits on top of another mat can catch the top of the gas pedal and hold it down. This is a well-known cause of cars speeding up on their own, and some have been recalled for it.",
+    "causes": [
+     {
+      "name": "Extra mat stacked on the original",
+      "clues": "Two mats on the driver's side.",
+      "against": ""
+     },
+     {
+      "name": "Mat not clipped to the floor hooks",
+      "clues": "The mat slides forward when you drive.",
+      "against": ""
+     },
+     {
+      "name": "Wrong-size or thick all-weather mat",
+      "clues": "The mat's edge sits near the top of the pedal.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Remove extra mats.",
+      "Check that the pedal springs back freely.",
+      "Check for open recalls using your VIN."
+     ],
+     "shop": [
+      "Pedal and floor mat inspection",
+      "Recall check"
+     ]
+    }
+   }
+  },
+  "r_sticky_pedal": {
+   "result": {
+    "title": "The gas pedal may be sticking",
+    "urgency": "stop",
+    "now": "Don't drive it. Have it towed, or have a mobile mechanic come to you, and check for open recalls with your VIN.",
+    "if": [
+     "If you find something stuck under the pedal, like a bottle or shoe, remove it. If the pedal then springs back freely every time, have it checked soon before long drives."
+    ],
+    "why": "A pedal that sticks or comes up slowly can keep the engine speeding up after you lift your foot. It can come from wear in the pedal, the throttle, or something caught behind the pedal.",
+    "causes": [
+     {
+      "name": "Worn or sticky pedal assembly",
+      "clues": "The pedal feels gritty or catches at one point.",
+      "against": ""
+     },
+     {
+      "name": "Sticky throttle",
+      "clues": "The engine is slow to drop back to idle.",
+      "against": ""
+     },
+     {
+      "name": "Object caught under the pedal",
+      "clues": "A water bottle, shoe or trash on the floor.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check under the pedal for objects (engine off).",
+      "Check for open recalls using your VIN."
+     ],
+     "shop": [
+      "Pedal assembly inspection",
+      "Throttle body inspection",
+      "Code scan",
+      "Recall check"
+     ]
+    }
+   }
+  },
+  "r_cruise": {
+   "result": {
+    "title": "Cruise control may not be letting go",
+    "urgency": "stop",
+    "now": "Don't use cruise control, and don't drive the car until it's checked. Have it towed, or have a mobile mechanic come to you.",
+    "if": [
+     "If it happens again while driving, press the brake firmly and hold it, and shift to Neutral. Pressing the brake should turn cruise off.",
+     "If the brake lights don't work, tell the shop. A bad brake switch can stop cruise from turning off."
+    ],
+    "why": "Cruise control should turn off as soon as you press the brake or the off button. If it doesn't, a switch or the control system may be faulty, and the car could keep pushing forward.",
+    "causes": [
+     {
+      "name": "Brake pedal switch fault",
+      "clues": "Brake lights don't work or stay on.",
+      "against": ""
+     },
+     {
+      "name": "Cruise control switch or system fault",
+      "clues": "A cruise or traction warning light.",
+      "against": ""
+     },
+     {
+      "name": "Adaptive cruise speeding up to a set speed after a car ahead moved",
+      "clues": "It sped up when the lane ahead cleared, which is how adaptive cruise works.",
+      "against": "If it ignored the brake, it's not this."
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check whether the brake lights work."
+     ],
+     "shop": [
+      "Brake switch test",
+      "Cruise control code scan",
+      "Recall check"
+     ]
+    }
+   }
+  },
+  "r_high_idle": {
+   "result": {
+    "title": "The engine may be racing on its own",
+    "urgency": "stop",
+    "now": "Don't drive it until it's checked. Have it towed, or have a mobile mechanic come to you.",
+    "if": [
+     "If the check engine light is on, tell the shop. The code can point to the cause.",
+     "If the engine only idles high for a minute or two after a cold start, then settles down, that can be normal. See our high idle guide."
+    ],
+    "why": "If the engine speeds up on its own while your foot is off the pedal, the throttle or the idle control may be letting in too much air. In gear, that can push the car forward.",
+    "causes": [
+     {
+      "name": "Throttle body or idle control fault",
+      "clues": "The idle has been high or uneven.",
+      "against": ""
+     },
+     {
+      "name": "Air leak in a vacuum hose",
+      "clues": "A hissing sound from under the hood.",
+      "against": ""
+     },
+     {
+      "name": "Pedal or throttle sensor fault",
+      "clues": "The check engine light is on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the RPM reading when it happens."
+     ],
+     "shop": [
+      "Code scan",
+      "Throttle and pedal sensor test",
+      "Vacuum leak test"
+     ]
+    }
+   }
+  },
+  "r_low_speed": {
+   "result": {
+    "title": "A surge at low speed needs a check before you drive again",
+    "urgency": "stop",
+    "now": "Don't drive it until it's checked. Have it towed, or have a mobile mechanic come to you. Tell the shop exactly what happened and where your feet were.",
+    "if": [
+     "If it happened as you pressed what you thought was the brake, your foot may have been on the gas or on both pedals. This happens to many drivers. Practice finding the brake without looking, and wear flat shoes when driving.",
+     "If the engine was racing even with your foot on the brake, tell the shop. That points to a fault."
+    ],
+    "why": "Low-speed surges often happen while parking. Possible causes include a high idle, a floor mat, or a foot on the wrong pedal. A shop can read stored data and check the pedal and throttle.",
+    "causes": [
+     {
+      "name": "High idle or throttle fault",
+      "clues": "The engine RPM is often high at a stop.",
+      "against": ""
+     },
+     {
+      "name": "Floor mat or object near the pedals",
+      "clues": "A loose mat or something on the floor.",
+      "against": ""
+     },
+     {
+      "name": "Foot on the gas instead of the brake",
+      "clues": "It happened while turning in the seat or while rushed.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the floor mat and the area under the pedals."
+     ],
+     "shop": [
+      "Code scan",
+      "Throttle and pedal inspection",
+      "Floor mat check"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Treat it as a fault until a shop checks it",
+    "urgency": "stop",
+    "now": "Don't drive it until it's checked. Have it towed, or have a mobile mechanic come to you, and check for open recalls with your VIN.",
+    "if": [
+     "If it happens again while driving, brake firmly and hold, shift to Neutral, and steer to a safe spot."
+    ],
+    "why": "A car that speeds up when you don't want it to is a serious safety risk. Even if it hasn't happened again, finding the cause matters before you rely on the car.",
+    "causes": [
+     {
+      "name": "Floor mat catching the pedal",
+      "clues": "A loose or extra mat.",
+      "against": ""
+     },
+     {
+      "name": "Sticking pedal or throttle",
+      "clues": "The pedal felt slow to come back.",
+      "against": ""
+     },
+     {
+      "name": "Cruise control or idle fault",
+      "clues": "Warning lights on the dash.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the floor mat.",
+      "Check for open recalls using your VIN."
+     ],
+     "shop": [
+      "Code scan",
+      "Pedal and throttle inspection",
+      "Recall check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "engine-revs-high-at-idle",
+  "rough-idle-shaking",
+  "check-engine-light-on",
+  "engine-stalls-while-driving"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "unintended acceleration",
+   "accelerator pedal",
+   "gas pedal",
+   "floor mat",
+   "pedal entrapment",
+   "cruise control",
+   "throttle",
+   "surge"
+  ]
+ },
+ "sources": [
+  "https://www.transportation.gov/briefing-room/us-department-transportation-releases-results-nhtsa-nasa-study-unintended-acceleration",
+  "https://www.edmunds.com/car-safety/how-to-stop-a-runaway-vehicle.html",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}

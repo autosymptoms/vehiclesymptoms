@@ -24,7 +24,7 @@
  "intro": "The way a tire wears is a record of how it's been running. Edge wear, center wear, one-sided wear and choppy patches each point to a different cause, from tire pressure to alignment to worn suspension parts. Answer a few questions to narrow down the likely cause and how urgent it is.",
  "safety": [
   "If you can see fabric or steel cords, or a bulge on any tire, don't drive on it. Use the spare or call for help.",
-  "If the tread is worn down to the wear bars, replace the tire soon. Grip in rain and snow drops sharply.",
+  "If the tread is level with the wear bars (2/32 inch, or you can see the top of Lincoln's head in the penny test), the tire is worn out. Replace it before driving in rain or snow, and drive gently until then.",
   "If you hear clunking from the front end and the steering feels loose, have it checked before driving at speed."
  ],
  "start": "q_tread_left",
@@ -147,9 +147,9 @@
   },
   "r_replace_soon": {
    "result": {
-    "title": "The tire is at or near the end of its life",
+    "title": "The tire is worn out, or close to it",
     "urgency": "soon",
-    "now": "Plan to replace the tire within a few days. Drive gently, leave extra following distance, and avoid heavy rain or snow if you can.",
+    "now": "If the tread is level with the wear bars (2/32 inch, or you can see the top of Lincoln's head in the penny test), the tire is worn out. Replace it before driving in rain or snow, and drive gently until then.",
     "if": [
      "If cords or a bulge appear, stop driving on it and use the spare.",
      "If the low spot is on one edge or in patches, have the alignment and suspension checked so new tires don't wear the same way.",
@@ -340,7 +340,7 @@
    "result": {
     "title": "Worn steering or suspension parts may be causing the wear",
     "urgency": "stop",
-    "now": "Don't rely on the car until the steering and suspension have been inspected. A badly worn ball joint or tie rod end can come apart with little warning. Have it towed, or ask a mobile mechanic to check it where it's parked.",
+    "now": "Don't rely on the car until the steering and suspension have been inspected. A badly worn ball joint or tie rod end can come apart with little warning. Have it towed, or call roadside assistance (your insurer, a motor club, or the number in your owner's manual). A mechanic may also be able to check it where it's parked.",
     "if": [
      "If the steering feels very loose, the car wanders, or you hear a loud clunk followed by a change in steering, don't drive it. Have it towed.",
      "If parts are replaced, get an alignment afterward.",
@@ -378,7 +378,7 @@
   },
   "r_cupping": {
    "result": {
-    "title": "Cupping often points to worn shocks or struts, or wheel balance",
+    "title": "Scalloped wear often points to worn shock absorbers or unbalanced wheels (cupping)",
     "urgency": "check",
     "now": "Book an inspection of the shocks, struts and wheel balance, and ask whether the tires can be rotated or need replacing.",
     "if": [
@@ -537,7 +537,8 @@
   "tire-keeps-losing-air",
   "bouncy-ride",
   "clunk-over-bumps",
-  "humming-noise-at-speed"
+  "humming-noise-at-speed",
+  "tire-blowout-or-flat"
  ],
  "issueMatch": {
   "cats": [

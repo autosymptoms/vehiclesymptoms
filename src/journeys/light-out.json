@@ -1,0 +1,473 @@
+{
+ "id": "light-out",
+ "title": "A headlight or turn signal is out",
+ "h1": "Why is one of my car's lights out?",
+ "metaDesc": "Headlight out, turn signal blinking fast, or a small bulb dead? What to do first, how to find the cause, and when it's more than a bulb.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "headlight out",
+  "headlight burned out",
+  "one headlight not working",
+  "headlight not working",
+  "both headlights out",
+  "headlights not working",
+  "turn signal blinking fast",
+  "blinker blinking fast",
+  "turn signal not working",
+  "blinker not working",
+  "hazard lights not working",
+  "tail light out",
+  "license plate light out",
+  "high beams not working",
+  "low beam out"
+ ],
+ "intro": "A light that's out makes it harder to see or to be seen. Most of the time it's a bulb, but not always. Answer a few questions to find out how urgent it is and what to check.",
+ "safety": [
+  "If both headlights go out at night, turn on your hazard lights, slow down and get off the road as soon as it's safe.",
+  "If your brake lights don't work, drivers behind you can't tell you're stopping. Get them fixed before you drive again.",
+  "If a turn signal doesn't work, use hand signals until it's fixed.",
+  "If you smell burning plastic or see smoke near a light, turn off the car and step away."
+ ],
+ "start": "q_which",
+ "nodes": {
+  "q_which": {
+   "q": "Which light is out?",
+   "opts": [
+    {
+     "a": "Both headlights",
+     "go": "r_both_headlights"
+    },
+    {
+     "a": "One headlight, on low beam or high beam",
+     "go": "q_one_headlight"
+    },
+    {
+     "a": "A turn signal, or the turn signal blinks fast",
+     "go": "q_signal"
+    },
+    {
+     "a": "The brake lights",
+     "go": "r_brake_lights"
+    },
+    {
+     "a": "A taillight, license plate light or another small light",
+     "go": "r_small_bulb"
+    },
+    {
+     "a": "I'm not sure which one",
+     "go": "r_walkaround"
+    }
+   ]
+  },
+  "q_one_headlight": {
+   "q": "Which fits best?",
+   "help": "Low beams are your normal headlights. High beams are the brighter setting you turn on with the stalk.",
+   "opts": [
+    {
+     "a": "It's out on one setting but works on the other, or it's simply dark",
+     "go": "r_bulb"
+    },
+    {
+     "a": "It flickers, or comes back when I tap it or hit a bump",
+     "go": "r_loose_connector"
+    },
+    {
+     "a": "It's an LED headlight, or a new bulb didn't fix it",
+     "go": "r_led_or_wiring"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_bulb"
+    }
+   ]
+  },
+  "q_signal": {
+   "q": "What does the turn signal do?",
+   "help": "The ticking you hear and the arrow on the dash blink at the same speed as the outside lights.",
+   "opts": [
+    {
+     "a": "It blinks much faster than normal on one side",
+     "go": "r_hyperflash"
+    },
+    {
+     "a": "Nothing blinks on either side, and the hazard lights don't work either",
+     "go": "r_flasher"
+    },
+    {
+     "a": "The arrow stays on without blinking, or doesn't light up",
+     "go": "r_hyperflash"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_hyperflash"
+    }
+   ]
+  },
+  "r_both_headlights": {
+   "result": {
+    "title": "Both headlights out usually means a fuse, relay, switch or power problem",
+    "urgency": "stop",
+    "now": "If it's dark, don't drive. Turn on your hazard lights and get off the road as soon as it's safe. Have it towed or have a mechanic come to you.",
+    "if": [
+     "If it's daylight, check the headlight fuses and the headlight switch setting (turn it from Auto to On). Don't drive after dark until they work.",
+     "If other things are dimming or acting up too, the charging system may be failing. Pull over and turn off the engine.",
+     "If you smell burning plastic, turn off the car and step away."
+    ],
+    "why": "Two bulbs rarely burn out at the same moment. When both go out together, something they share has failed, like a fuse, a relay, the switch or the power feed.",
+    "causes": [
+     {
+      "name": "Blown headlight fuse or bad relay",
+      "clues": "Both went out at once.",
+      "against": ""
+     },
+     {
+      "name": "Headlight switch or auto-light sensor fault",
+      "clues": "The dash lights work, but the headlights don't.",
+      "against": ""
+     },
+     {
+      "name": "Charging system or main power problem",
+      "clues": "The battery light is on, or other things are dimming.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the headlight fuses in the owner's manual.",
+      "Try the high beams and the flash-to-pass."
+     ],
+     "shop": [
+      "Fuse and relay check",
+      "Headlight switch test",
+      "Charging system test"
+     ]
+    }
+   }
+  },
+  "r_bulb": {
+   "result": {
+    "title": "A headlight bulb has probably burned out",
+    "urgency": "diy",
+    "now": "Replace the bulb. The owner's manual lists the bulb type and shows how to reach it. Until it's fixed, avoid driving at night if you can.",
+    "if": [
+     "If you must drive at night, take well-lit roads and drive slower. Other drivers may think you're a motorcycle.",
+     "If a new bulb doesn't work, check the fuse and the plug behind the headlight.",
+     "Replacing headlight bulbs in pairs keeps both sides equally bright."
+    ],
+    "why": "Headlight bulbs wear out. Some cars use one bulb for low and high beam, and others use separate bulbs, so one setting can fail while the other still works.",
+    "causes": [
+     {
+      "name": "Burned-out bulb",
+      "clues": "The light is dark, and it's been a few years.",
+      "against": ""
+     },
+     {
+      "name": "Loose or corroded plug behind the light",
+      "clues": "It flickered before it went out.",
+      "against": ""
+     },
+     {
+      "name": "Blown fuse for that side",
+      "clues": "A new bulb doesn't work.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the bulb for a broken wire inside or a dark spot.",
+      "Check the plug behind the headlight."
+     ],
+     "shop": [
+      "Bulb test",
+      "Socket and wiring check"
+     ]
+    }
+   }
+  },
+  "r_loose_connector": {
+   "result": {
+    "title": "A loose plug or worn socket is likely",
+    "urgency": "check",
+    "now": "Book a check when convenient. If you're comfortable, unplug and firmly reconnect the plug behind the headlight with the lights off.",
+    "if": [
+     "If the plug or socket looks melted or brown, don't keep using that light. Have the socket replaced.",
+     "If it goes out while you're driving at night, slow down and use your high beams only if no one is ahead of or coming toward you."
+    ],
+    "why": "Lights that flicker or come back after a bump usually have a poor connection. Heat from the bulb can damage the socket over time.",
+    "causes": [
+     {
+      "name": "Loose or corroded bulb plug",
+      "clues": "It comes back when you tap the light.",
+      "against": ""
+     },
+     {
+      "name": "Heat-damaged socket",
+      "clues": "The plug looks brown or melted.",
+      "against": ""
+     },
+     {
+      "name": "Broken wire",
+      "clues": "It changes when you turn the steering wheel or hit bumps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the plug behind the headlight."
+     ],
+     "shop": [
+      "Socket and wiring inspection",
+      "Voltage test at the plug"
+     ]
+    }
+   }
+  },
+  "r_led_or_wiring": {
+   "result": {
+    "title": "The headlight unit or its wiring may have failed",
+    "urgency": "check",
+    "now": "Book a check when convenient and avoid driving at night until it works. LED headlights often can't be fixed by changing a bulb.",
+    "if": [
+     "If both sides go out, don't drive at night until it's fixed.",
+     "If a headlight warning appears on the dash, tell the shop."
+    ],
+    "why": "Many newer cars use LED headlights that are built into the headlight housing. When they fail, the light module or its driver usually needs replacing, not a bulb.",
+    "causes": [
+     {
+      "name": "Failed LED module or driver",
+      "clues": "The car has LED headlights.",
+      "against": ""
+     },
+     {
+      "name": "Wiring or fuse problem",
+      "clues": "A new bulb didn't help.",
+      "against": ""
+     },
+     {
+      "name": "Water inside the headlight",
+      "clues": "You can see fog or droplets inside the lens.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for water inside the lens.",
+      "Check for open recalls using your VIN."
+     ],
+     "shop": [
+      "Headlight module test",
+      "Wiring and fuse check"
+     ]
+    }
+   }
+  },
+  "r_hyperflash": {
+   "result": {
+    "title": "A turn signal bulb is probably out on that side",
+    "urgency": "diy",
+    "now": "Turn on the turn signal and walk around the car. Check the front, rear and side signal lights on that side, then replace the dead bulb.",
+    "if": [
+     "If all bulbs work but it still blinks fast, check the sockets for corrosion, or have the wiring checked.",
+     "If you put in LED bulbs recently, fast blinking can happen. The right bulb for your car is in the owner's manual.",
+     "Use hand signals until it's fixed."
+    ],
+    "why": "Many cars blink fast on purpose when a signal bulb is out, to warn you that other drivers can't see your signal.",
+    "causes": [
+     {
+      "name": "Burned-out signal bulb",
+      "clues": "Fast blinking on one side only.",
+      "against": ""
+     },
+     {
+      "name": "Corroded socket or bad connection",
+      "clues": "The bulb looks fine but works on and off.",
+      "against": ""
+     },
+     {
+      "name": "Wrong bulb type",
+      "clues": "It started after a bulb change.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check every signal light on that side."
+     ],
+     "shop": [
+      "Bulb and socket check",
+      "Turn signal circuit test"
+     ]
+    }
+   }
+  },
+  "r_flasher": {
+   "result": {
+    "title": "The turn signal flasher, fuse or switch may have failed",
+    "urgency": "soon",
+    "now": "Use hand signals and get it checked within a few days. Check the turn signal and hazard fuse first.",
+    "if": [
+     "If the hazard lights also don't work, you can't warn others if you break down. Get it fixed soon.",
+     "If the brake lights also don't work, don't drive until it's fixed."
+    ],
+    "why": "When no signal works on either side, the problem is in a part they share, like the flasher relay, a fuse, or the signal switch.",
+    "causes": [
+     {
+      "name": "Blown fuse",
+      "clues": "Signals and hazards both stopped.",
+      "against": ""
+     },
+     {
+      "name": "Failed flasher relay or module",
+      "clues": "No ticking sound at all.",
+      "against": ""
+     },
+     {
+      "name": "Worn turn signal switch",
+      "clues": "Hazards work, but signals don't.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the turn signal and hazard fuses."
+     ],
+     "shop": [
+      "Fuse check",
+      "Flasher relay test",
+      "Turn signal switch test"
+     ]
+    }
+   }
+  },
+  "r_brake_lights": {
+   "result": {
+    "title": "Brake lights out: get them fixed before you drive",
+    "urgency": "soon",
+    "now": "Have someone stand behind the car while you press the brake, or back up to a window and look for the glow. Our \"Brake lights not working\" guide walks through the checks.",
+    "if": [
+     "If none of the brake lights work, don't drive until it's fixed. Drivers behind you won't know you're stopping.",
+     "If you also can't shift out of Park, the brake light switch is a likely cause."
+    ],
+    "why": "When one brake light is out, it's usually a bulb. When all are out, a fuse or the switch at the brake pedal is more likely.",
+    "causes": [
+     {
+      "name": "Burned-out bulb",
+      "clues": "Only one side is dark.",
+      "against": ""
+     },
+     {
+      "name": "Brake light switch or fuse",
+      "clues": "All brake lights are dark.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check each brake light, including the high center one."
+     ],
+     "shop": [
+      "Bulb check",
+      "Brake light switch test",
+      "Fuse check"
+     ]
+    }
+   }
+  },
+  "r_small_bulb": {
+   "result": {
+    "title": "A small bulb is out. Usually a simple fix",
+    "urgency": "diy",
+    "now": "Replace the bulb. The owner's manual shows the bulb type and how to reach it.",
+    "if": [
+     "If a whole group of lights is out, like the taillights on both sides, check the fuse.",
+     "If you see water inside the light, the seal may be leaking and the new bulb may fail again."
+    ],
+    "why": "Taillights, license plate lights and side markers use small bulbs that burn out over time. A dead one can still get you pulled over.",
+    "causes": [
+     {
+      "name": "Burned-out bulb",
+      "clues": "Only one light is dark.",
+      "against": ""
+     },
+     {
+      "name": "Blown fuse",
+      "clues": "Several lights went out together.",
+      "against": ""
+     },
+     {
+      "name": "Water in the light",
+      "clues": "Fog or water inside the lens.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the bulb.",
+      "Check the fuse if several are out."
+     ],
+     "shop": [
+      "Bulb and socket check",
+      "Fuse check"
+     ]
+    }
+   }
+  },
+  "r_walkaround": {
+   "result": {
+    "title": "Do a quick walk-around to find the dead light",
+    "urgency": "diy",
+    "now": "Park somewhere safe, turn on the headlights and hazard lights, and walk around the car. Ask someone to press the brake while you look at the back.",
+    "if": [
+     "If both headlights are out, don't drive after dark until they work.",
+     "If no brake lights work, don't drive until they're fixed."
+    ],
+    "why": "Knowing which light is out tells you how urgent it is. A license plate light is a small fix. Headlights and brake lights are about being safe on the road.",
+    "causes": [
+     {
+      "name": "Burned-out bulb",
+      "clues": "One light is dark.",
+      "against": ""
+     },
+     {
+      "name": "Fuse or switch",
+      "clues": "A whole group of lights is out.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check every light with a helper."
+     ],
+     "shop": [
+      "Bulb, fuse and switch check"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "brake-lights-not-working",
+  "headlights-dim-or-flickering",
+  "clicking-when-turning",
+  "electrical-accessories-not-working"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "headlight",
+   "turn signal",
+   "tail light",
+   "taillight",
+   "bulb",
+   "led module",
+   "flasher",
+   "hazard light"
+  ]
+ },
+ "sources": [
+  "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/introduction-to-driving"
+ ]
+}

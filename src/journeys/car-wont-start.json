@@ -18,13 +18,23 @@
   "won't turn over",
   "nothing happens when I turn the key",
   "push button start not working",
-  "starts then dies"
+  "starts then dies",
+  "won't start clicking",
+  "clicks but won't start",
+  "car clicks but wont start",
+  "car wont turn on",
+  "car won't turn on",
+  "jump start",
+  "how to jump start a car",
+  "battery died",
+  "dead battery need a jump"
  ],
  "intro": "When a car won't start, what you hear and see in the first few seconds tells you a lot. A dead battery, a failing starter and a fuel or ignition problem each behave differently. Answer the questions below and we'll point you toward the likely causes and the safest next step.",
  "safety": [
   "If you smell raw fuel, stop trying to start it and keep sparks and flames away.",
   "If you see smoke or smell burning plastic from under the hood, stop trying and step away from the car.",
-  "Don't crank the engine for more than 10 seconds at a time. Wait about a minute between tries so the starter doesn't overheat."
+  "Don't crank the engine for more than 10 seconds at a time. Wait about a minute between tries so the starter doesn't overheat.",
+  "If you're stuck on a road or shoulder, turn on your hazard lights, stay inside with your seat belt on and call for help. If you're stuck in a traffic lane, stay buckled in and call 911. Get out only if you see smoke or fire: leave on the side away from traffic and wait well back from the road, behind a guardrail if there is one."
  ],
  "start": "q_what_happens",
  "nodes": {
@@ -196,7 +206,7 @@
     "urgency": "diy",
     "now": "First look at the battery: if it's swollen, cracked, leaking, very hot or smells like rotten eggs, don't jump-start or charge it. Keep sparks away and have it checked. If it looks normal, check that the battery clamps are tight and clean, then try a jump start or a battery booster.",
     "if": [
-     "If it starts with a jump, have the battery and alternator tested soon. Most auto parts stores do this free.",
+     "If it starts with a jump, have the battery and alternator tested soon. Most auto parts stores offer this.",
      "If it still only clicks with a good jump, the battery cables or the starter are the more likely problem."
     ],
     "why": "The starter needs a big burst of power. A weak battery has enough to light the dash and make the starter's switch click, but not enough to spin the engine, so you hear rapid clicking as it tries over and over.",
@@ -274,9 +284,9 @@
   },
   "r_cables_starter": {
    "result": {
-    "title": "Possibly a bad battery connection or a failing starter",
+    "title": "A battery connection or the motor that turns the engine over may be failing (cables or starter)",
     "urgency": "soon",
-    "now": "Check that the battery clamps are tight and clean. If they are and a jump doesn't help, have the car towed or have a mobile mechanic come to you.",
+    "now": "Check that the battery clamps are tight and clean. If they are and a jump doesn't help, have the car towed or have a mechanic come to you.",
     "if": [
      "If cleaning or tightening the cables fixes it, have the cables checked for hidden corrosion soon.",
      "If you're stuck somewhere unsafe, call roadside assistance rather than repeatedly cranking.",
@@ -315,9 +325,9 @@
   },
   "r_starter": {
    "result": {
-    "title": "Possibly the starter, or a poor connection to it",
+    "title": "The motor that turns the engine over, or its wiring, may be failing (starter)",
     "urgency": "soon",
-    "now": "Make sure the car is fully in Park (or press the clutch on a manual) and try again. If it still only clicks once, the car will need a tow or a mobile mechanic.",
+    "now": "Make sure the car is fully in Park (or press the clutch on a manual) and try again. If it still only clicks once, the car will need a tow or a mechanic who comes to you.",
     "if": [
      "If it starts in Neutral but not Park, the gear-position (neutral safety) switch may be the problem.",
      "If it starts after a few tries, get the starter checked soon. It may get worse.",
@@ -476,7 +486,7 @@
   },
   "r_fuel_or_crank_sensor": {
    "result": {
-    "title": "The fuel pump or a crankshaft sensor may have failed",
+    "title": "Fuel may not be reaching the engine, or a key engine sensor may have failed (fuel pump or crankshaft sensor)",
     "urgency": "stop",
     "now": "Don't keep cranking it. Have the car towed to a shop.",
     "if": [
@@ -525,7 +535,7 @@
    "result": {
     "title": "The engine may not be getting fuel or spark. A shop can test it",
     "urgency": "soon",
-    "now": "Try once or twice more, each time for no more than 10 seconds. If it doesn't fire, have the car towed or call a mobile mechanic.",
+    "now": "Try once or twice more, each time for no more than 10 seconds. If it doesn't fire, have the car towed or call a mechanic who comes to you.",
     "if": [
      "If you smell fuel or see a leak, stop trying and keep flames away.",
      "If a check engine light is on, a code reader can give the shop a head start.",
@@ -724,7 +734,8 @@
   "battery-keeps-dying",
   "car-cranks-slowly",
   "engine-stalls-while-driving",
-  "push-button-start-not-working"
+  "push-button-start-not-working",
+  "wrong-fuel"
  ],
  "issueMatch": {
   "cats": [
@@ -743,6 +754,7 @@
  },
  "sources": [
   "https://www.nhtsa.gov/recalls",
-  "https://www.aaa.com/autorepair/articles/how-to-jump-start-a-car"
+  "https://www.aaa.com/autorepair/articles/how-to-jump-a-battery-and-get-yourself-back-on-the-road",
+  "https://cluballiance.aaa.com/the-extra-mile/advice/car/staying-safe-when-your-car-breaks-down"
  ]
 }

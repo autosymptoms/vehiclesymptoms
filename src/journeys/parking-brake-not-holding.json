@@ -1,0 +1,416 @@
+{
+ "id": "parking-brake-not-holding",
+ "title": "Parking brake not holding",
+ "h1": "Why won't my parking brake hold the car?",
+ "metaDesc": "Parking brake weak, lever goes up too far, or the car rolls on a hill? See the likely cause, how to park safely until it's fixed, and what a shop checks.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "parking brake not holding",
+  "emergency brake not working",
+  "e brake not holding",
+  "ebrake not working",
+  "handbrake not working",
+  "parking brake weak",
+  "car rolls with parking brake on",
+  "parking brake lever goes all the way up",
+  "parking brake pedal goes to the floor",
+  "electric parking brake not working",
+  "parking brake wont engage",
+  "emergency brake loose",
+  "car rolls on hill with handbrake on",
+  "service parking brake message"
+ ],
+ "intro": "The parking brake holds the car if Park or first gear isn't enough, so a weak one is a real rollaway risk on a hill. Most of the time it's a stretched cable, worn rear brakes, or a fault in an electric parking brake. These questions help you find the likely cause and how to park safely until it's fixed.",
+ "safety": [
+  "If the car moves or rolls while it's in Park, don't leave it parked on any slope. Put wheel chocks or blocks behind the tires and get help.",
+  "Never stand in front of or behind a car that might roll, and never try to stop a rolling car with your body.",
+  "If the red BRAKE light stays on after you release the parking brake, or the brake pedal feels soft, have the brakes checked before driving."
+ ],
+ "start": "q_park",
+ "nodes": {
+  "q_park": {
+   "q": "On level ground, does the car stay put in Park (or in gear on a manual) without the parking brake?",
+   "help": "Don't test this on a hill, and keep everyone away from the front and back of the car.",
+   "opts": [
+    {
+     "a": "No, it moves or rolls even in Park",
+     "go": "r_park_fails"
+    },
+    {
+     "a": "Yes, it holds in Park. Only the parking brake seems weak",
+     "go": "q_type"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_type"
+    }
+   ]
+  },
+  "q_type": {
+   "q": "What kind of parking brake does your car have?",
+   "opts": [
+    {
+     "a": "A hand lever between the front seats, or a foot pedal on the left",
+     "go": "q_lever"
+    },
+    {
+     "a": "An electric button or switch, often marked P in a circle",
+     "go": "q_epb"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_lever": {
+   "q": "When you set it firmly, how does the lever or pedal feel?",
+   "opts": [
+    {
+     "a": "It goes much farther than it used to, almost all the way",
+     "go": "r_cable"
+    },
+    {
+     "a": "It feels loose, or doesn't grab at all",
+     "go": "r_cable_broken"
+    },
+    {
+     "a": "It feels normal, but the car still creeps on a hill",
+     "go": "r_rear_brakes"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_general"
+    }
+   ]
+  },
+  "q_epb": {
+   "q": "What happens when you press the switch to set it?",
+   "opts": [
+    {
+     "a": "A warning light or message comes on, like 'Service parking brake'",
+     "go": "r_epb_fault"
+    },
+    {
+     "a": "Nothing happens: no whirring from the back and no light",
+     "go": "r_epb_power"
+    },
+    {
+     "a": "It sets with a whir, but the car still creeps on a hill",
+     "go": "r_rear_brakes"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_epb_fault"
+    }
+   ]
+  },
+  "r_park_fails": {
+   "result": {
+    "title": "The car isn't holding in Park. Don't use it until it's checked",
+    "urgency": "stop",
+    "now": "Don't drive or park it on a slope until it's checked. Leave it on level ground with the parking brake set and wheel chocks or blocks behind the tires, and have a mobile mechanic come to you or have it towed.",
+    "if": [
+     "If you heard a ratcheting or grinding noise when shifting into Park, the part that locks the transmission may be damaged.",
+     "If the gear shown on the dash doesn't match the shifter, the shift cable may be loose or broken. Check for open recalls with your VIN on NHTSA's recall lookup.",
+     "If the car rolled into anyone or anything, call 911 if anyone is hurt."
+    ],
+    "why": "In Park, a metal pin inside the transmission (the parking pawl) locks it so the wheels can't turn. If the car still moves, that pin, the shift cable, or the shifter may not be doing its job, and only the parking brake is left to hold the car.",
+    "causes": [
+     {
+      "name": "Shift cable loose, stretched or broken",
+      "clues": "The gear on the dash doesn't match the shifter, or the shifter feels sloppy.",
+      "against": ""
+     },
+     {
+      "name": "Damaged parking pawl",
+      "clues": "A ratcheting or grinding noise when shifting into Park, especially if the car was still moving.",
+      "against": ""
+     },
+     {
+      "name": "Shifter not fully in Park",
+      "clues": "It happens only sometimes, and shifting firmly into Park helps.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check for recalls with your VIN.",
+      "Watch whether the gear on the dash matches the shifter."
+     ],
+     "shop": [
+      "Shift cable and linkage check",
+      "Transmission park mechanism inspection",
+      "Check for recalls"
+     ]
+    }
+   }
+  },
+  "r_cable": {
+   "result": {
+    "title": "The parking brake cable may have stretched or need adjusting",
+    "urgency": "soon",
+    "now": "Have the parking brake adjusted within the next few days. Until it's fixed, park on level ground, use Park (or first gear on a manual), and put wheel chocks behind the tires on any slope.",
+    "if": [
+     "If the red BRAKE light doesn't go out when you release it, or a rear wheel drags or smells hot, have it checked sooner.",
+     "If the lever goes up farther every week, the cable may be close to breaking."
+    ],
+    "why": "Hand-lever and pedal parking brakes pull a steel cable to the rear brakes. Over time the cable stretches and the rear brakes wear, so the lever has to travel farther before the brakes grab. Many cars need an adjustment now and then.",
+    "causes": [
+     {
+      "name": "Stretched cable",
+      "clues": "The lever or pedal travel has slowly increased.",
+      "against": ""
+     },
+     {
+      "name": "Worn rear brakes",
+      "clues": "The rear brakes haven't been serviced in a long time.",
+      "against": ""
+     },
+     {
+      "name": "Stuck adjuster in the rear brakes",
+      "clues": "Cars with rear drum brakes, and the pedal or lever travel keeps growing.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Count the clicks as you pull the lever. Your owner's manual may list the normal range."
+     ],
+     "shop": [
+      "Parking brake adjustment",
+      "Rear brake inspection",
+      "Cable condition check"
+     ]
+    }
+   }
+  },
+  "r_cable_broken": {
+   "result": {
+    "title": "The parking brake cable may have broken or come loose",
+    "urgency": "soon",
+    "now": "Don't rely on the parking brake. Have it repaired within the next few days. Until it's fixed, park on level ground, use Park (or first gear on a manual), and put wheel chocks behind the tires on any slope.",
+    "if": [
+     "If the car is a manual, leave it in first gear (or reverse) when parked, and use wheel chocks.",
+     "If you see a cable hanging under the car, have it fixed soon. It can catch on things."
+    ],
+    "why": "When the lever or pedal feels loose with no resistance, the cable has usually snapped or come off its mount, so it isn't pulling on the rear brakes at all.",
+    "causes": [
+     {
+      "name": "Broken cable",
+      "clues": "No resistance at all, or a snapping sound when you last used it.",
+      "against": ""
+     },
+     {
+      "name": "Cable came off at the lever or at a wheel",
+      "clues": "A cable hanging under the car.",
+      "against": ""
+     },
+     {
+      "name": "Seized parts in the rear brakes",
+      "clues": "It stopped working after the car sat for a long time.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look under the car, with it parked and safe, for a loose or hanging cable."
+     ],
+     "shop": [
+      "Parking brake cable inspection and replacement",
+      "Rear brake inspection"
+     ]
+    }
+   }
+  },
+  "r_rear_brakes": {
+   "result": {
+    "title": "Worn or contaminated rear brakes may not be gripping enough",
+    "urgency": "soon",
+    "now": "Have the rear brakes checked within the next few days. Until it's fixed, park on level ground, use Park (or first gear on a manual), and put wheel chocks behind the tires on any slope.",
+    "if": [
+     "If the car also takes longer to stop, or you hear grinding, have the brakes checked sooner.",
+     "If you see oily or wet spots on the inside of a rear wheel, don't drive it until the brakes are checked. Fluid on the brakes can stop them gripping."
+    ],
+    "why": "The parking brake uses the rear brakes. If the pads or shoes are worn thin, glazed, or soaked with oil or brake fluid, they can't hold the car on a hill even if the lever or switch seems to work.",
+    "causes": [
+     {
+      "name": "Worn rear pads or shoes",
+      "clues": "The rear brakes haven't been replaced in a long time, or you hear grinding.",
+      "against": ""
+     },
+     {
+      "name": "Oil or brake fluid on the rear brakes",
+      "clues": "Wet or oily spots on the inside of a rear wheel.",
+      "against": ""
+     },
+     {
+      "name": "Seized parking brake parts in the rear brakes",
+      "clues": "It held fine before, then got weak after the car sat.",
+      "against": ""
+     },
+     {
+      "name": "Weak electric parking brake motor",
+      "clues": "An electric parking brake that whirs but doesn't hold.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the inside of each rear wheel for wet or oily spots."
+     ],
+     "shop": [
+      "Rear brake inspection",
+      "Parking brake function test",
+      "Leak check"
+     ]
+    }
+   }
+  },
+  "r_epb_fault": {
+   "result": {
+    "title": "The electric parking brake may have a fault",
+    "urgency": "soon",
+    "now": "Check your owner's manual for the electric parking brake steps, then have it checked within the next few days. Until it's fixed, park on level ground, use Park (or first gear on a manual), and put wheel chocks behind the tires on any slope.",
+    "if": [
+     "If the parking brake won't release, don't drive with it dragging. Have it towed or call a mobile mechanic.",
+     "If the red BRAKE light is on too, or the pedal feels soft, have the brakes checked before driving."
+    ],
+    "why": "An electric parking brake uses small motors at the rear brakes, controlled by a computer. When it finds a problem, it shows a warning and may not apply or release properly. A shop can read the stored codes to see which part is at fault.",
+    "causes": [
+     {
+      "name": "Motor or rear caliper fault",
+      "clues": "A warning message and the brake doesn't fully apply.",
+      "against": ""
+     },
+     {
+      "name": "Switch fault",
+      "clues": "The warning comes on when you press the switch.",
+      "against": ""
+     },
+     {
+      "name": "Low battery voltage",
+      "clues": "It started after a dead battery, jump start or battery work.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note the exact warning message.",
+      "Check whether the battery was recently dead or replaced."
+     ],
+     "shop": [
+      "Electric parking brake code scan",
+      "Motor and caliper test",
+      "Battery test"
+     ]
+    }
+   }
+  },
+  "r_epb_power": {
+   "result": {
+    "title": "The electric parking brake may not be getting power or a signal",
+    "urgency": "soon",
+    "now": "Check that the car is on and your foot is on the brake, then try again. If it still won't set, have it checked within the next few days. Until it's fixed, park on level ground, use Park (or first gear on a manual), and put wheel chocks behind the tires on any slope.",
+    "if": [
+     "If the car's lights are dim or the battery light is on, the battery may be too weak to work the parking brake.",
+     "If it won't release either, have it towed or call a mobile mechanic rather than driving with it on."
+    ],
+    "why": "If nothing happens at all, the electric parking brake may not be getting power, or the switch may not be sending a signal. A weak battery, a blown fuse or a failed switch are common causes.",
+    "causes": [
+     {
+      "name": "Weak battery",
+      "clues": "Dim lights, slow cranking, or a recent dead battery.",
+      "against": ""
+     },
+     {
+      "name": "Blown fuse",
+      "clues": "No sound and no warning at all.",
+      "against": ""
+     },
+     {
+      "name": "Failed switch",
+      "clues": "Everything else works, but the switch does nothing.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the electric parking brake fuse using your owner's manual."
+     ],
+     "shop": [
+      "Battery test",
+      "Fuse and wiring check",
+      "Switch test and code scan"
+     ]
+    }
+   }
+  },
+  "r_general": {
+   "result": {
+    "title": "Have the parking brake and rear brakes checked",
+    "urgency": "soon",
+    "now": "Have it inspected within the next few days. Until it's fixed, park on level ground, use Park (or first gear on a manual), and put wheel chocks behind the tires on any slope.",
+    "if": [
+     "If the car moves while in Park, don't leave it on any slope and get help right away.",
+     "If the red BRAKE light stays on after releasing the parking brake, have the brakes checked before driving."
+    ],
+    "why": "A weak parking brake usually comes from a stretched or broken cable, worn rear brakes, or a fault in an electric parking brake. A shop can test each one quickly.",
+    "causes": [
+     {
+      "name": "Stretched or broken cable",
+      "clues": "A lever or pedal that travels too far or feels loose.",
+      "against": ""
+     },
+     {
+      "name": "Worn rear brakes",
+      "clues": "The rear brakes haven't been serviced in a long time.",
+      "against": ""
+     },
+     {
+      "name": "Electric parking brake fault",
+      "clues": "A warning message on the dash.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note how the lever, pedal or switch feels, and any warning messages."
+     ],
+     "shop": [
+      "Parking brake function test",
+      "Rear brake inspection",
+      "Code scan for electric parking brakes"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "brake-warning-light-on",
+  "brakes-dragging",
+  "stuck-in-park",
+  "car-wont-go-into-gear"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving",
+   "Warning Lights"
+  ],
+  "words": [
+   "parking brake",
+   "emergency brake",
+   "handbrake",
+   "electric parking brake",
+   "epb",
+   "rollaway",
+   "park pawl"
+  ]
+ },
+ "sources": [
+  "https://dmv.ny.gov/brochure/new-york-state-vehicle-safetyemissions-inspection-program",
+  "https://www.nhtsa.gov/recalls",
+  "https://www.nhtsa.gov/document/motor-vehicle-safety-defects-and-recalls"
+ ]
+}

@@ -25,7 +25,7 @@
  "safety": [
   "If you smell exhaust inside the car, get to fresh air and don't drive it until it's checked. If anyone has a headache, dizziness, nausea, confusion or sleepiness, this may be carbon monoxide poisoning. Get everyone into fresh air right away and call 911 from outside the car.",
   "If something is dragging on the road or hanging down, pull over as soon as it's safe.",
-  "Exhaust parts get hot enough to burn you. Let the car cool for at least an hour before touching anything underneath, and never get under a car held up only by a jack."
+  "Let the car cool for at least an hour before touching anything under it. Exhaust parts get hot enough to burn you."
  ],
  "start": "q_danger",
  "nodes": {
@@ -109,7 +109,7 @@
    "result": {
     "title": "Exhaust may be leaking into the car. Don't drive it",
     "urgency": "stop",
-    "now": "Get out and get to fresh air. Don't drive the car again until it's repaired. Have it towed or have a mobile mechanic inspect it.",
+    "now": "Get out and get to fresh air. Don't drive the car again until it's repaired. Have it towed or have a mechanic inspect it where it's parked.",
     "if": [
      "If anyone has a headache, dizziness, nausea or confusion, get them into fresh air and call 911 or seek medical care.",
      "If the car is parked in a garage, don't run the engine there to listen for the rattle."
@@ -182,9 +182,9 @@
   },
   "r_cat_failing": {
    "result": {
-    "title": "The catalytic converter may be breaking up or blocked",
+    "title": "The part that cleans the exhaust may be breaking up or blocked (catalytic converter)",
     "urgency": "stop",
-    "now": "Pull over when it's safe and turn off the engine. Have it towed or call a mobile mechanic rather than driving on.",
+    "now": "Pull over when it's safe and turn off the engine. Have it towed or call roadside assistance (your insurer, a motor club, or the number in your owner's manual) rather than driving on.",
     "if": [
      "If you smell burning, see smoke, or notice a strong rotten egg smell, pull over as soon as it's safe, turn the engine off and step away from the car.",
      "If the light stops flashing, still get it checked before driving any distance.",
@@ -344,7 +344,7 @@
   },
   "r_cat_internal": {
    "result": {
-    "title": "The inside of the catalytic converter or muffler may be breaking up",
+    "title": "Parts inside the exhaust cleaner or muffler may be breaking up (catalytic converter)",
     "urgency": "soon",
     "now": "Get the exhaust checked within a few days, and avoid long trips and hard acceleration until then.",
     "if": [
@@ -385,7 +385,7 @@
   },
   "r_exhaust_hanger": {
    "result": {
-    "title": "A broken exhaust hanger or mount may be letting the exhaust move",
+    "title": "A broken rubber hanger may be letting the exhaust swing (exhaust hanger or mount)",
     "urgency": "check",
     "now": "Book an exhaust repair within the next week or two. Hangers are usually a simple repair, and catching it early protects the rest of the exhaust.",
     "if": [
@@ -486,7 +486,7 @@
   ]
  },
  "sources": [
-  "https://www.autobarn.net/symptoms/catalytic-converter-rattle",
-  "https://www.autobarn.net/symptoms/rattling-exhaust"
+  "https://www.cars.com/articles/why-is-my-muffler-rattling-1420684416354",
+  "https://www.cdc.gov/carbon-monoxide/about/index.html"
  ]
 }

@@ -1,0 +1,426 @@
+{
+ "id": "ev-wont-charge",
+ "title": "Electric car won't charge",
+ "h1": "Why won't my electric car charge?",
+ "metaDesc": "EV or plug-in hybrid won't charge, stops charging or charges slowly? Safety first, then the simple settings and charger checks to try.",
+ "group": "start",
+ "cat": "Starting Problems",
+ "synonyms": [
+  "ev wont charge",
+  "ev won't charge",
+  "electric car wont charge",
+  "electric car not charging",
+  "car wont charge",
+  "plug in hybrid not charging",
+  "charger not working on my ev",
+  "ev stops charging",
+  "ev charging slow",
+  "charging very slow",
+  "charge port light not on",
+  "charging cable stuck",
+  "cant unplug charger",
+  "ev charging error",
+  "level 2 charger not charging"
+ ],
+ "intro": "When an electric car or plug-in hybrid won't charge, the cause is often a setting, the charger or the cable, not the car. A few questions will help you find out which, and when it needs a dealer.",
+ "safety": [
+  "If the plug, cable or outlet is hot, melted, sparking or smells like burning, stop charging. Switch off the charger or its breaker if you can do it safely, and don't touch damaged parts.",
+  "If you see smoke or hear popping or hissing from under the car, get everyone away from it and call 911.",
+  "Never use a damaged cable, a household extension cord or an adapter your car maker doesn't approve.",
+  "After a crash or a flood, don't charge the car until it has been checked."
+ ],
+ "start": "q_what",
+ "nodes": {
+  "q_what": {
+   "q": "What happens when you plug in?",
+   "opts": [
+    {
+     "a": "Something is hot, melted, sparking or smells burnt",
+     "go": "r_hot"
+    },
+    {
+     "a": "Nothing: no light at the charge port and no message",
+     "go": "q_where"
+    },
+    {
+     "a": "It starts, then stops after a short time",
+     "go": "r_stops"
+    },
+    {
+     "a": "It charges, but much slower than usual",
+     "go": "r_slow"
+    },
+    {
+     "a": "A warning light or error message shows on the car or the charger",
+     "go": "r_warning"
+    },
+    {
+     "a": "The plug won't go in, or won't come out",
+     "go": "r_latch"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_where"
+    }
+   ]
+  },
+  "q_where": {
+   "q": "Where are you trying to charge?",
+   "opts": [
+    {
+     "a": "A public charging station",
+     "go": "r_public"
+    },
+    {
+     "a": "At home, with a wall charger or the cord that came with the car",
+     "go": "r_home"
+    },
+    {
+     "a": "Every charger I've tried, at home and in public",
+     "go": "r_car_side"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_home"
+    }
+   ]
+  },
+  "r_hot": {
+   "result": {
+    "title": "Stop charging: overheating parts are a fire risk",
+    "urgency": "stop",
+    "now": "Stop the charge from the car or the charger. If you can safely reach it, switch off the charger or its breaker before touching the cable. Don't use that cable, plug or outlet again until it's inspected.",
+    "if": [
+     "If there's smoke, flames, popping or hissing from the car, get everyone away and call 911. Tell them it's an electric car.",
+     "If only a wall outlet or plug is damaged, have an electrician check it before using it again."
+    ],
+    "why": "A loose or worn plug, a damaged cable or an outlet not made for long, heavy use can overheat. Charging pulls a lot of power for hours, so small faults can get hot.",
+    "causes": [
+     {
+      "name": "Worn or damaged outlet",
+      "clues": "The plug feels loose or the outlet is scorched.",
+      "against": ""
+     },
+     {
+      "name": "Damaged charging cable or plug",
+      "clues": "Cuts, crushed spots or bent pins.",
+      "against": ""
+     },
+     {
+      "name": "Fault in the car's charge port",
+      "clues": "The damage is at the car end.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Charge port and cable inspection",
+      "Outlet and wiring check by an electrician",
+      "Charging system scan"
+     ]
+    }
+   }
+  },
+  "r_public": {
+   "result": {
+    "title": "Try a different charger or stall first",
+    "urgency": "diy",
+    "now": "Move to another stall or another station and try again. Check the charger's screen or app for an error, and make sure the payment or session actually started.",
+    "if": [
+     "If it charges at another charger, the first charger is the problem. Report it to the charging company.",
+     "If no charger works, the car may have a problem. Book a dealer check.",
+     "If you're very low on charge and can't charge anywhere, call roadside assistance. Tell them it's an electric car, because it may need a flatbed tow."
+    ],
+    "why": "Public chargers are out of order more often than people expect. Trying a second charger is the fastest way to tell whether the problem is the charger or the car.",
+    "causes": [
+     {
+      "name": "Charger out of order",
+      "clues": "Another car also couldn't charge, or the screen shows an error.",
+      "against": ""
+     },
+     {
+      "name": "Payment or app session didn't start",
+      "clues": "The app shows no active session.",
+      "against": ""
+     },
+     {
+      "name": "Plug not fully seated",
+      "clues": "It works after unplugging and plugging in again firmly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try another stall or station.",
+      "Check the charger's screen and app."
+     ],
+     "shop": [
+      "Charging system scan",
+      "Charge port inspection"
+     ]
+    }
+   }
+  },
+  "r_home": {
+   "result": {
+    "title": "Check the settings, the breaker and the cord lights",
+    "urgency": "diy",
+    "now": "Check the car's charging settings: scheduled charging, a charge limit, or a timer can stop a charge from starting. Then check the home breaker and look at the status lights on the cord or wall charger.",
+    "if": [
+     "If the cord or wall charger shows a fault light, unplug it, wait a minute and try again. The manual for the charger explains its lights.",
+     "If the breaker keeps tripping, stop using that circuit and have an electrician check it.",
+     "If the car charges at a public charger, the home charger or wiring is the likely problem."
+    ],
+    "why": "Many cars wait to charge until a set time to save money on electricity. A charge limit can also stop charging early. If the settings are fine, the power supply or the charger is next to check.",
+    "causes": [
+     {
+      "name": "Scheduled charging or a charge limit is set",
+      "clues": "The car says it will charge later, or it's already at the limit.",
+      "against": ""
+     },
+     {
+      "name": "Tripped breaker or outlet safety switch",
+      "clues": "The cord's lights are off.",
+      "against": ""
+     },
+     {
+      "name": "Faulty home charger or cord",
+      "clues": "The car charges fine somewhere else.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check charging settings on the car's screen or app.",
+      "Check the breaker.",
+      "Try a public charger."
+     ],
+     "shop": [
+      "Charger and outlet check",
+      "Charging system scan"
+     ]
+    }
+   }
+  },
+  "r_car_side": {
+   "result": {
+    "title": "The car itself may have a charging fault",
+    "urgency": "soon",
+    "now": "Book a dealer check within a few days. Plan trips around your remaining range, and leave a buffer.",
+    "if": [
+     "If a red warning light comes on, or the car won't go into Ready, don't drive it. Call roadside assistance.",
+     "If the car is nearly empty, call roadside assistance. Tell them it's an electric car.",
+     "If the car seems dead, with dim lights or no response, the small 12-volt battery may be flat. That can stop charging on many electric cars."
+    ],
+    "why": "If the car won't charge on any working charger, the problem is likely in the car: the charge port, the onboard charger, the battery system, or the small 12-volt battery that powers the controls.",
+    "causes": [
+     {
+      "name": "Weak 12-volt battery",
+      "clues": "The car is slow to wake up or the screens act strange.",
+      "against": ""
+     },
+     {
+      "name": "Charge port or onboard charger fault",
+      "clues": "Fast charging works but home charging doesn't, or the reverse.",
+      "against": ""
+     },
+     {
+      "name": "High-voltage battery system fault",
+      "clues": "A service or battery warning light is on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note which chargers you tried and what happened.",
+      "Check for open recalls using your VIN."
+     ],
+     "shop": [
+      "Charging system scan",
+      "12-volt battery test",
+      "Charge port inspection",
+      "Recall and software update check"
+     ]
+    }
+   }
+  },
+  "r_stops": {
+   "result": {
+    "title": "Something is cutting the charge short",
+    "urgency": "check",
+    "now": "Check whether the car reached its charge limit or a scheduled end time. Then try another charger. If it keeps stopping on every charger, book a check.",
+    "if": [
+     "If the plug or cable gets hot, stop using it.",
+     "If a warning light comes on when it stops, look it up in the owner's manual and tell the dealer."
+    ],
+    "why": "Charging can stop because the car reached the limit you set, the charger lost power, the plug was bumped, or the car found a problem and stopped to protect itself.",
+    "causes": [
+     {
+      "name": "Charge limit or schedule reached",
+      "clues": "It stops at the same level or time every day.",
+      "against": ""
+     },
+     {
+      "name": "Charger or power supply problem",
+      "clues": "It stops at one charger only.",
+      "against": ""
+     },
+     {
+      "name": "Car-side charging fault",
+      "clues": "It stops on every charger, often with a message.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check charge settings.",
+      "Try another charger."
+     ],
+     "shop": [
+      "Charging system scan",
+      "Charger and outlet check"
+     ]
+    }
+   }
+  },
+  "r_slow": {
+   "result": {
+    "title": "Slow charging is often normal: cold weather, a busy charger or a nearly full battery",
+    "urgency": "diy",
+    "now": "Check the charger's power level and the outside temperature. If you're using a regular wall outlet, slow charging is expected. Many cars can warm the battery before fast charging if you set the charger as your destination.",
+    "if": [
+     "If it's slow at every fast charger, in warm weather, book a check.",
+     "If the plug or outlet feels hot, stop charging."
+    ],
+    "why": "Batteries charge slower when they're cold and when they're nearly full. A regular household outlet charges much slower than a wall charger. Some fast chargers share power between stalls.",
+    "causes": [
+     {
+      "name": "Cold battery",
+      "clues": "It's cold outside and the car was parked a while.",
+      "against": ""
+     },
+     {
+      "name": "Battery nearly full",
+      "clues": "It slowed down as the battery got close to full.",
+      "against": ""
+     },
+     {
+      "name": "Charger with low power or shared power",
+      "clues": "Other cars are charging at the same station.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Compare the speed with another charger."
+     ],
+     "shop": [
+      "Charging system scan",
+      "Battery health check"
+     ]
+    }
+   }
+  },
+  "r_warning": {
+   "result": {
+    "title": "The car or charger found a problem",
+    "urgency": "soon",
+    "now": "Read the message and look it up in the owner's manual. Try a different charger. If the message stays or a warning light stays on, book a dealer check within a few days.",
+    "if": [
+     "If a red warning light comes on, or the car won't go into Ready, don't drive it. Call for help.",
+     "If the warning is on the charger only, try another charger and report the fault to the charging company."
+    ],
+    "why": "Cars and chargers check each other before and during charging. If something doesn't look right, they stop and show a message.",
+    "causes": [
+     {
+      "name": "Charger fault",
+      "clues": "The message is on the charger only.",
+      "against": ""
+     },
+     {
+      "name": "Car charging system fault",
+      "clues": "The message is on the car, at more than one charger.",
+      "against": ""
+     },
+     {
+      "name": "Software issue",
+      "clues": "It started after an update.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Photo the message.",
+      "Try another charger."
+     ],
+     "shop": [
+      "Charging system scan",
+      "Software update check"
+     ]
+    }
+   }
+  },
+  "r_latch": {
+   "result": {
+    "title": "The charge port lock may be holding the plug",
+    "urgency": "diy",
+    "now": "Unlock the car with the key fob, then try to remove the plug. Many cars also have a charge-port unlock button or menu setting. The owner's manual shows an emergency release.",
+    "if": [
+     "If you're at a public charger, stop the session in the app or on the screen first.",
+     "If the plug is hot or damaged, don't force it. Switch off the charger if you can.",
+     "If the plug won't go in, look for dirt, ice or bent pins in the port."
+    ],
+    "why": "Cars lock the plug in place while charging so it can't be pulled out under power. A session that hasn't ended, a locked car or ice can keep it locked.",
+    "causes": [
+     {
+      "name": "Car still locked or session still running",
+      "clues": "It releases after unlocking or stopping the session.",
+      "against": ""
+     },
+     {
+      "name": "Ice or dirt in the port",
+      "clues": "Cold weather or a dusty port.",
+      "against": ""
+     },
+     {
+      "name": "Faulty charge port lock",
+      "clues": "Nothing releases it.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Unlock the car.",
+      "Stop the charging session."
+     ],
+     "shop": [
+      "Charge port lock test",
+      "Charge port inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "check-hybrid-system-warning",
+  "battery-keeps-dying",
+  "hybrid-ev-noises",
+  "push-button-start-not-working"
+ ],
+ "issueMatch": {
+  "cats": [],
+  "words": [
+   "charging",
+   "charge port",
+   "onboard charger",
+   "charger",
+   "evse",
+   "charging cable",
+   "high voltage battery"
+  ]
+ },
+ "sources": [
+  "https://ownersmanual.kia.com/full_webhelp/CV1/2023/en_US/topics/t00060.html"
+ ]
+}

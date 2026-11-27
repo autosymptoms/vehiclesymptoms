@@ -1,0 +1,469 @@
+{
+ "id": "wipers-not-working",
+ "title": "Windshield wipers not working",
+ "h1": "Why won't my windshield wipers work?",
+ "metaDesc": "Wipers stopped, won't move, smear or won't spray? What to do if you can't see, the simple checks first, and what a shop will test.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "wipers not working",
+  "windshield wipers not working",
+  "wipers stopped working",
+  "wipers wont turn on",
+  "wipers won't move",
+  "wiper motor not working",
+  "wipers stuck",
+  "wipers wont stop",
+  "wipers wont turn off",
+  "wipers smearing",
+  "wipers streaking",
+  "wipers chattering",
+  "washer fluid not spraying",
+  "windshield washer not working",
+  "only one wiper moves"
+ ],
+ "intro": "Wipers that quit in the rain can leave you unable to see. First make sure you can stop safely. Then answer a few questions to find out if it's something simple, like a fuse or worn blades, or a part that needs a repair.",
+ "safety": [
+  "If your wipers stop in rain or snow and you can't see, slow down, turn on your hazard lights and pull off the road somewhere safe. Wait until you can see clearly.",
+  "Clear snow and ice off the windshield before you turn on the wipers. Wipers stuck to ice can blow a fuse or damage the motor.",
+  "Turn on your low-beam headlights whenever you use your wipers. Many states require it.",
+  "Never replace a fuse with a higher-rated one. That can let wiring overheat."
+ ],
+ "start": "q_what",
+ "nodes": {
+  "q_what": {
+   "q": "What are the wipers doing?",
+   "opts": [
+    {
+     "a": "Nothing at all: no movement and no sound",
+     "go": "q_other"
+    },
+    {
+     "a": "I hear a hum or click, but the arms don't move, or only one arm moves",
+     "go": "r_linkage"
+    },
+    {
+     "a": "They stopped while there was heavy snow or ice on the glass",
+     "go": "r_ice"
+    },
+    {
+     "a": "They move, but smear, streak, chatter or skip",
+     "go": "r_blades"
+    },
+    {
+     "a": "They work on some speeds but not others, or won't shut off",
+     "go": "r_switch"
+    },
+    {
+     "a": "The washer fluid won't spray",
+     "go": "q_washer"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_other": {
+   "q": "Did anything else stop working or act strange at the same time?",
+   "opts": [
+    {
+     "a": "No, just the wipers",
+     "go": "r_fuse"
+    },
+    {
+     "a": "Yes: lights dimming, gauges jumping, the radio cutting out, or a battery light",
+     "go": "r_power"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_fuse"
+    }
+   ]
+  },
+  "q_washer": {
+   "q": "When you pull or push the washer switch, what happens?",
+   "help": "The washer pump is a small motor in the fluid tank. You can often hear it hum near the front of the car.",
+   "opts": [
+    {
+     "a": "I hear a hum, but nothing sprays",
+     "go": "r_washer_blocked"
+    },
+    {
+     "a": "No sound at all",
+     "go": "r_washer_pump"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_washer_blocked"
+    }
+   ]
+  },
+  "r_fuse": {
+   "result": {
+    "title": "Start with the wiper fuse",
+    "urgency": "diy",
+    "now": "Check the wiper fuse. The owner's manual shows which fuse it is and where the fuse box is. A blown fuse has a broken metal strip inside. Replace it only with a fuse of the same rating.",
+    "if": [
+     "If the new fuse blows right away, or soon after, stop replacing it. Something is shorting or the motor is jammed. Have it checked.",
+     "If the fuse is fine, the motor, switch or a relay may have failed. Don't drive in rain, snow or road spray until it's fixed.",
+     "If the wipers stopped after being stuck to ice, the fuse may have blown to protect the motor."
+    ],
+    "why": "A blown fuse is a common reason for wipers to stop completely. Fuses blow to protect the motor when it has to work too hard, like against ice or heavy snow.",
+    "causes": [
+     {
+      "name": "Blown wiper fuse",
+      "clues": "The wipers stopped all at once, often after ice or heavy snow.",
+      "against": ""
+     },
+     {
+      "name": "Failed wiper motor",
+      "clues": "The fuse is fine but there's no sound at all.",
+      "against": ""
+     },
+     {
+      "name": "Bad wiper switch or relay",
+      "clues": "The washer and wipers both stopped.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the wiper fuse.",
+      "Try every wiper speed and the single-wipe setting."
+     ],
+     "shop": [
+      "Fuse and relay check",
+      "Wiper motor power test",
+      "Wiper switch test"
+     ]
+    }
+   }
+  },
+  "r_power": {
+   "result": {
+    "title": "The car may be losing electrical power",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and turn off the engine. The charging system may be failing, and the car could stall. Have it towed or have a mechanic come to you.",
+    "if": [
+     "If you must move to a safer spot first, turn off the radio, fan and heated seats and go only as far as you need.",
+     "If you smell burning or see smoke, get out and stay away from the car."
+    ],
+    "why": "When the wipers stop along with other electrical problems, the issue is usually bigger than the wipers. A failing alternator or a bad battery connection can starve everything of power.",
+    "causes": [
+     {
+      "name": "Alternator not charging",
+      "clues": "The battery light is on, or the lights are dimming.",
+      "against": ""
+     },
+     {
+      "name": "Loose or corroded battery cable",
+      "clues": "Problems come and go over bumps.",
+      "against": ""
+     },
+     {
+      "name": "Main fuse or ground problem",
+      "clues": "Several unrelated things stopped together.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Charging system test",
+      "Battery test",
+      "Power and ground circuit check"
+     ]
+    }
+   }
+  },
+  "r_linkage": {
+   "result": {
+    "title": "The wiper motor may be running, but the arms aren't connected to it",
+    "urgency": "soon",
+    "now": "Don't drive in rain, snow or road spray until it's fixed. Book a repair in the next few days.",
+    "if": [
+     "If one arm flops loose, tighten the nut at its base if you can see it's loose. If it still slips, the linkage needs repair.",
+     "If you get caught in rain, pull off the road somewhere safe and wait."
+    ],
+    "why": "The motor turns a set of metal arms under the cowl at the base of the windshield. If a joint pops off, or the arm's nut loosens, the motor can run without moving the wipers.",
+    "causes": [
+     {
+      "name": "Wiper linkage joint popped off or worn",
+      "clues": "You hear the motor but nothing moves.",
+      "against": ""
+     },
+     {
+      "name": "Loose nut where the wiper arm attaches",
+      "clues": "Only one arm moves, or it slips on the glass.",
+      "against": ""
+     },
+     {
+      "name": "Stripped wiper motor gear",
+      "clues": "Grinding noise, then nothing.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check whether the nut at the base of each arm is tight."
+     ],
+     "shop": [
+      "Wiper linkage inspection",
+      "Wiper motor test"
+     ]
+    }
+   }
+  },
+  "r_ice": {
+   "result": {
+    "title": "Ice or snow may have overloaded the wipers",
+    "urgency": "diy",
+    "now": "Park, turn the wipers off and run the defroster on high for about 10 minutes. Clear the snow and ice off the glass and the area below the wipers. Then try the wipers again.",
+    "if": [
+     "If they still don't work after the glass is clear, check the wiper fuse.",
+     "If they move but one arm wobbles or slips, the linkage may be damaged. Get it checked before driving in rain or snow."
+    ],
+    "why": "Many cars stop the wipers when they are blocked by heavy snow or ice, to protect the motor. Some blow a fuse instead. Clearing the glass often brings them back.",
+    "causes": [
+     {
+      "name": "Wipers stopped to protect the motor",
+      "clues": "They stopped in heavy snow.",
+      "against": ""
+     },
+     {
+      "name": "Blown fuse",
+      "clues": "They still don't work after the glass is clear.",
+      "against": ""
+     },
+     {
+      "name": "Bent arm or damaged linkage",
+      "clues": "They work, but one arm moves oddly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Clear the glass and the area below the wipers.",
+      "Check the wiper fuse."
+     ],
+     "shop": [
+      "Fuse check",
+      "Wiper linkage inspection"
+     ]
+    }
+   }
+  },
+  "r_blades": {
+   "result": {
+    "title": "Worn or dirty blades are the most likely cause",
+    "urgency": "diy",
+    "now": "Clean the blades and the glass with washer fluid and a cloth. If they still smear or chatter, replace the blades. Your owner's manual or a parts store can tell you the right size.",
+    "if": [
+     "If new blades still chatter, the wiper arm may be bent or not pressing evenly. Have it checked.",
+     "If you can't see well in rain, slow down and pull over somewhere safe."
+    ],
+    "why": "Wiper rubber hardens and cracks with sun and cold. Dirty or worn blades skip and smear. Wax or film on the glass can also cause chattering.",
+    "causes": [
+     {
+      "name": "Worn or hardened wiper rubber",
+      "clues": "Streaks in the same place every swipe.",
+      "against": ""
+     },
+     {
+      "name": "Dirt, wax or film on the glass",
+      "clues": "It got worse after a car wash.",
+      "against": ""
+     },
+     {
+      "name": "Bent wiper arm",
+      "clues": "New blades still chatter or skip.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at the rubber for cracks or tears.",
+      "Clean the glass well."
+     ],
+     "shop": [
+      "Wiper blade replacement",
+      "Wiper arm check"
+     ]
+    }
+   }
+  },
+  "r_switch": {
+   "result": {
+    "title": "The wiper switch or control module may be faulty",
+    "urgency": "check",
+    "now": "Book a check when convenient. Until then, use a speed that works. If none work well in heavy rain, don't drive until it's fixed.",
+    "if": [
+     "If they won't turn off, you can pull the wiper fuse to stop them, then replace it later. Don't drive in rain without working wipers.",
+     "If you have automatic wipers, check that the sensor area on the windshield (behind the mirror) is clean."
+    ],
+    "why": "The stalk on the steering column tells the motor which speed to use. If its contacts wear out or a control module fails, some speeds stop working or the wipers keep going.",
+    "causes": [
+     {
+      "name": "Worn wiper switch",
+      "clues": "Some speeds work and others don't.",
+      "against": ""
+     },
+     {
+      "name": "Faulty wiper relay or control module",
+      "clues": "Wipers keep running with the switch off.",
+      "against": ""
+     },
+     {
+      "name": "Dirty or faulty rain sensor",
+      "clues": "Automatic wipers act randomly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Try each setting and note which ones work."
+     ],
+     "shop": [
+      "Wiper switch test",
+      "Relay or module check",
+      "Rain sensor check"
+     ]
+    }
+   }
+  },
+  "r_washer_blocked": {
+   "result": {
+    "title": "The washer line or nozzles may be blocked or frozen",
+    "urgency": "diy",
+    "now": "Check that the washer fluid tank is full. In cold weather, use winter washer fluid and let the car warm up. Clear the nozzles on the hood with a pin.",
+    "if": [
+     "If fluid leaks under the car when you use the washer, a hose may be loose or split.",
+     "Don't use the washer in freezing weather until the windshield is warm, or it can ice over."
+    ],
+    "why": "If the pump hums but nothing sprays, fluid isn't getting through. The tank may be empty, the fluid may be frozen, or a nozzle or hose is blocked.",
+    "causes": [
+     {
+      "name": "Empty washer tank",
+      "clues": "The tank is low.",
+      "against": ""
+     },
+     {
+      "name": "Frozen washer fluid",
+      "clues": "It's below freezing and summer fluid is in the tank.",
+      "against": ""
+     },
+     {
+      "name": "Blocked nozzle or loose hose",
+      "clues": "One side sprays and the other doesn't.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Fill the washer tank.",
+      "Clear the nozzles."
+     ],
+     "shop": [
+      "Washer hose and nozzle check"
+     ]
+    }
+   }
+  },
+  "r_washer_pump": {
+   "result": {
+    "title": "The washer pump or its fuse may have failed",
+    "urgency": "check",
+    "now": "Check the washer fuse and the fluid level. If both are fine, book a check when convenient. Carry a bottle of washer fluid and a cloth for now.",
+    "if": [
+     "If the wipers also stopped working, check the wiper fuse first."
+    ],
+    "why": "No sound at all usually means the pump isn't getting power, or the pump has worn out. Running a pump dry can damage it.",
+    "causes": [
+     {
+      "name": "Blown fuse",
+      "clues": "Nothing else is wrong.",
+      "against": ""
+     },
+     {
+      "name": "Failed washer pump",
+      "clues": "The fuse is fine.",
+      "against": ""
+     },
+     {
+      "name": "Bad washer switch",
+      "clues": "The pump works when tested directly.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the washer fuse.",
+      "Check the fluid level."
+     ],
+     "shop": [
+      "Fuse check",
+      "Washer pump power test"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Don't drive in bad weather until the wipers are checked",
+    "urgency": "soon",
+    "now": "If it's raining or snowing, park and wait. Check the wiper fuse, then get the wipers checked within a few days.",
+    "if": [
+     "If other electrical things are acting up too, pull over and have the car checked before driving."
+    ],
+    "why": "Wipers can stop from a blown fuse, worn parts or an electrical problem. A quick check of the fuse and the motor usually finds it.",
+    "causes": [
+     {
+      "name": "Blown fuse",
+      "clues": "They stopped all at once.",
+      "against": ""
+     },
+     {
+      "name": "Wiper motor or linkage",
+      "clues": "A hum or grinding noise.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the wiper fuse."
+     ],
+     "shop": [
+      "Fuse check",
+      "Wiper motor test",
+      "Linkage inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "electrical-accessories-not-working",
+  "windows-fogging-up",
+  "battery-light-on",
+  "light-out"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "wiper",
+   "wiper motor",
+   "wiper linkage",
+   "washer pump",
+   "washer fluid",
+   "windshield washer",
+   "rain sensor"
+  ]
+ },
+ "sources": [
+  "https://ownersmanual.kia.com/full_webhelp/MQ4A/2025/en_US/topics/t00232.html",
+  "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/introduction-to-driving"
+ ]
+}

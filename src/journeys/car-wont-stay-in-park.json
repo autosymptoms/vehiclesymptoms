@@ -1,0 +1,335 @@
+{
+ "id": "car-wont-stay-in-park",
+ "title": "Car won't stay in Park",
+ "h1": "Why does my car roll or slip out of Park?",
+ "metaDesc": "Car rolls while in Park, or the shifter slips out of P? How to secure it now, what usually causes it, and why it needs a check before you rely on it.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "car wont stay in park",
+  "car won't stay in park",
+  "car rolls in park",
+  "car rolled while in park",
+  "car moves in park",
+  "shifter slips out of park",
+  "pops out of park",
+  "park doesnt hold",
+  "rolls away when parked",
+  "car rolled away",
+  "shift to park message",
+  "says shift to park",
+  "not in park warning",
+  "car rocks when in park"
+ ],
+ "intro": "A car that rolls or slips out of Park can hurt someone fast. Secure it first. Then answer a few questions to see what might be wrong and how soon it needs fixing.",
+ "safety": [
+  "If the car moves while in Park, press the brake, set the parking brake and turn the engine off before you get out.",
+  "Never stand in front of or behind a car that might roll. Keep kids and pets away from it.",
+  "Until it's fixed, always set the parking brake when you park. On a hill, turn the front wheels so the car would roll into the curb, not into the street.",
+  "If you can't keep it from moving, put something solid behind the wheels and call for help."
+ ],
+ "start": "q_what",
+ "nodes": {
+  "q_what": {
+   "q": "What is happening?",
+   "opts": [
+    {
+     "a": "The car rolled or moved while the shifter showed P",
+     "go": "q_rolled"
+    },
+    {
+     "a": "The shifter moves out of P on its own, or comes out of P without pressing the brake",
+     "go": "r_shifter_slips"
+    },
+    {
+     "a": "The car shows a \"Shift to Park\" or \"Not in Park\" message or beeps, even though it's in P",
+     "go": "r_shift_message"
+    },
+    {
+     "a": "It rocks or creeps an inch or two when I let go of the brake, then stops",
+     "go": "r_settle"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_rolled": {
+   "q": "When it moved, which fits best?",
+   "help": "The parking brake is the separate lever, pedal or button marked with a P in a circle.",
+   "opts": [
+    {
+     "a": "It kept rolling, or moved more than a few inches",
+     "go": "r_park_not_holding"
+    },
+    {
+     "a": "The shifter said P, but the dash showed a different gear (R, N or D)",
+     "go": "r_gear_mismatch"
+    },
+    {
+     "a": "It was on a steep hill, without the parking brake, and moved only a little",
+     "go": "r_settle"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_park_not_holding"
+    }
+   ]
+  },
+  "r_park_not_holding": {
+   "result": {
+    "title": "Park isn't holding the car. Don't rely on it",
+    "urgency": "stop",
+    "now": "Keep the parking brake set and put something solid behind the wheels. Don't drive it until it's checked. Have it towed, or have a mobile mechanic come to you, and check for open recalls with your VIN.",
+    "if": [
+     "If the parking brake doesn't hold it either, keep everyone clear of the car and call for help.",
+     "If the car moved with nobody inside, check that no one was hurt and that the car is now blocked."
+    ],
+    "why": "Park works by locking a small metal pin inside the transmission. If the pin, the linkage to it, or an electronic Park system fails, the car can roll even though the shifter shows P. That is a safety problem, and some models have had recalls for it.",
+    "causes": [
+     {
+      "name": "Shift cable or linkage out of adjustment or broken",
+      "clues": "The shifter feels loose or different than before.",
+      "against": ""
+     },
+     {
+      "name": "Worn or broken Park lock inside the transmission",
+      "clues": "A grinding or ratcheting noise when the car rolled.",
+      "against": ""
+     },
+     {
+      "name": "Electronic Park system fault (cars with a button or dial shifter)",
+      "clues": "A warning message or light came on.",
+      "against": ""
+     },
+     {
+      "name": "A known problem covered by a recall",
+      "clues": "Your VIN shows an open recall for the shifter or Park system.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check for open recalls using your VIN.",
+      "Note any warning lights or messages."
+     ],
+     "shop": [
+      "Shift linkage inspection and adjustment",
+      "Transmission Park mechanism inspection",
+      "Code scan of the shifter and transmission",
+      "Recall check"
+     ]
+    }
+   }
+  },
+  "r_gear_mismatch": {
+   "result": {
+    "title": "The shifter and the transmission may not agree on the gear",
+    "urgency": "stop",
+    "now": "Set the parking brake and turn the engine off. Don't drive it. The car may be in a different gear than the shifter shows. Have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If the engine starts in a gear other than Park or Neutral, don't try again. Turn it off and call for help."
+    ],
+    "why": "The shifter tells the transmission which gear to use through a cable or a sensor. If that link breaks or slips, the shifter can show P while the transmission is really in another gear.",
+    "causes": [
+     {
+      "name": "Broken or disconnected shift cable",
+      "clues": "The shifter feels floppy or moves too easily.",
+      "against": ""
+     },
+     {
+      "name": "Gear position sensor fault",
+      "clues": "The dash shows the wrong gear or flashes.",
+      "against": ""
+     },
+     {
+      "name": "Electronic shifter fault",
+      "clues": "A warning message about the shifter or transmission.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Shift cable and bushing inspection",
+      "Gear position sensor test",
+      "Transmission code scan"
+     ]
+    }
+   }
+  },
+  "r_shifter_slips": {
+   "result": {
+    "title": "The shifter may not be locking in Park",
+    "urgency": "stop",
+    "now": "Don't rely on Park. Always set the parking brake and turn the engine off before you get out. Don't drive it until it's checked. Have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If the shifter comes out of Park without your foot on the brake, the shift lock that stops kids or knees from bumping it may not be working.",
+     "If the brake lights don't come on when you press the pedal, tell the shop. A bad brake light switch can affect the shift lock."
+    ],
+    "why": "The shifter has a catch that keeps it in P and a lock that only lets it out when you press the brake. If either wears out or breaks, the shifter can be bumped or slip into gear.",
+    "causes": [
+     {
+      "name": "Worn or broken catch in the shifter",
+      "clues": "The shifter feels loose in P.",
+      "against": ""
+     },
+     {
+      "name": "Shift lock not working",
+      "clues": "It comes out of P without pressing the brake.",
+      "against": ""
+     },
+     {
+      "name": "Damaged shifter or console parts",
+      "clues": "Something was spilled on it or it was hit.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check whether the brake lights work.",
+      "Check for open recalls using your VIN."
+     ],
+     "shop": [
+      "Shifter and shift lock inspection",
+      "Brake light switch test",
+      "Shift cable adjustment check"
+     ]
+    }
+   }
+  },
+  "r_shift_message": {
+   "result": {
+    "title": "A switch may not be sensing that the car is in Park",
+    "urgency": "soon",
+    "now": "Make sure the car is fully in P and the parking brake is set before you get out. Then have it checked within a few days.",
+    "if": [
+     "If the car ever moves while the message is on, treat it like Park isn't holding. Don't drive it until it's checked.",
+     "If the car won't turn off or lock because of the message, try moving the shifter out of P and back in firmly."
+    ],
+    "why": "The car uses a switch or sensor to know it's in Park. If that switch wears out, the car may beep, refuse to turn off, or show a \"Shift to Park\" message even though the gear is correct.",
+    "causes": [
+     {
+      "name": "Worn Park switch in the shifter",
+      "clues": "The message comes and goes, and moving the shifter can clear it.",
+      "against": ""
+     },
+     {
+      "name": "Gear position sensor fault",
+      "clues": "The dash shows the wrong gear at times.",
+      "against": ""
+     },
+     {
+      "name": "Weak 12-volt battery (cars with electronic shifters)",
+      "clues": "Slow starting or other warning messages.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note when the message appears and what clears it.",
+      "Check for open recalls using your VIN."
+     ],
+     "shop": [
+      "Code scan",
+      "Shifter switch test",
+      "Battery test"
+     ]
+    }
+   }
+  },
+  "r_settle": {
+   "result": {
+    "title": "A small rock is often normal, but use the parking brake every time",
+    "urgency": "check",
+    "now": "Get in the habit of this order when you park: hold the brake, set the parking brake, then shift to P. Book a check if it moves more than a little or makes a clunk.",
+    "if": [
+     "If it moves more than a few inches, or keeps rolling, don't rely on Park. Don't drive it until it's checked.",
+     "If you hear a loud clunk or grinding when you shift out of P on a hill, the Park lock is carrying the car's weight. Using the parking brake first stops this."
+    ],
+    "why": "The Park lock has a little play, so a car can rock slightly before it catches, especially on a hill. Setting the parking brake first keeps the weight off the Park lock and is safer.",
+    "causes": [
+     {
+      "name": "Normal play in the Park lock",
+      "clues": "It moves only an inch or two, then stops firmly.",
+      "against": ""
+     },
+     {
+      "name": "Worn shift linkage",
+      "clues": "The movement has been getting bigger over time.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Practice: brake, parking brake, then P.",
+      "Watch whether the movement gets bigger."
+     ],
+     "shop": [
+      "Shift linkage adjustment check",
+      "Parking brake check"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Treat it as if Park may not hold until it's checked",
+    "urgency": "stop",
+    "now": "Set the parking brake, turn the engine off and block the wheels if you can. Don't drive it until it's checked. Have it towed or have a mobile mechanic come to you.",
+    "if": [
+     "If anyone is near the car, warn them to stay clear."
+    ],
+    "why": "When it's not clear what happened, the safe choice is to assume Park might not hold. A technician can check the shifter, linkage and transmission quickly.",
+    "causes": [
+     {
+      "name": "Shift linkage problem",
+      "clues": "The shifter feels different.",
+      "against": ""
+     },
+     {
+      "name": "Park lock or shifter fault",
+      "clues": "Warning messages or unusual noises.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check for open recalls using your VIN."
+     ],
+     "shop": [
+      "Shift linkage inspection",
+      "Code scan",
+      "Park mechanism inspection"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "stuck-in-park",
+  "car-wont-go-into-gear",
+  "key-wont-turn-in-ignition",
+  "transmission-warning-light"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "rollaway",
+   "roll away",
+   "park pawl",
+   "parking pawl",
+   "shift to park",
+   "shift cable",
+   "shifter",
+   "park position"
+  ]
+ },
+ "sources": [
+  "https://www.nhtsa.gov/node/31811",
+  "https://www.nhtsa.gov/recalls"
+ ]
+}
