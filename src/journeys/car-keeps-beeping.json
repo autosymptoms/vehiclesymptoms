@@ -1,0 +1,524 @@
+{
+ "id": "car-keeps-beeping",
+ "title": "Car keeps beeping",
+ "h1": "Why does my car keep beeping?",
+ "metaDesc": "Car keeps beeping or chiming? Find out which beeps mean pull over now, which are reminders, and how to work out what your car is telling you.",
+ "group": "light",
+ "cat": "Warning Lights",
+ "synonyms": [
+  "car keeps beeping",
+  "car beeping",
+  "car wont stop beeping",
+  "car beeping while driving",
+  "car beeping when door open",
+  "car chiming",
+  "warning chime",
+  "beeping noise in car",
+  "dashboard beeping",
+  "car beeping for no reason",
+  "car beeps when i turn it off",
+  "car alarm keeps chirping",
+  "seat belt chime wont stop",
+  "beeping when backing up"
+ ],
+ "intro": "Cars beep to remind you of something small or to warn you of something serious. The light or message that comes with the beep tells you which. A few questions will sort it out.",
+ "safety": [
+  "If the beep comes with a red light or a message like engine overheating, oil pressure or brake, pull over when it's safe and turn off the engine.",
+  "If it beeps with a collision or brake warning while driving, look ahead and be ready to brake. Don't assume it's a false alarm.",
+  "If you smell burning or see smoke, turn off the car and get out."
+ ],
+ "start": "q_when",
+ "nodes": {
+  "q_when": {
+   "q": "When does it beep?",
+   "opts": [
+    {
+     "a": "While driving, with a light or message on the dash",
+     "go": "q_light"
+    },
+    {
+     "a": "While driving, with no light or message I can see",
+     "go": "r_driving_no_light"
+    },
+    {
+     "a": "When I open the door or turn the car off",
+     "go": "r_reminder"
+    },
+    {
+     "a": "When I back up or get close to something",
+     "go": "r_parking_sensors"
+    },
+    {
+     "a": "When the car is parked and off, or the alarm keeps chirping",
+     "go": "r_alarm"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_light": {
+   "q": "What does the light or message show?",
+   "help": "Your owner's manual has a page that shows every warning light and what it means.",
+   "opts": [
+    {
+     "a": "A red light, or a message about temperature, oil pressure, brakes or the battery",
+     "go": "r_red_warning"
+    },
+    {
+     "a": "A seat belt symbol",
+     "go": "r_seatbelt"
+    },
+    {
+     "a": "A door, hood or trunk symbol",
+     "go": "r_door_open"
+    },
+    {
+     "a": "A yellow light, or a message about a sensor, camera or radar",
+     "go": "r_amber"
+    },
+    {
+     "a": "Low fuel, low washer fluid, or an icy road warning",
+     "go": "r_info"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_light_unsure"
+    }
+   ]
+  },
+  "r_red_warning": {
+   "result": {
+    "title": "A red warning with a beep means pull over",
+    "urgency": "stop",
+    "now": "Pull over when it's safe and turn off the engine. Read the message, then look the light up in the owner's manual or our warning lights pages. Stay stopped until you know what it is.",
+    "if": [
+     "If the temperature is in the red, don't open the radiator or coolant cap. Wait at least 30 minutes.",
+     "If the oil pressure light is on, don't restart the engine. Have it towed or have a mechanic come to you.",
+     "If the brake pedal feels soft or sinks, don't drive it."
+    ],
+    "why": "Red lights are used for problems that can hurt you or the engine quickly. Cars add a beep to make sure you notice. Stopping first protects you and the car.",
+    "causes": [
+     {
+      "name": "Engine overheating",
+      "clues": "The temperature gauge is high.",
+      "against": ""
+     },
+     {
+      "name": "Low oil pressure",
+      "clues": "The oil can symbol is on.",
+      "against": ""
+     },
+     {
+      "name": "Brake system problem",
+      "clues": "The word BRAKE or a circle with ! is on.",
+      "against": ""
+     },
+     {
+      "name": "Charging system failure",
+      "clues": "A red battery symbol.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Write down or photo the message."
+     ],
+     "shop": [
+      "Code scan",
+      "Inspection of the system named in the warning"
+     ]
+    }
+   }
+  },
+  "r_seatbelt": {
+   "result": {
+    "title": "The seat belt reminder is asking someone to buckle up",
+    "urgency": "diy",
+    "now": "Make sure everyone has their seat belt buckled. If the beeping keeps going, check whether a bag or heavy item on the front passenger seat is making the car think someone is sitting there.",
+    "if": [
+     "If everyone is buckled and it still beeps, the buckle switch may be faulty. Book a check.",
+     "Never buckle the belt behind you or use a fake buckle to stop the beeping. It can affect how the airbags work."
+    ],
+    "why": "Cars sound a chime when a front seat belt isn't buckled. On many cars it gets longer and louder once you're moving faster. The front passenger seat has a sensor that can be set off by heavy bags.",
+    "causes": [
+     {
+      "name": "Someone isn't buckled",
+      "clues": "The light shows which seat.",
+      "against": ""
+     },
+     {
+      "name": "Heavy item on the passenger seat",
+      "clues": "It stops when the item is moved.",
+      "against": ""
+     },
+     {
+      "name": "Faulty buckle switch or seat sensor",
+      "clues": "Everyone is buckled and it still chimes.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all seat belts.",
+      "Move items off the passenger seat."
+     ],
+     "shop": [
+      "Seat belt buckle switch test",
+      "Occupant sensor check"
+     ]
+    }
+   }
+  },
+  "r_door_open": {
+   "result": {
+    "title": "A door, hood or trunk may not be fully closed",
+    "urgency": "diy",
+    "now": "Pull over when it's safe and close every door, the trunk or liftgate and the hood firmly.",
+    "if": [
+     "If the hood warning is on, don't drive until you've closed and checked the hood. A hood that flies up blocks your view.",
+     "If it still says a door is open after closing them all, the door switch may be faulty. Book a check."
+    ],
+    "why": "Each door, the hood and the trunk have switches that tell the car when they're open. A door that isn't fully latched can swing open while driving.",
+    "causes": [
+     {
+      "name": "Door not fully closed",
+      "clues": "The display shows which door.",
+      "against": ""
+     },
+     {
+      "name": "Faulty door or latch switch",
+      "clues": "All doors are shut and it still warns.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Close every door firmly."
+     ],
+     "shop": [
+      "Door latch switch test"
+     ]
+    }
+   }
+  },
+  "r_amber": {
+   "result": {
+    "title": "A safety system needs attention",
+    "urgency": "check",
+    "now": "Read the message when you're stopped. Many cars beep when a camera or radar sensor is blocked by dirt, snow or ice. Clean the front grille, bumper sensors and the windshield in front of the mirror.",
+    "if": [
+     "If it warns of a collision or lane departure, take it seriously. Check your surroundings.",
+     "If the message says a system is off or not available, drive as if the car has no safety assists. Book a check.",
+     "If the light is the tire pressure symbol, check your tires at the next safe stop."
+    ],
+    "why": "Yellow lights mean something needs attention soon, not usually right away. Many driver-assist systems beep when they can't see, often because of dirt, rain or snow.",
+    "causes": [
+     {
+      "name": "Blocked camera or radar sensor",
+      "clues": "It started in snow, rain or after driving on a dirty road.",
+      "against": ""
+     },
+     {
+      "name": "Low tire pressure",
+      "clues": "The horseshoe-shaped light with a ! is on.",
+      "against": ""
+     },
+     {
+      "name": "System fault",
+      "clues": "The message stays after cleaning the sensors.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Clean sensors and cameras.",
+      "Look the light up in the owner's manual."
+     ],
+     "shop": [
+      "Driver-assist system scan",
+      "Sensor calibration check"
+     ]
+    }
+   }
+  },
+  "r_info": {
+   "result": {
+    "title": "This is a reminder, not a fault",
+    "urgency": "diy",
+    "now": "Handle the reminder: refuel, top up the washer fluid, or slow down on icy roads.",
+    "if": [
+     "If the low fuel warning comes on, plan to get gas soon. Running out can leave you stuck."
+    ],
+    "why": "Cars beep for helpful reminders like low fuel, low washer fluid, or temperatures near freezing. These don't mean anything is broken.",
+    "causes": [
+     {
+      "name": "Low fuel",
+      "clues": "The fuel gauge is low.",
+      "against": ""
+     },
+     {
+      "name": "Low washer fluid",
+      "clues": "The washer fluid light is on.",
+      "against": ""
+     },
+     {
+      "name": "Outside temperature near freezing",
+      "clues": "A snowflake symbol.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the fuel and washer fluid levels."
+     ],
+     "shop": [
+      "Gauge check if the warning seems wrong"
+     ]
+    }
+   }
+  },
+  "r_light_unsure": {
+   "result": {
+    "title": "Pull over and read the warning",
+    "urgency": "soon",
+    "now": "When it's safe, pull over and look at the dash. Note the color and shape of any light and read any message. Then look it up in the owner's manual or our warning lights pages.",
+    "if": [
+     "If any light is red, turn off the engine and don't drive until you know what it means.",
+     "If the car is running poorly, shaking or overheating, stop and have it checked."
+    ],
+    "why": "The color of the warning tells you how urgent it is. Red usually means stop, yellow means check soon, and green or blue are just information.",
+    "causes": [
+     {
+      "name": "A warning light you haven't seen before",
+      "clues": "A new light or message.",
+      "against": ""
+     },
+     {
+      "name": "A reminder chime",
+      "clues": "No light, and it stops after a short time.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Photo the dash when it's safe."
+     ],
+     "shop": [
+      "Code scan"
+     ]
+    }
+   }
+  },
+  "r_driving_no_light": {
+   "result": {
+    "title": "A reminder or driver-assist chime is likely",
+    "urgency": "check",
+    "now": "At a safe stop, check seat belts, doors and the parking brake. Look for a small message in the gauge cluster or the screen. If you can't find the cause, book a check.",
+    "if": [
+     "If the beep comes with the car feeling different, like pulling, shaking or losing power, pull over and have it checked.",
+     "If it beeps when you drift toward a lane line, that's a lane-keeping warning. Take a break if you're tired."
+    ],
+    "why": "Many beeps come from things like an unbuckled belt in the back, a parking brake that isn't fully off, a speed warning or a lane-keeping system. The message may be small or show only on one screen.",
+    "causes": [
+     {
+      "name": "Seat belt or door reminder",
+      "clues": "It stops when a belt is buckled or a door is shut.",
+      "against": ""
+     },
+     {
+      "name": "Parking brake not fully released",
+      "clues": "The brake light or a P symbol is on.",
+      "against": ""
+     },
+     {
+      "name": "Driver-assist warning",
+      "clues": "It beeps near lane lines or other cars.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check seat belts and the parking brake.",
+      "Check every screen for a message."
+     ],
+     "shop": [
+      "Code scan of body and driver-assist systems"
+     ]
+    }
+   }
+  },
+  "r_reminder": {
+   "result": {
+    "title": "A reminder: key, lights or the car is still on",
+    "urgency": "diy",
+    "now": "Check that the car is in Park and fully off, the headlights are off, and you have the key or key fob with you.",
+    "if": [
+     "If it says \"Shift to Park\" even though it's in P, see our \"Car won't stay in Park\" guide.",
+     "If the beeping won't stop after everything is off and you're out of the car, the alarm or a door switch may be faulty."
+    ],
+    "why": "Cars chime to stop you from walking away with the lights on, the key inside, or the car still running or not in Park.",
+    "causes": [
+     {
+      "name": "Headlights or interior lights left on",
+      "clues": "A light symbol or message.",
+      "against": ""
+     },
+     {
+      "name": "Key or key fob left inside",
+      "clues": "It beeps when you shut the door.",
+      "against": ""
+     },
+     {
+      "name": "Car not fully off or not in Park",
+      "clues": "The engine or the dash is still on.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check lights, key and gear."
+     ],
+     "shop": [
+      "Door switch test",
+      "Park switch test"
+     ]
+    }
+   }
+  },
+  "r_parking_sensors": {
+   "result": {
+    "title": "Parking sensors are warning you about something close",
+    "urgency": "diy",
+    "now": "Stop and look around the car. A faster beep means you're closer. If nothing is there, clean the small round sensors on the bumpers.",
+    "if": [
+     "If it beeps all the time with nothing nearby, a sensor may be dirty, iced over or faulty. Book a check.",
+     "Always look behind you yourself. Sensors can miss small kids, poles and low objects."
+    ],
+    "why": "Parking sensors use sound waves to detect things near the bumpers. Dirt, ice, snow or a trailer hitch can set them off.",
+    "causes": [
+     {
+      "name": "Object close to the bumper",
+      "clues": "Beeping gets faster as you move closer.",
+      "against": ""
+     },
+     {
+      "name": "Dirty or iced sensor",
+      "clues": "It beeps with nothing nearby, often in bad weather.",
+      "against": ""
+     },
+     {
+      "name": "Faulty sensor",
+      "clues": "It still beeps after cleaning.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Clean the bumper sensors."
+     ],
+     "shop": [
+      "Parking sensor test"
+     ]
+    }
+   }
+  },
+  "r_alarm": {
+   "result": {
+    "title": "The alarm or a door switch may be acting up",
+    "urgency": "check",
+    "now": "Lock and unlock the car with the key fob. Make sure all doors, the hood and the trunk are fully shut. If the alarm keeps going off, book a check.",
+    "if": [
+     "If the battery is weak, some alarms chirp or go off by themselves. Have the battery tested.",
+     "If you hear beeping from an EV or hybrid that is parked and charging, check the car's screen or app for a charging message."
+    ],
+    "why": "Alarms watch the doors, hood and trunk. A switch that doesn't read closed, a weak key fob or a weak 12-volt battery can set them off.",
+    "causes": [
+     {
+      "name": "Door, hood or trunk switch",
+      "clues": "The display shows something open.",
+      "against": ""
+     },
+     {
+      "name": "Weak 12-volt battery",
+      "clues": "Slow starting or a battery light.",
+      "against": ""
+     },
+     {
+      "name": "Weak key fob battery",
+      "clues": "The fob range has gotten shorter.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all doors and the hood.",
+      "Replace the key fob battery."
+     ],
+     "shop": [
+      "Alarm system scan",
+      "Battery test",
+      "Door and hood switch check"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Note when it beeps and what's on the dash",
+    "urgency": "check",
+    "now": "Next time it beeps, note when it happens and take a photo of the dash once you're safely stopped. Look it up in the owner's manual or book a check.",
+    "if": [
+     "If it comes with a red light, pull over and turn off the engine."
+    ],
+    "why": "Cars beep for many reasons. When it happens and what light comes with it are the best clues.",
+    "causes": [
+     {
+      "name": "Reminder chime",
+      "clues": "It happens at the same moment every time.",
+      "against": ""
+     },
+     {
+      "name": "Warning chime",
+      "clues": "It comes with a light or message.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Photo the dash when it's safe.",
+      "Note when it happens."
+     ],
+     "shop": [
+      "Code scan"
+     ]
+    }
+   }
+  }
+ },
+ "related": [
+  "dashboard-lights-all-on",
+  "tire-pressure-light-on",
+  "car-wont-stay-in-park",
+  "engine-overheating",
+  "check-engine-light-on"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Warning Lights"
+  ],
+  "words": [
+   "chime",
+   "beep",
+   "beeping",
+   "buzzer",
+   "seat belt reminder",
+   "parking sensor",
+   "alarm"
+  ]
+ },
+ "sources": [
+  "https://ownersmanual.kia.com/full_webhelp/SK3/2025/en_US/topics/chapter3_3_2.html"
+ ]
+}

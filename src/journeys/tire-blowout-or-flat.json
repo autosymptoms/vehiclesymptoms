@@ -1,0 +1,538 @@
+{
+ "id": "tire-blowout-or-flat",
+ "title": "Tire blowout or flat tire",
+ "h1": "My tire blew out or went flat. What do I do?",
+ "metaDesc": "Tire blew out or went flat? What to do while moving, where to stop, when to use the spare or a repair kit, and when to call for help instead.",
+ "group": "drive",
+ "cat": "Driving",
+ "synonyms": [
+  "tire blew out",
+  "tire blowout",
+  "blown tire",
+  "blew a tire",
+  "flat tire",
+  "i got a flat tire",
+  "flat tire on the highway",
+  "tire went flat while driving",
+  "popped tire",
+  "tire popped",
+  "tire exploded",
+  "tire shredded",
+  "tire is flat what do i do",
+  "how to change a flat tire",
+  "flat tyre"
+ ],
+ "intro": "A blowout or a sudden flat is scary, but the right moves are simple. First keep control and get somewhere safe. Then decide whether to put on the spare, use a repair kit, or call for help.",
+ "safety": [
+  "If a tire blows out while you're driving, hold the wheel firmly with both hands and keep the car straight. Ease off the gas and don't slam the brakes.",
+  "If you're stopped in a traffic lane or anyone is hurt, turn on your hazard lights and call 911.",
+  "Don't change a tire on the traffic side of the car or on a narrow shoulder. Move farther off the road first, or call for help.",
+  "Don't keep driving on a tire that is flat, shredded or coming off the wheel. The car can be hard to control."
+ ],
+ "start": "q_where",
+ "nodes": {
+  "q_where": {
+   "q": "Where are you right now?",
+   "opts": [
+    {
+     "a": "Still moving: the tire just blew or went flat",
+     "go": "r_blowout_now"
+    },
+    {
+     "a": "Stopped, but on the shoulder of a busy road or highway",
+     "go": "r_unsafe_spot"
+    },
+    {
+     "a": "Stopped somewhere safe, like a parking lot, a quiet street or well off the road",
+     "go": "q_tire"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_unsure"
+    }
+   ]
+  },
+  "q_tire": {
+   "q": "What does the tire look like now?",
+   "help": "Look from a safe spot, away from traffic. Don't crawl under the car.",
+   "opts": [
+    {
+     "a": "Torn or shredded, or the rubber is coming off the wheel",
+     "go": "r_shredded"
+    },
+    {
+     "a": "Completely flat, but in one piece",
+     "go": "q_spare"
+    },
+    {
+     "a": "Low, but not flat, and the car still drove straight",
+     "go": "r_low_not_flat"
+    },
+    {
+     "a": "There is a bulge or bubble on the side of the tire",
+     "go": "r_bulge"
+    },
+    {
+     "a": "My car has run-flat tires (the sidewall or owner's manual says run-flat or RFT)",
+     "go": "r_runflat"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "q_spare"
+    }
+   ]
+  },
+  "q_spare": {
+   "q": "Do you have a spare tire or a tire repair kit, and do you feel OK using it?",
+   "help": "Many newer cars have no spare. They come with a small air pump and a bottle of sealant instead. Look in the trunk floor or check the owner's manual.",
+   "opts": [
+    {
+     "a": "Yes, I have a spare and I can follow the steps",
+     "go": "r_change_spare"
+    },
+    {
+     "a": "I only have a sealant and air-pump kit",
+     "go": "r_sealant_kit"
+    },
+    {
+     "a": "No spare or kit, or I don't feel safe doing it",
+     "go": "r_call_help"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_call_help"
+    }
+   ]
+  },
+  "r_blowout_now": {
+   "result": {
+    "title": "Keep control first. The tire can wait",
+    "urgency": "stop",
+    "now": "Hold the wheel firmly with both hands and keep the car pointed straight. Ease off the gas and let the car slow down by itself. Don't slam the brakes. Once you've slowed down and feel in control, turn on your hazard lights, brake gently and pull as far off the road as you can.",
+    "if": [
+     "If you can't get fully off the road, stay in the car with your seat belt on, keep the hazard lights on and call 911.",
+     "If you drift onto the shoulder, don't jerk the wheel to get back on the road. Slow down first.",
+     "Once you're stopped safely, the Flat tire page in our roadside section walks through what to do next."
+    ],
+    "why": "When a tire loses air all at once, the car pulls toward that side and can feel like it wants to swerve. Hard braking or sudden steering at that moment is what usually causes a loss of control. Letting the car slow down by itself keeps the weight steady while you steer.",
+    "causes": [
+     {
+      "name": "Tire that was low on air and overheated",
+      "clues": "The tire looked low before, or the tire pressure light had been on.",
+      "against": ""
+     },
+     {
+      "name": "Road damage, like a pothole, a curb or debris",
+      "clues": "You felt or heard a hit just before it happened.",
+      "against": ""
+     },
+     {
+      "name": "Old, worn or damaged tire",
+      "clues": "The tread was thin, or there were cracks or a bulge on the side.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Tire and wheel inspection",
+      "Check of the other tires for damage or low pressure",
+      "Check for damage to the wheel, brakes and suspension on that side"
+     ]
+    },
+    "links": [
+     {
+      "t": "Flat tire: step by step",
+      "u": "/roadside/flat-tire/"
+     }
+    ]
+   }
+  },
+  "r_unsafe_spot": {
+   "result": {
+    "title": "Don't change a tire next to fast traffic",
+    "urgency": "stop",
+    "now": "Keep your hazard lights on. If you can, stay in the car with your seat belt on and call roadside assistance. If you must get out, use the door away from traffic and wait well away from the road, behind a guardrail if there is one.",
+    "if": [
+     "If you're stopped in a traffic lane, or anyone is hurt, call 911.",
+     "If the next exit or a wide, flat spot is very close, rolling there slowly on the flat may be safer than stopping where you are. It can ruin the tire and wheel, but people are worth more.",
+     "Once the car is somewhere safe, the Flat tire page in our roadside section has the steps."
+    ],
+    "why": "Changing a tire takes several minutes with your back to traffic. On a narrow shoulder, passing cars come very close, and drivers often don't see a stopped car until late. Moving away from the traffic is the first job, not fixing the tire.",
+    "causes": [
+     {
+      "name": "Puncture or blowout",
+      "clues": "The tire went flat suddenly or over a few minutes.",
+      "against": ""
+     },
+     {
+      "name": "Damage from a pothole or curb",
+      "clues": "You hit something just before.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Tire and wheel inspection",
+      "Check of the spare or a tire replacement"
+     ]
+    },
+    "links": [
+     {
+      "t": "Flat tire: step by step",
+      "u": "/roadside/flat-tire/"
+     }
+    ]
+   }
+  },
+  "r_shredded": {
+   "result": {
+    "title": "The tire is destroyed and must be replaced",
+    "urgency": "stop",
+    "now": "Don't drive on it. If you have a spare and you're in a safe spot, put it on. A sealant kit won't fix a torn tire. If you don't have a spare, call roadside assistance for a tow.",
+    "if": [
+     "If pieces of the tire hit the car, look for damage to brake lines, fenders or wiring before driving on the spare. If you see dripping fluid or hanging parts, have it towed.",
+     "If the wheel itself is bent or cracked, the spare is still fine to use, but have the bent wheel checked before it goes back on."
+    ],
+    "why": "A tire that is torn open or coming apart can't hold air, and driving on it can damage the wheel and the parts around it. Only replacement fixes it.",
+    "causes": [
+     {
+      "name": "Driving on a tire that was very low",
+      "clues": "The sidewall looks chewed up or melted.",
+      "against": ""
+     },
+     {
+      "name": "Hard hit from a pothole, curb or debris",
+      "clues": "You felt a hit just before it failed.",
+      "against": ""
+     },
+     {
+      "name": "Tread separation on an old tire",
+      "clues": "A strip of tread peeled off.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look for loose pieces hanging under the car before moving it.",
+      "Check the spare's air pressure if you can."
+     ],
+     "shop": [
+      "Tire replacement",
+      "Wheel inspection",
+      "Brake line and wheel-well inspection on that side"
+     ]
+    },
+    "links": [
+     {
+      "t": "Flat tire: step by step",
+      "u": "/roadside/flat-tire/"
+     }
+    ]
+   }
+  },
+  "r_change_spare": {
+   "result": {
+    "title": "Put on the spare, then get the flat repaired or replaced",
+    "urgency": "diy",
+    "now": "Park on flat, solid ground, set the parking brake and turn on the hazard lights. Follow the steps in your owner's manual, or the Flat tire page in our roadside section, to put on the spare.",
+    "if": [
+     "If the spare is a small \"donut\" spare, it's only for short trips at lower speed. The limits are printed on the spare and in the owner's manual.",
+     "If the spare looks low on air, don't rely on it. Call for help or pump it up first.",
+     "If the car starts on a slope or soft ground, or the jack feels unsteady, stop and call for help instead."
+    ],
+    "why": "A spare gets you moving again so a tire shop can look at the flat. Many flats from a nail in the tread can be repaired. Damage on the sidewall usually means a new tire.",
+    "causes": [
+     {
+      "name": "Nail, screw or other puncture",
+      "clues": "You can see something stuck in the tread.",
+      "against": ""
+     },
+     {
+      "name": "Leaking valve stem",
+      "clues": "The tire went flat slowly, with nothing in the tread.",
+      "against": ""
+     },
+     {
+      "name": "Damage from a pothole or curb",
+      "clues": "You hit something just before it went flat.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the spare's air pressure.",
+      "Look for a nail or cut on the flat tire.",
+      "After about 50 miles, check that the wheel nuts are still tight."
+     ],
+     "shop": [
+      "Tire puncture repair or replacement",
+      "Wheel inspection",
+      "Tire pressure monitor (TPMS) check"
+     ]
+    },
+    "links": [
+     {
+      "t": "Flat tire: step by step",
+      "u": "/roadside/flat-tire/"
+     }
+    ]
+   }
+  },
+  "r_sealant_kit": {
+   "result": {
+    "title": "A sealant kit can get you moving if the hole is small and in the tread",
+    "urgency": "diy",
+    "now": "Read the kit's label first. It only works on small holes in the tread, not on cuts, bulges or sidewall damage. Follow the kit steps, then drive slowly to a tire shop as the kit directs.",
+    "if": [
+     "If the tire won't hold air after using the kit, stop and call roadside assistance.",
+     "If you can see a cut or damage on the side of the tire, don't use the kit. Call for help.",
+     "Tell the tire shop you used sealant. Some tires and sensors need extra cleaning after it."
+    ],
+    "why": "Sealant fills small holes from inside the tire, and the pump puts air back in. It's a short-term fix to get you to a shop, not a repair.",
+    "causes": [
+     {
+      "name": "Small puncture in the tread",
+      "clues": "A nail or screw in the flat part of the tire.",
+      "against": "Won't work if the hole is in the sidewall."
+     },
+     {
+      "name": "Leaking valve stem",
+      "clues": "Slow leak with no visible damage.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check the hole is in the tread, not the sidewall.",
+      "Check the pressure after a few miles, as the kit directs."
+     ],
+     "shop": [
+      "Tire repair or replacement",
+      "Tire pressure sensor check after sealant"
+     ]
+    },
+    "links": [
+     {
+      "t": "Flat tire: step by step",
+      "u": "/roadside/flat-tire/"
+     }
+    ]
+   }
+  },
+  "r_call_help": {
+   "result": {
+    "title": "Call roadside assistance and stay safe while you wait",
+    "urgency": "stop",
+    "now": "Stay with the car, well away from traffic, and call your roadside plan. It may be through your insurance, the car maker or a motor club. Have your location and the car's make and model ready.",
+    "if": [
+     "If you're in a traffic lane or anyone is hurt, call 911.",
+     "If it's dark or cold, wait inside the car with your seat belt on and the hazard lights on, as long as you're fully off the road."
+    ],
+    "why": "Changing a tire is only a good idea with the right tools, a working spare and a safe place to do it. Without those, a tow or a tire service is the safer choice.",
+    "causes": [
+     {
+      "name": "Puncture or blowout",
+      "clues": "The tire went flat quickly.",
+      "against": ""
+     },
+     {
+      "name": "Slow leak that finally went flat",
+      "clues": "The tire was low in the days before.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check your insurance card or app, or your owner's manual, for a roadside assistance number."
+     ],
+     "shop": [
+      "Tire repair or replacement",
+      "Wheel inspection"
+     ]
+    },
+    "links": [
+     {
+      "t": "Flat tire: step by step",
+      "u": "/roadside/flat-tire/"
+     }
+    ]
+   }
+  },
+  "r_low_not_flat": {
+   "result": {
+    "title": "The tire is losing air but may be fixable",
+    "urgency": "soon",
+    "now": "Pump it up to the pressure on the sticker inside the driver's door, at a gas station or with a portable pump. Then have a tire shop find the leak within a few days.",
+    "if": [
+     "If it goes low again within a day, don't keep refilling it. Put on the spare or have it repaired right away.",
+     "If you see a bulge, a cut, or cords showing, don't drive on it.",
+     "If the car shakes, pulls or thumps while driving, slow down and pull over somewhere safe."
+    ],
+    "why": "A tire that is low but not flat usually has a slow leak, often from a nail or a leaking valve. Driving on a low tire makes it heat up, which can lead to a blowout.",
+    "causes": [
+     {
+      "name": "Nail or screw in the tread",
+      "clues": "You can see or hear it when you spray soapy water on it.",
+      "against": ""
+     },
+     {
+      "name": "Leaking valve stem",
+      "clues": "Bubbles at the valve when you spray soapy water on it.",
+      "against": ""
+     },
+     {
+      "name": "Leak where the tire meets the wheel",
+      "clues": "Bubbles around the rim, often after cold weather or a hard hit.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Check all four tires with a pressure gauge.",
+      "Spray soapy water on the tire and watch for bubbles."
+     ],
+     "shop": [
+      "Tire leak test",
+      "Puncture repair or tire replacement",
+      "Valve stem check"
+     ]
+    }
+   }
+  },
+  "r_bulge": {
+   "result": {
+    "title": "A bulge means the tire is damaged inside. Don't drive on it",
+    "urgency": "stop",
+    "now": "Don't drive on this tire. Put on the spare if you can do it safely, or call roadside assistance.",
+    "if": [
+     "If the bulge appeared right after hitting a pothole or curb, have the wheel and the steering checked too."
+    ],
+    "why": "A bulge or bubble means the inside layers of the tire are broken, and air is pushing against the rubber. It can burst without warning, especially at highway speed. It can't be repaired.",
+    "causes": [
+     {
+      "name": "Impact damage from a pothole or curb",
+      "clues": "You hit something recently.",
+      "against": ""
+     },
+     {
+      "name": "Driving on a low tire",
+      "clues": "The tire had been low on air for a while.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Look at all four tires for other bulges."
+     ],
+     "shop": [
+      "Tire replacement",
+      "Wheel inspection",
+      "Alignment check"
+     ]
+    },
+    "links": [
+     {
+      "t": "Flat tire: step by step",
+      "u": "/roadside/flat-tire/"
+     }
+    ]
+   }
+  },
+  "r_runflat": {
+   "result": {
+    "title": "Run-flat tires let you keep going, but only for a short distance",
+    "urgency": "soon",
+    "now": "Slow down and go straight to a tire shop or a safe place. Your owner's manual lists how far and how fast you can go on a run-flat tire with no air.",
+    "if": [
+     "If the car shakes, pulls hard, or the tire is visibly torn, stop and call for help.",
+     "If you've gone past the limit in the owner's manual, don't keep going. Call for help."
+    ],
+    "why": "Run-flat tires have stiff sides that hold the car up for a while with no air. They still lose strength as they go, and most can't be repaired after running flat.",
+    "causes": [
+     {
+      "name": "Puncture",
+      "clues": "The tire pressure light came on.",
+      "against": ""
+     },
+     {
+      "name": "Impact damage",
+      "clues": "You hit a pothole or curb.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [
+      "Note how far you've driven since the tire pressure light came on."
+     ],
+     "shop": [
+      "Run-flat tire inspection or replacement",
+      "Tire pressure sensor check"
+     ]
+    }
+   }
+  },
+  "r_unsure": {
+   "result": {
+    "title": "Get to a safe place first, then deal with the tire",
+    "urgency": "stop",
+    "now": "Turn on your hazard lights and, if you're still moving, ease off the gas and steer gently to the side of the road. Once you're stopped, stay away from traffic and call roadside assistance.",
+    "if": [
+     "If you're in a traffic lane or anyone is hurt, call 911.",
+     "If you're safely parked and the tire is only low, you can check it with a pressure gauge."
+    ],
+    "why": "When you're not sure where you are or what the tire looks like, safety comes first. A roadside service can change the tire or tow the car.",
+    "causes": [
+     {
+      "name": "Puncture or blowout",
+      "clues": "A loud bang or a flapping sound.",
+      "against": ""
+     },
+     {
+      "name": "Slow leak",
+      "clues": "The tire pressure light came on before.",
+      "against": ""
+     }
+    ],
+    "confirm": {
+     "you": [],
+     "shop": [
+      "Tire and wheel inspection"
+     ]
+    },
+    "links": [
+     {
+      "t": "Flat tire: step by step",
+      "u": "/roadside/flat-tire/"
+     }
+    ]
+   }
+  }
+ },
+ "related": [
+  "tire-keeps-losing-air",
+  "tire-pressure-light-on",
+  "after-hitting-pothole",
+  "car-pulls-to-one-side"
+ ],
+ "issueMatch": {
+  "cats": [
+   "Driving"
+  ],
+  "words": [
+   "tire",
+   "blowout",
+   "flat",
+   "tread separation",
+   "sidewall",
+   "spare",
+   "run-flat"
+  ]
+ },
+ "sources": [
+  "https://www.nhtsa.gov/vehicle-safety/tires",
+  "https://cluballiance.aaa.com/the-extra-mile/advice/car/tire-explosion-while-driving",
+  "https://apps.mpi.mb.ca/comms/drivershandbook/blowouts.html"
+ ]
+}
