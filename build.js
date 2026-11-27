@@ -586,7 +586,7 @@ const lDiag=(lid,d)=>{const id=EV.ids.lightDiag(lid),g=EV.priceQualifies(id);LED
 const LIGHTDESC={'oil-pressure-light':"Red oil pressure light on? Stop driving as soon as it's safe: pull over and shut the engine off. Low oil pressure can ruin the engine within minutes.",
  'brake-warning-light':"Red brake light on? Make sure the parking brake is fully released. If it stays on, stop driving as soon as it's safe. Low brake fluid or a brake fault is likely.",
  'check-engine-light':"Check engine light on? If it's flashing, pull over when it's safe and turn the engine off. If it's steady, check that the gas cap is tight and get it checked soon.",
- 'battery-light':"Battery light on? Pull over when it's safe and turn off everything you don't need. The car is running on battery alone and will die when it runs out."};
+ 'battery-light':"Battery light on? Turn off what you don't need and drive only to a safe place off the road. If the gauge climbs or steering gets heavy, stop and turn the engine off."};
 function lightDesc(l){if(l.metaDesc)return l.metaDesc;if(LIGHTDESC[l.id])return LIGHTDESC[l.id];
   const nm=l.name.replace(/ \(.*\)$/,'').replace(/ light$/i,' light');const col=l.color==='red'?'Red ':'';
   // A light's own stop condition beats its first step in the snippet.
