@@ -144,13 +144,13 @@ const SRC={
   nyInspect:['New York DMV inspection brochure','https://dmv.ny.gov/brochure/new-york-state-vehicle-safetyemissions-inspection-program']
 };
 const emergencyRules=[
-  // RS-01: a suddenly hard pedal means the power assist is gone. Pumping uses up what assist is left: press steadily instead.
+  // RS-01: a suddenly hard pedal means the power assist is gone. Owner policy (Nov 27): give no pumping advice either way.
   {id:'brake-hard',topic:/brak/i,drops:['brakes'],page:'brakes-steering-pedal',
     rx:/\bbrake pedal\b.*\b(?:hard|stiff|rock|wont (?:go down|press|push|move)|cant (?:press|push)|stuck|jammed)\b|\b(?:hard|stiff)\b.*\bbrake pedal\b|\bbrakes? (?:are |is |feel |feels |got |went |suddenly )*(?:hard|stiff|rock hard) to (?:press|push)\b|\bbrakes? (?:suddenly )?(?:went|got|are|feel|feels) (?:really |very |super )?(?:hard|stiff|rock hard)\b/,
     // A pedal that sinks is the brake-failure step; a hard pedal with the engine off is normal.
     skip:/\b(?:floor|carpet|floorboard|sinks|sank|all the way down|goes down|went down|no resistance|soft|spongy|squishy)\b|\b(?:engine|car|truck|it) (?:is |was )?(?:off|not running)\b|\bbefore (?:i )?start|\bwhen (?:i )?(?:start|starting)\b|\bcold start\b|\bwont start\b/,
     guides:['hard-brake-pedal','brake-warning-light-on'],src:[SRC.kia],
-    now:'If the brake pedal is suddenly very hard: push it with steady, heavy force and keep pushing. Don’t pump it. The car will take longer to stop. Turn on your hazard lights, steer to a safe spot, and don’t drive it again until it’s checked.'},
+    now:'If the brake pedal is suddenly very hard: push it with steady, heavy force and keep pushing. The car will take longer to stop. Turn on your hazard lights, steer to a safe spot, and don’t drive it again until it’s checked.'},
   {id:'brakes',topic:/brak/i,page:'brakes-steering-pedal',
     rx:new RegExp('\\bbrakes? (?:are |is |have |has |just |completely |totally )*(?:stopped|stop|quit|quits|failed|fail|failing|gave out|went out|gone|out|not working|dont work|do not work|doesnt work|does not work|arent working|wont work|isnt working|wont stop)\\b'+
       '|\\b(?:no|lost|losing|lose|without) (?:my |the |any )?brakes?\\b(?! lights?\\b)|\\bbrake failure\\b'+
@@ -163,8 +163,8 @@ const emergencyRules=[
       '|\\b(?:cant|wont|cannot) stop\\b.*\\bbrak|\\bbrak\\w*\\b.*\\b(?:cant|wont) stop\\b'),
     skip:/^(?!.*\bbrak).*\b(?:gas pedal|accelerator|throttle|gas is stuck)\b/,
     guides:['soft-or-spongy-brake-pedal','brake-warning-light-on','brake-fluid-leak'],src:[SRC.riDmv],
-    // Pumping is only for a pedal that sinks (it can build back some pressure). A hard pedal has its own rule above.
-    now:'If your brakes fail while driving: turn on your hazard lights. If the pedal sinks to the floor, pump it hard and fast. Shift to a lower gear and pull the parking brake on gradually. Steer to a safe spot. Once stopped, don’t drive it again. Have it towed.'},
+    // A hard pedal has its own rule above. Owner policy (Nov 27): no pumping advice either way.
+    now:'If your brakes fail while driving: turn on your hazard lights and keep pressing the brake. Shift to a lower gear and pull the parking brake on gradually. Steer to a safe spot. Once stopped, don’t drive it again. Have it towed.'},
   // The red BRAKE warning on the dash (not the rear brake lamps). Wording from the brake warning light page.
   {id:'brake-light',topic:/brak/i,page:'red-light-on',
     rx:/\bred brake\b|\bbrake (?:warning|system) (?:light|lamp|indicator|warning)\b|\bbrake (?:warning )?(?:light|lamp)\b.*\b(?:dash|dashboard|cluster|stays on|still on|wont go off|wont turn off|keeps coming on|wont go out)\b|\b(?:dash|dashboard)\b.*\bbrake (?:light|lamp)\b/,
@@ -183,7 +183,7 @@ const emergencyRules=[
     skip:/^(?!.*\b(?:gas|accelerator|throttle)\b).*\b(?:brake|clutch) pedal\b/,
     rx:/\b(?:gas pedal|accelerator|throttle|pedal)\b.*\b(?:stuck|sticking|sticks|jammed|wont come up|wont come back up|wont return|wont close|wont release|stays down|stuck down)\b|\b(?:keeps|kept|still|wont stop) (?:accelerating|speeding up|going faster|revving up)\b|\bfoot (?:is )?off the gas\b.*\b(?:accelerat|speed|faster)|\b(?:stuck|jammed)\b.*\b(?:gas pedal|accelerator|throttle)\b|\b(?:accelerat\w*|speeding up|speeds up|going faster|surging|surges) (?:on its own|by itself|without me|without pressing)|\b(?:wont|cant) (?:slow down|stop accelerating)\b|\bunintended acceleration\b|\b(?:speeding up|speeds up|accelerating|accelerates|going faster|revving)\b.*\bfoot (?:is )?(?:off|not on) the (?:gas|pedal|accelerator)\b|\bfoot (?:is )?(?:off|not on) the (?:gas|pedal|accelerator)\b.*\b(?:speeding up|speeds up|accelerating|accelerates|going faster)\b|\bcruise(?: control)?\b.*\b(?:wont|cant|doesnt|didnt|wouldnt|isnt|not) (?:turn off|turning off|shut off|shutting off|disengage|disengaging|cancel|canceling|cancelling|go off|release|let go|stop|slow down)\b|\bcruise(?: control)? (?:is |got |stays )?(?:stuck|locked|stuck on)\b/,
     guides:[['car-speeds-up-by-itself','engine-revs-high-at-idle'],'engine-revs-high-at-idle'],
-    now:'If the car speeds up on its own or the gas pedal sticks: press the brake firmly and hold it (don’t pump), shift to neutral, and steer to a safe spot. Once stopped, turn the engine off. With a push-button start you may need to hold the button for a few seconds. Check that a floor mat isn’t trapping the pedal, and don’t drive it again until it’s checked.'},
+    now:'If the car speeds up on its own or the gas pedal sticks: press the brake firmly and hold it, shift to neutral, and steer to a safe spot. Once stopped, turn the engine off. With a push-button start you may need to hold the button for a few seconds. Check that a floor mat isn’t trapping the pedal, and don’t drive it again until it’s checked.'},
   {id:'fire',topic:/burn|smoke|steam|fire/i,page:'smoke-or-fire',
     rx:/\b(?:on fire|fire|flames?|flaming|caught fire|catching fire|burning up)\b|\bsmok(?:e|es|ing|ey|y)\b/,
     // Tailpipe smoke ("white smoke from exhaust") is not a fire emergency unless flames are mentioned.
@@ -325,7 +325,7 @@ function emergency(q){
     // A trouble code with "the light is flashing" is a flashing check engine light.
     .replace(/\bp[0-3][0-9a-f]{3}\b/g,' check engine light ');
   let hits=emergencyRules.filter(rule=>rule.rx.test(text)&&!(rule.skip&&rule.skip.test(text)));
-  // A more specific rule replaces a general one ("brake pedal is hard" is not "brakes failed: pump it").
+  // A more specific rule replaces a general one ("brake pedal is hard" is not "brakes failed").
   const dropped=new Set(hits.flatMap(rule=>rule.drops||[]));
   hits=hits.filter(rule=>!dropped.has(rule.id));
   if(!hits.length)return null;

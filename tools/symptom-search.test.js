@@ -139,12 +139,12 @@ const events=[];window.va=(kind,e)=>{if(kind==='event')events.push(e)};
 const first=r=>r.firstElementChild;
 const hrefs=r=>[...r.querySelectorAll('a')].map(a=>a.getAttribute('href'));
 const urgentText=q=>{const r=submit(q);assert.equal(location.href,'',q);const b=first(r);assert.ok(b&&b.classList.contains('urgentnow'),q+': safety step first');return b.textContent};
-// RS-01: a hard pedal is never told to pump; a pedal that sinks still is.
+// RS-01 + owner policy (Nov 27): no brake-pumping advice either way, on any brake step.
 for(const q of ['brake pedal is hard as a rock','my brake pedal is hard and wont go down','brake pedal stiff and car barely slows','brake pedal hard and car wont stop']){
-  const t=urgentText(q);assert.doesNotMatch(t,/pump it hard|pump the pedal/i,q);assert.match(t,/Don’t pump it/,q);assert.match(t,/hazard lights/,q);
+  const t=urgentText(q);assert.doesNotMatch(t,/pump/i,q);assert.match(t,/steady, heavy force/,q);assert.match(t,/hazard lights/,q);
   assert.ok(hrefs(submit(q)).includes('/symptoms/hard-brake-pedal/'),q+' lists the hard pedal guide')}
 for(const q of ['brake pedal to floor','my brakes went to the floor','pedal went to the floor','brakes went out'])
-  {const t=urgentText(q);assert.match(t,/pedal sinks to the floor, pump it/,q);assert.match(t,/hazard lights/,q)}
+  {const t=urgentText(q);assert.doesNotMatch(t,/pump/i,q);assert.match(t,/keep pressing the brake/,q);assert.match(t,/hazard lights/,q)}
 // RS-03: after a stall, stay buckled in off the road; get out away from traffic only if stuck in a lane or smoke.
 for(const q of ['my car died on the highway','car broke down on the highway']){const t=urgentText(q);assert.match(t,/stay inside with your seat belt on/,q);
   assert.match(t,/stuck in a traffic lane, keep your hazard lights on, stay buckled in and call 911/,q);assert.match(t,/Get out only if you see smoke or fire/,q)}
