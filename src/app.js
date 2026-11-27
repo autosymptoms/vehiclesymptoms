@@ -546,7 +546,8 @@ showMy();
     document.querySelectorAll('#lgrid .lcard').forEach(a=>{const k=norm(a.dataset.k||a.textContent).split(' ');
       // Only a color ("yellow light"): show the lights of that color. A color plus a shape: that color first, others still shown.
       const hit=!qw.length?(!qc.length||qc.includes(group(a.dataset.c))):qw.every(w=>k.some(x=>x===w||(w.length>=3&&x.startsWith(w))||(w.length>3&&w.endsWith('s')&&x===w.slice(0,-1))));
-      a.hidden=!hit;a.style.order=hit&&qw.length&&qc.length&&qc.includes(group(a.dataset.c))?'-1':'';if(hit)shown++});
+      // Named color first; then lights whose keywords match every typed word exactly ("squiggles" on traction before "squiggle" on glow plug).
+      a.hidden=!hit;a.style.order=!hit||!qw.length?'':qc.length&&qc.includes(group(a.dataset.c))?'-2':qw.every(w=>k.includes(w))?'-1':'';if(hit)shown++});
     const n=document.getElementById('lnone');
     if(n){n.hidden=!!shown||!q;
       // Never a dead end: the safety rule for red lights, symptom guides that match, and the color filters.

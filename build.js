@@ -586,10 +586,12 @@ const lDiag=(lid,d)=>{const id=EV.ids.lightDiag(lid),g=EV.priceQualifies(id);LED
 // T-10: search snippets lead with the action: "[light] on? [how urgent]. [first step]."
 const LIGHTDESC={'oil-pressure-light':"Red oil pressure light on? Stop driving as soon as it's safe: pull over and shut the engine off. Low oil pressure can ruin the engine within minutes.",
  'brake-warning-light':"Red brake light on? Make sure the parking brake is fully released. If it stays on, stop driving as soon as it's safe. Low brake fluid or a brake fault is likely.",
+ 'check-engine-light':"Check engine light on? If it's flashing, pull over when it's safe and turn the engine off. If it's steady, check that the gas cap is tight and get it checked soon.",
  'battery-light':"Battery light on? Pull over when it's safe and turn off everything you don't need. The car is running on battery alone and will die when it runs out."};
 function lightDesc(l){if(l.metaDesc)return l.metaDesc;if(LIGHTDESC[l.id])return LIGHTDESC[l.id];
   const nm=l.name.replace(/ \(.*\)$/,'').replace(/ light$/i,' light');const col=l.color==='red'?'Red ':'';
-  const first=l.todo&&l.todo[0]?' '+l.todo[0].replace(/\s+$/,''):'';return clip(`${col&&!/^red/i.test(nm)?col+nm.charAt(0).toLowerCase()+nm.slice(1):nm} on? ${lsev(l)[0]}.${first}`,155)}
+  // A light's own stop condition beats its first step in the snippet.
+  const first=l.stopIf?' Stop if '+String(l.stopIf).replace(/^stop if:?\s*/i,'').trim():l.todo&&l.todo[0]?' '+l.todo[0].replace(/\s+$/,''):'';return clip(`${col&&!/^red/i.test(nm)?col+nm.charAt(0).toLowerCase()+nm.slice(1):nm} on? ${lsev(l)[0]}.${first}`,155)}
 for(const l of LIGHTS){const u=lsev(l);const gs=l.guides.filter(g=>JT[g]).map(g=>JT[g]);const cs=l.codes.filter(c=>codeSet.has(c));
   const d=LDEEP[l.id]||{};
   const animation = animations?.contextual(animations.guide.get(l.id)) || '';
