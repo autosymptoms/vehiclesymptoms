@@ -265,5 +265,9 @@ assert.equal(window.VS_GUIDES.emergency('parking brake barely works and the brak
 submit('P0420');assert.equal(location.href,'/codes/?q=P0420','code alone goes to the code page');
 assert.notEqual(window.VS_GUIDES.emergency('car running hot and no oil warning').rule,'oil');
 assert.ok(!window.VS_GUIDES.emergency('the oil light is off but the engine is overheating').also.some(t=>/oil light/i.test(t)));
+// Everyday verb forms land on the same guide as the -ing form (Nov 27: "bucks" found nothing, "bucking" worked).
+for(const [query,id] of [['bucks','car-jerks-when-accelerating'],['my car bucks when I accelerate','car-jerks-when-accelerating'],['truck bucked','car-jerks-when-accelerating'],['jerked','car-jerks-when-accelerating'],['lurching','car-jerks-when-accelerating'],['engine surges','engine-revs-high-at-idle'],['rpm surging','engine-revs-high-at-idle']]){
+  submit(query);assert.equal(location.href,'/symptoms/'+id+'/',query);
+}
 dom.window.close();
 console.log('PASS raw homepage submissions, vehicle and code routing, clarifications and '+aliases+' published guide aliases.');

@@ -48,7 +48,13 @@ const searchWords = {
   flashes:'flashing', blinking:'flashing', blinks:'flashing',
   squeek:'squeak', squeeks:'squeak', squeeking:'squeak', squeeky:'squeak', squeaky:'squeak', squeel:'squeal', squeeling:'squeal',
   breaks:'brake', break:'brake', headlights:'headlight',
-  strat:'start', strats:'start', smok:'smoke', steaming:'steam', steams:'steam'
+  strat:'start', strats:'start', smok:'smoke', steaming:'steam', steams:'steam',
+  // Everyday verb forms for how a car drives ("it bucks" = "bucking"), Nov 27.
+  buck:'bucking', bucks:'bucking', bucked:'bucking', jerk:'jerks', jerked:'jerks', jerking:'jerks', jerky:'jerks',
+  lurch:'lurches', lurched:'lurches', lurching:'lurches', surges:'surge', surging:'surge', surged:'surge',
+  hesitates:'hesitate', hesitating:'hesitate', hesitated:'hesitate', hesitation:'hesitate',
+  sputters:'sputter', sputtering:'sputter', sputtered:'sputter', stall:'stalls', stalled:'stalls', stalling:'stalls',
+  misfires:'misfire', misfiring:'misfire', misfired:'misfire', bogs:'bog', bogging:'bog', bogged:'bog'
 };
 // Words that say something is wrong without saying what. A guide needs at least one other word in common,
 // so "wipers not working" doesn't land on "heater not working".
