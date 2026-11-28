@@ -17,25 +17,35 @@ self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const core = await caches.open(CORE_CACHE);
     await core.addAll(CORE.map(u => new Request(u, { cache: 'reload' })));
-    // Save every offline guide from this version, so safety fixes reach installed phones.
-    // If a page can't be fetched right now, keep the previous version's copy rather than nothing.
+    // Save every offline guide fresh from this version, so safety fixes reach installed phones.
+    // Only a fresh, complete answer from the site is saved. If a page can't be fetched right now,
+    // it is left out (it is saved next time it is opened online). A copy from an older version is
+    // never carried forward into this version's cache as if it were current.
     const pages = await caches.open(PAGE_CACHE);
-    const old = (await caches.keys()).filter(k => k.startsWith('vs-pages') && k !== PAGE_CACHE);
     for (const url of OFFLINE_PAGES) {
       try {
         const res = await fetch(url, { cache: 'no-cache', credentials: 'same-origin' });
-        if (res.ok) { await pages.put(url, res); continue; }
-      } catch (e) { /* offline: fall back below */ }
-      for (const k of old) { const prev = await (await caches.open(k)).match(url); if (prev) { await pages.put(url, prev); break; } }
+        if (isFresh(res)) await pages.put(url, res);
+      } catch (e) { /* offline or interrupted: leave this page out */ }
     }
     await self.skipWaiting();
   })());
 });
 
+// A response worth saving as this version's copy: a full 200 answer from the site itself,
+// not an opaque, redirected or partial one.
+function isFresh(res) {
+  return !!res && res.status === 200 && res.type === 'basic' && !res.redirected;
+}
+
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {
+    // Old versions' caches are deleted only once this version's core files are all saved.
+    // (Activate runs only after install finished, so the page cache is complete too.)
+    const core = await caches.open(CORE_CACHE);
+    const coreReady = (await Promise.all(CORE.map(u => core.match(u)))).every(Boolean);
     const keep = new Set([CORE_CACHE, PAGE_CACHE, RUNTIME]);
-    for (const key of await caches.keys()) if (key.startsWith('vs-') && !keep.has(key)) await caches.delete(key);
+    if (coreReady) for (const key of await caches.keys()) if (key.startsWith('vs-') && !keep.has(key)) await caches.delete(key);
     // Old copies of the site's own scripts and styles must never outlive a new version.
     // Saved copies of other pages are dropped too: a page saved before a fix must not be shown after it.
     const runtime = await caches.open(RUNTIME);

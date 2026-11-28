@@ -233,9 +233,14 @@ for(const code of ['p2300','p2335','p06d1']){const h=fs.readFileSync(D('codes/'+
  const p0420=R('codes/p0420/index.html');
  T('TC03-SRC','Code pages name their own sources and link the NHTSA VIN recall lookup',/Code title: SAE J2012 standard definition\./.test(code)&&/href="https:\/\/www\.nhtsa\.gov\/recalls" target="_blank" rel="noopener nofollow"/.test(code));
  T('TC07-READ','Code pages explain how to get codes read',/How to get your code read/.test(code)&&/auto parts stores will read your codes/.test(code));
- T('TC08-LABEL','Stop box label reads "Pull over now only if:"',/Pull over now only if:/.test(p0420)&&!/Stop-now condition/.test(p0420));
+ T('TC08-LABEL','Stop box label reads "Stop-driving signs:" and says other serious signs also mean stop',/<b class="urg-first-h">Stop-driving signs:<\/b>/.test(p0420)&&/class="urg-first"[^>]*>(?:(?!<\/div>).)*Also stop if the brakes or steering feel wrong, or you notice overheating, smoke or a burning smell\./s.test(p0420)&&!/Pull over now only if/.test(p0420)&&!/Stop-now condition/.test(p0420));
+ // No built code page heads its stop box "Pull over now only if" or claims four-cylinder engines have only one bank (flat/boxer fours have two).
+ {const bad={pull:[],bank:[]};for(const d of fs.readdirSync(D('codes'))){const f=D('codes/'+d+'/index.html');if(!fs.existsSync(f))continue;const h=fs.readFileSync(f,'utf8');
+   if(/Pull over now only if/i.test(h))bad.pull.push(d);if(/(?:four|4)[- ]cylinder[^.<]*\b(?:only one|one|a single) bank|only one bank/i.test(h))bad.bank.push(d)}
+  T('TC08-NOONLY','No code page heads its stop box "Pull over now only if"',!bad.pull.length,bad.pull.length+' pages, e.g. '+bad.pull.slice(0,5).join(', '));
+  T('TC21-NOONEBANK','No code page says four-cylinder engines have only one bank',!bad.bank.length,bad.bank.length+' pages, e.g. '+bad.bank.slice(0,5).join(', '))}
  T('TC10-REL','P0420 related codes start with P0430, not the P042x neighbours',/Related codes<\/h2><div class="codechips"><a href="\/codes\/p0430\/">/.test(p0420));
- T('TC21-BANK','P0420 explains bank 1',/Bank 1 is the side of the engine with cylinder 1/.test(p0420));
+ T('TC21-BANK','P0420 explains bank 1, and that V and flat (boxer) engines have two banks',/Bank 1 is the side of the engine with cylinder 1/.test(p0420)&&/V and flat \(boxer\) engines have two/.test(p0420));
  T('TC20-404','404 page sends unknown /codes/<code>/ to the code lookup',/location\.replace\("\/codes\/\?q="/.test(R('404.html')));
  // Guides: safety box under the H1, then the intro; pull-over line; linked sources; recall line.
  const g=main(R('symptoms/engine-overheating/index.html'));
@@ -259,6 +264,16 @@ for(const code of ['p2300','p2335','p06d1']){const h=fs.readFileSync(D('codes/'+
  T('T08-ABOUT','About page heading order H1 then H2',/<h2>How we work<\/h2>/.test(R('about/index.html')));
  T('TSB-PAGE','/bulletins/ explains a bulletin is not a recall',/A bulletin is not a recall\. If your car has an open recall, that comes first\./.test(R('bulletins/index.html'))&&!/\bfree\b/i.test(main(R('bulletins/index.html')).replace(/<footer[\s\S]*/,'')));
  T('T17-LLMS','llms.txt lists stop-driving pages and says no prices',/## Stop-driving pages/.test(R('llms.txt'))&&/oil-pressure-light/.test(R('llms.txt'))&&/No prices or repair quotes are published/.test(R('llms.txt')));
+ // COUNT: site counts are filled in from the data at build time, so they can't go stale (the homepage said 100 guides when the index had 120).
+ {const win=f=>{const w={};require('vm').runInNewContext(R(f),{window:w,fetch:()=>Promise.reject()});return w};
+  const G=(win('guide-index.js').GUIDE_INDEX||[]).length,VV=win('vehicles.js').VEHICLES||[],C=(win('codes-index.js').CODE_INDEX||[]).length;
+  const y0=Math.min(...VV.map(v=>v.years[0])),y1=Math.max(...VV.map(v=>v.years[1]));
+  const home=R('index.html'),strip=(home.match(/<ul class="proof proof-strip">([\s\S]*?)<\/ul>/)||['',''])[1],llms=R('llms.txt');
+  const hg=(strip.match(/<b>(\d+)<\/b> step-by-step symptom guides/)||[])[1];
+  T('COUNT-GUIDES','Homepage guide count matches the number of guides in the guide index',G>0&&hg===String(G),'homepage='+hg+' index='+G);
+  T('COUNT-MODELS','Homepage model count and years match the vehicle list',strip.includes('<b>'+VV.length+'</b> popular models, '+y0+' to '+y1+'<')&&home.includes('Browse all '+VV.length+' models')&&home.includes('covers '+VV.length+' popular models from '+y0+' on'),strip.replace(/\s+/g,' ').slice(0,200));
+  T('COUNT-LLMS','llms.txt counts match the guide index, vehicle list and code list',llms.includes(': '+G+' step-by-step guides')&&llms.includes(': '+VV.length+' popular models, '+y0+' to '+y1+',')&&llms.includes(': '+C+' OBD-II codes'),'guides='+G+' models='+VV.length+' codes='+C);
+  T('COUNT-NOHOLES','No count placeholder is left unfilled on the homepage or vehicles hub',!/{{[A-Z]+}}/.test(home)&&!/{{[A-Z]+}}/.test(R('vehicles/index.html'))&&R('vehicles/index.html').includes('cover, '+y0+' and newer.'))}
  // Contract 3: issue sources in vehicle data; internal fields stay out.
  {const v=JSON.parse(R('data/v/toyota-camry.json'));const all=JSON.stringify(v);
   T('C3-SL','Vehicle data carries sl (links only on the whitelist) and no internal review fields',v.issues.some(i=>Array.isArray(i.sl)&&i.sl.length)&&v.issues.every(i=>(i.sl||[]).every(x=>x.u===null||/^https:\/\/([a-z0-9-]+\.)*(nhtsa\.gov|[a-z0-9-]+\.gov|aaa\.com)\//.test(x.u)||/owner|manual/i.test(x.u)))&&!/sevReviewed|sevReason/.test(all)&&Array.isArray(v.tsbs))}
@@ -294,6 +309,52 @@ for(const r of ['/symptoms/','/symptoms/brake-lights-not-working/','/vehicles/ho
  T('TC06-C','Missing C codes get the brake-safety line',cc&&/C codes are chassis codes/.test(ct)&&/pull over safely and have it towed/.test(ct)&&(!/^C[1-3]/.test(cc)||/set by the carmaker/.test(ct)),cc+': '+ct.slice(0,200));
  const gp=pick(['P0FFF','P0FFE','P2FFE']);const gt=gp?await msg(gp):'';
  T('TC06-GEN','Generic missing codes keep the try-the-first-letters line',gp&&/Try the first letters/.test(gt)&&!/carmaker/.test(gt),gp+': '+gt.slice(0,200))}
+
+// ---- Nov 27 evening: summaries agree with the detailed instructions (power steering, wrench light, cabin exhaust) ----
+{const staticDoc=r=>new JSDOM(fs.readFileSync(D(r+'index.html'),'utf8')).window.document;
+ const sentences=t=>t.replace(/\s+/g,' ').split(/(?<=[.!?])\s+/);
+ // Restart advice given as an instruction (not "a restart is not a fix", "even after a restart" or "don't restart the engine").
+ const RESTART=/(?<!(?:n't|not) )\b(?:then )?restart (?:once|it|the engine)\b|start it again|light stays out|steering systems reset/i;
+ // Walk a guide in the browser by answer text; returns the result's urgency, next step and mechanic summary.
+ const walk=async(route,answers)=>{const p=load(route,{});await sleep(250);const app=()=>p.doc.getElementById('guideApp');
+  for(const a of answers){const b=[...app().querySelectorAll('.opt')].find(x=>x.textContent.trim().startsWith(a));if(!b){const q=(app().querySelector('.fq')||{}).textContent;p.w.close();return {missing:a,q}}b.click();await sleep(30)}
+  const out={q:(app().querySelector('.fq')||{}).textContent||'',urg:((p.doc.getElementById('resultUrgency')||{}).textContent||'').replace(/^\s*How urgent:\s*/,''),title:(app().querySelector('.rt')||{}).textContent||'',
+   now:([...app().querySelectorAll('.rsec')].find(s=>/What to do next/.test(s.textContent))||{querySelector:()=>({})}).querySelector('p').textContent||'',sum:(p.doc.getElementById('sum')||{}).textContent||''};p.w.close();return out};
+ // Power steering light page: top summary, steps, DIY checks, reset box and FAQ all say stop when heavy or red, with no restart-to-clear advice.
+ {const d=staticDoc('/warning-lights/power-steering-light/');const all=d.querySelector('main').textContent;
+  const stopIf=(d.querySelector('.urg-stopif')||{}).textContent||'',drive=(d.querySelector('.drivebox p')||{}).textContent||'',first=(d.querySelector('#todo li')||{}).textContent||'';
+  const ld=JSON.parse([...d.querySelectorAll('script[type="application/ld+json"]')].map(s=>s.textContent).find(t=>/FAQPage/.test(t)));const faq=ld.mainEntity.map(q=>q.acceptedAnswer.text).join(' ');
+  T('ED-PS-LIGHT','Power steering light: summary, first step and FAQ say stop when heavy or red; no restart-to-clear advice anywhere',
+   /the light is red or the steering feels heavy/.test(stopIf)&&/red or the steering takes more effort than normal, pull over[^.]*stop\. Don't drive it until it's checked/.test(drive)&&/A restart is not a fix/.test(drive)
+   &&/^If the steering feels heavy or the light is red, stop somewhere safe and don't drive it until it's checked\. Restarting the engine is not a fix\./.test(first)&&!RESTART.test(all)&&!RESTART.test(faq),
+   'stopIf='+stopIf+' | drive='+drive.slice(0,120)+' | first='+first.slice(0,80)+' | restart='+((all.match(RESTART)||faq.match(RESTART)||[''])[0]))}
+ // Power steering guide: heavy or red outcomes say stop, and the on-screen step, the saved/printed summary and the text-message share agree.
+ {const paths=[['Very heavy','None of these'],['Very heavy',"I'm not sure"],['Very heavy','It happened right after a jump start'],['Very heavy','The battery light is on too'],['Normal, and the light is red'],['Sometimes heavy']];const bad=[];
+  for(const a of paths){const r=await walk('/symptoms/power-steering-warning-light/',a);
+   if(r.missing||!/^Stop/.test(r.urg)||!/Don't drive it|Avoid driving it|rather than driving on/.test(r.now)||RESTART.test(r.now)||!r.sum.includes('What to do next: '+r.now))bad.push(a.join(' > ')+': '+JSON.stringify(r).slice(0,200))}
+  const j=JSON.parse(fs.readFileSync(path.join(__dirname,'../src/journeys/power-steering-warning-light.json'),'utf8'));
+  const heavy=j.safety.find(t=>/steering suddenly gets heavy/.test(t))||'';
+  T('ED-PS-GUIDE','Power steering guide: heavy-steering and red-light outcomes say stop in the result and the mechanic summary; top safety note says a restart is not a fix',
+   !bad.length&&/Don't drive it again until it's checked\. A restart is not a fix\./.test(heavy)&&!Object.values(j.nodes).some(n=>n.result&&RESTART.test(n.result.now+' '+n.result.if.join(' '))),bad.join(' || ')||heavy)}
+ // Wrench light: gentle driving only when the car drives normally; power loss, slipping or jerking means stop somewhere safe and tow or check it there.
+ {const bad=[];for(const id of ['wrench-light','service-light']){const d=staticDoc('/warning-lights/'+id+'/');
+   const ld=JSON.parse([...d.querySelectorAll('script[type="application/ld+json"]')].map(s=>s.textContent).find(t=>/FAQPage/.test(t)));
+   const text=[d.querySelector('main').textContent,...ld.mainEntity.map(q=>q.acceptedAnswer.text)].join(' ');
+   for(const s of sentences(text)){
+    if(/drive (?:it )?gently|drive carefully|head straight for a shop|get yourself home/i.test(s)&&!/normally/.test(s))bad.push(id+' allows driving without "normally": '+s);
+    if(/(?:power is (?:clearly )?(?:reduced|down)|reduced power|slip|jerk|pedal feels dead|won't speed up|will not pick up speed)/i.test(s)&&/drive (?:it )?gently|drive (?:it )?straight|head straight|stay off the highway and drive|keep driving hard/i.test(s))bad.push(id+' lets you drive on with power loss or slipping: '+s)}}
+  const w=staticDoc('/warning-lights/wrench-light/'),drive=(w.querySelector('.drivebox p')||{}).textContent||'',stopIf=(w.querySelector('.urg-stopif')||{}).textContent||'';
+  T('ED-WRENCH','Wrench light: details match the summary (power loss, slipping or jerking: no further than a safe place to stop, tow or check it there)',
+   !bad.length&&/slip or jerk, don't drive further than a safe place to stop\. Have it towed or checked where it is\./.test(drive)&&/slip or jerk/.test(stopIf),bad.join(' || ')||drive.slice(0,200))}
+ // Cabin exhaust: the open-hatch branch asks about fumes with everything closed before the lower-urgency rear-seal advice.
+ {const j=JSON.parse(fs.readFileSync(path.join(__dirname,'../src/journeys/exhaust-smell-in-cabin.json'),'utf8'));
+  const parents=Object.entries(j.nodes).filter(([,n])=>(n.opts||[]).some(o=>o.go==='r_rear_seal')).map(([k])=>k);
+  const base=['No','When the rear hatch'];const ask=await walk('/symptoms/exhaust-smell-in-cabin/',base);
+  const yes=await walk('/symptoms/exhaust-smell-in-cabin/',[...base,'Yes, I still smell it']),unsure=await walk('/symptoms/exhaust-smell-in-cabin/',[...base,"I'm not sure"]),no=await walk('/symptoms/exhaust-smell-in-cabin/',[...base,'No, it goes away']);
+  T('ED-EXHAUST','Cabin exhaust: hatch branch asks whether fumes persist with everything closed; yes or unsure is a stop result, only "no" gets the seal check within days',
+   parents.join()==='q_rear_closed'&&/hatch, trunk and all the windows closed/.test(ask.q)&&/^Stop/.test(yes.urg)&&/^Stop/.test(unsure.urg)&&/Avoid using the car/.test(yes.sum)&&/^Get it checked/.test(no.urg)&&/through the back of the car/.test(no.title),
+   JSON.stringify({parents,ask:ask.q,yes:yes.urg,unsure:unsure.urg,no:no.urg+' '+no.title}).slice(0,300))}
+}
 
 fs.mkdirSync(path.join(__dirname,'../audit/generated'),{recursive:true});
 fs.writeFileSync(path.join(__dirname,'../audit/generated/regression-results.json'),JSON.stringify({ran:new Date().toISOString(),results},null,1));

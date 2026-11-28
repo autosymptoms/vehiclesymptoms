@@ -205,7 +205,7 @@ function yearSummary(keyed,name){
   return `<section class="${high.length?'safety':'livebox'}" id="vsum" aria-label="Summary for the ${esc(name)}" style="margin:0 0 14px">`+
     (high.length?`<b>${high.length} serious problem${high.length>1?'s':''} reported for this year</b><ul>${top.map(li).join('')}</ul>${high.length>top.length?`<p style="margin:4px 0 0">and ${high.length-top.length} more below.</p>`:''}<p style="margin:6px 0 0">Not every car has these problems. Tap one to see the signs and what to do.</p>`
       :`<strong>No problems on file rated “Stop soon” for this year.</strong><p style="margin:6px 0 0">This is not a safety check of your car. If a warning light is on or the car feels wrong, <a href="/symptoms/">start with what it is doing</a>.</p>`)+
-    `<p id="vsumRec" style="margin:10px 0 0"><strong>Safety recalls:</strong> checking NHTSA… · ${vinLink('summary')}</p></section>`;
+    `<p id="vsumRec" role="status" style="margin:10px 0 0"><strong>Safety recalls:</strong> checking NHTSA… · ${vinLink('summary')}</p></section>`;
 }
 function renderVehicle(v,year){
   const el=document.getElementById('vehicleView');

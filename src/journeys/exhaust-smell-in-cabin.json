@@ -57,7 +57,7 @@
     },
     {
      "a": "When the rear hatch, tailgate, trunk or back windows are open",
-     "go": "r_rear_seal"
+     "go": "q_rear_closed"
     },
     {
      "a": "When parked with the engine running, especially in snow or a garage",
@@ -70,6 +70,24 @@
     {
      "a": "I'm not sure",
      "go": "q_noise"
+    }
+   ]
+  },
+  "q_rear_closed": {
+   "q": "With the hatch, trunk and all the windows closed, is the exhaust smell still there?",
+   "help": "Exhaust can be pulled in through an open hatch or window. If the smell stays with everything closed, it's getting in some other way.",
+   "opts": [
+    {
+     "a": "No, it goes away once everything is closed",
+     "go": "r_rear_seal"
+    },
+    {
+     "a": "Yes, I still smell it with everything closed",
+     "go": "r_source_unclear"
+    },
+    {
+     "a": "I'm not sure",
+     "go": "r_source_unclear"
     }
    ]
   },
@@ -172,7 +190,7 @@
     "now": "Keep the rear hatch, trunk and back windows closed while driving, and have the rear seals and exhaust checked within a few days.",
     "if": [
      "Don't drive with the rear hatch, trunk or back windows open. If something won't close, don't drive the car until it's fixed.",
-     "If the smell is there even with everything closed, don't drive it until the exhaust and seals are checked.",
+     "If the smell comes back with everything closed, don't drive it until the exhaust and seals are checked.",
      "If anyone has a headache, dizziness, nausea, weakness, confusion or sleepiness, this may be carbon monoxide poisoning. Get everyone into fresh air right away and call 911 from outside the car. Get medical advice even if they start to feel better."
     ],
     "why": "As a car moves, low air pressure forms behind it and can pull exhaust toward the back. With a hatch or window open, or a worn seal, those fumes get sucked into the cabin. Wagons, SUVs and hatchbacks are especially prone to this.",

@@ -42,7 +42,7 @@ document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&
 <header>
   <div class="wrap nav">
     <a class="logo" href="/" aria-label="VehicleSymptoms home">
-      <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M4 15a8 8 0 0 1 16 0"/><path d="M12 15l4-5"/></svg></div>
+      <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 15a8 8 0 0 1 16 0"/><path d="M12 15l4-5"/></svg></div>
       <span>Vehicle<b>Symptoms</b></span>
     </a>
     <nav class="links" id="links">
@@ -97,19 +97,19 @@ document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&
           <select id="pickModel" aria-label="Model" disabled></select>
           <button class="btn" id="pickGo" type="submit" disabled>Show my vehicle</button>
         </form>
-        <details class="vin-d"><summary>My vehicle isn't listed</summary><p class="note">Our library covers {{NMODELS}} popular models from 1996 on and is still growing. Everything else on the site works for any car or truck: start with what your car is doing.</p></details>
+        <details class="vin-d"><summary>My vehicle isn't listed</summary><p class="note">Our library covers {{NMODELS}} popular models from {{YFIRST}} on and is still growing. Everything else on the site works for any car or truck: start with what your car is doing.</p></details>
         <details class="vin-d"><summary>Or use your VIN</summary>
           <form id="vinForm"><input id="vinInput" maxlength="17" placeholder="17-character VIN" aria-label="VIN"><button class="btn" type="submit">Decode</button></form>
           <p class="note">Find it on the driver’s door label or at the base of the windshield. The NHTSA decoder identifies your vehicle. Recall listings cover the model year. A dealer can confirm which recalls remain open on your VIN.</p>
         </details>
-        <div class="vin-out" id="vinOut"></div>
+        <div class="vin-out" id="vinOut" role="status"></div>
       </div>
     </aside>
     </div>
     <div class="wrap">
       <ul class="proof proof-strip">
-        <li><b>100</b> step-by-step symptom guides</li>
-        <li><b>{{NMODELS}}</b> popular models, 1996 to 2027</li>
+        <li><b>{{NGUIDES}}</b> step-by-step symptom guides</li>
+        <li><b>{{NMODELS}}</b> popular models, {{YFIRST}} to {{YLAST}}</li>
         <li><b>Free</b> VIN decoding and model-year recall information</li>
         <li><b>No</b> sign-up, ever</li>
       </ul>
@@ -132,9 +132,9 @@ document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&
 
   <section class="tools-sec">
     <div class="wrap tools">
-      <a class="tool" href="/warning-lights/"><span class="ti" style="color:#FFB020"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8l18 32H6z"/><path d="M24 20v10"/><circle cx="24" cy="35" r="1.3" fill="currentColor"/></svg></span><span><b>Warning lights</b>What's that light on my dash?</span></a>
-      <a class="tool" href="/codes/"><span class="ti" style="color:#5AB0FF"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="32" height="24" rx="3"/><path d="M15 20h4M15 28h10M27 20h6"/></svg></span><span><b>Code lookup</b>What does P0420 mean?</span></a>
-      <a class="tool" href="/vehicles/"><span class="ti" style="color:#34C77B"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30l4-10c1-2 2-3 4-3h16c2 0 3 1 4 3l4 10"/><rect x="6" y="30" width="36" height="8" rx="2"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/></svg></span><span><b>My vehicle</b>Known problems and recalls</span></a>
+      <a class="tool" href="/warning-lights/"><span class="ti" style="color:#FFB020"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 8l18 32H6z"/><path d="M24 20v10"/><circle cx="24" cy="35" r="1.3" fill="currentColor"/></svg></span><span><b>Warning lights</b>What's that light on my dash?</span></a>
+      <a class="tool" href="/codes/"><span class="ti" style="color:#5AB0FF"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="12" width="32" height="24" rx="3"/><path d="M15 20h4M15 28h10M27 20h6"/></svg></span><span><b>Code lookup</b>What does P0420 mean?</span></a>
+      <a class="tool" href="/vehicles/"><span class="ti" style="color:#34C77B"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 30l4-10c1-2 2-3 4-3h16c2 0 3 1 4 3l4 10"/><rect x="6" y="30" width="36" height="8" rx="2"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/></svg></span><span><b>My vehicle</b>Known problems and recalls</span></a>
     </div>
   </section>
 
@@ -143,9 +143,9 @@ document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&
       <h2>Car trouble shouldn't feel like a gamble.</h2>
       <p class="lead">A new noise or a warning light usually leaves you with three questions.</p>
       <div class="pain-grid">
-        <div class="pain"><span class="pi">?</span><h3>"Is it safe to drive?"</h3><p>Some problems can wait a month. Some mean pull over now. Guessing wrong can turn a small problem into a big one.</p></div>
-        <div class="pain"><span class="pi">?</span><h3>"What could be causing it?"</h3><p>One noise or light can have several causes. Knowing the likely ones tells you what to check first.</p></div>
-        <div class="pain"><span class="pi">!</span><h3>"What should I ask the shop?"</h3><p>When you understand the problem, it's easier to talk it through with a good shop and agree on the right fix.</p></div>
+        <div class="pain"><span class="pi" aria-hidden="true">?</span><h3>"Is it safe to drive?"</h3><p>Some problems can wait a month. Some mean pull over now. Guessing wrong can turn a small problem into a big one.</p></div>
+        <div class="pain"><span class="pi" aria-hidden="true">?</span><h3>"What could be causing it?"</h3><p>One noise or light can have several causes. Knowing the likely ones tells you what to check first.</p></div>
+        <div class="pain"><span class="pi" aria-hidden="true">!</span><h3>"What should I ask the shop?"</h3><p>When you understand the problem, it's easier to talk it through with a good shop and agree on the right fix.</p></div>
       </div>
     </div>
   </section>

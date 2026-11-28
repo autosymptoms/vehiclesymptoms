@@ -10,6 +10,11 @@ const SHOW_ANIMATIONS=false;
 const animations = SHOW_ANIMATIONS ? require('./src/animations/render').createLibrary() : null;
 const SITE='https://www.vehiclesymptoms.com';
 const BYLINE='<p class="byline">VehicleSymptoms team · Updated November 2026 · <a href="/about/">How we work</a></p>';
+// Symptom guides and roadside pages show the page's own lastmod date (src/lastmod.json): the day its visible content last
+// changed. The marker is an HTML comment, so it is not part of the page's content fingerprint; page() fills it in.
+const LASTMOD_MARK='<!--LASTMOD-->';
+const GUIDE_BYLINE='<p class="byline">VehicleSymptoms team · Last updated '+LASTMOD_MARK+' · <a href="/about/">How we work</a></p>';
+const RS_DATELINE='<p class="byline">Last updated '+LASTMOD_MARK+'</p>';
 const CRED='Plain-English guides for drivers, based on NHTSA safety and recall information, owner\'s manuals and published service information. A starting point, not a diagnosis.';
 
 const {createHash}=require('node:crypto');
@@ -242,6 +247,7 @@ function issueInYear(v,i,y){if(!(y>=i.y[0]&&y<=i.y[1]))return false;const tags=i
 const thin=V.reduce((a,v)=>{for(let y=v.years[0];y<=v.years[1];y++)if(sold(v,y)&&v.issues.filter(i=>issueInYear(v,i,y)).length<2)a++;return a},0);
 for(const v of V)for(const i of v.issues)if(firstSold(v,i)===null)console.log('issue only in not-sold years',v.id,i.t,i.y);
 console.log(`${priced} issues priced, ${ownN} ownership snapshots`);
+const YFIRST=Math.min(...V.map(v=>v.years[0])),YLAST=Math.max(...V.map(v=>v.years[1]));
 console.log(`${V.length} models (${deepN} deepened), ${V.reduce((a,v)=>a+v.issues.length,0)} issues, ${thin} thin year pages${bad?', '+bad+' problems':''}`);
 
 // ---------- symptom guides ----------
@@ -305,7 +311,9 @@ const tpl=fs.readFileSync('src/template.html','utf8')
   .replace('{{ANIMATIONLINK}}', animations ? ' · <a href="/repair-animations/">Repair animations</a>' : '')
   .replace('{{ROADSIDEBTN}}',()=>ROADSIDEBTN).replace('{{SMOKECHIP}}',()=>SMOKECHIP)
   .replace('{{FOOTLINKS}}',HAS_RS?' · <a href="/roadside/" style="color:var(--blue2)">Roadside help</a>':'')
-  .replace(/{{NMODELS}}/g,String(V.length));
+  // Site counts come from the data, never typed by hand: guides = the published guide index, models and years = the vehicle list.
+  .replace(/{{NMODELS}}/g,String(V.length)).replace(/{{NGUIDES}}/g,String(INDEX.length))
+  .replace(/{{YFIRST}}/g,String(YFIRST)).replace(/{{YLAST}}/g,String(YLAST));
 fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');
 // Phones only download what a page needs: a small vehicle list everywhere, full data per vehicle on demand.
 {const lite=V.map(v=>{const o={};for(const k of Object.keys(v))if(k!=='issues'&&k!=='own'&&k!=='reset'&&k!=='tsbs')o[k]=v[k];o.hasReset=!!v.reset;o.issues=[];o.n=v.issues.length;return o});
@@ -353,6 +361,15 @@ const RW=R.window;
 
 function write(p,html){const f='dist'+p+'index.html';fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,html)}
 const PAGEHASH={};
+// lastmod is the date a page's own content last changed. src/lastmod.json keeps each page's content
+// fingerprint and date; a page only gets a new date when its fingerprint changes. Commit the updated
+// src/lastmod.json with content changes so the dates stick (the build rewrites it).
+const TODAY=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
+const LM_FILE='src/lastmod.json';
+const LM_OLD=fs.existsSync(LM_FILE)?JSON.parse(fs.readFileSync(LM_FILE,'utf8')):{};
+const lastmodFor=(u,h)=>{const o=LM_OLD[u];return o&&o.h===h?o:{h,d:TODAY}};
+const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const showDate=d=>{const [y,m,day]=String(d).split('-').map(Number);return `<time datetime="${d}">${MONTHS[m-1]} ${day}, ${y}</time>`};
 // Shorten a meta description at a sentence or word boundary instead of mid-word.
 function clip(text,max=160){text=String(text).replace(/\s+/g,' ').trim();if(text.length<=max)return text;const cut=text.slice(0,max+1);
   const end=Math.max(cut.lastIndexOf('. '),cut.lastIndexOf('? '),cut.lastIndexOf('! '));if(end>max*0.55)return cut.slice(0,end+1);
@@ -385,7 +402,7 @@ function page(p,title,desc,{inner='',pageData='',home=false,noindex=false}={}){d
   // T-15: lastmod follows what a visitor reads (title, description and visible text), not scripts or markup, so a rebuild
   // of the same content keeps its dates.
   PAGEHASH[p]=createHash('sha1').update(JSON.stringify([title,desc,visibleText(home?HOMEBLOCK.replace('{{LIGHTSROW}}',LIGHTSROW)+inner:inner),noindex])).digest('hex').slice(0,16);
-  write(p,h);return p;
+  write(p,h.includes(LASTMOD_MARK)?h.split(LASTMOD_MARK).join(showDate(lastmodFor(p,PAGEHASH[p]).d)):h);return p;
 }
 const urls=[];
 const animationScript = '<script defer src="/repair-animations.js"></script>';
@@ -440,10 +457,10 @@ for(const j of J){
 <div class="ghead"><div class="eyebrow">${escH(GL[j.group])}</div><h1>${escH(j.h1)}</h1></div>
 ${PULLOVER}${safetyBox(j.safety,j.safetyTips)}${rsJump(j)}<p class="sub gintro">${escH(j.intro)}</p>
 ${SHOW_SOUNDS&&j.id===sound.guide?`<p><a href="/sounds/#${sound.section}">Hear a whir inside a moving car</a></p>`:''}
-${BYLINE}<div id="guideApp"><div class="flow card"><div class="step-n">Question 1</div><h2 class="fq">${escH(firstQ.q)}</h2>${firstQ.help?`<p class="help">${escH(firstQ.help)}</p>`:''}<div class="opts">${firstQ.opts.map(o=>`<button class="opt">${escH(o.a)}</button>`).join('')}</div></div></div>
+${GUIDE_BYLINE}<div id="guideApp"><div class="flow card"><div class="step-n">Question 1</div><h2 class="fq">${escH(firstQ.q)}</h2>${firstQ.help?`<p class="help">${escH(firstQ.help)}</p>`:''}<div class="opts">${firstQ.opts.map(o=>`<button class="opt">${escH(o.a)}</button>`).join('')}</div></div></div>
 ${animation}
 <div class="fullguide"><h2 style="font-size:20px">Full guide: every possible outcome</h2><p class="muted" style="margin-top:-4px">Prefer to read it all? Here's every result this guide can reach.</p>
-${results.map(r=>`<details><summary>${escH(r.title)}<span class="urg ${UL[r.urgency][1]}">${UL[r.urgency][0]}</span></summary><div class="fg"><p><b>What to do now:</b> ${escH(r.now)}</p>${(r.links||[]).filter(l=>l&&/^\/[a-z0-9\/#-]*$/.test(l.u)).map(l=>`<p><a class="rs-jump" href="${escA(l.u)}">${escH(l.t)} →</a></p>`).join('')}${(r.if||[]).length?`<p><b>Watch for:</b></p><ul class="fg-if">${r.if.map(x=>`<li>${escH(x)}</li>`).join('')}</ul>`:''}<p><b>Why:</b> ${escH(r.why)}</p><p><b>Possible causes:</b> ${r.causes.map(c=>escH(c.name)).join('; ')}.</p><p><b>A shop will usually test:</b> ${r.confirm.shop.map(escH).join('; ')}.</p></div></details>`).join('\n')}
+${results.map(r=>`<details><summary>${escH(r.title)}<span class="urg ${UL[r.urgency][1]}"><span class="sr-only">. How urgent: </span>${UL[r.urgency][0]}</span></summary><div class="fg"><p><b>What to do now:</b> ${escH(r.now)}</p>${(r.links||[]).filter(l=>l&&/^\/[a-z0-9\/#-]*$/.test(l.u)).map(l=>`<p><a class="rs-jump" href="${escA(l.u)}">${escH(l.t)} →</a></p>`).join('')}${(r.if||[]).length?`<p><b>Watch for:</b></p><ul class="fg-if">${r.if.map(x=>`<li>${escH(x)}</li>`).join('')}</ul>`:''}<p><b>Why:</b> ${escH(r.why)}</p><p><b>Possible causes:</b> ${r.causes.map(c=>escH(c.name)).join('; ')}.</p><p><b>A shop will usually test:</b> ${r.confirm.shop.map(escH).join('; ')}.</p></div></details>`).join('\n')}
 ${j.related.length?`<h2 style="font-size:20px;margin-top:26px">Related guides</h2><div class="glist">${j.related.map(id=>{const r=J.find(x=>x.id===id);return`<a class="gcard" href="/symptoms/${r.id}/"><b>${escH(r.title)}</b><span>${escH(r.h1)}</span></a>`}).join('')}</div>`:''}
 <section class="srcs-sec"><h2 style="font-size:18px">Sources and references</h2><ul class="srcs">${sourceList(j.sources)||'<li>Editorial evidence on file</li>'}</ul>${recallLine()}</section>
 <div class="trust" style="margin-top:18px">This guide helps you understand what may be going on and how urgent it is. It doesn't replace an in-person inspection.</div></div>`;
@@ -515,8 +532,9 @@ function relatedCodes(c){const have=x=>CODEBY.get(x);const out=[],add=x=>{const 
     for(const x of same){if(out.length>=8)break;out.push(x)}}
   return out}
 // TC-21: what "bank" and "sensor" mean, on oxygen sensor, catalyst and fuel trim pages.
+const BANK_NOTE='Bank 1 is the side of the engine with cylinder 1. Inline engines have one bank; V and flat (boxer) engines have two. Check an engine diagram for your model to find each bank.';
 function bankNote(c){const t=c.title;const notes=[];
-  if(/\bbank\s*[12]\b/i.test(t))notes.push('Bank 1 is the side of the engine with cylinder 1; four-cylinder engines have only one bank.');
+  if(/\bbank\s*[12]\b/i.test(t))notes.push(BANK_NOTE);
   if(/\b(?:o2|oxygen|a\/f|air.fuel ratio) sensor\b/i.test(t)&&/\bsensor\s*[123]\b/i.test(t))notes.push('Sensor 1 is the oxygen sensor before the catalytic converter; Sensor 2 is after it.');
   return notes.length?`<p class="lmuted bank-note">${escH(notes.join(' '))}</p>`:''}
 // TC-03: name the sources behind each page's causes and advice, not just the code-title standard.
@@ -528,6 +546,8 @@ function codeSources(c){const names=[...new Set((c.src||[]).filter(u=>!WEAK_CODE
 // TC-07: how to get your codes read.
 const CODEREAD='<section class="card csec coderead"><h2>How to get your code read</h2><p>Have more codes? Many auto parts stores will read your codes for free, or a basic OBD2 code reader plugs into the port under the dashboard on the driver\'s side. Write down every code, since the first one isn\'t always the cause.</p></section>';
 const JT=Object.fromEntries(J.map(j=>[j.id,j]));
+// The stop box lists this code's own stop-driving signs; these other signs always mean stop too.
+const URG_ALSO='Also stop if the brakes or steering feel wrong, or you notice overheating, smoke or a burning smell.';
 for(let k=0;k<CODES.length;k++){const c=CODES[k],low=c.code.toLowerCase(),u=CURG[c.sev];
   const fam=relatedCodes(c);
   const veh=(codeVeh[c.code]||[]).slice(0,10);const g=c.guide&&JT[c.guide];
@@ -539,7 +559,7 @@ for(let k=0;k<CODES.length;k++){const c=CODES[k],low=c.code.toLowerCase(),u=CURG
   const ld='<script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}).replace(/</g,'\\u003c')+'</script>\n';
   const inner=`<div class="crumb"><a href="/">Home</a> › <a href="/codes/">Code lookup</a> › ${c.code}</div>
 <div class="ghead"><div class="eyebrow">${escH(famName(c.code))} code · ${escH(c.sys)}</div><h1><span class="code-big">${c.code}</span> ${escH(c.title)}</h1></div>
-${c.urgent_if?`<div class="urg-first" role="alert"><b class="urg-first-h">Pull over now only if:</b> ${escH(c.urgent_if)}</div>`:''}<div class="urg ${u[1]}"><b>How urgent?</b> ${c.urgent_if?'Otherwise: ':''}${escH(u[0])}</div>
+${c.urgent_if?`<div class="urg-first" role="alert"><b class="urg-first-h">Stop-driving signs:</b> ${escH(c.urgent_if)} ${escH(URG_ALSO)}</div>`:''}<div class="urg ${u[1]}"><b>How urgent?</b> ${c.urgent_if?'Otherwise: ':''}${escH(u[0])}</div>
 ${BYLINE}<div id="codeMy"></div>
 <section class="card csec"><h2>What it means</h2><p class="lead2">${escH(c.plain)}</p>${bankNote(c)}</section>
 ${CODEREAD}
@@ -847,7 +867,7 @@ const RSTRUST='<div class="trust">This is general safety information, not a repl
 if(HAS_RS){
   const hub=RSHUB||{h1:'Stuck on the road?',intro:"If you're on the road right now: turn on your hazard lights and get off the road if you can. If anyone is hurt, you see smoke, or you're stuck in a traffic lane, call 911."};
   urls.push(page('/roadside/',`${hub.h1.replace(/[?.!]$/,'')}: What to Do Right Now | VehicleSymptoms.com`,hub.metaDesc||clip(hub.intro,155),{inner:`<div class="crumb"><a href="/">Home</a> › Roadside help</div>
-<div class="ghead"><div class="eyebrow">Roadside help</div><h1>${escH(hub.h1)}</h1></div>
+<div class="ghead"><div class="eyebrow">Roadside help</div><h1>${escH(hub.h1)}</h1>${RS_DATELINE}</div>
 <div class="rs-first rs-stop"><p>${escH(hub.intro)}</p></div>
 <h2 class="rs-pick">What's happening?</h2>
 <div class="rs-tiles">${RS.map(r=>`<a class="rs-tile rs-${r.danger}" href="/roadside/${r.id}/"><b>${escH(r.tile)}</b><span>${RSLABEL[r.danger]}</span></a>`).join('')}</div>
@@ -860,7 +880,7 @@ ${RSTRUST}`}));
     const lts=(r.lights||[]).map(id=>{const l=LIGHTS.find(x=>x.id===id);if(!l)console.log('roadside light id not found:',r.id,id);return l}).filter(Boolean)
       .map((l,k)=>[l,k]).sort((a,b)=>(({red:0,amber:1})[a[0].color]??2)-(({red:0,amber:1})[b[0].color]??2)||a[1]-b[1]).map(x=>x[0]);
     urls.push(page('/roadside/'+r.id+'/',`${r.title} | VehicleSymptoms.com`,r.metaDesc,{inner:`<div class="crumb"><a href="/">Home</a> › <a href="/roadside/">Roadside help</a> › ${escH(r.title)}</div>
-<div class="ghead rs-head${PRINTABLE.has(r.id)?' rs-printable':''}"><div class="eyebrow">Roadside help</div><h1>${escH(r.h1)}</h1></div>
+<div class="ghead rs-head${PRINTABLE.has(r.id)?' rs-printable':''}"><div class="eyebrow">Roadside help</div><h1>${escH(r.h1)}</h1>${RS_DATELINE}</div>
 <section class="rs-first rs-${r.danger}" id="first" aria-labelledby="rs-first-h"><h2 id="rs-first-h">Do this first</h2><ol class="rs-list">${r.first.map(t=>`<li>${escH(t)}</li>`).join('')}</ol></section>
 ${(r.dont||[]).length?`<section class="rs-dont" aria-labelledby="rs-dont-h"><h2 id="rs-dont-h">Don't</h2><ul class="xs">${r.dont.map(t=>`<li>${escH(t)}</li>`).join('')}</ul></section>`:''}
 ${(r.call||[]).length?`<section class="rs-call" aria-labelledby="rs-call-h"><h2 id="rs-call-h">When to call for help</h2><ul class="dots">${r.call.map(t=>`<li>${escH(t)}</li>`).join('')}</ul></section>`:''}
@@ -902,7 +922,7 @@ for(const v of V){
 }
 // Plain make -> model links so every vehicle page is reachable without JavaScript dropdowns.
 {const mk=[...new Set(V.map(v=>v.make))].sort((a,b)=>a.localeCompare(b));const ms=m=>m.toLowerCase().replace(/[^a-z0-9]+/g,'-');
- urls.push(page('/vehicles/','All Makes and Models: Car Problems and Recalls | VehicleSymptoms.com','Browse every make and model we cover, 1996 and newer. Pick yours to see known problems and safety recalls by model year.',{inner:`<div class="crumb"><a href="/">Home</a> › All vehicles</div>
+ urls.push(page('/vehicles/','All Makes and Models: Car Problems and Recalls | VehicleSymptoms.com',`Browse every make and model we cover, ${YFIRST} and newer. Pick yours to see known problems and safety recalls by model year.`,{inner:`<div class="crumb"><a href="/">Home</a> › All vehicles</div>
 <div class="ghead"><div class="eyebrow">All vehicles</div><h1>Find your car by make and model</h1><p class="sub">${V.length} models from ${mk.length} makes. Pick your model, then your year.</p></div>
 <p class="codechips">${mk.map(m=>`<a href="#${ms(m)}">${escH(m)}</a>`).join('')}</p>
 ${mk.map(m=>`<section class="csec" id="${ms(m)}"><h2>${escH(m)}</h2><div class="glist">${V.filter(v=>v.make===m).map(v=>`<a class="gcard" href="/vehicles/${v.id}/"><b>${escH(m+' '+v.model)}</b><span>${v.years[0]}–${v.years[1]}</span></a>`).join('')}</div></section>`).join('')}`}));}
@@ -910,7 +930,7 @@ ${mk.map(m=>`<section class="csec" id="${ms(m)}"><h2>${escH(m)}</h2><div class="
 // The group is the normalized text, so one documented sign-off covers equivalent wording; each context is still listed and tested.
 const SAFE=[];{const grp=t=>'t:'+EV.slug(t).slice(0,70)+':'+require('crypto').createHash('sha1').update(String(t).toLowerCase().replace(/\s+/g,' ').trim()).digest('hex').slice(0,10);
  const add=(text,context,kind)=>{if(text)SAFE.push({group:grp(text),text,context,kind})};
- for(const c of CODES){const r='/codes/'+c.code.toLowerCase()+'/';if(c.urgent_if){add(c.urgent_if,r+'#urgent-first','code-urgent-if');add(c.urgent_if,r+'#faq','code-urgent-if')}if(c.sev==='stop'){add(CURG.stop[0],r+'#badge','code-badge');add(c.drive||'default-stop-drive',r+'#drive','code-drive')}}
+ for(const c of CODES){const r='/codes/'+c.code.toLowerCase()+'/';if(c.urgent_if){add(c.urgent_if,r+'#urgent-first','code-urgent-if');add(URG_ALSO,r+'#urgent-first','code-urgent-also');add(c.urgent_if,r+'#faq','code-urgent-if')}if(c.sev==='stop'){add(CURG.stop[0],r+'#badge','code-badge');add(c.drive||'default-stop-drive',r+'#drive','code-drive')}}
  for(const l of LIGHTS)if(l.sev==='stop'||l.sev==='soon'){const r='/warning-lights/'+l.id+'/';add(lsev(l)[0],r+'#badge','light-badge');add(l.drive,r+'#drive','light-drive');const d=LDEEP[l.id]||{};if(d.flash)add(d.flash,r+'#flash','light-flash')}
  for(const j of J){const r='/symptoms/'+j.id+'/';j.safety.forEach((t,k)=>add(t,r+'#safety-'+k,'guide-safety'));for(const [nid,n] of Object.entries(j.nodes))if(n.result&&(n.result.urgency==='stop'||n.result.urgency==='soon'))add(n.result.now,r+'#'+nid,'guide-result-'+n.result.urgency)}
  for(const v of V)for(const i of v.issues)if(i.sev==='high')add(i.next,'/vehicles/'+v.id+'/#'+EV.slug(i.t),'vehicle-high-severity')}
@@ -919,15 +939,10 @@ console.log('safety contexts',SAFE.length,'groups',new Set(SAFE.map(x=>x.group))
 fs.mkdirSync('audit/generated',{recursive:true});fs.writeFileSync('audit/generated/price-ledger.json',JSON.stringify(LEDGER));
 {const t={};for(const r of LEDGER){const k=r.family+':'+r.status;t[k]=(t[k]||0)+1}console.log('price ledger',LEDGER.length,JSON.stringify(t))}
 // Sitemaps: one file per section, listed in a sitemap index at /sitemap.xml.
-// lastmod is the date a page's own content last changed. src/lastmod.json keeps each page's content
-// fingerprint and date; a page only gets a new date when its fingerprint changes. Commit the updated
-// src/lastmod.json with content changes so the dates stick (the build rewrites it).
-const TODAY=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
-const LM_FILE='src/lastmod.json';
-const LM_OLD=fs.existsSync(LM_FILE)?JSON.parse(fs.readFileSync(LM_FILE,'utf8')):{};
+// lastmod dates: see TODAY / LM_OLD / lastmodFor near PAGEHASH (the same date is shown on guide and roadside pages).
 const LM={};
 for(const u of urls){const h=PAGEHASH[u];if(!h)throw new Error('No content fingerprint for '+u);
-  const o=LM_OLD[u];LM[u]=o&&o.h===h?o:{h,d:TODAY}}
+  LM[u]=lastmodFor(u,h)}
 fs.writeFileSync(LM_FILE,'{\n'+Object.keys(LM).sort().map(u=>JSON.stringify(u)+':'+JSON.stringify(LM[u])).join(',\n')+'\n}\n');
 console.log(noindexYears+' year pages with no documented problems: noindex, left out of the sitemap');
 const SECTIONS=[['roadside',u=>u.startsWith('/roadside/')],['symptoms',u=>u.startsWith('/symptoms/')],['warning-lights',u=>u.startsWith('/warning-lights/')],['codes',u=>u.startsWith('/codes/')],['vehicles',u=>u.startsWith('/vehicles/')],['pages',()=>true]];
@@ -959,8 +974,8 @@ fs.writeFileSync('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<si
 The site is written for regular drivers, not mechanics. Nothing here is a confirmed diagnosis. No prices or repair quotes are published.
 
 ## Main sections
-${HAS_RS?`- [Roadside help](${SITE}/roadside/): what to do right now when you're stuck on the road or something feels dangerous (${RS.map(r=>r.tile).join(', ')}).\n`:''}${SHOW_SOUNDS?`- [Car sounds](${SITE}/sounds/): listen to a recorded whir inside a moving car.\n`:''}- [Symptom guides](${SITE}/symptoms/): ${JT?Object.keys(JT).length:100} step-by-step guides (shakes when braking, won't start, overheating, noises, smells, leaks). Each asks a few questions and ends with urgency, likely causes and a summary to show a mechanic.
-- [Vehicles](${SITE}/vehicles/): ${V.length} popular models, 1996 to 2027, with a page per model year listing documented problems by engine, model-year safety recalls and repair information.
+${HAS_RS?`- [Roadside help](${SITE}/roadside/): what to do right now when you're stuck on the road or something feels dangerous (${RS.map(r=>r.tile).join(', ')}).\n`:''}${SHOW_SOUNDS?`- [Car sounds](${SITE}/sounds/): listen to a recorded whir inside a moving car.\n`:''}- [Symptom guides](${SITE}/symptoms/): ${INDEX.length} step-by-step guides (shakes when braking, won't start, overheating, noises, smells, leaks). Each asks a few questions and ends with urgency, likely causes and a summary to show a mechanic.
+- [Vehicles](${SITE}/vehicles/): ${V.length} popular models, ${YFIRST} to ${YLAST}, with a page per model year listing documented problems by engine, model-year safety recalls and repair information.
 - [Warning lights](${SITE}/warning-lights/): ${LIGHTS.length} dashboard lights with what each means, how urgent it is, simple checks a driver can do, possible causes and how to reset reminder lights.
 - [Reset steps by make](${SITE}/warning-lights/reset/): oil change / maintenance reminder and tire pressure light reset procedures for ${Object.keys(RESETS).length} makes.
 - [Trouble code lookup](${SITE}/codes/): ${CODES.length} OBD-II codes in plain English with causes, what to check first and whether it is safe to drive.

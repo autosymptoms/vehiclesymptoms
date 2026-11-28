@@ -227,7 +227,12 @@ const auditUrgent=[
   ['battery light and wheel got hard to turn','steering-heavy'],['my wheel fell off','wheel-off'],['wheel came off while driving','wheel-off'],
   ['P0420 and my engine is hot','engine-hot'],['dash says stop safely now','stop-message'],['car says pull over safely','stop-message'],
   ['car running hot and no oil warning','overheat'],['check engine light flashing and car shaking','cel-flashing'],
-  ['exhaust in the cabin','exhaust']
+  ['exhaust in the cabin','exhaust'],
+  // Long stops and a pedal on the floor, with or without a trouble code.
+  ['P0420 and the car takes forever to stop','brakes'],['P0420 and it takes twice as far to stop','brakes'],
+  ['P0420 and I have to stand on the brakes','brakes'],['P0420 and the brake pedal is on the floor','brakes'],
+  ['car takes forever to stop','brakes'],['have to stand on the brakes','brakes'],['brake pedal is on the floor','brakes'],
+  ['takes much longer to stop','brakes'],['won\'t stop in time','brakes']
 ];
 for(const [query,rule] of auditUrgent){
   const r=submit(query);
@@ -237,10 +242,27 @@ for(const [query,rule] of auditUrgent){
 }
 for(const query of ['I push the clutch pedal all the way down to start','car says stop start system not available',
   'my steering wheel is hard to turn when parked','my hubcap fell off','brake pedal feels hard when the engine is off','my seat is hot',
-  'wheel bearing noise while driving','brakes squeak when I stop']){
+  'wheel bearing noise while driving','brakes squeak when I stop',
+  'takes forever to start','car stops fine','pedal goes to the floor when I accelerate',
+  'engine takes forever to stop after I turn it off']){
   assert.equal(window.VS_GUIDES.emergency(query),null,query+': not an emergency');
 }
-{const r=submit('P0420 and my brakes barely work');assert.ok(r.querySelector('.urgentnow').compareDocumentPosition(r.querySelector('a[href="/codes/?q=P0420"]'))&4,'code link comes after the safety step');}
+for(const query of ['P0420 and my brakes barely work','P0420 and the car takes forever to stop','P0420 and it takes twice as far to stop',
+  'P0420 and I have to stand on the brakes','P0420 and the brake pedal is on the floor']){
+  const r=submit(query);
+  assert.ok(r.querySelector('.urgentnow').compareDocumentPosition(r.querySelector('a[href="/codes/?q=P0420"]'))&4,query+': code link comes after the safety step');
+}
+// The parking brake is not the service brakes: no brake-failure step (it says to use the parking brake); the parking brake guide instead.
+for(const query of ['parking brake barely works','parking brake doesn\'t hold','e-brake won\'t hold','emergency brake barely works','hand brake doesn\'t work']){
+  assert.equal(window.VS_GUIDES.emergency(query),null,query+': not the brake-failure step');
+  document.getElementById('helpResults').innerHTML='';
+  const r=submit(query);
+  assert.ok(!r.querySelector('.urgentnow'),query+': no safety step');
+  assert.ok(location.href.startsWith('/symptoms/parking-brake-not-holding/')||r.querySelector('a[href^="/symptoms/parking-brake-not-holding/"]'),query+': parking brake guide');
+}
+assert.equal(window.VS_GUIDES.emergency('parking brake barely works and the brake pedal goes to the floor').rule,'brakes','service brakes still count beside the parking brake');
+// A code alone still goes straight to the code page.
+submit('P0420');assert.equal(location.href,'/codes/?q=P0420','code alone goes to the code page');
 assert.notEqual(window.VS_GUIDES.emergency('car running hot and no oil warning').rule,'oil');
 assert.ok(!window.VS_GUIDES.emergency('the oil light is off but the engine is overheating').also.some(t=>/oil light/i.test(t)));
 dom.window.close();

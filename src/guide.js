@@ -91,7 +91,9 @@ const everydayPhrases={
   'wipers-not-working':['Wipers not working','Windshield wipers stopped'],
   // Nov 27 teen-query re-run: phrases that still matched nothing.
   'car-wont-stay-in-park':['Car rolling while in park','Car rolling in park','Car rolling backwards'],
-  'light-out':['No headlights at night','Headlights went out while driving']
+  'light-out':['No headlights at night','Headlights went out while driving'],
+  // Audit Nov 27: parking brake complaints skip the brake-failure step, so plain search must find this guide.
+  'parking-brake-not-holding':['Parking brake barely works','Parking brake doesnt hold','Parking brake wont hold','E brake wont hold','Emergency brake doesnt hold','Handbrake doesnt hold','Hand brake doesnt work']
 };
 // "Won't crank" means the engine doesn't turn over at all: a no-start, not a slow crank.
 everydayPhrases['car-wont-start'].push('Car wont crank','Engine wont crank','Wont turn over','Car wont turn over',
@@ -155,7 +157,10 @@ const emergencyRules=[
     rx:new RegExp('\\bbrakes? (?:are |is |have |has |just |completely |totally )*(?:stopped|stop|quit|quits|failed|fail|failing|gave out|went out|gone|out|not working|dont work|do not work|doesnt work|does not work|arent working|wont work|isnt working|wont stop)\\b'+
       '|\\b(?:no|lost|losing|lose|without) (?:my |the |any )?brakes?\\b(?! lights?\\b)|\\bbrake failure\\b'+
       '|(?:^|\\b(?:car|it|truck|vehicle|suv|van|brakes?|i|we)\\s+)(?:wont|cant|will not|cannot|can not|couldnt|doesnt|does not|isnt) (?:stop|slow down|slow)\\b'+notStopping+
-      '|\\b(?:pedal|brakes?) (?:goes |go |went |going |gone |sinks |sank |sink |dropped |drops |fell |falls )?(?:straight |right )?(?:all the way )?(?:to|on|into) (?:the )?(?:floor|carpet|mat|floorboard)\\b'+
+      '|\\b(?:pedal|brakes?) (?:goes |go |went |going |gone |sinks |sank |sink |dropped |drops |fell |falls |is |was |sits |stays )?(?:straight |right )?(?:all the way )?(?:to|on|into) (?:the )?(?:floor|carpet|mat|floorboard)\\b'+
+      // Audit Nov 27: long stops ("car takes forever to stop", "it takes twice as far to stop") and "I have to stand on the brakes".
+      '|(?:^|\\b(?:car|it|truck|vehicle|suv|van|brakes?)\\s+)(?:is |now |just )?(?:takes?|taking|took) (?:forever|ages|so long|too long|a long time|(?:a lot |way |much |so much )?(?:longer|farther|further)|twice as (?:long|far)) (?:to )?(?:stop|slow down|slow)\\b'+
+      '|\\b(?:have to|need to|got to|gotta) (?:really )?stand on (?:the |my )?(?:brakes?|brake pedal)\\b'+
       '|\\b(?:brakes?|pedal) (?:\\w+ ){0,2}(?:went|gone|suddenly went|suddenly got|suddenly feels?|all of a sudden went) (?:really |very |super |completely )?soft\\b'+
       '|\\b(?:barely|hardly|wont|doesnt|isnt|not) (?:slow|slows|slowing|stop|stops|stopping)(?: down)?\\b.*\\bbrak|\\bbrak\\w*\\b.*\\b(?:barely|hardly) (?:slow|slows|stop|stops)'+
       '|\\bpedal\\b.*\\b(?:barely|hardly) (?:slows?|stops?)\\b'+
@@ -167,7 +172,11 @@ const emergencyRules=[
       '|\\b(?:push|press|pushing|pressing|put|step)\\b(?: \\w+){0,3} (?:brake|brakes|brake pedal)\\b(?: \\w+){0,2} (?:all the way|to the floor)\\b'+
       '|\\bbrake pedal\\b.*\\b(?:all the way down|goes down|went down|sinks|sank|no resistance)\\b'+
       '|\\b(?:cant|wont|cannot) stop\\b.*\\bbrak|\\bbrak\\w*\\b.*\\b(?:cant|wont) stop\\b'),
-    skip:/^(?!.*\bbrak).*\b(?:gas pedal|accelerator|throttle|gas is stuck)\b/,
+    // "Pedal goes to the floor when I accelerate" is the gas pedal.
+    skip:/^(?!.*\bbrak).*\b(?:gas pedal|accelerat\w*|throttle|gas is stuck|step on the gas|press the gas|hit the gas)\b/,
+    // The parking brake is not the service brakes: "parking brake barely works" must not get this step,
+    // which tells the driver to use the parking brake (audit Nov 27). Normal search finds the parking brake guide.
+    ignore:/\b(?:parking|emergency|hand|e) brakes?\b/g,
     guides:['soft-or-spongy-brake-pedal','brake-warning-light-on','brake-fluid-leak'],src:[SRC.riDmv],
     // A hard pedal has its own rule above. Owner policy (Nov 27): no pumping advice either way.
     now:'If your brakes fail while driving: turn on your hazard lights and keep pressing the brake. Shift to a lower gear and pull the parking brake on gradually. Steer to a safe spot. Once stopped, don’t drive it again. Have it towed.'},
@@ -347,7 +356,7 @@ function emergency(q){
     .replace(/\b(?:oil(?:\s+pressure)?|temp(?:erature)?|battery|charging|brake|check engine|engine)\s+(?:light|lamp|warning)\s+(?:is |was |stayed |stays )?(?:off|not on|never came on|didnt come on|isnt on|wasnt on)\b/g,' ')
     // A trouble code with "the light is flashing" is a flashing check engine light.
     .replace(/\bp[0-3][0-9a-f]{3}\b/g,' check engine light ');
-  let hits=emergencyRules.filter(rule=>rule.rx.test(text)&&!(rule.skip&&rule.skip.test(text)));
+  let hits=emergencyRules.filter(rule=>{const t=rule.ignore?text.replace(rule.ignore,' pbrake '):text;return rule.rx.test(t)&&!(rule.skip&&rule.skip.test(t))});
   // A more specific rule replaces a general one ("brake pedal is hard" is not "brakes failed").
   const dropped=new Set(hits.flatMap(rule=>rule.drops||[]));
   hits=hits.filter(rule=>!dropped.has(rule.id));
@@ -655,7 +664,7 @@ if(J&&root){
     const u=URG[r.urgency];
     track('guide_result',{guide:J.id,urgency:r.urgency});
     root.innerHTML=`${top}<div class="result card">
-      <div class="urg ${u.cls}" id="resultUrgency"><span>${esc(u.label)}</span></div>
+      <div class="urg ${u.cls}" id="resultUrgency"><span class="sr-only">How urgent: </span><span>${esc(u.label)}</span></div>
       <h2 class="rt" tabindex="-1" aria-describedby="resultUrgency">${esc(r.title)}</h2>
       <section class="rsec"><h3>What to do next</h3><p>${esc(r.now)}</p>${(r.links||[]).filter(l=>l&&/^\/[a-z0-9\/#-]*$/.test(l.u)).map(l=>`<p><a class="rs-jump" href="${esc(l.u)}">${esc(l.t)} →</a></p>`).join('')}
         <div class="row-btns"><button type="button" class="btn sm" id="shareResult">Text this result</button><span class="muted" id="shareStatus" role="status"></span>
@@ -668,7 +677,7 @@ if(J&&root){
       <details class="rmore"${veh?' open':''}><summary>${veh?'Known problems for your '+esc(vname()):'Known problems for your vehicle'}</summary><div id="gvm">${vehicleSection()}</div></details>
       <details class="rmore"><summary>Questions to ask before you approve a repair</summary><ul class="dots">${ASK.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="fine">Based on the U.S. Federal Trade Commission's auto repair tips.</p></details>
       <section class="rsec"><h3>Summary for your mechanic</h3><pre class="summary" id="sum">${esc(summary(r))}</pre>
-        <div class="row-btns"><button class="btn sm" id="copy">Copy summary</button><button class="btn ghost sm" id="print">Print</button><span id="copied" class="muted"></span></div></section>
+        <div class="row-btns"><button class="btn sm" id="copy">Copy summary</button><button class="btn ghost sm" id="print">Print</button><span id="copied" class="muted" role="status"></span></div></section>
       <section class="rsec emailbox" id="emailbox" ${EMAIL_ON?'':'hidden'}><h3>Email this to yourself</h3><p class="muted" style="margin:0 0 10px">Get this result and your mechanic summary in your inbox, so it's handy at the shop.</p>
         <form id="emailForm" class="emailform" autocomplete="on"><input type="email" id="emailIn" placeholder="you@example.com" aria-label="Your email" required><input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true"><button class="btn sm" type="submit">Send it</button></form>
         <div id="emailMsg" class="muted" role="status"></div><p class="fine">We send your address, this guide, your answers and your vehicle (if picked) to our email provider only to send this one email. We don't add you to any list or send marketing email. <a href="/privacy/">Privacy</a></p></section>

@@ -36,7 +36,7 @@ test('a shared result carries the chosen outcome, the safety action and only the
   get('emailIn').value = 'private@example.test';
   await get('shareResult').onclick();
   assert.deepEqual(Object.keys(shared), ['text']);
-  const urgency = w.document.querySelector('.result .urg').textContent;
+  const urgency = w.document.querySelector('.result .urg > span:not(.sr-only)').textContent;
   for (const phrase of [guide.title, stopResult.title, urgency, stopResult.now, question.q, stopChoice.a, ...stopResult.if, '2015 Toyota Camry']) {
     assert.ok(shared.text.includes(phrase), phrase);
   }

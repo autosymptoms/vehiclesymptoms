@@ -1855,12 +1855,6 @@
   "look": "It appears in the instrument cluster, usually amber. The common symbol is a steering wheel seen from the front with an exclamation mark beside it. Some cars show letters instead, EPS on Honda and Hyundai, EPAS or PS on others, and many newer cars simply print a message like Power Steering Fault or Service Power Steering in the driver display. A red version means assist has already dropped out.",
   "diy": [
    {
-    "t": "Shut the engine off and start it again",
-    "how": "Pull over somewhere safe, switch the engine fully off, wait about half a minute, then restart. Electric systems often shut the assist down for the rest of a trip after a dip in voltage and then come back fine. If the light stays on after two restarts, it is a real fault and not a glitch.",
-    "mins": "5 minutes",
-    "tools": "None"
-   },
-   {
     "t": "Check the power steering fluid, if your car has any",
     "how": "Many newer cars are fully electric and have no steering fluid at all. If yours has a power steering reservoir, find it with the engine cold and off, wipe the cap, and read the level against the marks on the side of the tank. A low level, or fluid that looks dark and foamy instead of clear red or amber, points at a leak and needs a shop.",
     "mins": "10 minutes",
@@ -1880,13 +1874,13 @@
    },
    {
     "t": "Feel how heavy the steering really is",
-    "how": "In an empty parking spot, with the engine running, the car in park and the parking brake on, turn the wheel slowly from side to side. If it moves with close to normal effort, assist is still working and you can drive carefully to a shop. If it takes both arms and real force, the car is dangerous to park and should be towed instead.",
+    "how": "In an empty parking spot, with the engine running, the car in park and the parking brake on, turn the wheel slowly from side to side. If it moves with normal effort and the light is amber, assist is still working and you can drive carefully to a shop. If it takes more effort than normal, or the light is red, don't drive it. Have it towed.",
     "mins": "3 minutes",
     "tools": "None"
    }
   ],
   "dont": [
-   "Don't drive it if the wheel is so heavy you could not turn into a parking space at walking pace. Have it towed.",
+   "Don't drive it if the steering feels heavier than normal or the light is red. Have it towed.",
    "Don't keep topping up the fluid without finding the leak. Running the pump dry ruins it.",
    "Don't put anything in the reservoir except the exact fluid the cap or the manual names.",
    "Don't take it on the highway assuming the assist will stay on. Electric systems can drop out with no warning."
@@ -1942,13 +1936,13 @@
   ],
   "reset": {
    "real": false,
-   "how": "No. This is a fault light, not a service reminder. Clearing the code turns the light out for a moment, but the car tests the steering system every time you start it, so the light comes back on that drive or the next one and the assist stays weak. The one thing that looks like a reset is the single-trip shutdown some electric systems do after a voltage dip. Shut the engine off, start it again, and if that was all it was the light stays out.",
+   "how": "No. This is a fault light, not a service reminder. Clearing the code turns the light out for a moment, but the car tests the steering system every time you start it, so the light comes back on that drive or the next one and the assist stays weak. A restart is not a fix either. Even if the light goes out, the fault is stored and the assist can drop out again. If the steering is heavy or the light is red, don't drive it until it's checked.",
    "note": "After a real repair, a steering column, rack or sensor normally has to be calibrated with a scan tool before the light will stay off."
   },
   "faqs": [
    {
     "q": "Can I still steer if the power steering light is on?",
-    "a": "Yes. The steering wheel is still connected to the wheels mechanically, you have only lost the help. At highway speed you may barely notice. At parking speed it can take both arms and real effort, and that is where people get caught out."
+    "a": "Yes. The steering wheel is still connected to the wheels mechanically, you have only lost the help. At highway speed you may barely notice. At parking speed it can take both arms and real effort, and that is where people get caught out. If the steering feels heavy, don't drive it until it's checked."
    },
    {
     "q": "Will the power steering light fail an inspection?",
@@ -1956,15 +1950,15 @@
    },
    {
     "q": "How long can I drive with the power steering light on?",
-    "a": "If the light is red, don't keep driving: pull over when it's safe and check the owner's manual, because on some cars red means a steering fault. If it's amber and the steering still feels close to normal, think days, not weeks. If the wheel is heavy, have it towed rather than driving."
+    "a": "If the light is red, don't keep driving: pull over when it's safe and don't drive it until it's checked, because on some cars red means a steering fault. If it's amber and the steering still feels normal, think days, not weeks. If the wheel is heavy, have it towed rather than driving."
    },
    {
     "q": "Does the power steering light reset itself?",
-    "a": "Sometimes. If the cause was a brief voltage dip or a one-off glitch, it goes out after you restart the engine and does not return. If it is back every trip, the car has stored a real fault and the light stays on until the repair is done."
+    "a": "Sometimes it goes out after a restart, but that doesn't mean the fault is fixed. The fault is stored and the assist can drop out again without warning. If the steering is heavy or the light is red, don't drive it until it's checked, even if the light goes out."
    },
    {
     "q": "Is it safe to drive at night or on the highway with this light on?",
-    "a": "The highway needs the least assist, so the car feels nearly normal there. The danger is at the ends of the trip, parking, a tight turn, or an emergency swerve. Keep both hands on the wheel, slow down earlier than usual, and skip long trips until it is fixed."
+    "a": "Only if the light is amber and the steering feels normal. If the steering is heavy or the light is red, don't drive it until it's checked. The assist can drop out without warning, and the danger is at low speed: parking, a tight turn, or an emergency swerve. Keep both hands on the wheel, slow down earlier than usual, and skip long trips until it is fixed."
    }
   ],
   "src": [
@@ -2006,7 +2000,7 @@
    },
    {
     "t": "On a Ford, notice how the car drives",
-    "how": "If the wrench came on and the car feels slow, will not rev past a low point or the pedal feels dead, that is a powertrain fault and not a service reminder. Drive gently straight to a shop or home. Note whether it happens when cold, when warm or only sometimes, because that detail saves diagnosis time.",
+    "how": "If the wrench came on and the car feels slow, will not rev past a low point or the pedal feels dead, that is a powertrain fault and not a service reminder. Don't drive further than a safe place to stop. Have it towed or checked where it is. Note whether it happens when cold, when warm or only sometimes, because that detail saves diagnosis time.",
     "mins": "5 minutes",
     "tools": "None"
    }
@@ -2015,7 +2009,7 @@
    "Don't assume it means the engine is low on oil or about to fail; that is the red oil pressure light, not this one.",
    "Don't reset the reminder and carry on without actually doing the service.",
    "Don't ignore it for months, because oil that is long past due wears the engine quietly.",
-   "Don't keep driving hard on a Ford wrench light with reduced power; get it looked at."
+   "Don't keep driving on a Ford wrench light with reduced power; have it towed or checked where it is."
   ],
   "causes2": [
    {
@@ -4855,7 +4849,7 @@
   "faqs": [
    {
     "q": "Can I drive with the wrench light on?",
-    "a": "If the car drives normally, you can usually get yourself home or to a shop. If power is clearly reduced, the car will not go above a modest speed and you should keep off the highway and head straight for a shop. Anything with hard shifting, loud noises or a red warning alongside it means stop and call for a tow."
+    "a": "If the car drives and shifts normally, you can usually drive gently home or to a shop. If power is reduced, or the gears slip, bang or jerk, don't drive further than a safe place to stop. Have it towed or checked where it is. Loud noises or a red warning alongside it also mean stop and call for a tow."
    },
    {
     "q": "Is the wrench light the same as the check engine light?",

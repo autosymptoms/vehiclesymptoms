@@ -1,5 +1,5 @@
 {
- "ran": "2026-11-27T22:09:33.255Z",
+ "ran": "2026-11-28T02:15:49.796Z",
  "results": [
   {
    "id": "REC-01",
@@ -203,7 +203,7 @@
    "id": "PRC-07",
    "desc": "Vehicle page shows no price bars, ranges or dollar figures",
    "pass": true,
-   "detail": "13040 chars"
+   "detail": "13054 chars"
   },
   {
    "id": "PRC-08",
@@ -215,25 +215,25 @@
    "id": "URG-p0300",
    "desc": "P0300: flashing/shaking stop condition renders before the softer badge, near the top",
    "pass": true,
-   "detail": "first=88 badge=450"
+   "detail": "first=88 badge=548"
   },
   {
    "id": "URG-p0301",
    "desc": "P0301: flashing/shaking stop condition renders before the softer badge, near the top",
    "pass": true,
-   "detail": "first=74 badge=436"
+   "detail": "first=74 badge=534"
   },
   {
    "id": "URG-p0304",
    "desc": "P0304: flashing/shaking stop condition renders before the softer badge, near the top",
    "pass": true,
-   "detail": "first=74 badge=436"
+   "detail": "first=74 badge=534"
   },
   {
    "id": "URG-p0316",
    "desc": "P0316: flashing/shaking stop condition renders before the softer badge, near the top",
    "pass": true,
-   "detail": "first=99 badge=461"
+   "detail": "first=99 badge=559"
   },
   {
    "id": "URG-ld",
@@ -245,25 +245,25 @@
    "id": "URG-oil-pressure-light",
    "desc": "oil-pressure-light: first step sits inside the urgency box, above \"What it means\", and links to the full steps",
    "pass": true,
-   "detail": "urg=4607 next=4689 means=4925"
+   "detail": "urg=4626 next=4708 means=4944"
   },
   {
    "id": "URG-engine-temperature-light",
    "desc": "engine-temperature-light: first step sits inside the urgency box, above \"What it means\", and links to the full steps",
    "pass": true,
-   "detail": "urg=4905 next=4987 means=5244"
+   "detail": "urg=4924 next=5006 means=5263"
   },
   {
    "id": "URG-battery-light",
    "desc": "battery-light: first step sits inside the urgency box, above \"What it means\", and links to the full steps",
    "pass": true,
-   "detail": "urg=4423 next=4496 means=4760"
+   "detail": "urg=4442 next=4515 means=4779"
   },
   {
    "id": "URG-brake-warning-light",
    "desc": "brake-warning-light: first step sits inside the urgency box, above \"What it means\", and links to the full steps",
    "pass": true,
-   "detail": "urg=4511 next=4593 means=4841"
+   "detail": "urg=4530 next=4612 means=4860"
   },
   {
    "id": "SEV-01",
@@ -287,7 +287,7 @@
    "id": "GDE-01",
    "desc": "Guide result with a vehicle picked renders without error (withheld prices)",
    "pass": true,
-   "detail": "\n      Check it yourself first\n      Probably surface rust on the rotors scraping off\n      What to do nextBrake gently "
+   "detail": "\n      How urgent: Check it yourself first\n      Probably surface rust on the rotors scraping off\n      What to do nextB"
   },
   {
    "id": "URG-p2300",
@@ -369,9 +369,21 @@
   },
   {
    "id": "TC08-LABEL",
-   "desc": "Stop box label reads \"Pull over now only if:\"",
+   "desc": "Stop box label reads \"Stop-driving signs:\" and says other serious signs also mean stop",
    "pass": true,
    "detail": ""
+  },
+  {
+   "id": "TC08-NOONLY",
+   "desc": "No code page heads its stop box \"Pull over now only if\"",
+   "pass": true,
+   "detail": "0 pages, e.g. "
+  },
+  {
+   "id": "TC21-NOONEBANK",
+   "desc": "No code page says four-cylinder engines have only one bank",
+   "pass": true,
+   "detail": "0 pages, e.g. "
   },
   {
    "id": "TC10-REL",
@@ -381,7 +393,7 @@
   },
   {
    "id": "TC21-BANK",
-   "desc": "P0420 explains bank 1",
+   "desc": "P0420 explains bank 1, and that V and flat (boxer) engines have two banks",
    "pass": true,
    "detail": ""
   },
@@ -466,6 +478,30 @@
   {
    "id": "T17-LLMS",
    "desc": "llms.txt lists stop-driving pages and says no prices",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "COUNT-GUIDES",
+   "desc": "Homepage guide count matches the number of guides in the guide index",
+   "pass": true,
+   "detail": "homepage=120 index=120"
+  },
+  {
+   "id": "COUNT-MODELS",
+   "desc": "Homepage model count and years match the vehicle list",
+   "pass": true,
+   "detail": " <li><b>120</b> step-by-step symptom guides</li> <li><b>570</b> popular models, 1996 to 2027</li> <li><b>Free</b> VIN decoding and model-year recall information</li> <li><b>No</b> sign-up, ever</li> "
+  },
+  {
+   "id": "COUNT-LLMS",
+   "desc": "llms.txt counts match the guide index, vehicle list and code list",
+   "pass": true,
+   "detail": "guides=120 models=570 codes=2739"
+  },
+  {
+   "id": "COUNT-NOHOLES",
+   "desc": "No count placeholder is left unfilled on the homepage or vehicles hub",
    "pass": true,
    "detail": ""
   },
@@ -564,6 +600,30 @@
    "desc": "Generic missing codes keep the try-the-first-letters line",
    "pass": true,
    "detail": "P0FFF: We don't have P0FFF yet. Try the first letters, like P04, or start with what the car is doing."
+  },
+  {
+   "id": "ED-PS-LIGHT",
+   "desc": "Power steering light: summary, first step and FAQ say stop when heavy or red; no restart-to-clear advice anywhere",
+   "pass": true,
+   "detail": "stopIf=Stop if: the light is red or the steering feels heavy. | drive=If the light is red or the steering takes more effort than normal, pull over when it's safe and stop. Don't drive it unt | first=If the steering feels heavy or the light is red, stop somewhere safe and don't d | restart="
+  },
+  {
+   "id": "ED-PS-GUIDE",
+   "desc": "Power steering guide: heavy-steering and red-light outcomes say stop in the result and the mechanic summary; top safety note says a restart is not a fix",
+   "pass": true,
+   "detail": "If the steering suddenly gets heavy, grip the wheel firmly with both hands, slow down and steer with steady effort to a safe place to stop. Don't drive it again until it's checked. A restart is not a fix."
+  },
+  {
+   "id": "ED-WRENCH",
+   "desc": "Wrench light: details match the summary (power loss, slipping or jerking: no further than a safe place to stop, tow or check it there)",
+   "pass": true,
+   "detail": "Short answer: only as far as you need to. If the car drives and shifts normally you can finish a local trip and book a shop in the next day or two. If the pedal feels dead, the car will not pick up sp"
+  },
+  {
+   "id": "ED-EXHAUST",
+   "desc": "Cabin exhaust: hatch branch asks whether fumes persist with everything closed; yes or unsure is a stop result, only \"no\" gets the seal check within days",
+   "pass": true,
+   "detail": "{\"parents\":[\"q_rear_closed\"],\"ask\":\"With the hatch, trunk and all the windows closed, is the exhaust smell still there?\",\"yes\":\"Stop — don't drive it\",\"unsure\":\"Stop — don't drive it\",\"no\":\"Get it checked in the next few days Exhaust may be getting pulled in through the back of the car\"}"
   }
  ]
 }
