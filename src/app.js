@@ -198,13 +198,19 @@ function issueInYear(v,i,y){if(!(y>=i.y[0]&&y<=i.y[1]))return false;const tags=i
 function issueCard(i){return `<div class="issue"${i._k!=null?` id="iss-${i._k}"`:''}><div class="meta"><span class="sev ${i.sev}">${sevLabel(i)}</span><span class="pill">${i.y[0]===i.y[1]?i.y[0]:i.y[0]+'–'+i.y[1]}</span><span class="pill">${esc(i.sys)}</span>${i.eng?`<span class="pill">${esc(i.eng)}</span>`:''}</div>
 <h3>${esc(i.t)}</h3><dl><div><dt>What you'll notice</dt><dd>${esc(i.sym)}</dd></div><div><dt>Why it happens</dt><dd>${esc(i.why)}</dd></div><div><dt>What to do</dt><dd>${esc(i.next)}</dd></div></dl>${issueFoot(i)}${i.animation?`<a class="mv-issue" href="${esc(i.animation.href)}">Repair animation · ${esc(i.animation.title)}</a>`:''}${(g=>g?`<a class="walk" href="${gurl(g.id)}?v=${i._v||''}${i._y?'&y='+i._y:''}">Walk through this symptom: ${esc(g.title)} →</a>`:'')(forIssue(i))}</div>`}
 
-// Phone-first summary right under the title (T-05): the serious problems, recall-related ones first, and the recall count.
-function yearSummary(keyed,name){
+// Phone-first "At a glance" card right under the title (T-05, calm version, Nov 2026): plain counts, the serious problems
+// named as links (recall-related first), and the recall count. Neutral card: the coloured severity tags stay on the problem cards.
+function yearSummary(keyed,name,ename){
+  const n=keyed.length,rec=keyed.filter(isRecallIssue).length;
   const high=keyed.filter(i=>i.sev==='high').sort((a,b)=>(isRecallIssue(b)?1:0)-(isRecallIssue(a)?1:0)),top=high.slice(0,4);
-  const li=i=>`<li><a href="#iss-${i._k}" data-iss="${i._k}" style="color:var(--blue2);text-decoration:underline">${esc(i.t)}</a> <span class="sev high">${sevLabel(i)}</span></li>`;
-  return `<section class="${high.length?'safety':'livebox'}" id="vsum" aria-label="Summary for the ${esc(name)}" style="margin:0 0 14px">`+
-    (high.length?`<b>${high.length} serious problem${high.length>1?'s':''} reported for this year</b><ul>${top.map(li).join('')}</ul>${high.length>top.length?`<p style="margin:4px 0 0">and ${high.length-top.length} more below.</p>`:''}<p style="margin:6px 0 0">Not every car has these problems. Tap one to see the signs and what to do.</p>`
-      :`<strong>No problems on file rated “Stop soon” for this year.</strong><p style="margin:6px 0 0">This is not a safety check of your car. If a warning light is on or the car feels wrong, <a href="/symptoms/">start with what it is doing</a>.</p>`)+
+  const link=i=>`<a href="#iss-${i._k}" data-iss="${i._k}" style="color:var(--blue2);text-decoration:underline">${esc(i.t)}</a>`;
+  const who=`the ${esc(name)}${ename?' with the '+esc(ename):''}`;
+  const recs=!rec?'.':n===1?'. It is a recall.':rec===n?', all of them recalls.':`, ${rec} of them ${rec>1?'recalls':'a recall'}.`;
+  const count=n?`${n} known problem${n>1?'s':''} documented for ${who}${recs}`:'No problems on file for this year.';
+  const calm=`<p style="margin:6px 0 0">This is not a safety check of your car. If a warning light is on or the car feels wrong, <a href="/symptoms/">start with what it is doing</a>.</p>`;
+  return `<section class="livebox vsum" id="vsum" aria-label="Summary for the ${esc(name)}" style="margin:0 0 14px"><p class="vsum-h">At a glance</p><p class="vsum-n">${count}</p>`+
+    (high.length?`<p style="margin:6px 0 0">Worth reading first: ${top.map(link).join(' · ')}${high.length>top.length?`, and ${high.length-top.length} more in the list below`:''}.</p><p style="margin:6px 0 0">Not every car has these problems. Tap one to see the signs and what to do.</p>`
+      :n?`<p style="margin:6px 0 0">None of them is rated “Stop soon” or “Stop now”. Not every car has these problems.</p>${calm}`:calm)+
     `<p id="vsumRec" role="status" style="margin:10px 0 0"><strong>Safety recalls:</strong> checking NHTSA… · ${vinLink('summary')}</p></section>`;
 }
 function renderVehicle(v,year){
@@ -233,7 +239,7 @@ function renderVehicle(v,year){
   el.innerHTML=`<div class="crumb"><a href="/">Home</a> › <a href="/vehicles/#${mslug}">${esc(v.make)}</a> › ${year?`<a href="${url(v)}">${esc(v.model)}</a> › ${year}${modelAt(v,year)!==v.model?' '+esc(modelAt(v,year)):''}`:esc(v.model)}</div>
   <div class="vhead"><div class="vh-top"><div class="eyebrow">${year?'My vehicle':'Vehicle guide'}</div></div><h1>${year?'Your '+esc(name):esc(name)} <span class="h1s">problems and recalls</span></h1>
   <p class="sub">${year?`What we've documented about the ${esc(name)}: problems owners and shops report, and safety recalls.`:`Problems reported across ${v.years[0]}–${v.years[1]}. Pick your model year below to see what applies to your vehicle.`}${v.alt?' '+esc(v.alt.replace(/\.$/,''))+'.':''}</p></div>
-  ${year?yearSummary(keyed,name):''}${btns}
+  ${year?yearSummary(keyed,name,ename):''}${btns}
   <p class="byline">VehicleSymptoms team · Updated November 2026 · <a href="/about/">How we work</a></p>
   <div class="yearbar"><label for="vy" style="color:var(--muted);font-size:14px">Model year</label><select id="vy">${yopts}</select>${engs.length>1?`<label for="ve" style="color:var(--muted);font-size:14px;margin-left:6px">Engine</label><select id="ve"><option value="">All engines</option>${engs.map(e=>`<option value="${e.k}" ${e.k===esel?'selected':''}>${esc(e.name)}</option>`).join('')}</select>`:''}</div>${engs.length>1&&!esel&&list.some(i=>i.engs)?`<p class="enghint">Pick your engine to hide problems that only affect other engines. Not sure? It is on the sticker under the hood or in the owner's manual.</p>`:''}${esel?`<p class="enghint on">Showing problems for the <b>${esc(ename)}</b> plus everything that applies to every ${esc(v.model)}${allN>list.length?' ('+(allN-list.length)+' other-engine issue'+(allN-list.length>1?'s':'')+' hidden)':''}.</p>`:''}
   ${general.length?`<h2 style="font-size:20px">Walk through your symptom</h2><div class="glist" style="margin:10px 0 26px">${general.map(g=>`<a class="gcard" href="${gurl(g.id)}?v=${v.id}${year?'&y='+year:''}"><b>${esc(g.title)}</b><span>${esc(g.h1)}</span></a>`).join('')}</div>`:''}

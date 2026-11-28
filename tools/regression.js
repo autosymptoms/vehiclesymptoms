@@ -200,6 +200,27 @@ for(const id of ['oil-pressure-light','engine-temperature-light','battery-light'
 {const p=load('/vehicles/acura-zdx/2011/',{});await sleep(400);const cards=[...p.doc.querySelectorAll('#vehicleView .issue')];
  const c=cards.find(x=>/Low oil pressure light with correct oil level/.test(x.textContent));
  T('SEV-01','Acura ZDX oil-pressure issue badge says Stop now, matching "Pull over" as the first step',c&&/Stop now/.test(c.querySelector('.sev').textContent),c?c.querySelector('.sev').textContent:'card not found ('+cards.length+' cards)')}
+// T-05 (calm, Nov 2026): the vehicle view opens with a neutral "At a glance" card. No red box or severity chips above the
+// year/engine pickers; the serious problems are still named there as links, and the coloured tags stay on the problem cards.
+{const topOf=html=>{const i=html.indexOf('class="yearbar"');return i>0?html.slice(0,i):html};
+ const alarm=h=>/class="[^"]*\bsafety\b|class="sev\b|var\(--red\)|var\(--orange\)|rgba\(255,\s*90,\s*95/.test(h);
+ const p=load('/vehicles/honda-accord/2015/',{fetch:nh(k=>empty(k))});await sleep(400);const vv=p.doc.getElementById('vehicleView'),s=p.doc.getElementById('vsum');
+ const highCards=[...vv.querySelectorAll('.issue')].filter(c=>c.querySelector('.sev.high'));
+ const links=s?[...s.querySelectorAll('a[data-iss]')]:[];
+ T('T-05','2015 Accord opens with the calm "At a glance" card: plain counts, serious problems named as links, recall line kept',
+   !!s&&s.classList.contains('livebox')&&!s.classList.contains('safety')&&/^At a glance/.test(s.textContent.trim())
+   &&/^\d+ known problems? documented for the 2015 Honda Accord/.test(s.querySelector('.vsum-n').textContent)&&/Worth reading first:/.test(s.textContent)&&/Not every car has these problems\./.test(s.textContent)
+   &&highCards.length>0&&links.length===Math.min(4,highCards.length)&&links.every(a=>{const c=p.doc.getElementById(a.getAttribute('href').slice(1));return c&&c.querySelector('.sev.high')&&c.querySelector('h3').textContent===a.textContent})
+   &&p.doc.getElementById('vsumRec')?.getAttribute('role')==='status',s?s.textContent.slice(0,300):'no #vsum');
+ T('T-05-CALM','Top of the 2015 Accord view has no red/"safety" styling or severity chips; the cards keep their coloured tags',
+   !alarm(topOf(vv.innerHTML))&&!s.querySelector('.sev')&&highCards.every(c=>/^(Stop now|Stop soon)$/.test(c.querySelector('.sev').textContent)),topOf(vv.innerHTML).match(/class="(?:safety|sev)[^"]*"/)?.[0]||'');
+ const m=load('/vehicles/honda-accord/',{});await sleep(400);const mv=m.doc.getElementById('vehicleView').innerHTML;
+ T('T-05-MODEL','All-years Accord page has no red block or severity chips before the year/engine pickers',mv.length>500&&!alarm(topOf(mv))&&/Pick your model year below/.test(topOf(mv)),topOf(mv).match(/class="(?:safety|sev)[^"]*"/)?.[0]||'');
+ const st=fs.readFileSync(D('vehicles/honda-accord/2015/index.html'),'utf8'),sv=st.slice(st.indexOf('id="vehicleView"'));
+ T('T-05-STATIC','Static (no-JS) 2015 Accord HTML opens with the same calm card and the serious problems as links',/<section class="livebox vsum" id="vsum"/.test(sv)&&/At a glance/.test(topOf(sv))&&!alarm(topOf(sv))&&links.every(a=>topOf(sv).includes('href="'+a.getAttribute('href')+'"')),'');
+ const z=p.w.yearSummary?p.w.yearSummary([],'2020 Test Car',''):'';
+ T('T-05-NONE','A year with no documented problems says so calmly',/No problems on file for this year\./.test(z)&&!alarm(z)&&/id="vsumRec"/.test(z),z.slice(0,200));
+ p.dom.window.close();m.dom.window.close()}
 for(const f of ['hesitation-when-accelerating','engine-sputtering-misfire']){const j=JSON.parse(fs.readFileSync(path.join(__dirname,'../src/journeys/'+f+'.json'),'utf8'));
  T('FUEL-'+f,f+': wrong fuel is its own stop result, and the poor-fuel result leads its warnings with the wrong-fuel stop',j.nodes.r_wrong_fuel.result.urgency==='stop'&&!/drive gently/i.test(j.nodes.r_wrong_fuel.result.now)&&/^If you put diesel/.test(j.nodes.r_bad_fuel.result.if[0]),'')}
 

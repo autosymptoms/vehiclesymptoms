@@ -70,7 +70,7 @@ window.VS_PDF=function(ctx){
   h2('Known problems'+(year?' for the '+name:''),list.length?list.length+' documented issue'+(list.length>1?'s':'')+(year?' apply to '+year:' across all years')+(ctx.ename?' with the '+ctx.ename:'')+', most serious first.':"We haven't documented model-specific issues for this year yet. This is not a reliability rating.");
   sorted.forEach((i,k)=>{need(96);
     const sv=clean(sevLabel(i)).toUpperCase();font('bold',8,SEVC[i.sev]);doc.text(sv,M,y,{baseline:'top'});const sw=doc.getTextWidth(sv);
-    font('normal',8,MUTED);doc.text(clean('  ·  '+yrs(i)+'  ·  '+i.sys+(i.eng?'  ·  '+i.eng:'')),M+sw,y,{baseline:'top'});y+=13;
+    font('normal',8,MUTED);doc.text(clean('· '+yrs(i)+' · '+i.sys+(i.eng?' · '+i.eng:'')),M+sw+6,y,{baseline:'top'});y+=13;
     para(i.t,{size:11.5,style:'bold',color:TEXT,lh:1.25,after:5});
     [["What you'll notice",i.sym],['Why it happens',i.why],['What to do',i.next]].forEach(p=>{if(!p[1])return;label(p[0]);para(p[1],{after:6})});
     // Bulletins, recall ids and sources, as on the page (plain text: no link annotations in the PDF).
